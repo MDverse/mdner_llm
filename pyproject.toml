@@ -1,0 +1,24 @@
+[project]
+name = "mdner-llm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "groq>=0.29.0",
+    "ipython==8.13.2",
+    "jupyterlab>=4.4.4",
+    "loguru>=0.7.3",
+    "matplotlib>=3.10.3",
+    "openai>=1.93.2",
+    "pydantic>=2.11.7",
+    "seaborn>=0.13.2",
+    "spacy[lookups,transformers]>=3.8.7",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "ruff>=0.12.2",
+]
