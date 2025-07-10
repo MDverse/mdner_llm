@@ -1,4 +1,4 @@
-# LLM Prompting for molecular dynamics Named Entity Recognition
+# LLM Prompting for Molecular Dynamics Named Entity Recognition (MDNER)
 
 ## Setup environment
 
@@ -45,7 +45,7 @@ uv run src/run_llm_annotation.py
 
 ### Output
 
-The results are saved in the `llm_outputs/` directory. Each run generates a subfolder named with the datetime of execution. This folder contains the following folders and files:
+The results are saved in the `llm_outputs/` directory. Each run generates a subfolder named with the `<datetime>` of execution. This folder contains the following folders and files:
 
 - `annotations/` — the complete set of model responses for all annotations
 - `images/` — folder that will be used to store plots related to this annotation run of prompting
@@ -57,15 +57,40 @@ The results are saved in the `llm_outputs/` directory. Each run generates a subf
 
 ## Run Quality Control (QC) checks on a prompting result
 
+Quality Control (QC) refers to post-prompting analysis aimed at evaluating the reliability of model-generated annotations.  
+In this step, we check for:
+
+- **Hallucinated entities**
+- **False positives** for each entity label
+
+This process helps identify and quantify potential LLM hallucinations and label errors.
+
+### Running the Script
+
+To run the QC analysis, use the following command:
+
+```sh
+uv run src/run_qc_analysis.py
+```
+
+### Output
+
+The script generates the following output file:
+
+- `stats/<datetime>/qc_results.csv` — a CSV report containing:
+  - Entity-level false positive counts
+  - Detected hallucinated entities
+
+> This output helps diagnose quality issues in model responses and supports further refinement of prompts or model settings.
 
 
 ## Score the prompting results
 
-
+AAAAAAAAAAAAAAAAAAA
 
 ## Generate plots
 
-
+AAAAAAAAAAAAAAAAAAA
 
 ## Run a consensus confidence scoring and plot the results
 
@@ -94,7 +119,7 @@ Ensure that these parameters align with those used during LLM prompting.
 
 To run the consensus scoring, use the following command:
 
-```bash
+```sh
 uv run src/confidence_scoring.py
 ```
 
