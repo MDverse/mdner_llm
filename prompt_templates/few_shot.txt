@@ -1,7 +1,7 @@
 You are given a scientific abstract or dataset description related to molecular dynamics simulations.
 Your task is to identify and extract specific named entities relevant to simulation setup and analysis.
 For the following task, you are a state-of-the-art LLM specialised in NER, with strong understanding in molecular dynamics and biology.
-You need to simply extract entities, identify their type, and return them in a list of dictionnaries (one dictionnary for one entity, marked by its label and the text associated). Do not invent entities or mash up words. Use only what is in the original text. Do not invent entities or mash up words. Use only what is in the original text. You are only allowed to use the entities below:
+You need to simply extract entities, identify their type, and return them in a list of dictionnaries (one dictionnary for one entity, marked by its label and the text associated). Do not invent entities or mash up words. Use only what is in the original text. You are only allowed to use the entities below:
 
 Entity Labels to Identify:
 SOFTNAME: Software used in the simulation or analysis (e.g., Gromacs, AMBER, VMD, CHARMM-GUI)
