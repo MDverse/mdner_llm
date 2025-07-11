@@ -77,7 +77,7 @@ uv run src/run_qc_analysis.py
 
 The script generates the following output file:
 
-- `stats/<datetime>/qc_results.csv` — a CSV report containing:
+- `<datetime>/stats/quality_control_results.csv` — a CSV report containing:
   - Entity-level false positive counts
   - Detected hallucinated entities
 
@@ -86,11 +86,44 @@ The script generates the following output file:
 
 ## Score the prompting results
 
-AAAAAAAAAAAAAAAAAAA
+You are going to need to have run the control quality before scoring the responses.
+
+The aim of this script is to identify:
+- false positives
+- false negatives
+for each annotations.
+
+To run the script use this command:
+
+```sh
+uv run src/run_scoring_analysis.py
+```
+
+### Output
+
+The results will be saved as:
+
+`<datetime>/stats/scoring_results.csv`
+
 
 ## Generate plots
 
-AAAAAAAAAAAAAAAAAAA
+> ⚠️ **Prerequisite**: You must run the quality control and/or the scoring analysis in order to generate plots.
+
+Some plots require only QC results, while others may depend on the scoring data. You can configure which plots to generate by editing the script: `src/generate_plots.py`
+
+This plotting does not take temperatures into consideration. Simply prompting types and the different models used. 
+
+To run the plot generation, use the following command:
+```sh
+uv run src/generate_plots.py
+```
+
+### Output
+
+Any plot generated will be saved as:
+
+`<datetime>/images/<image_title>.png`
 
 ## Run a consensus confidence scoring and plot the results
 

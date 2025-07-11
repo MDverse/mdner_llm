@@ -8,14 +8,15 @@ import matplotlib.pyplot as plt
 from loguru import logger
 
 
-# === Configuration ===
+# ======================================================================================
+# Configuration
+# ======================================================================================
 
-# DATE_TIME_STR = "2025-04-30_15-50-52"
 DATE_TIME_STR = input(
     "Enter the DATE_TIME_STR and time string to make plots (YYYY-MM-DD_HH-MM-SS): "
 )
 
-BASE_DIR = Path("../llm_outputs")
+BASE_DIR = Path("llm_outputs")
 
 MODEL_ORDER = [
     "gpt-4.1-2025-04-14",
@@ -28,40 +29,12 @@ MODEL_ORDER = [
 ]
 
 # MODEL_ORDER = [
-#     "o3-2025-04-16",
-#     "gpt-4.1-2025-04-14",
-#     "gpt-4o-2024-11-20",
-# ]
-
-# MODEL_ORDER = [
 #     "qwen-qwq-32b",
 #     "meta-llama/llama-4-maverick-17b-128e-instruct",
 #     "deepseek-r1-distill-llama-70b",
 #     "mistral-saba-24b",
 #     "gemma2-9b-it",
 #     # "llama-3.3-70b-versatile",
-# ]
-
-# MODEL_ORDER = [
-#     "gpt-4.1-2025-04-14",
-#     "gpt-4.1-mini-2025-04-14",
-#     "gpt-4.1-nano-2025-04-14",
-#     "gpt-4o-2024-11-20",
-#     "o4-mini-2025-04-16",
-#     "o3-2025-04-16",
-#     "o3-mini-2025-01-31",
-#     "qwen-qwq-32b",
-#     "meta-llama/llama-4-maverick-17b-128e-instruct",
-#     "deepseek-r1-distill-llama-70b",
-#     "mistral-saba-24b",
-#     "gemma2-9b-it",
-#     # "llama-3.3-70b-versatile",
-# ]
-
-# PROMPT_ORDER = [
-#     "few_shot_5",
-#     "few_shot_15",
-#     "few_shot_30",
 # ]
 
 PROMPT_ORDER = [
@@ -70,11 +43,29 @@ PROMPT_ORDER = [
     "few_shot",
 ]
 
-TAGS = ["MOL", "SOFTNAME", "SOFTVERS", "STIME", "TEMP", "FFM"]
+TAGS = ["MOL", "SOFTN", "SOFTV", "STIME", "TEMP", "FFM"]
 
+# Plots to build - set to True to build the plot, False to skip
 # ---------------------------------------------------------------------------
-# Plot builders
-# ---------------------------------------------------------------------------
+# This plots the amount of LLM responses that have at least one entity verified
+# from the input text.
+ONE_ENTITY_VERIF = True # requires `quality_control_results.csv`
+# # Plots the amount of LLM responses where the output text
+# # is the same as the input text. ONLY USED IN XML-STYLE OUTPUTS.
+# TEXT_UNCHANGED = True # requires `quality_control_results.csv`
+# Plots the average precision of LLM responses across different models and prompts.
+PRECISION = True # requires `scoring_results.csv`
+# Plots the average recall of LLM responses across different models and prompts
+RECALL = True # requires `scoring_results.csv`
+# Plots the entity existence percentages by prompt within each model.
+VALIDITY = True # requires `quality_control_results.csv`
+# Plots the contingency metrics for each entity type.
+ENTITY_CONTINGENCY = True # requires `scoring_results.csv`
+
+
+# ======================================================================================
+# Plotting functions
+# ======================================================================================
 
 
 def plot_one_entity_verified(qc_df: pd.DataFrame, out_path: Path) -> None:
@@ -106,47 +97,47 @@ def plot_one_entity_verified(qc_df: pd.DataFrame, out_path: Path) -> None:
     logger.info(f"Saved entity‑verified count plot → {out_path}")
 
 
-def plot_text_unchanged(qc_df: pd.DataFrame, out_path: Path) -> None:
-    """Plots the count of LLM responses where the output text
-    is the same as the input text.
+# def plot_text_unchanged(qc_df: pd.DataFrame, out_path: Path) -> None:
+#     """Plots the count of LLM responses where the output text
+#     is the same as the input text.
 
-    Args:
-        qc_df (pd.DataFrame): DataFrame containing quality control results
-        out_path (Path): Output path for the plot image
-    """
-    combos = pd.MultiIndex.from_product(
-        [qc_df["prompt"].unique(), qc_df["model"].unique()],
-        names=["prompt", "model"],
-    ).to_frame(index=False)
-    counts = (
-        qc_df[qc_df["text_unchanged"]]
-        .groupby(["prompt", "model"])
-        .size()
-        .reset_index(name="count")
-    )
-    df = pd.merge(combos, counts, on=["prompt", "model"], how="left").fillna(0)
-    df["count"] = df["count"].astype(int)
+#     Args:
+#         qc_df (pd.DataFrame): DataFrame containing quality control results
+#         out_path (Path): Output path for the plot image
+#     """
+#     combos = pd.MultiIndex.from_product(
+#         [qc_df["prompt"].unique(), qc_df["model"].unique()],
+#         names=["prompt", "model"],
+#     ).to_frame(index=False)
+#     counts = (
+#         qc_df[qc_df["text_unchanged"]]
+#         .groupby(["prompt", "model"])
+#         .size()
+#         .reset_index(name="count")
+#     )
+#     df = pd.merge(combos, counts, on=["prompt", "model"], how="left").fillna(0)
+#     df["count"] = df["count"].astype(int)
 
-    plt.figure(figsize=(12, 8))
-    ax = sns.barplot(
-        data=df,
-        x="prompt",
-        y="count",
-        hue="model",
-        palette="viridis",
-        order=PROMPT_ORDER,
-        hue_order=MODEL_ORDER,
-    )
-    for c in ax.containers:
-        ax.bar_label(c, fmt="%.0f", padding=5)
-    plt.title("LLM responses where output text equals input text (100 texts)")
-    plt.xlabel("Prompt")
-    plt.ylabel("Unchanged responses")
-    plt.legend(title="Model")
-    plt.tight_layout()
-    plt.savefig(out_path, dpi=300)
-    plt.close()
-    logger.info(f"Saved unchanged‑text plot → {out_path}")
+#     plt.figure(figsize=(12, 8))
+#     ax = sns.barplot(
+#         data=df,
+#         x="prompt",
+#         y="count",
+#         hue="model",
+#         palette="viridis",
+#         order=PROMPT_ORDER,
+#         hue_order=MODEL_ORDER,
+#     )
+#     for c in ax.containers:
+#         ax.bar_label(c, fmt="%.0f", padding=5)
+#     plt.title("LLM responses where output text equals input text (100 texts)")
+#     plt.xlabel("Prompt")
+#     plt.ylabel("Unchanged responses")
+#     plt.legend(title="Model")
+#     plt.tight_layout()
+#     plt.savefig(out_path, dpi=300)
+#     plt.close()
+#     logger.info(f"Saved unchanged‑text plot → {out_path}")
 
 
 def plot_precision(scoring_df: pd.DataFrame, out_path: Path) -> None:
@@ -190,61 +181,13 @@ def plot_precision(scoring_df: pd.DataFrame, out_path: Path) -> None:
     logger.info(f"Saved precision plot → {out_path}")
 
 
-# def plot_precision(scoring_df: pd.DataFrame, out_path: Path) -> None:
-#     # --- aggregate -------------------------------------------------------- #
-#     agg = (
-#         scoring_df.groupby(["model", "prompt"])[["total_correct", "total_fp"]]
-#         .sum()
-#         .reset_index()
-#     )
-#     agg["precision"] = agg["total_correct"] / (
-#         agg["total_correct"] + agg["total_fp"]
-#     )
-
-#     # --- dynamic ordering -------------------------------------------------- #
-#     # prompt_order = (
-#     #     agg.groupby("prompt")["precision"]
-#     #     .mean()
-#     #     .sort_values(ascending=False)
-#     #     .index.tolist()
-#     # )
-
-#     model_order = (
-#         agg.groupby("model")["precision"]
-#         .mean()
-#         .sort_values(ascending=False)
-#         .index.tolist()
-#     )
-
-#     # --- plot -------------------------------------------------------------- #
-#     plt.figure(figsize=(12, 6))
-#     ax = sns.barplot(
-#         data=agg,
-#         x="prompt",
-#         y="precision",
-#         hue="model",
-#         order=PROMPT_ORDER,     # prompts ranked by mean precision
-#         hue_order=model_order,  # models ranked by mean precision
-#         palette="viridis",
-#         errorbar=None,
-#         legend=True,           # keep False if no legend desired
-#     )
-
-#     for c in ax.containers:
-#         ax.bar_label(c, fmt="%.2f", padding=5)
-
-#     plt.title("Average Precision by Model and Prompt (ordered by performance)")
-#     plt.xlabel("Prompt")
-#     plt.ylabel("Precision")
-#     plt.legend(title="Model")
-#     plt.ylim(0, 1)
-#     plt.tight_layout()
-#     plt.savefig(out_path, dpi=300)
-#     plt.close()
-#     logger.info(f"Saved precision plot → {out_path}")
-
-
 def plot_recall(scoring_df: pd.DataFrame, out_path: Path) -> None:
+    """Plots the average recall of LLM responses
+
+    Args:
+        scoring_df (pd.DataFrame): DataFrame containing scoring results
+        out_path (Path): Output path for the recall plot image
+    """
     agg = (
         scoring_df.groupby(["model", "prompt"])[["total_correct", "total"]]
         .sum()
@@ -278,64 +221,12 @@ def plot_recall(scoring_df: pd.DataFrame, out_path: Path) -> None:
     logger.info(f"Saved recall plot → {out_path}")
 
 
-# def plot_recall(scoring_df: pd.DataFrame, out_path: Path) -> None:
-#     # --- aggregate -------------------------------------------------------- #
-#     agg = (
-#         scoring_df.groupby(["model", "prompt"])[["total_correct", "total"]]
-#         .sum()
-#         .reset_index()
-#     )
-#     agg["recall"] = agg["total_correct"] / agg["total"]
-
-#     # --- dynamic ordering -------------------------------------------------- #
-#     # prompt_order = (
-#     #     agg.groupby("prompt")["recall"]
-#     #     .mean()
-#     #     .sort_values(ascending=False)
-#     #     .index.tolist()
-#     # )
-
-#     model_order = (
-#         agg.groupby("model")["recall"]
-#         .mean()
-#         .sort_values(ascending=False)
-#         .index.tolist()
-#     )
-
-#     # --- plot -------------------------------------------------------------- #
-#     plt.figure(figsize=(12, 6))
-#     ax = sns.barplot(
-#         data=agg,
-#         x="prompt",
-#         y="recall",
-#         hue="model",
-#         order=PROMPT_ORDER,       # <- prompts ranked by mean recall
-#         hue_order=model_order,    # <- models ranked by mean recall
-#         palette="viridis",
-#         errorbar=None,
-#         legend=False,             # keep False if you truly don’t want a legend
-#     )
-
-#     for c in ax.containers:
-#         ax.bar_label(c, fmt="%.2f", padding=5)
-
-#     plt.title("Average Recall by Model and Prompt (ordered by performance)")
-#     plt.xlabel("Prompt")
-#     plt.ylabel("Recall")
-#     plt.legend(title="Model")
-#     plt.ylim(0, 1)
-#     plt.tight_layout()
-#     plt.savefig(out_path, dpi=300)
-#     plt.close()
-#     logger.info(f"Saved recall plot → {out_path}")
-
-
 def plot_entity_contingency(df: pd.DataFrame, entity: str, out_path: Path) -> None:
-    """_summary_
+    """Plots the contingency metrics for a specific entity type.
 
     Args:
         df (pd.DataFrame): DataFrame containing scoring results
-        entity (str): Entity name to plot contingency for (e.g., "MOL", "SOFTNAME")
+        entity (str): Entity name to plot contingency for (e.g., "MOL", "SOFTN")
         out_path (Path): Output path for the contingency plot image
     """
     out_path = out_path / f"contingency_{entity}.png"
@@ -384,6 +275,12 @@ def plot_entity_contingency(df: pd.DataFrame, entity: str, out_path: Path) -> No
 
 
 def plot_validity(qc_df: pd.DataFrame, out_path: Path) -> None:
+    """Plots the entity existence percentages by prompt within each model.
+
+    Args:
+        qc_df (pd.DataFrame): DataFrame containing quality control results
+        out_path (Path): Output path for the validity plot image
+    """
     # 1) aggregate by model & prompt
     agg = (
         qc_df.groupby(["prompt", "model"])[
@@ -446,12 +343,12 @@ def plot_validity(qc_df: pd.DataFrame, out_path: Path) -> None:
     logger.info(f"Saved validity plot → {out_path}")
 
 
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
+# ======================================================================================
+# Main logic
+# ======================================================================================
 
 
-def main() -> None:
+def main():
     stats_dir = BASE_DIR / DATE_TIME_STR / "stats/"
     images_dir = BASE_DIR / DATE_TIME_STR / "images"
 
@@ -469,16 +366,27 @@ def main() -> None:
     scoring_df = pd.read_csv(scoring_path)
     qc_df = pd.read_csv(qc_path)
 
-    # plot_one_entity_verified(qc_df, images_dir / "one_entity_verified_count.png")
-    # plot_text_unchanged(qc_df, images_dir / "text_unchanged_count.png")
-    plot_precision(scoring_df, images_dir / "precision.png")
-    plot_recall(scoring_df, images_dir / "recall.png")
-    plot_validity(qc_df, images_dir / "validity.png")
+    if ONE_ENTITY_VERIF:
+        logger.info("Plotting entity‑verified count …")
+        plot_one_entity_verified(qc_df, images_dir / "one_entity_verified_count.png")
+    # if TEXT_UNCHANGED:    # For XML-style outputs only
+    #     logger.info("Plotting unchanged‑text count …")
+    #     plot_text_unchanged(qc_df, images_dir / "text_unchanged_count.png")
+    if PRECISION:
+        logger.info("Plotting precision …")
+        plot_precision(scoring_df, images_dir / "precision.png")
+    if RECALL:
+        logger.info("Plotting recall …")
+        plot_recall(scoring_df, images_dir / "recall.png")
+    if VALIDITY:
+        logger.info("Plotting validity …")
+        plot_validity(qc_df, images_dir / "validity.png")
+    if ENTITY_CONTINGENCY:
+        logger.info("Plotting entity contingency …")
+        for entity in TAGS:
+            plot_entity_contingency(scoring_df, entity, images_dir)
 
-    for entity in TAGS:
-        plot_entity_contingency(scoring_df, entity, images_dir)
-
-    logger.success(f"All plots written to {images_dir.resolve()}")
+    logger.success(f"Plots saved at {images_dir.resolve()}")
 
 
 if __name__ == "__main__":

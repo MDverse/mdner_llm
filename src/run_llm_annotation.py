@@ -92,7 +92,8 @@ class SubResponse(BaseModel):
     """SubResponse class to define the structure of each response
     in the structured JSON response.
     This class contains a label and the text associated with that label.
-    Example: {"label": "MOL", "text": "water"}
+    Example:
+    {"label": "MOL", "text": "water"}
     """
 
     label: str

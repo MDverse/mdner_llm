@@ -116,7 +116,7 @@ def define_quality_entities(
     invalid = 0
     invalid_entities = {}
 
-    text_lc = input_text.lower()
+    text_lc = input_text.lower() # input text in lowercase for comparison
 
     for tag in TAGS:
         if tag not in invalid_entities:
@@ -260,12 +260,12 @@ def quality_control(path_to_test: Union[str, Path]) -> None:
                             define_quality_entities(llm_entities, input_text)
                         )
 
-                        mol_fp = "; ".join(invalid_entities.get("MOL", []))
-                        softn_fp = "; ".join(invalid_entities.get("SOFTN", []))
-                        softv_fp = "; ".join(invalid_entities.get("SOFTV", []))
-                        stime_fp = "; ".join(invalid_entities.get("STIME", []))
-                        temp_fp = "; ".join(invalid_entities.get("TEMP", []))
-                        ffm_fp = "; ".join(invalid_entities.get("FFM", []))
+                        mol_hallucinated = "; ".join(invalid_entities.get("MOL", []))
+                        softn_hallucinated = "; ".join(invalid_entities.get("SOFTN", []))
+                        softv_hallucinated = "; ".join(invalid_entities.get("SOFTV", []))
+                        stime_hallucinated = "; ".join(invalid_entities.get("STIME", []))
+                        temp_hallucinated = "; ".join(invalid_entities.get("TEMP", []))
+                        ffm_hallucinated = "; ".join(invalid_entities.get("FFM", []))
 
                         rows.append(
                             {
@@ -279,12 +279,12 @@ def quality_control(path_to_test: Union[str, Path]) -> None:
                                 "invalid": invalid,
                                 "total_entities": fully_valid + invalid,
                                 "full_path": str(file_path),
-                                "MOL_FP": mol_fp,
-                                "SOFTN_FP": softn_fp,
-                                "SOFTV_FP": softv_fp,
-                                "STIME_FP": stime_fp,
-                                "TEMP_FP": temp_fp,
-                                "FFM_FP": ffm_fp,
+                                "MOL_hallucinted": mol_hallucinated,
+                                "SOFTN_hallucinated": softn_hallucinated,
+                                "SOFTV_hallucinated": softv_hallucinated,
+                                "STIME_hallucinated": stime_hallucinated,
+                                "TEMP_hallucinated": temp_hallucinated,
+                                "FFM_hallucinated": ffm_hallucinated,
                             }
                         )
             else:
@@ -328,12 +328,12 @@ def quality_control(path_to_test: Union[str, Path]) -> None:
                         llm_entities, input_text
                     )
 
-                    mol_fp = "; ".join(invalid_entities.get("MOL", []))
-                    softn_fp = "; ".join(invalid_entities.get("SOFTN", []))
-                    softv_fp = "; ".join(invalid_entities.get("SOFTV", []))
-                    stime_fp = "; ".join(invalid_entities.get("STIME", []))
-                    temp_fp = "; ".join(invalid_entities.get("TEMP", []))
-                    ffm_fp = "; ".join(invalid_entities.get("FFM", []))
+                    mol_hallucinated = "; ".join(invalid_entities.get("MOL", []))
+                    softn_hallucinated = "; ".join(invalid_entities.get("SOFTN", []))
+                    softv_hallucinated = "; ".join(invalid_entities.get("SOFTV", []))
+                    stime_hallucinated = "; ".join(invalid_entities.get("STIME", []))
+                    temp_hallucinated = "; ".join(invalid_entities.get("TEMP", []))
+                    ffm_hallucinated = "; ".join(invalid_entities.get("FFM", []))
 
                     rows.append(
                         {
@@ -347,12 +347,12 @@ def quality_control(path_to_test: Union[str, Path]) -> None:
                             "invalid": invalid,
                             "total_entities": fully_valid + invalid,
                             "full_path": str(file_path),
-                            "MOL_FP": mol_fp,
-                            "SOFTN_FP": softn_fp,
-                            "SOFTV_FP": softv_fp,
-                            "STIME_FP": stime_fp,
-                            "TEMP_FP": temp_fp,
-                            "FFM_FP": ffm_fp,
+                            "MOL_hallucinated": mol_hallucinated,
+                            "SOFTN_hallucinated": softn_hallucinated,
+                            "SOFTV_hallucinated": softv_hallucinated,
+                            "STIME_hallucinated": stime_hallucinated,
+                            "TEMP_hallucinated": temp_hallucinated,
+                            "FFM_hallucinated": ffm_hallucinated,
                         }
                     )
 
