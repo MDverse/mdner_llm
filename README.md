@@ -9,7 +9,7 @@ Clone the GitHub repository:
 
 ```sh
 git clone git@github.com:MDverse/mdner_llm.git
-cd md_data_schema
+cd mdner_llm
 ```
 
 Sync dependencies:
