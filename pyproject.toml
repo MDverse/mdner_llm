@@ -17,6 +17,7 @@ dependencies = [
     "seaborn>=0.13.2",
     "spacy[lookups,transformers]>=3.8.7",
     "tqdm>=4.67.1",
+    "watermark>=2.5.0",
 ]
 
 [dependency-groups]
