@@ -3,7 +3,7 @@ name = "mdner-llm"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "groq>=0.29.0",
     "instructor>=1.11.3",
@@ -22,6 +22,25 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "black>=25.1.0",
     "ruff>=0.12.2",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88  # Same as Black.
+
+[tool.ruff.format]
+preview = true  # Allow preview rules.
+
+[tool.ruff.lint]
+preview = true  # Allow preview rules.
+# Ruff rules: https://docs.astral.sh/ruff/rules/
+select = [
+    "F",    # pyflakes
+    "E",    # pycodestyle Error
+    "W",    # pycodestle Warning
+    "I",    # isort
+    "B",    # bugbear
+    "C90",  # mccabe
+    "N",    # pep8-naming
 ]
