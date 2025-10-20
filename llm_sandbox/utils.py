@@ -134,7 +134,7 @@ def annotate(
     model: str,
     client: instructor.core.client.Instructor,
     validation: bool = True,
-    max_retries: int = 5,
+    max_retries: int = 10,
 ) -> dict:    
     """Annotate the given text using the specified model.
     If validation is True, the output will be validated against the GlobalResponse schema.
@@ -157,119 +157,49 @@ def annotate(
     dict
         The annotated text as a structured JSON.
     """
-    try:
-        result = client.chat.completions.create(
-                    model=model,
-                    messages=[
-                        {"role": "system", "content": "Extract entities as structured JSON."},
-                        {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
-                    ],
-                    response_model=ListOfEntities if validation else None,
-                    max_retries=max_retries if validation else 0
-                )
-
-        if validation:
-            return result.model_dump_json(indent=2)
-        else:
-            raw_content = result.choices[0].message.content
-            try:
-                # add indentation for better readability
-                parsed_json = json.loads(raw_content)
-                return json.dumps(parsed_json, indent=2)
-            except json.JSONDecodeError:
-                # If the output is not valid JSON
-                return raw_content
-    except InstructorValidationError as e:
-        print("🔍 Instructor Validation Error :")
-        print(e.errors)
-        return(str(e.raw_output))
-
-            
-
-def annotate_(
-    text: str,
-    model: str,
-    client: Union[instructor.core.client.Instructor, OpenAI],
-    validation: bool = True,
-    max_retries: int = 3,
-    retry_delay: float = 1.0
-) -> dict:    
-    """Annotate the given text using the specified model.
-    If validation is True, the output will be validated against the GlobalResponse schema.
-
-    Parameters
-    ----------
-    text : str
-        The text to annotate.
-    model : str
-        The name of the LLM model to use.
-    client : Union[instructor.core.client.Instructor | OpenAI]
-        The LLM client to use (either Groq or OpenAI).
-    validation : bool, optional
-        Whether to validate the output against the schema, by default True
-    max_retries : int, optional
-        Maximum number of retries for the API call in case of failure, by default 3
-    retry_delay : float, optional
-        Delay between retries in seconds, by default 1.0
-
-    Returns
-    -------
-    dict
-        The annotated text as a structured JSON.
-    """
-    if validation:
-        for attempt in range(1, max_retries + 1):
-            try:
-                result = client.chat.completions.create(
-                    model=model,
-                    messages=[
-                        {"role": "system", "content": "Extract entities as structured JSON."},
-                        {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
-                    ],
-                    response_model=ListOfEntities,
-                    max_retries=max_retries
-                )
-                return result.model_dump_json(indent=2)
-            except ValidationError as e:
-                print(f"⚠️ Validation failed on attempt {attempt}/{max_retries}. Retrying...")
-                if attempt == max_retries:
-                    print("❌ Max retries reached. Returning raw output instead.")
-                    try:
-                        # If validation fails after max retries, return the raw content
-                        raw_content = result.choices[0].message.content
-                        return raw_content
-                    except Exception:
-                        return str(e)
-                time.sleep(retry_delay)
-        
-    else:
-        result = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": "Extract entities as structured JSON."},
-                {"role": "user", "content": PROMPT + "\nInput:\n" + text}
-            ],
-            response_model=None
-        )
-        raw_content = result.choices[0].message.content
+    attempt = 0
+    while attempt < max_retries:
         try:
-            # add indentation for better readability
-            parsed_json = json.loads(raw_content)
-            return json.dumps(parsed_json, indent=2)
-        except json.JSONDecodeError:
-            # If the output is not valid JSON
-            return raw_content
+            result = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": "Extract entities as structured JSON."},
+                    {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
+                ],
+                response_model=ListOfEntities if validation else None,
+                max_retries=3 if validation else 0
+            )
+
+            if validation:
+                return result.model_dump_json(indent=2)
+            else:
+                raw_content = result.choices[0].message.content
+                try:
+                    parsed_json = json.loads(raw_content)
+                    return json.dumps(parsed_json, indent=2)
+                except json.JSONDecodeError:
+                    return raw_content
+
+        except InstructorValidationError as e:
+            attempt += 1
+            print(f"🔍 Instructor Validation Error on attempt {attempt}/{max_retries}:")
+            print(e.errors)
+            if attempt >= max_retries:
+                print("Max retries reached. Returning raw output.")
+                return str(e.raw_output)
+            else:
+                print("Retrying...")
         
 
-def visualize_entities(text: str, entities: List[dict]) -> None:
+def visualize_entities(text: str, entities: Union[List[dict], str]) -> None:
     """Visualize the extracted entities in a readable format.
 
     Parameters
     ----------
     text : str
         The original text from which entities were extracted.
-    entities : List[dict]
-        List of extracted entities.
+    entities : Union[List[dict], str]
+        The extracted entities as a list of dictionaries or a JSON string.
     """
     # Define colors for each entity type
     colors = {
@@ -281,7 +211,26 @@ def visualize_entities(text: str, entities: List[dict]) -> None:
             "FFM": "#cdb4db",
         }
     options = {"colors": colors}
-    displacy.render(entities, style="ent", manual=True, options=options)
+    ents = []
+    # If entities is a string, parse it as JSON
+    if isinstance(entities, str):
+        entities = json.loads(entities)
+    # Iterate over entities and find their positions in the text
+    for ent in entities["entities"]:
+        start = 0
+        while True:
+            # Find the start index of the entity text
+            start = text.find(ent["text"], start)
+            if start == -1:
+                # Entity text not found
+                break
+            # Calculate the end index
+            end = start + len(ent["text"])
+            ents.append({"start": start, "end": end, "label": ent["label"]})
+            start = end  # move past this occurrence
+    # Prepare the data for displacy
+    spacy_format = {"text": text, "ents": ents}
+    displacy.render(spacy_format, style="ent", manual=True, options=options)
 
 
 
