@@ -1,16 +1,18 @@
 """Utility functions for the annotation JSON validation process."""
 
 # Import necessary libraries
-import os
 import json
-from time import time
-from typing import Union, List
+import textwrap
+from typing import Dict, Tuple, Union, List
+from tqdm import tqdm
+import unicodedata
 
-import instructor
-from openai import OpenAI
+import re
 from spacy import displacy
-from pydantic import BaseModel, Field, ValidationError, PositiveFloat
-from instructor.exceptions import ValidationError as InstructorValidationError
+import instructor
+from instructor.exceptions import ValidationError as InstructorValidationError, InstructorRetryException
+from pydantic import BaseModel, Field, ValidationError
+from openai.types.chat import ChatCompletion
 
 
 # CONSTANTS
@@ -129,7 +131,206 @@ def check_json_validity(json_string: str) -> None:
         return False
 
 
+def normalize_text(text: str) -> str:
+    """Normalize text by removing special characters and converting to lowercase.
+    
+    Parameters
+    ----------
+    text : str
+        The text to normalize.
+    Returns
+    -------
+    str
+        The normalized text.
+    """
+    # Normalize unicode characters 
+    text_normalized = unicodedata.normalize("NFKD", text)
+    # Convert to lowercase
+    text_normalized = text_normalized.lower()
+    # Remove extra whitespace
+    text_normalized = re.sub(r"\s+", " ", text_normalized)
+    # Strip leading and trailing whitespace
+    text_normalized = text_normalized.strip()
+    return text_normalized
+
+
+def find_hallucinated_entities(annotations: ListOfEntities, original_text: str) -> List[Dict[int, str]]:
+    """Identify entities in the annotation output that are not present in the original text.
+
+    Parameters
+    ----------
+    response : ListOfEntities
+        The annotation output to check.
+    original_text : str
+        The original text to compare against.
+
+    Returns
+    -------
+    List[Dict[int, str]]
+        A list of dictionaries containing the index and text of hallucinated entities.
+    """
+    hallucinated_entities = []
+    # Normalize the original text
+    text_normalized = normalize_text(original_text)
+    for i, annotation in enumerate(annotations): 
+        if annotation is None:
+            continue
+        # Initialize a temporary list to store hallucinated entities for this annotation
+        temp_list = []
+        # Check each entity in the annotation
+        for entity in annotation.entities:
+            if entity.text.lower() not in text_normalized:
+                temp_list.append(entity.text)
+        # If there are hallucinated entities, add them to the result list
+        if temp_list != []:
+            hallucinated_entities.append({i: temp_list})
+    return hallucinated_entities
+
+
+def report_hallucinated_entities(hallucinated_entities: Dict[int, List[str]], original_text: str) -> None:
+    """Report hallucinated entities found in the annotation output.
+
+    Parameters
+    ----------
+    hallucinated_entities : Dict[int, List[str]]
+        A dictionary containing the index and a list of hallucinated entities.
+    original_text : str
+        The original text to compare against.
+    """
+    print("\n" + "=" * 80)
+    print("📝 Original text:")
+    print("=" * 80)
+    wrapped_text = textwrap.fill(original_text, width=120)
+    print(wrapped_text)
+        
+    if hallucinated_entities != []:
+        print("\n" + "=" * 80)
+        print(f"⚠️ Hallucinated entities detected for {len(hallucinated_entities)} annotations:")
+        print("=" * 80)
+        # Get each dictionary representing hallucinated entities
+        for hallucinated_entities in hallucinated_entities:
+            # Get the list of hallucinated texts from each dictionary
+            for index, texts in hallucinated_entities.items():
+                print(f"Annotation {index} :")
+                for text in texts:
+                    print(f"  - {text}")
+                print()
+    else:
+        print("✅ No hallucinated entities found.")
+
+
+def is_annotation_in_text(response: ListOfEntities, original_text: str) -> bool:
+    """Validate the content of the annotation output against the original text.
+
+    Parameters
+    ----------
+    response : ListOfEntities
+        The annotation output to validate.
+    original_text : str
+        The original text to compare against.
+
+    Returns
+    -------
+    bool
+        True if the entities in the response are present in the original text, False otherwise.
+    """
+    # Normalize the original text
+    text_normalized = normalize_text(original_text)
+
+    # Check if all entity texts are present in the original text
+    for entity in response.entities:
+        if entity.text.lower() not in text_normalized:
+            #print(f"Entity text '{entity.text}' not found in original text.")
+            return False
+    return True
+
+
+def validate_annotation_output_format(response: Union[ChatCompletion, ListOfEntities]) -> Union[ListOfEntities, None]:
+    """Validate the annotation output against the ListOfEntities schema.
+    
+    Parameters
+    ----------
+    response : Union[ChatCompletion, ListOfEntities]
+        The response from the LLM model to validate.
+
+    Returns
+    -------
+    bool
+        True if the response is valid according to the ListOfEntities schema, False otherwise.
+    """
+    # It's already a ListOfEntities instance
+    if isinstance(response, ListOfEntities):
+        return response
+    if isinstance(response, ChatCompletion):
+        # Extract the content from the ChatCompletion response
+        response_str = response.choices[0].message.content
+        try:
+            # Validate the response string against the ListOfEntities schema
+            parsed_response = ListOfEntities.model_validate_json(response_str)
+            return parsed_response 
+        except ValidationError as e:
+            return None
+
+
 def annotate(
+    text: str,
+    model: str,
+    client: instructor.core.client.Instructor,
+    validation: bool = True,
+    max_retries: int = 3,
+) -> Union[ChatCompletion, str]:
+    """Annotate the given text using the specified model.
+    If validation is True, the output will be validated against the GlobalResponse schema.
+
+    Parameters
+    ----------
+    text : str
+        The text to annotate.
+    model : str
+        The name of the LLM model to use.
+    client : Union[instructor.core.client.Instructor | OpenAI]
+        The LLM client to use (either Groq or OpenAI).
+    validation : bool, optional
+        Whether to validate the output against the schema, by default True
+    max_retries : int, optional
+        Maximum number of retries for the API call in case of failure, by default 3
+
+    Returns
+    -------
+    Union[ListOfEntities,ChatCompletion]
+        The response from the LLM model, either validated or raw output.
+    """
+    # Set response model and retries based on validation flag
+    if validation:
+        response_model = ListOfEntities
+    else:
+        response_model = None
+        max_retries = 0
+    
+    try:
+        # Query the LLM client for annotation
+        result = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": "Extract entities as structured JSON."},
+                {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
+            ],
+            response_model=response_model,
+            max_retries=max_retries
+        )
+        return result
+    
+    except InstructorRetryException as e:
+        print(f"    ⚠️ Validated annotation failed after {e.n_attempts} attempts.")
+        #print(f"Total usage: {e.total_usage.total_tokens} tokens")
+        return str(e.last_completion)
+
+    except InstructorValidationError as e:
+        #print(e.errors)
+        return str(e.raw_output)
+
+
+def annotate_forced_validation(
     text: str,
     model: str,
     client: instructor.core.client.Instructor,
@@ -189,17 +390,121 @@ def annotate(
                 return str(e.raw_output)
             else:
                 print("Retrying...")
-        
 
-def visualize_entities(text: str, entities: Union[List[dict], str]) -> None:
+
+def run_annotation_stats(
+    text_to_annotate: str,
+    model_name: str,
+    client,
+    num_iterations: int = 100,
+    validation: bool = False,
+) -> Tuple[List[ListOfEntities|ChatCompletion], int, int]:
+    """
+    Runs multiple annotation attempts on the given text, with or without validation schema.
+    Returns the number of valid and invalid responses.
+
+    Parameters
+    ----------
+    text_to_annotate : str
+        The text to annotate.
+    model_name : str
+        The name of the LLM model to use.
+    client : instructor.core.client.Instructor
+        The LLM client to use (either Groq , OpenAI or OpenRouter).
+    num_iterations : int, optional
+        Number of annotation attempts to run, by default 100
+    validation : bool, optional
+        Whether to use validation schema, by default False
+    """
+    valid_count = 0
+    invalid_count = 0
+    list_of_entities = []
+
+    desc = f"Running annotations {'with' if validation else 'without'} validation schema"
+    for _ in tqdm(range(num_iterations), desc=desc):
+        response = annotate(text_to_annotate, model_name, client, validation=validation)
+        validated_output = validate_annotation_output_format(response)
+        list_of_entities.append(validated_output)
+        if validated_output:
+            if is_annotation_in_text(validated_output, text_to_annotate):
+                valid_count += 1
+        else:
+            invalid_count += 1
+
+    return list_of_entities, valid_count, invalid_count
+
+
+def compare_annotation_validation(
+    text_to_annotate: str,
+    model_name: str,
+    client,
+    num_iterations: int = 100,
+) -> Dict[str, Dict[str, Union[int, List[ListOfEntities|ChatCompletion]]]]:
+    """
+    Wrapper that runs annotation tests both with and without validation schema,
+    and prints a summary.
+
+    Parameters
+    ----------
+    text_to_annotate : str
+        The text to annotate.
+    model_name : str
+        The name of the LLM model to use.
+    client : instructor.core.client.Instructor
+        The LLM client to use (either Groq , OpenAI or OpenRouter).
+    num_iterations : int, optional
+        Number of annotation attempts to run, by default 100
+    
+    Returns
+    -------
+    Dict[str, Dict[str, Union[int, List[ListOfEntities|ChatCompletion]]]]
+        A dictionary summarizing the results with and without validation schema. As follows:
+        {
+            "without_validation": {
+                "valid": int,
+                "invalid": int,
+                "examples": List[ListOfEntities|ChatCompletion]
+            },
+            "with_validation": {
+                "valid": int,
+                "invalid": int,
+                "examples": List[ListOfEntities|ChatCompletion]
+            }
+        }
+    """
+    # Without validation
+    list_of_entities_wo, valid_wo, invalid_wo = run_annotation_stats(
+        text_to_annotate, model_name, client, num_iterations, validation=False
+    )
+    # With validation
+    list_of_entities_w, valid_w, invalid_w = run_annotation_stats(
+        text_to_annotate, model_name, client, num_iterations, validation=True
+    )
+
+    print("\n" + "="*80)
+    print(f"📝 Input text:\n{textwrap.fill(text_to_annotate, width=120)}")
+    print("=" * 80 + "\n")
+    print("\n" + "="*80)
+    print(f"📊 Summary after {num_iterations} runs with {model_name}:")
+    print("=" * 80 + "\n")
+    print(f"❌ Without validation schema : {valid_wo / num_iterations * 100:.1f}% valid responses")
+    print(f"✅ With validation schema    : {valid_w / num_iterations * 100:.1f}% valid responses")
+
+    return {
+        "without_validation": {"valid": valid_wo, "invalid": invalid_wo, "examples": list_of_entities_wo},
+        "with_validation": {"valid": valid_w, "invalid": invalid_w, "examples": list_of_entities_w},
+    }
+
+
+def visualize_entities(text: str, entities: Union[ChatCompletion, ListOfEntities, str]) -> None:
     """Visualize the extracted entities in a readable format.
 
     Parameters
     ----------
     text : str
         The original text from which entities were extracted.
-    entities : Union[List[dict], str]
-        The extracted entities as a list of dictionaries or a JSON string.
+    entities : Union[ChatCompletion, ListOfEntities, str]
+        The extracted entities to visualize.
     """
     # Define colors for each entity type
     colors = {
@@ -212,25 +517,45 @@ def visualize_entities(text: str, entities: Union[List[dict], str]) -> None:
         }
     options = {"colors": colors}
     ents = []
-    # If entities is a string, parse it as JSON
-    if isinstance(entities, str):
-        entities = json.loads(entities)
-    # Iterate over entities and find their positions in the text
-    for ent in entities["entities"]:
-        start = 0
-        while True:
-            # Find the start index of the entity text
-            start = text.find(ent["text"], start)
-            if start == -1:
-                # Entity text not found
-                break
-            # Calculate the end index
-            end = start + len(ent["text"])
-            ents.append({"start": start, "end": end, "label": ent["label"]})
-            start = end  # move past this occurrence
+    # If entities is a ChatCompletion
+    if isinstance(entities, ChatCompletion):
+        content = json.loads(entities.choices[0].message.content)
+        entity_list = content["entities"]
+        print(f"Entity list from ChatCompletion: {entity_list}")
+        for ent in entity_list:
+            # Escape special regex characters like +, ., etc.
+            pattern = re.escape(ent["text"])
+            # Find all occurrences (case-insensitive)
+            for match in re.finditer(pattern, text, flags=re.IGNORECASE):
+                ents.append({
+                    "start": match.start(),
+                    "end": match.end(),
+                    "label": ent["label"]
+                })
+    # If entities is a ListOfEntities 
+    elif hasattr(entities, "entities"): # or isinstance(entities, ListOfEntities)
+        entity_list = entities.entities
+        for ent in entity_list:
+            pattern = re.escape(ent.text)
+            for match in re.finditer(pattern, text, flags=re.IGNORECASE):
+                ents.append({
+                    "start": match.start(),
+                    "end": match.end(),
+                    "label": ent.label
+                })
+    # If entities is a string (raw JSON)
+    elif isinstance(entities, str):
+        content = json.loads(entities)
+        entity_list = content["entities"]
+        for ent in entity_list:
+            pattern = re.escape(ent["text"])
+            for match in re.finditer(pattern, text, flags=re.IGNORECASE):
+                ents.append({
+                    "start": match.start(),
+                    "end": match.end(),
+                    "label": ent["label"]
+                })
+    
     # Prepare the data for displacy
     spacy_format = {"text": text, "ents": ents}
     displacy.render(spacy_format, style="ent", manual=True, options=options)
-
-
-
