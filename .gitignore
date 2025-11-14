@@ -197,3 +197,4 @@ cython_debug/
 # Folder contents
 results/*
 llm_outputs/*
+data/*
