@@ -3,6 +3,7 @@
 # Import necessary libraries
 import json
 import textwrap
+import pyarrow.parquet as pq
 from typing import Dict, Tuple, Union, List
 from tqdm import tqdm
 import unicodedata
@@ -14,6 +15,7 @@ from instructor.core import InstructorRetryException
 from instructor.exceptions import ValidationError as InstructorValidationError
 from pydantic import BaseModel, Field, ValidationError
 from openai.types.chat import ChatCompletion
+from llama_index.core.llms import ChatMessage
 
 
 # CONSTANTS
@@ -277,6 +279,7 @@ def annotate(
     text: str,
     model: str,
     client: instructor.core.client.Instructor,
+    validator: str = "instructor",
     validation: bool = True,
     max_retries: int = 3,
 ) -> Union[ChatCompletion, str]:
@@ -291,6 +294,8 @@ def annotate(
         The name of the LLM model to use.
     client : Union[instructor.core.client.Instructor | OpenAI]
         The LLM client to use (either Groq or OpenAI).
+    validator: str, optional
+        The name of the output validator package between "instructor", "llamaindex", "pydanticai" (Default is "instructor").
     validation : bool, optional
         Whether to validate the output against the schema, by default True
     max_retries : int, optional
@@ -309,16 +314,33 @@ def annotate(
         max_retries = 0
     
     try:
+        result = None
         # Query the LLM client for annotation
-        result = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": "Extract entities as structured JSON."},
-                {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
-            ],
-            response_model=response_model,
-            max_retries=max_retries
-        )
+        if validator == "instructor":
+            result = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": "Extract entities as structured JSON."},
+                    {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
+                ],
+                response_model=response_model,
+                max_retries=max_retries
+            )
+        
+        elif validator == "llamaindex":
+            input_msg = ChatMessage.from_str(f"{PROMPT}\nThe text to annotate:\n{text}")
+            response = client.chat([input_msg])
+            result = response.raw
+
+        elif validator == "pydanticai":
+            agent = Agent(
+                model=model,
+                output_type=ListOfEntities,
+                system_prompt=("Extract entities as structured JSON."),
+            )
+            response = agent.run_sync(f"{PROMPT}\nThe text to annotate:\n{text}")
+            result = response.output
+        
         return result
     
     except InstructorRetryException as e:
@@ -673,3 +695,41 @@ def add_entity_annotation_file(file_name: str, new_entities: list):
 
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
+
+
+def read_parquet_summary(parquet_path: str) -> dict:
+    """
+    Read and return summary metadata stored in a Parquet file
+    created by save_annotation_records().
+
+    Parameters
+    ----------
+    parquet_path : str
+        Path to the Parquet file.
+
+    Returns
+    -------
+    dict
+        A dictionary containing extracted metadata fields
+        (summary, model, total_annotations, and any other stored metadata).
+    """
+
+    try:
+        metadata = pq.read_metadata(parquet_path).metadata
+
+        if metadata is None:
+            return {"error": "No metadata found in this Parquet file."}
+
+        # Decode UTF-8 encoded metadata
+        decoded = {
+            key.decode("utf-8"): metadata[key].decode("utf-8")
+            for key in metadata
+        }
+        print(f"Annotation results from {parquet_path}:")
+        print(f"Total annotations: {decoded["total_annotations"]}")
+        print(f"LLM Model: {decoded["model"]}")
+        print(f"Text annotated: {decoded["text_annotated"]}")
+        return decoded
+
+    except Exception as e:
+        return {"error": f"Failed to read metadata: {e}"}
