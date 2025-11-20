@@ -73,13 +73,14 @@ from utils import ListOfEntities, PROMPT, validate_annotation_output_format, is_
 # CONSTANTS
 OUTPUT_DIR = "results/json_evaluation_stats"
 # To adapt on your needs :
-NB_ITERATIONS = 5
+NB_ITERATIONS = 10
 TEXT_TO_ANNOTATE = """Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers
 Cholesterol trafficking, which is an essential function in mammalian cells, is intimately connected to molecular-scale interactions through cholesterol modulation of membrane structure and dynamics and interaction with membrane receptors. Since these effects of cholesterol occur on micro- to millisecond time scales, it is essential to develop accurate coarse-grained simulation models that can reach these time scales. Cholesterol has been shown experimentally to thicken the membrane and increase phospholipid tail order between 0 and 40% cholesterol, above which these effects plateau or slightly decrease. Here, we showed that the published MARTINI coarse-grained force-field for phospholipid (POPC) and cholesterol fails to capture these effects. Using reference atomistic simulations, we systematically modified POPC and cholesterol bonded parameters in MARTINI to improve its performance. We showed that the corrections to pseudobond angles between glycerol and the lipid tails and around the oleoyl double bond particle (the angle-corrected model ) slightly improves the agreement of MARTINI with experimentally measured thermal, elastic, and dynamic properties of POPC membranes. The angle-corrected model improves prediction of the thickening and ordering effects up to 40% cholesterol but overestimates these effects at higher cholesterol concentration. In accordance with prior work that showed the cholesterol rough face methyl groups are important for limiting cholesterol self-association, we revised the coarse-grained representation of these methyl groups to better match cholesterol-cholesterol radial distribution functions from atomistic simulations. In addition, by using a finer-grained representation of the branched cholesterol tail than MARTINI, we improved predictions of lipid tail order and bilayer thickness across a wide range of concentrations. Finally, transferability testing shows that a model incorporating our revised parameters into DOPC outperforms other CG models in a DOPC/cholesterol simulation series, which further argues for its efficacy and generalizability. These results argue for the importance of systematic optimization for coarse-graining biologically important molecules like cholesterol with complicated molecular structure.
 """
 MODELS_OPENAI = [
-    "gpt-4o-mini-2024-07-18"
-    #"gpt-5-mini-2025-08-07"
+    "o3-mini-2025-01-31",
+    "gpt-4o-mini-2024-07-18",
+    "gpt-5-mini-2025-08-07",
 ]
 MODELS_OPENROUTER = [
     "meta-llama/llama-3.1-8b-instruct",
@@ -89,7 +90,6 @@ MODELS_OPENROUTER = [
     "qwen/qwen-2.5-72b-instruct:free",
     "deepseek/deepseek-chat-v3-0324"
 ]
-MODELS_OPENROUTER = []
 
 # FUNCTIONS
 def parse_arguments() -> Tuple[bool, str, str]:
@@ -189,17 +189,16 @@ def assign_all_pydanticai_clients() -> Dict[str, OpenAIChatModel]:
     """
     load_dotenv()
     clients = {}
+    api_key = os.getenv("OPENROUTER_API_KEY")
     for model_name in MODELS_OPENROUTER:
         llm = OpenAIChatModel(
             model_name,
-            provider=OpenRouterProvider()
+            provider=OpenRouterProvider(api_key=api_key)
         )
         clients[model_name] = llm
     
     for model_name in MODELS_OPENAI:
-        llm = OpenAIChatModel(
-            model_name,
-        )
+        llm = OpenAIChatModel(model_name)
         clients[model_name] = llm
     
     return clients
@@ -275,7 +274,7 @@ def annotate(
 
     elif validator == "pydanticai":
         agent = Agent(
-            model=model,
+            model=client,
             output_type=ListOfEntities,
             retries=max_retries,
             system_prompt=("Extract entities as structured JSON."),
@@ -612,7 +611,7 @@ def evaluate_json_annotations(folder_out_path: str, file_name: str) -> None:
     
     # for each models :
     for model_name in MODELS_OPENAI + MODELS_OPENROUTER:
-        logger.debug(f"🤖 Evaluating model: {model_name}...")
+        logger.debug(f"----------- 🤖 Evaluating model: {model_name}... -----------")
         provider = "OpenAI" if model_name in MODELS_OPENAI else "OpenRouter"
         
         # ------------------------------------------------------
