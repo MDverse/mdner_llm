@@ -1,10 +1,10 @@
 """
 Format JSON annotations.
 
-This script processes all JSON annotation files in a specified directory (e.g., "annotations_v1")
+This script processes all JSON annotation files in a specified directory (e.g., "annotations/v1")
 and formats them into a more readable structure. The output JSON contains the raw text
 and a list of entities with their labels and exact positions. Formatted JSON files are
-saved in the "data/new_annotations" directory.
+saved in the "annotations/v2" directory.
 
 Example:
 --------
@@ -83,8 +83,8 @@ from loguru import logger
 
 
 # CONSTANTS
-ANNOTATION_DIR = "annotations/annotations_v1"
-OUT_DIR = "annotations/annotations_v2"
+ANNOTATION_DIR = "annotations/v1"
+OUT_DIR = "annotations/v2"
 CLASSES = ["SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM", "TEMP"]
 
 

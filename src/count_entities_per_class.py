@@ -1,6 +1,6 @@
 """Count entities par class for each annotation.
 
-This script processes all JSON annotation files in a specified directory ("data/formated_annotations")
+This script processes all JSON annotation files in a specified directory ("annotations/v2")
 and counts the number of entities for each class defined in the file.
 The script then outputs a TSV file containing the filename, annotated text lenght and the count of entities per class.
 
@@ -26,11 +26,10 @@ import csv
 from typing import Dict, List
 
 from loguru import logger
-from tqdm import tqdm
 
 
 # CONSTANTS
-ANNOTATION_DIR = "data/formated_annotations"
+ANNOTATION_DIR = "annotations/v2"
 OUT_TSV_PATH = "results/all_annotations_entities_count.tsv"
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
