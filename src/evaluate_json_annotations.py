@@ -62,6 +62,7 @@ from llama_index.llms.openrouter import OpenRouter
 from llama_index.core.llms import ChatMessage
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
+from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai import Agent
 from pydantic import ValidationError as PydanticValidationError
 from pydantic_core import ValidationError as CoreValidationError
@@ -73,7 +74,7 @@ from utils import ListOfEntities, PROMPT, validate_annotation_output_format, is_
 # CONSTANTS
 OUTPUT_DIR = "results/json_evaluation_stats"
 # To adapt on your needs :
-NB_ITERATIONS = 10
+NB_ITERATIONS = 5
 TEXT_TO_ANNOTATE = """Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers
 Cholesterol trafficking, which is an essential function in mammalian cells, is intimately connected to molecular-scale interactions through cholesterol modulation of membrane structure and dynamics and interaction with membrane receptors. Since these effects of cholesterol occur on micro- to millisecond time scales, it is essential to develop accurate coarse-grained simulation models that can reach these time scales. Cholesterol has been shown experimentally to thicken the membrane and increase phospholipid tail order between 0 and 40% cholesterol, above which these effects plateau or slightly decrease. Here, we showed that the published MARTINI coarse-grained force-field for phospholipid (POPC) and cholesterol fails to capture these effects. Using reference atomistic simulations, we systematically modified POPC and cholesterol bonded parameters in MARTINI to improve its performance. We showed that the corrections to pseudobond angles between glycerol and the lipid tails and around the oleoyl double bond particle (the angle-corrected model ) slightly improves the agreement of MARTINI with experimentally measured thermal, elastic, and dynamic properties of POPC membranes. The angle-corrected model improves prediction of the thickening and ordering effects up to 40% cholesterol but overestimates these effects at higher cholesterol concentration. In accordance with prior work that showed the cholesterol rough face methyl groups are important for limiting cholesterol self-association, we revised the coarse-grained representation of these methyl groups to better match cholesterol-cholesterol radial distribution functions from atomistic simulations. In addition, by using a finer-grained representation of the branched cholesterol tail than MARTINI, we improved predictions of lipid tail order and bilayer thickness across a wide range of concentrations. Finally, transferability testing shows that a model incorporating our revised parameters into DOPC outperforms other CG models in a DOPC/cholesterol simulation series, which further argues for its efficacy and generalizability. These results argue for the importance of systematic optimization for coarse-graining biologically important molecules like cholesterol with complicated molecular structure.
 """
@@ -84,10 +85,10 @@ MODELS_OPENAI = [
 ]
 MODELS_OPENROUTER = [
     "meta-llama/llama-3.1-8b-instruct",
-    "meta-llama/llama-3-70b-instruct" 
+    #"meta-llama/llama-3-70b-instruct",
     "moonshotai/kimi-k2-thinking",
     "google/gemini-2.5-flash",
-    "qwen/qwen-2.5-72b-instruct:free",
+    "qwen/qwen-2.5-72b-instruct",
     "deepseek/deepseek-chat-v3-0324"
 ]
 
@@ -207,7 +208,7 @@ def assign_all_pydanticai_clients() -> Dict[str, OpenAIChatModel]:
 def annotate(
     text: str,
     model: str,
-    client: instructor.core.client.Instructor,
+    client: Union[Instructor | OpenAI | OpenRouter | OpenAIChatModel],
     validator: str = "instructor",
     validation: bool = True,
     max_retries: int = 3,
@@ -221,8 +222,8 @@ def annotate(
         The text to annotate.
     model : str
         The name of the LLM model to use.
-    client : Union[instructor.core.client.Instructor | OpenAI]
-        The LLM client to use (either Groq or OpenAI).
+    client : Union[Instructor | OpenAI | OpenRouter | OpenAIChatModel]
+        The LLM client to use (either from Instructor, llamaindex or pydantic_ai).
     validator: str, optional
         The name of the output validator package between "instructor", "llamaindex", "pydanticai" (Default is "instructor").
     validation : bool, optional
@@ -282,7 +283,7 @@ def annotate(
         try:
             response = agent.run_sync(f"{PROMPT}\nThe text to annotate:\n{text}")
             result = response.output
-        except (PydanticValidationError, CoreValidationError) as e:
+        except (PydanticValidationError, CoreValidationError, UnexpectedModelBehavior) as e:
             return str(e)
             
     return result
@@ -611,7 +612,7 @@ def evaluate_json_annotations(folder_out_path: str, file_name: str) -> None:
     
     # for each models :
     for model_name in MODELS_OPENAI + MODELS_OPENROUTER:
-        logger.debug(f"----------- 🤖 Evaluating model: {model_name}... -----------")
+        logger.info(f"======================== 🤖 Evaluating model: {model_name} ========================")
         provider = "OpenAI" if model_name in MODELS_OPENAI else "OpenRouter"
         
         # ------------------------------------------------------
@@ -672,25 +673,25 @@ def evaluate_json_annotations(folder_out_path: str, file_name: str) -> None:
 
         all_records.append({
             "Model (Provider)": f"{model_name} ({provider})",
-            "JSON without format validation - Respect format (%)": pr_valid_format_resp_nv,
+            "JSON without format validation - Respect output format (%)": pr_valid_format_resp_nv,
             "JSON without format validation - No hallucination (%)": pr_valid_content_resp_nv,
-            "JSON + Instructor - Respect format (%)": pr_valid_format_resp_instructor,
+            "JSON + Instructor - Respect output format (%)": pr_valid_format_resp_instructor,
             "JSON + Instructor - No hallucination (%)": pr_valid_content_resp_instructor,
-            "JSON + LlamaIndex - Respect format (%)": pr_valid_format_resp_llama,
+            "JSON + LlamaIndex - Respect output format (%)": pr_valid_format_resp_llama,
             "JSON + LlamaIndex - No hallucination (%)": pr_valid_content_resp_llama,
-            "JSON + PydanticAI - Respect format (%)": pr_valid_format_resp_py,
+            "JSON + PydanticAI - Respect output format (%)": pr_valid_format_resp_py,
             "JSON + PydanticAI - No hallucination (%)": pr_valid_content_resp_py,
         })
     
     df_simple = pd.DataFrame(all_records)
     multi_columns = pd.MultiIndex.from_tuples([
-        ("JSON without format validation", "Respect format (%)"),
+        ("JSON without format validation", "Respect output format (%)"),
         ("JSON without format validation", "No hallucination (%)"),
-        ("JSON + Instructor", "Respect format (%)"),
+        ("JSON + Instructor", "Respect output format (%)"),
         ("JSON + Instructor", "No hallucination (%)"),
-        ("JSON + LlamaIndex", "Respect format (%)"),
+        ("JSON + LlamaIndex", "Respect output format (%)"),
         ("JSON + LlamaIndex", "No hallucination (%)"),
-        ("JSON + PydanticAI", "Respect format (%)"),
+        ("JSON + PydanticAI", "Respect output format (%)"),
         ("JSON + PydanticAI", "No hallucination (%)"),
     ])
     df_results = pd.DataFrame(
