@@ -142,18 +142,6 @@
             "end": 4091
         },
         {
-            "label": "STIME",
-            "text": "4 ns",
-            "start": 4106,
-            "end": 4110
-        },
-        {
-            "label": "STIME",
-            "text": "80 ns",
-            "start": 4428,
-            "end": 4433
-        },
-        {
             "label": "TEMP",
             "text": "363 K",
             "start": 4453,
@@ -278,6 +266,18 @@
             "text": "PPSA",
             "start": 7348,
             "end": 7352
+        },
+        {
+            "label": "MOL",
+            "text": "phosphoenolpyruvate synthase",
+            "start": 828,
+            "end": 856
+        },
+        {
+            "label": "MOL",
+            "text": "lysines",
+            "start": 1655,
+            "end": 1662
         }
     ]
 }

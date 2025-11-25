@@ -208,12 +208,6 @@
             "end": 1718
         },
         {
-            "label": "SOFTNAME",
-            "text": "AMBER16",
-            "start": 1733,
-            "end": 1740
-        },
-        {
             "label": "TEMP",
             "text": "310.15 K",
             "start": 1951,
@@ -226,12 +220,6 @@
             "end": 1965
         },
         {
-            "label": "SOFTNAME",
-            "text": "SHAKE",
-            "start": 1996,
-            "end": 2001
-        },
-        {
             "label": "MOL",
             "text": "AT1R",
             "start": 2215,
@@ -242,6 +230,36 @@
             "text": "150 ns",
             "start": 2404,
             "end": 2410
+        },
+        {
+            "label": "MOL",
+            "text": "ARB",
+            "start": 24,
+            "end": 27
+        },
+        {
+            "label": "MOL",
+            "text": "ARB",
+            "start": 78,
+            "end": 81
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 1733,
+            "end": 1738
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 823,
+            "end": 825
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 1738,
+            "end": 1740
         }
     ]
 }

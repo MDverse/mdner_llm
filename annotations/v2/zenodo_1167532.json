@@ -58,12 +58,6 @@
             "end": 184
         },
         {
-            "label": "TEMP",
-            "text": "298 K.",
-            "start": 188,
-            "end": 194
-        },
-        {
             "label": "MOL",
             "text": "lipid",
             "start": 199,
@@ -116,6 +110,12 @@
             "text": "2016.3",
             "start": 482,
             "end": 488
+        },
+        {
+            "label": "TEMP",
+            "text": "298 K",
+            "start": 188,
+            "end": 193
         }
     ]
 }

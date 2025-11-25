@@ -58,16 +58,22 @@
             "end": 638
         },
         {
-            "label": "SOFTNAME",
-            "text": "LINCS",
-            "start": 640,
-            "end": 645
-        },
-        {
             "label": "MOL",
             "text": "AAAQAAQAQWAQRQATWQA",
             "start": 705,
             "end": 724
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "MDAnalysis",
+            "start": 821,
+            "end": 831
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "MDAnalysis",
+            "start": 992,
+            "end": 1002
         }
     ]
 }

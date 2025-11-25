@@ -34,12 +34,6 @@
             "end": 250
         },
         {
-            "label": "SOFTNAME",
-            "text": "Robetta",
-            "start": 269,
-            "end": 276
-        },
-        {
             "label": "MOL",
             "text": "6hyc",
             "start": 335,
@@ -50,12 +44,6 @@
             "text": "BH4",
             "start": 359,
             "end": 362
-        },
-        {
-            "label": "MOL",
-            "text": "Fe",
-            "start": 416,
-            "end": 418
         },
         {
             "label": "FFM",
@@ -76,12 +64,6 @@
             "end": 479
         },
         {
-            "label": "SOFTNAME",
-            "text": "PROPKA",
-            "start": 672,
-            "end": 678
-        },
-        {
             "label": "MOL",
             "text": "BH4",
             "start": 680,
@@ -98,18 +80,6 @@
             "text": "Antechamber",
             "start": 738,
             "end": 749
-        },
-        {
-            "label": "FFM",
-            "text": "Amber2018",
-            "start": 780,
-            "end": 789
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "SHAKE",
-            "start": 1008,
-            "end": 1013
         },
         {
             "label": "MOL",
@@ -134,6 +104,24 @@
             "text": "PAH",
             "start": 1559,
             "end": 1562
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 780,
+            "end": 785
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2018",
+            "start": 785,
+            "end": 789
+        },
+        {
+            "label": "MOL",
+            "text": "Fe (II)",
+            "start": 416,
+            "end": 423
         }
     ]
 }

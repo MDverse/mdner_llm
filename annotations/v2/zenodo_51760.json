@@ -142,28 +142,16 @@
             "end": 900
         },
         {
-            "label": "TEMP",
-            "text": "323 K.",
-            "start": 925,
-            "end": 931
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "LINCS",
-            "start": 1244,
-            "end": 1249
-        },
-        {
             "label": "MOL",
             "text": "water",
             "start": 1288,
             "end": 1293
         },
         {
-            "label": "SOFTNAME",
-            "text": "SETTLE",
-            "start": 1300,
-            "end": 1306
+            "label": "TEMP",
+            "text": "323 K",
+            "start": 925,
+            "end": 930
         }
     ]
 }

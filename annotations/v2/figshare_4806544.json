@@ -182,6 +182,60 @@
             "text": "cholesterol",
             "start": 1615,
             "end": 1626
+        },
+        {
+            "label": "MOL",
+            "text": "3g5u",
+            "start": 845,
+            "end": 849
+        },
+        {
+            "label": "MOL",
+            "text": "4m1m",
+            "start": 855,
+            "end": 859
+        },
+        {
+            "label": "MOL",
+            "text": "4ksb",
+            "start": 865,
+            "end": 869
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 884,
+            "end": 888
+        },
+        {
+            "label": "MOL",
+            "text": "CLR",
+            "start": 875,
+            "end": 878
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 1286,
+            "end": 1290
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 1303,
+            "end": 1307
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 1320,
+            "end": 1324
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 1410,
+            "end": 1414
         }
     ]
 }

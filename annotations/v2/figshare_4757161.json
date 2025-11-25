@@ -11,21 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Enzyme",
-            "start": 0,
-            "end": 6
-        },
-        {
-            "label": "MOL",
             "text": "Polystyrene",
             "start": 26,
             "end": 37
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Amber16",
-            "start": 125,
-            "end": 132
         },
         {
             "label": "MOL",
@@ -257,21 +245,9 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "SHAKE",
-            "start": 3107,
-            "end": 3112
-        },
-        {
-            "label": "SOFTNAME",
             "text": "PMEMD",
             "start": 3300,
             "end": 3305
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Amber16",
-            "start": 3333,
-            "end": 3340
         },
         {
             "label": "SOFTNAME",
@@ -308,6 +284,60 @@
             "text": "SPA",
             "start": 4056,
             "end": 4059
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogen",
+            "start": 720,
+            "end": 728
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogen",
+            "start": 3168,
+            "end": 3176
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 130,
+            "end": 132
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 3338,
+            "end": 3340
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 125,
+            "end": 130
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 261,
+            "end": 266
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 864,
+            "end": 869
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 3333,
+            "end": 3338
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 3437,
+            "end": 3442
         }
     ]
 }

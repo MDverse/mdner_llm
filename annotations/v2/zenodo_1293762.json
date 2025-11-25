@@ -64,12 +64,6 @@
             "end": 449
         },
         {
-            "label": "STIME",
-            "text": "100 ns",
-            "start": 566,
-            "end": 572
-        },
-        {
             "label": "FFM",
             "text": "GROMOS 43A1-S3",
             "start": 648,
@@ -80,6 +74,30 @@
             "text": "POPC",
             "start": 663,
             "end": 667
+        },
+        {
+            "label": "FFM",
+            "text": "43A1-S3",
+            "start": 7,
+            "end": 14
+        },
+        {
+            "label": "FFM",
+            "text": "43A1-S3",
+            "start": 106,
+            "end": 113
+        },
+        {
+            "label": "FFM",
+            "text": "43A1-S3",
+            "start": 261,
+            "end": 268
+        },
+        {
+            "label": "FFM",
+            "text": "43A1-S3",
+            "start": 655,
+            "end": 662
         }
     ]
 }

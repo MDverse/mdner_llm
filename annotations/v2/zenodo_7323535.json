@@ -28,12 +28,6 @@
             "end": 138
         },
         {
-            "label": "TEMP",
-            "text": "300 K.",
-            "start": 183,
-            "end": 189
-        },
-        {
             "label": "FFM",
             "text": "AMBER99SB-ILDN",
             "start": 203,
@@ -62,6 +56,12 @@
             "text": "Alanine dipeptide",
             "start": 569,
             "end": 586
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 183,
+            "end": 188
         }
     ]
 }

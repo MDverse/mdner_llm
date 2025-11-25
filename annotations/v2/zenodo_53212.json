@@ -130,28 +130,10 @@
             "end": 645
         },
         {
-            "label": "STIME",
-            "text": "190 ns.",
-            "start": 682,
-            "end": 689
-        },
-        {
             "label": "MOL",
             "text": "water",
             "start": 894,
             "end": 899
-        },
-        {
-            "label": "TEMP",
-            "text": "323 K.",
-            "start": 924,
-            "end": 930
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "LINCS",
-            "start": 1243,
-            "end": 1248
         },
         {
             "label": "MOL",
@@ -160,10 +142,16 @@
             "end": 1292
         },
         {
-            "label": "SOFTNAME",
-            "text": "SETTLE",
-            "start": 1299,
-            "end": 1305
+            "label": "TEMP",
+            "text": "323 K",
+            "start": 924,
+            "end": 929
+        },
+        {
+            "label": "STIME",
+            "text": "190 ns",
+            "start": 682,
+            "end": 688
         }
     ]
 }

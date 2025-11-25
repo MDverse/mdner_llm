@@ -16,12 +16,6 @@
             "end": 43
         },
         {
-            "label": "SOFTNAME",
-            "text": "ANI2x",
-            "start": 90,
-            "end": 95
-        },
-        {
             "label": "MOL",
             "text": "Tricaproin",
             "start": 96,
@@ -65,12 +59,6 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "ANI2x",
-            "start": 413,
-            "end": 418
-        },
-        {
-            "label": "SOFTNAME",
             "text": "torchANI",
             "start": 449,
             "end": 457
@@ -80,12 +68,6 @@
             "text": "ASE",
             "start": 597,
             "end": 600
-        },
-        {
-            "label": "TEMP",
-            "text": "310 K.",
-            "start": 655,
-            "end": 661
         },
         {
             "label": "SOFTNAME",
@@ -122,6 +104,12 @@
             "text": "Martini 3",
             "start": 987,
             "end": 996
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 655,
+            "end": 660
         }
     ]
 }

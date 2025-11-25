@@ -58,12 +58,6 @@
             "end": 297
         },
         {
-            "label": "MOL",
-            "text": "CaCl_2",
-            "start": 311,
-            "end": 317
-        },
-        {
             "label": "FFM",
             "text": "Slipids",
             "start": 323,
@@ -89,12 +83,6 @@
         },
         {
             "label": "MOL",
-            "text": "CaCl_2",
-            "start": 485,
-            "end": 491
-        },
-        {
-            "label": "MOL",
             "text": "NaCl",
             "start": 515,
             "end": 519
@@ -104,12 +92,6 @@
             "text": "200 ns",
             "start": 524,
             "end": 530
-        },
-        {
-            "label": "MOL",
-            "text": "CaCl_2",
-            "start": 548,
-            "end": 554
         },
         {
             "label": "STIME",
@@ -160,12 +142,6 @@
             "end": 728
         },
         {
-            "label": "TEMP",
-            "text": "310 K.",
-            "start": 736,
-            "end": 742
-        },
-        {
             "label": "MOL",
             "text": "DPPC",
             "start": 862,
@@ -212,6 +188,30 @@
             "text": "4.6->",
             "start": 1419,
             "end": 1424
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 736,
+            "end": 741
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl",
+            "start": 311,
+            "end": 315
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl",
+            "start": 485,
+            "end": 489
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl",
+            "start": 548,
+            "end": 552
         }
     ]
 }

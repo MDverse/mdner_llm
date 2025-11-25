@@ -52,12 +52,6 @@
             "end": 690
         },
         {
-            "label": "TEMP",
-            "text": "358K.",
-            "start": 695,
-            "end": 700
-        },
-        {
             "label": "MOL",
             "text": "DPPC",
             "start": 775,
@@ -104,6 +98,12 @@
             "text": "25 ns",
             "start": 1146,
             "end": 1151
+        },
+        {
+            "label": "TEMP",
+            "text": "358K",
+            "start": 695,
+            "end": 699
         }
     ]
 }

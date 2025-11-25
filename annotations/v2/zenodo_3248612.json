@@ -76,12 +76,6 @@
             "end": 349
         },
         {
-            "label": "TEMP",
-            "text": "310K.",
-            "start": 353,
-            "end": 358
-        },
-        {
             "label": "SOFTNAME",
             "text": "gromacs",
             "start": 370,
@@ -140,6 +134,12 @@
             "text": "CL",
             "start": 547,
             "end": 549
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 353,
+            "end": 357
         }
     ]
 }

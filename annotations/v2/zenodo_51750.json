@@ -119,12 +119,6 @@
         },
         {
             "label": "STIME",
-            "text": "110 ns.",
-            "start": 683,
-            "end": 690
-        },
-        {
-            "label": "STIME",
             "text": "11 ns",
             "start": 720,
             "end": 725
@@ -136,28 +130,22 @@
             "end": 900
         },
         {
-            "label": "TEMP",
-            "text": "323 K.",
-            "start": 925,
-            "end": 931
-        },
-        {
             "label": "MOL",
             "text": "lipids",
             "start": 1231,
             "end": 1237
         },
         {
-            "label": "SOFTNAME",
-            "text": "LINCS",
-            "start": 1244,
-            "end": 1249
+            "label": "TEMP",
+            "text": "323 K",
+            "start": 925,
+            "end": 930
         },
         {
-            "label": "SOFTNAME",
-            "text": "SETTLE",
-            "start": 1300,
-            "end": 1306
+            "label": "STIME",
+            "text": "110 ns",
+            "start": 683,
+            "end": 689
         }
     ]
 }
