@@ -1,0 +1,55 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Data from: Protein Conformational Space at the Edge of Allostery: Turning a Non-allosteric Malate Dehydrogenase into an \"Allosterized\" Enzyme using Evolution Guided Punctual Mutations\nThis data accompanies the paper entitled Protein Conformational Space at the Edge of Allostery: Turning a Non-allosteric Malate Dehydrogenase into an Allosterized Enzyme using Evolution Guided Punctual Mutations The zip archive contains the results of molecular dynamics simulations of the 4 systems investigated in the paper: wt of A. ful MalDH and three mutants. Each system has been simulated at two temperatures, 300 K and 340 K. Starting configurations of the proteins after equilibration are provided for all the systems in GRO Gromos87 format. Trajectories with the positions of the proteins every 100 ps are provided for all the systems in XTC gromacs format.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Malate Dehydrogenase",
+            "start": 91,
+            "end": 111
+        },
+        {
+            "label": "MOL",
+            "text": "Malate Dehydrogenase",
+            "start": 305,
+            "end": 325
+        },
+        {
+            "label": "MOL",
+            "text": "MalDH",
+            "start": 524,
+            "end": 529
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 601,
+            "end": 606
+        },
+        {
+            "label": "TEMP",
+            "text": "340 K.",
+            "start": 611,
+            "end": 617
+        },
+        {
+            "label": "FFM",
+            "text": "Gromos87",
+            "start": 718,
+            "end": 726
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "gromacs",
+            "start": 836,
+            "end": 843
+        }
+    ]
+}

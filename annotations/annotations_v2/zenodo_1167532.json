@@ -1,0 +1,121 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Simulation of a POPC bilayer at 298K, lipid model by Maciejewski and Rog\nSimulation of a POPC bilayer containing 128 lipids with 40 water molecules per lipid and in the absence of ions at 298 K. The lipid model by Maciejewski and Rog [1,2] was used. Topologies (.itp) were obtained from [2]. TIP3P water was used, and the ions were modelled using default OPLS ion parameters. The simulation is 200 ns long with trajectory saved every 100 ps. Simulations were performed with Gromacs 2016.3 [3] The trajectory (.xtc), energy file (.edr), checkpoint file (.cpt), run input file (.tpr), index file (.ndx), topology file (.top), final structure (gro), and the simulation parameter file (.mdp) are provided. [1] Maciejewski et al., J. Phys Chem. B 118, 2014, pp. 4571 4581, DOI: 10.1021/jp5016627 [2] Kulig et al., Data in Brief 5, 2015, pp. 333 336, DOI: 10.1016/j.dib.2015.09.013 [3] Abraham et al., SoftwareX 1 2, 2015, pp. 19 25, DOI: 10.1016/j.softx.2015.06.001",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 16,
+            "end": 20
+        },
+        {
+            "label": "TEMP",
+            "text": "298K",
+            "start": 32,
+            "end": 36
+        },
+        {
+            "label": "MOL",
+            "text": "lipid",
+            "start": 38,
+            "end": 43
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 89,
+            "end": 93
+        },
+        {
+            "label": "MOL",
+            "text": "lipids",
+            "start": 117,
+            "end": 123
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 132,
+            "end": 137
+        },
+        {
+            "label": "MOL",
+            "text": "lipid",
+            "start": 152,
+            "end": 157
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 180,
+            "end": 184
+        },
+        {
+            "label": "TEMP",
+            "text": "298 K.",
+            "start": 188,
+            "end": 194
+        },
+        {
+            "label": "MOL",
+            "text": "lipid",
+            "start": 199,
+            "end": 204
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 292,
+            "end": 297
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 298,
+            "end": 303
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 322,
+            "end": 326
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS",
+            "start": 355,
+            "end": 359
+        },
+        {
+            "label": "MOL",
+            "text": "ion",
+            "start": 360,
+            "end": 363
+        },
+        {
+            "label": "STIME",
+            "text": "200 ns",
+            "start": 394,
+            "end": 400
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 474,
+            "end": 481
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2016.3",
+            "start": 482,
+            "end": 488
+        }
+    ]
+}

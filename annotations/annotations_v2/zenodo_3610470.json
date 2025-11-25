@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "GMX lipid17.ff: Gromacs Port of the amber LIPID17 force field\nThis is a Gromacs port of the amber LIPID17 force field. To use this force field, the user can construct the lipid bilayer using Charmm-GUI and convert the atom names to the amber atom names using charmmlipid2amber.py. This port has also retained the modular feature of the LIPID17 force field, where the user can customise the head group or acryl chain and use pdb2gmx to construct the topology. The coordinate files for the amber lipids can also be obtained from the 'gro' folder. The force field 'lipid17.ff', itp file 'lipid17.itp' and a custom PI head group are all included in the attached compressed file. For the details of the generation and validation protocol, please consult the relevant Github page.",
+    "entities": [
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 16,
+            "end": 23
+        },
+        {
+            "label": "FFM",
+            "text": "amber LIPID17",
+            "start": 36,
+            "end": 49
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 72,
+            "end": 79
+        },
+        {
+            "label": "FFM",
+            "text": "amber LIPID17",
+            "start": 92,
+            "end": 105
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Charmm-GUI",
+            "start": 191,
+            "end": 201
+        },
+        {
+            "label": "FFM",
+            "text": "amber",
+            "start": 236,
+            "end": 241
+        },
+        {
+            "label": "FFM",
+            "text": "LIPID17",
+            "start": 336,
+            "end": 343
+        },
+        {
+            "label": "MOL",
+            "text": "acryl",
+            "start": 404,
+            "end": 409
+        },
+        {
+            "label": "FFM",
+            "text": "amber",
+            "start": 488,
+            "end": 493
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Github",
+            "start": 762,
+            "end": 768
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Deep potential model and datasets used in the publication \"Plastic Deformation of Superionic Water Ices\"\nThe file training data for deepmd.zip contains the training set and deep potential model for superionic ices used in the publication \"Plastic Deformation of Superionic Water Ices\". The deep potential (DP) neural-network model was generated using the DeepMD-kit package. The training set was generated using AIMD/CP2K calculations for both undeformed and deformed states of the fcc superionic phase at temperatures of 2500, 3000, 3500 and 4000 K. The file cp2k shear.zip contains instructions to modify the CP2K code to calculate the shear vs strain deformation in continuous mode. The file lammps dislocation.zip contains the files needed to run the dislocation mobility calculation. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 93,
+            "end": 98
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 273,
+            "end": 278
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "DeepMD-kit",
+            "start": 355,
+            "end": 365
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AIMD",
+            "start": 412,
+            "end": 416
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CP2K",
+            "start": 417,
+            "end": 421
+        },
+        {
+            "label": "TEMP",
+            "text": "2500",
+            "start": 522,
+            "end": 526
+        },
+        {
+            "label": "TEMP",
+            "text": "3000",
+            "start": 528,
+            "end": 532
+        },
+        {
+            "label": "TEMP",
+            "text": "3500",
+            "start": 534,
+            "end": 538
+        },
+        {
+            "label": "TEMP",
+            "text": "4000 K.",
+            "start": 543,
+            "end": 550
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "cp2k",
+            "start": 560,
+            "end": 564
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CP2K",
+            "start": 611,
+            "end": 615
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "lammps",
+            "start": 695,
+            "end": 701
+        }
+    ]
+}

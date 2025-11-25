@@ -1,0 +1,67 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "CHARMM27 dynamics simulation trajectories of α-conotoxin LsIA and its C-terminal carboxylated analogue bound at α3β2 nAChR\nThe whole simulation trajectories (28 individual trajectories with 27ns for each) contain the coordinates and parameters of atoms with time for α-conotoxin LsIA and its C-terminal carboxylated analogue anchored to rat α3β2 nAChR, respectively. The GROMACS 4.6.5 with the CHARMM27 force field is used for the simulation. The trajectory (.xtc) files are saved every 100ps time for each protein complex only. The portable binary run input (.tpr) files are also uploaded with the data.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "CHARMM27",
+            "start": 0,
+            "end": 8
+        },
+        {
+            "label": "MOL",
+            "text": "α-conotoxin LsIA",
+            "start": 45,
+            "end": 61
+        },
+        {
+            "label": "MOL",
+            "text": "α3β2 nAChR",
+            "start": 112,
+            "end": 122
+        },
+        {
+            "label": "STIME",
+            "text": "27ns",
+            "start": 190,
+            "end": 194
+        },
+        {
+            "label": "MOL",
+            "text": "α-conotoxin LsIA",
+            "start": 267,
+            "end": 283
+        },
+        {
+            "label": "MOL",
+            "text": "α3β2 nAChR",
+            "start": 341,
+            "end": 351
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 371,
+            "end": 378
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.6.5",
+            "start": 379,
+            "end": 384
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM27",
+            "start": 394,
+            "end": 402
+        }
+    ]
+}

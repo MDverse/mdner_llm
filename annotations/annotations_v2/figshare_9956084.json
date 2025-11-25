@@ -1,0 +1,49 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Evidence of a Low High Density Turning Point in Liquid Water at Ordinary Temperature under Pressure: A Molecular Dynamics Study\nWater has a fundamental role in important processes spanning a wide range of pressure and temperature conditions. Knowledge of structural, dynamic and thermodynamic properties of water at nonstandard conditions is a primary concern since interest in astronomical, geological, and technological processes is continuously growing. Molecular dynamics simulations allow us to study thermodynamic conditions that require sophisticated techniques and instruments, while at the same time offering the interpretation of properties at the atomic level. It is established that the behavior of water is strongly affected by the temperature and pressure conditions, determining the existence of low and high density regimes. For the first time, a thermodynamic property, isothermal compressibility, has been adopted to detect the low high density turning point at ambient temperature in liquid water due to pressure. Molecular dynamics simulations have been performed with five three-site models, allowing us to characterize the complexity of water nature at these conditions at the atomic level.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 55,
+            "end": 60
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 128,
+            "end": 133
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 307,
+            "end": 312
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 711,
+            "end": 716
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1010,
+            "end": 1015
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1159,
+            "end": 1164
+        }
+    ]
+}

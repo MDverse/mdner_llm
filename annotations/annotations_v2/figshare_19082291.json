@@ -1,0 +1,115 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Importance of Three-Body Problems and Protein Protein Interactions in Proteolysis-Targeting Chimera Modeling: Insights from Molecular Dynamics Simulations\nProteolysis-targeting chimeras (PROTACs) are a class of bifunctional molecules that can induce the ubiquitin degradation of its target protein by hijacking the E3 ligase to form a target protein-PROTAC-E3 ligase ternary complex. Its underlying principle has inspired the development of a wide range of protein degraders that are similar to or beyond PROTACs in recent years. The formation of the ternary complexes is the key to the success of PROTAC-induced protein degradation. Nevertheless, the lack of effective ternary complex modeling techniques has limited the application of computer-aided drug discovery tools to this emerging and fast developing new land in drug industry. Thus, in this study, we explored the application of the more physically sound molecular dynamics simulation and the molecular mechanics combined with the generalized Born and surface area continuum solvation (MM/GBSA) method to solve the underlying three-body problem in PROTAC modeling. We first verified the accuracy of our approach using a series of known Brd4 BD2 degraders. The calculated binding energy showed a good correlation with the experimental Kd values. The modeling of a unique property, namely, the value, for PROTACs was also first and accurately performed to our best knowledge. The results also demonstrated the importance of PROTAC-induced protein protein interactions in its modeling, either qualitatively or quantitatively. Finally, by standing on the success of earlier docking-based approaches, our protocol was also applied as a rescoring function in pose prediction. The results showed a notable improvement in reranking the initial poses generated from a modified Rosetta method, which was reportedly one of the best among a handful of PROTAC modeling approaches available in this field. We hope this work could provide a practical protocol and more insights to study the binding and the design of PROTACs and other protein degraders.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Proteolysis-Targeting Chimera",
+            "start": 70,
+            "end": 99
+        },
+        {
+            "label": "MOL",
+            "text": "Proteolysis-targeting chimeras",
+            "start": 155,
+            "end": 185
+        },
+        {
+            "label": "MOL",
+            "text": "PROTACs",
+            "start": 187,
+            "end": 194
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin",
+            "start": 254,
+            "end": 263
+        },
+        {
+            "label": "MOL",
+            "text": "E3 ligase",
+            "start": 315,
+            "end": 324
+        },
+        {
+            "label": "MOL",
+            "text": "PROTAC",
+            "start": 350,
+            "end": 356
+        },
+        {
+            "label": "MOL",
+            "text": "E3 ligase",
+            "start": 357,
+            "end": 366
+        },
+        {
+            "label": "MOL",
+            "text": "PROTACs",
+            "start": 505,
+            "end": 512
+        },
+        {
+            "label": "MOL",
+            "text": "PROTAC",
+            "start": 598,
+            "end": 604
+        },
+        {
+            "label": "MOL",
+            "text": "PROTAC",
+            "start": 1108,
+            "end": 1114
+        },
+        {
+            "label": "MOL",
+            "text": "Brd4 BD2",
+            "start": 1196,
+            "end": 1204
+        },
+        {
+            "label": "MOL",
+            "text": "PROTACs",
+            "start": 1363,
+            "end": 1370
+        },
+        {
+            "label": "MOL",
+            "text": "PROTAC",
+            "start": 1482,
+            "end": 1488
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Rosetta",
+            "start": 1828,
+            "end": 1835
+        },
+        {
+            "label": "MOL",
+            "text": "PROTAC",
+            "start": 1900,
+            "end": 1906
+        },
+        {
+            "label": "MOL",
+            "text": "PROTACs",
+            "start": 2062,
+            "end": 2069
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 2080,
+            "end": 2087
+        }
+    ]
+}

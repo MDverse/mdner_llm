@@ -1,0 +1,55 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Growth and Characterization of Molecular Crystals of para-Sexiphenyl by All-Atom Computer Simulations\nWe present all-atom molecular dynamics computer simulations of molecular crystals of the conjugated organic molecule para-sexiphenyl (p-6P), which constitutes a popular basic molecule for optoelectronic applications. After validating single-molecule properties with ab initio calculations, we demonstrate that gradually performed simulated temperature annealing leads to the spontaneous self-assembly of p-6P molecules from the fully isotropic state into the correct room-temperature solid crystal, with only a few percent deviation from the experimental unit-cell structure. A detailed investigation of the single crystal in anisotropic Gibbs ensemble simulations yields experimentally consistent structures and solid to liquid-crystal phase behavior over a wide temperature range, providing molecular insight into nanometer-scale structural and dynamic properties of self-assembled p-6P crystals. This study thus paves the way for future investigations of the computational description of nucleation and growth mechanisms of novel p-polyphenylene derivatives in the bulk as well as at functional interfaces or heterojunctions.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "para-Sexiphenyl",
+            "start": 53,
+            "end": 68
+        },
+        {
+            "label": "MOL",
+            "text": "para-sexiphenyl",
+            "start": 219,
+            "end": 234
+        },
+        {
+            "label": "MOL",
+            "text": "p-6P",
+            "start": 236,
+            "end": 240
+        },
+        {
+            "label": "MOL",
+            "text": "p-6P",
+            "start": 506,
+            "end": 510
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gibbs",
+            "start": 740,
+            "end": 745
+        },
+        {
+            "label": "MOL",
+            "text": "p-6P",
+            "start": 986,
+            "end": 990
+        },
+        {
+            "label": "MOL",
+            "text": "p-polyphenylene",
+            "start": 1135,
+            "end": 1150
+        }
+    ]
+}

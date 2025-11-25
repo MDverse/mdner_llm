@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "MD simulation of POPC bilayer with OPLS3e force field. Full hydration 44 w/l\nMD simulation of POPC (1-palmitoyl-2-oleoyl-phosphatidylcholine) bilayer with OPLS3e force field. Full hydration 44 w/l. Dataset contains trajectories ( trj), topologies (-out.cms) and input files (.cfg, .msj, .cms), and other files. For the ease of the upload, trajectory files ( trj) are divided to 100ns pieces and tarred (named popc44 x-xns trj.tar.gz) Gromacs converted files are also included: popchydr44 0-500ns.xtc, desmond md popc200lip500ns-in converted.gro desmond md popc200lip500ns-in converted.top System: POPC bilayer in water Number of lipids: 200 (100/leaflet) Number of waters: 8859 Simulation engine: Desmond 2019-4",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 17,
+            "end": 21
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS3e",
+            "start": 35,
+            "end": 41
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 94,
+            "end": 98
+        },
+        {
+            "label": "MOL",
+            "text": "1-palmitoyl-2-oleoyl-phosphatidylcholine",
+            "start": 100,
+            "end": 140
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS3e",
+            "start": 155,
+            "end": 161
+        },
+        {
+            "label": "STIME",
+            "text": "100ns",
+            "start": 378,
+            "end": 383
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 434,
+            "end": 441
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 597,
+            "end": 601
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 613,
+            "end": 618
+        },
+        {
+            "label": "MOL",
+            "text": "waters",
+            "start": 665,
+            "end": 671
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Desmond",
+            "start": 697,
+            "end": 704
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2019-4",
+            "start": 705,
+            "end": 711
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "desmond",
+            "start": 501,
+            "end": 508
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "desmond",
+            "start": 545,
+            "end": 552
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Set simulations small pure bilayers (72 lipids) using charmm36 ff in gromacs (DPPC, POPC)\nCollection simulations of DPPC and POPC bilayers in gromacs using the charmm36 force field. The list of systems describing their particular simulation conditions can be found below: 1) DPPC 72 325K (500ns) 2) DPPC 72 310K rmcomm leaflets (500ns) 3) DPPC 72 310K rmcomm leaflets low hydration (500ns) 4) POPC 72 310K (500ns) 5) POPC 72 310K rmcomm leaflets (500ns) 6) POPC 72 310K rmcomm leaflets low hydration (550ns) 7) POPC 72 303K rmcomm leaflets low hydration (550ns) For further information read the Readme file provided for each simulation.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "charmm36",
+            "start": 54,
+            "end": 62
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "gromacs",
+            "start": 69,
+            "end": 76
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 78,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 84,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 116,
+            "end": 120
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 125,
+            "end": 129
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "gromacs",
+            "start": 142,
+            "end": 149
+        },
+        {
+            "label": "FFM",
+            "text": "charmm36",
+            "start": 160,
+            "end": 168
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 275,
+            "end": 279
+        },
+        {
+            "label": "TEMP",
+            "text": "325K",
+            "start": 283,
+            "end": 287
+        },
+        {
+            "label": "STIME",
+            "text": "500ns",
+            "start": 289,
+            "end": 294
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 299,
+            "end": 303
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 307,
+            "end": 311
+        },
+        {
+            "label": "STIME",
+            "text": "500ns",
+            "start": 329,
+            "end": 334
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 339,
+            "end": 343
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 347,
+            "end": 351
+        },
+        {
+            "label": "STIME",
+            "text": "500ns",
+            "start": 383,
+            "end": 388
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 393,
+            "end": 397
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 401,
+            "end": 405
+        },
+        {
+            "label": "STIME",
+            "text": "500ns",
+            "start": 407,
+            "end": 412
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 417,
+            "end": 421
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 425,
+            "end": 429
+        },
+        {
+            "label": "STIME",
+            "text": "500ns",
+            "start": 447,
+            "end": 452
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 457,
+            "end": 461
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 465,
+            "end": 469
+        },
+        {
+            "label": "STIME",
+            "text": "550ns",
+            "start": 501,
+            "end": 506
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 511,
+            "end": 515
+        },
+        {
+            "label": "TEMP",
+            "text": "303K",
+            "start": 519,
+            "end": 523
+        },
+        {
+            "label": "STIME",
+            "text": "550ns",
+            "start": 555,
+            "end": 560
+        }
+    ]
+}

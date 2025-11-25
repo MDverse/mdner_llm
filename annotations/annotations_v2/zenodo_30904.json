@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "POPC Ulmschneider OPLS Verlet Group\nMD simulation trajectory and related files for fully hydrated POPC bilayer run with Verlet and Group schemes. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Conditions: T 298.15, 128 POPC molecules, 5120 tip3p waters. 200ns trajectory (preceded by 5ns NPT equillibration). Starting structure was obtained from CHARMM-GUI [3]. This data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://removed [1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5 (7), 1803 1813 [2] https://removed [3] https://removed",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS",
+            "start": 18,
+            "end": 22
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 98,
+            "end": 102
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 179,
+            "end": 183
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 198,
+            "end": 205
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.0.3",
+            "start": 206,
+            "end": 211
+        },
+        {
+            "label": "TEMP",
+            "text": "298.15",
+            "start": 233,
+            "end": 239
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 245,
+            "end": 249
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 266,
+            "end": 271
+        },
+        {
+            "label": "MOL",
+            "text": "waters",
+            "start": 272,
+            "end": 278
+        },
+        {
+            "label": "STIME",
+            "text": "200ns",
+            "start": 280,
+            "end": 285
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 372,
+            "end": 382
+        }
+    ]
+}

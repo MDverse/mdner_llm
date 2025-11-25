@@ -1,0 +1,115 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Are Protein Force Fields Getting Better? A Systematic Benchmark on 524 Diverse NMR Measurements\nRecent hardware and software advances have enabled simulation studies of protein systems on biophysically relevant time scales, often revealing the need for improved force fields. Although early force field development was limited by the lack of direct comparisons between simulation and experiment, recent work from several laboratories has demonstrated direct calculation of NMR observables from protein simulations. Here, we quantitatively evaluate 11 recent molecular dynamics force fields in combination with 5 solvent models against a suite of 524 chemical shift and J coupling (3JHNH , 3JHNC , 3JH C , 3JHNC , and 3JH N) measurements on dipeptides, tripeptides, tetra-alanine, and ubiquitin. Of the force fields examined (ff96, ff99, ff03, ff03*, ff03w, ff99sb*, ff99sb-ildn, ff99sb-ildn-phi, ff99sb-ildn-NMR, CHARMM27, and OPLS-AA), two force fields (ff99sb-ildn-phi, ff99sb-ildn-NMR) combining recent side chain and backbone torsion modifications achieved high accuracy in our benchmark. For the two optimal force fields, the calculation error is comparable to the uncertainty in the experimental comparison. This observation suggests that extracting additional force field improvements from NMR data may require increased accuracy in J coupling and chemical shift prediction. To further investigate the limitations of current force fields, we also consider conformational populations of dipeptides, which were recently estimated using vibrational spectroscopy.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "dipeptides",
+            "start": 740,
+            "end": 750
+        },
+        {
+            "label": "MOL",
+            "text": "tripeptides",
+            "start": 752,
+            "end": 763
+        },
+        {
+            "label": "MOL",
+            "text": "tetra-alanine",
+            "start": 765,
+            "end": 778
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin",
+            "start": 784,
+            "end": 793
+        },
+        {
+            "label": "FFM",
+            "text": "ff96",
+            "start": 825,
+            "end": 829
+        },
+        {
+            "label": "FFM",
+            "text": "ff99",
+            "start": 831,
+            "end": 835
+        },
+        {
+            "label": "FFM",
+            "text": "ff03",
+            "start": 837,
+            "end": 841
+        },
+        {
+            "label": "FFM",
+            "text": "ff03*",
+            "start": 843,
+            "end": 848
+        },
+        {
+            "label": "FFM",
+            "text": "ff03w",
+            "start": 850,
+            "end": 855
+        },
+        {
+            "label": "FFM",
+            "text": "ff99sb*",
+            "start": 857,
+            "end": 864
+        },
+        {
+            "label": "FFM",
+            "text": "ff99sb-ildn",
+            "start": 866,
+            "end": 877
+        },
+        {
+            "label": "FFM",
+            "text": "ff99sb-ildn-phi",
+            "start": 879,
+            "end": 894
+        },
+        {
+            "label": "FFM",
+            "text": "ff99sb-ildn-NMR",
+            "start": 896,
+            "end": 911
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM27",
+            "start": 913,
+            "end": 921
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS-AA",
+            "start": 927,
+            "end": 934
+        },
+        {
+            "label": "FFM",
+            "text": "ff99sb-ildn-phi",
+            "start": 955,
+            "end": 970
+        },
+        {
+            "label": "FFM",
+            "text": "ff99sb-ildn-NMR",
+            "start": 972,
+            "end": 987
+        }
+    ]
+}

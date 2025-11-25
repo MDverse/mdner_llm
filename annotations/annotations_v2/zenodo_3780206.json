@@ -1,0 +1,67 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics simulation data of regulatory ACT domain dimer of human phenylalanine hydroxylase (PAH)\nRaw data of molecular dynamics simulations of regulatory ACT domain dimer. binding.zip: simulation starting from 21 dimer conformations with 19 Phe ligand bound.zip: simulation starting from dimer with bound Phe ligand dimer.zip: simulation starting from 21 dimer conformations simulation Simulation setup files are also included in each folder. Details can be found in this paper: Yunhui Ge, Elias Borne, Shannon Stewart, Michael R. Hansen, Emilia C. Arturo, Eileen K. Jaffe and Vincent A. Voelz. Simulation of the regulatory ACT domain of human PAH unveil the mechanism of phenylalanine binding. J. Biol. Chem., 2018, 293 (51), pp 19532-19543",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "ACT",
+            "start": 49,
+            "end": 52
+        },
+        {
+            "label": "MOL",
+            "text": "phenylalanine hydroxylase",
+            "start": 75,
+            "end": 100
+        },
+        {
+            "label": "MOL",
+            "text": "PAH",
+            "start": 102,
+            "end": 105
+        },
+        {
+            "label": "MOL",
+            "text": "ACT",
+            "start": 164,
+            "end": 167
+        },
+        {
+            "label": "MOL",
+            "text": "Phe",
+            "start": 251,
+            "end": 254
+        },
+        {
+            "label": "MOL",
+            "text": "Phe",
+            "start": 315,
+            "end": 318
+        },
+        {
+            "label": "MOL",
+            "text": "ACT",
+            "start": 634,
+            "end": 637
+        },
+        {
+            "label": "MOL",
+            "text": "PAH",
+            "start": 654,
+            "end": 657
+        },
+        {
+            "label": "MOL",
+            "text": "phenylalanine",
+            "start": 682,
+            "end": 695
+        }
+    ]
+}

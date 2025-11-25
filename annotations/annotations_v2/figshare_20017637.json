@@ -1,0 +1,193 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "On the Possibility That Bond Strain Is the Mechanism of RING E3 Activation in the E2-Catalyzed Ubiquitination Reaction\nUbiquitination is a type of post-translational modification wherein the small protein ubiquitin (Ub) is covalently bound to a lysine on a target protein. Ubiquitination can signal for several regulatory pathways including protein degradation. Ubiquitination occurs by a series of reactions catalyzed by three types of enzymes: ubiquitin activating enzymes, E1; ubiquitin conjugating enzymes, E2; and ubiquitin ligases, E3. E2 enzymes directly catalyze the transfer of Ub to the target protein the RING E3 improves the efficiency. Prior to its transfer, Ub is covalently linked to the E2 via a thioester bond and the Ub E2 conjugate forms a quaternary complex with the RING E3. It is hypothesized that the RING E3 improves the catalytic efficiency of ubiquitination by placing the E2 Ub conjugate in a closed position, which tensions and weakens the thioester bond. We interrogate this hypothesis by analyzing the strain on the thioester during molecular dynamics simulations of both open and closed E2 Ub/E3 complexes. Our data indicate that the thioester is strained when the E2 Ub conjugate is in the closed position. We also show that the amount of strain is consistent with the experimental rate enhancement caused by the RING E3. Finally, our simulations show that the closed configuration increases the populations of key hydrogen bonds in the E2 Ub active site. This is consistent with another hypothesis stating that the RING E3 enhances reaction rates by preorganizing the substrates.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 61,
+            "end": 63
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 82,
+            "end": 84
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin",
+            "start": 205,
+            "end": 214
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 216,
+            "end": 218
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin activating enzymes",
+            "start": 446,
+            "end": 474
+        },
+        {
+            "label": "MOL",
+            "text": "E1",
+            "start": 476,
+            "end": 478
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin conjugating enzymes",
+            "start": 480,
+            "end": 509
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 511,
+            "end": 513
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin ligases",
+            "start": 519,
+            "end": 536
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 538,
+            "end": 540
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 542,
+            "end": 544
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 587,
+            "end": 589
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 621,
+            "end": 623
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 672,
+            "end": 674
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 703,
+            "end": 705
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 735,
+            "end": 737
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 738,
+            "end": 740
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 792,
+            "end": 794
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 829,
+            "end": 831
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 899,
+            "end": 901
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 902,
+            "end": 904
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 1118,
+            "end": 1120
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 1121,
+            "end": 1123
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 1124,
+            "end": 1126
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 1196,
+            "end": 1198
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 1199,
+            "end": 1201
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 1350,
+            "end": 1352
+        },
+        {
+            "label": "MOL",
+            "text": "E2",
+            "start": 1469,
+            "end": 1471
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 1472,
+            "end": 1474
+        },
+        {
+            "label": "MOL",
+            "text": "E3",
+            "start": 1553,
+            "end": 1555
+        }
+    ]
+}

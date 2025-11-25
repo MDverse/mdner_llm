@@ -1,0 +1,79 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Structural analysis of human glycoprotein butyrylcholinesterase using atomistic molecular dynamics: The importance of glycosylation site ASN241\nHuman butyrylcholinesterase (BChE) is a glycoprotein capable of bioscavenging toxic compounds such as organophosphorus (OP) nerve agents. For commercial production of BChE, it is practical to synthesize BChE in non human expression systems, such as plants or animals. However, the glycosylation profile in these systems is significantly different from the human glycosylation profile, which could result in changes in BChE s structure and function. From our investigation, we found that the glycan attached to ASN241 is both structurally and functionally important due to its close proximity to the BChE tetramerization domain and the active site gorge. To investigate the effects of populating glycosylation site ASN241, monomeric human BChE glycoforms were simulated with and without site ASN241 glycosylated. Our simulations indicate that the structure and function of human BChE are significantly affected by the absence of glycan 241.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "human glycoprotein butyrylcholinesterase",
+            "start": 23,
+            "end": 63
+        },
+        {
+            "label": "MOL",
+            "text": "Human butyrylcholinesterase",
+            "start": 144,
+            "end": 171
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 173,
+            "end": 177
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 311,
+            "end": 315
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 347,
+            "end": 351
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 562,
+            "end": 566
+        },
+        {
+            "label": "MOL",
+            "text": "glycan",
+            "start": 635,
+            "end": 641
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 743,
+            "end": 747
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 882,
+            "end": 886
+        },
+        {
+            "label": "MOL",
+            "text": "BChE",
+            "start": 1022,
+            "end": 1026
+        },
+        {
+            "label": "MOL",
+            "text": "glycan",
+            "start": 1072,
+            "end": 1078
+        }
+    ]
+}

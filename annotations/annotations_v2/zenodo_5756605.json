@@ -1,0 +1,79 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "N-Glycosylation effects on T cell receptor kinetics\nThis methodology is an atomic-level investigation of the physiochemical effects of glycosylation on TCR dissociation kinetics. The force-dependent bond lifetime and bond strength of the DMF5 T Cell Receptor (TCR) to the MART1 peptide-Major Histocompatibility Complexes (pMHCs) were simulated using Steered Molecular Dynamics. N-glycsoylated and aglycosylated configurations were compared in triplicate. This data set contains atomic structure of the TCR and pMHC (.gro files), atomic interactions between the TCR and pMHC (hmap & cmap .csv files), and rendered trajecories of the pulling simulations (.mp4).",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "T cell receptor",
+            "start": 27,
+            "end": 42
+        },
+        {
+            "label": "MOL",
+            "text": "TCR",
+            "start": 152,
+            "end": 155
+        },
+        {
+            "label": "MOL",
+            "text": "DMF5",
+            "start": 238,
+            "end": 242
+        },
+        {
+            "label": "MOL",
+            "text": "T Cell Receptor",
+            "start": 243,
+            "end": 258
+        },
+        {
+            "label": "MOL",
+            "text": "TCR",
+            "start": 260,
+            "end": 263
+        },
+        {
+            "label": "MOL",
+            "text": "MART1 peptide-Major Histocompatibility Complexes",
+            "start": 272,
+            "end": 320
+        },
+        {
+            "label": "MOL",
+            "text": "pMHCs",
+            "start": 322,
+            "end": 327
+        },
+        {
+            "label": "MOL",
+            "text": "TCR",
+            "start": 502,
+            "end": 505
+        },
+        {
+            "label": "MOL",
+            "text": "pMHC",
+            "start": 510,
+            "end": 514
+        },
+        {
+            "label": "MOL",
+            "text": "TCR",
+            "start": 561,
+            "end": 564
+        },
+        {
+            "label": "MOL",
+            "text": "pMHC",
+            "start": 569,
+            "end": 573
+        }
+    ]
+}

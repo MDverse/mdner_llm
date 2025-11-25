@@ -1,0 +1,217 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Exploring the interaction of a curcumin azobioisostere with Abeta42 dimers using replica exchange molecular dynamics simulations\nStructural data and parameters relative to the evaluation of the interaction of an anti aggregating azobioisostere compound with the full-length A 42 peptide by replica-exchange molecular dynamics (REMD) simulations. Two different force fields (Amber and CHARMM) were used to simulate the azobioisostere-Abeta42 (AZ-Ab42) complex in a monomeric and dimeric assembly. A brief description of the shared output data is reported below: 1. Amber and CHARMM-adapted parameters for the simulated azobioisostere (AZ) compound. 2. Modified version of the CHARMM36m FF - (CHARMM36mW) 3. Starting (equilibrated) structures (first 5 T-replicas) for REMD on each of the following three systems (PDB): Amber: AZ-Ab42 (monomeric ensemble): Repl.0 (315.0 K), Repl.1 (316.7 K), Repl.2 (318.4 K), Repl.3 (320.1 K), Repl.4 (321.8 K) Amber: AZ-Ab42 (dimeric ensemble): Repl.0 (315.0 K), Repl.1 (316.0 K), Repl.2 (317.0 K), Repl.3 (318.0 K), Repl.4 (319.1 K) CHARMM: AZ-Ab42 (dimeric ensemble): Repl.0 (315.0 K), Repl.1 (316.0 K), Repl.2 (317.0 K), Repl.3 (318.0 K), Repl.4 (319.1 K) 4. Most populated clusters for the three simulated systems (PDB): Amber AZ-Ab42 (monomeric ensemble): 7 clusters (Cl.0: 12.4%, Cl.1: 10.1%, Cl.2: 9.8%, Cl.3: 5.4%, Cl.4: 3.7%, Cl.5: 3.6%, Cl.6: 2.0%) Amber AZ-Ab42 (dimeric ensemble): 5 clusters (Cl.0: 7.1%, Cl.1: 4.3%, Cl.2: 3.5%, Cl.3: 3.2%, Cl.4: 2.4%) CHARMM: AZ-Ab42 (dimeric ensemble): 3 clusters (Cl.0: 4.7%, Cl.1: 4.6%, Cl.2: 2.5%) ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "curcumin azobioisostere",
+            "start": 31,
+            "end": 54
+        },
+        {
+            "label": "MOL",
+            "text": "Abeta42",
+            "start": 60,
+            "end": 67
+        },
+        {
+            "label": "MOL",
+            "text": "azobioisostere",
+            "start": 229,
+            "end": 243
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 374,
+            "end": 379
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 384,
+            "end": 390
+        },
+        {
+            "label": "MOL",
+            "text": "azobioisostere-Abeta42",
+            "start": 418,
+            "end": 440
+        },
+        {
+            "label": "MOL",
+            "text": "AZ-Ab42",
+            "start": 442,
+            "end": 449
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 564,
+            "end": 569
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 574,
+            "end": 580
+        },
+        {
+            "label": "MOL",
+            "text": "azobioisostere",
+            "start": 618,
+            "end": 632
+        },
+        {
+            "label": "MOL",
+            "text": "AZ",
+            "start": 634,
+            "end": 636
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36m",
+            "start": 675,
+            "end": 684
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36mW",
+            "start": 691,
+            "end": 701
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 817,
+            "end": 822
+        },
+        {
+            "label": "STIME",
+            "text": "315.0 K",
+            "start": 862,
+            "end": 869
+        },
+        {
+            "label": "STIME",
+            "text": "316.7 K",
+            "start": 880,
+            "end": 887
+        },
+        {
+            "label": "STIME",
+            "text": "318.4 K",
+            "start": 898,
+            "end": 905
+        },
+        {
+            "label": "STIME",
+            "text": "320.1 K",
+            "start": 916,
+            "end": 923
+        },
+        {
+            "label": "STIME",
+            "text": "321.8 K",
+            "start": 934,
+            "end": 941
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 943,
+            "end": 948
+        },
+        {
+            "label": "STIME",
+            "text": "315.0 K",
+            "start": 986,
+            "end": 993
+        },
+        {
+            "label": "STIME",
+            "text": "316.0 K",
+            "start": 1004,
+            "end": 1011
+        },
+        {
+            "label": "STIME",
+            "text": "317.0 K",
+            "start": 1022,
+            "end": 1029
+        },
+        {
+            "label": "STIME",
+            "text": "318.0 K",
+            "start": 1040,
+            "end": 1047
+        },
+        {
+            "label": "STIME",
+            "text": "319.1 K",
+            "start": 1058,
+            "end": 1065
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 1067,
+            "end": 1073
+        },
+        {
+            "label": "STIME",
+            "text": "315.0 K",
+            "start": 1111,
+            "end": 1118
+        },
+        {
+            "label": "STIME",
+            "text": "316.0 K",
+            "start": 1129,
+            "end": 1136
+        },
+        {
+            "label": "STIME",
+            "text": "317.0 K",
+            "start": 1147,
+            "end": 1154
+        },
+        {
+            "label": "STIME",
+            "text": "318.0 K",
+            "start": 1165,
+            "end": 1172
+        },
+        {
+            "label": "STIME",
+            "text": "319.1 K",
+            "start": 1183,
+            "end": 1190
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 1258,
+            "end": 1263
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 1392,
+            "end": 1397
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 1498,
+            "end": 1504
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Simulations of DLPC, DOPC, and DEPC membranes\nSimulations of three different lipid bilayers using the CHARMM36 lipid model. The bilayers were built using CHARMM-GUI and simulated for 500 ns using Gromacs 2019. The systems contain 200 lipids (DLPC, DOPC, or DEPC), 50 lipids per water, and 130 mM NaCl. For each simulation, the run input file (tpr), topology (top), index (ndx), trajectory (xtc), log file (log), energy file (edr), continue point (cpt), and the final structure (gro) are given. The topology refers to the Gromacs-compatible CHARMM36 force field, available at https://removed ff.shtml#gromacs and to other itp files provided in this upload. The simulation parameters are given in the md.mdp file.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "DLPC",
+            "start": 15,
+            "end": 19
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 21,
+            "end": 25
+        },
+        {
+            "label": "MOL",
+            "text": "DEPC",
+            "start": 31,
+            "end": 35
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 102,
+            "end": 110
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 154,
+            "end": 164
+        },
+        {
+            "label": "STIME",
+            "text": "500 ns",
+            "start": 183,
+            "end": 189
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 196,
+            "end": 203
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2019",
+            "start": 204,
+            "end": 208
+        },
+        {
+            "label": "MOL",
+            "text": "DLPC",
+            "start": 242,
+            "end": 246
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 248,
+            "end": 252
+        },
+        {
+            "label": "MOL",
+            "text": "DEPC",
+            "start": 257,
+            "end": 261
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 278,
+            "end": 283
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 296,
+            "end": 300
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 521,
+            "end": 528
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 540,
+            "end": 548
+        }
+    ]
+}

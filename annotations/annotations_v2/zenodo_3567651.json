@@ -1,0 +1,79 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Peptidomimetics-based identification of FDA approved compounds inhibiting IRE1 activity: Simulation Data\nProtocols and data sets for docking and MD simulations of Methotrexate, Cefoperazone, Folinic acd and Folic acid interaction with IRE1. All docking data based on Glide (Schro dinger), and all MD simulations are based on the Gromacs software. 2D interaction maps from the initial docking of the four molecules to the four Lysine sites, and from snapshots every 100 ns of the 500 ns MD simulations of the molecules interacting with Lys599 (kinase site) and Lys907 (RNase site). 2D interaction maps produced using Schro dinger. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "IRE1",
+            "start": 74,
+            "end": 78
+        },
+        {
+            "label": "MOL",
+            "text": "Methotrexate",
+            "start": 163,
+            "end": 175
+        },
+        {
+            "label": "MOL",
+            "text": "Cefoperazone",
+            "start": 177,
+            "end": 189
+        },
+        {
+            "label": "MOL",
+            "text": "Folinic",
+            "start": 191,
+            "end": 198
+        },
+        {
+            "label": "MOL",
+            "text": "Folic",
+            "start": 207,
+            "end": 212
+        },
+        {
+            "label": "MOL",
+            "text": "IRE1",
+            "start": 235,
+            "end": 239
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Glide",
+            "start": 267,
+            "end": 272
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 329,
+            "end": 336
+        },
+        {
+            "label": "STIME",
+            "text": "500 ns",
+            "start": 479,
+            "end": 485
+        },
+        {
+            "label": "MOL",
+            "text": "kinase",
+            "start": 543,
+            "end": 549
+        },
+        {
+            "label": "MOL",
+            "text": "RNase",
+            "start": 568,
+            "end": 573
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Reparameterized United Atom Model for Molecular Dynamics Simulations of Gel and Fluid Phosphatidylcholine Bilayers\nA new united atom parametrization of diacyl lipids like dipalmitoylphosphatidylcholine (DPPC) and the dimyristoylphosphatidylcholine (DMPC) has been constructed based on ab initio calculations to obtain fractional charges and the dihedral potential of the hydrocarbon chains, while the Lennard-Jones parameters of the acyl chains were fitted to reproduce the properties of liquid hydrocarbons. The results have been validated against published experimental X-ray and neutron scattering data for fluid and gel phase DPPC. The derived charges of the lipid phosphatidylcholine (PC) headgroup are shown to yield dipole components in the range suggested by experiments. The aim has been to construct a new force field that retains and improves the good agreement for the fluid phase and at the same time produces a gel phase at low temperatures, with properties coherent with experimental findings. The gel phase of diacyl-PC lipids forms a regular triangular lattice in the hydrocarbon region. The global bilayer tilt obtains an azimuthal value of 31 and is aligned between lattice vectors in the bilayer plane. We also show that the model yields a correct heat of melting as well as decent heat capacities in the fluid and gel phase of DPPC.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Phosphatidylcholine",
+            "start": 86,
+            "end": 105
+        },
+        {
+            "label": "MOL",
+            "text": "dipalmitoylphosphatidylcholine",
+            "start": 171,
+            "end": 201
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 203,
+            "end": 207
+        },
+        {
+            "label": "MOL",
+            "text": "dimyristoylphosphatidylcholine",
+            "start": 217,
+            "end": 247
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 249,
+            "end": 253
+        },
+        {
+            "label": "MOL",
+            "text": "hydrocarbon",
+            "start": 371,
+            "end": 382
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 433,
+            "end": 437
+        },
+        {
+            "label": "MOL",
+            "text": "hydrocarbons",
+            "start": 495,
+            "end": 507
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 630,
+            "end": 634
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylcholine",
+            "start": 669,
+            "end": 688
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 690,
+            "end": 692
+        },
+        {
+            "label": "MOL",
+            "text": "diacyl-PC",
+            "start": 1026,
+            "end": 1035
+        },
+        {
+            "label": "MOL",
+            "text": "azimuthal",
+            "start": 1140,
+            "end": 1149
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 1348,
+            "end": 1352
+        }
+    ]
+}

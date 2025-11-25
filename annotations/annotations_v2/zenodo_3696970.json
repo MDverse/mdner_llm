@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Probing the Electrical Double Layer by Operando X-ray Photoelectron Spectroscopy through a Graphene-Carbon Nanotube Composite Window\nSupporting information for Molecular Dynamics NAMD 2.0 simulations of BPY1,4-TFSI-Li ionic liquid mixture encased in cuboid graphene box for graphene window double layer calculations presented in submitted manuscript to Eco Mat journal. The files contain new developed parameters for BPY1,3-TFSI force field based on Gaussian09 DFT calculations and relevant PDB and PSF and configuration files for NAMD runs at 0, 1 and 3Volt. Abstract: The electrical double layer is known to spontaneously form at the electrode-electrolyte interface, impacting many important chemical and physical processes as well as applications including electrocatalysis, electroorganic synthesis, nanomaterial preparation, energy storage, and even emulsion stabilization. However, it has been challenging to study this fundamental phenomenon at the molecular level because the electrical double layer is deeply buried by the bulk electrolyte solution. Here, we report a quantitative probing of the electrical double layer of ionic liquids from the solid side of a photoelectron-transparent graphene-carbon nanotube hybrid membrane electrode using X-ray photoelectron spectroscopy. The membrane window is ultrathin (~1.5 nm), large (~1 cm2), and robust, enabling a tight seal of the electrolyte and quantitative measurement with excellent photoelectron signals. By operandomonitoring the population changes of cations and anions in response to the applied electrical potentials, we experimentally resolve the chemical structure and dynamics of the electrical double layer, which corroborate results from molecular dynamics simulations.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Graphene",
+            "start": 91,
+            "end": 99
+        },
+        {
+            "label": "MOL",
+            "text": "Carbon",
+            "start": 100,
+            "end": 106
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "NAMD",
+            "start": 179,
+            "end": 183
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2.0",
+            "start": 184,
+            "end": 187
+        },
+        {
+            "label": "MOL",
+            "text": "BPY1,4-TFSI-Li",
+            "start": 203,
+            "end": 217
+        },
+        {
+            "label": "MOL",
+            "text": "graphene",
+            "start": 257,
+            "end": 265
+        },
+        {
+            "label": "MOL",
+            "text": "graphene",
+            "start": 274,
+            "end": 282
+        },
+        {
+            "label": "MOL",
+            "text": "BPY1,3-TFSI",
+            "start": 417,
+            "end": 428
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gaussian09",
+            "start": 450,
+            "end": 460
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "NAMD",
+            "start": 531,
+            "end": 535
+        },
+        {
+            "label": "MOL",
+            "text": "electrolyte",
+            "start": 1037,
+            "end": 1048
+        },
+        {
+            "label": "MOL",
+            "text": "graphene",
+            "start": 1197,
+            "end": 1205
+        },
+        {
+            "label": "MOL",
+            "text": "carbon",
+            "start": 1206,
+            "end": 1212
+        },
+        {
+            "label": "MOL",
+            "text": "electrolyte",
+            "start": 1389,
+            "end": 1400
+        }
+    ]
+}

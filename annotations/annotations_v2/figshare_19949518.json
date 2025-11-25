@@ -1,0 +1,289 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Understanding the Mannose Transfer Mechanism of Mycobacterial Phosphatidyl-myo-inositol Mannosyltransferase A from Molecular Dynamics Simulations\nGlycolipids like phosphatidylinositol hexamannosides (PIM6) and lipoglycans, such as lipomannan (LM) and lipoarabinomannan (LAM), play crucial roles in virulence, survival, and antibiotic resistance of various mycobacterial species. Phosphatidyl-myo-inositol mannosyltransferase A (PimA) catalyzes the transfer of the mannose moiety (M) from GDP-mannose (GDPM) to phosphatidyl-myo-inositol (PI) to synthesize GDP and phosphatidyl-myo-inositol monomannoside (PIM). This PIM is mannosylated, acylated, and further modified to give rise to the higher PIMs, LM, and LAM. It is yet to be known how PI, PIM, PI-GDPM, and PIM-GDP interact with PimA. Here, we report the docked structures of PI and PIM to understand how the substrates and the products interact with PimA. Using molecular dynamics (MD) simulations for 300 ns, we have investigated how various ligand-bound conformations change the dynamics of PimA. Our studies demonstrated the open to closed motions of PimA. We observed that PimA is least dynamic when bound to both GDPM and PI. MD simulations indicated that the loop residues 59 70 and the -helical residues 73 86 of PimA play important roles while interacting with both PI and PIM. MD analyses also suggested that the residues Y9, P59, R68, L69, N97, R196, R201, K202, and R228 of PimA play significant roles in the mannose transfer reaction. Overall, docking studies and MD simulations provide crucial insights to design future therapeutic drugs against mycobacterial PimA.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Mannose",
+            "start": 18,
+            "end": 25
+        },
+        {
+            "label": "MOL",
+            "text": "Phosphatidyl-myo-inositol Mannosyltransferase A",
+            "start": 62,
+            "end": 109
+        },
+        {
+            "label": "MOL",
+            "text": "Glycolipids",
+            "start": 146,
+            "end": 157
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylinositol hexamannosides",
+            "start": 163,
+            "end": 198
+        },
+        {
+            "label": "MOL",
+            "text": "PIM6",
+            "start": 200,
+            "end": 204
+        },
+        {
+            "label": "MOL",
+            "text": "lipoglycans",
+            "start": 210,
+            "end": 221
+        },
+        {
+            "label": "MOL",
+            "text": "lipomannan",
+            "start": 231,
+            "end": 241
+        },
+        {
+            "label": "MOL",
+            "text": "LM",
+            "start": 243,
+            "end": 245
+        },
+        {
+            "label": "MOL",
+            "text": "lipoarabinomannan",
+            "start": 251,
+            "end": 268
+        },
+        {
+            "label": "MOL",
+            "text": "LAM",
+            "start": 270,
+            "end": 273
+        },
+        {
+            "label": "MOL",
+            "text": "Phosphatidyl-myo-inositol mannosyltransferase A",
+            "start": 379,
+            "end": 426
+        },
+        {
+            "label": "MOL",
+            "text": "PimA",
+            "start": 428,
+            "end": 432
+        },
+        {
+            "label": "MOL",
+            "text": "mannose",
+            "start": 464,
+            "end": 471
+        },
+        {
+            "label": "MOL",
+            "text": "M",
+            "start": 480,
+            "end": 481
+        },
+        {
+            "label": "MOL",
+            "text": "GDP-mannose",
+            "start": 488,
+            "end": 499
+        },
+        {
+            "label": "MOL",
+            "text": "GDPM",
+            "start": 501,
+            "end": 505
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidyl-myo-inositol",
+            "start": 510,
+            "end": 535
+        },
+        {
+            "label": "MOL",
+            "text": "PI",
+            "start": 537,
+            "end": 539
+        },
+        {
+            "label": "MOL",
+            "text": "GDP",
+            "start": 555,
+            "end": 558
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidyl-myo-inositol monomannoside",
+            "start": 563,
+            "end": 602
+        },
+        {
+            "label": "MOL",
+            "text": "PIM",
+            "start": 604,
+            "end": 607
+        },
+        {
+            "label": "MOL",
+            "text": "PIM",
+            "start": 615,
+            "end": 618
+        },
+        {
+            "label": "MOL",
+            "text": "PIMs",
+            "start": 694,
+            "end": 698
+        },
+        {
+            "label": "MOL",
+            "text": "LM",
+            "start": 700,
+            "end": 702
+        },
+        {
+            "label": "MOL",
+            "text": "LAM",
+            "start": 708,
+            "end": 711
+        },
+        {
+            "label": "MOL",
+            "text": "PI",
+            "start": 739,
+            "end": 741
+        },
+        {
+            "label": "MOL",
+            "text": "PIM",
+            "start": 743,
+            "end": 746
+        },
+        {
+            "label": "MOL",
+            "text": "PI",
+            "start": 748,
+            "end": 750
+        },
+        {
+            "label": "MOL",
+            "text": "GDPM",
+            "start": 751,
+            "end": 755
+        },
+        {
+            "label": "MOL",
+            "text": "PIM",
+            "start": 761,
+            "end": 764
+        },
+        {
+            "label": "MOL",
+            "text": "GDP",
+            "start": 765,
+            "end": 768
+        },
+        {
+            "label": "MOL",
+            "text": "PimA.",
+            "start": 783,
+            "end": 788
+        },
+        {
+            "label": "MOL",
+            "text": "PI",
+            "start": 830,
+            "end": 832
+        },
+        {
+            "label": "MOL",
+            "text": "PIM",
+            "start": 837,
+            "end": 840
+        },
+        {
+            "label": "MOL",
+            "text": "PimA.",
+            "start": 905,
+            "end": 910
+        },
+        {
+            "label": "STIME",
+            "text": "300 ns",
+            "start": 957,
+            "end": 963
+        },
+        {
+            "label": "MOL",
+            "text": "PimA.",
+            "start": 1048,
+            "end": 1053
+        },
+        {
+            "label": "MOL",
+            "text": "PimA.",
+            "start": 1109,
+            "end": 1114
+        },
+        {
+            "label": "MOL",
+            "text": "PimA",
+            "start": 1132,
+            "end": 1136
+        },
+        {
+            "label": "MOL",
+            "text": "GDPM",
+            "start": 1173,
+            "end": 1177
+        },
+        {
+            "label": "MOL",
+            "text": "PI",
+            "start": 1182,
+            "end": 1184
+        },
+        {
+            "label": "MOL",
+            "text": "PimA",
+            "start": 1275,
+            "end": 1279
+        },
+        {
+            "label": "MOL",
+            "text": "PI",
+            "start": 1329,
+            "end": 1331
+        },
+        {
+            "label": "MOL",
+            "text": "PIM",
+            "start": 1336,
+            "end": 1339
+        },
+        {
+            "label": "MOL",
+            "text": "PimA",
+            "start": 1440,
+            "end": 1444
+        },
+        {
+            "label": "MOL",
+            "text": "PimA.",
+            "start": 1628,
+            "end": 1633
+        }
+    ]
+}

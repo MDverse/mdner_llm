@@ -1,0 +1,79 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Slipids POPE Simulations (versions 1 and 2) 310 K (NOTE: hexagonal membrane)\nTwo Slipids POPE bilayer simulations performed using GROMACS 5.0.6 for 200 ns with different starting velocities. Simulations were performed with a 1.0 nm cut-off with PME for the Coulombic and a 1.0 nm cut-off for the van der Waals interactions interactions. These simulations were performed at 310 K with a 336 hexagonal lipid bilayer. The full trajectories are provided bar the initial 100 ns. The starting structure of the membrane was made by reverse mapping an equilibrated MARTINI POPE bilayer (constructed with the INSANE script).",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "Slipids",
+            "start": 0,
+            "end": 7
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 8,
+            "end": 12
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 44,
+            "end": 49
+        },
+        {
+            "label": "FFM",
+            "text": "Slipids",
+            "start": 81,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 89,
+            "end": 93
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 130,
+            "end": 137
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.0.6",
+            "start": 138,
+            "end": 143
+        },
+        {
+            "label": "STIME",
+            "text": "200 ns",
+            "start": 148,
+            "end": 154
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 373,
+            "end": 378
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 557,
+            "end": 564
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 565,
+            "end": 569
+        }
+    ]
+}

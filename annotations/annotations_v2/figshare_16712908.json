@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Just Add Water: Modulating the Structure-Derived Acidity of Catalytic Hexameric Resorcinarene Capsules\nThe hexameric undecyl-resorcin[4] arene capsule (C11R6) features eight discrete structural water molecules located at the vertices of its cubic suprastructure. Combining NMR spectroscopy with classical molecular dynamics (MD), we identified and characterized two distinct species of this capsule, C11R6-A and C11R6-B, respectively featuring 8 and 15 water molecules incorporated into their respective hydrogen-bonded networks. Furthermore, we found that the ratio of the C11R6-A and C11R6-B found in solution can be modulated by controlling the water content of the sample. The importance of this supramolecular modulation in C11R6 capsules is highlighted by its ability to perform acid-catalyzed transformations, which is an emergent property arising from the hydrogen bonding within the suprastructure. We show that the conversion of C11R6-A to C11R6-B enhances the catalytic rate of a model Diels Alder cyclization by 10-fold, demonstrating the cofactor-derived control of a supramolecular catalytic process that emulates natural enzymatic systems.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 9,
+            "end": 14
+        },
+        {
+            "label": "MOL",
+            "text": "undecyl-resorcin[4] arene",
+            "start": 117,
+            "end": 142
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 152,
+            "end": 157
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 194,
+            "end": 199
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 400,
+            "end": 405
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 412,
+            "end": 417
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 453,
+            "end": 458
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 574,
+            "end": 579
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 586,
+            "end": 591
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 648,
+            "end": 653
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 729,
+            "end": 734
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 939,
+            "end": 944
+        },
+        {
+            "label": "MOL",
+            "text": "C11R6",
+            "start": 950,
+            "end": 955
+        }
+    ]
+}

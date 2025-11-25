@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Simulations of HADDOCK-predicted Complex Structures of apoE2 and Factor H\nInput and output data for the molecular dynamics simulations of the FH5 7/ApoE2 complex. Initial structures generated with the HADDOCK v2.4 web server with 3 nm distance restraints for lysine pairs that were experimentally found to be cross-linked with DSS. Five clusters and the four representative structures provided by HADDOCK were then used for atomistic molecular dynamics simulations. These structures were solvated and simulated with both CHARMM36m and Amber FF14SB force fields for 250 ns each using GROMACS 2021. The recommended simulation parameters were used for both force fields, and they are available in the mdp files. For each of these 5 (clusters) x 4 (structures per cluster) x 2 (force fields)   40 simulations, the outputs and inputs are provided; the trajectory (xtc), energy file (edr), final structure (gro), run parameter file (tpr), and continue point (cpt) are system-specific, whereas a single topology (top) and index file (ndx) is shared among all simulations with the same force field. The molecule definitions (itp) referred to in the topology are provided in the compressed files.",
+    "entities": [
+        {
+            "label": "SOFTNAME",
+            "text": "HADDOCK",
+            "start": 34,
+            "end": 41
+        },
+        {
+            "label": "MOL",
+            "text": "apoE2",
+            "start": 74,
+            "end": 79
+        },
+        {
+            "label": "MOL",
+            "text": "Factor H",
+            "start": 84,
+            "end": 92
+        },
+        {
+            "label": "MOL",
+            "text": "FH5 7",
+            "start": 161,
+            "end": 166
+        },
+        {
+            "label": "MOL",
+            "text": "ApoE2",
+            "start": 167,
+            "end": 172
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "HADDOCK",
+            "start": 220,
+            "end": 227
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v2.4",
+            "start": 228,
+            "end": 232
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "HADDOCK",
+            "start": 416,
+            "end": 423
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36m",
+            "start": 540,
+            "end": 549
+        },
+        {
+            "label": "FFM",
+            "text": "Amber FF14SB",
+            "start": 554,
+            "end": 566
+        },
+        {
+            "label": "STIME",
+            "text": "250 ns",
+            "start": 584,
+            "end": 590
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 602,
+            "end": 609
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2021",
+            "start": 610,
+            "end": 614
+        }
+    ]
+}

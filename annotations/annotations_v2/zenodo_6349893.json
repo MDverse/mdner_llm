@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics trajectories of protein folding\nMolecular dynamics trajectories of protein folding are deposited for educational purposes. Currently, the following trajectories are available: Chignolin (five independent NVT simulations up to 1.5 micro-sec): 'movie.pse' is a PyMOL session file of MD trajectories. 'movie.mp4' is a movie file that shows you how a protein folds during simulation. xtc files (Gromacs compressed format) and corresponding tpr files. gro files for movie making Computational setting Amber ff99SB-ILDN for protein (Lindorff-Larsen, K. et al. Improved side-chain torsion potentials for the Amber ff99SB protein force field. Proteins 78, 1950 1958 (2010)) TIP3P water model 0.1 M salt concentration NVT ensemble at 300 K with V-rescale thermostat (Bussi, G., Donadio, D. & Parrinello, M. Canonical sampling through velocity rescaling. J. Chem. Phys. 126, 014101 (2007)) Time step : 2 fs gromacs-2020.6 ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Chignolin",
+            "start": 195,
+            "end": 204
+        },
+        {
+            "label": "STIME",
+            "text": "1.5 micro-sec",
+            "start": 245,
+            "end": 258
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PyMOL",
+            "start": 278,
+            "end": 283
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 410,
+            "end": 417
+        },
+        {
+            "label": "FFM",
+            "text": "Amber ff99SB-ILDN",
+            "start": 515,
+            "end": 532
+        },
+        {
+            "label": "FFM",
+            "text": "Amber ff99SB",
+            "start": 620,
+            "end": 632
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 685,
+            "end": 690
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 691,
+            "end": 696
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 744,
+            "end": 749
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "gromacs-2020.6",
+            "start": 916,
+            "end": 930
+        }
+    ]
+}

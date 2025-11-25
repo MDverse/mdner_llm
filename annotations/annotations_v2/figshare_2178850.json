@@ -1,0 +1,61 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Two-Level Spatial Modulation of Vibronic Conductance in Conjugated Oligophenylenes on Boron Nitride\nIntramolecular current-induced vibronic excitations are reported in highly ordered monolayers of quaterphenylene dicarbonitriles at an electronically patterned boron nitride on copper platform (BN/Cu (111)). A first level of spatially modulated conductance at the nanometer-scale is induced by the substrate. Moreover, a second level of conductance variations at the molecular level is found. Low temperature scanning tunneling microscopy studies in conjunction with molecular dynamics calculations reveal collective amplification of the molecule s interphenylene torsion angles in the monolayer. Librational modes influencing these torsion angles are identified as initial excitations during vibronic conductance. Density functional theory is used to map phenylene breathing modes and other vibrational excitations that are suggested to be at the origin of the submolecular features during vibronic conductance.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Oligophenylenes",
+            "start": 67,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "Boron Nitride",
+            "start": 86,
+            "end": 99
+        },
+        {
+            "label": "MOL",
+            "text": "quaterphenylene dicarbonitriles",
+            "start": 197,
+            "end": 228
+        },
+        {
+            "label": "MOL",
+            "text": "boron nitride",
+            "start": 260,
+            "end": 273
+        },
+        {
+            "label": "MOL",
+            "text": "copper",
+            "start": 277,
+            "end": 283
+        },
+        {
+            "label": "MOL",
+            "text": "BN",
+            "start": 294,
+            "end": 296
+        },
+        {
+            "label": "MOL",
+            "text": "Cu",
+            "start": 297,
+            "end": 299
+        },
+        {
+            "label": "MOL",
+            "text": "phenylene",
+            "start": 856,
+            "end": 865
+        }
+    ]
+}

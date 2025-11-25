@@ -1,0 +1,145 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Melting Points of OPC and OPC3 Water Models\nA recently introduced family of globally optimal water models, OPC, has shown promise in a variety of biomolecular simulations, but properties of these water models outside of the liquid phase remain mostly unexplored. Here, we contribute to filling the gap by reporting melting temperatures of ice Ih of OPC and OPC3 water models. Through the direct coexistence method, which we make available in the AMBER package, the melting points of OPC and OPC3 are estimated as 242 and 210 K, similar to TIP4P-Ew and SPC/E models, respectively, and appreciably below the experimental value of 273.15 K under 1 bar pressure. Water models of the OPC family were optimized to best reproduce water properties in the liquid phase where these models offer noteworthy accuracy advantages over many models of previous generations. It is not surprising that the accuracy of OPC models in describing the phase transition to the solid state does not appear to offer similar improvements. The new anisotropic barostat option implemented in AMBER may benefit system preparation and simulation outside of the direct coexistence applications, such as modeling of membranes or very long DNA strands.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 18,
+            "end": 21
+        },
+        {
+            "label": "FFM",
+            "text": "OPC3",
+            "start": 26,
+            "end": 30
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 31,
+            "end": 36
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 93,
+            "end": 98
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 107,
+            "end": 110
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 196,
+            "end": 201
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 349,
+            "end": 352
+        },
+        {
+            "label": "FFM",
+            "text": "OPC3",
+            "start": 357,
+            "end": 361
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 362,
+            "end": 367
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 446,
+            "end": 451
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 483,
+            "end": 486
+        },
+        {
+            "label": "FFM",
+            "text": "OPC3",
+            "start": 491,
+            "end": 495
+        },
+        {
+            "label": "TEMP",
+            "text": "242",
+            "start": 513,
+            "end": 516
+        },
+        {
+            "label": "TEMP",
+            "text": "210 K",
+            "start": 521,
+            "end": 526
+        },
+        {
+            "label": "FFM",
+            "text": "TIP4P-Ew",
+            "start": 539,
+            "end": 547
+        },
+        {
+            "label": "FFM",
+            "text": "SPC/E",
+            "start": 552,
+            "end": 557
+        },
+        {
+            "label": "TEMP",
+            "text": "273.15 K",
+            "start": 628,
+            "end": 636
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 659,
+            "end": 664
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 679,
+            "end": 682
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 723,
+            "end": 728
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 900,
+            "end": 903
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 1063,
+            "end": 1068
+        }
+    ]
+}

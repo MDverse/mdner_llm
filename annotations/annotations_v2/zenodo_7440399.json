@@ -1,0 +1,127 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "An in silico approach to determine inter-subunit affinities in human septin complexes\nThe septins are a conserved family of filament-forming guanine nucleotide binding proteins, often named the fourth component of the cytoskeleton. Correctly assembled septin structures are required for essential intracellular processes such as cytokinesis, vesicular transport, polarity establishment, and cellular adhesion. Septins structurally belong to the P-Loop NTPases but they do not mediate signals to effectors through GTP binding and hydrolysis. GTP binding and hydrolysis are believed to contribute to septin complex integrity, but biochemical approaches addressing this topic are hampered by the stability of septin complexes after recombinant expression and the lack of nucleotide-depleted complexes. To complement this limitation, we used a molecular dynamics based approach to determine inter-subunit free binding energies in available human septin dimer structures and in their apo forms, which we generated in silico. The nucleotide in the GTPase active subunits SEPT2 and SEPT7, but not in SEPT6, was identified as a stabilizing element in the G interface as it is coordinated at its ribose ring to conserved amino acids. Removal of GDP from SEPT2 and SEPT7 results in flipping of a conserved Arg residue and disruption of an extensive hydrogen bond network in the septin unique element, concomitant with a decreased inter-subunit affinity.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "septin",
+            "start": 69,
+            "end": 75
+        },
+        {
+            "label": "MOL",
+            "text": "septins",
+            "start": 90,
+            "end": 97
+        },
+        {
+            "label": "MOL",
+            "text": "septin",
+            "start": 252,
+            "end": 258
+        },
+        {
+            "label": "MOL",
+            "text": "Septins",
+            "start": 410,
+            "end": 417
+        },
+        {
+            "label": "MOL",
+            "text": "P-Loop NTPases",
+            "start": 445,
+            "end": 459
+        },
+        {
+            "label": "MOL",
+            "text": "GTP",
+            "start": 513,
+            "end": 516
+        },
+        {
+            "label": "MOL",
+            "text": "GTP",
+            "start": 541,
+            "end": 544
+        },
+        {
+            "label": "MOL",
+            "text": "septin",
+            "start": 598,
+            "end": 604
+        },
+        {
+            "label": "MOL",
+            "text": "septin",
+            "start": 706,
+            "end": 712
+        },
+        {
+            "label": "MOL",
+            "text": "septin",
+            "start": 942,
+            "end": 948
+        },
+        {
+            "label": "MOL",
+            "text": "nucleotide",
+            "start": 1024,
+            "end": 1034
+        },
+        {
+            "label": "MOL",
+            "text": "GTPase",
+            "start": 1042,
+            "end": 1048
+        },
+        {
+            "label": "MOL",
+            "text": "SEPT2",
+            "start": 1065,
+            "end": 1070
+        },
+        {
+            "label": "MOL",
+            "text": "SEPT7",
+            "start": 1075,
+            "end": 1080
+        },
+        {
+            "label": "MOL",
+            "text": "SEPT6",
+            "start": 1093,
+            "end": 1098
+        },
+        {
+            "label": "MOL",
+            "text": "GDP",
+            "start": 1236,
+            "end": 1239
+        },
+        {
+            "label": "MOL",
+            "text": "SEPT2",
+            "start": 1245,
+            "end": 1250
+        },
+        {
+            "label": "MOL",
+            "text": "SEPT7",
+            "start": 1255,
+            "end": 1260
+        },
+        {
+            "label": "MOL",
+            "text": "septin",
+            "start": 1368,
+            "end": 1374
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Experimental and Computational Studies Reveal an Alternative Supramolecular Structure for Fmoc-Dipeptide Self-Assembly\nWe have investigated the self-assembly of fluorenylmethoxycarbonyl-conjugated dialanine (Fmoc-AA) molecules using combined computational and experimental approaches. Fmoc-AA gels were characterized using transmission electron microscopy (TEM), circular dichroism (CD), Fourier transform infrared (FTIR), and wide-angle X-ray scattering (WAXS). Computationally, we simulated the assembly of Fmoc-AA using molecular dynamics techniques. All simulations converged to a condensed fibril structure in which the Fmoc groups stack mostly within in the center of the fibril. However, the Fmoc groups are partially exposed to water, creating an amphiphilic surface, which may be responsible for the aggregation of fibrils into nanoscale fibers observed in TEM. From the fibril models, radial distribution calculations agree with d-spacings observed in WAXS for the fibril diameter and -stacking interactions. Our analyses show that dialanine, despite its short length, adopts a mainly extended polyproline II conformation. In contrast to previous hypotheses, these results indicate that -sheet-like hydrogen bonding is not prevalent. Rather, stacking of Fmoc groups, inter-residue hydrogen bonding, and hydrogen bonding with water play the important roles in stabilizing the fibril structure of supramolecular assemblies of short conjugated peptides.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Fmoc-Dipeptide",
+            "start": 90,
+            "end": 104
+        },
+        {
+            "label": "MOL",
+            "text": "fluorenylmethoxycarbonyl",
+            "start": 161,
+            "end": 185
+        },
+        {
+            "label": "MOL",
+            "text": "dialanine",
+            "start": 197,
+            "end": 206
+        },
+        {
+            "label": "MOL",
+            "text": "Fmoc-AA",
+            "start": 208,
+            "end": 215
+        },
+        {
+            "label": "MOL",
+            "text": "Fmoc-AA",
+            "start": 285,
+            "end": 292
+        },
+        {
+            "label": "MOL",
+            "text": "Fmoc-AA",
+            "start": 509,
+            "end": 516
+        },
+        {
+            "label": "MOL",
+            "text": "Fmoc",
+            "start": 625,
+            "end": 629
+        },
+        {
+            "label": "MOL",
+            "text": "Fmoc",
+            "start": 699,
+            "end": 703
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 736,
+            "end": 741
+        },
+        {
+            "label": "MOL",
+            "text": "dialanine",
+            "start": 1042,
+            "end": 1051
+        },
+        {
+            "label": "MOL",
+            "text": "polyproline II",
+            "start": 1104,
+            "end": 1118
+        },
+        {
+            "label": "MOL",
+            "text": "Fmoc",
+            "start": 1264,
+            "end": 1268
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1335,
+            "end": 1340
+        }
+    ]
+}

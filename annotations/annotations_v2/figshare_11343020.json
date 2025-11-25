@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamic Simulation data of compensatory mutations in Bruton's Tyrosine Kinase\nThe research aims to find compensatory mutations that rescue Bruton s tyrosine kinase (Btk) activity in the presence of severe X-linked agammaglobulinemia (XLA) causing mutation in the kinase domain. The data set includes the molecular dynamic simulation trajectories of native, with R641H deleterious mutation and with the R641H-K420R compensatory mutations structures separately. The trajectories describe the conformational dynamics changes and show that the compensatory mutation site was able to rescue the Btk linker-kinase domain dynamics in the presence of R641H.This MD simulation data set supports the research article: \"Identifying a Compensating Mutation to Rescue Function in Bruton s Tyrosine Kinase with an XLA Mutant\".The multiple sequence alignment data for calculating high order dependence is also included in the data set (PF07714.fa). The links for all the software and scripts used in the research are available in the README file.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Bruton's Tyrosine Kinase",
+            "start": 63,
+            "end": 87
+        },
+        {
+            "label": "MOL",
+            "text": "Bruton s tyrosine kinase",
+            "start": 149,
+            "end": 173
+        },
+        {
+            "label": "MOL",
+            "text": "Btk",
+            "start": 175,
+            "end": 178
+        },
+        {
+            "label": "MOL",
+            "text": "X-linked agammaglobulinemia",
+            "start": 215,
+            "end": 242
+        },
+        {
+            "label": "MOL",
+            "text": "XLA",
+            "start": 244,
+            "end": 247
+        },
+        {
+            "label": "MOL",
+            "text": "kinase",
+            "start": 273,
+            "end": 279
+        },
+        {
+            "label": "MOL",
+            "text": "Btk",
+            "start": 600,
+            "end": 603
+        },
+        {
+            "label": "MOL",
+            "text": "kinase",
+            "start": 611,
+            "end": 617
+        },
+        {
+            "label": "MOL",
+            "text": "Bruton s Tyrosine Kinase",
+            "start": 777,
+            "end": 801
+        },
+        {
+            "label": "MOL",
+            "text": "XLA",
+            "start": 810,
+            "end": 813
+        }
+    ]
+}

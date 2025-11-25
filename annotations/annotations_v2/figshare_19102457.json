@@ -1,0 +1,187 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "LNA-induced dynamic stability in a therapeutic aptamer: insights from molecular dynamics simulations\nModulation of structural and thermodynamic properties of nucleic acids with synthetic modifications is a promising area of research with possible applications in nanotechnology and nanotherapeutics. Locked nucleic acid (LNA) is one such modification in which the C4 and O2 atoms of the sugar moiety are connected through a methylene bridge. The LNA modified DNA aptamer RNV66, and its unmodified counterpart V7t1, both of which target the vascular endothelial growth factor (VEGF) implicated in oncogenic angiogenesis, have a G-rich tract that can fold into G-quadruplex structures. However, it is not understood why V7t1 has a polymorphic structure while its LNA modified counterpart RNV66 has a unique quadruplex fold with higher nuclease resistance, thermal stability and greater binding affinity for VEGF. In this work, we have performed extensive molecular dynamics simulations of RNV66 and V7t1 to study and compare the structural and dynamic consequences of the insertion of LNAs. It was observed that the increase in dynamic stability was significant in the presence of LNA residues and our protocol for combining different torsional parameters using OL15 for the DNA aptamer and parm99 LNA along with parmbsc0 and OL15 for the LNAs nicely reproduced the experimentally observed conformational features of RNV66. Our observations would help in further theoretical studies in understanding the lack of frustration in the folding of the LNA modified aptamer and its higher affinity for VEGF. Communicated by Ramaswamy H. Sarma",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 0,
+            "end": 3
+        },
+        {
+            "label": "MOL",
+            "text": "aptamer",
+            "start": 47,
+            "end": 54
+        },
+        {
+            "label": "MOL",
+            "text": "Locked nucleic acid",
+            "start": 300,
+            "end": 319
+        },
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 321,
+            "end": 324
+        },
+        {
+            "label": "MOL",
+            "text": "methylene",
+            "start": 424,
+            "end": 433
+        },
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 446,
+            "end": 449
+        },
+        {
+            "label": "MOL",
+            "text": "DNA aptamer",
+            "start": 459,
+            "end": 470
+        },
+        {
+            "label": "MOL",
+            "text": "RNV66",
+            "start": 471,
+            "end": 476
+        },
+        {
+            "label": "MOL",
+            "text": "V7t1",
+            "start": 509,
+            "end": 513
+        },
+        {
+            "label": "MOL",
+            "text": "vascular endothelial growth factor",
+            "start": 540,
+            "end": 574
+        },
+        {
+            "label": "MOL",
+            "text": "VEGF",
+            "start": 576,
+            "end": 580
+        },
+        {
+            "label": "MOL",
+            "text": "V7t1",
+            "start": 718,
+            "end": 722
+        },
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 761,
+            "end": 764
+        },
+        {
+            "label": "MOL",
+            "text": "RNV66",
+            "start": 786,
+            "end": 791
+        },
+        {
+            "label": "MOL",
+            "text": "VEGF",
+            "start": 905,
+            "end": 909
+        },
+        {
+            "label": "MOL",
+            "text": "RNV66",
+            "start": 987,
+            "end": 992
+        },
+        {
+            "label": "MOL",
+            "text": "V7t1",
+            "start": 997,
+            "end": 1001
+        },
+        {
+            "label": "MOL",
+            "text": "LNAs",
+            "start": 1083,
+            "end": 1087
+        },
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 1179,
+            "end": 1182
+        },
+        {
+            "label": "FFM",
+            "text": "OL15",
+            "start": 1260,
+            "end": 1264
+        },
+        {
+            "label": "MOL",
+            "text": "DNA aptamer",
+            "start": 1273,
+            "end": 1284
+        },
+        {
+            "label": "FFM",
+            "text": "parm99",
+            "start": 1289,
+            "end": 1295
+        },
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 1296,
+            "end": 1299
+        },
+        {
+            "label": "FFM",
+            "text": "parmbsc0",
+            "start": 1311,
+            "end": 1319
+        },
+        {
+            "label": "FFM",
+            "text": "OL15",
+            "start": 1324,
+            "end": 1328
+        },
+        {
+            "label": "MOL",
+            "text": "LNAs",
+            "start": 1337,
+            "end": 1341
+        },
+        {
+            "label": "MOL",
+            "text": "RNV66",
+            "start": 1415,
+            "end": 1420
+        },
+        {
+            "label": "MOL",
+            "text": "LNA",
+            "start": 1544,
+            "end": 1547
+        },
+        {
+            "label": "MOL",
+            "text": "VEGF",
+            "start": 1593,
+            "end": 1597
+        }
+    ]
+}

@@ -1,0 +1,229 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Reduced Point Charge Models of Proteins: Effect of Protein Water Interactions in Molecular Dynamics Simulations of Ubiquitin Systems\nWe investigate the influence of various solvent models on the structural stability and protein water interface of three ubiquitin complexes (PDB access codes: 1Q0W, 2MBB, 2G3Q) modeled using the Amber99sb force field (FF) and two different point charge distributions. A previously developed reduced point charge model (RPCM), wherein each amino acid residue is described by a limited number of point charges, is tested and compared to its all-atom (AA) version. The complexes are solvated in TIP4P-Ew or TIP3P type water molecules, involving either the scaling of the Lennard-Jones protein Owater interaction parameters, or the coarse-grain (CG) SIRAH water description. The best agreements between the RPCM and AA models were obtained for structural, protein water, and ligand ubiquitin properties when using the TIP4P-Ew water FF with a scaling factor of 0.7. At the RPCM level, a decrease in , or the inclusion of SIRAH particles, allows weakening of the protein water interactions. It results in a slight collapse of the protein structure and a less compact hydration shell and, thus, in a decrease in the number of protein water and water water H-bonds. The dynamics of the surface protein atoms and of the water shell molecules are also slightly refrained, which allow the generation of stable RPCM trajectories.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Proteins",
+            "start": 31,
+            "end": 39
+        },
+        {
+            "label": "MOL",
+            "text": "Protein",
+            "start": 51,
+            "end": 58
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 59,
+            "end": 64
+        },
+        {
+            "label": "MOL",
+            "text": "Ubiquitin",
+            "start": 115,
+            "end": 124
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 220,
+            "end": 227
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 228,
+            "end": 233
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin",
+            "start": 253,
+            "end": 262
+        },
+        {
+            "label": "MOL",
+            "text": "1Q0W",
+            "start": 292,
+            "end": 296
+        },
+        {
+            "label": "MOL",
+            "text": "2MBB",
+            "start": 298,
+            "end": 302
+        },
+        {
+            "label": "MOL",
+            "text": "2G3Q",
+            "start": 304,
+            "end": 308
+        },
+        {
+            "label": "FFM",
+            "text": "Amber99sb",
+            "start": 328,
+            "end": 337
+        },
+        {
+            "label": "FFM",
+            "text": "RPCM",
+            "start": 452,
+            "end": 456
+        },
+        {
+            "label": "FFM",
+            "text": "TIP4P-Ew",
+            "start": 625,
+            "end": 633
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 637,
+            "end": 642
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 648,
+            "end": 653
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 715,
+            "end": 722
+        },
+        {
+            "label": "FFM",
+            "text": "SIRAH",
+            "start": 779,
+            "end": 784
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 785,
+            "end": 790
+        },
+        {
+            "label": "FFM",
+            "text": "RPCM",
+            "start": 836,
+            "end": 840
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 885,
+            "end": 892
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 893,
+            "end": 898
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin",
+            "start": 911,
+            "end": 920
+        },
+        {
+            "label": "FFM",
+            "text": "TIP4P-Ew",
+            "start": 947,
+            "end": 955
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 956,
+            "end": 961
+        },
+        {
+            "label": "FFM",
+            "text": "RPCM",
+            "start": 1002,
+            "end": 1006
+        },
+        {
+            "label": "FFM",
+            "text": "SIRAH",
+            "start": 1050,
+            "end": 1055
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 1091,
+            "end": 1098
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1099,
+            "end": 1104
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 1158,
+            "end": 1165
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 1253,
+            "end": 1260
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1261,
+            "end": 1266
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1271,
+            "end": 1276
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1277,
+            "end": 1282
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 1320,
+            "end": 1327
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1345,
+            "end": 1350
+        },
+        {
+            "label": "FFM",
+            "text": "RPCM",
+            "start": 1433,
+            "end": 1437
+        }
+    ]
+}

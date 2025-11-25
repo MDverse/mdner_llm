@@ -1,0 +1,79 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics of a Water-Absorbent Nanoscale Material Based on Chitosan\nAlthough hydrogels have been widely investigated for their use in materials science, nanotechnology, and novel pharmaceuticals, mechanistic details explaining their water-absorbent features are not well understood. We performed an all-atom molecular dynamics study of the structural transformation of chitosan nanohydrogels due to water absorption. We analyzed the conformation of dry, nanoscaled chitosan, the structural modifications that emerge during the process of water inclusion, and the dynamics of this biopolymer in the presence of nature s solvent. Two sets of nanoscaled, single-chained chitosan models were simulated: one to study the swelling dependence upon the degree of self-cross-linking and other to observe the response with respect to the degree of protonation. We verified that nanohydrogels keep their ability to absorb water and grow, regardless of their degree of cross-linking. Noteworthy, we found that the swelling behavior of nanoscaled chitosan is pH-dependent, and it is considerably more limited than that of larger scale hydrogels. Thus, our study suggests that properties of nanohydrogels are significantly different from those of larger hydrogels. These findings might be important in the design of novel controlled-release and targeted drug-delivery systems based on chitosan.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 24,
+            "end": 29
+        },
+        {
+            "label": "MOL",
+            "text": "Chitosan",
+            "start": 68,
+            "end": 76
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 242,
+            "end": 247
+        },
+        {
+            "label": "MOL",
+            "text": "chitosan",
+            "start": 378,
+            "end": 386
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 408,
+            "end": 413
+        },
+        {
+            "label": "MOL",
+            "text": "chitosan",
+            "start": 474,
+            "end": 482
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 547,
+            "end": 552
+        },
+        {
+            "label": "MOL",
+            "text": "chitosan",
+            "start": 676,
+            "end": 684
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 920,
+            "end": 925
+        },
+        {
+            "label": "MOL",
+            "text": "chitosan",
+            "start": 1043,
+            "end": 1051
+        },
+        {
+            "label": "MOL",
+            "text": "chitosan",
+            "start": 1380,
+            "end": 1388
+        }
+    ]
+}

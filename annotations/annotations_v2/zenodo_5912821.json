@@ -1,0 +1,145 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Choline acetyltransferase (ChAT) - Amyloid beta peptides complex Molecular dynamics Trajectories\nIn silico molecular dynamics study was performed for the choline acetyltransferase (ChAT) - Abeta peptides complex. The molecular docking of A 40 and A 42 on ChAT suggested three most probable binding clusters for both the A peptides. Thus generating ChAT-A 40 Cluster-0, ChAT-A 40 Cluster-1, ChAT-A 40 Cluster-2 for A 40 peptide on ChAT, likewise ChAT-A 42 Cluster-0, ChAT-A 42 Cluster-1, ChAT-A 42 Cluster-2 were generated for A 42 peptide on ChAT. Each of the folders contains the topology file with a .gro extension and a trajectory file with .xtc extension generated from the 100 ns molecular dynamics performed for each of the clusters mentioned above that were generated from the molecular docking. The folders are named as follows: ChAT AB40 Cluster 0: Containing the topology file (ab40 0.gro) and the trajectory file (ab40 0.xtc) ChAT AB40 Cluster 1: Containing the topology file (ab40 1.gro) and the trajectory file (ab40 1.xtc) ChAT AB40 Cluster 2: Containing the topology file (ab40 2.gro) and the trajectory file (ab40 2.xtc) ChAT AB42 Cluster 0: Containing the topology file (ab42 0.gro) and the trajectory file (ab42 0.xtc) ChAT AB42 Cluster 1: Containing the topology file (ab42 1.gro) and the trajectory file (ab42 1.xtc) ChAT AB42 Cluster 2: Containing the topology file (ab42 2.gro) and the trajectory file (ab42 2.xtc ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Choline acetyltransferase",
+            "start": 0,
+            "end": 25
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 27,
+            "end": 31
+        },
+        {
+            "label": "MOL",
+            "text": "Amyloid beta",
+            "start": 35,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "choline acetyltransferase",
+            "start": 154,
+            "end": 179
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 181,
+            "end": 185
+        },
+        {
+            "label": "MOL",
+            "text": "Abeta",
+            "start": 189,
+            "end": 194
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 255,
+            "end": 259
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 348,
+            "end": 352
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 369,
+            "end": 373
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 390,
+            "end": 394
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 430,
+            "end": 434
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 445,
+            "end": 449
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 466,
+            "end": 470
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 487,
+            "end": 491
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 542,
+            "end": 546
+        },
+        {
+            "label": "STIME",
+            "text": "100 ns",
+            "start": 678,
+            "end": 684
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 837,
+            "end": 841
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 937,
+            "end": 941
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 1037,
+            "end": 1041
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 1137,
+            "end": 1141
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 1237,
+            "end": 1241
+        },
+        {
+            "label": "MOL",
+            "text": "ChAT",
+            "start": 1337,
+            "end": 1341
+        }
+    ]
+}

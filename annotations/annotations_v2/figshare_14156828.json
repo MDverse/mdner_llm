@@ -1,0 +1,241 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "An Active Site Inhibitor Induces Conformational Penalties for ACE2 Recognition by the Spike Protein of SARS-CoV 2\nThe novel RNA virus, severe acute respiratory syndrome coronavirus II (SARS-CoV-2), is currently the leading cause of mortality in 2020, having led to over 1.6 million deaths and infecting over 75 million people worldwide by December 2020. While vaccination has started and several clinical trials for a number of vaccines are currently underway, there is a pressing need for a cure for those already infected with the virus. Of particular interest in the design of anti-SARS-CoV-2 therapeutics is the human protein angiotensin converting enzyme II (ACE2) to which this virus adheres before entry into the host cell. The SARS-CoV-2 virion binds to cell-surface bound ACE2 via interactions of the spike protein (s-protein) on the viral surface with ACE2. In this paper, we use all-atom molecular dynamics simulations and binding enthalpy calculations to determine the effect that a bound ACE2 active site inhibitor (MLN-4760) would have on the binding affinity of SARS-CoV-2 s-protein with ACE2. Our analysis indicates that the binding enthalpy could be reduced for s-protein adherence to the active site inhibitor-bound ACE2 protein by as much as 1.48-fold as an upper limit. This weakening of binding strength was observed to be due to the destabilization of the interactions between ACE2 residues Glu-35, Glu-37, Tyr-83, Lys-353, and Arg-393 and the SARS-CoV-2 s-protein receptor binding domain (RBD). The conformational changes were shown to lead to weakening of ACE2 interactions with SARS-CoV-2 s-protein, therefore reducing s-protein binding strength. Further, we observed increased conformational lability of the N-terminal helix and a conformational shift of a significant portion of the ACE2 motifs involved in s-protein binding, which may affect the kinetics of the s-protein binding when the small molecule inhibitor is bound to the ACE2 active site. These observations suggest potential new ways for interfering with the SARS-CoV-2 adhesion by modulating ACE2 conformation through distal active site inhibitor binding.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 62,
+            "end": 66
+        },
+        {
+            "label": "MOL",
+            "text": "Spike Protein",
+            "start": 86,
+            "end": 99
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV 2",
+            "start": 103,
+            "end": 113
+        },
+        {
+            "label": "MOL",
+            "text": "RNA",
+            "start": 124,
+            "end": 127
+        },
+        {
+            "label": "MOL",
+            "text": "severe acute respiratory syndrome coronavirus II",
+            "start": 135,
+            "end": 183
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2",
+            "start": 185,
+            "end": 195
+        },
+        {
+            "label": "MOL",
+            "text": "anti-SARS-CoV-2",
+            "start": 580,
+            "end": 595
+        },
+        {
+            "label": "MOL",
+            "text": "angiotensin converting enzyme II",
+            "start": 630,
+            "end": 662
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 664,
+            "end": 668
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2",
+            "start": 735,
+            "end": 745
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 781,
+            "end": 785
+        },
+        {
+            "label": "MOL",
+            "text": "spike protein",
+            "start": 810,
+            "end": 823
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 825,
+            "end": 834
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2.",
+            "start": 862,
+            "end": 867
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1001,
+            "end": 1005
+        },
+        {
+            "label": "MOL",
+            "text": "MLN-4760",
+            "start": 1029,
+            "end": 1037
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2",
+            "start": 1077,
+            "end": 1087
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1088,
+            "end": 1097
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2.",
+            "start": 1103,
+            "end": 1108
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1179,
+            "end": 1188
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1234,
+            "end": 1238
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1399,
+            "end": 1403
+        },
+        {
+            "label": "MOL",
+            "text": "Glu-35",
+            "start": 1413,
+            "end": 1419
+        },
+        {
+            "label": "MOL",
+            "text": "Glu-37",
+            "start": 1421,
+            "end": 1427
+        },
+        {
+            "label": "MOL",
+            "text": "Tyr-83",
+            "start": 1429,
+            "end": 1435
+        },
+        {
+            "label": "MOL",
+            "text": "Lys-353",
+            "start": 1437,
+            "end": 1444
+        },
+        {
+            "label": "MOL",
+            "text": "Arg-393",
+            "start": 1450,
+            "end": 1457
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2",
+            "start": 1466,
+            "end": 1476
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1477,
+            "end": 1486
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1580,
+            "end": 1584
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2",
+            "start": 1603,
+            "end": 1613
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1614,
+            "end": 1623
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1810,
+            "end": 1814
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1834,
+            "end": 1843
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1890,
+            "end": 1899
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1958,
+            "end": 1962
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2",
+            "start": 2047,
+            "end": 2057
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 2081,
+            "end": 2085
+        }
+    ]
+}

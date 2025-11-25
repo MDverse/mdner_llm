@@ -1,0 +1,61 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Pyridinylimidazoles as GSK3 inhibitors: the impact of tautomerism on compound activity via water networks\nData related to publication: Heider et al.: Pyridinylimidazoles as GSK3 inhibitors: the impact of tautomerism on compound activity via water networks. The files include: 1) Output conformations of the QM Tautomer & Conformation Predictor of Maestro (Schro dinger, LLC, New York, NY, 2018) of the compounds 1, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3j, 3k, 3l, 3m, 6f and 6g [.mae and .sdf files]. 2) Movies of the MD simulations of compounds 3a, 3j, 4a, 4b, 6b, 6g (6GN1) and movies (* 2) of 3a, 3j, 6b, 6g (4PTC) [.mpg files] . 3) Raw Desmond trajectory files of the MD simulations of the compounds 3a, 3j, 4a, 4b, 6b, 6g [out.cms and the full trj files]. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Pyridinylimidazoles",
+            "start": 0,
+            "end": 19
+        },
+        {
+            "label": "MOL",
+            "text": "GSK3 inhibitors",
+            "start": 23,
+            "end": 38
+        },
+        {
+            "label": "MOL",
+            "text": "Pyridinylimidazoles",
+            "start": 150,
+            "end": 169
+        },
+        {
+            "label": "MOL",
+            "text": "GSK3 inhibitors",
+            "start": 173,
+            "end": 188
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Maestro",
+            "start": 347,
+            "end": 354
+        },
+        {
+            "label": "MOL",
+            "text": "6GN1",
+            "start": 565,
+            "end": 569
+        },
+        {
+            "label": "MOL",
+            "text": "4PTC",
+            "start": 607,
+            "end": 611
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Desmond",
+            "start": 635,
+            "end": 642
+        }
+    ]
+}

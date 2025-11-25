@@ -1,0 +1,169 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Bug in CCFD stress profile calculation of GROMACS-LS?\nIn Martini simulations (15 μs, last 5 μs analyzed) of an asymmetric GM1 + POPC lipid bilayer (5+95 upper, 0+100 lower leaflet) strong stress fluctuations arising from the dihedral contributions of CCF decomposition are found. It is possible that these are due to a slight bug in the GROMACS-LS (http://mdstress.org) code, because: 1) The fluctuations do not show converge, when more data is added, see the attached plot effect of sampling rate.pdf . 2) The fluctuations (but no other features of the stress profiles) visibly depend on the chosen frame of reference, see effect of centering schemes.pdf . 3) The stress profiles calculated along the coordinates that lay in the membrane plane (x and y), are not constant in CCFD, see profiles along x and y.pdf . To assist debugging the code, this repository contains: 5to95 0to100 0.trr --- 1st 33.3% of a 5 μs trajectory with snapshots every 100 ps 5to95 0to100 0.trr --- 2nd 33.3% of a 5 μs trajectory with snapshots every 100 ps 5to95 0to100 0.trr --- 3rd 33.3% of a 5 μs trajectory with snapshots every 100 ps 5to95 0to100.tpr --- tpr used for production (Gromacs 5.1.1) 5to95 0to100 rerun.tpr --- tpr used for stress analysis and centering 5to95 0to100.gro --- gro file after 15 μs (10 μs relaxation, 5 μs production) index.ndx --- index file used in production 5to95 0to100.ndx --- index file used in analysis system.top --- topology file martini v2.0 ions.itp --- martini FF file (system.top expects this to be in folder toppar/) martini v2.0 lipids all 201506.itp --- martini FF file (system.top expects this to be in folder toppar/) martini v2.2.itp --- martini FF file (system.top expects this to be in folder toppar/) martini straight GM1 saveVels.mdp --- run input file used for production (Gromacs 5.1.1) martini straight GM1 rerunForP.mdp --- run input file used for analysis and centering effect of sampling rate.pdf --- plot of results showing that fluctuations in CCFD do not appear to converge when data is added profiles along x and y.pdf --- plot of results showing that in CCFD pressure profiles along the membrane directions are not constant effect of centering schemes.pdf --- plot of results showing that choice of center of mass (here three possibilities are shown: CoM of POPC GL1 beads, CoM of POPCs, and CoM of all lipids) visibly affects CCFD fluctuations, but not other features of the stress profile effect of centering schemes 2.pdf --- plot of results (similar to 'effect of centering schemes.pdf', but the center of the bilayer is at 3.7 nm instead at 0.0 / 7.4 nm) individual components.pdf --- plot of results showing that the fluctuations in CCFD arise from dihedrals CCFD gridsize.pdf --- plot of results showing that decreasing gridsize has no clear effect on the CCFD fluctuations",
+    "entities": [
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS-LS",
+            "start": 42,
+            "end": 52
+        },
+        {
+            "label": "FFM",
+            "text": "Martini",
+            "start": 57,
+            "end": 64
+        },
+        {
+            "label": "STIME",
+            "text": "15 μs",
+            "start": 78,
+            "end": 83
+        },
+        {
+            "label": "MOL",
+            "text": "GM1",
+            "start": 122,
+            "end": 125
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 128,
+            "end": 132
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS-LS",
+            "start": 337,
+            "end": 347
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1163,
+            "end": 1170
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.1.1",
+            "start": 1171,
+            "end": 1176
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1448,
+            "end": 1455
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1474,
+            "end": 1481
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1540,
+            "end": 1547
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1579,
+            "end": 1586
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1645,
+            "end": 1652
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1666,
+            "end": 1673
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1732,
+            "end": 1739
+        },
+        {
+            "label": "MOL",
+            "text": "GM1",
+            "start": 1749,
+            "end": 1752
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1806,
+            "end": 1813
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.1.1",
+            "start": 1814,
+            "end": 1819
+        },
+        {
+            "label": "FFM",
+            "text": "martini",
+            "start": 1821,
+            "end": 1828
+        },
+        {
+            "label": "MOL",
+            "text": "GM1",
+            "start": 1838,
+            "end": 1841
+        },
+        {
+            "label": "MOL",
+            "text": "CoM",
+            "start": 2294,
+            "end": 2297
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 2301,
+            "end": 2305
+        },
+        {
+            "label": "MOL",
+            "text": "GL1",
+            "start": 2306,
+            "end": 2309
+        },
+        {
+            "label": "MOL",
+            "text": "CoM",
+            "start": 2317,
+            "end": 2320
+        },
+        {
+            "label": "MOL",
+            "text": "POPCs",
+            "start": 2324,
+            "end": 2329
+        },
+        {
+            "label": "MOL",
+            "text": "CoM",
+            "start": 2335,
+            "end": 2338
+        }
+    ]
+}

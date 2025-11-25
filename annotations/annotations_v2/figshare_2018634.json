@@ -1,0 +1,67 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Derivation and Systematic Validation of a Refined All-Atom Force Field for Phosphatidylcholine Lipids\nAn all-atomistic force field (FF) has been developed for fully saturated phospholipids. The parametrization has been largely based on high-level ab initio calculations in order to keep the empirical input to a minimum. Parameters for the lipid chains have been developed based on knowledge about bulk alkane liquids, for which thermodynamic and dynamic data are excellently reproduced. The FFs ability to simulate lipid bilayers in the liquid crystalline phase in a tensionless ensemble was tested in simulations of three lipids: 1,2-diauroyl-sn-glycero-3-phospocholine (DLPC), 1,2-dimyristoyl-sn-glycero-3-phosphocholine (DMPC), and 1,2-dipalmitoyl-sn-glycero-3-phospcholine (DPPC). Computed areas and volumes per lipid, and three different kinds of bilayer thicknesses, have been investigated. Most importantly NMR order parameters and scattering form factors agree in an excellent manner with experimental data under a range of temperatures. Further, the compatibility with the AMBER FF for biomolecules as well as the ability to simulate bilayers in gel phase was demonstrated. Overall, the FF presented here provides the important balance between the hydrophilic and hydrophobic forces present in lipid bilayers and therefore can be used for more complicated studies of realistic biological membranes with protein insertions.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Phosphatidylcholine",
+            "start": 75,
+            "end": 94
+        },
+        {
+            "label": "MOL",
+            "text": "alkane",
+            "start": 403,
+            "end": 409
+        },
+        {
+            "label": "MOL",
+            "text": "1,2-diauroyl-sn-glycero-3-phospocholine",
+            "start": 632,
+            "end": 671
+        },
+        {
+            "label": "MOL",
+            "text": "DLPC",
+            "start": 673,
+            "end": 677
+        },
+        {
+            "label": "MOL",
+            "text": "1,2-dimyristoyl-sn-glycero-3-phosphocholine",
+            "start": 680,
+            "end": 723
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 725,
+            "end": 729
+        },
+        {
+            "label": "MOL",
+            "text": "1,2-dipalmitoyl-sn-glycero-3-phospcholine",
+            "start": 736,
+            "end": 777
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 779,
+            "end": 783
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 1083,
+            "end": 1088
+        }
+    ]
+}

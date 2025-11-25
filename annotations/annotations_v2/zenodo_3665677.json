@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Project files provided as supporting information to the manuscript \"Ligand-protein interactions in lysozyme investigated through a dual-resolution model\"\nREADME file for the project files provided as supporting information to the manuscript \"Ligand-protein interactions in lysozyme investigated through a dual-resolution model\" February 12, 2020 Authors: Raffaele Fiorentini, Kurt Kremer and Raffaello Potestio   Overview The dataset is organised in three (compressed) subfolders (see the tree diagrams in each section): - annihilation - decoupling - density The figure deltaG binding ann dec comparison.png shows the results of binding free energy calculations comparing the values obtained both for annihilation and decoupling. The figure deltaG binding annih gromacs espp.png displays the results for Binding FE, comparing the values obtained in GROMACS and ESPResSo++. The README.pdf file contains detailed information about these folders and their content.   The \"annihilation\" folder contains all results concerning the calculation of binding free energy in case of annihilation and it is divided in two parts: - complex - ligand In \"complex\" are reported the results of Ligand-Protein FE both in ESPResSo++ and GROMACS. All simulations are fully-atomistic. In \"ligand\" are reported the results of ligand solvation free energy both in ESPResSo++ and GROMACS. All simulations are fully-atomistic.   The \"decoupling\" folder contains all results concerning the calculation of binding free energy in case of decoupling and it is divided in three parts: - complex-DualRes - complex-FullyAT - ligand In \"complex-DualRes\" are reported the results of Ligand-Protein FE only in ESPResSo++ (GROMACS cannot do decoupling). The system is simulated in Dual-Resolution. It is possible to find the trajectory files in the sub-directories \"lambdaindex-0\" and \"lambdaindex-30\". In \"complex-fullyAT\" are reported the results of Ligand-Protein FE only in ESPResSo++. The system simulated is fully-atomistic. It is possible to find the trajectory file in the sub-directories \"lambdaindex-0\" and \"lambdaindex-30\". In \"ligand\" are reported the results of ligand solvation free energy only in ESPResSo++. All simulations are fully-atomistic. It is possible to find the trajectory file in the sub-directories \"lambdaindex-0\" and \"lambdaindex-20\".   The \"density\" folder contains the data for the tuning of the c parameter of the steric repulsion among residues. This parameter is tuned so that the water density attains the value computed in all-atom simulations.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "lysozyme",
+            "start": 99,
+            "end": 107
+        },
+        {
+            "label": "MOL",
+            "text": "lysozyme",
+            "start": 273,
+            "end": 281
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "gromacs",
+            "start": 762,
+            "end": 769
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 849,
+            "end": 856
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ESPResSo++",
+            "start": 861,
+            "end": 871
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ESPResSo++",
+            "start": 1203,
+            "end": 1213
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1218,
+            "end": 1225
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ESPResSo++",
+            "start": 1341,
+            "end": 1351
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1356,
+            "end": 1363
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ESPResSo++",
+            "start": 1675,
+            "end": 1685
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1687,
+            "end": 1694
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ESPResSo++",
+            "start": 1942,
+            "end": 1952
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ESPResSo++",
+            "start": 2176,
+            "end": 2186
+        }
+    ]
+}

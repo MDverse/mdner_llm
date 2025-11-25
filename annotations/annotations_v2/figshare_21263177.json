@@ -1,0 +1,79 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Extending the Stochastic Titration CpHMD to CHARMM36m\nThe impact of pH on proteins is significant but often neglected in molecular dynamics simulations. Constant-pH Molecular Dynamics (CpHMD) is the state-of-the-art methodology to deal with these effects. However, it still lacks widespread adoption by the scientific community. The stochastic titration CpHMD is one of such methods that, until now, only supported the GROMOS force field family. Here, we extend this method s implementation to include the CHARMM36m force field available in the GROMACS software package. We test this new implementation with a diverse group of proteins, namely, lysozyme, Staphylococcal nuclease, and human and E. coli thioredoxins. All proteins were conformationally stable in the simulations, even at extreme pH values. The RMSE values (pKa prediction vs experimental) obtained were very encouraging, in particular for lysozyme and human thioredoxin. We have also identified a few residues that challenged the CpHMD simulations, highlighting scenarios where the method still needs improvement independently of the force field. The CHARMM36m all-atom implementation was more computationally efficient when compared with the GROMOS 54A7, taking advantage of a shorter nonbonded interaction cutoff and a less frequent neighboring list update. The new extension will allow the study of pH effects in many systems for which this force field is particularly suited, i.e., proteins, membrane proteins, lipid bilayers, and nucleic acids.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "CHARMM36m",
+            "start": 44,
+            "end": 53
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS",
+            "start": 419,
+            "end": 425
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36m",
+            "start": 506,
+            "end": 515
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 545,
+            "end": 552
+        },
+        {
+            "label": "MOL",
+            "text": "lysozyme",
+            "start": 645,
+            "end": 653
+        },
+        {
+            "label": "MOL",
+            "text": "Staphylococcal nuclease",
+            "start": 655,
+            "end": 678
+        },
+        {
+            "label": "MOL",
+            "text": "human and E. coli thioredoxins",
+            "start": 684,
+            "end": 714
+        },
+        {
+            "label": "MOL",
+            "text": "lysozyme",
+            "start": 904,
+            "end": 912
+        },
+        {
+            "label": "MOL",
+            "text": "human thioredoxin",
+            "start": 917,
+            "end": 934
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36m",
+            "start": 1116,
+            "end": 1125
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS 54A7",
+            "start": 1208,
+            "end": 1219
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site of hDM2 Suggests Parallel and Anti-Parallel Conformations Are Both Stable\nThe design of novel -helix mimetic inhibitors of protein-protein interactions is of interest to pharmaceuticals and chemical genetics researchers as these inhibitors provide a chemical scaffold presenting side chains in the same geometry as an -helix. This conformational arrangement allows the design of high affinity inhibitors mimicking known peptide sequences binding specific protein substrates. We show that GAFF and AutoDock potentials do not properly capture the conformational preferences of -helix mimetics based on arylamide oligomers and identify alternate parameters matching solution NMR data and suitable for molecular dynamics simulation of arylamide compounds. Results from both docking and molecular dynamics simulations are consistent with the arylamides binding in the p53 peptide binding pocket. Simulations of arylamides in the p53 binding pocket of hDM2 are consistent with binding, exhibiting similar structural dynamics in the pocket as simulations of known hDM2 binders Nutlin-2 and a benzodiazepinedione compound. Arylamide conformations converge towards the same region of the binding pocket on the 20 ns time scale, and most, though not all dihedrals in the binding pocket are well sampled on this timescale. We show that there are two putative classes of binding modes for arylamide compounds supported equally by the modeling evidence. In the first, the arylamide compound lies parallel to the observed p53 helix. In the second class, not previously identified or proposed, the arylamide compound lies anti-parallel to the p53 helix. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Arylamide",
+            "start": 12,
+            "end": 21
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 44,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "hDM2",
+            "start": 72,
+            "end": 76
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF",
+            "start": 557,
+            "end": 561
+        },
+        {
+            "label": "FFM",
+            "text": "AutoDock",
+            "start": 566,
+            "end": 574
+        },
+        {
+            "label": "MOL",
+            "text": "arylamide",
+            "start": 669,
+            "end": 678
+        },
+        {
+            "label": "MOL",
+            "text": "arylamide",
+            "start": 800,
+            "end": 809
+        },
+        {
+            "label": "MOL",
+            "text": "arylamides",
+            "start": 906,
+            "end": 916
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 932,
+            "end": 935
+        },
+        {
+            "label": "MOL",
+            "text": "arylamides",
+            "start": 975,
+            "end": 985
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 993,
+            "end": 996
+        },
+        {
+            "label": "MOL",
+            "text": "hDM2",
+            "start": 1015,
+            "end": 1019
+        },
+        {
+            "label": "MOL",
+            "text": "hDM2",
+            "start": 1126,
+            "end": 1130
+        },
+        {
+            "label": "MOL",
+            "text": "Nutlin-2",
+            "start": 1139,
+            "end": 1147
+        },
+        {
+            "label": "MOL",
+            "text": "benzodiazepinedione",
+            "start": 1154,
+            "end": 1173
+        },
+        {
+            "label": "MOL",
+            "text": "Arylamide",
+            "start": 1184,
+            "end": 1193
+        },
+        {
+            "label": "MOL",
+            "text": "arylamide",
+            "start": 1446,
+            "end": 1455
+        },
+        {
+            "label": "MOL",
+            "text": "arylamide",
+            "start": 1528,
+            "end": 1537
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 1577,
+            "end": 1580
+        },
+        {
+            "label": "MOL",
+            "text": "arylamide",
+            "start": 1652,
+            "end": 1661
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 1697,
+            "end": 1700
+        }
+    ]
+}

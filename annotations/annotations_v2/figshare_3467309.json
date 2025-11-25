@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Structural Studies of Supramolecular G Quadruplexes Formed from 8 Aryl-2 -deoxyguanosine Derivatives\nSelf-assembly is a powerful tool for the construction of complex nanostructures. Despite advances in the field, the development of precise self-assembled structures remains a challenge. We have shown that, in the presence of suitably sized cations like K+, 8-aryl-2 -deoxyguanosine (8ArG) derivatives self-assemble into sets of coaxially stacked planar tetramers, which we term supramolecular G-quadruplexes (SGQs). Previously, we reported that, when the 8-aryl group is a phenyl ring with a meta-carbonyl group, the resulting supramolecule is a hexadecamer, which is remarkably robust as illustrated by its isostructural assembly in both organic and aqueous environments. We report here a detailed three-dimensional structure of the SGQs formed by lipophilic, and hydrophilic, 8ArG derivatives with either 8- (meta-acetylphenyl), 8- (para-acetylphenyl), or 8- (meta-ethoxycarbonylphenyl) groups. The chirality and close contacts between the subunits impose different levels of steric and electrostatic constraints on opposite sides of the tetrads, which determine their preferred relative orientation. The balance between attractive noncovalent interactions juxtaposed with repulsive steric and electrostatic interactions explains the high cooperativity, fidelity, and stability of these SGQs. These structural studies, together with titration experiments and molecular dynamics simulations, provide insight into the mechanism of formation of these SGQs.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "8 Aryl-2 -deoxyguanosine",
+            "start": 64,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "K+",
+            "start": 354,
+            "end": 356
+        },
+        {
+            "label": "MOL",
+            "text": "8-aryl-2 -deoxyguanosine",
+            "start": 358,
+            "end": 382
+        },
+        {
+            "label": "MOL",
+            "text": "8ArG",
+            "start": 384,
+            "end": 388
+        },
+        {
+            "label": "MOL",
+            "text": "8-aryl",
+            "start": 556,
+            "end": 562
+        },
+        {
+            "label": "MOL",
+            "text": "phenyl",
+            "start": 574,
+            "end": 580
+        },
+        {
+            "label": "MOL",
+            "text": "8ArG",
+            "start": 879,
+            "end": 883
+        },
+        {
+            "label": "MOL",
+            "text": "8- (meta-acetylphenyl)",
+            "start": 908,
+            "end": 930
+        },
+        {
+            "label": "MOL",
+            "text": "8- (para-acetylphenyl)",
+            "start": 932,
+            "end": 954
+        },
+        {
+            "label": "MOL",
+            "text": "8- (meta-ethoxycarbonylphenyl)",
+            "start": 959,
+            "end": 989
+        }
+    ]
+}

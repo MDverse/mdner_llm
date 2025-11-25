@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Martini Coarse-Grained Model for Clay Polymer Nanocomposites\nWe have developed a coarse-grained (CG) model of a polymer clay system consisting of organically modified montmorillonite (oMMT) nanoclay as the nanoparticle in accordance with the MARTINI force field. We have used mechanical properties and cleavage free energy of the clay particle to respectively parameterize bonded and nonbonded interaction parameters for an oMMT clay particle, where intergallery Na+ ions are replaced by tetramethylammonium (TMA) ions. The mechanical properties were determined from the slope of the stress strain curve and cleavage free energy was determined by allowing for full surface reconstruction corresponding to a slow equilibrium cleavage process. Individual dispersive and polar contributions to oMMT cleavage energy were used for determination of appropriate MARTINI bead types for the CG oMMT sheet. The self-consistency of the developed MARTINI FF parameters for the TMA montmorillonite polymer system was verified by comparing estimates for select structural, thermodynamic, and dynamic properties obtained in all-atomistic simulations with that obtained in CG simulations. We have determined the influence of clay particles on properties of three polymer melts (polyethylene, polypropylene, and polystyrene) at two temperatures to establish transferability of the developed parameters. We have also shown that the effect of clay polymer interactions on structure property relationships in the polymer clay nanocomposite system is well captured by Rosenfeld s excess entropy scaling.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "Martini",
+            "start": 0,
+            "end": 7
+        },
+        {
+            "label": "MOL",
+            "text": "montmorillonite",
+            "start": 167,
+            "end": 182
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 242,
+            "end": 249
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 463,
+            "end": 466
+        },
+        {
+            "label": "MOL",
+            "text": "tetramethylammonium",
+            "start": 488,
+            "end": 507
+        },
+        {
+            "label": "MOL",
+            "text": "TMA",
+            "start": 509,
+            "end": 512
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 855,
+            "end": 862
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 935,
+            "end": 942
+        },
+        {
+            "label": "MOL",
+            "text": "TMA",
+            "start": 965,
+            "end": 968
+        },
+        {
+            "label": "MOL",
+            "text": "montmorillonite",
+            "start": 969,
+            "end": 984
+        },
+        {
+            "label": "MOL",
+            "text": "polyethylene",
+            "start": 1262,
+            "end": 1274
+        },
+        {
+            "label": "MOL",
+            "text": "polypropylene",
+            "start": 1276,
+            "end": 1289
+        },
+        {
+            "label": "MOL",
+            "text": "polystyrene",
+            "start": 1295,
+            "end": 1306
+        }
+    ]
+}

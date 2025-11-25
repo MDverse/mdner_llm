@@ -1,0 +1,127 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Structural basis of Omicron immune evasion: A comparative computational study of Spike protein-Antibody interaction\nThe COVID-19 pandemic has caused more than 424 million infections and 5.9 million deaths so far. The vaccines used against SARS-COV-2 by now have been able to develop some neutralising antibodies in the vaccinated human population and slow down the infection rate. The effectiveness of the vaccines has been challenged by the emergence of the new strains with numerous mutations in the spike (S) protein of SARS-CoV-2. Since S protein is the major immunogenic protein of the virus and also contains Receptor Binding Domain (RBD) that interacts with the human Angiotensin-Converting Enzyme 2 (ACE2) receptors, any mutations in this region should affect the neutralisation potential of the antibodies leading to the immune evasion. Several variants of concern (VOC) of the virus have emerged so far. Among them, the most critical are Delta (B.1.617.2), and recently reported Omicron (B. 1.1.529) which have acquired a lot of mutations in the spike protein. We have mapped those mutations on the modelled RBD and evaluated the binding affinities of various human antibodies with it. Docking and molecular dynamics simulation studies have been used to explore the effect of the mutations on the structure of the RBD and the RBD-antibody interaction. The analysis shows that the mutations mostly at the interface of a nearby region lower the binding affinity of the antibody by ten to forty per cent, with a downfall in the number of interactions formed as a whole and therefore, it implies the generation of immune escape variants. Notable mutations and their effect was characterised by performing various analyses that explain the structural basis of antibody efficacy in Delta and a compromised neutralisation effect for the Omicron variant. Our results pave the way for robust vaccine design that can be effective for many variants.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Spike protein",
+            "start": 81,
+            "end": 94
+        },
+        {
+            "label": "MOL",
+            "text": "Antibody",
+            "start": 95,
+            "end": 103
+        },
+        {
+            "label": "MOL",
+            "text": "antibodies",
+            "start": 301,
+            "end": 311
+        },
+        {
+            "label": "MOL",
+            "text": "spike",
+            "start": 502,
+            "end": 507
+        },
+        {
+            "label": "MOL",
+            "text": "S",
+            "start": 509,
+            "end": 510
+        },
+        {
+            "label": "MOL",
+            "text": "S protein",
+            "start": 541,
+            "end": 550
+        },
+        {
+            "label": "MOL",
+            "text": "Receptor Binding Domain",
+            "start": 615,
+            "end": 638
+        },
+        {
+            "label": "MOL",
+            "text": "RBD",
+            "start": 640,
+            "end": 643
+        },
+        {
+            "label": "MOL",
+            "text": "Angiotensin-Converting Enzyme 2",
+            "start": 675,
+            "end": 706
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 708,
+            "end": 712
+        },
+        {
+            "label": "MOL",
+            "text": "antibodies",
+            "start": 804,
+            "end": 814
+        },
+        {
+            "label": "MOL",
+            "text": "spike protein",
+            "start": 1056,
+            "end": 1069
+        },
+        {
+            "label": "MOL",
+            "text": "RBD",
+            "start": 1118,
+            "end": 1121
+        },
+        {
+            "label": "MOL",
+            "text": "antibodies",
+            "start": 1176,
+            "end": 1186
+        },
+        {
+            "label": "MOL",
+            "text": "RBD",
+            "start": 1324,
+            "end": 1327
+        },
+        {
+            "label": "MOL",
+            "text": "RBD",
+            "start": 1336,
+            "end": 1339
+        },
+        {
+            "label": "MOL",
+            "text": "antibody",
+            "start": 1340,
+            "end": 1348
+        },
+        {
+            "label": "MOL",
+            "text": "antibody",
+            "start": 1477,
+            "end": 1485
+        },
+        {
+            "label": "MOL",
+            "text": "antibody",
+            "start": 1765,
+            "end": 1773
+        }
+    ]
+}

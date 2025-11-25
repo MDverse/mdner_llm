@@ -1,0 +1,43 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "POPC @ 310K, Model by Ulmschneider and Ulmschneider\nFiles required for a simulation of a POPC bilayer and the resulting trajectories. The POPC model is that by Ulmschneider and Ulmschneider [1]. The structure and topology files are downloaded from Lipidbook [2]. The files (xtc and mdp) with ' dc' suffix are simulated with dispersion correction applied to both energy and pressure whereas the files without this suffix do not use this correction. This data is used in the project Matching lipid force fields with NMR data, see: https://removed [1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5 (7), 1803 1813 [2] https://removed",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 7,
+            "end": 11
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 89,
+            "end": 93
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 138,
+            "end": 142
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Lipidbook",
+            "start": 248,
+            "end": 257
+        }
+    ]
+}

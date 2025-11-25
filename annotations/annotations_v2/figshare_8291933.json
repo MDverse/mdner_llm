@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Effect of Triclosan and Chloroxylenol on Bacterial Membranes\nTriclosan and chloroxylenol are broad-spectrum biocides used extensively in healthcare and consumer products. They have been suggested to perturb the structure of bacterial membranes, but studies so far have not considered that most bacterial membranes contain large amounts of branched-chain lipids. Here, molecular dynamics simulation is used to examine the effect of the two biocides on membranes consisting of lipids with methyl-branched chains, cyclopropanated chains, and nonbranched chains. It is shown that triclosan and chloroxylenol induced a phase transition in membranes from a liquid-crystalline to a liquid-ordered phase irrespective of the presence and nature of branching groups. At high concentration, chloroxylenol promoted chain interdigitation. Our results suggest that triclosan and chloroxylenol decrease the degree of fluidity of membranes and that this effect is more pronounced in bacterial membranes. As a result, their biocidal activity could be associated with a change in the function of membrane proteins.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Triclosan",
+            "start": 10,
+            "end": 19
+        },
+        {
+            "label": "MOL",
+            "text": "Chloroxylenol",
+            "start": 24,
+            "end": 37
+        },
+        {
+            "label": "MOL",
+            "text": "Triclosan",
+            "start": 61,
+            "end": 70
+        },
+        {
+            "label": "MOL",
+            "text": "chloroxylenol",
+            "start": 75,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "biocides",
+            "start": 108,
+            "end": 116
+        },
+        {
+            "label": "MOL",
+            "text": "biocides",
+            "start": 439,
+            "end": 447
+        },
+        {
+            "label": "MOL",
+            "text": "lipids",
+            "start": 475,
+            "end": 481
+        },
+        {
+            "label": "MOL",
+            "text": "triclosan",
+            "start": 576,
+            "end": 585
+        },
+        {
+            "label": "MOL",
+            "text": "chloroxylenol",
+            "start": 590,
+            "end": 603
+        },
+        {
+            "label": "MOL",
+            "text": "chloroxylenol",
+            "start": 780,
+            "end": 793
+        },
+        {
+            "label": "MOL",
+            "text": "triclosan",
+            "start": 851,
+            "end": 860
+        },
+        {
+            "label": "MOL",
+            "text": "chloroxylenol",
+            "start": 865,
+            "end": 878
+        }
+    ]
+}

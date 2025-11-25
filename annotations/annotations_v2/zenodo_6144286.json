@@ -1,0 +1,229 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Simulations for: Patched 1 regulates Smoothened by controlling sterol binding to its extracellular cysteine-rich domain.\nAtomistic simulations of Smoothened: Atomistic molecular dynamics simulations of glycosylated mouse Smoothened (mSMO) and human Smoothened (hSMO) in distinct liganded states: - mSMO in an apo state (mSMO apo) - mSMO with TMD cholesterol bound (mSMO chol TMD) - mSMO with CRD cholesterol bound (mSMO chol CRD) - mSMO with cholesterol bound to the CRD and TMD (mSMO 2chol TMD CRD) - mSMO bound to CRD cholesterol and Smoothened agonist (SAG) (mSMO chol CRD SAG) - mSMO bound to CRD and TMD cholesterols, SAG and an intracellular nanobody (mSMO 2chol SAG nanobody) - mSMO bound to CRD and TMD cholesterol and with an additional cholesterol bound at a proposed 'mid' position (mSMO 3chol) - hSMO bound to CRD cholesterol and SAG (hSMO chol CRD SAG) All simulations were run for 5x 300 ns. The active mSMO conformation was obtained from the Protein Data Bank (PDB ID: 6O3C). The hSMO structure was determined using X-ray crystallography as outlined within this study. File description for each system: - md fit firstframe.pdb : Initial frame used for atomistic simulations (replicate 1, each replicate equilibrated independently). - md fit X.xtc : Gromacs trajectory file for each replicate (X replicate number). ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Smoothened",
+            "start": 37,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "Smoothened",
+            "start": 146,
+            "end": 156
+        },
+        {
+            "label": "MOL",
+            "text": "glycosylated mouse Smoothened",
+            "start": 202,
+            "end": 231
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 233,
+            "end": 237
+        },
+        {
+            "label": "MOL",
+            "text": "human Smoothened",
+            "start": 243,
+            "end": 259
+        },
+        {
+            "label": "MOL",
+            "text": "hSMO",
+            "start": 261,
+            "end": 265
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 298,
+            "end": 302
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 320,
+            "end": 324
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 332,
+            "end": 336
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 346,
+            "end": 357
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 365,
+            "end": 369
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 382,
+            "end": 386
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 396,
+            "end": 407
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 415,
+            "end": 419
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 432,
+            "end": 436
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 442,
+            "end": 453
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 480,
+            "end": 484
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 502,
+            "end": 506
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 520,
+            "end": 531
+        },
+        {
+            "label": "MOL",
+            "text": "Smoothened",
+            "start": 536,
+            "end": 546
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 562,
+            "end": 566
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 583,
+            "end": 587
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterols",
+            "start": 609,
+            "end": 621
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 658,
+            "end": 662
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 685,
+            "end": 689
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 711,
+            "end": 722
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 746,
+            "end": 757
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 794,
+            "end": 798
+        },
+        {
+            "label": "MOL",
+            "text": "hSMO",
+            "start": 808,
+            "end": 812
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 826,
+            "end": 837
+        },
+        {
+            "label": "MOL",
+            "text": "hSMO",
+            "start": 847,
+            "end": 851
+        },
+        {
+            "label": "STIME",
+            "text": "300 ns",
+            "start": 898,
+            "end": 904
+        },
+        {
+            "label": "MOL",
+            "text": "mSMO",
+            "start": 917,
+            "end": 921
+        },
+        {
+            "label": "MOL",
+            "text": "6O3C",
+            "start": 984,
+            "end": 988
+        },
+        {
+            "label": "MOL",
+            "text": "hSMO",
+            "start": 995,
+            "end": 999
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1264,
+            "end": 1271
+        }
+    ]
+}

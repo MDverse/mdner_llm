@@ -1,0 +1,67 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "The Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\nThe Shape of Water in Zeolites and its Impact on Epoxidation Catalysis Daniel T. Bregante,1 Matthew Chan,1 Jun Zhi Tan,1 E. Zeynep Ayla,1 Christopher P. Nicholas,2,3 Diwakar Shukla,1 and David W. Flaherty1,* 1Department of Chemical and Biomolecular Engineering, University of Illinois at Urbana-Champaign, Urbana, IL 61802 2Exploratory Materials and Catalysis Research, Honeywell UOP, Des Plaines, IL 60016 3C2P Sciences L3C, Evanston, IL 60202 *Corresponding Author: dwflhrty@illinois.edu Molecular dynamics simulations for zeolite framework studied in \"The Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\". Repository contains the last 100 nanoseconds of classical molecular dynamics equilibration, ab initio molecular dynamics trajectories, initial and final simulated zeolite structures, and scripts used for analyzing MD trajectories. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 13,
+            "end": 18
+        },
+        {
+            "label": "MOL",
+            "text": "Zeolites",
+            "start": 22,
+            "end": 30
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 84,
+            "end": 89
+        },
+        {
+            "label": "MOL",
+            "text": "Zeolites",
+            "start": 93,
+            "end": 101
+        },
+        {
+            "label": "MOL",
+            "text": "zeolite",
+            "start": 596,
+            "end": 603
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 639,
+            "end": 644
+        },
+        {
+            "label": "MOL",
+            "text": "Zeolites",
+            "start": 648,
+            "end": 656
+        },
+        {
+            "label": "STIME",
+            "text": "100 nanoseconds",
+            "start": 728,
+            "end": 743
+        },
+        {
+            "label": "MOL",
+            "text": "zeolite",
+            "start": 862,
+            "end": 869
+        }
+    ]
+}

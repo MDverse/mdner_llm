@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Water, acetonitrile, and methanol MD simulations driven by many-body ML potentials\nInput, output, and trajectories of molecular dynamics (MD) simulations of water, acetonitrile, and methanol. Simulations were driven by many-body machine learning (mbML) potentials including explicit 1-, 2-, and 3-body contributions. GDML, GAP, and SchNet models are provided in a separate repository. All simulations were performed in the atomic simulation environment (ASE). Analyses including radial distribution function (rdf) curves are provided here. Manifest The following simulations are included in this repository for each solvent. 1 ps hexamer NVE MD simulation driven by MP2/def2-TZVP (in ORCA v4.2.0), mbGDML, mbGAP, mbSchNet, and GFN2-xTB started with the same positions and velocities. Velocities were initialized at 298.15 K with a Maxwell-Boltzmann distribution. Periodic NVT MD simulation at 298.15 K for 10 or 30 ps with a 1 fs time step driven by mbGDML. These simulations contained 58 or 137 water molecules, 67 or 122 acetonitrile molecules, 61 methanol molecules. Systems that are not bolded were used for testing purposes.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "label": "MOL",
+            "text": "acetonitrile",
+            "start": 7,
+            "end": 19
+        },
+        {
+            "label": "MOL",
+            "text": "methanol",
+            "start": 25,
+            "end": 33
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 157,
+            "end": 162
+        },
+        {
+            "label": "MOL",
+            "text": "acetonitrile",
+            "start": 164,
+            "end": 176
+        },
+        {
+            "label": "MOL",
+            "text": "methanol",
+            "start": 182,
+            "end": 190
+        },
+        {
+            "label": "FFM",
+            "text": "GDML",
+            "start": 317,
+            "end": 321
+        },
+        {
+            "label": "FFM",
+            "text": "GAP",
+            "start": 323,
+            "end": 326
+        },
+        {
+            "label": "FFM",
+            "text": "SchNet",
+            "start": 332,
+            "end": 338
+        },
+        {
+            "label": "TEMP",
+            "text": "298.15 K",
+            "start": 815,
+            "end": 823
+        },
+        {
+            "label": "TEMP",
+            "text": "298.15 K",
+            "start": 893,
+            "end": 901
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 996,
+            "end": 1001
+        },
+        {
+            "label": "MOL",
+            "text": "acetonitrile",
+            "start": 1023,
+            "end": 1035
+        },
+        {
+            "label": "MOL",
+            "text": "methanol",
+            "start": 1050,
+            "end": 1058
+        }
+    ]
+}

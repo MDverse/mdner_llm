@@ -1,0 +1,121 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "A Bottom-Up Coarse-Grained Model for Nucleosome Nucleosome Interactions with Explicit Ions\nThe nucleosome core particle (NCP) is a large complex of 145 147 base pairs of DNA and eight histone proteins and is the basic building block of chromatin that forms the chromosomes. Here, we develop a coarse-grained (CG) model of the NCP derived through a systematic bottom-up approach based on underlying all-atom MD simulations to compute the necessary CG interactions. The model produces excellent agreement with known structural features of the NCP and gives a realistic description of the nucleosome nucleosome attraction in the presence of multivalent cations (Mg (H2O)62+ or Co (NH3)63+) for systems comprising 20 NCPs. The results of the simulations reveal structural details of the NCP NCP interactions unavailable from experimental approaches, and this model opens the prospect for the rigorous modeling of chromatin fibers.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Nucleosome",
+            "start": 37,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "Nucleosome",
+            "start": 48,
+            "end": 58
+        },
+        {
+            "label": "MOL",
+            "text": "nucleosome core particle",
+            "start": 95,
+            "end": 119
+        },
+        {
+            "label": "MOL",
+            "text": "NCP",
+            "start": 121,
+            "end": 124
+        },
+        {
+            "label": "MOL",
+            "text": "histone",
+            "start": 184,
+            "end": 191
+        },
+        {
+            "label": "MOL",
+            "text": "chromatin",
+            "start": 236,
+            "end": 245
+        },
+        {
+            "label": "MOL",
+            "text": "chromosomes",
+            "start": 261,
+            "end": 272
+        },
+        {
+            "label": "MOL",
+            "text": "NCP",
+            "start": 326,
+            "end": 329
+        },
+        {
+            "label": "MOL",
+            "text": "NCP",
+            "start": 541,
+            "end": 544
+        },
+        {
+            "label": "MOL",
+            "text": "nucleosome",
+            "start": 586,
+            "end": 596
+        },
+        {
+            "label": "MOL",
+            "text": "nucleosome",
+            "start": 597,
+            "end": 607
+        },
+        {
+            "label": "MOL",
+            "text": "cations",
+            "start": 650,
+            "end": 657
+        },
+        {
+            "label": "MOL",
+            "text": "Mg (H2O)62+",
+            "start": 659,
+            "end": 670
+        },
+        {
+            "label": "MOL",
+            "text": "Co (NH3)63+",
+            "start": 674,
+            "end": 685
+        },
+        {
+            "label": "MOL",
+            "text": "NCPs",
+            "start": 713,
+            "end": 717
+        },
+        {
+            "label": "MOL",
+            "text": "NCP",
+            "start": 783,
+            "end": 786
+        },
+        {
+            "label": "MOL",
+            "text": "NCP",
+            "start": 787,
+            "end": 790
+        },
+        {
+            "label": "MOL",
+            "text": "chromatin",
+            "start": 909,
+            "end": 918
+        }
+    ]
+}

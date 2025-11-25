@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic and Coarse Grain Topologies for the Cofactors Associated with the Photosystem II Core Complex\nElectron transfers within and between protein complexes are core processes of the electron transport chains occurring in thylakoid (chloroplast), mitochondrial, and bacterial membranes. These electron transfers involve a number of cofactors. Here we describe the derivation of molecular mechanics parameters for the cofactors associated with the function of the photosystem II core complex: plastoquinone, plastoquinol, heme b, chlorophyll A, pheophytin, and carotene. Parameters were also obtained for ubiquinol and ubiquinone, related cofactors involved in the respiratory chain. Parameters were derived at both atomistic and coarse grain (CG) resolutions, compatible with the building blocks of the GROMOS united-atom and Martini CG force fields, respectively. Structural and thermodynamic properties of the cofactors were compared to experimental values when available. The topologies were further tested in molecular dynamics simulations of the cofactors in their physiological environment, e.g., either in a lipid membrane environment or in complex with the heme binding protein bacterioferritin.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "plastoquinone",
+            "start": 495,
+            "end": 508
+        },
+        {
+            "label": "MOL",
+            "text": "plastoquinol",
+            "start": 510,
+            "end": 522
+        },
+        {
+            "label": "MOL",
+            "text": "heme b",
+            "start": 524,
+            "end": 530
+        },
+        {
+            "label": "MOL",
+            "text": "chlorophyll A",
+            "start": 532,
+            "end": 545
+        },
+        {
+            "label": "MOL",
+            "text": "pheophytin",
+            "start": 547,
+            "end": 557
+        },
+        {
+            "label": "MOL",
+            "text": "carotene",
+            "start": 563,
+            "end": 571
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinol",
+            "start": 607,
+            "end": 616
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinone",
+            "start": 621,
+            "end": 631
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS",
+            "start": 806,
+            "end": 812
+        },
+        {
+            "label": "FFM",
+            "text": "Martini CG",
+            "start": 829,
+            "end": 839
+        },
+        {
+            "label": "MOL",
+            "text": "heme",
+            "start": 1168,
+            "end": 1172
+        },
+        {
+            "label": "MOL",
+            "text": "bacterioferritin",
+            "start": 1189,
+            "end": 1205
+        }
+    ]
+}

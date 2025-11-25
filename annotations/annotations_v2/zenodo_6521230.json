@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Dataset for the Manuscript: Structural and mechanistic insights into the cleavage of clustered O-glycan patches-containing glycoproteins by mucinases of the human gut (in revision)\nThis dataset provides the classical and QM/MM MD simulation trajectory data to the manuscript: Structural and mechanistic insights into the cleavage of clustered O-glycan patches-containing glycoproteins by mucinases of the human gut The data set contains classical MD simulations of AM0627 with three substrate peptides P1, P2, P9, and BT4244 with glycopeptides, as well as QM/MM metadynamics simulations for our manuscript. PDB files for Figures 4,5 and Figure S5-8,10 are also included.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "O-glycan",
+            "start": 95,
+            "end": 103
+        },
+        {
+            "label": "MOL",
+            "text": "glycoproteins",
+            "start": 123,
+            "end": 136
+        },
+        {
+            "label": "MOL",
+            "text": "mucinases",
+            "start": 140,
+            "end": 149
+        },
+        {
+            "label": "MOL",
+            "text": "O-glycan",
+            "start": 343,
+            "end": 351
+        },
+        {
+            "label": "MOL",
+            "text": "glycoproteins",
+            "start": 371,
+            "end": 384
+        },
+        {
+            "label": "MOL",
+            "text": "mucinases",
+            "start": 388,
+            "end": 397
+        },
+        {
+            "label": "MOL",
+            "text": "AM0627",
+            "start": 465,
+            "end": 471
+        },
+        {
+            "label": "MOL",
+            "text": "peptides",
+            "start": 493,
+            "end": 501
+        },
+        {
+            "label": "MOL",
+            "text": "BT4244",
+            "start": 518,
+            "end": 524
+        },
+        {
+            "label": "MOL",
+            "text": "glycopeptides",
+            "start": 530,
+            "end": 543
+        }
+    ]
+}

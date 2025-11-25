@@ -1,0 +1,145 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Investigation of nanotubes as the smart carriers for targeted delivery of mercaptopurine anticancer drug\nMercaptopurine (MCP) is an anticancer drug that is used to treat acute lymphoblastic leukemia. The therapeutic effect of the mercaptopurine limits its severe side effects like other cytotoxic (anti-cancer) drugs. Nanostructures or nanoparticles can be widely used as potential drug carriers for diagnosis and treatment of cancer. In the current study, the boron nitride nanotube (BNNT) and carbon nanotube (CNT) were studied as the delivery carriers of MCP using the density functional theory (DFT) calculations and molecular dynamics (MDs) simulation studies. To further understand the electronic properties of mercaptopurine, the partial density of states (PDOS) was calculated. The PDOS results depicted that the electronic features of the MCP do not change after the adsorption on the surface of the nanotubes. More stability of the MCP/BNNT complexes may be attributed to the existence of the intermolecular hydrogen bonds (H-bonds) between the hydrogen atoms of the MCP molecule and the N atoms of the BNNT. The results of the quantum theory of atoms in molecules (QTAIM) confirmed the presence of H-bonds in these complexes. Moreover, MD simulation studies were done in the presence of five drug molecules. The results revealed that the strongest van der Waals (vdW) interaction energy was found between the BNNT and MCP among the studied nanotubes, indicating the BNNT is a better nanocarrier than carbon nanotube for delivery of the MCP drug within the biological systems. In general, the obtained results may present helpful information on the nature of the interactions between mercaptopurine anticancer drug with BNNT and/or CNT. Communicated by Ramaswamy H. Sarma",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "mercaptopurine",
+            "start": 74,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "Mercaptopurine",
+            "start": 105,
+            "end": 119
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 121,
+            "end": 124
+        },
+        {
+            "label": "MOL",
+            "text": "mercaptopurine",
+            "start": 230,
+            "end": 244
+        },
+        {
+            "label": "MOL",
+            "text": "boron nitride nanotube",
+            "start": 461,
+            "end": 483
+        },
+        {
+            "label": "MOL",
+            "text": "BNNT",
+            "start": 485,
+            "end": 489
+        },
+        {
+            "label": "MOL",
+            "text": "carbon nanotube",
+            "start": 495,
+            "end": 510
+        },
+        {
+            "label": "MOL",
+            "text": "CNT",
+            "start": 512,
+            "end": 515
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 558,
+            "end": 561
+        },
+        {
+            "label": "MOL",
+            "text": "mercaptopurine",
+            "start": 717,
+            "end": 731
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 848,
+            "end": 851
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 942,
+            "end": 945
+        },
+        {
+            "label": "MOL",
+            "text": "BNNT",
+            "start": 946,
+            "end": 950
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 1077,
+            "end": 1080
+        },
+        {
+            "label": "MOL",
+            "text": "BNNT",
+            "start": 1113,
+            "end": 1117
+        },
+        {
+            "label": "MOL",
+            "text": "BNNT",
+            "start": 1420,
+            "end": 1424
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 1429,
+            "end": 1432
+        },
+        {
+            "label": "MOL",
+            "text": "BNNT",
+            "start": 1477,
+            "end": 1481
+        },
+        {
+            "label": "MOL",
+            "text": "MCP",
+            "start": 1547,
+            "end": 1550
+        },
+        {
+            "label": "MOL",
+            "text": "mercaptopurine",
+            "start": 1694,
+            "end": 1708
+        },
+        {
+            "label": "MOL",
+            "text": "BNNT",
+            "start": 1730,
+            "end": 1734
+        },
+        {
+            "label": "MOL",
+            "text": "CNT",
+            "start": 1742,
+            "end": 1745
+        }
+    ]
+}

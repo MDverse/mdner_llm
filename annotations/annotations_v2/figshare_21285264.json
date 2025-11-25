@@ -1,0 +1,61 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Supporting material for publication: The adaptability of the ion binding site by the Ag (I) / Cu (I) periplasmic chaperone SilF\nSupporting material for publication: The adaptability of the ion binding site by the Ag (I) / Cu (I) periplasmic chaperone SilF by Ryan M. Lithgo, Marko Hanzevacki, Gemma Harris, Jos J. A. G. Kamps, Ellie Holden, Justin LP Benesch, Christof M. Ja ger, Anna Croft, Jonathan L. Hobman, Andrew Quigleybcd, Stephen B. Carr, David J. Scott Computational supporting data consisting of: - Molecular dynamics and QM/MM input, parameter, coordinates, and parameter files - Force field parameterisation files - run-scripts for setup and production runs - coordinate output files for QM/MM calcuations - analysis scripts and results",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Ag",
+            "start": 85,
+            "end": 87
+        },
+        {
+            "label": "MOL",
+            "text": "Cu",
+            "start": 94,
+            "end": 96
+        },
+        {
+            "label": "MOL",
+            "text": "periplasmic chaperone",
+            "start": 101,
+            "end": 122
+        },
+        {
+            "label": "MOL",
+            "text": "SilF",
+            "start": 123,
+            "end": 127
+        },
+        {
+            "label": "MOL",
+            "text": "Ag",
+            "start": 213,
+            "end": 215
+        },
+        {
+            "label": "MOL",
+            "text": "Cu",
+            "start": 222,
+            "end": 224
+        },
+        {
+            "label": "MOL",
+            "text": "periplasmic chaperone",
+            "start": 229,
+            "end": 250
+        },
+        {
+            "label": "MOL",
+            "text": "SilF",
+            "start": 251,
+            "end": 255
+        }
+    ]
+}

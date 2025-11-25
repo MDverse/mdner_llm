@@ -1,0 +1,109 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Equilibration simulations of TM domains of Bcl-2 proteins Mcl-1, Bok, and Bax\nInput files and final structures (after 1 microsecond) of simulations of Mcl-1, Bax, and Bok transmembrane domains (TMDs) in a POPC membrane. CHARMM36 parameters are used for lipids and proteins and the CHARMM-specific TIP3P model for water. The systems were set up using CHARMM-GUI, and simualted using GROMACS with the simulation parameters recommended for CHARMM (see md.mdp). The simulations are described in detail in the paper [1]. Briefly, the final structures, given as .gro files here, were coarse-grained and used in high-throughput dimerization analyses. The dimer structures were clustered, and the most promising structures were fine-grained, and their stability was evaluated using atomistic simulations. [1] ADD",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Bcl-2",
+            "start": 43,
+            "end": 48
+        },
+        {
+            "label": "MOL",
+            "text": "Mcl-1",
+            "start": 58,
+            "end": 63
+        },
+        {
+            "label": "MOL",
+            "text": "Bok",
+            "start": 65,
+            "end": 68
+        },
+        {
+            "label": "MOL",
+            "text": "Bax",
+            "start": 74,
+            "end": 77
+        },
+        {
+            "label": "STIME",
+            "text": "1 microsecond",
+            "start": 118,
+            "end": 131
+        },
+        {
+            "label": "MOL",
+            "text": "Mcl-1",
+            "start": 151,
+            "end": 156
+        },
+        {
+            "label": "MOL",
+            "text": "Bax",
+            "start": 158,
+            "end": 161
+        },
+        {
+            "label": "MOL",
+            "text": "Bok",
+            "start": 167,
+            "end": 170
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 205,
+            "end": 209
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 220,
+            "end": 228
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 281,
+            "end": 287
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 297,
+            "end": 302
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 313,
+            "end": 318
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 350,
+            "end": 360
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 382,
+            "end": 389
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 437,
+            "end": 443
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "On Calculation of the Electrostatic Potential of a Phosphatidylinositol Phosphate-Containing Phosphatidylcholine Lipid Membrane Accounting for Membrane Dynamics\nMany signaling events require the binding of cytoplasmic proteins to cell membranes by recognition of specific charged lipids, such as phosphoinositol-phosphates. As a model for a protein-membrane binding site, we consider one charged phosphoinositol phosphate (PtdIns (3)P) embedded in a phosphatidylcholine bilayer. As the protein-membrane binding is driven by electrostatic interactions, continuum solvent models require an accurate representation of the electrostatic potential of the phosphoinositol phosphate-containing membrane. We computed and analyzed the electrostatic potentials of snapshots taken at regular intervals from molecular dynamics simulations of the bilayer. We observe considerable variation in the electrostatic potential of the bilayer both along a single simulation and between simulations performed with the GAFF or CHARMM c36 force fields. However, we find that the choice of GAFF or CHARMM c36 parameters has little effect on the electrostatic potential of a given configuration of the bilayer with a PtdIns (3)P embedded in it. From our results, we propose a remedian averaging method for calculating the electrostatic potential of a membrane system that is suitable for simulations of protein-membrane binding with a continuum solvent model.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Phosphatidylinositol Phosphate",
+            "start": 51,
+            "end": 81
+        },
+        {
+            "label": "MOL",
+            "text": "Phosphatidylcholine",
+            "start": 93,
+            "end": 112
+        },
+        {
+            "label": "MOL",
+            "text": "phosphoinositol",
+            "start": 296,
+            "end": 311
+        },
+        {
+            "label": "MOL",
+            "text": "phosphates",
+            "start": 312,
+            "end": 322
+        },
+        {
+            "label": "MOL",
+            "text": "phosphoinositol phosphate",
+            "start": 396,
+            "end": 421
+        },
+        {
+            "label": "MOL",
+            "text": "PtdIns (3)P",
+            "start": 423,
+            "end": 434
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylcholine",
+            "start": 450,
+            "end": 469
+        },
+        {
+            "label": "MOL",
+            "text": "phosphoinositol phosphate",
+            "start": 650,
+            "end": 675
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF",
+            "start": 997,
+            "end": 1001
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM c36",
+            "start": 1005,
+            "end": 1015
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF",
+            "start": 1066,
+            "end": 1070
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM c36",
+            "start": 1074,
+            "end": 1084
+        },
+        {
+            "label": "MOL",
+            "text": "PtdIns (3)P",
+            "start": 1192,
+            "end": 1203
+        }
+    ]
+}

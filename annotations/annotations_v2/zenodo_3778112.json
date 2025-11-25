@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Mutated EN2 (143-259) simulation with Amber ff03ws\nMD simulation of a mutated protein EN2 (143-259) with Amber ff03ws and 40 mM NaCl as the solvent. The mutated sequence differs from the original sequence by amino acids serine (148, 150, 153, 154, 155, 156) and aspartic acid (152,154) changed to threonine and glutamate respectively. The trajectory files contain the total 1080 ns simulation. The trajectory file without solvent has saving frequency 10 ps. The trajectory files with solvent have a saving frequency 100ps. Force field parameters for proteins and counter ions are downloaded from https://removed fields, for NaCl from https://removed",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "EN2",
+            "start": 8,
+            "end": 11
+        },
+        {
+            "label": "FFM",
+            "text": "Amber ff03ws",
+            "start": 38,
+            "end": 50
+        },
+        {
+            "label": "MOL",
+            "text": "EN2",
+            "start": 86,
+            "end": 89
+        },
+        {
+            "label": "FFM",
+            "text": "Amber ff03ws",
+            "start": 105,
+            "end": 117
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 128,
+            "end": 132
+        },
+        {
+            "label": "MOL",
+            "text": "serine",
+            "start": 220,
+            "end": 226
+        },
+        {
+            "label": "MOL",
+            "text": "aspartic acid",
+            "start": 262,
+            "end": 275
+        },
+        {
+            "label": "MOL",
+            "text": "threonine",
+            "start": 297,
+            "end": 306
+        },
+        {
+            "label": "MOL",
+            "text": "glutamate",
+            "start": 311,
+            "end": 320
+        },
+        {
+            "label": "STIME",
+            "text": "1080 ns",
+            "start": 374,
+            "end": 381
+        },
+        {
+            "label": "MOL",
+            "text": "counter ions",
+            "start": 563,
+            "end": 575
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 624,
+            "end": 628
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Simulations of the Initial-State Predict Product Distributions of Dediazoniation of Aryldiazonium in Binary Solvents\nThe dediazoniation of aryldiazonium salts in mixed solvents proceeds by a borderline SN1 and SN2 pathway, and product distribution should be proportional to the composition of the solvation shell of the carbon attached to the N2 group (ipso carbon). The rates of dediazoniation of 2,4,6-trimethylbenzenediazonium in water, methanol, ethanol, propanol, and acetonitrile were similar, but measured product distributions were noticeably dependent on the nature of the water/cosolvent mixture. Here we demonstrated that solvent distribution in the first solvation shell of the ipso carbon, calculated from classical molecular dynamics simulations, is equal to the measured product distribution. Furthermore, we showed that regardless of the charge distribution of the initial state, i.e., whether the positive charge is smeared over the molecule or localized on phenyl moiety, the solvent distribution around the reaction center is nearly the same.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Aryldiazonium",
+            "start": 103,
+            "end": 116
+        },
+        {
+            "label": "MOL",
+            "text": "aryldiazonium",
+            "start": 158,
+            "end": 171
+        },
+        {
+            "label": "MOL",
+            "text": "2,4,6-trimethylbenzenediazonium",
+            "start": 417,
+            "end": 448
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 452,
+            "end": 457
+        },
+        {
+            "label": "MOL",
+            "text": "methanol",
+            "start": 459,
+            "end": 467
+        },
+        {
+            "label": "MOL",
+            "text": "ethanol",
+            "start": 469,
+            "end": 476
+        },
+        {
+            "label": "MOL",
+            "text": "propanol",
+            "start": 478,
+            "end": 486
+        },
+        {
+            "label": "MOL",
+            "text": "acetonitrile",
+            "start": 492,
+            "end": 504
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 601,
+            "end": 606
+        },
+        {
+            "label": "MOL",
+            "text": "phenyl",
+            "start": 994,
+            "end": 1000
+        }
+    ]
+}

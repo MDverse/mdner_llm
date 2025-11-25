@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Assessing the Efficacy of Poly (N isopropylacrylamide) for Drug Delivery Applications Using Molecular Dynamics Simulations\nAll-atom molecular dynamic simulations (AA-MD) are performed for aqueous solutions of hydrophobic drug molecules (phenytoin) with model polymer excipients, namely, (1) N-isopropylacrylamide, (pNIPAAm), (2) pNIPAAm-co-acrylamide (Am), and (3) pNIPAAm-co-dimethylacrylamide (DMA). After validating the force field parameters using the well-known lower critical solution behavior of pNIPAAm, we simulate the polymer drug complex in water and its behavior at temperatures below (295 K) and above the LCST (310 K). Using radial distribution functions, we find that there is an optimum comonomer molar fraction of around 20 30% DMA at which interaction with phenytoin drug molecules is strongest, consistent with recent experimental findings. The results provide evidence that molecular simulations are able to provide guidance in the optimization of novel polymer excipients for drug release.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Poly (N isopropylacrylamide)",
+            "start": 26,
+            "end": 54
+        },
+        {
+            "label": "MOL",
+            "text": "phenytoin",
+            "start": 237,
+            "end": 246
+        },
+        {
+            "label": "MOL",
+            "text": "N-isopropylacrylamide",
+            "start": 291,
+            "end": 312
+        },
+        {
+            "label": "MOL",
+            "text": "pNIPAAm",
+            "start": 315,
+            "end": 322
+        },
+        {
+            "label": "MOL",
+            "text": "pNIPAAm-co-acrylamide",
+            "start": 329,
+            "end": 350
+        },
+        {
+            "label": "MOL",
+            "text": "Am",
+            "start": 352,
+            "end": 354
+        },
+        {
+            "label": "MOL",
+            "text": "pNIPAAm-co-dimethylacrylamide",
+            "start": 365,
+            "end": 394
+        },
+        {
+            "label": "MOL",
+            "text": "DMA",
+            "start": 396,
+            "end": 399
+        },
+        {
+            "label": "MOL",
+            "text": "pNIPAAm",
+            "start": 503,
+            "end": 510
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 552,
+            "end": 557
+        },
+        {
+            "label": "TEMP",
+            "text": "295 K",
+            "start": 598,
+            "end": 603
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 625,
+            "end": 630
+        },
+        {
+            "label": "MOL",
+            "text": "DMA",
+            "start": 745,
+            "end": 748
+        },
+        {
+            "label": "MOL",
+            "text": "phenytoin",
+            "start": 775,
+            "end": 784
+        }
+    ]
+}

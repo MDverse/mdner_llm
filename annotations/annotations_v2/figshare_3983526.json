@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Villin Headpiece Simulations\n3 separate simulations each of 6µs concatenated together are contained herein. Each trajectory was run with ACEMD using a CHARMM 27 force field. The proteins (2RJY) were first solvated to 0.15 mol/L of NaCL and set in a water box modeled as a TIP3P water model. Proteins were then equilibrated (conjugate gradient minimization) and then heated from the crystal structure to unfold. Folding simulations were run after a subsequent equilibration. While the simulations do not find the native folded state, they sample many partially folded intermediates and offer insight into the folding pathway of villin headpiece. Simulations included here have had the water and ions removed for space considerations and they have been aligned to remove translation and rotation resulting from diffusion.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Villin Headpiece",
+            "start": 0,
+            "end": 16
+        },
+        {
+            "label": "STIME",
+            "text": "6µs",
+            "start": 60,
+            "end": 63
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ACEMD",
+            "start": 137,
+            "end": 142
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM 27",
+            "start": 151,
+            "end": 160
+        },
+        {
+            "label": "MOL",
+            "text": "proteins",
+            "start": 178,
+            "end": 186
+        },
+        {
+            "label": "MOL",
+            "text": "2RJY",
+            "start": 188,
+            "end": 192
+        },
+        {
+            "label": "MOL",
+            "text": "NaCL",
+            "start": 231,
+            "end": 235
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 249,
+            "end": 254
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 272,
+            "end": 277
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 278,
+            "end": 283
+        },
+        {
+            "label": "MOL",
+            "text": "Proteins",
+            "start": 291,
+            "end": 299
+        },
+        {
+            "label": "MOL",
+            "text": "villin headpiece",
+            "start": 627,
+            "end": 643
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 684,
+            "end": 689
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 694,
+            "end": 698
+        }
+    ]
+}

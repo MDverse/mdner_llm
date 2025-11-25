@@ -1,0 +1,55 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Serine 477 plays a crucial role in the interaction of the SARS-CoV-2 spike protein with the human receptor ACE2 -Supporting material\nThe dataset belongs to our manuscript \"Serine 477 plays a crucial role in the interaction of the SARS-CoV-2 spike protein with the human receptor ACE2.\" that is currently under peer review and contains the following files and folders:gmx simulations: Folder consisting the trajectories and structure files generated during the MD simulations using Gromacs software. Atomic fluctuations RBD fig2a.xvg: The atomic fluctuations data generated from the Normal Mode Analysis of COVID2 Spike-RBD, the plotted figure is fig2aRBD entropy fig1b.tsv: The residue wise Shannon entropy values for COVID2Spike-RBD. The ploted figure is fig1b",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 spike protein",
+            "start": 58,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "human receptor ACE2",
+            "start": 92,
+            "end": 111
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 spike protein",
+            "start": 230,
+            "end": 254
+        },
+        {
+            "label": "MOL",
+            "text": "human receptor ACE2",
+            "start": 264,
+            "end": 283
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 481,
+            "end": 488
+        },
+        {
+            "label": "MOL",
+            "text": "COVID2 Spike",
+            "start": 606,
+            "end": 618
+        },
+        {
+            "label": "MOL",
+            "text": "COVID2Spike",
+            "start": 718,
+            "end": 729
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "MD simulation trajectory and related files for DPPC bilayer (GAFFlipid, Gromacs 4.5)\nEquilibrated DPPC lipid bilayer simulation ran with Gromacs 4.5, GAFFlipid force field (https://removed 50ns, T 323K, 72 DPPC molecules, 2197 water molecules. This data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://removed If data is used, please cite nmrlipids.blogspot.fi project and the original publication of the parameters: Dickson et al. Soft Matter, 2012,8, 9617-9627 https://removed",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "label": "FFM",
+            "text": "GAFFlipid",
+            "start": 61,
+            "end": 70
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 72,
+            "end": 79
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5",
+            "start": 80,
+            "end": 83
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 98,
+            "end": 102
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 137,
+            "end": 144
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5",
+            "start": 145,
+            "end": 148
+        },
+        {
+            "label": "FFM",
+            "text": "GAFFlipid",
+            "start": 150,
+            "end": 159
+        },
+        {
+            "label": "STIME",
+            "text": "50ns",
+            "start": 189,
+            "end": 193
+        },
+        {
+            "label": "TEMP",
+            "text": "323K",
+            "start": 197,
+            "end": 201
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 206,
+            "end": 210
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 227,
+            "end": 232
+        }
+    ]
+}

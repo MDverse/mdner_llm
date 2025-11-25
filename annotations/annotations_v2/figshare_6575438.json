@@ -1,0 +1,133 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Models and trajectories of GLUTAMINE SYNTHETASE with palmitoyl-coenzyme A\nThese are the models and molecular dynamics trajectories obtained for the paper Role of glutamine synthetase in angiogenesis beyond glutamine synthesis [G. Eelen et al. Nature 2018 vol. 561 (7721) pp. 63-69].The PDB files (human.pdb and bacterial.pdb) contain representative structures extracted from the molecular dynamics simulations of the S. Typhimurium (bacterial.pdb) and Human Glutamine Synthetase (human.pdb). For the latter, models of the two most relevant binding modes of Palmitoyl-CoA are included in the file.The trajectories included are the FINAL 450 ns of 2 fully atomistic molecular dynamics simulations of Glutamine Synthetase (GS) performed with GROMACS and the Amber ff14SB force field. The Human GS.x is the trajectory of human GS (reference PDB 2OJW) with Palmitoyl-CoA. In this trajecory the palmitate tail points upwards (which was the most interesting orientation found). \"Bacterial GS\" is the bacterial GS trajectory (reference starting PDB 1FPY) with Palmitoyl-CoA - palmitate tail points downwards. The trajectories are in GROMACS trr format and have been saved every 200ps. Water molecules and the initial 50 ns (relaxation) are not included in the files.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "GLUTAMINE SYNTHETASE",
+            "start": 27,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "palmitoyl-coenzyme A",
+            "start": 53,
+            "end": 73
+        },
+        {
+            "label": "MOL",
+            "text": "glutamine synthetase",
+            "start": 162,
+            "end": 182
+        },
+        {
+            "label": "MOL",
+            "text": "glutamine",
+            "start": 206,
+            "end": 215
+        },
+        {
+            "label": "MOL",
+            "text": "Glutamine Synthetase",
+            "start": 458,
+            "end": 478
+        },
+        {
+            "label": "MOL",
+            "text": "Palmitoyl-CoA",
+            "start": 557,
+            "end": 570
+        },
+        {
+            "label": "STIME",
+            "text": "450 ns",
+            "start": 636,
+            "end": 642
+        },
+        {
+            "label": "MOL",
+            "text": "Glutamine Synthetase",
+            "start": 698,
+            "end": 718
+        },
+        {
+            "label": "MOL",
+            "text": "GS",
+            "start": 720,
+            "end": 722
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 739,
+            "end": 746
+        },
+        {
+            "label": "FFM",
+            "text": "Amber ff14SB",
+            "start": 755,
+            "end": 767
+        },
+        {
+            "label": "MOL",
+            "text": "GS",
+            "start": 823,
+            "end": 825
+        },
+        {
+            "label": "MOL",
+            "text": "Palmitoyl-CoA.",
+            "start": 852,
+            "end": 866
+        },
+        {
+            "label": "MOL",
+            "text": "palmitate",
+            "start": 889,
+            "end": 898
+        },
+        {
+            "label": "MOL",
+            "text": "GS",
+            "start": 982,
+            "end": 984
+        },
+        {
+            "label": "MOL",
+            "text": "GS",
+            "start": 1003,
+            "end": 1005
+        },
+        {
+            "label": "MOL",
+            "text": "Palmitoyl-CoA",
+            "start": 1052,
+            "end": 1065
+        },
+        {
+            "label": "MOL",
+            "text": "palmitate",
+            "start": 1068,
+            "end": 1077
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1125,
+            "end": 1132
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 1177,
+            "end": 1182
+        }
+    ]
+}

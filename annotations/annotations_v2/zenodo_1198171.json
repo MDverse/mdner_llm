@@ -1,0 +1,151 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Simulation data for CHARMM36 POPC bilayer, 100 lipids/leaflet, 450 mM CaCl2 (NB-Fix used), 310K, GROMACS 5.1.4\nSimulations of a POPC bilayer with 450 mM of CaCl 2. The second from the set of 6 simulations. The goal was to study the effect of scaling the CHARMM FF on the ion binding. Done for the NMRlipids project, see https://removed for more information. A POPC bilayer consisting of 200 lipids (100 per leaflet) is simulated in the presence of 450 mM CaCl 2. The Charmm36 model is employed for lipids, the Charmm compatible variant of the tip3p model for water, and the default Charmm ion parameters (type CAL) for CaCl 2. The new extra nonbonded parameters were used for trating the calcium bonding (NB-Fix) The Charmm36 force field parameters were obtained from https://removed The files are in GROMACS format. Trajectory (.xtc) is 360 ns long with data saved every 100 ps. the initial structure (.gro), topology (.top), index file (.ndx), simulation paremeter file (.mdp), binary run input file for GROMACS v. 5.1 > (.tpr) and the energy output file (.edr) are provided.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 20,
+            "end": 28
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 29,
+            "end": 33
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl2",
+            "start": 70,
+            "end": 75
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 91,
+            "end": 95
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 97,
+            "end": 104
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.1.4",
+            "start": 105,
+            "end": 110
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 128,
+            "end": 132
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl 2",
+            "start": 156,
+            "end": 162
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 254,
+            "end": 260
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 360,
+            "end": 364
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl 2",
+            "start": 455,
+            "end": 461
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 467,
+            "end": 475
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 510,
+            "end": 516
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 543,
+            "end": 548
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 559,
+            "end": 564
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 582,
+            "end": 588
+        },
+        {
+            "label": "MOL",
+            "text": "ion",
+            "start": 589,
+            "end": 592
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl 2",
+            "start": 619,
+            "end": 625
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 717,
+            "end": 725
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 801,
+            "end": 808
+        },
+        {
+            "label": "STIME",
+            "text": "360 ns",
+            "start": 838,
+            "end": 844
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1006,
+            "end": 1013
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 5.1 >",
+            "start": 1014,
+            "end": 1022
+        }
+    ]
+}

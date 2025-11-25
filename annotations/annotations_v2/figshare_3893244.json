@@ -1,0 +1,115 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Q Band Electron-Nuclear Double Resonance Reveals Out-of-Plane Hydrogen Bonds Stabilize an Anionic Ubisemiquinone in Cytochrome bo3 from Escherichia coli\nThe respiratory cytochrome bo3 ubiquinol oxidase from Escherichia coli has a high-affinity ubiquinone binding site that stabilizes the one-electron reduced ubisemiquinone (SQH), which is a transient intermediate during the electron-mediated reduction of O2 to water. It is known that SQH is stabilized by two strong hydrogen bonds from R71 and D75 to ubiquinone carbonyl oxygen O1 and weak hydrogen bonds from H98 and Q101 to O4. In this work, SQH was investigated with orientation-selective Q-band ( 34 GHz) pulsed 1H electron nuclear double resonance (ENDOR) spectroscopy on fully deuterated cytochrome (cyt) bo3 in a H2O solvent so that only exchangeable protons contribute to the observed ENDOR spectra. Simulations of the experimental ENDOR spectra provided the principal values and directions of the hyperfine (hfi) tensors for the two strongly coupled H-bond protons (H1 and H2). For H1, the largest principal component of the proton anisotropic hfi tensor Tz   11.8 MHz, whereas for H2, Tz   8.6 MHz. Remarkably, the data show that the direction of the H1 H-bond is nearly perpendicular to the quinone plane ( 70 out of plane). The orientation of the second strong hydrogen bond, H2, is out of plane by 25 . Equilibrium molecular dynamics simulations on a membrane-embedded model of the cyt bo3 QH site show that these H-bond orientations are plausible but do not distinguish which H-bond, from R71 or D75, is nearly perpendicular to the quinone ring. Density functional theory calculations support the idea that the distances and geometries of the H-bonds to the ubiquinone carbonyl oxygens, along with the measured proton anisotropic hfi couplings, are most compatible with an anionic (deprotonated) ubisemiquinone.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Anionic Ubisemiquinone",
+            "start": 90,
+            "end": 112
+        },
+        {
+            "label": "MOL",
+            "text": "Cytochrome bo3",
+            "start": 116,
+            "end": 130
+        },
+        {
+            "label": "MOL",
+            "text": "cytochrome bo3 ubiquinol oxidase",
+            "start": 169,
+            "end": 201
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinone",
+            "start": 244,
+            "end": 254
+        },
+        {
+            "label": "MOL",
+            "text": "ubisemiquinone",
+            "start": 309,
+            "end": 323
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 413,
+            "end": 418
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinone",
+            "start": 504,
+            "end": 514
+        },
+        {
+            "label": "MOL",
+            "text": "carbonyl oxygen",
+            "start": 515,
+            "end": 530
+        },
+        {
+            "label": "MOL",
+            "text": "cytochrome",
+            "start": 747,
+            "end": 757
+        },
+        {
+            "label": "MOL",
+            "text": "cyt",
+            "start": 759,
+            "end": 762
+        },
+        {
+            "label": "MOL",
+            "text": "H2O",
+            "start": 773,
+            "end": 776
+        },
+        {
+            "label": "MOL",
+            "text": "quinone",
+            "start": 1255,
+            "end": 1262
+        },
+        {
+            "label": "MOL",
+            "text": "cyt bo3",
+            "start": 1448,
+            "end": 1455
+        },
+        {
+            "label": "MOL",
+            "text": "quinone",
+            "start": 1599,
+            "end": 1606
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinone",
+            "start": 1725,
+            "end": 1735
+        },
+        {
+            "label": "MOL",
+            "text": "carbonyl oxygens",
+            "start": 1736,
+            "end": 1752
+        },
+        {
+            "label": "MOL",
+            "text": "ubisemiquinone",
+            "start": 1863,
+            "end": 1877
+        }
+    ]
+}

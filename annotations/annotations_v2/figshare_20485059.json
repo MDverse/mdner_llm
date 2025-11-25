@@ -1,0 +1,91 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "EntF* -D3\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form -starting coordinates posre.gro energy minimized and water + ions equilibrated around peptide -topology topol.top force field AMBER99SB-ILDB, TIP3P water protonation states at pH   3 (E,K protonated) [NaCl]   25 mM disulfide bond generated between residues 14 and 6 -md settings md.mdp time step 2 fs, temperature   298 K, pressure   1 bar 1 microsecond trajectory dry.xtc, dry.gro frame rate 10 ps, water and ions removed, box centered on peptide -analysis files frame rate 1 ps radius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "EntF*",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "label": "MOL",
+            "text": "EntF*",
+            "start": 47,
+            "end": 52
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 135,
+            "end": 140
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 143,
+            "end": 147
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER99SB-ILDB",
+            "start": 208,
+            "end": 222
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 224,
+            "end": 229
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 230,
+            "end": 235
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 283,
+            "end": 287
+        },
+        {
+            "label": "MOL",
+            "text": "disulfide",
+            "start": 297,
+            "end": 306
+        },
+        {
+            "label": "TEMP",
+            "text": "298 K",
+            "start": 398,
+            "end": 403
+        },
+        {
+            "label": "STIME",
+            "text": "1 microsecond",
+            "start": 422,
+            "end": 435
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 482,
+            "end": 487
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 492,
+            "end": 496
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Insights into the Atomistic Mechanisms of Phosphorylation in Disrupting Liquid Liquid Phase Separation and Aggregation of the FUS Low-Complexity Domain\nFused in sarcoma (FUS), a nuclear RNA binding protein, can not only undergo liquid liquid phase separation (LLPS) to form dynamic biomolecular condensates but also aggregate into solid amyloid fibrils which are associated with the pathology of amyotrophic lateral sclerosis and frontotemporal lobar degeneration diseases. Phosphorylation in the FUS low-complexity domain (FUS-LC) inhibits FUS LLPS and aggregation. However, it remains largely elusive what are the underlying atomistic mechanisms of this inhibitory effect and whether phosphorylation can disrupt preformed FUS fibrils, reversing the FUS gel/solid phase toward the liquid phase. Herein, we systematically investigate the impacts of phosphorylation on the conformational ensemble of the FUS37 97 monomer and dimer and the structure of the FUS37 97 fibril by performing extensive all-atom molecular dynamics simulations. Our simulations reveal three key findings: (1) phosphorylation shifts the conformations of FUS37 97 from the -rich, fibril-competent state toward a helix-rich, fibril-incompetent state; (2) phosphorylation significantly weakens protein protein interactions and enhances protein water interactions, which disfavor FUS-LC LLPS as well as aggregation and facilitate the dissolution of the preformed FUS-LC fibril; and (3) the FUS37 97 peptide displays a high -strand probability in the region spanning residues 52 67, and phosphorylation at S54 and S61 residues located in this region is crucial for the disruption of LLPS and aggregation of FUS-LC. This study may pave the way for ameliorating phase-separation-related pathologies via site-specific phosphorylation.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 126,
+            "end": 129
+        },
+        {
+            "label": "MOL",
+            "text": "Fused in sarcoma",
+            "start": 152,
+            "end": 168
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 170,
+            "end": 173
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 497,
+            "end": 500
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 524,
+            "end": 527
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 541,
+            "end": 544
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 724,
+            "end": 727
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 751,
+            "end": 754
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1314,
+            "end": 1319
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 1349,
+            "end": 1352
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 1432,
+            "end": 1435
+        },
+        {
+            "label": "MOL",
+            "text": "FUS",
+            "start": 1675,
+            "end": 1678
+        }
+    ]
+}

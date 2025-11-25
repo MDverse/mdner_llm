@@ -1,0 +1,103 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Simulations of Depth Distribution of Spin-Labeled Phospholipids within Lipid Bilayer\nSpin-labeled lipids are commonly used as fluorescence quenchers in studies of membrane penetration of dye-labeled proteins and peptides using depth-dependent quenching. Accurate calculations of depth of the fluorophore rely on the use of several spin labels placed in the membrane at various positions. The depth of the quenchers (spin probes) has to be determined independently; however, experimental determination of transverse distributions of spin probe depths is difficult. In this Article, we use molecular dynamics (MD) simulations to study the membrane behavior and depth distributions of spin-labeled phospholipids in a 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine (POPC) bilayer. To probe different depths within the bilayer, a series containing five Doxyl-labeled lipids (n-Doxyl PC) has been studied, in which a spin moiety was covalently attached to nth carbon atoms (where n   5, 7, 10, 12, and 14) of the sn-2 stearoyl chain of the host phospholipid. Our results demonstrate that the chain-attached spin labels are broadly distributed across the model membrane and their environment is characterized by a high degree of mobility and structural heterogeneity. Despite the high thermal disorder, the depth distributions of the Doxyl labels were found to correlate well with their attachment positions, indicating that the distribution of the spin label within the model membrane is dictated by the depth of the nth lipid carbon atom and not by intrinsic properties of the label. In contrast, a much broader and heterogeneous distribution was observed for a headgroup-attached Tempo spin label of Tempo-PC lipids. MD simulations reveal that, due to the hydrophobic nature, a Tempo moiety favors partitioning from the headgroup region deeper into the membrane. Depending on the concentration of Tempo-PC lipids, the probable depth of the Tempo moiety could span a range from 14.4 to 18.2 A from the membrane center. Comparison of the MD-estimated immersion depths of Tempo and n-Doxyl labels with their suggested experimental depth positions allows us to review critically the possible sources of error in depth-dependent fluorescence quenching studies.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Phospholipids",
+            "start": 69,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "phospholipids",
+            "start": 714,
+            "end": 727
+        },
+        {
+            "label": "MOL",
+            "text": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine",
+            "start": 733,
+            "end": 781
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 783,
+            "end": 787
+        },
+        {
+            "label": "MOL",
+            "text": "Doxyl-labeled lipids",
+            "start": 869,
+            "end": 889
+        },
+        {
+            "label": "MOL",
+            "text": "n-Doxyl PC",
+            "start": 891,
+            "end": 901
+        },
+        {
+            "label": "MOL",
+            "text": "sn-2 stearoyl",
+            "start": 1028,
+            "end": 1041
+        },
+        {
+            "label": "MOL",
+            "text": "phospholipid",
+            "start": 1060,
+            "end": 1072
+        },
+        {
+            "label": "MOL",
+            "text": "Tempo",
+            "start": 1697,
+            "end": 1702
+        },
+        {
+            "label": "MOL",
+            "text": "Tempo-PC",
+            "start": 1717,
+            "end": 1725
+        },
+        {
+            "label": "MOL",
+            "text": "Tempo",
+            "start": 1795,
+            "end": 1800
+        },
+        {
+            "label": "MOL",
+            "text": "Tempo-PC",
+            "start": 1914,
+            "end": 1922
+        },
+        {
+            "label": "MOL",
+            "text": "Tempo",
+            "start": 1957,
+            "end": 1962
+        },
+        {
+            "label": "MOL",
+            "text": "Tempo",
+            "start": 2086,
+            "end": 2091
+        },
+        {
+            "label": "MOL",
+            "text": "n-Doxyl",
+            "start": 2096,
+            "end": 2103
+        }
+    ]
+}

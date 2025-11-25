@@ -1,0 +1,61 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Input files and structures for article \"Carbon dioxide fixation in RuBisCO is protonation state dependent and irreversible\"\nPdb file and amber topology of the initial RuBisCO model together with parameter files for the MD simulations with AMBER to equilibrate the system. Structures of reactant, transition state and products in the enzyme RuBisCo used to correct the activation and reaction free energies. Molpro input files used in the projector-based embedding calculations are provided. The same holds for the calculations involving the Zn cation. Optimized structures used to calculate descriptors with conceptual DFT. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Carbon dioxide",
+            "start": 40,
+            "end": 54
+        },
+        {
+            "label": "MOL",
+            "text": "RuBisCO",
+            "start": 67,
+            "end": 74
+        },
+        {
+            "label": "FFM",
+            "text": "amber",
+            "start": 137,
+            "end": 142
+        },
+        {
+            "label": "MOL",
+            "text": "RuBisCO",
+            "start": 167,
+            "end": 174
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 239,
+            "end": 244
+        },
+        {
+            "label": "MOL",
+            "text": "RuBisCo",
+            "start": 340,
+            "end": 347
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Molpro",
+            "start": 407,
+            "end": 413
+        },
+        {
+            "label": "MOL",
+            "text": "Zn",
+            "start": 541,
+            "end": 543
+        }
+    ]
+}

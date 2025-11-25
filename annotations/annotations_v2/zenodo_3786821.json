@@ -1,0 +1,61 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Inputs for computational electrophysiology of the Glycine Receptor with GROMACS 19\nInputs for computational electrophysiology of the Glycine Receptor (D&B-open model, doi:10.5281/zenodo.3476169) with GROMACS 19 and the CHARMM36 force-field, using: 1- a single membrane system with the application of a constant electric field. 2- a double membrane system with the application of the charge imbalance protocol. The model of the glycine receptor was reduced to its transmembrane domain and simulated with atomic positional restraints. Related to the published article: \"On the functional annotation of open-channel structures in the glycine receptor\".",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Glycine Receptor",
+            "start": 50,
+            "end": 66
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 72,
+            "end": 79
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "19",
+            "start": 80,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "Glycine Receptor",
+            "start": 133,
+            "end": 149
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 200,
+            "end": 207
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "19",
+            "start": 208,
+            "end": 210
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 219,
+            "end": 227
+        },
+        {
+            "label": "MOL",
+            "text": "glycine receptor",
+            "start": 427,
+            "end": 443
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "POPC Ulmschneider OPLS NaCl 1Mol\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 1M NaCl. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Ions were described by OPLS-AA force field (Gromacs 5.0.3). Conditions: T 298.15, 128 POPC molecules, 5120 tip3p waters, 77 Na, 77 Cl. 200ns trajectory (preceded by 5ns NPT equillibration). This data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://removed [1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5 (7), 1803 1813 [2] https://removed",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "FFM",
+            "text": "Ulmschneider",
+            "start": 5,
+            "end": 17
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS",
+            "start": 18,
+            "end": 22
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 23,
+            "end": 27
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 95,
+            "end": 99
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 116,
+            "end": 120
+        },
+        {
+            "label": "FFM",
+            "text": "Ulmschneider",
+            "start": 126,
+            "end": 138
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 155,
+            "end": 159
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 174,
+            "end": 181
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.0.3",
+            "start": 182,
+            "end": 187
+        },
+        {
+            "label": "MOL",
+            "text": "Ions",
+            "start": 195,
+            "end": 199
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS-AA",
+            "start": 218,
+            "end": 225
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 239,
+            "end": 246
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.0.3",
+            "start": 247,
+            "end": 252
+        },
+        {
+            "label": "TEMP",
+            "text": "298.15",
+            "start": 269,
+            "end": 275
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 281,
+            "end": 285
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 302,
+            "end": 307
+        },
+        {
+            "label": "MOL",
+            "text": "waters",
+            "start": 308,
+            "end": 314
+        },
+        {
+            "label": "MOL",
+            "text": "Na",
+            "start": 319,
+            "end": 321
+        },
+        {
+            "label": "MOL",
+            "text": "Cl",
+            "start": 326,
+            "end": 328
+        },
+        {
+            "label": "STIME",
+            "text": "200ns",
+            "start": 330,
+            "end": 335
+        }
+    ]
+}

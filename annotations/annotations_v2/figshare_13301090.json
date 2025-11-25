@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Data Sheet 2 Spontaneous Membrane Nanodomain Formation in the Absence or Presence of the Neurotransmitter Serotonin .ZIP\nDetailed knowledge on the formation of biomembrane domains, their structure, composition, and physical characteristics is scarce. Despite its frequently discussed importance in signaling, e.g., in obtaining localized non-homogeneous receptor compositions in the plasma membrane, the nanometer size as well as the dynamic and transient nature of domains impede their experimental characterization. In turn, atomistic molecular dynamics (MD) simulations combine both, high spatial and high temporal resolution. Here, using microsecond atomistic MD simulations, we characterize the spontaneous and unbiased formation of nano-domains in a plasma membrane model containing phosphatidylcholine (POPC), palmitoyl-sphingomyelin (PSM), and cholesterol (Chol) in the presence or absence of the neurotransmitter serotonin at different temperatures. In the ternary mixture, highly ordered and highly disordered domains of similar composition coexist at 303 K. The distinction of domains by lipid acyl chain order gets lost at lower temperatures of 298 and 294 K, suggesting a phase transition at ambient temperature. By comparison of domain ordering and composition, we demonstrate how the domain-specific binding of the neurotransmitter serotonin results in a modified domain lipid composition and a substantial downward shift of the phase transition temperature. Our simulations thus suggest a novel mode of action of neurotransmitters possibly of importance in neuronal signal transmission.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Serotonin",
+            "start": 106,
+            "end": 115
+        },
+        {
+            "label": "STIME",
+            "text": "microsecond",
+            "start": 642,
+            "end": 653
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylcholine",
+            "start": 789,
+            "end": 808
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 810,
+            "end": 814
+        },
+        {
+            "label": "MOL",
+            "text": "palmitoyl-sphingomyelin",
+            "start": 817,
+            "end": 840
+        },
+        {
+            "label": "MOL",
+            "text": "PSM",
+            "start": 842,
+            "end": 845
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 852,
+            "end": 863
+        },
+        {
+            "label": "MOL",
+            "text": "Chol",
+            "start": 865,
+            "end": 869
+        },
+        {
+            "label": "MOL",
+            "text": "serotonin",
+            "start": 922,
+            "end": 931
+        },
+        {
+            "label": "MOL",
+            "text": "serotonin",
+            "start": 1347,
+            "end": 1356
+        }
+    ]
+}

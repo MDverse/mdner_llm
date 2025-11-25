@@ -1,0 +1,133 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Investigating the Solvent Effects on Binding Affinity of PAHs ExBox4+ Complexes: An Alchemical Approach\nPolycyclic aromatic hydrocarbons (PAHs) are polluting agents, produced naturally or artificially, widely dispersed in the environment and potentially carcinogenic and immunotoxic to humans and animals, mainly for marine life. Recently, a tetracationic box-shaped cyclophane (ExBox4+) was synthesized, fully characterized, and revealed to form host guest complexes with PAHs in acetonitrile, demonstrating the potential ability for it to act as a PAHs scavenger. This work investigates, through Molecular Dynamics (MD) simulations, the binding affinity between different PAHs and ExBox4+ in different solvents: chloroform (nonpolar), acetonitrile (polar protic), and water (polar protic). An alchemical method of simultaneous decoupling-recoupling (SDR) was used and implemented in a newly developed Python program called GHOAT, which fully automates the calculation of binding free energies and invokes the AMBER 2020 simulation package. The results showed that the affinity between ExBox4+ and PAHs in water is much larger than in organic media, with free energies between 5 and 20 kcal/mol, being able to act as a PHAs scavenger with great potential for applications in environmental chemistry such as soil washing. The results also reveal a significant correlation with the experimental available G values. The methodology employed presents itself as an important tool for the in silico determination of binding affinities, not only available for charged cyclophanes but also extensible to several other HG supramolecular systems in condensed media, aiding in the rational design of host guest systems in a significant way.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "PAHs",
+            "start": 57,
+            "end": 61
+        },
+        {
+            "label": "MOL",
+            "text": "ExBox4+",
+            "start": 62,
+            "end": 69
+        },
+        {
+            "label": "MOL",
+            "text": "Polycyclic aromatic hydrocarbons",
+            "start": 104,
+            "end": 136
+        },
+        {
+            "label": "MOL",
+            "text": "PAHs",
+            "start": 138,
+            "end": 142
+        },
+        {
+            "label": "MOL",
+            "text": "cyclophane",
+            "start": 367,
+            "end": 377
+        },
+        {
+            "label": "MOL",
+            "text": "ExBox4+",
+            "start": 379,
+            "end": 386
+        },
+        {
+            "label": "MOL",
+            "text": "PAHs",
+            "start": 473,
+            "end": 477
+        },
+        {
+            "label": "MOL",
+            "text": "acetonitrile",
+            "start": 481,
+            "end": 493
+        },
+        {
+            "label": "MOL",
+            "text": "PAHs",
+            "start": 550,
+            "end": 554
+        },
+        {
+            "label": "MOL",
+            "text": "PAHs",
+            "start": 674,
+            "end": 678
+        },
+        {
+            "label": "MOL",
+            "text": "ExBox4+",
+            "start": 683,
+            "end": 690
+        },
+        {
+            "label": "MOL",
+            "text": "chloroform",
+            "start": 714,
+            "end": 724
+        },
+        {
+            "label": "MOL",
+            "text": "acetonitrile",
+            "start": 737,
+            "end": 749
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 770,
+            "end": 775
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 1011,
+            "end": 1016
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2020",
+            "start": 1017,
+            "end": 1021
+        },
+        {
+            "label": "MOL",
+            "text": "ExBox4+",
+            "start": 1087,
+            "end": 1094
+        },
+        {
+            "label": "MOL",
+            "text": "PAHs",
+            "start": 1099,
+            "end": 1103
+        },
+        {
+            "label": "MOL",
+            "text": "PHAs",
+            "start": 1220,
+            "end": 1224
+        },
+        {
+            "label": "MOL",
+            "text": "cyclophanes",
+            "start": 1562,
+            "end": 1573
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Perfluorinated Alcohols at High Pressure: Experimental Liquid Density and Computer Simulations\nThe liquid density of five liquid 1H,1H-perfluorinated alcohols (CF3 (CF2)n 1CH2OH n   2, 3, 4, 5, 6) was measured as a function of pressure (0.1 70 MPa) and temperature (293.15 313.15 K). The corresponding isothermal compressibility and isobaric thermal expansivity coefficients were calculated from the experimental data. The results are compared with data from the literature for the equivalent hydrogenated alcohols. Atomistic molecular dynamics simulations were also performed, providing molecular-level insight into the experimental results, in particular about the H-bond network of the perfluorinated alcohols and the effect of pressure on the organization of the liquid.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Perfluorinated Alcohols",
+            "start": 0,
+            "end": 23
+        },
+        {
+            "label": "MOL",
+            "text": "perfluorinated alcohols",
+            "start": 135,
+            "end": 158
+        },
+        {
+            "label": "TEMP",
+            "text": "293.15",
+            "start": 266,
+            "end": 272
+        },
+        {
+            "label": "TEMP",
+            "text": "313.15 K",
+            "start": 273,
+            "end": 281
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogenated alcohols",
+            "start": 493,
+            "end": 514
+        },
+        {
+            "label": "MOL",
+            "text": "perfluorinated alcohols",
+            "start": 689,
+            "end": 712
+        }
+    ]
+}

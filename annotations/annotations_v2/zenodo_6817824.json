@@ -1,0 +1,139 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Surfactant Proteins SP-B and SP-C in Pulmonary Surfactant Monolayers: Physical Properties Controlled by Specific Protein Lipid Interactions - Simulation dataset\nSimulation data related to the article: Liekkinen, J., Olzynska, A., Cwiklik, L., Bernardino de la Serna, J., Vattulainen, I., & Javanainen, M. Surfactant Proteins SP-B and SP-C in Pulmonary Surfactant Monolayers: Physical Properties Controlled by Specific Protein Lipid Interactions. bioRxiv, pp.2022-12. (Pre-print available at https://removed DPPC/POPC/POPG/CHL1 (60/20/10/10 mol-%) monolayers simulated in non-equilibrium conditions. The monolayer is compressed or expanded at a constant rate at different temperatures. Surfactant proteins SP-B and SP-C are included in the monolayers for comparison. The Charmm36 lipid model [1] is used together with the 4-point OPC water model [2]. Each system consist of two monolayers with 169 lipids each. The monolayers are separated by a water slab, and surrounded by vacuum. All trajectories are simulated for 5000 ns with Gromacs 5.1.x [3] using the default Charmm36 monolayer simulations parameters given in the mdp file. Topology (.top) and index (.ndx) files are also included. The topologies (.itp) for the lipids can be obtained from Charmm-GUI and for the OPC water model from https://removed [1] DOI: 10.1021/jp101759q [2] DOI: 10.1021/jz501780a [3] DOI: 10.1016/j.softx.2015.06.001",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "SP-B",
+            "start": 20,
+            "end": 24
+        },
+        {
+            "label": "MOL",
+            "text": "SP-C",
+            "start": 29,
+            "end": 33
+        },
+        {
+            "label": "MOL",
+            "text": "SP-B",
+            "start": 325,
+            "end": 329
+        },
+        {
+            "label": "MOL",
+            "text": "SP-C",
+            "start": 334,
+            "end": 338
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 507,
+            "end": 511
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 512,
+            "end": 516
+        },
+        {
+            "label": "MOL",
+            "text": "POPG",
+            "start": 517,
+            "end": 521
+        },
+        {
+            "label": "MOL",
+            "text": "CHL1",
+            "start": 522,
+            "end": 526
+        },
+        {
+            "label": "MOL",
+            "text": "SP-B",
+            "start": 705,
+            "end": 709
+        },
+        {
+            "label": "MOL",
+            "text": "SP-C",
+            "start": 714,
+            "end": 718
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 770,
+            "end": 778
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 829,
+            "end": 832
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 833,
+            "end": 838
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 944,
+            "end": 949
+        },
+        {
+            "label": "STIME",
+            "text": "5000 ns",
+            "start": 1017,
+            "end": 1024
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1030,
+            "end": 1037
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.1.x",
+            "start": 1038,
+            "end": 1043
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 1066,
+            "end": 1074
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Charmm-GUI",
+            "start": 1247,
+            "end": 1257
+        },
+        {
+            "label": "FFM",
+            "text": "OPC",
+            "start": 1270,
+            "end": 1273
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1274,
+            "end": 1279
+        }
+    ]
+}

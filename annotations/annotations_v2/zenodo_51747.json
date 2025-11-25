@@ -1,0 +1,157 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics simulation trajectory of a cationic lipid bilayer: 75/25 mol% DMTAP/DMPC\nSystem: Symmetric bilayer of cationic DMTAP (dimyristoyltrimethylammoniumpropane, 75 mol-%) and zwitterionic DMPC (dimyristoylphosphatidylcholine, 25 mol-%) lipids in water. Number of DMPC: 32. Number of DMTAP: 96. Number of Cl--ions: 96. Number of waters: 5496. Lipid model: 'Berger' united-atom [Biophys. J. 72 2002 (1997)] with DMTAP modification by Gurtovenko et al. [Biophys. J. 86 3461 (2004)]. Water model: SPC [In Intermolecular Forces, ed. Pullman. 331 (1981)]. Simulation engine: Gromacs 3.x [https://removed Trajectory length: 109 ns. Previously equilibrated for: 31 ns. Sampling rate: every 10 ps. Time integration step: 2 fs. Thermodynamic ensemble: NpT. Temperature coupling: 'Berendsen' [J. Chem. Phys. 81 3684 (1984)] with lipids and water coupled separately at T 323 K. Pressure coupling: 'Berendsen' [J. Chem. Phys. 81 3684 (1984)] with xy and z coupled separately at p 1.0 bar. Electrostatics: PME [J. Chem. Phys. 98 10089 (1993); J. Chem. Phys. 103 8577 (1995)], real-space cutoff at 1.0 nm. Van der Waals: Truncated at 1.0 nm. Constraints: Covalent bond lengths in lipids using LINCS [J. Comput. Chem. 18 1463 (1997)], in water using SETTLE [J. Comput. Chem. 13 952 (1992)]. Used in publications: [1] Markus S. Miettinen, Andrey A. Gurtovenko, Ilpo Vattulainen, and Mikko Karttunen: Ion Dynamics in Cationic Lipid Bilayer Systems in Saline Solutions. J. Phys. Chem. B 113 9226 (2009). DOI: 10.1021/jp810233q. [2] Markus S. Miettinen: Computational Modeling of Cationic Lipid Bilayers in Saline Solutions. PhD Thesis. Aalto University School of Science and Technology, Helsinki, Finland. (2010). ISBN 978-952-60-3194-1.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "cationic lipid",
+            "start": 46,
+            "end": 60
+        },
+        {
+            "label": "MOL",
+            "text": "DMTAP",
+            "start": 81,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 87,
+            "end": 91
+        },
+        {
+            "label": "MOL",
+            "text": "DMTAP",
+            "start": 130,
+            "end": 135
+        },
+        {
+            "label": "MOL",
+            "text": "dimyristoyltrimethylammoniumpropane",
+            "start": 137,
+            "end": 172
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 201,
+            "end": 205
+        },
+        {
+            "label": "MOL",
+            "text": "dimyristoylphosphatidylcholine",
+            "start": 207,
+            "end": 237
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 259,
+            "end": 264
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 276,
+            "end": 280
+        },
+        {
+            "label": "MOL",
+            "text": "DMTAP",
+            "start": 296,
+            "end": 301
+        },
+        {
+            "label": "MOL",
+            "text": "Cl",
+            "start": 317,
+            "end": 319
+        },
+        {
+            "label": "MOL",
+            "text": "waters",
+            "start": 341,
+            "end": 347
+        },
+        {
+            "label": "FFM",
+            "text": "Berger",
+            "start": 369,
+            "end": 375
+        },
+        {
+            "label": "MOL",
+            "text": "DMTAP",
+            "start": 423,
+            "end": 428
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 493,
+            "end": 498
+        },
+        {
+            "label": "FFM",
+            "text": "SPC",
+            "start": 506,
+            "end": 509
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 582,
+            "end": 589
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "3.x",
+            "start": 590,
+            "end": 593
+        },
+        {
+            "label": "STIME",
+            "text": "109 ns",
+            "start": 630,
+            "end": 636
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 842,
+            "end": 847
+        },
+        {
+            "label": "TEMP",
+            "text": "323 K.",
+            "start": 872,
+            "end": 878
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "LINCS",
+            "start": 1191,
+            "end": 1196
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1235,
+            "end": 1240
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "SETTLE",
+            "start": 1247,
+            "end": 1253
+        }
+    ]
+}

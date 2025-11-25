@@ -1,0 +1,37 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "6MSM CFTR MD EQUILIBRATED MISSING R DOMAIN FRAGMENT MODELLED\nA protein structure based on PDB ID 6MSM with the unidentified fragment filled in based on results from molecular dynamics investigations and comparisons with alphafold. In addition to the molecular dynamics workflow used to simulate it.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "6MSM",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "MOL",
+            "text": "CFTR",
+            "start": 5,
+            "end": 9
+        },
+        {
+            "label": "MOL",
+            "text": "6MSM",
+            "start": 97,
+            "end": 101
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "alphafold",
+            "start": 220,
+            "end": 229
+        }
+    ]
+}

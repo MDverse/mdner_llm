@@ -1,0 +1,55 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Assessing the Activation of Tyrosine Kinase KIT through Free Energy Calculations\nKIT is a type 3 receptor tyrosine kinase that plays a crucial role in cellular growth and proliferation. Mutations in KIT can dysregulate its active inactive equilibrium. Activating mutations drive cancer growth, while deactivating mutations result in the loss of skin and hair pigmentation in a disease known as piebaldism. Here, we propose a method based on molecular dynamics and free energy calculations to predict the functional effect of KIT mutations. Our calculations may have important clinical implications by defining the functional significance of previously uncharacterized KIT mutations and guiding targeted therapy.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Tyrosine Kinase",
+            "start": 28,
+            "end": 43
+        },
+        {
+            "label": "MOL",
+            "text": "KIT",
+            "start": 44,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "KIT",
+            "start": 81,
+            "end": 84
+        },
+        {
+            "label": "MOL",
+            "text": "tyrosine kinase",
+            "start": 106,
+            "end": 121
+        },
+        {
+            "label": "MOL",
+            "text": "KIT",
+            "start": 199,
+            "end": 202
+        },
+        {
+            "label": "MOL",
+            "text": "KIT",
+            "start": 525,
+            "end": 528
+        },
+        {
+            "label": "MOL",
+            "text": "KIT",
+            "start": 668,
+            "end": 671
+        }
+    ]
+}

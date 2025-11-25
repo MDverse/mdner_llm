@@ -1,0 +1,115 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "A GROMOS Force Field for Furanose-Based Carbohydrates\nThe article describes a GROMOS force field parameter set for molecular dynamics simulations of furanose carbohydrates. The proposed united-atom force field is designed and validated with respect to the conformational properties of furanose mono-, di-, oligo-, and polymers in aqueous solvent. The set accounts for the possibility of arbitrary glycosidic linkage connectivity between units, O-alkylation, as well as of different anomery. The compatibility with the already existing, pyranose-dedicated GROMOS 56A6CARBO/CARBO R set allows one to use the presently proposed extension for studying more diverse and biologically relevant carbohydrates that exploit both pyranose and furanose units. The validation performed against the quantum-mechanical and experimental data concerning the structural and conformational features shows that the newly developed set is capable to reproduce conformational equilibrium within the furanose ring, relative free energies of anomers, hydroxymethyl rotamers, and glycosidic linkage conformers. Additionally, the results concerning the conformation of the furanose ring with relation to the two-state model as well as other conformational features of furanose-containing saccharides are discussed.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "GROMOS",
+            "start": 2,
+            "end": 8
+        },
+        {
+            "label": "MOL",
+            "text": "Furanose",
+            "start": 25,
+            "end": 33
+        },
+        {
+            "label": "MOL",
+            "text": "Carbohydrates",
+            "start": 40,
+            "end": 53
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS",
+            "start": 78,
+            "end": 84
+        },
+        {
+            "label": "MOL",
+            "text": "furanose",
+            "start": 149,
+            "end": 157
+        },
+        {
+            "label": "MOL",
+            "text": "carbohydrates",
+            "start": 158,
+            "end": 171
+        },
+        {
+            "label": "MOL",
+            "text": "furanose",
+            "start": 285,
+            "end": 293
+        },
+        {
+            "label": "MOL",
+            "text": "pyranose",
+            "start": 536,
+            "end": 544
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS 56A6CARBO/CARBO R",
+            "start": 555,
+            "end": 579
+        },
+        {
+            "label": "MOL",
+            "text": "carbohydrates",
+            "start": 687,
+            "end": 700
+        },
+        {
+            "label": "MOL",
+            "text": "pyranose",
+            "start": 719,
+            "end": 727
+        },
+        {
+            "label": "MOL",
+            "text": "furanose",
+            "start": 732,
+            "end": 740
+        },
+        {
+            "label": "MOL",
+            "text": "furanose",
+            "start": 977,
+            "end": 985
+        },
+        {
+            "label": "MOL",
+            "text": "hydroxymethyl",
+            "start": 1027,
+            "end": 1040
+        },
+        {
+            "label": "MOL",
+            "text": "furanose",
+            "start": 1147,
+            "end": 1155
+        },
+        {
+            "label": "MOL",
+            "text": "furanose",
+            "start": 1242,
+            "end": 1250
+        },
+        {
+            "label": "MOL",
+            "text": "saccharides",
+            "start": 1262,
+            "end": 1273
+        }
+    ]
+}

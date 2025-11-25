@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Structure and Property of Alkylated Graphene Oxide Depending on the Chain Length: Grand Canonical Monte Carlo-Molecular Dynamics Approach\nHerein, we present all-atomistic molecular dynamics (MD) simulations of alkylated graphene oxides (AGOs), which involve the following two key procedures: (1) the structures of AGOs were determined using ab initio and grand canonical Monte Carlo simulations and (2) the AGO sheets were assembled and simulated in a layered structure using MD simulation and the physical properties were calculated based on the results. To investigate the effects of the chain length of the alkyl groups on the structure and properties of AGO-based materials, we performed two-step simulations, involving (1) equilibration of layered AGOs and (2) tensile tests. The results showed that longer alkyl chains reduce the interlayer distance and increase the density of the layered structure. Young s moduli of the layered structures were evaluated using the developed method and were found to increase with increasing alkyl chain length.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Graphene Oxide",
+            "start": 36,
+            "end": 50
+        },
+        {
+            "label": "MOL",
+            "text": "graphene oxides",
+            "start": 220,
+            "end": 235
+        },
+        {
+            "label": "MOL",
+            "text": "AGOs",
+            "start": 237,
+            "end": 241
+        },
+        {
+            "label": "MOL",
+            "text": "AGOs",
+            "start": 314,
+            "end": 318
+        },
+        {
+            "label": "MOL",
+            "text": "AGO",
+            "start": 407,
+            "end": 410
+        },
+        {
+            "label": "MOL",
+            "text": "alkyl",
+            "start": 610,
+            "end": 615
+        },
+        {
+            "label": "MOL",
+            "text": "AGO",
+            "start": 658,
+            "end": 661
+        },
+        {
+            "label": "MOL",
+            "text": "AGOs",
+            "start": 753,
+            "end": 757
+        },
+        {
+            "label": "MOL",
+            "text": "alkyl",
+            "start": 812,
+            "end": 817
+        },
+        {
+            "label": "MOL",
+            "text": "alkyl",
+            "start": 1033,
+            "end": 1038
+        }
+    ]
+}

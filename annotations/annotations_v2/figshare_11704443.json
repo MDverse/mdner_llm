@@ -1,0 +1,313 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Exploring Methamphetamine Nonenantioselectively Targeting Toll-like Receptor 4/Myeloid Differentiation Protein 2 by in Silico Simulations and Wet-Lab Techniques\nMethamphetamine (METH) is one of the highly addictive nonopioid psychostimulants, acting as a xenobiotic-associated molecular pattern (XAMP) to target TLR4 and activate microglia. However, the molecule recognition of METH by innate immune receptor TLR4/MD-2 is not well-understood. METH exists in two enantiomeric forms, and it is unclear whether the TLR4 innate immune recognition with METH is stereoselective. Herein, molecular dynamics (MDs) simulations were performed to dissect the recognition of (+)- METH and ( )- METH by TLR4/MD-2 at the atomic level. Amphetamine (AMPH), which is an analogue of METH, was also investigated for comparison. Computational simulations indicate that METH binds into the interaction interface between MD-2 as well as TLR4* that is from the adjacent copy of TLR4-MD-2, therefore stabilizing the active heterotetramer (TLR4/MD-2 )2 complex. The calculated binding free energies and potential of mean force (PMF) values show that ( )- METH and (+)- METH have similar TLR4/MD-2 binding affinity. Further dynamics analyses of bindings with TLR4/MD-2 indicate that ( )- METH and (+)- METH behave similarly. Unlike the stereoselective neuron-stimulating activities of METH, no enantioselectivity was observed for METH interacting with TLR4/MD-2 complex as well as activating TLR4 signaling. Compared to METH, AMPH showed much weaker interactions with TLR4/MD-2, indicating that the substituted methyl group is critical in the molecular recognition of METH by TLR4/MD-2. In all, this study provides molecular insight into the innate immune recognition of METH, which demonstrates that METH could be nonenantioselectively sensed by TLR4/MD-2.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Methamphetamine",
+            "start": 10,
+            "end": 25
+        },
+        {
+            "label": "MOL",
+            "text": "Toll-like Receptor 4",
+            "start": 58,
+            "end": 78
+        },
+        {
+            "label": "MOL",
+            "text": "Myeloid",
+            "start": 79,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "Methamphetamine",
+            "start": 161,
+            "end": 176
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 178,
+            "end": 182
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 312,
+            "end": 316
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 378,
+            "end": 382
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 409,
+            "end": 413
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 414,
+            "end": 418
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 443,
+            "end": 447
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 512,
+            "end": 516
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 548,
+            "end": 552
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 668,
+            "end": 672
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 682,
+            "end": 686
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 690,
+            "end": 694
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 695,
+            "end": 699
+        },
+        {
+            "label": "MOL",
+            "text": "Amphetamine",
+            "start": 721,
+            "end": 732
+        },
+        {
+            "label": "MOL",
+            "text": "AMPH",
+            "start": 734,
+            "end": 738
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 765,
+            "end": 769
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 849,
+            "end": 853
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 899,
+            "end": 903
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 915,
+            "end": 919
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 955,
+            "end": 959
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 960,
+            "end": 964
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1015,
+            "end": 1019
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1020,
+            "end": 1024
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1130,
+            "end": 1134
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1144,
+            "end": 1148
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1162,
+            "end": 1166
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1167,
+            "end": 1171
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1233,
+            "end": 1237
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1238,
+            "end": 1242
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1262,
+            "end": 1266
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1276,
+            "end": 1280
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1359,
+            "end": 1363
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1404,
+            "end": 1408
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1426,
+            "end": 1430
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1431,
+            "end": 1435
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1466,
+            "end": 1470
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1494,
+            "end": 1498
+        },
+        {
+            "label": "MOL",
+            "text": "AMPH",
+            "start": 1500,
+            "end": 1504
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1542,
+            "end": 1546
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1547,
+            "end": 1551
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1642,
+            "end": 1646
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1650,
+            "end": 1654
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1655,
+            "end": 1659
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1745,
+            "end": 1749
+        },
+        {
+            "label": "MOL",
+            "text": "METH",
+            "start": 1775,
+            "end": 1779
+        },
+        {
+            "label": "MOL",
+            "text": "TLR4",
+            "start": 1821,
+            "end": 1825
+        },
+        {
+            "label": "MOL",
+            "text": "MD-2",
+            "start": 1826,
+            "end": 1830
+        }
+    ]
+}

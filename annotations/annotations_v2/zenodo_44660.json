@@ -1,0 +1,121 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of protonated pazePC (Berger, Gromacs 4.5.) Simulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al. https://removed The simulation with deprotonated pazePC from the same publication available at https://removed 90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 167ns. Force field for POPC is based on Berger model and force field for pazePC is modified from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96 (7), 2734 2743, https://removed",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "label": "MOL",
+            "text": "pazePC",
+            "start": 87,
+            "end": 93
+        },
+        {
+            "label": "FFM",
+            "text": "Berger",
+            "start": 95,
+            "end": 101
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 103,
+            "end": 110
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5.",
+            "start": 111,
+            "end": 115
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 161,
+            "end": 165
+        },
+        {
+            "label": "MOL",
+            "text": "pazePC",
+            "start": 189,
+            "end": 195
+        },
+        {
+            "label": "MOL",
+            "text": "Acyl",
+            "start": 226,
+            "end": 230
+        },
+        {
+            "label": "MOL",
+            "text": "azelaoyl",
+            "start": 250,
+            "end": 258
+        },
+        {
+            "label": "MOL",
+            "text": "pazePC",
+            "start": 393,
+            "end": 399
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 458,
+            "end": 462
+        },
+        {
+            "label": "MOL",
+            "text": "pazePC",
+            "start": 467,
+            "end": 473
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 480,
+            "end": 485
+        },
+        {
+            "label": "MOL",
+            "text": "potassium",
+            "start": 493,
+            "end": 502
+        },
+        {
+            "label": "STIME",
+            "text": "167ns",
+            "start": 530,
+            "end": 535
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 553,
+            "end": 557
+        },
+        {
+            "label": "FFM",
+            "text": "Berger",
+            "start": 570,
+            "end": 576
+        },
+        {
+            "label": "MOL",
+            "text": "pazePC",
+            "start": 603,
+            "end": 609
+        }
+    ]
+}

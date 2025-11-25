@@ -1,0 +1,31 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "MD snapshots: Potassium channel blocker crafted by -hairpinin scaffold engineering\nSnapshots of molecular dynamics (MD) simulations of 25 complexes of Kv1.3 channel with a series of Tk-hefu peptide analogues (25 different peptides). Each system include solvated lipid bilayer, the channel and the peptide at 0 (before MD) and 110 ns (after MD). Files are in *.gro format. Additionally, this data set includes two excel tables (*.xlsx) with analysis of intermolecular contacts between the channel and the peptides for all systems in dynamics. These are the same supplementary tables that are uploaded as Supplementary information to Frontiers in chemistry website.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Potassium",
+            "start": 14,
+            "end": 23
+        },
+        {
+            "label": "MOL",
+            "text": "Tk-hefu",
+            "start": 182,
+            "end": 189
+        },
+        {
+            "label": "STIME",
+            "text": "110 ns",
+            "start": 326,
+            "end": 332
+        }
+    ]
+}

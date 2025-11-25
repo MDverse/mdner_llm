@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic Molecular Dynamics Simulations of Lipids Near TiO2 Nanosurfaces\nUnderstanding of interactions between inorganic nanomaterials and biomolecules, and particularly lipid bilayers, is crucial in many biotechnological and biomedical applications, as well as for the evaluation of possible toxic effects caused by nanoparticles. Here, we present a molecular dynamics study of adsorption of two important constituents of the cell membranes, 1,2-dimyristoyl-sn-glycero-3-phosphocholine (DMPC) and 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphoethanolamine (POPE), lipids to a number of titanium dioxide planar surfaces, and a spherical nanoparticle under physiological conditions. By constructing the number density profiles of the lipid headgroup atoms, we have identified several possible binding modes and calculated their relative prevalence in the simulated systems. Our estimates of the adsorption strength, based on the total fraction of adsorbed lipids, show that POPE binds to the selected titanium dioxide surfaces stronger than DMPC, due to the ethanolamine group forming hydrogen bonds with the surface. Moreover, while POPE shows a clear preference toward anatase surfaces over rutile, DMPC has a particularly high affinity to rutile (101) and a lower affinity to other surfaces. Finally, we study how lipid concentration, addition of cholesterol, as well as titanium dioxide surface curvature may affect overall adsorption.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "TiO2",
+            "start": 56,
+            "end": 60
+        },
+        {
+            "label": "MOL",
+            "text": "1,2-dimyristoyl-sn-glycero-3-phosphocholine",
+            "start": 444,
+            "end": 487
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 489,
+            "end": 493
+        },
+        {
+            "label": "MOL",
+            "text": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphoethanolamine",
+            "start": 499,
+            "end": 552
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 554,
+            "end": 558
+        },
+        {
+            "label": "MOL",
+            "text": "titanium dioxide",
+            "start": 583,
+            "end": 599
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 969,
+            "end": 973
+        },
+        {
+            "label": "MOL",
+            "text": "titanium dioxide",
+            "start": 996,
+            "end": 1012
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 1036,
+            "end": 1040
+        },
+        {
+            "label": "MOL",
+            "text": "ethanolamine",
+            "start": 1053,
+            "end": 1065
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 1129,
+            "end": 1133
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 1196,
+            "end": 1200
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 1345,
+            "end": 1356
+        },
+        {
+            "label": "MOL",
+            "text": "titanium dioxide",
+            "start": 1369,
+            "end": 1385
+        }
+    ]
+}

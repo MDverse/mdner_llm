@@ -1,0 +1,127 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\nWe here provide the structure files, trajectories and topology files for analyzing and reproducing simulations performed in the publication: \"Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\". Classical molecular dynamics simulation of rat Mrp1 have been performed in complex with native substrates like GSH and GSSG or drug molecules like ritonavir, to study binding modes of different combinations. Structure and trajectory files (all 1 µs long) as well as recorded movies of the time progression are provided for the following simulation systems: 1. GSH bound to rat Mrp1 2. GSSG bound to rat Mrp1 3. Ritonavir bound to rat Mrp1 4. GSH + Ritonavir bound to rat Mrp1 5. GSSG + Ritonavir bound to rat Mrp1 Additionally itp files (GROMACS format) containing parameter information about the ligands GSH, GSSG and Ritonavir are provided for the force field CHARMM36m. Raw data of the homology modeling of rat Mrp1 by I-Tasser as well as Docking results produced via AutoDock4 are uploaded as zip directories. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "ritonavir",
+            "start": 101,
+            "end": 110
+        },
+        {
+            "label": "MOL",
+            "text": "ritonavir",
+            "start": 354,
+            "end": 363
+        },
+        {
+            "label": "MOL",
+            "text": "GSH",
+            "start": 477,
+            "end": 480
+        },
+        {
+            "label": "MOL",
+            "text": "GSSG",
+            "start": 485,
+            "end": 489
+        },
+        {
+            "label": "MOL",
+            "text": "ritonavir",
+            "start": 513,
+            "end": 522
+        },
+        {
+            "label": "STIME",
+            "text": "1 µs",
+            "start": 610,
+            "end": 614
+        },
+        {
+            "label": "MOL",
+            "text": "GSH",
+            "start": 726,
+            "end": 729
+        },
+        {
+            "label": "MOL",
+            "text": "GSSG",
+            "start": 751,
+            "end": 755
+        },
+        {
+            "label": "MOL",
+            "text": "Ritonavir",
+            "start": 777,
+            "end": 786
+        },
+        {
+            "label": "MOL",
+            "text": "GSH",
+            "start": 808,
+            "end": 811
+        },
+        {
+            "label": "MOL",
+            "text": "Ritonavir",
+            "start": 814,
+            "end": 823
+        },
+        {
+            "label": "MOL",
+            "text": "GSSG",
+            "start": 845,
+            "end": 849
+        },
+        {
+            "label": "MOL",
+            "text": "Ritonavir",
+            "start": 852,
+            "end": 861
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 904,
+            "end": 911
+        },
+        {
+            "label": "MOL",
+            "text": "GSH",
+            "start": 971,
+            "end": 974
+        },
+        {
+            "label": "MOL",
+            "text": "GSSG",
+            "start": 976,
+            "end": 980
+        },
+        {
+            "label": "MOL",
+            "text": "Ritonavir",
+            "start": 985,
+            "end": 994
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36m.",
+            "start": 1028,
+            "end": 1038
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AutoDock4",
+            "start": 1137,
+            "end": 1146
+        }
+    ]
+}

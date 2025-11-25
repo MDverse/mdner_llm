@@ -1,0 +1,97 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Ligand-induced Conformational Selection Predicts the Selectivity of Cysteine Protease Inhibitors - ICL and IKR complexes MD\nSupplementary data of \"Ligand-induced Conformational Selection Predicts the Selectivity of Cysteine Protease Inhibitors\" paper. This dataset consists of the molecular dynamics simulations trajectory and topology of Cruzain, Cathepsin K and Cathepsin L enzymes in noncovalent and covalent complexes with selective ligand against Cruzain (ICL* and CCL) and Cathepsin K (IKR and CKR). We ran five replicate 100ns simulations on each complex, with randomized initial velocities. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Cysteine Protease Inhibitors",
+            "start": 68,
+            "end": 96
+        },
+        {
+            "label": "MOL",
+            "text": "ICL",
+            "start": 99,
+            "end": 102
+        },
+        {
+            "label": "MOL",
+            "text": "IKR",
+            "start": 107,
+            "end": 110
+        },
+        {
+            "label": "MOL",
+            "text": "Cysteine Protease Inhibitors",
+            "start": 215,
+            "end": 243
+        },
+        {
+            "label": "MOL",
+            "text": "Cruzain",
+            "start": 339,
+            "end": 346
+        },
+        {
+            "label": "MOL",
+            "text": "Cathepsin K",
+            "start": 348,
+            "end": 359
+        },
+        {
+            "label": "MOL",
+            "text": "Cathepsin L",
+            "start": 364,
+            "end": 375
+        },
+        {
+            "label": "MOL",
+            "text": "Cruzain",
+            "start": 452,
+            "end": 459
+        },
+        {
+            "label": "MOL",
+            "text": "ICL",
+            "start": 461,
+            "end": 464
+        },
+        {
+            "label": "MOL",
+            "text": "CCL",
+            "start": 470,
+            "end": 473
+        },
+        {
+            "label": "MOL",
+            "text": "Cathepsin K",
+            "start": 479,
+            "end": 490
+        },
+        {
+            "label": "MOL",
+            "text": "IKR",
+            "start": 492,
+            "end": 495
+        },
+        {
+            "label": "MOL",
+            "text": "CKR",
+            "start": 500,
+            "end": 503
+        },
+        {
+            "label": "STIME",
+            "text": "100ns",
+            "start": 528,
+            "end": 533
+        }
+    ]
+}

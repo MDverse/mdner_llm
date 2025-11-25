@@ -1,0 +1,73 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Experimental and Theoretical Exploration of Volumetric Properties of Aminobutyric Acid and l Valine in the Electrolytic Environment at T   283.15 to 318.15 K and Pressure P   0.1 MPa\nIn the present work, density ( ) calculations, molecular dynamics (MD) simulations, and quantum chemical calculations of pseudo-binary mixtures of aminobutyric acid and l-valine in aqueous solutions of sodium thiosulfate (Na2S2O3) at T   283.15 to 318.15 K and atmospheric pressure (0.1 MPa) were performed. MD simulations reveal the formation of molecular aggregates induced by the preferential solvation in the mixture, due to the electrostatic interactions at the first layer of solvation between the charged groups of amino acids and the inorganic salt. The formation of these molecular aggregates is promoted by an increase in the salt concentration. Noncovalent interactions within the pseudo-binary mixtures were studied by the noncovalent interaction index (NCI) and IGM analysis, which well supported the experimental findings.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Aminobutyric Acid",
+            "start": 69,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "l Valine",
+            "start": 91,
+            "end": 99
+        },
+        {
+            "label": "TEMP",
+            "text": "283.15",
+            "start": 139,
+            "end": 145
+        },
+        {
+            "label": "TEMP",
+            "text": "318.15 K",
+            "start": 149,
+            "end": 157
+        },
+        {
+            "label": "MOL",
+            "text": "aminobutyric acid",
+            "start": 330,
+            "end": 347
+        },
+        {
+            "label": "MOL",
+            "text": "l-valine",
+            "start": 352,
+            "end": 360
+        },
+        {
+            "label": "MOL",
+            "text": "sodium thiosulfate",
+            "start": 385,
+            "end": 403
+        },
+        {
+            "label": "MOL",
+            "text": "Na2S2O3",
+            "start": 405,
+            "end": 412
+        },
+        {
+            "label": "TEMP",
+            "text": "283.15",
+            "start": 421,
+            "end": 427
+        },
+        {
+            "label": "TEMP",
+            "text": "318.15 K",
+            "start": 431,
+            "end": 439
+        }
+    ]
+}

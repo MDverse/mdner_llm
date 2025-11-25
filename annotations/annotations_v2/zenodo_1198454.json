@@ -1,0 +1,145 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Simulation data for CHARMM36 POPC bilayer, 100 lipids/leaflet, 940 mM NaCl, 310K, GROMACS 5.1.4\nSimulations of a POPC bilayer with 940 mM of NaCl. The fifth from the set of 6 simulations. The goal was to study the effect of scaling the CHARMM FF on the ion binding. Done for the NMRlipids project, see https://removed for more information. A POPC bilayer consisting of 200 lipids (100 per leaflet) is simulated in the presence of 940 mM NaCl. The Charmm36 model is employed for lipids, the Charmm compatible variant of the tip3p model for water, and the default Charmm ion parameters (type SOD) for NaCl. NB-Fix used for sodium. The Charmm36 force field parameters were obtained from https://removed The files are in GROMACS format. Trajectory (.xtc) is 370 ns long with data saved every 100 ps. the initial structure (.gro), topology (.top), index file (.ndx), simulation paremeter file (.mdp), binary run input file for GROMACS v. 5.1 > (.tpr) and the energy output file (.edr) are provided. ",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 20,
+            "end": 28
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 29,
+            "end": 33
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 70,
+            "end": 74
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 76,
+            "end": 80
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 82,
+            "end": 89
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.1.4",
+            "start": 90,
+            "end": 95
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 113,
+            "end": 117
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 141,
+            "end": 145
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 236,
+            "end": 242
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 342,
+            "end": 346
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 437,
+            "end": 441
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 447,
+            "end": 455
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 490,
+            "end": 496
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 523,
+            "end": 528
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 539,
+            "end": 544
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 562,
+            "end": 568
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 599,
+            "end": 603
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 633,
+            "end": 641
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 717,
+            "end": 724
+        },
+        {
+            "label": "STIME",
+            "text": "370 ns",
+            "start": 754,
+            "end": 760
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 922,
+            "end": 929
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 5.1 >",
+            "start": 930,
+            "end": 938
+        }
+    ]
+}

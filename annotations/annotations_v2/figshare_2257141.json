@@ -1,0 +1,49 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "A Unified AMBER-Compatible Molecular Mechanics Force Field for Thiolate-Protected Gold Nanoclusters\nWe present transferable AMBER-compatible force field parameters for thiolate-protected gold nanoclusters. Five different sized clusters containing both organo-soluble and water-soluble thiolate ligands served as test systems in MD simulations, and parameters were validated against DFT and experimental results. The cluster geometries remain intact during the MD simulations in various solvents, and structural fluctuations and energetics showed agreement with DFT calculations. Experimental diffusion coefficients and crystal structures were also reproduced with sufficient accuracy. The presented parameter set contains the minimum number of cluster-specific parameters enabling the use of these parameters for several different gold nanoclusters. The parameterization of ligands can also be extended to different types of ligands.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 10,
+            "end": 15
+        },
+        {
+            "label": "MOL",
+            "text": "Thiolate",
+            "start": 63,
+            "end": 71
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 124,
+            "end": 129
+        },
+        {
+            "label": "MOL",
+            "text": "thiolate",
+            "start": 168,
+            "end": 176
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 271,
+            "end": 276
+        },
+        {
+            "label": "MOL",
+            "text": "thiolate",
+            "start": 285,
+            "end": 293
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Benchmarking of Molecular Dynamics Force Fields for Solid Liquid and Solid Solid Phase Transitions in Alkanes\nAccurate prediction of alkane phase transitions involving solids is needed to prevent catastrophic pipeline blockages, improve lubrication formulations, smart insulation, and energy storage, as well as bring fundamental understanding to processes such as artificial morphogenesis. However, simulation of these transitions is challenging and therefore often omitted in force field development. Here, we perform a series of benchmarks on seven representative molecular dynamics models (TraPPE, PYS, CHARMM36, L-OPLS, COMPASS, Williams, and the newly optimized Williams 7B), comparing with experimental data for liquid properties, liquid solid, and solid solid phase transitions of two prototypical alkanes, n-pentadecane (C15) and n-hexadecane (C16). We find that existing models overestimate the melting points by up to 34 K, with PYS and Williams 7B yielding the most accurate results deviating only 2 and 3 K from the experiment. We specially design order parameters to identify crystal rotator phase transitions in alkanes. United-atom models could only produce a rotator phase with complete rotational disorder, whereas all-atom models using a 12-6 Lennard-Jones potential show no rotator phase even when superheated above the melting point. In contrast, Williams (Buckingham potential) and COMPASS (9-6 Lennard-Jones) reproduce the crystal-to-rotator phase transition, with the optimized Williams 7B model having the most accurate crystal rotator transition temperature of C15.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Alkanes",
+            "start": 102,
+            "end": 109
+        },
+        {
+            "label": "MOL",
+            "text": "alkane",
+            "start": 133,
+            "end": 139
+        },
+        {
+            "label": "FFM",
+            "text": "TraPPE",
+            "start": 594,
+            "end": 600
+        },
+        {
+            "label": "FFM",
+            "text": "PYS",
+            "start": 602,
+            "end": 605
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 607,
+            "end": 615
+        },
+        {
+            "label": "FFM",
+            "text": "L-OPLS",
+            "start": 617,
+            "end": 623
+        },
+        {
+            "label": "FFM",
+            "text": "COMPASS",
+            "start": 625,
+            "end": 632
+        },
+        {
+            "label": "FFM",
+            "text": "Williams",
+            "start": 634,
+            "end": 642
+        },
+        {
+            "label": "FFM",
+            "text": "Williams 7B",
+            "start": 668,
+            "end": 679
+        },
+        {
+            "label": "MOL",
+            "text": "alkanes",
+            "start": 806,
+            "end": 813
+        },
+        {
+            "label": "MOL",
+            "text": "n-pentadecane",
+            "start": 815,
+            "end": 828
+        },
+        {
+            "label": "MOL",
+            "text": "C15",
+            "start": 830,
+            "end": 833
+        },
+        {
+            "label": "MOL",
+            "text": "n-hexadecane",
+            "start": 839,
+            "end": 851
+        },
+        {
+            "label": "MOL",
+            "text": "C16",
+            "start": 853,
+            "end": 856
+        },
+        {
+            "label": "FFM",
+            "text": "PYS",
+            "start": 940,
+            "end": 943
+        },
+        {
+            "label": "FFM",
+            "text": "Williams 7B",
+            "start": 948,
+            "end": 959
+        },
+        {
+            "label": "MOL",
+            "text": "alkanes",
+            "start": 1127,
+            "end": 1134
+        },
+        {
+            "label": "FFM",
+            "text": "Williams",
+            "start": 1368,
+            "end": 1376
+        },
+        {
+            "label": "FFM",
+            "text": "COMPASS",
+            "start": 1404,
+            "end": 1411
+        },
+        {
+            "label": "FFM",
+            "text": "Williams 7B",
+            "start": 1502,
+            "end": 1513
+        },
+        {
+            "label": "MOL",
+            "text": "C15",
+            "start": 1587,
+            "end": 1590
+        }
+    ]
+}

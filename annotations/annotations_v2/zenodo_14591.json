@@ -1,0 +1,85 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "MD simulation trajectory and related files for DPPC bilayer in full hydration (Poger GROMOS 53A6 L, Gromacs 4.0.7, Reaction Field, traj 2)\nEquilibrated DPPC lipid bilayer simulation ran with Gromacs 4.0.7 using Reaction Field for computing electrostatics, Poger GROMOS 53A6 L force field in full hydration (dx.doi.org/10.1002/jcc.21396), 100ns, T 323K, 128 DPPC molecules, 5841 water molecules. This data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://removed If data is used, please cite nmrlipids.blogspot.fi project and the original publication of the parameters (dx.doi.org/10.1002/jcc.21396). ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "label": "FFM",
+            "text": "Poger GROMOS 53A6 L",
+            "start": 79,
+            "end": 98
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 100,
+            "end": 107
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.0.7",
+            "start": 108,
+            "end": 113
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 152,
+            "end": 156
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 191,
+            "end": 198
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.0.7",
+            "start": 199,
+            "end": 204
+        },
+        {
+            "label": "FFM",
+            "text": "Poger GROMOS 53A6 L",
+            "start": 256,
+            "end": 275
+        },
+        {
+            "label": "STIME",
+            "text": "100ns",
+            "start": 338,
+            "end": 343
+        },
+        {
+            "label": "TEMP",
+            "text": "323K",
+            "start": 347,
+            "end": 351
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 357,
+            "end": 361
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 378,
+            "end": 383
+        }
+    ]
+}

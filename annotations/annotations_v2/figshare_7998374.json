@@ -1,0 +1,193 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Complex Behavior of Phosphatidylcholine Phosphatidic Acid Bilayers and Monolayers: Effect of Acyl Chain Unsaturation\nPhosphatidic acids (PAs) have many biological functions in biomembranes, e.g., they are involved in the proliferation, differentiation, and transformation of cells. Despite decades of research, the molecular understanding of how PAs affect the properties of biomembranes remains elusive. In this study, we explored the properties of lipid bilayers and monolayers composed of PAs and phosphatidylcholines (PCs) with various acyl chains. For this purpose, the Langmuir monolayer technique and atomistic molecular dynamics (MD) simulations were used to study the miscibility of PA and PC lipids and the molecular organization of mixed bilayers. The monolayer experiments demonstrated that the miscibility of membrane components strongly depends on the structure of the hydrocarbon chains and thus on the overall lipid shape. Interactions between PA and PC molecules vary from repulsive, for systems containing lipids with saturated and unsaturated acyl tails (strongly positive values of the excess free energy of mixing), to attractive, for systems in which all lipid tails are saturated (negative values of the excess free energy of mixing). The MD simulations provided atomistic insight into polar interactions (formation of hydrogen bonds and charge pairs) in PC PA systems. H-bonding between PA monoanions and PCs in mixed bilayers is infrequent, and the lipid molecules interact mainly via electrostatic interactions. However, the number of charge pairs significantly decreases with the number of unsaturated lipid chains in the PA PC system. The PA dianions weakly interact with the zwitterionic lipids, but their headgroups are more hydrated as compared to the monoanionic form. The acyl chains in all PC PA bilayers are more ordered compared to single-component PC systems. In addition, depending on the combination of lipids, we observed a deeper location of the PA phosphate groups compared to the PC phosphate groups, which can alter the presentation of PAs for the peripheral membrane proteins, affecting their accessibility for binding.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Phosphatidylcholine Phosphatidic Acid",
+            "start": 20,
+            "end": 57
+        },
+        {
+            "label": "MOL",
+            "text": "Acyl",
+            "start": 93,
+            "end": 97
+        },
+        {
+            "label": "MOL",
+            "text": "Phosphatidic acids",
+            "start": 117,
+            "end": 135
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 137,
+            "end": 140
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 346,
+            "end": 349
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 492,
+            "end": 495
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylcholines",
+            "start": 500,
+            "end": 520
+        },
+        {
+            "label": "MOL",
+            "text": "PCs",
+            "start": 522,
+            "end": 525
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 540,
+            "end": 544
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 692,
+            "end": 694
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 699,
+            "end": 701
+        },
+        {
+            "label": "MOL",
+            "text": "hydrocarbon",
+            "start": 883,
+            "end": 894
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 960,
+            "end": 962
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 967,
+            "end": 969
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 1062,
+            "end": 1066
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1378,
+            "end": 1380
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1381,
+            "end": 1383
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1411,
+            "end": 1413
+        },
+        {
+            "label": "MOL",
+            "text": "PCs",
+            "start": 1429,
+            "end": 1432
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1649,
+            "end": 1651
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1652,
+            "end": 1654
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1667,
+            "end": 1669
+        },
+        {
+            "label": "MOL",
+            "text": "lipids",
+            "start": 1717,
+            "end": 1723
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 1805,
+            "end": 1809
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1824,
+            "end": 1826
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1827,
+            "end": 1829
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1885,
+            "end": 1887
+        },
+        {
+            "label": "MOL",
+            "text": "PA phosphate",
+            "start": 1987,
+            "end": 1999
+        },
+        {
+            "label": "MOL",
+            "text": "PC phosphate",
+            "start": 2023,
+            "end": 2035
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 2080,
+            "end": 2083
+        }
+    ]
+}

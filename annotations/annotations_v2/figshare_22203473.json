@@ -1,0 +1,163 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Extension of the TraPPE Force Field for Battery Electrolyte Solvents\nOptimizing electrolyte formulations is key to improving performance of Li-/Na-ion batteries, where transport properties (diffusion coefficient, viscosity) and permittivity need to be predicted as functions of temperature, salt concentration and solvent composition. More efficient and reliable simulation models are urgently needed, owing to the high cost of experimental methods and the lack of united-atom molecular dynamics force fields validated for electrolyte solvents. Here the computationally efficient TraPPE united-atom force field is extended to be compatible with carbonate solvents, optimizing the charges and dihedral potential. Computing the properties of electrolyte solvents, ethylene carbonate (EC), propylene carbonate (PC), dimethyl carbonate (DMC), diethyl carbonate (DEC), and dimethoxyethane (DME), we observe that the average absolute errors in the density, self-diffusion coefficient, permittivity, viscosity, and surface tension are approximately 15% of the corresponding experimental values. Results compare favorably to all-atom CHARMM and OPLS-AA force fields, offering computational performance improvement of at least 80%. We further use TraPPE to predict the structure and properties of LiPF6 salt in these solvents and their mixtures. EC and PC form complete solvation shells around Li+ ions, while the salt in DMC forms chain-like structures. In the poorest solvent, DME, LiPF6 forms globular clusters despite DME s higher permittivity than DMC.",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "TraPPE",
+            "start": 17,
+            "end": 23
+        },
+        {
+            "label": "MOL",
+            "text": "Li-/Na-ion",
+            "start": 140,
+            "end": 150
+        },
+        {
+            "label": "FFM",
+            "text": "TraPPE",
+            "start": 580,
+            "end": 586
+        },
+        {
+            "label": "MOL",
+            "text": "ethylene carbonate",
+            "start": 762,
+            "end": 780
+        },
+        {
+            "label": "MOL",
+            "text": "EC",
+            "start": 782,
+            "end": 784
+        },
+        {
+            "label": "MOL",
+            "text": "propylene carbonate",
+            "start": 787,
+            "end": 806
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 808,
+            "end": 810
+        },
+        {
+            "label": "MOL",
+            "text": "dimethyl carbonate",
+            "start": 813,
+            "end": 831
+        },
+        {
+            "label": "MOL",
+            "text": "DMC",
+            "start": 833,
+            "end": 836
+        },
+        {
+            "label": "MOL",
+            "text": "diethyl carbonate",
+            "start": 839,
+            "end": 856
+        },
+        {
+            "label": "MOL",
+            "text": "DEC",
+            "start": 858,
+            "end": 861
+        },
+        {
+            "label": "MOL",
+            "text": "dimethoxyethane",
+            "start": 868,
+            "end": 883
+        },
+        {
+            "label": "MOL",
+            "text": "DME",
+            "start": 885,
+            "end": 888
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 1126,
+            "end": 1132
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS-AA",
+            "start": 1137,
+            "end": 1144
+        },
+        {
+            "label": "FFM",
+            "text": "TraPPE",
+            "start": 1238,
+            "end": 1244
+        },
+        {
+            "label": "MOL",
+            "text": "LiPF6",
+            "start": 1288,
+            "end": 1293
+        },
+        {
+            "label": "MOL",
+            "text": "EC",
+            "start": 1337,
+            "end": 1339
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1344,
+            "end": 1346
+        },
+        {
+            "label": "MOL",
+            "text": "Li+",
+            "start": 1385,
+            "end": 1388
+        },
+        {
+            "label": "MOL",
+            "text": "DMC",
+            "start": 1413,
+            "end": 1416
+        },
+        {
+            "label": "MOL",
+            "text": "DME",
+            "start": 1470,
+            "end": 1473
+        },
+        {
+            "label": "MOL",
+            "text": "LiPF6",
+            "start": 1475,
+            "end": 1480
+        },
+        {
+            "label": "MOL",
+            "text": "DME",
+            "start": 1513,
+            "end": 1516
+        },
+        {
+            "label": "MOL",
+            "text": "DMC",
+            "start": 1544,
+            "end": 1547
+        }
+    ]
+}
