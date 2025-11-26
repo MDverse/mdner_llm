@@ -51,7 +51,7 @@ def list_json_files(directory: Path) -> list[Path]:
 
     Parameters
     ----------
-        directory (str): The path to the directory containing JSON files.
+        directory (Path): The path to the directory containing JSON files.
 
     Returns
     -------
@@ -69,7 +69,7 @@ def load_json(json_file_path: Path) -> dict:
 
     Parameters
     ----------
-        filepath (Path): The full path to the JSON file.
+        json_file_path (Path): The full path to the JSON file.
 
     Returns
     -------
@@ -163,12 +163,11 @@ def export_to_tsv(
         A DataFrame containing the aggregated entity counts.
     output_dir: Path
         Directory where the TSV file will be saved.
-        A list of annotated text lenghts.
     """
     # Ensure output directory exists.
     if not output_dir.exists():
         output_dir.mkdir(parents=True, exist_ok=True)
-    tsv_file_path = output_dir / Path("all_annotations_entities_count.tsv")
+    tsv_file_path = output_dir / "all_annotations_entities_count.tsv"
     try:
         df.to_csv(tsv_file_path, sep="\t", index=False)
     except OSError as e:
@@ -184,9 +183,11 @@ if __name__ == "__main__":
     all_counts = []
     logger.info("Counting entities...")
     columns = ["filename", "length"] + [f"NB_{cls}" for cls in CLASSES]
-    entities_df = pd.DataFrame(columns=columns)
     for filepath in json_files:
         json_data = load_json(filepath)
+        if not json_data or "raw_text" not in json_data:
+            logger.warning(f"File {filepath} is missing 'raw_text' or failed to load. Skipping.")
+            continue
         counts = count_entities_per_class(json_data, CLASSES)
         counts["filename"] = filepath.name
         counts["length"] = len(json_data["raw_text"])

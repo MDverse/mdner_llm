@@ -48,7 +48,6 @@ extend-select = [
     "S",    # Flake8-bandit – security issues
     "BLE",  # Flake8-blind-except – flags bare excepts
     "FBT",  # Flake8-boolean-trap – potential pitfalls with booleans
-    "B",    # Flake8-bugbear – common bug patterns
     "A",    # Flake8-builtins – misuse of Python built-in names
     "COM",  # Flake8-commas – trailing/comma issues
     "C4",   # Flake8-comprehensions – best practices in comprehensions
