@@ -1,8 +1,9 @@
-"""Count entities par class for each annotation.
+"""Count the number of entities per class for each annotation.
 
-This script processes all JSON annotation files in a specified directory ("annotations/v2")
-and counts the number of entities for each class defined in the file.
-The script then outputs a TSV file containing the filename, annotated text lenght and the count of entities per class.
+This script processes all JSON annotation files in a specified directory
+and counts the number of entities for each class defined in the annotation file.
+The script outputs a TSV file containing the filename, annotated text length
+and the number of entities per class.
 
 Usage :
 =======
@@ -10,7 +11,6 @@ Usage :
 
 """
 
-# METADATAS
 __authors__ = ("Pierre Poulain", "Essmay Touami")
 __contact__ = "pierre.poulain@u-paris.fr"
 __copyright__ = "AGPL-3.0 license"
@@ -18,21 +18,19 @@ __date__ = "2025"
 __version__ = "1.0.0"
 
 
-# LIBRARY IMPORTS
 import csv
 import json
-import os
 from pathlib import Path
 from typing import Dict, List
 
 from loguru import logger
 
-ANNOTATION_DIR = "annotations/v2"
+ANNOTATION_DIR = Path("annotations/v2")
 RESULTS_DIR = Path("results")
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
 
-def list_json_files(directory: str) -> List[str]:
+def list_json_files(directory: Path) -> List[Path]:
     """
     Retrieve all JSON files from a given directory.
 
@@ -42,31 +40,29 @@ def list_json_files(directory: str) -> List[str]:
 
     Returns:
     --------
-    files: List[str]
+    files: List[Path]
         A list of JSON file paths.
     """
-    files = [
-        os.path.join(directory, f) for f in os.listdir(directory) if f.endswith(".json")
-    ]
+    files = list(directory.rglob("*.json"))
     logger.info(f"Found {len(files)} JSON annotation files.")
     return files
 
 
-def load_json(json_file_path: str) -> Dict:
+def load_json(json_file_path: Path) -> Dict:
     """
     Load a JSON file and return its content as a dictionary.
 
     Parameters:
     -----------
-        filepath (str): The full path to the JSON file.
+        filepath (Path): The full path to the JSON file.
 
     Returns:
     --------
         Dict: Parsed JSON data.
     """
     try:
-        with open(json_file_path, "r", encoding="utf-8") as file:
-            data = json.load(file)
+        with open(json_file_path, "r", encoding="utf-8") as json_file:
+            data = json.load(json_file)
         return data
     except Exception as e:
         logger.error(f"Failed to load {json_file_path}: {e}")
@@ -148,7 +144,7 @@ if __name__ == "__main__":
             count_all_entities_per_class[cls] += value
 
         count_entities.append(counts)
-        filenames.append(os.path.basename(filepath))
+        filenames.append(filepath.name)
         len_files.append(len(data["raw_text"]))
 
     logger.debug(f"Total number of entities: {count_all_entities}")
