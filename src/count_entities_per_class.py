@@ -19,8 +19,8 @@ __version__ = "1.0.0"
 
 
 import json
+import sys
 from pathlib import Path
-from typing import Dict, List
 
 import pandas as pd
 from loguru import logger
@@ -30,79 +30,96 @@ RESULTS_DIR = Path("results")
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
 
-def list_json_files(directory: Path) -> List[Path]:
+def setup_logger(logger) -> None:
+    """Update logger configuration."""
+    logger.remove()
+    fmt = (
+        "{time:YYYY-MM-DD HH:mm:ss}"
+        "| <level>{level:<8}</level> "
+        "| <level>{message}</level>"
+    )
+    logger.add(
+        sys.stdout,
+        format=fmt,
+        level="DEBUG",
+    )
+
+
+def list_json_files(directory: Path) -> list[Path]:
     """
     Retrieve all JSON files from a given directory.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
         directory (str): The path to the directory containing JSON files.
 
-    Returns:
-    --------
+    Returns
+    -------
     files: List[Path]
         A list of JSON file paths.
     """
     files = list(directory.rglob("*.json"))
-    logger.info(f"Found {len(files)} JSON annotation files.")
+    logger.success(f"Found {len(files)} JSON annotation files.")
     return files
 
 
-def load_json(json_file_path: Path) -> Dict:
+def load_json(json_file_path: Path) -> dict:
     """
     Load a JSON file and return its content as a dictionary.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
         filepath (Path): The full path to the JSON file.
 
-    Returns:
-    --------
+    Returns
+    -------
         Dict: Parsed JSON data.
     """
+    data = {}
     try:
-        with open(json_file_path, "r", encoding="utf-8") as json_file:
+        with open(json_file_path, encoding="utf-8") as json_file:
             data = json.load(json_file)
-        return data
-    except Exception as e:
+    except ValueError as e:
         logger.error(f"Failed to load {json_file_path}: {e}")
-        return {}
+    except OSError as e:
+        logger.error(f"Cannot open {json_file_path}: {e}")
+    return data
 
 
-def count_entities_per_class(data: Dict, classes: List[str]) -> Dict:
+def count_entities_per_class(data: dict, classes: list[str]) -> dict:
     """
     Count the number of entities per class in a JSON annotation.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
         data (Dict): The JSON data loaded from an annotation file.
         classes (List[str]): List of entity classes to count.
 
-    Returns:
-    --------
+    Returns
+    -------
         Dict: Updated dictionary with the count of entities per class.
     """
     # Create empty dictionnary.
-    record = {cls: 0 for cls in classes}
+    record = dict.fromkeys(classes, 0)
     # Count entities per class.
     for entity in data["entities"]:
         record[entity["label"]] += 1
     return record
 
 
-def aggregate(counts_list: List[Dict], classes: List[str]) -> pd.DataFrame:
+def aggregate(counts_list: list[dict], classes: list[str]) -> pd.DataFrame:
     """
     Aggregate a list of entity count dictionaries into a DataFrame.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     counts_list: List[Dict]
         A list of dictionaries with entity counts.
     classes: List[str]
         List of entity classes.
 
-    Returns:
-    --------
+    Returns
+    -------
     pd.DataFrame
         A DataFrame containing the aggregated counts.
     """
@@ -111,17 +128,17 @@ def aggregate(counts_list: List[Dict], classes: List[str]) -> pd.DataFrame:
     for cls in classes:
         columns[cls] = f"NB_{cls}"
     df = df.rename(columns=columns)
-    df = df[["filename", "length"] + list(columns.values())]
+    df = df[["filename", "length", *list(columns.values())]]
     return df
 
 
-def display_stats(df: pd.DataFrame, classes: List[str]) -> None:
+def display_stats(df: pd.DataFrame, classes: list[str]) -> None:
     """
     Display statistics of entity counts per class.
 
-    Parameters:
-    -----------
-    counts_df: pd.DataFrame
+    Parameters
+    ----------
+    df: pd.DataFrame
         A DataFrame containing the entity counts.
     classes: List[str]
         List of entity classes.
@@ -140,8 +157,8 @@ def export_to_tsv(
     """
     Export the entity counts into a TSV file.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
     df: pd.DataFrame
         A DataFrame containing the aggregated entity counts.
     output_dir: Path
@@ -154,13 +171,14 @@ def export_to_tsv(
     tsv_file_path = output_dir / Path("all_annotations_entities_count.tsv")
     try:
         df.to_csv(tsv_file_path, sep="\t", index=False)
-    except IOError as e:
+    except OSError as e:
         logger.error(f"Failed to write TSV file: {e}")
     else:
         logger.success(f"Count results saved in {tsv_file_path}")
 
 
 if __name__ == "__main__":
+    setup_logger(logger)
     logger.info("Searching for JSON files...")
     json_files = list_json_files(ANNOTATION_DIR)
     all_counts = []
@@ -179,4 +197,4 @@ if __name__ == "__main__":
     # Display statistics.
     display_stats(counts_df, CLASSES)
     # Export to TSV.
-    export_to_tsv(counts_df, Path("/"))
+    export_to_tsv(counts_df, RESULTS_DIR)
