@@ -99,7 +99,7 @@ def count_entities_per_class(data: dict, classes: list[str]) -> dict:
     -------
         Dict: Updated dictionary with the count of entities per class.
     """
-    # Create empty dictionnary.
+    # Create empty dictionary.
     record = dict.fromkeys(classes, 0)
     # Count entities per class.
     for entity in data["entities"]:
