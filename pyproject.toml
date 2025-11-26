@@ -43,7 +43,7 @@ extend-select = [
     "B",    # bugbear
     "C90",  # McCabe - code complexity metric for functions
     "N",    # PEP8 Naming
-    "D",    # Pydocstyle - doctring formating
+    "D",    # Pydocstyle - docstring formatting
     "UP",   # Pyupgrade - upgraded syntax to newer Python versions
     "S",    # Flake8-bandit – security issues
     "BLE",  # Flake8-blind-except – flags bare excepts
