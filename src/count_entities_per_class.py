@@ -182,11 +182,12 @@ if __name__ == "__main__":
     json_files = list_json_files(ANNOTATION_DIR)
     all_counts = []
     logger.info("Counting entities...")
-    columns = ["filename", "length"] + [f"NB_{cls}" for cls in CLASSES]
     for filepath in json_files:
         json_data = load_json(filepath)
         if not json_data or "raw_text" not in json_data:
-            logger.warning(f"File {filepath} is missing 'raw_text' or failed to load. Skipping.")
+            logger.warning(
+                f"File {filepath} is missing 'raw_text' or failed to load. Skipping.",
+            )
             continue
         counts = count_entities_per_class(json_data, CLASSES)
         counts["filename"] = filepath.name
