@@ -1,8 +1,9 @@
-"""Count entities par class for each annotation.
+"""Count the number of entities per class for each annotation.
 
-This script processes all JSON annotation files in a specified directory ("annotations/v2")
-and counts the number of entities for each class defined in the file.
-The script then outputs a TSV file containing the filename, annotated text lenght and the count of entities per class.
+This script processes all JSON annotation files in a specified directory
+and counts the number of entities for each class defined in the annotation file.
+The script outputs a TSV file containing the filename, annotated text length
+and the number of entities per class.
 
 Usage :
 =======
@@ -10,8 +11,6 @@ Usage :
 
 """
 
-
-# METADATAS
 __authors__ = ("Pierre Poulain", "Essmay Touami")
 __contact__ = "pierre.poulain@u-paris.fr"
 __copyright__ = "AGPL-3.0 license"
@@ -19,147 +18,185 @@ __date__ = "2025"
 __version__ = "1.0.0"
 
 
-# LIBRARY IMPORTS
-import os
 import json
-import csv
-from typing import Dict, List
+import sys
+from pathlib import Path
 
+import pandas as pd
 from loguru import logger
 
-
-# CONSTANTS
-ANNOTATION_DIR = "annotations/v2"
-OUT_TSV_PATH = "results/all_annotations_entities_count.tsv"
+ANNOTATION_DIR = Path("annotations/v2")
+RESULTS_DIR = Path("results")
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
 
-# FUNCTIONS
-def get_json_files(directory: str) -> List[str]:
+def setup_logger(logger) -> None:
+    """Update logger configuration."""
+    logger.remove()
+    fmt = (
+        "{time:YYYY-MM-DD HH:mm:ss}"
+        "| <level>{level:<8}</level> "
+        "| <level>{message}</level>"
+    )
+    logger.add(
+        sys.stdout,
+        format=fmt,
+        level="DEBUG",
+    )
+
+
+def list_json_files(directory: Path) -> list[Path]:
     """
     Retrieve all JSON files from a given directory.
 
-    Parameters:
-    -----------
-        directory (str): The path to the directory containing JSON files.
+    Parameters
+    ----------
+        directory (Path): The path to the directory containing JSON files.
 
-    Returns:
-    --------
-    files: List[str]
+    Returns
+    -------
+    files: List[Path]
         A list of JSON file paths.
     """
-    files = [
-        os.path.join(directory, f)
-        for f in os.listdir(directory)
-        if f.endswith(".json")
-    ]
-    logger.debug(f"Found {len(files)} JSON annotation files.")
+    files = list(directory.rglob("*.json"))
+    logger.success(f"Found {len(files)} JSON annotation files.")
     return files
 
 
-def load_json(filepath: str) -> Dict:
+def load_json(json_file_path: Path) -> dict:
     """
     Load a JSON file and return its content as a dictionary.
 
-    Parameters:
-    -----------
-        filepath (str): The full path to the JSON file.
+    Parameters
+    ----------
+        json_file_path (Path): The full path to the JSON file.
 
-    Returns:
-    --------
+    Returns
+    -------
         Dict: Parsed JSON data.
     """
+    data = {}
     try:
-        with open(filepath, "r", encoding="utf-8") as file:
-            data = json.load(file)
-        return data
-    except Exception as e:
-        logger.error(f"Failed to load {filepath}: {e}")
-        return {}
+        with open(json_file_path, encoding="utf-8") as json_file:
+            data = json.load(json_file)
+    except ValueError as e:
+        logger.error(f"Failed to load {json_file_path}: {e}")
+    except OSError as e:
+        logger.error(f"Cannot open {json_file_path}: {e}")
+    return data
 
 
-def count_entities_per_class(data: Dict) -> Dict[str, int]:
+def count_entities_per_class(data: dict, classes: list[str]) -> dict:
     """
     Count the number of entities per class in a JSON annotation.
 
-    Parameters:
-    -----------
+    Parameters
+    ----------
         data (Dict): The JSON data loaded from an annotation file.
+        classes (List[str]): List of entity classes to count.
 
-    Returns:
-    --------
-        Dict[str, int]: A dictionary containing the count of entities per class.
+    Returns
+    -------
+        Dict: Updated dictionary with the count of entities per class.
     """
-    entity_counts = {cls: 0 for cls in CLASSES}
-    
-    for ent in data["entities"]:
-        entity_counts[ent["label"]] += 1
+    # Create empty dictionary.
+    record = dict.fromkeys(classes, 0)
+    # Count entities per class.
+    for entity in data["entities"]:
+        record[entity["label"]] += 1
+    return record
 
-    return entity_counts
 
-
-def write_tsv(count_entities: List[Dict[str, int]], filenames: List[str], len_files: List[int], output_file: str) -> None:
+def aggregate(counts_list: list[dict], classes: list[str]) -> pd.DataFrame:
     """
-    Write the aggregated entity counts into a TSV file.
+    Aggregate a list of entity count dictionaries into a DataFrame.
 
-    Parameters:
-    -----------
-    count_entities: List[Dict[str, int]]
+    Parameters
+    ----------
+    counts_list: List[Dict]
         A list of dictionaries with entity counts.
-    filenames: List[str]
-        A list of corresponding filenames.
-    len_files: List[int]
-        A list of annotated text lenghts.
-    output_file: str
-        Path to the TSV output file.
+    classes: List[str]
+        List of entity classes.
+
+    Returns
+    -------
+    pd.DataFrame
+        A DataFrame containing the aggregated counts.
     """
-    header = ["filename", "length"] + [ f"NB_{c}" for c in CLASSES]
+    df = pd.DataFrame(counts_list)
+    columns = {}
+    for cls in classes:
+        columns[cls] = f"NB_{cls}"
+    df = df.rename(columns=columns)
+    df = df[["filename", "length", *list(columns.values())]]
+    return df
 
+
+def display_stats(df: pd.DataFrame, classes: list[str]) -> None:
+    """
+    Display statistics of entity counts per class.
+
+    Parameters
+    ----------
+    df: pd.DataFrame
+        A DataFrame containing the entity counts.
+    classes: List[str]
+        List of entity classes.
+    """
+    total_entities = df[[f"NB_{cls}" for cls in classes]].sum()
+    logger.info(f"Total number of entities: {total_entities.sum()}")
+    for cls in classes:
+        class_total = df[f"NB_{cls}"].sum()
+        logger.info(f"Number of entities for class '{cls}': {class_total}")
+
+
+def export_to_tsv(
+    df: pd.DataFrame,
+    output_dir: Path,
+) -> None:
+    """
+    Export the entity counts into a TSV file.
+
+    Parameters
+    ----------
+    df: pd.DataFrame
+        A DataFrame containing the aggregated entity counts.
+    output_dir: Path
+        Directory where the TSV file will be saved.
+    """
+    # Ensure output directory exists.
+    if not output_dir.exists():
+        output_dir.mkdir(parents=True, exist_ok=True)
+    tsv_file_path = output_dir / "all_annotations_entities_count.tsv"
     try:
-        with open(output_file, "w", newline="", encoding="utf-8") as tsvfile:
-            writer = csv.DictWriter(tsvfile, fieldnames=header, delimiter="\t")
-            writer.writeheader()
-
-            for filename, counts, length in zip(filenames, count_entities, len_files):
-                row = {
-                    "filename": filename,
-                    "length": length
-                }
-                for cls in CLASSES:
-                    row[f"NB_{cls}"] = counts.get(cls, 0)
-                writer.writerow(row)
-
-    except Exception as e:
+        df.to_csv(tsv_file_path, sep="\t", index=False)
+    except OSError as e:
         logger.error(f"Failed to write TSV file: {e}")
+    else:
+        logger.success(f"Count results saved in {tsv_file_path}")
 
 
-# MAIN PROGRAM
 if __name__ == "__main__":
-    logger.info("Starting JSON annotation counting...")
-
-    json_files = get_json_files(ANNOTATION_DIR)
-    count_entities = []
-    filenames = []
-    len_files = []
-    count_all_entities = 0
-    count_all_entities_per_class = {cls: 0 for cls in CLASSES}
-
+    setup_logger(logger)
+    logger.info("Searching for JSON files...")
+    json_files = list_json_files(ANNOTATION_DIR)
+    all_counts = []
+    logger.info("Counting entities...")
     for filepath in json_files:
-        data = load_json(filepath)
-        counts = count_entities_per_class(data)
-        count_all_entities += sum(counts.values())
-        for cls, value in counts.items():
-            count_all_entities_per_class[cls] += value
+        json_data = load_json(filepath)
+        if not json_data or "raw_text" not in json_data:
+            logger.warning(
+                f"File {filepath} is missing 'raw_text' or failed to load. Skipping.",
+            )
+            continue
+        counts = count_entities_per_class(json_data, CLASSES)
+        counts["filename"] = filepath.name
+        counts["length"] = len(json_data["raw_text"])
+        all_counts.append(counts)
 
-        count_entities.append(counts)
-        filenames.append(os.path.basename(filepath))
-        len_files.append(len(data["raw_text"]))
-    
-    logger.debug(f"Total number of entities : {count_all_entities}")
-    logger.debug(f"Entity count per class: {count_all_entities_per_class}")
-
-    write_tsv(count_entities, filenames, len_files, OUT_TSV_PATH)
-    
-    logger.success(f"Successfully counted entities for each class and saved in {OUT_TSV_PATH}!")
-
-
+    # Aggregate results.
+    counts_df = aggregate(all_counts, CLASSES)
+    # Display statistics.
+    display_stats(counts_df, CLASSES)
+    # Export to TSV.
+    export_to_tsv(counts_df, RESULTS_DIR)
