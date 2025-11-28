@@ -10,7 +10,7 @@ preview = true  # Allow preview rules.
 extend-select = [
     "F",    # pyflakes
     "E",    # Pycodestyle errors
-    "W",    # Pycodestle warnings
+    "W",    # Pycodestyle warnings
     "I",    # isort - import ordering
     "B",    # bugbear
     "C90",  # McCabe - code complexity metric for functions
