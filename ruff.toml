@@ -39,7 +39,7 @@ extend-select = [
     "RUF",  # Ruff-specific rules – additional Ruff checks
 ]
 ignore = [
-    "COM812", # Redundant with ruff formatter
+    "COM812", # Redundant with ruff formatter. See: https://docs.astral.sh/ruff/rules/missing-trailing-comma/
 ]
 
 # Force numpy-style for docstrings
