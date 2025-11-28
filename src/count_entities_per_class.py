@@ -22,11 +22,10 @@ import json
 import sys
 from pathlib import Path
 
+import click
 import pandas as pd
 from loguru import logger
 
-ANNOTATION_DIR = Path("annotations/v2")
-RESULTS_DIR = Path("results")
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
 
@@ -176,10 +175,20 @@ def export_to_tsv(
         logger.success(f"Count results saved in {tsv_file_path}")
 
 
-if __name__ == "__main__":
+def main(annotations_dir: Path, results_dir: Path) -> None:
+    """
+    Run entire workflow to count entities per class in JSON annotation files.
+
+    Parameters
+    ----------
+    annotations_dir : Path
+        Directory containing JSON annotation files to process.
+    results_dir : Path
+        Directory where results will be saved.
+    """
     setup_logger(logger)
     logger.info("Searching for JSON files...")
-    json_files = list_json_files(ANNOTATION_DIR)
+    json_files = list_json_files(annotations_dir)
     all_counts = []
     logger.info("Counting entities...")
     for filepath in json_files:
@@ -199,4 +208,34 @@ if __name__ == "__main__":
     # Display statistics.
     display_stats(counts_df, CLASSES)
     # Export to TSV.
-    export_to_tsv(counts_df, RESULTS_DIR)
+    export_to_tsv(counts_df, results_dir)
+
+
+@click.command()
+@click.option(
+    "--annotations-dir",
+    required=True,
+    type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
+    help="Directory containing JSON annotation files",
+)
+@click.option(
+    "--results-dir",
+    type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
+    default="results",
+    help="Directory to save results",
+)
+def run_from_cli(annotations_dir: Path, results_dir: Path) -> None:
+    """Command line interface to count entities per class in JSON annotations.
+
+    Parameters
+    ----------
+    annotations_dir : Path
+        Directory containing JSON annotation files to process.
+    results_dir : Path
+        Directory where results will be saved.
+    """
+    main(annotations_dir, results_dir)
+
+
+if __name__ == "__main__":
+    run_from_cli()

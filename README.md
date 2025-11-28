@@ -18,34 +18,41 @@ Sync dependencies:
 uv sync
 ```
 
----------
+---
+
 ## Utilities
+
 ### 1. Format JSON annotations
-To formate old json annotations, run :
+
+To format old json annotations, run:
+
 ```sh
 uv run src/format_json_annotations.py
 ```
+
 This command processes all JSON files in `annotations/v1`, reformats the entities with their text and exact positions, and saves the formatted files to `annotations/v2`.
 
 
 ### 2. Correct JSON annotations
+
 To vizualize the corrections of json annotations, open the notebook in `notebooks/correct_and_vizualize_annotations.ipynb`.
 
 
-### 3. Count entities par class for each annotation
-To do statistics and count entities par class for each annotation, run :
+### 3. Count entities per class for each annotation
+
+To perform statistics on the distribution of annotations per files and class, run:
+
 ```sh
-uv run src/count_entities_per_class.py
+uv run src/count_entities_per_class.py --annotations-dir annotations/v2
 ```
-This command processes all JSON files in `annotations/v2`, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class in `results/all_annotations_entities_count.tsv`.
 
+This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class.
 
-### 4. Vizualize new JSON annotations statistics
-To vizualize an overview of the entities present across all annotations, open the notebook in `notebooks/vizualize_entities_stats.ipynb`.
+### 4. Visualize new JSON annotations statistics
 
+To vizualize an overview of the entities present across all annotations, open the notebook in `notebooks/visualize_entities_stats.ipynb`.
 
-
----------
+---
 
 ## Run the LLM Prompting
 

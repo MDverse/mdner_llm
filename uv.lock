@@ -2345,6 +2345,7 @@ name = "mdner-llm"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "click" },
     { name = "groq" },
     { name = "instructor" },
     { name = "ipython" },
@@ -2371,6 +2372,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "click", specifier = ">=8.3.0" },
     { name = "groq", specifier = ">=0.29.0" },
     { name = "instructor", specifier = ">=1.11.3" },
     { name = "ipython", specifier = "==8.13.2" },
