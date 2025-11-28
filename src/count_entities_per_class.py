@@ -178,7 +178,7 @@ def export_to_tsv(
 
 
 def main(annotations_dir: Path, results_dir: Path) -> None:
-    """Main function to count entities per class in JSON annotations."""
+    """Run entire workflow to count entities per class in JSON annotations."""
     setup_logger(logger)
     logger.info("Searching for JSON files...")
     json_files = list_json_files(annotations_dir)
