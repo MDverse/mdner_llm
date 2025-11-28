@@ -49,6 +49,7 @@ deps: ## Update and sync dependencies
 	@echo "$(GREEN)Dependencies updated$(RESET)"
 
 # Package management
+.PHONY: update
 update: ## Update all dependencies to latest versions
 	@echo "$(BLUE)Updating dependencies...$(RESET)"
 	$(UV) lock --upgrade
@@ -90,12 +91,14 @@ test-verbose: ## Run tests with verbose output
 	@echo "$(GREEN)Tests completed$(RESET)"
 
 # Code quality tasks
+.PHONY: lint-check
 lint-check: ## Check if code is properly formatted
 	@echo "$(BLUE)Running linter...$(RESET)"
 	$(RUFF) check $(SRC_PATH) $(TEST_PATH)
 	$(TY) check $(SRC_PATH)
 	@echo "$(GREEN)Linting completed$(RESET)"
 
+.PHONY: lint-format
 lint-format: ## Format code with ruff
 	@echo "$(BLUE)Formatting code...$(RESET)"
 	$(RUFF) format $(SRC_PATH) $(TEST_PATH)
