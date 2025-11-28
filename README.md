@@ -48,9 +48,9 @@ uv run src/count_entities_per_class.py --annotations-dir annotations/v2
 
 This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class.
 
-### 4. Vizualize new JSON annotations statistics
+### 4. Visualize new JSON annotations statistics
 
-To vizualize an overview of the entities present across all annotations, open the notebook in `notebooks/vizualize_entities_stats.ipynb`.
+To vizualize an overview of the entities present across all annotations, open the notebook in `notebooks/visualize_entities_stats.ipynb`.
 
 ---
 
