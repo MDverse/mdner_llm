@@ -1,6 +1,6 @@
 """Evaluate LLM outputs for several models.
 
-We ask several models : 
+We ask several models :
 - GPT-4 d'OpenAI
 - Gemini de Google
 - kimik2 de MoonshotAI
@@ -8,7 +8,7 @@ We ask several models :
 - llama-3.1-8b-instruct de meta
 - llama-3.3-70b-instruct de meta
 
-to annotate a text related to molecular dynamics with entities : molecule, simulation time, force field, software name, software version and temperature with the same prompt 
+to annotate a text related to molecular dynamics with entities : molecule, simulation time, force field, software name, software version and temperature with the same prompt
 It save the records annotations for each test (no_validation, validation_instructor, validation_llamaindex, validation_pydanticai) with is_json_valid, have_no_hallucination, is_annotation_valid tags
 and lastly it save a xlsx file to summarize the statistics for each model to benchmark.
 
@@ -29,7 +29,6 @@ Example:
 ========
     uv run src/evaluate_json_annotations.py --log
 """
-
 
 # METADATA
 __authors__ = ("Pierre Poulain", "Essmay Touami")
@@ -52,7 +51,10 @@ from typing import Dict, Tuple, Union, List
 
 import instructor
 from instructor.core.client import Instructor
-from instructor.core import InstructorRetryException, ValidationError as InstructorValidationError
+from instructor.core import (
+    InstructorRetryException,
+    ValidationError as InstructorValidationError,
+)
 import pandas as pd
 from loguru import logger
 from dotenv import load_dotenv
@@ -68,7 +70,12 @@ from pydantic import ValidationError as PydanticValidationError
 from pydantic_core import ValidationError as CoreValidationError
 
 # UTILITY IMPORTS
-from utils import ListOfEntities, PROMPT, validate_annotation_output_format, is_annotation_in_text
+from utils import (
+    ListOfEntities,
+    PROMPT,
+    validate_annotation_output_format,
+    is_annotation_in_text,
+)
 
 
 # CONSTANTS
@@ -85,12 +92,13 @@ MODELS_OPENAI = [
 ]
 MODELS_OPENROUTER = [
     "meta-llama/llama-3.1-8b-instruct",
-    #"meta-llama/llama-3-70b-instruct",
+    # "meta-llama/llama-3-70b-instruct",
     "moonshotai/kimi-k2-thinking",
     "google/gemini-2.5-flash",
     "qwen/qwen-2.5-72b-instruct",
-    "deepseek/deepseek-chat-v3-0324"
+    "deepseek/deepseek-chat-v3-0324",
 ]
+
 
 # FUNCTIONS
 def parse_arguments() -> Tuple[bool, str, str]:
@@ -148,7 +156,9 @@ def assign_all_instructor_clients() -> Dict[str, Instructor]:
     models_with_providers = {m: "openai" for m in MODELS_OPENAI}
     models_with_providers.update({m: "openrouter" for m in MODELS_OPENROUTER})
     return {
-        model: instructor.from_provider(f"{provider}/{model}", mode=instructor.Mode.JSON)
+        model: instructor.from_provider(
+            f"{provider}/{model}", mode=instructor.Mode.JSON
+        )
         for model, provider in models_with_providers.items()
     }
 
@@ -169,13 +179,13 @@ def assign_all_llamaindex_clients() -> Dict[str, OpenAI | OpenRouter]:
             model=model_name,
         )
         clients[model_name] = llm.as_structured_llm(output_cls=ListOfEntities)
-    
+
     for model_name in MODELS_OPENAI:
         llm = OpenAI(
             model=model_name,
         )
         clients[model_name] = llm.as_structured_llm(output_cls=ListOfEntities)
-    
+
     return clients
 
 
@@ -192,16 +202,13 @@ def assign_all_pydanticai_clients() -> Dict[str, OpenAIChatModel]:
     clients = {}
     api_key = os.getenv("OPENROUTER_API_KEY")
     for model_name in MODELS_OPENROUTER:
-        llm = OpenAIChatModel(
-            model_name,
-            provider=OpenRouterProvider(api_key=api_key)
-        )
+        llm = OpenAIChatModel(model_name, provider=OpenRouterProvider(api_key=api_key))
         clients[model_name] = llm
-    
+
     for model_name in MODELS_OPENAI:
         llm = OpenAIChatModel(model_name)
         clients[model_name] = llm
-    
+
     return clients
 
 
@@ -242,7 +249,7 @@ def annotate(
     else:
         response_model = None
         max_retries = 0
-    
+
     result = None
     # Query the LLM client for annotation
     if validator == "instructor":
@@ -250,21 +257,29 @@ def annotate(
             result = client.chat.completions.create(
                 model=model,
                 messages=[
-                    {"role": "system", "content": "Extract entities as structured JSON."},
-                    {"role": "user", "content": f"{PROMPT}\nThe text to annotate:\n{text}"}
+                    {
+                        "role": "system",
+                        "content": "Extract entities as structured JSON.",
+                    },
+                    {
+                        "role": "user",
+                        "content": f"{PROMPT}\nThe text to annotate:\n{text}",
+                    },
                 ],
                 response_model=response_model,
-                max_retries=max_retries
+                max_retries=max_retries,
             )
         except InstructorRetryException as e:
-            logger.warning(f"    ⚠️ Validated annotation failed after {e.n_attempts} attempts.")
-            #logger.warning(f"Total usage: {e.total_usage.total_tokens} tokens")
+            logger.warning(
+                f"    ⚠️ Validated annotation failed after {e.n_attempts} attempts."
+            )
+            # logger.warning(f"Total usage: {e.total_usage.total_tokens} tokens")
             return str(e.last_completion)
 
         except InstructorValidationError as e:
-            #logger.error(e.errors)
+            # logger.error(e.errors)
             return str(e.raw_output)
-        
+
     elif validator == "llamaindex":
         input_msg = ChatMessage.from_str(f"{PROMPT}\nThe text to annotate:\n{text}")
         try:
@@ -283,9 +298,13 @@ def annotate(
         try:
             response = agent.run_sync(f"{PROMPT}\nThe text to annotate:\n{text}")
             result = response.output
-        except (PydanticValidationError, CoreValidationError, UnexpectedModelBehavior) as e:
+        except (
+            PydanticValidationError,
+            CoreValidationError,
+            UnexpectedModelBehavior,
+        ) as e:
             return str(e)
-            
+
     return result
 
 
@@ -296,7 +315,7 @@ def run_annotations(
     validator: str = "instructor",
     num_iterations: int = 100,
     validation: bool = False,
-) -> List[ListOfEntities|ChatCompletion]:
+) -> List[ListOfEntities | ChatCompletion]:
     """
     Runs multiple annotation attempts on the given text, with or without validation schema.
 
@@ -314,7 +333,7 @@ def run_annotations(
         Number of annotation attempts to run, by default 100
     validation : bool, optional
         Whether to use validation schema, by default False
-    
+
     Returns:
     --------
     List[ChatCompletion | str]:
@@ -331,24 +350,26 @@ def run_annotations(
         colour="blue",
         ncols=200,
         unit="annotation",
-        bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]"
+        bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]",
     ):
-        response = annotate(text_to_annotate, model_name, client, validator, validation=validation)
+        response = annotate(
+            text_to_annotate, model_name, client, validator, validation=validation
+        )
         list_of_responses.append(response)
-    
-    #logger.success(f"Completed {len(list_of_responses)} annotations successfully!\n")
+
+    # logger.success(f"Completed {len(list_of_responses)} annotations successfully!\n")
     return list_of_responses
 
 
 def run_annotation_format_validation(
-    resp_not_validated: List[Union[ListOfEntities, ChatCompletion]]
+    resp_not_validated: List[Union[ListOfEntities, ChatCompletion]],
 ) -> Tuple[float, list, list]:
     """
     Validate a list of annotation responses to ensure they are in proper JSON format.
 
     Parameters:
     -----------
-    resp_not_validated (List[Union[ListOfEntities, ChatCompletion]]): 
+    resp_not_validated (List[Union[ListOfEntities, ChatCompletion]]):
         List of annotation responses to validate.
 
     Returns:
@@ -370,25 +391,27 @@ def run_annotation_format_validation(
             valid_count += 1
         else:
             unvalid_resp.append(resp)
-    
+
     prc_validation = round((valid_count / len(resp_not_validated)) * 100, 1)
-    logger.debug(f"{valid_count}/{len(resp_not_validated)} annotations ({prc_validation}%) are in valid JSON format.")
+    logger.debug(
+        f"{valid_count}/{len(resp_not_validated)} annotations ({prc_validation}%) are in valid JSON format."
+    )
     return prc_validation, valid_resp, unvalid_resp
 
 
 def run_annotation_halucination_validation(
-    resp_format_valid: List[Union[ListOfEntities, ChatCompletion]]
+    resp_format_valid: List[Union[ListOfEntities, ChatCompletion]],
 ) -> Tuple[float, list, list]:
     """
     Validate the content of annotation responses to ensure they match the expected text.
 
     This function checks each response in `resp_format_valid` to determine whether
-    the annotation content is present in the target text `TEXT_TO_ANNOTATE`. It 
+    the annotation content is present in the target text `TEXT_TO_ANNOTATE`. It
     returns the percentage of valid annotations along with lists of valid and invalid responses.
 
     Parameters:
     -----------
-    resp_format_valid (List[Union[ListOfEntities, ChatCompletion]]): 
+    resp_format_valid (List[Union[ListOfEntities, ChatCompletion]]):
         List of annotation responses that have already been validated for format.
 
     Returns:
@@ -409,9 +432,11 @@ def run_annotation_halucination_validation(
             valid_count += 1
         else:
             unvalid_resp.append(resp)
-    
+
     prc_validation = round((valid_count / NB_ITERATIONS) * 100, 1)
-    logger.debug(f"{valid_count}/{NB_ITERATIONS} annotations ({prc_validation}%) have no hallucinated entities.")
+    logger.debug(
+        f"{valid_count}/{NB_ITERATIONS} annotations ({prc_validation}%) have no hallucinated entities."
+    )
     return prc_validation, valid_resp, unvalid_resp
 
 
@@ -421,7 +446,7 @@ def save_annotation_records(
     resp_format_unvalid: List[str],
     resp_content_unvalid: List[str],
     resp_content_valid: List[str],
-    folder_out_path : str,
+    folder_out_path: str,
     parquet_file_name: str,
 ) -> None:
     """
@@ -450,7 +475,7 @@ def save_annotation_records(
     parquet_file_name : str
         File name where the detailed results should be saved in Parquet format.
     """
-    #logger.debug("Building annotation records for saving...")
+    # logger.debug("Building annotation records for saving...")
     records = []
 
     def serialize_response(resp):
@@ -462,33 +487,38 @@ def save_annotation_records(
         except Exception:
             return str(resp)
 
-
     # Add all format-invalid responses
     for r in resp_format_unvalid:
-        records.append({
-            "model": model_name,
-            "response": serialize_response(r),
-            "is_format_valid": False,
-            "is_content_valid": False
-        })
+        records.append(
+            {
+                "model": model_name,
+                "response": serialize_response(r),
+                "is_format_valid": False,
+                "is_content_valid": False,
+            }
+        )
 
     # Add format-valid but content-invalid responses
     for r in resp_content_unvalid:
-        records.append({
-            "model": model_name,
-            "response": serialize_response(r),
-            "is_format_valid": True,
-            "is_content_valid": False
-        })
+        records.append(
+            {
+                "model": model_name,
+                "response": serialize_response(r),
+                "is_format_valid": True,
+                "is_content_valid": False,
+            }
+        )
 
     # Add fully valid responses
     for r in resp_content_valid:
-        records.append({
-            "model": model_name,
-            "response": serialize_response(r),
-            "is_format_valid": True,
-            "is_content_valid": True
-        })
+        records.append(
+            {
+                "model": model_name,
+                "response": serialize_response(r),
+                "is_format_valid": True,
+                "is_content_valid": True,
+            }
+        )
 
     df = pd.DataFrame(records)
     path = os.path.join(folder_out_path, parquet_file_name.replace(".xlsx", ".parquet"))
@@ -506,7 +536,9 @@ def save_annotation_records(
 
     try:
         pq.write_table(table, path)
-        logger.success(f"{total_annotations} annotation records saved into {path} successfully!\n")
+        logger.success(
+            f"{total_annotations} annotation records saved into {path} successfully!\n"
+        )
     except Exception as e:
         logger.error(f"Failed to save annotation records to {path}: {e}")
 
@@ -516,7 +548,7 @@ def evaluate_and_save_annotations(
     model_name: str,
     client,
     n_iterations: int,
-    folder_out_path : str,
+    folder_out_path: str,
     parquet_file_name: str,
     validator: str = "instructor",
     validation: bool = False,
@@ -546,7 +578,7 @@ def evaluate_and_save_annotations(
         The name of the output validator package between "instructor", "llamaindex", "pydanticai" (Default is "instructor").
     validation : bool, optional
         Whether to apply validation during annotation generation, by default False.
-    
+
     Returns
     -------
     pr_valid_format_resp_nv : float
@@ -561,7 +593,7 @@ def evaluate_and_save_annotations(
         client,
         validator,
         n_iterations,
-        validation=validation
+        validation=validation,
     )
 
     # 2. Validate annotations format
@@ -582,7 +614,7 @@ def evaluate_and_save_annotations(
         resp_content_unvalid,
         resp_content_valid,
         folder_out_path,
-        parquet_file_name
+        parquet_file_name,
     )
 
     return pr_valid_format_resp_nv, pr_valid_content_resp_nv
@@ -609,95 +641,112 @@ def evaluate_json_annotations(folder_out_path: str, file_name: str) -> None:
     instructor_clients = assign_all_instructor_clients()
     llama_clients = assign_all_llamaindex_clients()
     py_clients = assign_all_pydanticai_clients()
-    
+
     # for each models :
     for model_name in MODELS_OPENAI + MODELS_OPENROUTER:
-        logger.info(f"======================== 🤖 Evaluating model: {model_name} ========================")
+        logger.info(
+            f"======================== 🤖 Evaluating model: {model_name} ========================"
+        )
         provider = "OpenAI" if model_name in MODELS_OPENAI else "OpenRouter"
-        
+
         # ------------------------------------------------------
         # 1. Annotation without validation
         # ------------------------------------------------------
-        full_resp_path_nv = f"{model_name.split("/")[-1]}_full_annotations_nv_{file_name.replace(".parquet", ".xlsx")}"
-        pr_valid_format_resp_nv, pr_valid_content_resp_nv = evaluate_and_save_annotations(
-            TEXT_TO_ANNOTATE,
-            model_name,
-            instructor_clients[model_name],
-            NB_ITERATIONS,
-            folder_out_path,
-            full_resp_path_nv,
-            validation=False)
-    
+        full_resp_path_nv = f"{model_name.split('/')[-1]}_full_annotations_nv_{file_name.replace('.parquet', '.xlsx')}"
+        pr_valid_format_resp_nv, pr_valid_content_resp_nv = (
+            evaluate_and_save_annotations(
+                TEXT_TO_ANNOTATE,
+                model_name,
+                instructor_clients[model_name],
+                NB_ITERATIONS,
+                folder_out_path,
+                full_resp_path_nv,
+                validation=False,
+            )
+        )
+
         # ------------------------------------------------------
         # 2. Annotation with INSTRUCTOR validation
         # ------------------------------------------------------
-        full_resp_path_inst = f"{model_name.split("/")[-1]}_full_annotations_instructor_val_{file_name.replace(".parquet", ".xlsx")}"
-        pr_valid_format_resp_instructor, pr_valid_content_resp_instructor = evaluate_and_save_annotations(
-            TEXT_TO_ANNOTATE,
-            model_name,
-            instructor_clients[model_name],
-            NB_ITERATIONS,
-            folder_out_path,
-            full_resp_path_inst,
-            validator="instructor",
-            validation=True)
-        
+        full_resp_path_inst = f"{model_name.split('/')[-1]}_full_annotations_instructor_val_{file_name.replace('.parquet', '.xlsx')}"
+        pr_valid_format_resp_instructor, pr_valid_content_resp_instructor = (
+            evaluate_and_save_annotations(
+                TEXT_TO_ANNOTATE,
+                model_name,
+                instructor_clients[model_name],
+                NB_ITERATIONS,
+                folder_out_path,
+                full_resp_path_inst,
+                validator="instructor",
+                validation=True,
+            )
+        )
+
         # ------------------------------------------------------
         # 3. Annotation with LLAMAINDEX validation
         # ------------------------------------------------------
-        full_resp_path_llama = f"{model_name.split("/")[-1]}_full_annotations_llamaindex_val_{file_name.replace(".parquet", ".xlsx")}"
-        pr_valid_format_resp_llama, pr_valid_content_resp_llama = evaluate_and_save_annotations(
-            TEXT_TO_ANNOTATE,
-            model_name,
-            llama_clients[model_name],
-            NB_ITERATIONS,
-            folder_out_path,
-            full_resp_path_llama,
-            validator="llamaindex",
-            validation=True)
-        
+        full_resp_path_llama = f"{model_name.split('/')[-1]}_full_annotations_llamaindex_val_{file_name.replace('.parquet', '.xlsx')}"
+        pr_valid_format_resp_llama, pr_valid_content_resp_llama = (
+            evaluate_and_save_annotations(
+                TEXT_TO_ANNOTATE,
+                model_name,
+                llama_clients[model_name],
+                NB_ITERATIONS,
+                folder_out_path,
+                full_resp_path_llama,
+                validator="llamaindex",
+                validation=True,
+            )
+        )
+
         # ------------------------------------------------------
         # 4. Annotation with PYDANTICAI validation
         # ------------------------------------------------------
-        full_resp_path_py = f"{model_name.split("/")[-1]}_full_annotations_pydanticai_val_{file_name.replace(".parquet", ".xlsx")}"
-        pr_valid_format_resp_py, pr_valid_content_resp_py= evaluate_and_save_annotations(
-            TEXT_TO_ANNOTATE,
-            model_name,
-            py_clients[model_name],
-            NB_ITERATIONS,
-            folder_out_path,
-            full_resp_path_py,
-            validator="pydanticai",
-            validation=True)
+        full_resp_path_py = f"{model_name.split('/')[-1]}_full_annotations_pydanticai_val_{file_name.replace('.parquet', '.xlsx')}"
+        pr_valid_format_resp_py, pr_valid_content_resp_py = (
+            evaluate_and_save_annotations(
+                TEXT_TO_ANNOTATE,
+                model_name,
+                py_clients[model_name],
+                NB_ITERATIONS,
+                folder_out_path,
+                full_resp_path_py,
+                validator="pydanticai",
+                validation=True,
+            )
+        )
 
+        all_records.append(
+            {
+                "Model (Provider)": f"{model_name} ({provider})",
+                "JSON without format validation - Respect output format (%)": pr_valid_format_resp_nv,
+                "JSON without format validation - No hallucination (%)": pr_valid_content_resp_nv,
+                "JSON + Instructor - Respect output format (%)": pr_valid_format_resp_instructor,
+                "JSON + Instructor - No hallucination (%)": pr_valid_content_resp_instructor,
+                "JSON + LlamaIndex - Respect output format (%)": pr_valid_format_resp_llama,
+                "JSON + LlamaIndex - No hallucination (%)": pr_valid_content_resp_llama,
+                "JSON + PydanticAI - Respect output format (%)": pr_valid_format_resp_py,
+                "JSON + PydanticAI - No hallucination (%)": pr_valid_content_resp_py,
+            }
+        )
 
-        all_records.append({
-            "Model (Provider)": f"{model_name} ({provider})",
-            "JSON without format validation - Respect output format (%)": pr_valid_format_resp_nv,
-            "JSON without format validation - No hallucination (%)": pr_valid_content_resp_nv,
-            "JSON + Instructor - Respect output format (%)": pr_valid_format_resp_instructor,
-            "JSON + Instructor - No hallucination (%)": pr_valid_content_resp_instructor,
-            "JSON + LlamaIndex - Respect output format (%)": pr_valid_format_resp_llama,
-            "JSON + LlamaIndex - No hallucination (%)": pr_valid_content_resp_llama,
-            "JSON + PydanticAI - Respect output format (%)": pr_valid_format_resp_py,
-            "JSON + PydanticAI - No hallucination (%)": pr_valid_content_resp_py,
-        })
-    
     df_simple = pd.DataFrame(all_records)
-    multi_columns = pd.MultiIndex.from_tuples([
-        ("JSON without format validation", "Respect output format (%)"),
-        ("JSON without format validation", "No hallucination (%)"),
-        ("JSON + Instructor", "Respect output format (%)"),
-        ("JSON + Instructor", "No hallucination (%)"),
-        ("JSON + LlamaIndex", "Respect output format (%)"),
-        ("JSON + LlamaIndex", "No hallucination (%)"),
-        ("JSON + PydanticAI", "Respect output format (%)"),
-        ("JSON + PydanticAI", "No hallucination (%)"),
-    ])
+    multi_columns = pd.MultiIndex.from_tuples(
+        [
+            ("JSON without format validation", "Respect output format (%)"),
+            ("JSON without format validation", "No hallucination (%)"),
+            ("JSON + Instructor", "Respect output format (%)"),
+            ("JSON + Instructor", "No hallucination (%)"),
+            ("JSON + LlamaIndex", "Respect output format (%)"),
+            ("JSON + LlamaIndex", "No hallucination (%)"),
+            ("JSON + PydanticAI", "Respect output format (%)"),
+            ("JSON + PydanticAI", "No hallucination (%)"),
+        ]
+    )
     df_results = pd.DataFrame(
         df_simple.drop(columns=["Model (Provider)"]).values,
         columns=multi_columns,
-        index=df_simple["Model (Provider)"]
+        index=df_simple["Model (Provider)"],
     )
     path = os.path.join(folder_out_path, file_name)
     df_results.to_excel(path, index=True)
@@ -713,6 +762,6 @@ if __name__ == "__main__":
         log_folder = Path("logs")
         log_folder.mkdir(parents=True, exist_ok=True)
         logger.add(log_folder / "evaluate_json_annotations_{time:YYYY-MM-DD}.log")
-    
+
     # Evaluate all models
     evaluate_json_annotations(folder_out_path, file_name)
