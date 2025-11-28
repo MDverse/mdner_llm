@@ -221,7 +221,7 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
 @click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results"),
+    default="results",
     help="Directory to save results",
 )
 def run_from_cli(annotations_dir: Path, results_dir: Path) -> None:

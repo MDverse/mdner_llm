@@ -24,7 +24,7 @@ uv sync
 
 ### 1. Format JSON annotations
 
-To formate old json annotations, run:
+To format old json annotations, run:
 
 ```sh
 uv run src/format_json_annotations.py
@@ -38,7 +38,7 @@ This command processes all JSON files in `annotations/v1`, reformats the entitie
 To vizualize the corrections of json annotations, open the notebook in `notebooks/correct_and_vizualize_annotations.ipynb`.
 
 
-### 3. Count entities par class for each annotation
+### 3. Count entities per class for each annotation
 
 To perform statistics on the distribution of annotations per files and class, run:
 
