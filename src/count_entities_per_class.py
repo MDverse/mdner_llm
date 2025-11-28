@@ -176,7 +176,16 @@ def export_to_tsv(
 
 
 def main(annotations_dir: Path, results_dir: Path) -> None:
-    """Run entire workflow to count entities per class in JSON annotations."""
+    """
+    Run entire workflow to count entities per class in JSON annotations.
+
+    Parameters
+    ----------
+    annotations_dir : Path
+        Directory containing JSON annotation files to process.
+    results_dir : Path
+        Directory where results will be saved.
+    """
     setup_logger(logger)
     logger.info("Searching for JSON files...")
     json_files = list_json_files(annotations_dir)
@@ -216,7 +225,15 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
     help="Directory to save results",
 )
 def run_from_cli(annotations_dir: Path, results_dir: Path) -> None:
-    """Command line interface to get input and output directories."""
+    """Command line interface to count entities per class in JSON annotations.
+
+    Parameters
+    ----------
+    annotations_dir : Path
+        Directory containing JSON annotation files to process.
+    results_dir : Path
+        Directory where results will be saved.
+    """
     main(annotations_dir, results_dir)
 
 
