@@ -177,7 +177,7 @@ def export_to_tsv(
 
 def main(annotations_dir: Path, results_dir: Path) -> None:
     """
-    Run entire workflow to count entities per class in JSON annotations.
+    Run entire workflow to count entities per class in JSON annotation files.
 
     Parameters
     ----------
