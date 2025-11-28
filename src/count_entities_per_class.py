@@ -26,7 +26,6 @@ import click
 import pandas as pd
 from loguru import logger
 
-
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
 
@@ -43,7 +42,6 @@ def setup_logger(logger) -> None:
         format=fmt,
         level="DEBUG",
     )
-
 
 
 def list_json_files(directory: Path) -> list[Path]:
