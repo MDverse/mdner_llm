@@ -1,10 +1,10 @@
 """
 Format JSON annotations.
 
-This script processes all JSON annotation files in a specified directory (e.g., "annotations/v1")
-and formats them into a more readable structure. The output JSON contains the raw text
-and a list of entities with their labels and exact positions. Formatted JSON files are
-saved in the "annotations/v2" directory.
+This script processes all JSON annotation files in a specified directory ("annotations/
+v1") and formats them into a more readable structure. The output JSON contains the raw
+text and a list of entities with their labels and exact positions. Formatted JSON files
+are saved in the "annotations/v2" directory.
 
 Example:
 --------
@@ -14,7 +14,7 @@ Input JSON file (before formatting):
     "classes": ["TEMP", "SOFT", "STIME", "MOL", "FFM"],
     "annotations": [
         [
-            "Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site of hDM2 Suggests Parallel and Anti-Parallel Conformations Are Both Stable ...",
+            "Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...",
             {
                 "entities": [
                     [12, 21, "MOL"],
@@ -37,7 +37,8 @@ Output JSON file (after formatting):
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site of hDM2 Suggests Parallel and Anti-Parallel Conformations Are Both Stable ...",
+    "raw_text":
+        "Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...",
     "entities": [
         {
             "label": "MOL",
@@ -74,21 +75,19 @@ __version__ = "1.0.0"
 
 
 # LIBRARY IMPORTS
-import os
 import json
-from typing import Dict, List
+from pathlib import Path
 
 from loguru import logger
 
-
 # CONSTANTS
-ANNOTATION_DIR = "annotations/v1"
-OUT_DIR = "annotations/v2"
+ANNOTATION_DIR = Path("annotations/v1")
+OUT_DIR = Path("annotations/v2")
 CLASSES = ["SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM", "TEMP"]
 
 
 # FUNCTIONS
-def split_soft_entities(entities: List[Dict]) -> List[Dict]:
+def split_soft_entities(entities: list[dict]) -> list[dict]:
     """
     Split 'SOFT' entities into 'SOFTNAME' and 'SOFTVERS' entities.
 
@@ -104,7 +103,7 @@ def split_soft_entities(entities: List[Dict]) -> List[Dict]:
         - 'SOFTNAME' for the software name
         - 'SOFTVERS' for the software version
     """
-    new_entities: List[Dict] = []
+    new_entities: list[dict] = []
 
     for ent in entities:
         if ent["label"] == "SOFT":
@@ -147,7 +146,7 @@ def split_soft_entities(entities: List[Dict]) -> List[Dict]:
     return new_entities
 
 
-def format_entities(entities: List[list], annotated_text: str) -> List[Dict]:
+def format_entities(entities: list[list], annotated_text: str) -> list[dict]:
     """
     Convert raw entity tuples into a list of dictionaries with labels and positions.
 
@@ -173,42 +172,42 @@ def format_entities(entities: List[list], annotated_text: str) -> List[Dict]:
     return all_entities_no_soft
 
 
-def format_json_annotations(dir_path: str) -> None:
+def format_json_annotations(annotations_path: Path, out_dir: Path) -> None:
     """
-    Read JSON annotation files from a directory, format their entities,
-    and save the output in a specified directory.
+    Read JSON annotation files from a directory, format their entities, and save them.
 
     Parameters
     ----------
-    dir_path : str
-        Path to the directory containing input JSON files.
+    annotations_path : Path
+        Path to the directory containing input JSON annotation files.
+    out_dir : Path
+        Path to the output directory to save formated JSON annotation files.
     """
     logger.info("Starting to format older annotations...")
-    os.makedirs(OUT_DIR, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    files = [
-        os.path.join(dir_path, f) for f in os.listdir(dir_path) if f.endswith(".json")
-    ]
-    logger.debug(f"There is {len(files)} json annotation files !")
+    files = [f for f in annotations_path.iterdir() if f.suffix == ".json"]
+    logger.debug(f"There are {len(files)} JSON annotation files!")
+
     for filepath in files:
-        with open(filepath, "r", encoding="utf-8") as file:
+        with filepath.open("r", encoding="utf-8") as file:
             data = json.load(file)
             annotated_text = data["annotations"][0][0]
             entities = data["annotations"][0][1]["entities"]
+
             formatted_data = {
                 "classes": CLASSES,
                 "raw_text": annotated_text,
                 "entities": format_entities(entities, annotated_text),
             }
 
-        filename = os.path.basename(filepath)
-        out_path = os.path.join(OUT_DIR, filename)
-        with open(out_path, "w", encoding="utf-8") as out_file:
+        out_path = out_dir / filepath.name
+        with out_path.open("w", encoding="utf-8") as out_file:
             json.dump(formatted_data, out_file, ensure_ascii=False, indent=4)
 
-    logger.success(f"Saved new formated annotations in {OUT_DIR} successfully!")
+    logger.success(f"Saved new formatted annotations in {out_dir} successfully!")
 
 
 # MAIN PROGRAM
 if __name__ == "__main__":
-    format_json_annotations(ANNOTATION_DIR)
+    format_json_annotations(ANNOTATION_DIR, OUT_DIR)

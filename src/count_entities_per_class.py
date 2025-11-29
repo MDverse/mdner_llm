@@ -5,12 +5,12 @@ and counts the number of entities for each class defined in the annotation file.
 The script outputs a TSV file containing the filename, annotated text length
 and the number of entities per class.
 
-Usage :
-=======
+Usage:
+======
     uv run src/count_entities_per_class.py --annotations-dir <path/to/annotations> --results-dir <path/to/output>
 
     
-Arguments
+Arguments:
 =========
     --annotations-dir : (optional, default="annotations/v2")
         Path to the directory containing JSON annotation files to process.
@@ -18,8 +18,8 @@ Arguments
     --results-dir : (optional, default="results")
         Path to the directory where the TSV results file will be saved.
 
-Example
-=======
+Example:
+========
 Run with default directories:
     uv run src/count_entities_per_class.py
 """
