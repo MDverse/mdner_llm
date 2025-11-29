@@ -125,9 +125,9 @@ def aggregate(counts_list: list[dict], classes: list[str]) -> pd.DataFrame:
     df = pd.DataFrame(counts_list)
     columns = {}
     for cls in classes:
-        columns[cls] = f"NB_{cls}"
+        columns[cls] = f"{cls}_nb"
     df = df.rename(columns=columns)
-    df = df[["filename", "length", *list(columns.values())]]
+    df = df[["filename", "text_length", *list(columns.values())]]
     return df
 
 
@@ -142,10 +142,10 @@ def display_stats(df: pd.DataFrame, classes: list[str]) -> None:
     classes: List[str]
         List of entity classes.
     """
-    total_entities = df[[f"NB_{cls}" for cls in classes]].sum()
+    total_entities = df[[f"{cls}_nb" for cls in classes]].sum()
     logger.info(f"Total number of entities: {total_entities.sum()}")
     for cls in classes:
-        class_total = df[f"NB_{cls}"].sum()
+        class_total = df[f"{cls}_nb"].sum()
         logger.info(f"Number of entities for class '{cls}': {class_total}")
 
 
@@ -200,7 +200,7 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
             continue
         counts = count_entities_per_class(json_data, CLASSES)
         counts["filename"] = filepath.name
-        counts["length"] = len(json_data["raw_text"])
+        counts["text_length"] = len(json_data["raw_text"])
         all_counts.append(counts)
 
     # Aggregate results.
