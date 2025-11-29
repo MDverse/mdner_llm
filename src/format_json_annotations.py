@@ -65,7 +65,6 @@ Usage:
     uv run src/format_json_annotations.py
 """
 
-
 # METADATAS
 __authors__ = ("Pierre Poulain", "Essmay Touami")
 __contact__ = "pierre.poulain@u-paris.fr"
@@ -115,26 +114,32 @@ def split_soft_entities(entities: List[Dict]) -> List[Dict]:
             # Split by the first space (assumes format "name version")
             if " " in text:
                 soft_name, soft_version = text.split(" ", 1)
-                new_entities.append({
-                    "label": "SOFTNAME",
-                    "text": soft_name,
-                    "start": start,
-                    "end": start + len(soft_name)
-                })
-                new_entities.append({
-                    "label": "SOFTVERS",
-                    "text": soft_version,
-                    "start": start + len(soft_name) + 1,  # for the space
-                    "end": ent["end"]
-                })
+                new_entities.append(
+                    {
+                        "label": "SOFTNAME",
+                        "text": soft_name,
+                        "start": start,
+                        "end": start + len(soft_name),
+                    }
+                )
+                new_entities.append(
+                    {
+                        "label": "SOFTVERS",
+                        "text": soft_version,
+                        "start": start + len(soft_name) + 1,  # for the space
+                        "end": ent["end"],
+                    }
+                )
             else:
                 # If no version detected, keep as SOFTNAME only
-                new_entities.append({
-                    "label": "SOFTNAME",
-                    "text": text,
-                    "start": start,
-                    "end": ent["end"]
-                })
+                new_entities.append(
+                    {
+                        "label": "SOFTNAME",
+                        "text": text,
+                        "start": start,
+                        "end": ent["end"],
+                    }
+                )
         else:
             # Keep all other entities unchanged
             new_entities.append(ent)
@@ -162,12 +167,7 @@ def format_entities(entities: List[list], annotated_text: str) -> List[Dict]:
     for ent in entities:
         start, end, label = ent
         text = annotated_text[start:end]
-        all_entities.append({
-            "label": label,
-            "text": text,
-            "start": start,
-            "end": end
-        })
+        all_entities.append({"label": label, "text": text, "start": start, "end": end})
     all_entities_no_soft = split_soft_entities(all_entities)
 
     return all_entities_no_soft
@@ -175,7 +175,7 @@ def format_entities(entities: List[list], annotated_text: str) -> List[Dict]:
 
 def format_json_annotations(dir_path: str) -> None:
     """
-    Read JSON annotation files from a directory, format their entities, 
+    Read JSON annotation files from a directory, format their entities,
     and save the output in a specified directory.
 
     Parameters
@@ -187,31 +187,28 @@ def format_json_annotations(dir_path: str) -> None:
     os.makedirs(OUT_DIR, exist_ok=True)
 
     files = [
-        os.path.join(dir_path, f)
-        for f in os.listdir(dir_path)
-        if f.endswith(".json")
+        os.path.join(dir_path, f) for f in os.listdir(dir_path) if f.endswith(".json")
     ]
     logger.debug(f"There is {len(files)} json annotation files !")
     for filepath in files:
         with open(filepath, "r", encoding="utf-8") as file:
             data = json.load(file)
-            annotated_text = data['annotations'][0][0]
-            entities = data['annotations'][0][1]["entities"]
+            annotated_text = data["annotations"][0][0]
+            entities = data["annotations"][0][1]["entities"]
             formatted_data = {
                 "classes": CLASSES,
                 "raw_text": annotated_text,
-                "entities": format_entities(entities, annotated_text)
+                "entities": format_entities(entities, annotated_text),
             }
 
         filename = os.path.basename(filepath)
         out_path = os.path.join(OUT_DIR, filename)
         with open(out_path, "w", encoding="utf-8") as out_file:
             json.dump(formatted_data, out_file, ensure_ascii=False, indent=4)
-    
+
     logger.success(f"Saved new formated annotations in {OUT_DIR} successfully!")
 
 
 # MAIN PROGRAM
 if __name__ == "__main__":
     format_json_annotations(ANNOTATION_DIR)
-
