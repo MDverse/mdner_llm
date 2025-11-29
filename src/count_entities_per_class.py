@@ -7,8 +7,21 @@ and the number of entities per class.
 
 Usage :
 =======
-    uv run src/count_entities_per_class.py
+    uv run src/count_entities_per_class.py --annotations-dir <path/to/annotations> --results-dir <path/to/output>
 
+    
+Arguments
+=========
+    --annotations-dir : (optional, default="annotations/v2")
+        Path to the directory containing JSON annotation files to process.
+
+    --results-dir : (optional, default="results")
+        Path to the directory where the TSV results file will be saved.
+
+Example
+=======
+Run with default directories:
+    uv run src/count_entities_per_class.py
 """
 
 __authors__ = ("Pierre Poulain", "Essmay Touami")
@@ -214,14 +227,16 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
 @click.command()
 @click.option(
     "--annotations-dir",
-    required=True,
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
+    default=Path("annotations/v2"),
+    show_default=True,
     help="Directory containing JSON annotation files",
 )
 @click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default="results",
+    default=Path("results"),
+    show_default=True,
     help="Directory to save results",
 )
 def run_from_cli(annotations_dir: Path, results_dir: Path) -> None:
