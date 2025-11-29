@@ -7,9 +7,9 @@ and the number of entities per class.
 
 Usage:
 ======
-    uv run src/count_entities_per_class.py --annotations-dir <path/to/annotations> --results-dir <path/to/output>
+    uv run src/count_entities_per_class.py --annotations-dir <path/to/annotations>
+                                            --results-dir <path/to/output>
 
-    
 Arguments:
 =========
     --annotations-dir : (optional, default="annotations/v2")
