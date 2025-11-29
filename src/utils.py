@@ -19,12 +19,14 @@ from llama_index.core.llms import ChatMessage
 
 
 # CONSTANTS
-PROMPT = """
+PROMPT_JSON = """
 You are given a scientific abstract or dataset description related to molecular dynamics simulations.
 Your task is to identify and extract specific named entities relevant to simulation setup and analysis.
 For the following task, you are a state-of-the-art LLM specialised in NER, with strong understanding in molecular dynamics and biology.
-You need to simply extract entities, identify their type, and return them in a list of dictionnaries (one dictionnary for one entity, marked by its label and the text associated). Do not invent entities or mash up words. Use only what is in the original text. You are only allowed to use the entities below:
+You need to simply extract entities, identify their type, and return them in a list of dictionnaries (one dictionnary for one entity, marked by its label and the text associated). Do not invent entities or mash up words. Do not merge, normalize, or reformat entities in any way—keep them exactly as written in the text.  
+ 
 
+You are only allowed to use the entities below:
 Entity Labels to Identify:
 SOFTNAME: Software used in the simulation or analysis (e.g., Gromacs, AMBER, VMD, CHARMM-GUI)
 SOFTVERS: Version number associated with the software (e.g., v. 2016.4, 5.0.3)
@@ -34,6 +36,7 @@ TEMP: Temperature used in the simulation (e.g., 300 K, 288K, 358K)
 FFM: Force fields used in the simulation (e.g., Charmm36, AMBER, MARTINI, TIP3P)
 
 Avoid adding descriptors to the entities (e.g. "hydrated sodium cholide" should be annotated as "sodium chloride"), be precise, and avoid annotating large vague concepts as entities (e.g. "machine learning" or "molecular dynamics")
+Also, pay close attention to letter casing: annotate the same word multiple times if it appears with different capitalization (e.g. "Sodium chloride" and "sodium chloride" must be treated as separate entities).
 
 Expected Output Format:
 {"response": [{"label": "MOL", "text": "cholesterol"}, {"label": "FFM", "text": "MARTINI"}, {"label": "MOL", "text": "POPC"}, {"label": "MOL", "text": "glycerol"}, {"label": "SOFTNAME", "text": "Gromacs"}]}
@@ -64,13 +67,90 @@ Automated protein-protein structure prediction of the T cell receptor-peptide ma
 
 Output text:
 {"entities": [{"label": "MOL", "text": "T cell receptor"}, {"label": "MOL", "text": "T Cell Receptor"}, {"label": "MOL", "text": "TCR"}, {"label": "MOL", "text": "peptide-major histocompatibility complex"}, {"label": "MOL", "text": "pMHC"}, {"label": "MOL", "text": "TCRs"},{"label": "SOFTNAME", "text": "Modeller"}, {"label": "SOFTNAME", "text": "ColabFold"}]}
+"""
+
+
+PROMPT_POSITIONS = """
+You are given a scientific abstract or dataset description related to molecular dynamics simulations.
+Your task is to identify and extract specific named entities relevant to simulation setup and analysis.
+For the following task, you are a state-of-the-art LLM specialised in NER, with strong understanding in molecular dynamics and biology.
+
+Your job is to extract entities exactly as written in the text and return, for each entity:
+- its label
+- its text span (the exact substring, without modification)
+- its character-level start index (inclusive)
+- its character-level end index (exclusive)
+
+The character positions must correspond to the exact indices in the input text.  
+Do not alter, normalize, lowercase, uppercase, merge, or split entities.  
+Do not invent entities or infer additional information.
+
+Allowed Entity Labels:
+- SOFTNAME : Software used in the simulation or analysis (e.g., Gromacs, AMBER)
+- SOFTVERS : Version numbers (e.g., v.2016.4, 5.0.3)
+- MOL      : Molecules, proteins, lipids, water models, complexes (e.g., DPPC, water, KRas4B)
+- STIME    : Simulation durations (e.g., 50 ns, 5 µs)
+- TEMP     : Simulation temperatures (e.g., 300 K)
+- FFM      : Force fields (e.g., Charmm36, AMBER, MARTINI)
+
+Important rules:
+- Keep entities exactly as they appear (case-sensitive).
+- Annotate repeated strings separately if they appear multiple times.
+- Do not annotate vague concepts or long sentences.
+- Only annotate valid entities from the allowed list.
+
+Expected Output Format:
+{"entities": [
+  {"label": "MOL", "text": "cholesterol", "start": 123, "end": 134},
+  {"label": "FFM", "text": "MARTINI", "start": 200, "end": 207}
+]}
+
+The output MUST be valid JSON.
+
+Input text:
+Short molecular dynamics of a peptide inside a pure DMPC membrane\n1 ns of molecular dynamics simulation of a 19-residue peptide inside a pure DMPC membrane, performed at the NPT ensemble - 1 atm at 310K using Berendsen (semi-isotropic) and V-rescale for pressure and temperature coupling, respectively, with 1.6 ps and 0.1ps as coupling constants. Van der Waals interactions were treated using the Verlet algorithm with a 1 nm cutoff. Electrostatics where treated with particle-mesh Ewald, with a 1 nm cutoff for the real space calculations. Both the peptide and DMPC were parameterized using the GROMOS 54A7, while SPC was used for water. LINCS restraints were used on all the bonds. Peptide sequence is AAAQAAQAQWAQRQATWQA. This sequence was not taken from any real world examples, as this is a test system created for MDAnalysis datasets. The peptide was set to have be -helical secondary structure, and was inserted manually in the membrane before minimization and equilibration. More on MDAnalysis: https://www.mdanalysis.org/
+
+Output text: {"entities": [{"label": "MOL", "text": "DMPC", "start": 52, "end": 56},
+        {"label": "STIME", "text": "1 ns", "start": 66, "end": 70},
+        {"label": "MOL", "text": "DMPC", "start": 142, "end": 146},
+        {"label": "TEMP", "text": "310K", "start": 198, "end": 202},
+        {"label": "MOL", "text": "DMPC", "start": 563, "end": 567},
+        {"label": "FFM", "text": "GROMOS 54A7", "start": 597, "end": 608},
+        {"label": "FFM", "text": "SPC", "start": 616, "end": 619},
+        {"label": "MOL", "text": "water", "start": 633, "end": 638},
+        {"label": "SOFTNAME", "text": "LINCS", "start": 640, "end": 645},
+        {"label": "MOL", "text": "AAAQAAQAQWAQRQATWQA", "start": 705, "end": 724}]}
 
 
 Input text:
-Molecular dynamics simulations of lipid bilayers containing POPC and POPS (various mixtures) with ECC-lipids force field, and Na+ (K+) counterions\nClassical molecular dynamics simulations of various mixtures of POPC:POPS lipid bilayers in water solution with only Na+ counterions (or with K+ counterions when noted with " KCl" suffix). ECC-lipids force field parameters used for lipids, SPC/E water model and ECC-ions, all parameters available at https://removed lipids simulations performed with Gromacs 2018.0 (*.xtc files) simulation length 1000 ns 1 microsecond temperature 298 K Gromacs simulation setting is in the file npt lipid bilayer.mdp
+Unbiased simulation of Alanine Dipeptide in gas phase\n87 microsecond long unbiased Molecular Dynamics (MD) trajectory of alanine dipeptide in gas phase (traj comp.xtc). Temperature   300 K. Force Field: AMBER99SB-ILDN. There are 30+ back and forth transitions between the C 7eq and the C 7ax state. Simulations were performed using GROMACS 2021.4. The .tpr file is provided for reproduction. Details of the simulation parameters are accessible from the md.log file. The phi and psi torsion angles and the internal energy is printed in the COLVAR file at 2 ps interval. Alanine dipeptide is often used as a model system to test new simulation methods. We hope that sharing our long unbiased trajectory will help other research groups to compare the accuracy of the results obtained from new methods. This trajectory was generated as a part of our recent publication below. Please cite the following paper when using this trajectory: 1. Ray, Dhiman, Narjes Ansari, Valerio Rizzi, Michele Invernizzi, and Michele Parrinello. \"Rare event kinetics from adaptive bias enhanced sampling.\" Journal of Chemical Theory and Computation (2022). https://doi.org/10.1021/acs.jctc.2c00806
 
-Output text:
-{ "entities" : [{"label": "MOL", "text": "POPC"}, {"label": "MOL", "text": "POPS"}, {"label": "TEMP", "text": "298 K"}, {"label": "MOL", "text": "Na+"}, {"label": "MOL", "text": "water"}, {"label": "SOFTVERS", "text": "2018.0"}, {"label": "FFM", "text": "ECC-lipids"}, {"label": "FFM", "text": "SPC/E"}, {"label": "STIME", "text": "1000 ns"}, {"label": "STIME", "text": "1 microsecond"}, {"label": "MOL", "text": "K+"}, {"label": "FFM", "text": "ECC-ions"}, {"label": "SOFTNAME", "text": "Gromacs"}]}
+Output text: {"entities": [{"label": "MOL","text": "Alanine Dipeptide","start": 23,"end": 40},
+        {"label": "STIME","text": "87 microsecond","start": 54,"end": 68},
+        {"label": "MOL","text": "alanine dipeptide","start": 121,"end": 138},
+        {"label": "TEMP","text": "300 K.","start": 183,"end": 189},
+        {"label": "FFM","text": "AMBER99SB-ILDN","start": 203,"end": 217},
+        {"label": "SOFTNAME","text": "GROMACS","start": 332,"end": 339},
+        {"label": "SOFTVERS","text": "2021.4","start": 340,"end": 346},
+        {"label": "SOFTNAME","text": "COLVAR","start": 539,"end": 545},
+        {"label": "MOL","text": "Alanine dipeptide","start": 569,"end": 586}]}
+
+
+Input text:
+GROMOS 43A1-S3 POPE Simulations (versions 1 and 2) 313 K (NOTE: anisotropic pressure coupling)\nTwo GROMOS 43A1-S3 POPE bilayer simulations performed using GROMACS 4.0.7 for 200 ns with different starting velocities. Simulations were performed with the standard 43A1-S3 settings: a 1.0 nm cut-off with PME for the Coulombic interactions and a twin-range 1.0/1.6 nm cut-off for the van der Waals interactions. These simulations were performed at 313 K with a 128 lipid bilayer and used anisotropic pressure coupling. The full trajectories are provided bar the initial 100 ns. The starting structure was made through the conversion of an equilibrated GROMOS 43A1-S3 POPC membrane.
+
+Output text: {"entities": [{"label": "FFM","text": "GROMOS 43A1-S3","start": 0,"end": 14},
+        {"label": "MOL","text": "POPE","start": 15,"end": 19},
+        {"label": "TEMP","text": "313 K","start": 51,"end": 56},
+        {"label": "FFM","text": "GROMOS 43A1-S3","start": 99,"end": 113},
+        {"label": "MOL","text": "POPE","start": 114,"end": 118},
+        {"label": "SOFTNAME","text": "GROMACS","start": 155,"end": 162},
+        {"label": "SOFTVERS","text": "4.0.7","start": 163,"end": 168},
+        {"label": "STIME","text": "200 ns","start": 173,"end": 179},
+        {"label": "TEMP","text": "313 K","start": 444,"end": 449},
+        {"label": "STIME","text": "100 ns","start": 566,"end": 572},
+        {"label": "FFM","text": "GROMOS 43A1-S3","start": 648,"end": 662},
+        {"label": "MOL","text": "POPC","start": 663,"end": 667}]}
 """
 
 
@@ -84,7 +164,7 @@ class Entity(BaseModel):
     text: str = Field(..., description="Extracted text content")
 
 
-# Subcklasses for each entity type of labels
+# Subclasses for each entity type of labels
 class Molecule(Entity):
     label: str = Field("MOL", description="Label for molecule entities")
 
@@ -123,6 +203,53 @@ class ListOfEntities(BaseModel):
             SoftwareVersion,
         ]
     ] = Field(..., description="List of recognized entities extracted from text")
+
+
+# Base entity with positions
+class EntityWithPosition(Entity):
+    """Entity with text span positions."""
+    start: int = Field(..., description="Start index of the entity in the text")
+    end: int = Field(..., description="End index of the entity in the text")
+
+
+# Subclasses for each entity type of labels
+class MoleculePosition(EntityWithPosition):
+    label: str = Field("MOL")
+
+
+class SimulationTimePosition(EntityWithPosition):
+    label: str = Field("STIME")
+
+
+class ForceFieldPosition(EntityWithPosition):
+    label: str = Field("FFM")
+
+
+class TemperaturePosition(EntityWithPosition):
+    label: str = Field("TEMP")
+
+
+class SoftwareNamePosition(EntityWithPosition):
+    label: str = Field("SOFTNAME")
+
+
+class SoftwareVersionPosition(EntityWithPosition):
+    label: str = Field("SOFTVERS")
+
+
+# Container for the full response 
+class ListOfEntitiesPositions(BaseModel):
+    """Structured list of all extracted entities with character positions."""
+    entities: List[
+        Union[
+            MoleculePosition,
+            SimulationTimePosition,
+            ForceFieldPosition,
+            TemperaturePosition,
+            SoftwareNamePosition,
+            SoftwareVersionPosition
+        ]
+    ] = Field(..., description="List of entities with positions")
 
 
 # FUNCTIONS

@@ -70,23 +70,70 @@ from pydantic import ValidationError as PydanticValidationError
 from pydantic_core import ValidationError as CoreValidationError
 
 # UTILITY IMPORTS
-from utils import (
-    ListOfEntities,
-    PROMPT,
-    validate_annotation_output_format,
-    is_annotation_in_text,
-)
+from utils import ListOfEntities, ListOfEntitiesPositions, PROMPT_JSON, PROMPT_POSITIONS, validate_annotation_output_format, is_annotation_in_text
 
 
 # CONSTANTS
 OUTPUT_DIR = "results/json_evaluation_stats"
 # To adapt on your needs :
 NB_ITERATIONS = 5
-TEXT_TO_ANNOTATE = """Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers
-Cholesterol trafficking, which is an essential function in mammalian cells, is intimately connected to molecular-scale interactions through cholesterol modulation of membrane structure and dynamics and interaction with membrane receptors. Since these effects of cholesterol occur on micro- to millisecond time scales, it is essential to develop accurate coarse-grained simulation models that can reach these time scales. Cholesterol has been shown experimentally to thicken the membrane and increase phospholipid tail order between 0 and 40% cholesterol, above which these effects plateau or slightly decrease. Here, we showed that the published MARTINI coarse-grained force-field for phospholipid (POPC) and cholesterol fails to capture these effects. Using reference atomistic simulations, we systematically modified POPC and cholesterol bonded parameters in MARTINI to improve its performance. We showed that the corrections to pseudobond angles between glycerol and the lipid tails and around the oleoyl double bond particle (the angle-corrected model ) slightly improves the agreement of MARTINI with experimentally measured thermal, elastic, and dynamic properties of POPC membranes. The angle-corrected model improves prediction of the thickening and ordering effects up to 40% cholesterol but overestimates these effects at higher cholesterol concentration. In accordance with prior work that showed the cholesterol rough face methyl groups are important for limiting cholesterol self-association, we revised the coarse-grained representation of these methyl groups to better match cholesterol-cholesterol radial distribution functions from atomistic simulations. In addition, by using a finer-grained representation of the branched cholesterol tail than MARTINI, we improved predictions of lipid tail order and bilayer thickness across a wide range of concentrations. Finally, transferability testing shows that a model incorporating our revised parameters into DOPC outperforms other CG models in a DOPC/cholesterol simulation series, which further argues for its efficacy and generalizability. These results argue for the importance of systematic optimization for coarse-graining biologically important molecules like cholesterol with complicated molecular structure.
+TEXT_TO_ANNOTATE = """GROMOS 43A1-S3 POPE Simulations (versions 1 and 2) 313 K (NOTE: anisotropic pressure coupling)\nTwo GROMOS 43A1-S3 POPE bilayer simulations performed using GROMACS 4.0.7 for 200 ns with different starting velocities. Simulations were performed with the standard 43A1-S3 settings: a 1.0 nm cut-off with PME for the Coulombic interactions and a twin-range 1.0/1.6 nm cut-off for the van der Waals interactions. These simulations were performed at 313 K with a 128 lipid bilayer and used anisotropic pressure coupling. The full trajectories are provided bar the initial 100 ns. The starting structure was made through the conversion of an equilibrated GROMOS 43A1-S3 POPC membrane."""
+GROUNDTRUTH_JSON = """
+{"entities": [{"label": "FFM","text": "GROMOS 43A1-S3"},
+        {"label": "MOL","text": "POPE"},
+        {"label": "TEMP","text": "313 K"},
+        {"label": "FFM","text": "GROMOS 43A1-S3"},
+        {"label": "MOL","text": "POPE"},
+        {"label": "SOFTNAME","text": "GROMACS"},
+        {"label": "SOFTVERS","text": "4.0.7"},
+        {"label": "STIME","text": "200 ns"},
+        {"label": "TEMP","text": "313 K"},
+        {"label": "STIME","text": "100 ns"},
+        {"label": "FFM","text": "43A1-S3"},
+        {"label": "MOL","text": "POPC"}
 """
+GROUNDTRUTH_POSITIONS = """
+{"entities": [
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 10,
+            "end": 15
+        },
+        {
+            "label": "MOL",
+            "text": "Thiolate",
+            "start": 63,
+            "end": 71
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 124,
+            "end": 129
+        },
+        {
+            "label": "MOL",
+            "text": "thiolate",
+            "start": 168,
+            "end": 176
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 271,
+            "end": 276
+        },
+        {
+            "label": "MOL",
+            "text": "thiolate",
+            "start": 285,
+            "end": 293
+        }
+    ]
+}"""
 MODELS_OPENAI = [
-    "o3-mini-2025-01-31",
+    #"o3-mini-2025-01-31",
     "gpt-4o-mini-2024-07-18",
     "gpt-5-mini-2025-08-07",
 ]
@@ -98,8 +145,7 @@ MODELS_OPENROUTER = [
     "qwen/qwen-2.5-72b-instruct",
     "deepseek/deepseek-chat-v3-0324",
 ]
-
-
+MODELS_OPENROUTER = []
 # FUNCTIONS
 def parse_arguments() -> Tuple[bool, str, str]:
     """Parse command line arguments.
@@ -257,14 +303,8 @@ def annotate(
             result = client.chat.completions.create(
                 model=model,
                 messages=[
-                    {
-                        "role": "system",
-                        "content": "Extract entities as structured JSON.",
-                    },
-                    {
-                        "role": "user",
-                        "content": f"{PROMPT}\nThe text to annotate:\n{text}",
-                    },
+                    {"role": "system", "content": "Extract entities as structured JSON."},
+                    {"role": "user", "content": f"{PROMPT_JSON}\nThe text to annotate:\n{text}"}
                 ],
                 response_model=response_model,
                 max_retries=max_retries,
@@ -281,7 +321,7 @@ def annotate(
             return str(e.raw_output)
 
     elif validator == "llamaindex":
-        input_msg = ChatMessage.from_str(f"{PROMPT}\nThe text to annotate:\n{text}")
+        input_msg = ChatMessage.from_str(f"{PROMPT_JSON}\nThe text to annotate:\n{text}")
         try:
             response = client.chat([input_msg])
             result = response.raw
@@ -296,7 +336,7 @@ def annotate(
             system_prompt=("Extract entities as structured JSON."),
         )
         try:
-            response = agent.run_sync(f"{PROMPT}\nThe text to annotate:\n{text}")
+            response = agent.run_sync(f"{PROMPT_JSON}\nThe text to annotate:\n{text}")
             result = response.output
         except (
             PydanticValidationError,
@@ -345,7 +385,7 @@ def run_annotations(
     logger.debug(f"{'🟢' if validation else '🔴'}{desc}")
 
     for _ in tqdm(
-        range(num_iterations),
+        range(NB_ITERATIONS),
         desc=desc,
         colour="blue",
         ncols=200,
@@ -440,14 +480,137 @@ def run_annotation_halucination_validation(
     return prc_validation, valid_resp, unvalid_resp
 
 
+def is_same_as_groundtruth(resp, groundtruth):
+    """
+    Strict comparison between the entities in a model response
+    and the entities in the groundtruth.
+
+    Rules:
+    - response must contain a key "entities"
+    - entities must match exactly:
+        * same number of entities
+        * no missing or extra entities
+        * order does not matter
+        * each entity must be identical in all fields
+        * extracted text must be strictly equal
+    """
+
+    # --- Convert resp to dict if it's a JSON string ---
+    if isinstance(resp, str):
+        try:
+            resp = json.loads(resp)
+        except Exception:
+            return False
+
+    # --- Convert groundtruth to dict if it's a JSON string ---
+    if isinstance(groundtruth, str):
+        try:
+            groundtruth = json.loads(groundtruth)
+        except Exception:
+            return False
+
+    # --- Entities must exist ---
+    if not isinstance(resp, dict) or "entities" not in resp:
+        return False
+    if not isinstance(groundtruth, dict) or "entities" not in groundtruth:
+        return False
+
+    resp_entities = resp["entities"]
+    gt_entities = groundtruth["entities"]
+
+    # --- Both must be lists ---
+    if not isinstance(resp_entities, list) or not isinstance(gt_entities, list):
+        return False
+
+    # --- Same number of entities ---
+    if len(resp_entities) != len(gt_entities):
+        return False
+
+    # --- Strict comparison ignoring order ---
+    # We sort entities by all their fields to allow order-independent comparison
+    try:
+        resp_sorted = sorted(resp_entities, key=lambda x: json.dumps(x, sort_keys=True))
+        gt_sorted = sorted(gt_entities, key=lambda x: json.dumps(x, sort_keys=True))
+    except Exception:
+        return False
+
+    # --- Compare each entity strictly ---
+    for r, g in zip(resp_sorted, gt_sorted):
+        # must have same keys
+        if set(r.keys()) != set(g.keys()):
+            return False
+        # must have same values, including exact extracted text
+        for k in r:
+            if r[k] != g[k]:
+                return False
+
+    return True
+
+
+def run_annotation_groundtruth_validation(
+    resp_content_valid: List[Union[ListOfEntities, ChatCompletion]]
+) -> Tuple[float, list, list]:
+    """
+    Validate responses that passed hallucination/content checks by comparing
+    them to the annotation groundtruth.
+
+    Parameters
+    ----------
+    resp_content_valid : List[Union[ListOfEntities, ChatCompletion]]
+        List of responses that passed format and hallucination validation.
+
+    Returns
+    -------
+    Tuple[float, list, list]
+        - pr_correct (float): Percentage of responses matching the groundtruth.
+        - correct_resp (list): Responses that match the groundtruth.
+        - incorrect_resp (list): Responses valid but not equal to the groundtruth.
+    """
+
+    correct_resp = []
+    incorrect_resp = []
+    correct_count = 0
+
+    for response in resp_content_valid:
+        if isinstance(response, ListOfEntities):
+            resp_json = {"entities": [{"label": e.label, "text": e.text} for e in response.entities]}
+        if isinstance(response, ChatCompletion):
+            # Extract the content from the ChatCompletion response
+            resp_str = response.choices[0].message.content
+            try:
+                resp_json = json.loads(resp_str)
+            except json.JSONDecodeError:
+                logger.warning(f"We : {resp_str}")
+                resp_json = {}
+        
+        print(f"resp : {resp_json}")
+        print(f"GROUNDTRUTH : {GROUNDTRUTH_JSON}")
+
+        if is_same_as_groundtruth(resp_json, GROUNDTRUTH_JSON):
+            correct_resp.append(response)
+            correct_count += 1
+        else:
+            incorrect_resp.append(response)
+
+    # Avoid division by zero
+    total = len(resp_content_valid)
+    pr_correct = round((correct_count / total * 100), 1) if total > 0 else 0.0
+
+    logger.debug(
+        f"{correct_count}/{total} valid annotations ({pr_correct}%) match the groundtruth."
+    )
+
+    return pr_correct, correct_resp, incorrect_resp
+
+
 def save_annotation_records(
     model_name: str,
     text_to_annotate: str,
     resp_format_unvalid: List[str],
     resp_content_unvalid: List[str],
-    resp_content_valid: List[str],
-    folder_out_path: str,
-    parquet_file_name: str,
+    resp_correct_answers: List[str],
+    resp_uncorrect_answers: List[str],
+    out_path : str,
 ) -> None:
     """
     Build a detailed annotation record dataset and save it as a Parquet file.
@@ -457,6 +620,7 @@ def save_annotation_records(
     - response : the raw response text
     - is_format_valid : whether the response has a valid format
     - is_content_valid : whether the content passed hallucination/content validation
+    - is_correct : whether the response is the same as the annoation groundtruth
 
     Parameters
     ----------
@@ -468,12 +632,12 @@ def save_annotation_records(
         Responses that failed the format validation.
     resp_content_unvalid : List[str]
         Responses that passed the format validation but failed content validation.
-    resp_content_valid : List[str]
-        Responses that passed both format and content validation.
-    folder_out_path : str
-        The output folder path for the evaluation and annotation results.
-    parquet_file_name : str
-        File name where the detailed results should be saved in Parquet format.
+    resp_correct_answers : List[str]
+        Responses that passed format, content and groundtruth validation.
+    resp_uncorrect_answers : List[str]
+        Responses that passed the content validation but failed groundtruth validation.
+    out_path : str
+        The output path for the evaluation and annotation results.
     """
     # logger.debug("Building annotation records for saving...")
     records = []
@@ -486,79 +650,55 @@ def save_annotation_records(
             return json.dumps(resp.__dict__, default=str)
         except Exception:
             return str(resp)
+    
+    def add_records(responses, is_format_valid, is_content_valid, is_correct):
+        for r in responses:
+            records.append({
+                "model": model_name,
+                "text_to_annotate": text_to_annotate,
+                "response": serialize_response(r),
+                "is_format_valid": is_format_valid,
+                "is_content_valid": is_content_valid,
+                "is_correct": is_correct,
+            })
 
     # Add all format-invalid responses
-    for r in resp_format_unvalid:
-        records.append(
-            {
-                "model": model_name,
-                "response": serialize_response(r),
-                "is_format_valid": False,
-                "is_content_valid": False,
-            }
-        )
+    add_records(resp_format_unvalid, False, False, False)
 
     # Add format-valid but content-invalid responses
-    for r in resp_content_unvalid:
-        records.append(
-            {
-                "model": model_name,
-                "response": serialize_response(r),
-                "is_format_valid": True,
-                "is_content_valid": False,
-            }
-        )
+    add_records(resp_content_unvalid, True, False, False)
+
+    # Add format-valid, content valid but incorrect responses
+    add_records(resp_uncorrect_answers, True, True, False)
 
     # Add fully valid responses
-    for r in resp_content_valid:
-        records.append(
-            {
-                "model": model_name,
-                "response": serialize_response(r),
-                "is_format_valid": True,
-                "is_content_valid": True,
-            }
-        )
+    add_records(resp_correct_answers, True, True, True)
 
     df = pd.DataFrame(records)
-    path = os.path.join(folder_out_path, parquet_file_name.replace(".xlsx", ".parquet"))
+    path = Path(str(out_path).replace(".xlsx", ".parquet"))
     total_annotations = len(records)
-
-    table = pa.Table.from_pandas(df)
-    metadata = {
-        "text_annotated": text_to_annotate.encode("utf-8"),
-        "model": model_name.encode("utf-8"),
-        "total_annotations": str(total_annotations).encode("utf-8"),
-    }
-    existing_metadata = table.schema.metadata or {}
-    merged_metadata = {**existing_metadata, **metadata}
-    table = table.replace_schema_metadata(merged_metadata)
-
     try:
-        pq.write_table(table, path)
-        logger.success(
-            f"{total_annotations} annotation records saved into {path} successfully!\n"
-        )
+        df.to_parquet(path, index=False)
+        logger.success(f"{total_annotations} annotation records saved into {out_path} successfully!\n")
     except Exception as e:
-        logger.error(f"Failed to save annotation records to {path}: {e}")
+        logger.error(f"Failed to save annotation records to {out_path}: {e}")
 
 
 def evaluate_and_save_annotations(
     text_to_annotate: str,
     model_name: str,
     client,
-    n_iterations: int,
-    folder_out_path: str,
-    parquet_file_name: str,
+    out_path : str,
     validator: str = "instructor",
     validation: bool = False,
-) -> Tuple[float, float]:
+) -> Tuple[float, float, float]:
     """
     Run a complete annotation pipeline:
-    1. Generate raw annotations with an instructor model.
+    1. Generate raw annotations with an LLM.
     2. Validate the format of each generated annotation.
     3. Validate the content (hallucination detection) for responses with valid format.
-    4. Save detailed results for each response into a Parquet file.
+    4. Validate the content (correct annotations like groundtruth) for responses with no hallucinated entities.
+    5. Save detailed results for each response into a Parquet
 
     Parameters
     ----------
@@ -568,12 +708,8 @@ def evaluate_and_save_annotations(
         Name of the model used for annotations.
     client : object
         Client object used by run_annotations_with_{validator}().
-    n_iterations : int
-        Number of annotation attempts to generate.
-    folder_out_path : str
-        The output folder path for the evaluation and annotation results.
-    parquet_file_name : str
-        File name where the detailed results should be saved in Parquet format.
+    out_path : str
+        The full output path for the evaluation and annotation results.
     validator: str, optional
         The name of the output validator package between "instructor", "llamaindex", "pydanticai" (Default is "instructor").
     validation : bool, optional
@@ -581,43 +717,49 @@ def evaluate_and_save_annotations(
 
     Returns
     -------
-    pr_valid_format_resp_nv : float
+    pr_valid_format_resp : float
         Percentage of responses with valid format.
-    pr_valid_content_resp_nv : float
+    pr_valid_content_resp : float
         Percentage of format-valid responses that also passed content validation.
+    pr_correct_answers : float
+        Percentage of responses that is correct, cad que la réponse est la même que le groundtruth.
     """
     # 1. Run annotations generation
-    resp_not_validated = run_annotations(
+    response = run_annotations(
         text_to_annotate,
         model_name,
         client,
         validator,
-        n_iterations,
-        validation=validation,
+        validation=validation
     )
 
     # 2. Validate annotations format
-    pr_valid_format_resp_nv, resp_format_valid, resp_format_unvalid = (
-        run_annotation_format_validation(resp_not_validated)
+    pr_valid_format_resp, resp_format_valid, resp_format_unvalid = (
+        run_annotation_format_validation(response)
     )
 
     # 3. Validate annotations content
-    pr_valid_content_resp_nv, resp_content_valid, resp_content_unvalid = (
+    pr_valid_content_resp, resp_content_valid, resp_content_unvalid = (
         run_annotation_halucination_validation(resp_format_valid)
     )
 
-    # 4. Save full annotations evaluation
+     # 4. Validate annotations content (correct like grountruth)
+    pr_correct_answers, resp_correct_answers, resp_uncorrect_answers = (
+        run_annotation_groundtruth_validation(resp_content_valid)
+    )
+
+    # 5. Save full annotations evaluation
     save_annotation_records(
         model_name,
         text_to_annotate,
         resp_format_unvalid,
         resp_content_unvalid,
-        resp_content_valid,
-        folder_out_path,
-        parquet_file_name,
+        resp_correct_answers,
+        resp_uncorrect_answers,
+        out_path
     )
 
-    return pr_valid_format_resp_nv, pr_valid_content_resp_nv
+    return pr_valid_format_resp, pr_valid_content_resp, pr_correct_answers
 
 
 def evaluate_json_annotations(folder_out_path: str, file_name: str) -> None:
@@ -652,97 +794,78 @@ def evaluate_json_annotations(folder_out_path: str, file_name: str) -> None:
         # ------------------------------------------------------
         # 1. Annotation without validation
         # ------------------------------------------------------
-        full_resp_path_nv = f"{model_name.split('/')[-1]}_full_annotations_nv_{file_name.replace('.parquet', '.xlsx')}"
-        pr_valid_format_resp_nv, pr_valid_content_resp_nv = (
-            evaluate_and_save_annotations(
-                TEXT_TO_ANNOTATE,
-                model_name,
-                instructor_clients[model_name],
-                NB_ITERATIONS,
-                folder_out_path,
-                full_resp_path_nv,
-                validation=False,
-            )
-        )
-
+        full_resp_path_nv = Path(folder_out_path) / f"{model_name.split("/")[-1]}_full_annotations_nv_{file_name.replace(".parquet", ".xlsx")}"
+        pr_valid_format_resp_nv, pr_valid_content_resp_nv, pr_correct_answers_nv = evaluate_and_save_annotations(
+            TEXT_TO_ANNOTATE,
+            model_name,
+            instructor_clients[model_name],
+            full_resp_path_nv,
+            validation=False)
+    
         # ------------------------------------------------------
         # 2. Annotation with INSTRUCTOR validation
         # ------------------------------------------------------
-        full_resp_path_inst = f"{model_name.split('/')[-1]}_full_annotations_instructor_val_{file_name.replace('.parquet', '.xlsx')}"
-        pr_valid_format_resp_instructor, pr_valid_content_resp_instructor = (
-            evaluate_and_save_annotations(
-                TEXT_TO_ANNOTATE,
-                model_name,
-                instructor_clients[model_name],
-                NB_ITERATIONS,
-                folder_out_path,
-                full_resp_path_inst,
-                validator="instructor",
-                validation=True,
-            )
-        )
-
+        full_resp_path_inst = Path(folder_out_path) / f"{model_name.split("/")[-1]}_full_annotations_instructor_val_{file_name}"
+        pr_valid_format_resp_instructor, pr_valid_content_resp_instructor, pr_correct_answers_instructor = evaluate_and_save_annotations(
+            TEXT_TO_ANNOTATE,
+            model_name,
+            instructor_clients[model_name],
+            full_resp_path_inst,
+            validator="instructor")
+        
         # ------------------------------------------------------
         # 3. Annotation with LLAMAINDEX validation
         # ------------------------------------------------------
-        full_resp_path_llama = f"{model_name.split('/')[-1]}_full_annotations_llamaindex_val_{file_name.replace('.parquet', '.xlsx')}"
-        pr_valid_format_resp_llama, pr_valid_content_resp_llama = (
-            evaluate_and_save_annotations(
-                TEXT_TO_ANNOTATE,
-                model_name,
-                llama_clients[model_name],
-                NB_ITERATIONS,
-                folder_out_path,
-                full_resp_path_llama,
-                validator="llamaindex",
-                validation=True,
-            )
-        )
-
+        full_resp_path_llama = Path(folder_out_path) / f"{model_name.split("/")[-1]}_full_annotations_llamaindex_val_{file_name}"
+        pr_valid_format_resp_llama, pr_valid_content_resp_llama, pr_correct_answers_llama = evaluate_and_save_annotations(
+            TEXT_TO_ANNOTATE,
+            model_name,
+            llama_clients[model_name],
+            full_resp_path_llama,
+            validator="llamaindex")
+        
         # ------------------------------------------------------
         # 4. Annotation with PYDANTICAI validation
         # ------------------------------------------------------
-        full_resp_path_py = f"{model_name.split('/')[-1]}_full_annotations_pydanticai_val_{file_name.replace('.parquet', '.xlsx')}"
-        pr_valid_format_resp_py, pr_valid_content_resp_py = (
-            evaluate_and_save_annotations(
-                TEXT_TO_ANNOTATE,
-                model_name,
-                py_clients[model_name],
-                NB_ITERATIONS,
-                folder_out_path,
-                full_resp_path_py,
-                validator="pydanticai",
-                validation=True,
-            )
-        )
+        full_resp_path_py = Path(folder_out_path) / f"{model_name.split('/')[-1]}_full_annotations_pydanticai_val_{file_name}"
+        pr_valid_format_resp_py, pr_valid_content_resp_py, pr_correct_answers_py = evaluate_and_save_annotations(
+            TEXT_TO_ANNOTATE,
+            model_name,
+            py_clients[model_name],
+            full_resp_path_py,
+            validator="pydanticai")
 
-        all_records.append(
-            {
-                "Model (Provider)": f"{model_name} ({provider})",
-                "JSON without format validation - Respect output format (%)": pr_valid_format_resp_nv,
-                "JSON without format validation - No hallucination (%)": pr_valid_content_resp_nv,
-                "JSON + Instructor - Respect output format (%)": pr_valid_format_resp_instructor,
-                "JSON + Instructor - No hallucination (%)": pr_valid_content_resp_instructor,
-                "JSON + LlamaIndex - Respect output format (%)": pr_valid_format_resp_llama,
-                "JSON + LlamaIndex - No hallucination (%)": pr_valid_content_resp_llama,
-                "JSON + PydanticAI - Respect output format (%)": pr_valid_format_resp_py,
-                "JSON + PydanticAI - No hallucination (%)": pr_valid_content_resp_py,
-            }
-        )
-
+        all_records.append({
+            "Model (Provider)": f"{model_name} ({provider})",
+            "JSON without format validation - Correct output format (%)": pr_valid_format_resp_nv,
+            "JSON without format validation - No hallucination (%)": pr_valid_content_resp_nv,
+            "JSON without format validation - Correct answer (%)": pr_correct_answers_nv,
+            "JSON + Instructor - Correct output format (%)": pr_valid_format_resp_instructor,
+            "JSON + Instructor - No hallucination (%)": pr_valid_content_resp_instructor,
+            "JSON + Instructor - Correct answer (%)": pr_correct_answers_instructor,
+            "JSON + LlamaIndex - Correct output format (%)": pr_valid_format_resp_llama,
+            "JSON + LlamaIndex - No hallucination (%)": pr_valid_content_resp_llama,
+            "JSON + LlamaIndex - Correct answer (%)": pr_correct_answers_llama,
+            "JSON + PydanticAI - Correct output format (%)": pr_valid_format_resp_py,
+            "JSON + PydanticAI - No hallucination (%)": pr_valid_content_resp_py,
+            "JSON + PydanticAI - Correct answer (%)": pr_correct_answers_py
+        })
+    
     df_simple = pd.DataFrame(all_records)
-    multi_columns = pd.MultiIndex.from_tuples(
-        [
-            ("JSON without format validation", "Respect output format (%)"),
-            ("JSON without format validation", "No hallucination (%)"),
-            ("JSON + Instructor", "Respect output format (%)"),
-            ("JSON + Instructor", "No hallucination (%)"),
-            ("JSON + LlamaIndex", "Respect output format (%)"),
-            ("JSON + LlamaIndex", "No hallucination (%)"),
-            ("JSON + PydanticAI", "Respect output format (%)"),
-            ("JSON + PydanticAI", "No hallucination (%)"),
-        ]
-    )
+    multi_columns = pd.MultiIndex.from_tuples([
+        ("JSON without format validation", "Correct output format (%)"),
+        ("JSON without format validation", "No hallucination (%)"),
+        ("JSON without format validation", "Correct answer (%)"),
+        ("JSON + Instructor", "Correct output format (%)"),
+        ("JSON + Instructor", "No hallucination (%)"),
+        ("JSON + Instructor", "Correct answer (%)"),
+        ("JSON + LlamaIndex", "Correct output format (%)"),
+        ("JSON + LlamaIndex", "No hallucination (%)"),
+        ("JSON + LlamaIndex", "Correct answer (%)"),
+        ("JSON + PydanticAI", "Correct output format (%)"),
+        ("JSON + PydanticAI", "No hallucination (%)"),
+        ("JSON + PydanticAI", "Correct answer (%)")
+    ])
     df_results = pd.DataFrame(
         df_simple.drop(columns=["Model (Provider)"]).values,
         columns=multi_columns,
