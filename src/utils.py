@@ -3,13 +3,11 @@
 # Import necessary libraries
 import json
 import textwrap
-import pyarrow.parquet as pq
 from typing import Dict, Tuple, Union, List
 from tqdm import tqdm
 import unicodedata
 
 import re
-from spacy import displacy
 import instructor
 from instructor.core import InstructorRetryException
 from instructor.exceptions import ValidationError as InstructorValidationError
@@ -894,3 +892,419 @@ def read_parquet_summary(parquet_path: str) -> dict:
 
     except Exception as e:
         return {"error": f"Failed to read metadata: {e}"}
+
+
+
+def run_annotations(
+    text_to_annotate: str,
+    model_name: str,
+    client,
+    validator: str = "instructor",
+    num_iterations: int = 100,
+    validation: bool = False,
+) -> List[ListOfEntities | ChatCompletion]:
+    """
+    Runs multiple annotation attempts on the given text, with or without validation schema.
+
+    Parameters
+    ----------
+    text_to_annotate : str
+        The text to annotate.
+    model_name : str
+        The name of the LLM model to use.
+    client : instructor.core.client.Instructor
+        The LLM client to use (either OpenAI or OpenRouter).
+    validator: str = "instructor"
+        The name of the output validator package between "instructor", "llamaindex", "pydanticai" (Default is "instructor").
+    num_iterations : int, optional
+        Number of annotation attempts to run, by default 100
+    validation : bool, optional
+        Whether to use validation schema, by default False
+
+    Returns:
+    --------
+    List[ChatCompletion | str]:
+        List of the LLM response for the annotations of the same text with the same prompt.
+    """
+    list_of_responses = []
+
+    desc = f"Running annotations {f'with {validator}' if validation else 'without'} validation schema..."
+    logger.debug(f"{'🟢' if validation else '🔴'}{desc}")
+
+    for _ in tqdm(
+        range(NB_ITERATIONS),
+        desc=desc,
+        colour="blue",
+        ncols=200,
+        unit="annotation",
+        bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]",
+    ):
+        response = annotate(
+            text_to_annotate, model_name, client, validator, validation=validation
+        )
+        list_of_responses.append(response)
+
+    # logger.success(f"Completed {len(list_of_responses)} annotations successfully!\n")
+    return list_of_responses
+
+
+def evaluate_and_save_annotations(
+    text_to_annotate: str,
+    model_name: str,
+    client,
+    out_path : str,
+    validator: str = "instructor",
+    validation: bool = False,
+) -> Tuple[float, float, float]:
+    """
+    Run a complete annotation pipeline:
+    1. Generate raw annotations with an LLM.
+    2. Validate the format of each generated annotation.
+    3. Validate the content (hallucination detection) for responses with valid format.
+    4. Validate the content (correct annotations like groundtruth) for responses with no hallucinated entities.
+    5. Save detailed results for each response into a Parquet
+
+    Parameters
+    ----------
+    text_to_annotate : str
+        The input text that the instructor model will annotate.
+    model_name : str
+        Name of the model used for annotations.
+    client : object
+        Client object used by run_annotations_with_{validator}().
+    out_path : str
+        The full output path for the evaluation and annotation results.
+    validator: str, optional
+        The name of the output validator package between "instructor", "llamaindex", "pydanticai" (Default is "instructor").
+    validation : bool, optional
+        Whether to apply validation during annotation generation, by default False.
+
+    Returns
+    -------
+    pr_valid_format_resp : float
+        Percentage of responses with valid format.
+    pr_valid_content_resp : float
+        Percentage of format-valid responses that also passed content validation.
+    pr_correct_answers : float
+        Percentage of responses that is correct, cad que la réponse est la même que le groundtruth.
+    """
+    # 1. Run annotations generation
+    response = run_annotations(
+        text_to_annotate,
+        model_name,
+        client,
+        validator,
+        validation=validation
+    )
+
+    # 2. Validate annotations format
+    pr_valid_format_resp, resp_format_valid, resp_format_unvalid = (
+        run_annotation_format_validation(response)
+    )
+
+    # 3. Validate annotations content
+    pr_valid_content_resp, resp_content_valid, resp_content_unvalid = (
+        run_annotation_halucination_validation(resp_format_valid)
+    )
+
+     # 4. Validate annotations content (correct like grountruth)
+    pr_correct_answers, resp_correct_answers, resp_uncorrect_answers = (
+        run_annotation_groundtruth_validation(resp_content_valid)
+    )
+
+    # 5. Save full annotations evaluation
+    save_annotation_records(
+        model_name,
+        text_to_annotate,
+        resp_format_unvalid,
+        resp_content_unvalid,
+        resp_correct_answers,
+        resp_uncorrect_answers,
+        out_path
+    )
+
+    return pr_valid_format_resp, pr_valid_content_resp, pr_correct_answers
+
+
+def save_annotation_records(
+    model_name: str,
+    text_to_annotate: str,
+    resp_format_unvalid: List[str],
+    resp_content_unvalid: List[str],
+    resp_correct_answers: List[str],
+    resp_uncorrect_answers: List[str],
+    out_path : str,
+) -> None:
+    """
+    Build a detailed annotation record dataset and save it as a Parquet file.
+
+    This function consolidates all responses into a structured format with these fields:
+    - model : name of the model used
+    - response : the raw response text
+    - is_format_valid : whether the response has a valid format
+    - is_content_valid : whether the content passed hallucination/content validation
+    - is_correct : whether the response is the same as the annoation groundtruth
+
+    Parameters
+    ----------
+    model_name : str
+        Name of the model that generated the responses.
+    text_to_annotate: str
+        The input text that the instructor model will annotate.
+    resp_format_unvalid : List[str]
+        Responses that failed the format validation.
+    resp_content_unvalid : List[str]
+        Responses that passed the format validation but failed content validation.
+    resp_correct_answers : List[str]
+        Responses that passed format, content and groundtruth validation.
+    resp_uncorrect_answers : List[str]
+        Responses that passed the content validation but failed groundtruth validation.
+    out_path : str
+        The output path for the evaluation and annotation results.
+    """
+    # logger.debug("Building annotation records for saving...")
+    records = []
+
+    def serialize_response(resp):
+        if isinstance(resp, str):
+            return resp
+        try:
+            # Convert ChatCompletion to JSON string if needed
+            return json.dumps(resp.__dict__, default=str)
+        except Exception:
+            return str(resp)
+    
+    def add_records(responses, is_format_valid, is_content_valid, is_correct):
+        for r in responses:
+            records.append({
+                "model": model_name,
+                "text_to_annotate": text_to_annotate,
+                "response": serialize_response(r),
+                "is_format_valid": is_format_valid,
+                "is_content_valid": is_content_valid,
+                "is_correct": is_correct,
+            })
+
+    # Add all format-invalid responses
+    add_records(resp_format_unvalid, False, False, False)
+
+    # Add format-valid but content-invalid responses
+    add_records(resp_content_unvalid, True, False, False)
+
+    # Add format-valid, content valid but incorrect responses
+    add_records(resp_uncorrect_answers, True, True, False)
+
+    # Add fully valid responses
+    add_records(resp_correct_answers, True, True, True)
+
+    df = pd.DataFrame(records)
+    path = Path(str(out_path).replace(".xlsx", ".parquet"))
+    total_annotations = len(records)
+    try:
+        df.to_parquet(path, index=False)
+        logger.success(f"{total_annotations} annotation records saved into {out_path} successfully!\n")
+    except Exception as e:
+        logger.error(f"Failed to save annotation records to {out_path}: {e}")
+
+
+
+def run_annotation_format_validation(
+    resp_not_validated: List[Union[ListOfEntities, ChatCompletion]],
+) -> Tuple[float, list, list]:
+    """
+    Validate a list of annotation responses to ensure they are in proper JSON format.
+
+    Parameters:
+    -----------
+    resp_not_validated (List[Union[ListOfEntities, ChatCompletion]]):
+        List of annotation responses to validate.
+
+    Returns:
+    --------
+    Tuple[float, list, list]:
+        - prc_validation (float): Percentage of responses in valid format.
+        - valid_resp (list): List of validated responses.
+        - unvalid_resp (list): List of responses that failed validation.
+    """
+    # logger.debug("Validating annotations for JSON format...")
+    valid_count = 0
+    valid_resp = []
+    unvalid_resp = []
+
+    for resp in resp_not_validated:
+        validated = validate_annotation_output_format(resp)
+        if validated:
+            valid_resp.append(validated)
+            valid_count += 1
+        else:
+            unvalid_resp.append(resp)
+
+    prc_validation = round((valid_count / len(resp_not_validated)) * 100, 1)
+    logger.debug(
+        f"{valid_count}/{len(resp_not_validated)} annotations ({prc_validation}%) are in valid JSON format."
+    )
+    return prc_validation, valid_resp, unvalid_resp
+
+
+def run_annotation_halucination_validation(
+    resp_format_valid: List[Union[ListOfEntities, ChatCompletion]],
+) -> Tuple[float, list, list]:
+    """
+    Validate the content of annotation responses to ensure they match the expected text.
+
+    This function checks each response in `resp_format_valid` to determine whether
+    the annotation content is present in the target text `TEXT_TO_ANNOTATE`. It
+    returns the percentage of valid annotations along with lists of valid and invalid responses.
+
+    Parameters:
+    -----------
+    resp_format_valid (List[Union[ListOfEntities, ChatCompletion]]):
+        List of annotation responses that have already been validated for format.
+
+    Returns:
+    --------
+    Tuple[float, list, list]:
+        - prc_validation (float): Percentage of responses with valid content.
+        - valid_resp (list): List of responses with valid content.
+        - unvalid_resp (list): List of responses with invalid content.
+    """
+    # logger.debug("Starting content validation of annotations...")
+    valid_count = 0
+    valid_resp = []
+    unvalid_resp = []
+
+    for resp in resp_format_valid:
+        if is_annotation_in_text(resp, TEXT_TO_ANNOTATE):
+            valid_resp.append(resp)
+            valid_count += 1
+        else:
+            unvalid_resp.append(resp)
+
+    prc_validation = round((valid_count / NB_ITERATIONS) * 100, 1)
+    logger.debug(
+        f"{valid_count}/{NB_ITERATIONS} annotations ({prc_validation}%) have no hallucinated entities."
+    )
+    return prc_validation, valid_resp, unvalid_resp
+
+
+def is_same_as_groundtruth(resp, groundtruth):
+    """
+    Strict comparison between the entities in a model response
+    and the entities in the groundtruth.
+
+    Rules:
+    - response must contain a key "entities"
+    - entities must match exactly:
+        * same number of entities
+        * no missing or extra entities
+        * order does not matter
+        * each entity must be identical in all fields
+        * extracted text must be strictly equal
+    """
+
+    # --- Convert resp to dict if it's a JSON string ---
+    if isinstance(resp, str):
+        try:
+            resp = json.loads(resp)
+        except Exception:
+            return False
+
+    # --- Convert groundtruth to dict if it's a JSON string ---
+    if isinstance(groundtruth, str):
+        try:
+            groundtruth = json.loads(groundtruth)
+        except Exception:
+            return False
+
+    # --- Entities must exist ---
+    if not isinstance(resp, dict) or "entities" not in resp:
+        return False
+    if not isinstance(groundtruth, dict) or "entities" not in groundtruth:
+        return False
+
+    resp_entities = resp["entities"]
+    gt_entities = groundtruth["entities"]
+
+    # --- Both must be lists ---
+    if not isinstance(resp_entities, list) or not isinstance(gt_entities, list):
+        return False
+
+    # --- Same number of entities ---
+    if len(resp_entities) != len(gt_entities):
+        return False
+
+    # --- Strict comparison ignoring order ---
+    # We sort entities by all their fields to allow order-independent comparison
+    try:
+        resp_sorted = sorted(resp_entities, key=lambda x: json.dumps(x, sort_keys=True))
+        gt_sorted = sorted(gt_entities, key=lambda x: json.dumps(x, sort_keys=True))
+    except Exception:
+        return False
+
+    # --- Compare each entity strictly ---
+    for r, g in zip(resp_sorted, gt_sorted):
+        # must have same keys
+        if set(r.keys()) != set(g.keys()):
+            return False
+        # must have same values, including exact extracted text
+        for k in r:
+            if r[k] != g[k]:
+                return False
+
+    return True
+
+
+def run_annotation_groundtruth_validation(
+    resp_content_valid: List[Union[ListOfEntities, ChatCompletion]]
+) -> Tuple[float, list, list]:
+    """
+    Validate responses that passed hallucination/content checks by comparing
+    them to the annotation groundtruth.
+
+    Parameters
+    ----------
+    resp_content_valid : List[Union[ListOfEntities, ChatCompletion]]
+        List of responses that passed format and hallucination validation.
+
+    Returns
+    -------
+    Tuple[float, list, list]
+        - pr_correct (float): Percentage of responses matching the groundtruth.
+        - correct_resp (list): Responses that match the groundtruth.
+        - incorrect_resp (list): Responses valid but not equal to the groundtruth.
+    """
+
+    correct_resp = []
+    incorrect_resp = []
+    correct_count = 0
+
+    for response in resp_content_valid:
+        if isinstance(response, ListOfEntities):
+            resp_json = {"entities": [{"label": e.label, "text": e.text} for e in response.entities]}
+        if isinstance(response, ChatCompletion):
+            # Extract the content from the ChatCompletion response
+            resp_str = response.choices[0].message.content
+            try:
+                resp_json = json.loads(resp_str)
+            except json.JSONDecodeError:
+                logger.warning(f"We : {resp_str}")
+                resp_json = {}
+        
+        print(f"resp : {resp_json}")
+        print(f"GROUNDTRUTH : {GROUNDTRUTH_JSON}")
+
+        if is_same_as_groundtruth(resp_json, GROUNDTRUTH_JSON):
+            correct_resp.append(response)
+            correct_count += 1
+        else:
+            incorrect_resp.append(response)
+
+    # Avoid division by zero
+    total = len(resp_content_valid)
+    pr_correct = round((correct_count / total * 100), 1) if total > 0 else 0.0
+
+    logger.debug(
+        f"{correct_count}/{total} valid annotations ({pr_correct}%) match the groundtruth."
+    )
+
+    return pr_correct, correct_resp, incorrect_resp
