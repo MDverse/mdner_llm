@@ -53,16 +53,13 @@ To vizualize the corrections of json annotations, open the notebook in `notebook
 To perform statistics on the distribution of annotations per files and class, run:
 
 ```sh
-uv run src/count_entities_per_class.py --annotations-dir annotations/v2
+uv run src/count_entities.py --annotations-dir annotations/v2
 ```
 
 This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class.
 
-### 4. Visualize new JSON annotations statistics
+This command will also produce plots with class distribution for all entities and entity distribution by class.
 
-To vizualize an overview of the entities present across all annotations, open the notebook in `notebooks/visualize_entities_stats.ipynb`.
-
----
 
 ## Run the LLM Prompting
 
