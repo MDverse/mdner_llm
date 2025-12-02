@@ -19,6 +19,16 @@ uv sync
 ```
 
 ---
+## Add OpenAI and OpenRouter API key
+
+Create an .env file with a valid [OpenAI](https://platform.openai.com/docs/api-reference/authentication) and [OpenRouter](https://openrouter.ai/docs/api/reference/authentication) API key:
+
+```sh
+OPENAI_API_KEY=<your-openai-api-key>
+OPENROUTER_API_KEY=<your-openrouter-api-key>
+```
+> Remark: This .env file is ignored by git.
+
 
 ## Utilities
 
