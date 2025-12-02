@@ -58,7 +58,7 @@ uv run src/count_entities.py --annotations-dir annotations/v2
 
 This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class.
 
-this command will also produce plot with class distribution for all entities and entity distribution by class.
+This command will also produce plots with class distribution for all entities and entity distribution by class.
 
 
 ## Run the LLM Prompting
