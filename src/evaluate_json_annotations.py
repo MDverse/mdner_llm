@@ -18,19 +18,20 @@ For every model output, the script checks:
    (and optionally character positions when using `json_with_positions`).
 
 2. **Hallucination detection**
-   Each extracted entity must correspond to text actually present in the source document.
+  Each extracted entity must correspond to text actually present in the source document.
 
 3. **Annotation correctness**
    The model’s entities are compared against expert-validated annotations.
    Each prediction is tagged as correct or incorrect.
 
-All detailed per-response results for each model are saved as **Parquet files**.
-A final **Excel (.xlsx)** summary aggregates statistics across models, enabling comparisons on:
+All detailed per-response results for each model are saved as **Parquet files**.A final
+**Excel (.xlsx)** summary aggregates statistics across models, enabling comparisons on:
 - format adherence,
 - hallucination rate,
 - annotation accuracy.
 
-This tool is designed to benchmark LLM reliability when producing structured, domain-specific annotations.
+This tool is designed to benchmark LLM reliability when producing structured,
+domain-specific annotations.
 
 Usage:
 =======
@@ -72,7 +73,7 @@ This command will evaluate the 50 most recent annotation files found in
 `annotations/v2`, run all models on them using the JSON prompt format, and save
 all per-model parquet files plus a global XLSX summary inside
 `results/json_evaluation_stats/test`.
-"""
+"""  # noqa: RUF002
 
 # METADATAS
 __authors__ = ("Pierre Poulain", "Essmay Touami")
@@ -84,50 +85,34 @@ __version__ = "1.0.0"
 
 # LIBRARY IMPORTS
 import json
-import os
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 import click
-import instructor
 import pandas as pd
-from dotenv import load_dotenv
-from instructor.core import (
-    InstructorRetryException,
-)
-from instructor.core import (
-    ValidationError as InstructorValidationError,
-)
-from instructor.core.client import Instructor
-from llama_index.core.llms import ChatMessage
-from llama_index.llms.openai import OpenAI
-from llama_index.llms.openrouter import OpenRouter
 from loguru import logger
 from openai.types.chat import ChatCompletion
 from pydantic import ValidationError as PydanticValidationError
-from pydantic_ai import Agent
-from pydantic_ai.exceptions import UnexpectedModelBehavior
-from pydantic_ai.models.openai import OpenAIChatModel
-from pydantic_ai.providers.openrouter import OpenRouterProvider
-from pydantic_core import ValidationError as CoreValidationError
 from tqdm import tqdm
 
 # UTILITY IMPORTS
 from pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
 from utils import (
+    annotate,
+    assign_all_instructor_clients,
+    assign_all_llamaindex_clients,
+    assign_all_pydanticai_clients,
     normalize_text,
 )
 
 # CONSTANTS
 # To adapt on your needs :
-MODELS_OPENAI = [
-    "gpt-oss-120b",
-    "gpt-4o-2024-08-06",
-    "gpt-5.1-2025-11-13",
-]
 MODELS_OPENROUTER = [
+    "openai/gpt-5",
+    "openai/gpt-4o",
+    "openai/gpt-oss-120b",
     "meta-llama/llama-4-maverick",
     "moonshotai/kimi-k2-thinking",
     "google/gemini-3-pro-preview",
@@ -135,8 +120,12 @@ MODELS_OPENROUTER = [
     "deepseek/deepseek-chat-v3-0324",
     "allenai/olmo-3-32b-think"
 ]
-MODELS_OPENROUTER = []
-
+MODELS_OPENROUTER = [
+    "openai/gpt-5",
+    "meta-llama/llama-4-maverick",
+    "google/gemini-3-pro-preview",
+    "allenai/olmo-3-32b-think"
+]
 
 # FUNCTIONS
 def setup_logger(loguru_logger: Any, log_dir: str | Path = "logs") -> None:
@@ -200,115 +189,50 @@ def ensure_dir(ctx, param, value: Path) -> Path:
     return value
 
 
-def assign_all_instructor_clients() -> dict[str, Instructor]:
-    """
-    Assign a client to each model.
-
-    Returns
-    -------
-    Dict[str, Instructor]
-        Dictionary mapping model names to Instructor clients.
-    """
-    load_dotenv()
-    models_with_providers = dict.fromkeys(MODELS_OPENAI, "openai")
-    models_with_providers.update(dict.fromkeys(MODELS_OPENROUTER, "openrouter"))
-    return {
-        model: instructor.from_provider(
-            f"{provider}/{model}", mode=instructor.Mode.JSON
-        )
-        for model, provider in models_with_providers.items()
-    }
-
-
-def assign_all_llamaindex_clients() -> dict[str, OpenAI | OpenRouter]:
-    """
-    Assign a LlamaIndex client to each model.
-
-    Returns
-    -------
-    Dict[str, OpenAI | OpenRouter]
-        Dictionary mapping model names to LlamaIndex OpenAI | OpenRouter clients.
-    """
-    load_dotenv()
-    clients = {}
-    for model_name in MODELS_OPENROUTER:
-        llm = OpenRouter(
-            model=model_name,
-        )
-        clients[model_name] = llm.as_structured_llm(output_cls=ListOfEntities)
-
-    for model_name in MODELS_OPENAI:
-        llm = OpenAI(
-            model=model_name,
-        )
-        clients[model_name] = llm.as_structured_llm(output_cls=ListOfEntities)
-
-    return clients
-
-
-def assign_all_pydanticai_clients() -> dict[str, OpenAIChatModel]:
-    """
-    Assign a PydanticAI for each PydanticAI model.
-
-    Returns
-    -------
-    Dict[str, OpenAIChatModel]
-        Dictionary mapping model names to PydanticAI clients.
-    """
-    load_dotenv()
-    clients = {}
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    for model_name in MODELS_OPENROUTER:
-        llm = OpenAIChatModel(model_name, provider=OpenRouterProvider(api_key=api_key))
-        clients[model_name] = llm
-
-    for model_name in MODELS_OPENAI:
-        llm = OpenAIChatModel(model_name)
-        clients[model_name] = llm
-
-    return clients
-
-
-def load_recent_annotations(
+def load_interesting_annotations(  # noqa: C901
     annotations_dir: Path,
     nb_files: int,
     tag_prompt: str,
+    tsv_path: str = "results/all_annotations_entities_count.tsv",
 ) -> list[dict[str, Any]]:
     """
-    Load the `nb_files` most recently modified annotation JSON files.
+    Load the `nb_files` most interesting annotation JSON files.
 
-    The function:
-        - lists JSON files in the directory,
-        - sorts them by modification date (descending),
-        - loads at most `nb_files`,
-        - extracts:
-            * file_path: Path
-            * text_to_annotate: str
-            * groundtruth: ListOfEntities or ListOfEntitiesPositions
-        - removes position fields if `tag_prompt == "json"`.
-
-    Parameters
-    ----------
-    annotations_dir : Path
-        Directory containing annotation JSON files.
-    nb_files : int
-        Maximum number of recent files to load.
-    tag_prompt : str
-        Determines whether returned entities contain character positions.
-        Must be one of: "json", "json_with_positions".
+    Selection priority:
+        1. Files with at least one entity of each type.
+        2. Complete with files having between 2 and 5 molecules.
+        3. Fill remaining slots with most recent files.
 
     Returns
     -------
-    list[dict]
+    list[dict[str, Any]]
         Annotation records sorted by modification date (newest first).
 
     Raises
     ------
     ValueError
-        If the directory contains no JSON files, or
-        if a file is missing required fields.
+        If:
+            - no JSON files are found in the directory,
+            - the TSV file does not contain required columns,
+            - annotation JSON files lack required fields ("raw_text", "entities"),
+            - `tag_prompt` is invalid.
     """
-    logger.info(f"Loading annotations records from {annotations_dir}...")
+    logger.info(f"Loading annotation records from {annotations_dir}...")
+
+    # ---- Load TSV entity counts ----
+    df = pd.read_csv(tsv_path, sep="\t")
+    cols = [col for col in df.columns if col.endswith("_nb") and col != "SOFTVERS_nb"]
+
+    # Files with at least one entity of each type
+    df_all_entities = df[(df[cols] > 0).all(axis=1)]
+
+    # Files with between 2 and 5 molecules
+    if "MOLECULE_nb" in df.columns:
+        df_medium_mol = df[(df["MOLECULE_nb"] >= 2) & (df["MOLECULE_nb"] <= 5)]
+    else:
+        df_medium_mol = pd.DataFrame(columns=df.columns)
+
+    # ---- List JSON files by date ----
     json_files = sorted(
         (p for p in annotations_dir.glob("*.json") if p.is_file()),
         key=lambda p: p.stat().st_mtime,
@@ -318,7 +242,38 @@ def load_recent_annotations(
         msg = f"No JSON files found in {annotations_dir}"
         raise ValueError(msg)
 
-    selected_files = json_files[:nb_files]
+    # Convert to names for matching
+    file_to_path = {p.name: p for p in json_files}
+
+    # ---- Priority 1 selection : all-entities files ----
+    selected_names = []
+
+    for fname in df_all_entities["filename"]:
+        if fname in file_to_path:
+            selected_names.append(fname)
+        if len(selected_names) >= nb_files:
+            break
+
+    # ---- Priority 2: molecules 2-5 ----
+    if len(selected_names) < nb_files:
+        for fname in df_medium_mol["filename"]:
+            if fname in file_to_path and fname not in selected_names:
+                selected_names.append(fname)
+            if len(selected_names) >= nb_files:
+                break
+
+    # ---- Priority 3: fallback to most recent files ----
+    if len(selected_names) < nb_files:
+        for p in json_files:
+            if p.name not in selected_names:
+                selected_names.append(p.name)
+            if len(selected_names) >= nb_files:
+                break
+
+    # Keep correct order = recent first
+    selected_files = [file_to_path[name] for name in selected_names]
+
+    # ---- Load JSON contents ----
     records = []
 
     for file_path in selected_files:
@@ -332,17 +287,18 @@ def load_recent_annotations(
         raw_text = data.get("raw_text")
         entities_with_positions = data.get("entities")
 
-        # Remove start/end if tag_prompt = "json"
+        if raw_text is None or entities_with_positions is None:
+            msg = f"Missing required fields in {file_path}"
+            raise ValueError(msg)
+
+        # Remove positions if tag_prompt = "json"
         if tag_prompt == "json":
             entities = [
-                {
-                    "label": ent.get("label"),
-                    "text": ent.get("text"),
-                }
+                {"label": ent.get("label"), "text": ent.get("text")}
                 for ent in entities_with_positions
             ]
             groundtruth = ListOfEntities(entities=entities)
-        else:  # json_with_positions
+        else:
             groundtruth = ListOfEntitiesPositions(entities=entities_with_positions)
 
         records.append(
@@ -352,110 +308,9 @@ def load_recent_annotations(
                 "groundtruth": groundtruth,
             }
         )
-    logger.success(f"Found {len(records)} most recent annotations successfully!\n")
+
+    logger.success(f"Selected {len(records)} interesting annotations!\n")
     return records
-
-
-def annotate(
-    text: str,
-    model: str,
-    client: Instructor | OpenAI | OpenRouter | OpenAIChatModel,
-    tag_prompt: str,
-    validator: str = "instructor",
-    max_retries: int = 3,
-    *,
-    validation: bool = True
-) -> ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions:
-    """Annotate the given text using the specified model.
-
-    If validation, the output will be validated against the GlobalResponse schema.
-
-    Parameters
-    ----------
-    text : str
-        The text to annotate.
-    model : str
-        The name of the LLM model to use.
-    client : Union[Instructor | OpenAI | OpenRouter | OpenAIChatModel]
-        The LLM client to use (either from Instructor, llamaindex or pydantic_ai).
-    validator: str, optional
-        The name of the output validator package between "instructor", "llamaindex",
-        "pydanticai" (Default is "instructor").
-    validation : bool, optional
-        Whether to validate the output against the schema, by default True
-    max_retries : int, optional
-        Maximum number of retries for the API call in case of failure, by default 3
-
-    Returns
-    -------
-    Union[ListOfEntities,ChatCompletion]
-        The response from the LLM model, either validated or raw output.
-    """
-    # Set response model and retries based on validation flag
-    if validation:
-        response_model = ListOfEntities
-    else:
-        response_model = None
-        max_retries = 0
-
-    # Set prompt based on positions of the start and end or without
-    prompt_json = Path("prompts/json_few_shot.txt").read_text(encoding="utf-8")
-    prompt_path = Path("prompts/json_with_positions_few_shot.txt")
-    prompt_positions = prompt_path.read_text(encoding="utf-8")
-    prompt = prompt_json if tag_prompt == "json" else prompt_positions
-
-    result = None
-    # Query the LLM client for annotation
-    if validator == "instructor":
-        try:
-            result = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system",
-                        "content": "Extract entities as structured JSON."},
-                    {"role": "user",
-                        "content": f"{prompt}\nThe text to annotate:\n{text}"}
-                ],
-                response_model=response_model,
-                max_retries=max_retries,
-            )
-        except InstructorRetryException as e:
-            logger.warning(
-                f"    ⚠️ Validated annotation failed after {e.n_attempts} attempts."
-            )
-            # logger.warning(f"Total usage: {e.total_usage.total_tokens} tokens")
-            return str(e.last_completion)
-
-        except InstructorValidationError as e:
-            # logger.error(e.errors)
-            return str(e.raw_output)
-
-    elif validator == "llamaindex":
-        input_msg = ChatMessage.from_str(f"{prompt}\nThe text to annotate:\n{text}")
-        try:
-            response = client.chat([input_msg])
-            result = response.raw
-        except (PydanticValidationError, CoreValidationError, ValueError) as e:
-            return str(e)
-
-    elif validator == "pydanticai":
-        agent = Agent(
-            model=client,
-            output_type=ListOfEntities,
-            retries=max_retries,
-            system_prompt=("Extract entities as structured JSON."),
-        )
-        try:
-            response = agent.run_sync(f"{prompt}\nThe text to annotate:\n{text}")
-            result = response.output
-        except (
-            PydanticValidationError,
-            CoreValidationError,
-            UnexpectedModelBehavior,
-        ) as e:
-            return str(e)
-
-    return result
 
 
 def is_valid_output_format(
@@ -543,7 +398,9 @@ def has_no_hallucination(
             if prompt_tag == "json":
                 entities_model = ListOfEntities.model_validate_json(response_str)
             else:
-                entities_model = ListOfEntitiesPositions.model_validate_json(response_str)
+                entities_model = (
+                    ListOfEntitiesPositions.model_validate_json(response_str)
+                )
         elif isinstance(response, str):
             if prompt_tag == "json":
                 entities_model = ListOfEntities.model_validate_json(response)
@@ -592,8 +449,36 @@ def is_annotation_correct(
     # Simple comparison: check all groundtruth entities exist in response
     gt_texts = {normalize_text(e.text) for e in groundtruth.entities}
     response_texts = {normalize_text(e.text) for e in response.entities}
-
+    logger.debug(f"\nResponse = {response_texts}")
+    logger.debug(f"Groundtruth = {gt_texts}")
+    logger.debug(f"The same = {response_texts == gt_texts}")
     return gt_texts == response_texts
+
+
+def serialize_response(resp: Any) -> str:
+    """
+    Serialize various response objects into a JSON-safe string representation.
+
+    Parameters
+    ----------
+    resp : Any
+        The object to serialize. This may be a string, a custom class instance,
+        or a model response object such as ChatCompletion.
+
+    Returns
+    -------
+    str
+        A JSON-compatible string representation of the input object.
+    """
+    # If it's already a string, nothing to do.
+    if isinstance(resp, str):
+        return resp
+
+    # Specific handling for ChatCompletion-like objects
+    if isinstance(resp, ChatCompletion):
+        return json.dumps(resp.__dict__, default=str)
+
+    return str(resp)
 
 
 def append_annotation_result(
@@ -604,8 +489,8 @@ def append_annotation_result(
     prompt_tag: str,
     text_to_annotate: str,
     json_path: Path,
-    model_response: dict[str, Any],
-    groundtruth: Any,
+    model_response: dict[str, ListOfEntities | ListOfEntitiesPositions],
+    groundtruth: ListOfEntities | ListOfEntitiesPositions,
 ) -> pd.DataFrame:
     """
     Evaluate a model response and append a result row to the evaluation DataFrame.
@@ -629,7 +514,7 @@ def append_annotation_result(
         Path to the groundtruth annotation file.
     model_response : dict
         The model prediction processed by `annotate()`.
-    groundtruth : Any
+    groundtruth : ListOfEntities | ListOfEntitiesPositions
         Expert annotations used to check correctness.
 
     Returns
@@ -650,6 +535,8 @@ def append_annotation_result(
         "prompt": prompt_tag,
         "text_to_annotate": text_to_annotate,
         "json_path": str(json_path),
+        "model_response": serialize_response(model_response),
+        "groundtruth": serialize_response(groundtruth),
         "is_correct_output_format": is_correct_output_format,
         "is_without_hallucination": is_without_hallucination,
         "is_correct": is_correct,
@@ -719,8 +606,9 @@ def summarize_model_stats(parquet_path: Path) -> dict[str, dict[str, float]]:
 def save_evaluation_results(
     all_summary_rows: list[list],
     annotations_count: int,
-    results_dir: Path
-) -> Path:
+    results_dir: Path,
+    tag_prompt: str
+) -> None:
     """
     Save evaluation results to an Excel file with multi-index columns.
 
@@ -732,7 +620,8 @@ def save_evaluation_results(
         Number of annotations evaluated (used in the filename).
     results_dir : Path
         Directory where the Excel file will be saved.
-
+    tag_prompt: str
+        Descriptor indicating the format of the expected LLM output.
     """
     # Create a simple DataFrame first
     df_simple = pd.DataFrame(
@@ -759,32 +648,31 @@ def save_evaluation_results(
     )
 
     # Create MultiIndex for nicer Excel formatting
-    multi_columns = pd.MultiIndex.from_tuples([
-        ("JSON without format validation", "Correct output format (%)"),
-        ("JSON without format validation", "No hallucination (%)"),
-        ("JSON without format validation", "Correct answer (%)"),
-        ("JSON + Instructor", "Correct output format (%)"),
-        ("JSON + Instructor", "No hallucination (%)"),
-        ("JSON + Instructor", "Correct answer (%)"),
-        ("JSON + LlamaIndex", "Correct output format (%)"),
-        ("JSON + LlamaIndex", "No hallucination (%)"),
-        ("JSON + LlamaIndex", "Correct answer (%)"),
-        ("JSON + PydanticAI", "Correct output format (%)"),
-        ("JSON + PydanticAI", "No hallucination (%)"),
-        ("JSON + PydanticAI", "Correct answer (%)")
-    ])
-
+    prefix = "JSON" if tag_prompt == "json" else "JSON_POSITIONS"
+    methods = [
+        prefix + " without format validation",
+        prefix + " + Instructor",
+        prefix + " + LlamaIndex",
+        prefix + " + PydanticAI"
+    ]
+    subcols = [
+        "Correct output format (%)",
+        "Without hallucination (%)",
+        "Correct answer (%)"
+    ]
+    multi_columns = pd.MultiIndex.from_tuples(
+        [(method, sub) for method in methods for sub in subcols]
+    )
     df_results = pd.DataFrame(
         df_simple.drop(columns=["Model (Provider)"]).values,
         columns=multi_columns,
         index=df_simple["Model (Provider)"]
     )
-
     # Save to Excel
     path = results_dir / f"evaluation_summary_{annotations_count}" \
                         f"_annotations_{results_dir.name}.xlsx"
     df_results.to_excel(path, index=True)
-    logger.success(f"Evaluation stats saved to: {path} successfully!")
+    logger.success(f"Evaluation stats saved to: {path} successfully! \n")
 
 
 @click.command()
@@ -860,23 +748,23 @@ def evaluate_json_annotations(
     all_summary_rows = []
 
     # Assign each models to instructor/llamaindex/pydanticai clients
-    instructor_clients = assign_all_instructor_clients()
-    llama_clients = assign_all_llamaindex_clients()
-    py_clients = assign_all_pydanticai_clients()
+    instructor_clients = assign_all_instructor_clients(MODELS_OPENROUTER)
+    # llama_clients = assign_all_llamaindex_clients(MODELS_OPENROUTER)
+    # py_clients = assign_all_pydanticai_clients(MODELS_OPENROUTER)
 
     # Retrieve MD annotated texts with their verified annotations
-    annotations = load_recent_annotations(
+    annotations = load_interesting_annotations(
         annotations_dir,
         nb_annotations,
         tag_prompt,
     )
 
     # Loop through LLMs
-    for model_name in MODELS_OPENAI + MODELS_OPENROUTER:
+    for model_name in MODELS_OPENROUTER:
         logger.info(
             f"=================== 🤖 Evaluating model: {model_name} ==================="
         )
-        provider = "OpenAI" if model_name in MODELS_OPENAI else "OpenRouter"
+        provider = "OpenRouter" if model_name in MODELS_OPENROUTER else "OpenAI"
 
         # Create an empty dataframe for this model
         eval_df = pd.DataFrame(
@@ -952,7 +840,7 @@ def evaluate_json_annotations(
                 groundtruth=groundtruth,
             )
 
-            # ------------------------------------------------------
+            """# ------------------------------------------------------
             # 3. Annotation with LLAMAINDEX validation
             # ------------------------------------------------------
             response_llamaindex_val = annotate(
@@ -995,10 +883,10 @@ def evaluate_json_annotations(
                 json_path=file_path,
                 model_response=response_pydanticai_val,
                 groundtruth=groundtruth,
-            )
+            )"""
 
         # Save model's evaluation
-        model_out_path = results_dir / f"{model_name}_{len(annotations)}" \
+        model_out_path = results_dir / f"{model_name.split("/")[1]}_{len(annotations)}" \
                                         "_annotations_stats.parquet"
         eval_df.to_parquet(model_out_path, index=False)
 
@@ -1017,25 +905,29 @@ def evaluate_json_annotations(
             stats["instructor"]["no_hallucination"],
             stats["instructor"]["correct_answer"],
 
-            stats["llamaindex"]["correct_format"],
-            stats["llamaindex"]["no_hallucination"],
-            stats["llamaindex"]["correct_answer"],
+            None, None, None,   # llamaindex
+            None, None, None,   # pydanticai
 
-            stats["pydanticai"]["correct_format"],
-            stats["pydanticai"]["no_hallucination"],
-            stats["pydanticai"]["correct_answer"],
+            # stats["llamaindex"]["correct_format"],
+            # stats["llamaindex"]["no_hallucination"],
+            # stats["llamaindex"]["correct_answer"],
+
+            # stats["pydanticai"]["correct_format"],
+            # stats["pydanticai"]["no_hallucination"],
+            # stats["pydanticai"]["correct_answer"],
         ])
 
-        for validator in ["no_validation", "instructor", "llamaindex", "pydanticai"]:
+        for validator in ["no_validation", "instructor"]:  #"llamaindex", "pydanticai"]
             logger.debug(
-                f"Validator: {validator:.8f} | "
+                f"Validator: {validator} | "
                 f"Correct format: {stats[validator]["correct_format"]}% | "
                 f"No hallucination: {stats[validator]["no_hallucination"]}% | "
                 f"Correct answer: {stats[validator]["correct_answer"]}%"
             )
 
     # Save summary stats for each models to xlsx
-    save_evaluation_results(all_summary_rows, len(annotations), results_dir)
+    save_evaluation_results(all_summary_rows, len(annotations), results_dir, tag_prompt)
+
 
 # MAIN PROGRAM
 if __name__ == "__main__":
