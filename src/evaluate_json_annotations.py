@@ -387,27 +387,30 @@ def has_no_hallucination(
     """
     # Step 1: Extract a Pydantic instance from ChatCompletion or JSON string
     entities_model = None
-    try:
-        if ((isinstance(response, ListOfEntities)
-                and prompt_tag == "json")
-                or (isinstance(response, ListOfEntitiesPositions)
-                and prompt_tag == "json_with_positions")):
-            entities_model = response
-        elif isinstance(response, ChatCompletion):
-            response_str = response.choices[0].message.content
-            if prompt_tag == "json":
-                entities_model = ListOfEntities.model_validate_json(response_str)
-            else:
-                entities_model = (
-                    ListOfEntitiesPositions.model_validate_json(response_str)
-                )
-        elif isinstance(response, str):
-            if prompt_tag == "json":
-                entities_model = ListOfEntities.model_validate_json(response)
-            else:
-                entities_model = ListOfEntitiesPositions.model_validate_json(response)
-    except PydanticValidationError:
-        # If parsing fails, consider it hallucinated
+    if is_valid_output_format(response, prompt_tag):
+        try:
+            if ((isinstance(response, ListOfEntities)
+                    and prompt_tag == "json")
+                    or (isinstance(response, ListOfEntitiesPositions)
+                    and prompt_tag == "json_with_positions")):
+                entities_model = response
+            elif isinstance(response, ChatCompletion):
+                response_str = response.choices[0].message.content
+                if prompt_tag == "json":
+                    entities_model = ListOfEntities.model_validate_json(response_str)
+                else:
+                    entities_model = (
+                        ListOfEntitiesPositions.model_validate_json(response_str)
+                    )
+            elif isinstance(response, str):
+                if prompt_tag == "json":
+                    entities_model = ListOfEntities.model_validate_json(response)
+                else:
+                    entities_model = ListOfEntitiesPositions.model_validate_json(response)
+        except PydanticValidationError:
+            # If parsing fails, consider it hallucinated
+            return False
+    else:
         return False
 
     # Step 2: Compare entity texts with the original text
