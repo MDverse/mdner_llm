@@ -88,12 +88,6 @@
             "end": 398
         },
         {
-            "label": "FFM",
-            "text": "ECC-ions",
-            "start": 409,
-            "end": 417
-        },
-        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 497,

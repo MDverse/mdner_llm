@@ -16,12 +16,6 @@
             "end": 51
         },
         {
-            "label": "FFM",
-            "text": "GROMOS 53A6",
-            "start": 85,
-            "end": 96
-        },
-        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 100,
@@ -52,12 +46,6 @@
             "end": 204
         },
         {
-            "label": "FFM",
-            "text": "GROMOS 53A6",
-            "start": 262,
-            "end": 273
-        },
-        {
             "label": "STIME",
             "text": "100ns",
             "start": 338,
@@ -80,6 +68,18 @@
             "text": "water",
             "start": 378,
             "end": 383
+        },
+        {
+            "label": "FFM",
+            "text": "Poger GROMOS 53A6 L",
+            "start": 79,
+            "end": 98
+        },
+        {
+            "label": "FFM",
+            "text": "Poger GROMOS 53A6 L",
+            "start": 256,
+            "end": 275
         }
     ]
 }
