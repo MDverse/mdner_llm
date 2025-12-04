@@ -821,7 +821,7 @@ def convert_annotations(response, text_to_annotate):
 
     # ---------- CASE 1 : response is ListOfEntitiesPositions ----------
     # Already has (start, end, label)
-    if hasattr(response, "entities_positions"):
+    if isinstance(response, ListOfEntitiesPositions):
         ents.extend({
                 "start": ent.start,
                 "end": ent.end,
@@ -831,7 +831,7 @@ def convert_annotations(response, text_to_annotate):
 
     # ---------- CASE 2 : response is ListOfEntities ----------
     # We must find spans in TEXT_TO_ANNOTATE
-    if hasattr(response, "entities"):
+    if isinstance(response, ListOfEntities):
         text_lower = text_to_annotate.lower()
         consumed = [False] * len(text_to_annotate)
 
@@ -870,7 +870,17 @@ def convert_annotations(response, text_to_annotate):
 
 
 def vizualize_llm_annotation(response: ListOfEntities | ListOfEntitiesPositions,
-    text_to_annotate):
+                             text_to_annotate: str):
+    """
+    Visualize named entities from LLM annotations using spaCy's displaCy.
+
+    Parameters
+    ----------
+    response (ListOfEntities | ListOfEntitiesPositions):
+        The annotated entities returned by the LLM.
+    text_to_annotate (str):
+        The original text on which entities were predicted.
+    """
     colors = {
         "TEMP": "#ffb3ba",
         "SOFTNAME": "#ffffba",
