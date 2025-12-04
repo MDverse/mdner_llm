@@ -412,32 +412,33 @@ def has_no_hallucination(
     return True
 
 
-def is_annotation_correct(
+def compute_entity_match_percent(
     response: ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str,
     groundtruth: ListOfEntities | ListOfEntitiesPositions,
     prompt_tag: str,
-) -> bool:
+) -> tuple[int, int, float]:
     """
-    Compare model response to groundtruth annotations.
-
-    If entities have positions, compare both text AND (start, end).
-    Otherwise, compare only text.
+    Compute correct entities, total groundtruth entities, and their % in the response.
 
     Parameters
     ----------
     response : ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str
         The validated model response or raw JSON string.
     groundtruth : ListOfEntities | ListOfEntitiesPositions
-        The text that was annotated.
+        The reference annotation.
     prompt_tag : str
         Tag defining expected JSON format ("json" or "json_with_positions").
 
     Returns
     -------
-    bool
-        True if predicted entities match groundtruth, False otherwise.
+    tuple[int, int, float]
+        A tuple containing:
+        - nb_correct_entities (int): number of correctly predicted entities
+        - nb_groundtruth_entities (int): number of entities in the groundtruth
+        - percent (float): percentage of groundtruth entities present in the
+        response (0 to 100)
     """
-    # Select correct model class based on expected format
+    # Select correct model class
     model_class = ListOfEntities if prompt_tag == "json" else ListOfEntitiesPositions
 
     # Parse response into a model instance
@@ -450,49 +451,38 @@ def is_annotation_correct(
         else:  # str JSON
             entities_model = model_class.model_validate_json(response)
     except (PydanticValidationError, ValueError, TypeError):
-        return False
+        return 0, 0, 0.0
 
-    # Ensure entity lists exist
-    if not hasattr(entities_model, "entities") or not hasattr(
-        groundtruth, "entities"
-    ):
-        return False
+    if not hasattr(entities_model, "entities") or not hasattr(groundtruth, "entities"):
+        return 0, 0, 0.0
 
-    # Case 1 : simple entities (text only)
+    # Case 1 : text-only entities
     if prompt_tag == "json":
         gt_texts = {normalize_text(e.text) for e in groundtruth.entities}
-        response_texts = {
-            normalize_text(e.text) for e in entities_model.entities
-        }
-
-        logger.debug(f"Response = {response_texts}")
-        logger.debug(f"Groundtruth = {gt_texts}")
-        logger.debug(f"Same = {response_texts == gt_texts}")
-        return response_texts == gt_texts
+        response_texts = {normalize_text(e.text) for e in entities_model.entities}
+        matched = gt_texts & response_texts
 
     else:
         # Case 2 : entities with positions
-        gt_items = {
-            (
-                normalize_text(e.text),
-                getattr(e, "start", None),
-                getattr(e, "end", None),
-            )
+        gt_texts = {
+            (normalize_text(e.text), getattr(e, "start", None), getattr(e, "end", None))
             for e in groundtruth.entities
         }
-
-        response_items = {
-            (
-                normalize_text(e.text),
-                getattr(e, "start", None),
-                getattr(e, "end", None),
-            )
+        response_texts = {
+            (normalize_text(e.text), getattr(e, "start", None), getattr(e, "end", None))
             for e in entities_model.entities
         }
-        logger.debug(f"Response = {response_items}")
-        logger.debug(f"Groundtruth = {gt_items}")
-        logger.debug(f"Same = {response_items == gt_items}")
-        return response_items == gt_items
+        matched = gt_texts & response_texts
+
+    nb_correct_entities = len(matched)
+    nb_groundtruth_entities = len(gt_texts)
+    percent = round(nb_correct_entities / max(nb_groundtruth_entities, 1) * 100, 3)
+
+    logger.debug(f"Response = {response_texts}")
+    logger.debug(f"Groundtruth = {gt_texts}")
+    logger.debug(f"Correct entities = {nb_correct_entities} / {nb_groundtruth_entities}")
+    logger.debug(f"Correctness percent = {percent} %")
+    return nb_correct_entities, nb_groundtruth_entities, percent
 
 
 def serialize_response(resp: Any) -> str:
@@ -565,7 +555,10 @@ def append_annotation_result(
     # Evaluation of the model's response
     is_correct_output_format = is_valid_output_format(model_response, prompt_tag)
     is_without_hallucination = has_no_hallucination(model_response, text_to_annotate)
-    is_correct = is_annotation_correct(model_response, groundtruth, prompt_tag)
+    nb_correct_entities, nb_groundtruth_entities, correctness_percent = (
+        compute_entity_match_percent(
+        model_response, groundtruth, prompt_tag)
+    )
 
     # Append the row
     new_row = {
@@ -576,10 +569,12 @@ def append_annotation_result(
         "text_to_annotate": text_to_annotate,
         "json_path": str(json_path),
         "model_response": serialize_response(model_response),
+        "nb_correct_entities": nb_correct_entities,
         "groundtruth": serialize_response(groundtruth),
+        "nb_groundtruth_entities": nb_groundtruth_entities,
         "is_correct_output_format": is_correct_output_format,
         "is_without_hallucination": is_without_hallucination,
-        "is_correct": is_correct,
+        "correctness_percent": correctness_percent,
     }
 
     return pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
@@ -605,7 +600,7 @@ def summarize_model_stats(parquet_path: Path) -> dict[str, dict[str, float]]:
         - ``validator``
         - ``is_correct_output_format``
         - ``is_without_hallucination``
-        - ``is_correct``.
+        - ``correctness_percent``.
 
     Returns
     -------
@@ -634,10 +629,18 @@ def summarize_model_stats(parquet_path: Path) -> dict[str, dict[str, float]]:
             }
             continue
 
+        # Sum of correct entities in llm response and in groundtruth
+        total_correct = sub["nb_correct_entities"].sum()
+        total_groundtruth = sub["nb_groundtruth_entities"].sum()
+        # Percent of global correct_answer
+        correct_answer_percent = round(
+            (total_correct / max(total_groundtruth, 1)) * 100, 1
+        )
         results[validator] = {
             "correct_format": round(100 * sub["is_correct_output_format"].mean(), 1),
             "no_hallucination": round(100 * sub["is_without_hallucination"].mean(), 1),
-            "correct_answer": round(100 * sub["is_correct"].mean(), 1),
+            "correct_answer": correct_answer_percent
+,
         }
 
     return results
@@ -815,9 +818,13 @@ def evaluate_json_annotations(
                 "prompt",
                 "text_to_annotate",
                 "json_path",
+                "model_response",
+                "nb_correct_entities",
+                "groundtruth",
+                "nb_groundtruth_entities",
                 "is_correct_output_format",
                 "is_without_hallucination",
-                "is_correct",
+                "correctness_percent",
             ]
         )
 
