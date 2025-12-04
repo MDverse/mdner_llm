@@ -34,7 +34,7 @@ from pydantic_core import ValidationError as CoreValidationError
 from spacy import displacy
 from tqdm import tqdm
 
-from pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
+from src.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
 
 
 # FUNCTIONS
@@ -399,6 +399,8 @@ def annotate(
     tag_prompt: str,
     validator: str = "instructor",
     max_retries: int = 3,
+    prompt_json_path: Path = Path("prompts/json_few_shot.txt"),
+    prompt_positions_path: Path = Path("prompts/json_with_positions_few_shot.txt"),
     *,
     validation: bool = True
 ) -> ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions:
@@ -417,10 +419,14 @@ def annotate(
     validator: str, optional
         The name of the output validator package between "instructor", "llamaindex",
         "pydanticai" (Default is "instructor").
-    validation : bool, optional
-        Whether to validate the output against the schema, by default True
     max_retries : int, optional
-        Maximum number of retries for the API call in case of failure, by default 3
+        Maximum number of retries for the API call in case of failure, by default 3.
+    prompt_json_path: Path
+        The path to retrieve prompt to annotate only entities in JSON format.
+    prompt_positions_path: Path
+        The path to retrieve prompt to annotate entities+positions in JSON format.
+    validation : bool, optional
+        Whether to validate the output against the schema, by default True.
 
     Returns
     -------
@@ -435,9 +441,8 @@ def annotate(
         max_retries = 0
 
     # Set prompt based on positions of the start and end or without
-    prompt_json = Path("prompts/json_few_shot.txt").read_text(encoding="utf-8")
-    prompt_path = Path("prompts/json_with_positions_few_shot.txt")
-    prompt_positions = prompt_path.read_text(encoding="utf-8")
+    prompt_json = prompt_json_path.read_text(encoding="utf-8")
+    prompt_positions = prompt_positions_path.read_text(encoding="utf-8")
     prompt = prompt_json if tag_prompt == "json" else prompt_positions
 
     result = None
@@ -795,3 +800,89 @@ def run_annotations(
 
     # logger.success(f"Completed {len(list_of_responses)} annotations successfully!\n")
     return list_of_responses
+
+
+def convert_annotations(response, text_to_annotate):
+    """
+    Convert custom entity list to spaCy displaCy format.
+
+    If response is ListOfEntities → compute spans by locating text occurrences.
+    If response is ListOfEntitiesPositions → use provided start/end positions.
+
+    Parameters
+    ----------
+    response : ListOfEntities | ListOfEntitiesPositions
+
+    Returns
+    -------
+    List[dict]  (spaCy displaCy manual format)
+    """
+    ents = []
+
+    # ---------- CASE 1 : response is ListOfEntitiesPositions ----------
+    # Already has (start, end, label)
+    if hasattr(response, "entities_positions"):
+        ents.extend({
+                "start": ent.start,
+                "end": ent.end,
+                "label": ent.label
+            } for ent in response.entities_positions)
+        return [{"text": text_to_annotate, "ents": ents}]
+
+    # ---------- CASE 2 : response is ListOfEntities ----------
+    # We must find spans in TEXT_TO_ANNOTATE
+    if hasattr(response, "entities"):
+        text_lower = text_to_annotate.lower()
+        consumed = [False] * len(text_to_annotate)
+
+        for entity in response.entities:
+            span_text = entity.text
+            span_lower = span_text.lower()
+
+            start = -1
+            search_pos = 0
+
+            while True:
+                start = text_lower.find(span_lower, search_pos)
+                if start == -1:
+                    break
+
+                end = start + len(span_text)
+
+                # avoid overlap
+                if not any(consumed[start:end]):
+                    for i in range(start, end):
+                        consumed[i] = True
+
+                    ents.append({
+                        "start": start,
+                        "end": end,
+                        "label": entity.label
+                    })
+                    break
+                else:
+                    search_pos = start + 1
+
+            if start == -1:
+                print(f"⚠️ Warning: entity '{span_text}' not found in text.")
+
+        return [{"text": text_to_annotate.replace("\n", " "), "ents": ents}]
+
+
+def vizualize_llm_annotation(response: ListOfEntities | ListOfEntitiesPositions,
+    text_to_annotate):
+    colors = {
+        "TEMP": "#ffb3ba",
+        "SOFTNAME": "#ffffba",
+        "SOFTVERS": "#ffffe4",
+        "STIME": "#baffc9",
+        "MOL": "#bae1ff",
+        "FFM": "#cdb4db",
+    }
+    options = {"colors": colors}
+    print("=" * 80)
+    print("🧐 VISUALIZATION OF ENTITIES ")
+    print("=" * 80)
+    converted_data = convert_annotations(response, text_to_annotate)
+    displacy.render(converted_data, style="ent", manual=True, options=options)
+    print()

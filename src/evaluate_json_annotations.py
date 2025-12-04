@@ -120,12 +120,7 @@ MODELS_OPENROUTER = [
     "deepseek/deepseek-chat-v3-0324",
     "allenai/olmo-3-32b-think"
 ]
-MODELS_OPENROUTER = [
-    "openai/gpt-5",
-    "meta-llama/llama-4-maverick",
-    "google/gemini-3-pro-preview",
-    "allenai/olmo-3-32b-think"
-]
+
 
 # FUNCTIONS
 def setup_logger(loguru_logger: Any, log_dir: str | Path = "logs") -> None:
@@ -189,7 +184,7 @@ def ensure_dir(ctx, param, value: Path) -> Path:
     return value
 
 
-def load_interesting_annotations(  # noqa: C901
+def load_interesting_annotations(
     annotations_dir: Path,
     nb_files: int,
     tag_prompt: str,
@@ -373,7 +368,7 @@ def has_no_hallucination(
 
     Parameters
     ----------
-    response : Union[ListOfEntities, ListOfEntitiesPositions, ChatCompletion, str]
+    response : ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str
         The validated model response or raw JSON string.
     original_text : str
         The text that was annotated.
@@ -385,43 +380,33 @@ def has_no_hallucination(
     bool
         True if no predicted entity is missing from the original text.
     """
-    # Step 1: Extract a Pydantic instance from ChatCompletion or JSON string
-    entities_model = None
-    if is_valid_output_format(response, prompt_tag):
-        try:
-            if ((isinstance(response, ListOfEntities)
-                    and prompt_tag == "json")
-                    or (isinstance(response, ListOfEntitiesPositions)
-                    and prompt_tag == "json_with_positions")):
-                entities_model = response
-            elif isinstance(response, ChatCompletion):
-                response_str = response.choices[0].message.content
-                if prompt_tag == "json":
-                    entities_model = ListOfEntities.model_validate_json(response_str)
-                else:
-                    entities_model = (
-                        ListOfEntitiesPositions.model_validate_json(response_str)
-                    )
-            elif isinstance(response, str):
-                if prompt_tag == "json":
-                    entities_model = ListOfEntities.model_validate_json(response)
-                else:
-                    entities_model = ListOfEntitiesPositions.model_validate_json(response)
-        except PydanticValidationError:
-            # If parsing fails, consider it hallucinated
-            return False
-    else:
+    # Select model class
+    model_class = ListOfEntities if prompt_tag == "json" else ListOfEntitiesPositions
+
+    # Parse response into entities_model
+    try:
+        if isinstance(response, model_class):
+            entities_model = response
+        elif isinstance(response, ChatCompletion):
+            content = response.choices[0].message.content
+            entities_model = model_class.model_validate_json(content)
+        else:
+            entities_model = model_class.model_validate_json(response)
+    except PydanticValidationError:
         return False
 
-    # Step 2: Compare entity texts with the original text
-    if entities_model is None or not hasattr(entities_model, "entities"):
+    # Ensure entity list exists
+    if not hasattr(entities_model, "entities"):
         return False
 
-    text_normalized = normalize_text(original_text)
+    # Normalize text once
+    norm_text = normalize_text(original_text)
 
+    # Check each entity actually appears in original text
     for entity in entities_model.entities:
-        entity_text = getattr(entity, "text", None)
-        if not entity_text or normalize_text(entity_text) not in text_normalized:
+        if not entity.text:
+            return False
+        if normalize_text(entity.text) not in norm_text:
             return False
 
     return True
@@ -429,33 +414,85 @@ def has_no_hallucination(
 
 def is_annotation_correct(
     response: ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str,
-    groundtruth: Any
+    groundtruth: ListOfEntities | ListOfEntitiesPositions,
+    prompt_tag: str,
 ) -> bool:
     """
     Compare model response to groundtruth annotations.
+
+    If entities have positions, compare both text AND (start, end).
+    Otherwise, compare only text.
 
     Parameters
     ----------
     response : ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str
         The validated model response or raw JSON string.
     groundtruth : ListOfEntities | ListOfEntitiesPositions
-        The reference annotation.
+        The text that was annotated.
+    prompt_tag : str
+        Tag defining expected JSON format ("json" or "json_with_positions").
 
     Returns
     -------
     bool
-        True if the predicted entities match the groundtruth, False otherwise.
+        True if predicted entities match groundtruth, False otherwise.
     """
-    if not hasattr(response, "entities") or not hasattr(groundtruth, "entities"):
+    # Select correct model class based on expected format
+    model_class = ListOfEntities if prompt_tag == "json" else ListOfEntitiesPositions
+
+    # Parse response into a model instance
+    try:
+        if isinstance(response, model_class):
+            entities_model = response
+        elif isinstance(response, ChatCompletion):
+            content = response.choices[0].message.content
+            entities_model = model_class.model_validate_json(content)
+        else:  # str JSON
+            entities_model = model_class.model_validate_json(response)
+    except (PydanticValidationError, ValueError, TypeError):
         return False
 
-    # Simple comparison: check all groundtruth entities exist in response
-    gt_texts = {normalize_text(e.text) for e in groundtruth.entities}
-    response_texts = {normalize_text(e.text) for e in response.entities}
-    logger.debug(f"\nResponse = {response_texts}")
-    logger.debug(f"Groundtruth = {gt_texts}")
-    logger.debug(f"The same = {response_texts == gt_texts}")
-    return gt_texts == response_texts
+    # Ensure entity lists exist
+    if not hasattr(entities_model, "entities") or not hasattr(
+        groundtruth, "entities"
+    ):
+        return False
+
+    # Case 1 : simple entities (text only)
+    if prompt_tag == "json":
+        gt_texts = {normalize_text(e.text) for e in groundtruth.entities}
+        response_texts = {
+            normalize_text(e.text) for e in entities_model.entities
+        }
+
+        logger.debug(f"Response = {response_texts}")
+        logger.debug(f"Groundtruth = {gt_texts}")
+        logger.debug(f"Same = {response_texts == gt_texts}")
+        return response_texts == gt_texts
+
+    else:
+        # Case 2 : entities with positions
+        gt_items = {
+            (
+                normalize_text(e.text),
+                getattr(e, "start", None),
+                getattr(e, "end", None),
+            )
+            for e in groundtruth.entities
+        }
+
+        response_items = {
+            (
+                normalize_text(e.text),
+                getattr(e, "start", None),
+                getattr(e, "end", None),
+            )
+            for e in entities_model.entities
+        }
+        logger.debug(f"Response = {response_items}")
+        logger.debug(f"Groundtruth = {gt_items}")
+        logger.debug(f"Same = {response_items == gt_items}")
+        return response_items == gt_items
 
 
 def serialize_response(resp: Any) -> str:
@@ -528,7 +565,7 @@ def append_annotation_result(
     # Evaluation of the model's response
     is_correct_output_format = is_valid_output_format(model_response, prompt_tag)
     is_without_hallucination = has_no_hallucination(model_response, text_to_annotate)
-    is_correct = is_annotation_correct(model_response, groundtruth)
+    is_correct = is_annotation_correct(model_response, groundtruth, prompt_tag)
 
     # Append the row
     new_row = {
