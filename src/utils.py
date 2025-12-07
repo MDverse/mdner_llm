@@ -435,7 +435,10 @@ def annotate(
     """
     # Set response model and retries based on validation flag
     if validation:
-        response_model = ListOfEntities
+        if tag_prompt == "json":
+            response_model = ListOfEntities
+        else:
+            response_model = ListOfEntitiesPositions
     else:
         response_model = None
         max_retries = 0
@@ -826,7 +829,7 @@ def convert_annotations(response, text_to_annotate):
                 "start": ent.start,
                 "end": ent.end,
                 "label": ent.label
-            } for ent in response.entities_positions)
+            } for ent in response.entities)
         return [{"text": text_to_annotate, "ents": ents}]
 
     # ---------- CASE 2 : response is ListOfEntities ----------
@@ -869,7 +872,7 @@ def convert_annotations(response, text_to_annotate):
         return [{"text": text_to_annotate.replace("\n", " "), "ents": ents}]
 
 
-def vizualize_llm_annotation(response: ListOfEntities | ListOfEntitiesPositions,
+def visualize_llm_annotation(response: ListOfEntities | ListOfEntitiesPositions,
                              text_to_annotate: str):
     """
     Visualize named entities from LLM annotations using spaCy's displaCy.
