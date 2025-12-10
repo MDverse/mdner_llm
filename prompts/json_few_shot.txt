@@ -11,7 +11,7 @@ You are **STRICTLY** limited to identifying and extracting entities from the fol
 
 - **SOFTNAME**: Software used (e.g., Gromacs, AMBER, VMD)
 - **SOFTVERS**: Software version (e.g., v 2016.4, 5.0.3)
-- **MOL**: Names of molecules, proteins, lipids, ions, solvants (e.g., DPPC, water, GTP, KRas4B)
+- **MOL**: Names of molecules, proteins, lipids, ions, solvents (e.g., DPPC, water, GTP, KRas4B)
 - **STIME**: Duration of the simulation (e.g., 50 ns, 200ns, 5 µs)
 - **TEMP**: Temperature of the simulation (e.g., 300 K, 288K, 358K)
 - **FFM**: Force fields or models (e.g., Charmm36, AMBER, MARTINI, TIP3P, OPLS)
