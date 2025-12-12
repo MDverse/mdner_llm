@@ -88,6 +88,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+import time
 from typing import Any
 
 import click
@@ -111,13 +112,13 @@ from utils import (
 # To adapt on your needs :
 MODELS_OPENROUTER = [
     #"openai/gpt-5",
-    #"openai/gpt-4o",
+    "openai/gpt-4o",
     #"openai/gpt-oss-120b",
-    #"meta-llama/llama-4-maverick",
+    "meta-llama/llama-4-maverick",
     #"moonshotai/kimi-k2-thinking",
-    "google/gemini-3-pro-preview",
-    #qwen/qwen-2.5-72b-instruct",
-    #"deepseek/deepseek-chat-v3-0324",
+    #"google/gemini-3-pro-preview",
+    "qwen/qwen-2.5-72b-instruct",
+    "deepseek/deepseek-chat-v3-0324",
     #"allenai/olmo-3-32b-think",
     #"openai/gpt-5.1",
     #"openai/gpt-5-nano",
@@ -584,7 +585,7 @@ def append_annotation_result(
     """
     # Evaluation of the model's response
     is_correct_output_format = is_valid_output_format(model_response, prompt_tag)
-    is_without_hallucination = has_no_hallucination(model_response, text_to_annotate)
+    is_without_hallucination = has_no_hallucination(model_response, text_to_annotate, prompt_tag)
     nb_correct_entities, nb_groundtruth_entities, correctness_percent = (
         compute_entity_match_percent(
         model_response, groundtruth, text_to_annotate, prompt_tag)
@@ -822,8 +823,8 @@ def evaluate_json_annotations(
 
     # Assign each models to instructor/llamaindex/pydanticai clients
     instructor_clients = assign_all_instructor_clients(MODELS_OPENROUTER)
-    # llama_clients = assign_all_llamaindex_clients(MODELS_OPENROUTER)
-    # py_clients = assign_all_pydanticai_clients(MODELS_OPENROUTER)
+    llama_clients = assign_all_llamaindex_clients(MODELS_OPENROUTER)
+    py_clients = assign_all_pydanticai_clients(MODELS_OPENROUTER)
 
     # Retrieve MD annotated texts with their verified annotations
     annotations = load_interesting_annotations(
@@ -858,6 +859,13 @@ def evaluate_json_annotations(
             ]
         )
 
+        annotation_times = {
+            "no_validation": 0.0,
+            "instructor": 0.0,
+            "llamaindex": 0.0,
+            "pydanticai": 0.0
+        }
+
         # Loop through MD texts to annotate
         for record in tqdm(
                 annotations,
@@ -875,13 +883,14 @@ def evaluate_json_annotations(
             # ------------------------------------------------------
             # 1. Annotation without validation
             # ------------------------------------------------------
+            start = time.time()
             response_no_val = annotate(
                                 text_to_annotate,
                                 model_name,
                                 instructor_clients[model_name],
                                 tag_prompt,
                                 validation=False)
-
+            annotation_times["no_validation"] += time.time() - start
             eval_df = append_annotation_result(
                 eval_df,
                 model_name=model_name,
@@ -897,6 +906,7 @@ def evaluate_json_annotations(
             # ------------------------------------------------------
             # 2. Annotation with INSTRUCTOR validation
             # ------------------------------------------------------
+            start = time.time()
             response_instructor_val = annotate(
                                 text_to_annotate,
                                 model_name,
@@ -904,6 +914,7 @@ def evaluate_json_annotations(
                                 tag_prompt,
                                 validation=True,
                                 validator="instructor")
+            annotation_times["instructor"] += time.time() - start
 
             eval_df = append_annotation_result(
                 eval_df,
@@ -917,9 +928,10 @@ def evaluate_json_annotations(
                 groundtruth=groundtruth,
             )
 
-            """# ------------------------------------------------------
+            # ------------------------------------------------------
             # 3. Annotation with LLAMAINDEX validation
             # ------------------------------------------------------
+            start = time.time()
             response_llamaindex_val = annotate(
                                 text_to_annotate,
                                 model_name,
@@ -927,7 +939,7 @@ def evaluate_json_annotations(
                                 tag_prompt,
                                 validation=True,
                                 validator="llamaindex")
-
+            annotation_times["llamaindex"] += time.time() - start
             eval_df = append_annotation_result(
                 eval_df,
                 model_name=model_name,
@@ -942,6 +954,7 @@ def evaluate_json_annotations(
             # ------------------------------------------------------
             # 4. Annotation with PyDANTICAI validation
             # ------------------------------------------------------
+            start = time.time()
             response_pydanticai_val = annotate(
                                 text_to_annotate,
                                 model_name,
@@ -949,7 +962,7 @@ def evaluate_json_annotations(
                                 tag_prompt,
                                 validation=True,
                                 validator="pydanticai")
-
+            annotation_times["pydanticai"] += time.time() - start
             eval_df = append_annotation_result(
                 eval_df,
                 model_name=model_name,
@@ -960,7 +973,7 @@ def evaluate_json_annotations(
                 json_path=file_path,
                 model_response=response_pydanticai_val,
                 groundtruth=groundtruth,
-            )"""
+            )
 
         # Save model's evaluation
         model_out_path = results_dir / f"{model_name.split("/")[1]}_{len(annotations)}" \
@@ -982,24 +995,29 @@ def evaluate_json_annotations(
             stats["instructor"]["no_hallucination"],
             stats["instructor"]["correct_answer"],
 
-            None, None, None,   # llamaindex
-            None, None, None,   # pydanticai
+            # None, None, None,   # llamaindex
+            # None, None, None,   # pydanticai
 
-            # stats["llamaindex"]["correct_format"],
-            # stats["llamaindex"]["no_hallucination"],
-            # stats["llamaindex"]["correct_answer"],
+            stats["llamaindex"]["correct_format"],
+            stats["llamaindex"]["no_hallucination"],
+            stats["llamaindex"]["correct_answer"],
 
-            # stats["pydanticai"]["correct_format"],
-            # stats["pydanticai"]["no_hallucination"],
-            # stats["pydanticai"]["correct_answer"],
+            stats["pydanticai"]["correct_format"],
+            stats["pydanticai"]["no_hallucination"],
+            stats["pydanticai"]["correct_answer"],
         ])
 
-        for validator in ["no_validation", "instructor"]:  #"llamaindex", "pydanticai"]
+        for validator in ["no_validation", "instructor", "llamaindex", "pydanticai"]:
             logger.debug(
                 f"Validator: {validator} | "
                 f"Correct format: {stats[validator]["correct_format"]}% | "
                 f"No hallucination: {stats[validator]["no_hallucination"]}% | "
                 f"Correct answer: {stats[validator]["correct_answer"]}%"
+            )
+        for validator, total_time in annotation_times.items():
+            avg_time = total_time / len(annotations)
+            logger.debug(
+                f"{validator}: total={total_time:.2f}s | avg={avg_time:.2f}s per text"
             )
 
     # Save summary stats for each models to xlsx

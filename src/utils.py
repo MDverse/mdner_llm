@@ -34,7 +34,7 @@ from pydantic_core import ValidationError as CoreValidationError
 from spacy import displacy
 from tqdm import tqdm
 
-from pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
+from src.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
 
 
 # FUNCTIONS
