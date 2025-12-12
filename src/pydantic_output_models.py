@@ -6,6 +6,8 @@ simulation times, force fields, software names). It provides a unified schema to
 validate,store, and manipulate NER results produced by automated extraction pipelines.
 """
 
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
@@ -34,37 +36,41 @@ class Entity(BaseModel):
 class Molecule(Entity):
     """Entity representing a molecule, protein, lipid, peptide, or similar object."""
 
-    label: str = Field("MOL", description="Label for molecule entities")
+    label: Literal["MOL"] = Field("MOL", description="Label for molecule entities")
 
 
 class SimulationTime(Entity):
-    """Entity representing a simulation time duration (e.g., 50 ns, 5 µs)."""
+    """Entity representing a simulation time duration (e.g., 50 ns, 5 ms)."""
 
-    label: str = Field("STIME", description="Label for simulation time entities")
+    label: Literal["STIME"] = Field("STIME",
+                                description="Label for simulation time entities")
 
 
 class ForceField(Entity):
     """Entity representing a force field used in the MD simulation."""
 
-    label: str = Field("FFM", description="Label for force field entities")
+    label: Literal["FFM"] = Field("FFM",
+                                description="Label for force field entities")
 
 
 class Temperature(Entity):
     """Entity representing a temperature value used in the simulation."""
 
-    label: str = Field("TEMP", description="Label for temperature entities")
+    label: Literal["TEMP"] = Field("TEMP", description="Label for temperature entities")
 
 
 class SoftwareName(Entity):
     """Entity representing the name of software used for simulations or analysis."""
 
-    label: str = Field("SOFTNAME", description="Label for software name entities")
+    label: Literal["SOFTNAME"] = Field("SOFTNAME",
+                                    description="Label for software name entities")
 
 
 class SoftwareVersion(Entity):
     """Entity representing the version of a software package."""
 
-    label: str = Field("SOFTVERS", description="Label for software version entities")
+    label: Literal["SOFTVERS"] = Field("SOFTVERS",
+                                    description="Label for software version entities")
 
 
 # =====================================================================
@@ -95,37 +101,37 @@ class EntityWithPosition(Entity):
 class MoleculePosition(EntityWithPosition):
     """Entity representing a molecule, protein, lipid, peptide, or similar object."""
 
-    label: str = Field("MOL")
+    label: Literal["MOL"] = Field("MOL")
 
 
 class SimulationTimePosition(EntityWithPosition):
-    """Entity representing a simulation time duration (e.g., 50 ns, 5 µs)."""
+    """Entity representing a simulation time duration (e.g., 50 ns, 5 ms)."""
 
-    label: str = Field("STIME")
+    label: Literal["STIME"] = Field("STIME")
 
 
 class ForceFieldPosition(EntityWithPosition):
     """Entity representing a force field used in the MD simulation."""
 
-    label: str = Field("FFM")
+    label: Literal["FFM"] = Field("FFM")
 
 
 class TemperaturePosition(EntityWithPosition):
     """Entity representing a temperature value used in the simulation."""
 
-    label: str = Field("TEMP")
+    label: Literal["TEMP"] = Field("TEMP")
 
 
 class SoftwareNamePosition(EntityWithPosition):
     """Entity representing the name of software used for simulations or analysis."""
 
-    label: str = Field("SOFTNAME")
+    label: Literal["SOFTNAME"] = Field("SOFTNAME")
 
 
 class SoftwareVersionPosition(EntityWithPosition):
     """Entity representing the version of a software package."""
 
-    label: str = Field("SOFTVERS")
+    label: Literal["SOFTVERS"] = Field("SOFTVERS")
 
 
 # =====================================================================
