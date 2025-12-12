@@ -99,7 +99,7 @@ from pydantic import ValidationError as PydanticValidationError
 from tqdm import tqdm
 
 # UTILITY IMPORTS
-from pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
+from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
 from utils import (
     annotate,
     assign_all_instructor_clients,
