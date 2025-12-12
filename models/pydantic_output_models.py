@@ -1,9 +1,18 @@
-"""Pydantic data models used to structure the output of LLMs NER tasks.
+"""Pydantic data models used to structure the output of LLM NER tasks.
 
-This module defines strongly typed entity classes representing the different kinds
-of annotations extracted from scientific molecular dynamics (MD) texts (e.g., molecules,
-simulation times, force fields, software names). It provides a unified schema to
-validate,store, and manipulate NER results produced by automated extraction pipelines.
+This module defines strongly typed entity classes representing different kinds
+of annotations extracted from scientific Molecular Dynamics (MD) texts
+(e.g., molecules, simulation times, force fields, software names).
+
+Each subclass uses Python's `Literal` type for its `label` field to enforce
+that only the correct entity type can be assigned. This is important because
+all entities share the same base fields (`label` and `text`), and without
+`Literal`, Pydantic would accept, for example, a force field (FFM) entity
+in a Molecule class without raising an error. Using `Literal` ensures strict
+schema validation and prevents misclassification of entities.
+
+It provides a unified schema to validate, store, and manipulate NER results
+produced by automated extraction pipelines.
 """
 
 from typing import Literal
