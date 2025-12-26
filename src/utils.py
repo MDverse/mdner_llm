@@ -927,7 +927,11 @@ def plot_top_entities(df, top_k=10, class_name="Class"):
     bars = plt.bar(top_df["entity"], top_df["count"], color=colors, edgecolor="black")
     plt.xticks(rotation=45, ha="right", fontsize=10)
     plt.yticks(fontsize=10)
-    plt.title(f"Top {top_k} entities for class {class_name}", fontsize=14, weight="bold")
+    plt.title(
+        f"Top {top_k} entities for class {class_name} (Total:{len(df)})",
+        fontsize=14,
+        weight="bold"
+    )
     plt.xlabel("Entity", fontsize=12)
     plt.ylabel("Count", fontsize=12)
 
