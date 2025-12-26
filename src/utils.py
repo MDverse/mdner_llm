@@ -9,6 +9,8 @@ import unicodedata
 from pathlib import Path
 
 import instructor
+import matplotlib.pyplot as plt
+import pandas as pd
 from dotenv import load_dotenv
 from instructor.core import (
     InstructorRetryException,
@@ -38,7 +40,7 @@ from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPosition
 
 
 # FUNCTIONS
-def check_json_validity(json_string: str) -> None:
+def check_json_validity(json_string: str) -> bool:
     """Check if the given string is a valid JSON.
 
     Parameters
@@ -899,3 +901,48 @@ def visualize_llm_annotation(response: ListOfEntities | ListOfEntitiesPositions,
     converted_data = convert_annotations(response, text_to_annotate)
     displacy.render(converted_data, style="ent", manual=True, options=options)
     print()
+
+
+def plot_top_entities(df, top_k=10, class_name="Class"):
+    """
+    Plot the top-k entities from a DataFrame as a bar chart with counts above bars.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        DataFrame containing columns 'entity' and 'count'.
+    top_k : int, optional
+        Number of top entities to display (default is 10).
+    class_name : str, optional
+        Name of the class to use in the title (default is "Class").
+    """
+    # Sort by count descending
+    top_df = df.sort_values("count", ascending=False).head(top_k)
+    n = len(top_df)
+    cmap = plt.get_cmap("viridis", n)
+    colors = [cmap(i) for i in range(n)]
+
+    # Plot
+    plt.figure(figsize=(12, 6))
+    bars = plt.bar(top_df["entity"], top_df["count"], color=colors, edgecolor="black")
+    plt.xticks(rotation=45, ha="right", fontsize=10)
+    plt.yticks(fontsize=10)
+    plt.title(f"Top {top_k} entities for class {class_name}", fontsize=14, weight="bold")
+    plt.xlabel("Entity", fontsize=12)
+    plt.ylabel("Count", fontsize=12)
+
+    # Add count labels on top of each bar
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(
+            bar.get_x() + bar.get_width() / 2,
+            height + max(top_df["count"]) * 0.01,  # slightly above the bar
+            f"{int(height)}",
+            ha="center",
+            va="bottom",
+            fontsize=10,
+            weight="bold"
+        )
+
+    plt.tight_layout()
+    plt.show()

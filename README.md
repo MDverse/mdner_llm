@@ -8,7 +8,7 @@ This project explores methods for reliably annotating dataset descriptions and s
 ```mermaid
 classDiagram
     class ListOfEntities {
-        entities: list[Molecule | SimulationTime | ForceField | Temperature | SoftwareName | SoftwareVersion]
+        entities: list[Molecule | SimulationTime | ForceFieldModel | Temperature | SoftwareName | SoftwareVersion]
     }
 
     class SoftwareVersion {
@@ -36,7 +36,7 @@ classDiagram
         text: str
     }
 
-    class ForceField {
+    class ForceFieldModel {
         label: str = 'FFM'
         text: str
     }
@@ -51,7 +51,7 @@ classDiagram
     ListOfEntities ..> SimulationTime
     ListOfEntities ..> Temperature
     ListOfEntities ..> SoftwareName
-    ListOfEntities ..> ForceField
+    ListOfEntities ..> ForceFieldModel
 ```
 
 
@@ -118,5 +118,18 @@ uv run src/count_entities.py --annotations-dir annotations/v2
 This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class.
 
 This command will also produce plots with class distribution for all entities and entity distribution by class.
+
+
+### 4. Quality Control Inventory of Named Entities
+
+To generate a QC inventory of named entities from annotation files, run:
+
+```sh
+uv run src/qc_entity_inventory.py \
+    --annot-folder annotations/v2 \
+    --out-folder results/qc_annotations
+```
+
+This command will scan all JSON annotations, aggregate and normalize entities per class, count their occurrences, and save one vocabulary file per class in the output folder. You can explore the results in `notebooks/qc_entity_inventory_explorer.ipynb`
 
 ---
