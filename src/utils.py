@@ -18,10 +18,11 @@ from instructor.core import (
 from instructor.core import (
     ValidationError as InstructorValidationError,
 )
-from instructor.core.client import Instructor
+from instructor.core.client import AsyncInstructor, Instructor
 from instructor.exceptions import (
     ValidationError as InstructorValidationError,  # noqa: F811
 )
+from llama_index.core.llms.structured_llm import StructuredLLM
 from llama_index.llms.openai import OpenAI
 from llama_index.llms.openrouter import OpenRouter
 from loguru import logger
@@ -397,12 +398,11 @@ def assign_all_pydanticai_clients(
 def annotate(
     text: str,
     model: str,
-    client: Instructor | OpenAI | OpenRouter | OpenAIChatModel,
+    client: Instructor | OpenAI | OpenAIChatModel | StructuredLLM | AsyncInstructor,
     tag_prompt: str,
     validator: str = "instructor",
     max_retries: int = 3,
-    prompt_json_path: Path = Path("prompts/json_few_shot.txt"),
-    prompt_positions_path: Path = Path("prompts/json_with_positions_few_shot.txt"),
+    path_prompt: Path = Path("prompts/json_few_shot.txt"),
     *,
     validation: bool = True
 ) -> ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions:
@@ -423,10 +423,8 @@ def annotate(
         "pydanticai" (Default is "instructor").
     max_retries : int, optional
         Maximum number of retries for the API call in case of failure, by default 3.
-    prompt_json_path: Path
-        The path to retrieve prompt to annotate only entities in JSON format.
-    prompt_positions_path: Path
-        The path to retrieve prompt to annotate entities+positions in JSON format.
+    path_prompt: Path
+        The path to retrieve prompt to annotate.
     validation : bool, optional
         Whether to validate the output against the schema, by default True.
 
@@ -446,10 +444,7 @@ def annotate(
         max_retries = 0
 
     # Set prompt based on positions of the start and end or without
-    prompt_json = prompt_json_path.read_text(encoding="utf-8")
-    prompt_positions = prompt_positions_path.read_text(encoding="utf-8")
-    prompt = prompt_json if tag_prompt == "json" else prompt_positions
-
+    prompt = path_prompt.read_text(encoding="utf-8")
     result = None
     # Query the LLM client for annotation
     if validator == "instructor":
@@ -460,14 +455,14 @@ def annotate(
                     {"role": "system",
                         "content": "Extract entities as structured JSON."},
                     {"role": "user",
-                        "content": f"{prompt}\nThe text to annotate:\n{text}"}
+                        "content": f"{prompt}\n{text}"}
                 ],
                 response_model=response_model,
                 max_retries=max_retries,
             )
         except InstructorRetryException as e:
             logger.warning(
-                f"    ⚠️ Validated annotation failed after {e.n_attempts} attempts."
+                f"   ⚠️  Validated annotation failed after {e.n_attempts} attempts."
             )
             # logger.warning(f"Total usage: {e.total_usage.total_tokens} tokens")
             return str(e.last_completion)
@@ -486,7 +481,7 @@ def annotate(
                 client = OpenAI(model=model.split("/")[1])
                 client = client.as_structured_llm(output_cls=output_model)
 
-            response = client.complete(f"{prompt}\nThe text to annotate:\n{text}")
+            response = client.complete(f"{prompt}\n{text}")
             result = response.raw
         except (PydanticValidationError, CoreValidationError, ValueError) as e:
             return str(e)
@@ -499,7 +494,7 @@ def annotate(
             system_prompt=("Extract entities as structured JSON."),
         )
         try:
-            response = agent.run_sync(f"{prompt}\nThe text to annotate:\n{text}")
+            response = agent.run_sync(f"{prompt}\n{text}")
             result = response.output
         except (
             PydanticValidationError,
@@ -950,3 +945,8 @@ def plot_top_entities(df, top_k=10, class_name="Class"):
 
     plt.tight_layout()
     plt.show()
+
+
+def sanitize_filename(s: str) -> str:
+    """Replace unsafe characters for filenames."""
+    return re.sub(r"[^\w\-_.]", "_", s)
