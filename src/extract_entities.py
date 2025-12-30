@@ -85,8 +85,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-
 import click
 import instructor
 from dotenv import load_dotenv
@@ -106,6 +104,8 @@ from pydantic_core import ValidationError as CoreValidationError
 
 # UTILITY IMPORTS
 from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 
 # FUNCTIONS
@@ -426,50 +426,6 @@ def annotate_with_pydanticai(
         return str(e), 0
 
 
-@click.command()
-@click.option(
-    "--tag-prompt",
-    default="json",
-    type=click.Choice(["json", "json_with_positions"]),
-    help="Descriptor indicating the format of the expected LLM output "
-    "(e.g., 'json' or 'json_with_positions')."
-)
-@click.option(
-    "--path-prompt",
-    required=True,
-    type=click.Path(exists=True, path_type=Path),
-    help="Path to the prompt file."
-)
-@click.option(
-    "--model",
-    required=True,
-    type=str,
-    help="Model name to use for extraction."
-)
-@click.option(
-    "--path-text",
-    required=True,
-    type=click.Path(exists=True, path_type=Path),
-    help="Path to the JSON text to process."
-)
-@click.option(
-    "--framework",
-    default=None,
-    type=click.Choice(["instructor", "llamaindex", "pydanticai"]),
-    help="Validation framework."
-)
-@click.option(
-    "--output-dir",
-    default="results/llm_annotations",
-    type=click.Path(exists=True, dir_okay=True, file_okay=False, path_type=Path),
-    help="Directory to save output files."
-)
-@click.option(
-    "--max-retries",
-    default=3,
-    type=int,
-    help="Maximum number of retries in case of API or validation failure."
-)
 def extract_entities(
     tag_prompt: str,
     path_prompt: Path,
@@ -612,6 +568,71 @@ def extract_entities(
                    "seconds successfully!")
 
 
+@click.command()
+@click.option(
+    "--tag-prompt",
+    default="json",
+    type=click.Choice(["json", "json_with_positions"]),
+    help="Descriptor indicating the format of the expected LLM output "
+    "(e.g., 'json' or 'json_with_positions')."
+)
+@click.option(
+    "--path-prompt",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to the prompt file."
+)
+@click.option(
+    "--model",
+    required=True,
+    type=str,
+    help="Model name to use for extraction."
+)
+@click.option(
+    "--path-text",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to the JSON text to process."
+)
+@click.option(
+    "--framework",
+    default=None,
+    type=click.Choice(["instructor", "llamaindex", "pydanticai"]),
+    help="Validation framework."
+)
+@click.option(
+    "--output-dir",
+    default="results/llm_annotations",
+    type=click.Path(exists=True, dir_okay=True, file_okay=False, path_type=Path),
+    help="Directory to save output files."
+)
+@click.option(
+    "--max-retries",
+    default=3,
+    type=int,
+    help="Maximum number of retries in case of API or validation failure."
+)
+def extract_entities_from_cli(
+    tag_prompt: str,
+    path_prompt: Path,
+    model: str,
+    path_text: Path,
+    framework: str,
+    output_dir: Path,
+    max_retries: int = 3
+) -> None:
+    """CLI entrypoint."""
+    extract_entities(
+        tag_prompt=tag_prompt,
+        path_prompt=path_prompt,
+        model=model,
+        path_text=path_text,
+        framework=framework,
+        output_dir=output_dir,
+        max_retries=max_retries,
+    )
+
+
 # MAIN PROGRAM
 if __name__ == "__main__":
-    extract_entities()
+    extract_entities_from_cli()
