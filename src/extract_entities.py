@@ -1,52 +1,70 @@
 """
 Extract structured entities from a text using a specified LLM and framework.
 
-This script applies a language model to a single text and extracts structured
-entities based on a provided prompt. It supports multiple frameworks to guide
-or validate the extraction.
+This script applies a language model to a single text file and extracts
+structured entities based on a provided prompt. It supports multiple
+frameworks to guide or validate the extraction.
 
-The output is a JSON object containing the extracted entities, which may
-include labels, text, and optional character positions depending on the prompt.
+The output consists of:
+1. A JSON file containing metadata about the extraction and the serialized
+   model response.
+2. A plain text file containing the raw response from the model.
 
 Usage:
 =======
-    uv run src/extract_entities.py --tag-prompt str
-                                   --prompt PATH
-                                   --model MODEL_NAME
-                                   --text PATH
-                                   --framework {none,instructor,llamaindex,pydanticai}
+uv run src/extract_entities.py --path-prompt PATH --model STR --path-text PATH
+                               [--tag-prompt STR] [--framework STR]
+                               [--output-dir PATH] [--max-retries INT]
 
 Arguments:
 ==========
-    --tag-prompt: str
-        Descriptor indicating the format of the expected LLM output \
-        (e.g., 'json' or 'json_with_positions').
-
-    --prompt: PATH
+    --path-prompt: Path
         Path to a text file containing the extraction prompt.
 
-    --model: STR
-        Language model name to use for extraction from OpenRouter (https://openrouter.ai/models).
+    --model: str
+        Language model name to use for extraction find in OpenRouter page model
+        (https://openrouter.ai/models). Example: "openai/gpt-4o-mini".
 
-    --text: PATH
-        Path to a JSON file with the source text.
+    --path-text: Path
+        Path to a JSON file containing the text to annotate.
+        Must include a key "raw_text" with the text content.
 
-    --framework: STR
-        Validation framework to apply to model outputs. Default: "none".
-        Choices: "none", "instructor", "llamaindex", "pydanticai"
+    --tag-prompt: str (Optional)
+        Descriptor indicating the format of the expected LLM output.
+        Choices: "json" or "json_with_positions".
+        Default: "json"
+
+    --framework: str (Optional)
+        Validation framework to apply to model outputs.
+        Choices: "instructor", "llamaindex", "pydanticai".
+        Default: None (no framework)
+
+    --output-dir: Path (Optional)
+        Directory where the output JSON and text files will be saved.
+        Default: "results/llm_annotations"
+
+    --max-retries: int (Optional)
+        Maximum number of retries in case of API or validation failure.
+        Default: 3
 
 Example:
 ========
-    uv run src/extract_entities.py \
-        --tag-prompt json \
-        --path-prompt prompts/json_few_shot.txt \
-        --model  openai/gpt-4o \
-        --text annotations/v2/figshare_121241.json \
-        --framework instructor
+uv run src/extract_entities.py \
+    --path-prompt prompts/json_few_shot.txt \
+    --model openai/gpt-4o \
+    --path-text annotations/v2/figshare_121241.json \
+    --tag-prompt json \
+    --framework instructor \
+    --output-dir results/llm_annotations \
+    --max-retries 3
 
-This command will use GPT-4o to extract entities
-from `annotations/v2/figshare_121241.json` according to the instructions in
-`prompts/json_few_shot.txt`, applying the "instructor" validation framework.
+This command will extract entities from `annotations/v2/figshare_121241.json`
+using the prompt in `prompts/json_few_shot.txt` and the "instructor"
+validation framework, saving results in `results/llm_annotations` with base
+filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files
+will be generated: a JSON metadata file (`.json`) and a text file with the raw
+model response (`.txt`). The command will retry up to 3 times in case of API
+errors.
 """
 
 # METADATAS
@@ -60,24 +78,34 @@ __version__ = "1.0.0"
 # LIBRARY IMPORTS
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import click
 import instructor
 from dotenv import load_dotenv
+from instructor.core import InstructorRetryException
+from instructor.core.exceptions import ModeError, ProviderError
+from instructor.core.exceptions import ValidationError as InstructorValidationError
+from llama_index.llms.openai import OpenAI as llamaOpenAI
 from llama_index.llms.openrouter import OpenRouter
 from loguru import logger
 from openai.types.chat import ChatCompletion
+from pydantic import ValidationError as PydanticValidationError
+from pydantic_ai import Agent
+from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
+from pydantic_core import ValidationError as CoreValidationError
 
 # UTILITY IMPORTS
 from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
-from utils import annotate, sanitize_filename
 
 
 # FUNCTIONS
@@ -133,6 +161,7 @@ def serialize_response(resp: Any) -> str:
     if isinstance(resp, str):
         return resp
 
+    # If it's a ListOfEntities or ListOfEntitiesPositions object
     if isinstance(resp, (ListOfEntities, ListOfEntitiesPositions)):
         return resp.model_dump_json(indent=2)
 
@@ -143,28 +172,312 @@ def serialize_response(resp: Any) -> str:
     return str(resp)
 
 
+def sanitize_filename(s: str) -> str:
+    """Replace unsafe characters for filenames.
+
+    This function replaces any character that is not a letter, digit,
+    underscore, hyphen, or dot with an underscore. It helps prevent issues
+    with filesystem restrictions across different operating systems.
+
+    Parameters
+    ----------
+    s : str
+        The input string to sanitize.
+
+    Returns
+    -------
+    str
+        A sanitized string safe for use as a filename.
+    """
+    return re.sub(r"[^\w\-_.]", "_", s)
+
+
+def annotate_with_instructor(
+    text: str,
+    model: str,
+    prompt: str,
+    response_model: ListOfEntities | ListOfEntitiesPositions | None,
+    max_retries: int = 3,
+) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
+            float | int]:
+    """
+    Annotate a text using the Instructor framework.
+
+    This function queries an LLM via Instructor to extract structured entities
+    from the input text. When validation is enabled, the output is validated
+    against a Pydantic schema and returned as a structured object.
+
+    Parameters
+    ----------
+    text : str
+        Input text to annotate.
+    model : str
+        Identifier of the LLM model to use.
+    prompt : str
+        Instruction prompt provided to the model.
+    response_model : ListOfEntities | ListOfEntitiesPositions | None
+        Pydantic model used to validate and parse the LLM output.
+        If ``None``, no validation is applied and the raw output is returned.
+    max_retries : int (Default is 3)
+        Maximum number of retries in case of API or validation failure.
+
+    Returns
+    -------
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions
+        Annotation result returned by the LLM. The returned type depends on
+        whether validation is enabled and on the chosen response model.
+    float | int:
+        The time elapsed for the inference.
+    """
+    # Instantiate an Instructor client for the requested model.
+    client = instructor.from_provider(model, async_client=False,
+                                                mode=instructor.Mode.JSON)
+
+    try:
+        # Query the LLM
+        start_time = time.time()
+        llm_response = client.create(
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Extract entities as structured JSON.",
+                },
+                {
+                    "role": "user",
+                    "content": f"{prompt}\n{text}",
+                },
+            ],
+            # The response is optionally validated against the provided Pydantic model.
+            response_model=response_model,
+            max_retries=max_retries,
+        )
+        elapsed_time: int | float = time.time() - start_time
+        return llm_response, elapsed_time
+
+    except InstructorValidationError as exc:
+        # Raised when the LLM output does not conform to the expected schema.
+        logger.warning("Validation failed: %s", exc)
+        return str(exc), 0
+
+    except InstructorRetryException as exc:
+        # Raised when all retry attempts fail.
+        logger.warning("Failed after %d attempts", exc.n_attempts)
+        logger.warning("Last completion: %s", exc.last_completion)
+        return str(exc.last_completion), 0
+
+    except (ProviderError, ModeError) as exc:
+        # Catch-all for provider-level, mode-related, or parsing errors.
+        logger.warning("Instructor error: %s", exc)
+        return str(exc), 0
+
+
+def annotate_with_llamaindex(
+    text: str,
+    model: str,
+    prompt: str,
+    response_model: ListOfEntities | ListOfEntitiesPositions | None,
+) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
+            float | int]:
+    """
+    Annotate a text using the Llamaindex framework.
+
+    This function queries an LLM via Llamaindex to extract structured entities
+    from the input text. When validation is enabled, the output is validated
+    against a Pydantic schema and returned as a structured object.
+
+    Parameters
+    ----------
+    text : str
+        Input text to annotate.
+    model : str
+        Identifier of the LLM model to use.
+    prompt : str
+        Instruction prompt provided to the model.
+    response_model : ListOfEntities | ListOfEntitiesPositions | None
+        Pydantic model used to validate and parse the LLM output.
+        If ``None``, no validation is applied and the raw output is returned.
+
+    Returns
+    -------
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions
+        Annotation result returned by the LLM. The returned type depends on
+        whether validation is enabled and on the chosen response model.
+    float | int:
+        The time elapsed for the inference.
+
+    Raises
+    ------
+    ValueError
+        If the environment variable ``OPENROUTER_API_KEY`` is not set or
+        if a ValueError occurs during the LLM call.
+    """
+    # Retrive the openrouter api key
+    load_dotenv()
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if api_key is None:
+        msg = "OPENROUTER_API_KEY must be set in the environment"
+        raise ValueError(msg)
+
+    # Instantiate an Llamaindex client for the requested model
+    llm = OpenRouter(model=model, api_key=api_key)
+    client = llm.as_structured_llm(output_cls=response_model)
+
+    try:
+        # Query the LLM
+        start_time = time.time()
+        if model.startswith("openai"):
+            api_key = os.getenv("OPENAI_API_KEY")
+            if api_key is None:
+                msg = "OPENAI_API_KEY must be set in the environment"
+                raise ValueError(msg)
+            model_name = model.split("/")[1]
+            client = llamaOpenAI(model=model_name, api_key=api_key)
+            client = client.as_structured_llm(output_cls=response_model)
+
+        llm_response = client.complete(f"{prompt}\n{text}").raw
+        elapsed_time: int | float = time.time() - start_time
+        return llm_response, elapsed_time
+
+    except ValueError as e:
+        logger.error(f"ValueError during LLM call: {e}")
+        return str(e), 0
+
+    except PydanticValidationError as e:
+        logger.error(f"Pydantic validation error: {e}")
+        return str(e), 0
+
+
+def annotate_with_pydanticai(
+    text: str,
+    model: str,
+    prompt: str,
+    response_model: ListOfEntities | ListOfEntitiesPositions | None,
+    max_retries: int = 3,
+) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
+            float | int]:
+    """
+    Annotate a text using the PydanticAI framework.
+
+    This function queries an LLM via PydanticAI to extract structured entities
+    from the input text. When validation is enabled, the output is validated
+    against a Pydantic schema and returned as a structured object.
+
+    Parameters
+    ----------
+    text : str
+        Input text to annotate.
+    model : str
+        Identifier of the LLM model to use.
+    prompt : str
+        Instruction prompt provided to the model.
+    response_model : ListOfEntities | ListOfEntitiesPositions | None
+        Pydantic model used to validate and parse the LLM output.
+        If ``None``, no validation is applied and the raw output is returned.
+    max_retries : int (Default is 3)
+        Maximum number of retries in case of API or validation failure.
+
+    Returns
+    -------
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions
+        Annotation result returned by the LLM. The returned type depends on
+        whether validation is enabled and on the chosen response model.
+    float | int:
+        The time elapsed for the inference.
+
+    Raises
+    ------
+    ValueError
+        If the environment variable ``OPENROUTER_API_KEY`` is not set or
+        if a ValueError occurs during the LLM call.
+    """
+    # Retrive the openrouter api key
+    load_dotenv()
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if api_key is None:
+        msg = "OPENROUTER_API_KEY must be set in the environment"
+        raise ValueError(msg)
+
+    # Instantiate an PydanticAI client for the requested model
+    client = OpenAIChatModel(model, provider=OpenRouterProvider(api_key=api_key))
+
+    try:
+        # Query the LLM
+        start_time = time.time()
+        agent = Agent(
+            model=client,
+            output_type=response_model,
+            retries=max_retries,
+            system_prompt=("Extract entities as structured JSON."),
+        )
+        llm_response = agent.run_sync(f"{prompt}\n{text}").output
+        elapsed_time: int | float = time.time() - start_time
+        return llm_response, elapsed_time
+
+    except PydanticValidationError as e:
+        logger.error(f"Pydantic validation error: {e}")
+        return str(e), 0
+
+    except CoreValidationError as e:
+        logger.error(f"Core validation error: {e}")
+        return str(e), 0
+
+    except UnexpectedModelBehavior as e:
+        logger.error(f"Unexpected model behavior: {e}")
+        return str(e), 0
+
+
 @click.command()
-@click.option("--tag-prompt", required=True, type=click.Choice(["json", "json_with_positions"]),
-              help="Descriptor indicating the format of the expected LLM output \
-                (e.g., 'json' or 'json_with_positions').")
-@click.option("--path-prompt", required=True, type=click.Path(exists=True),
-              help="Path to the prompt file.")
-@click.option("--model", required=True, type=str,
-              help="Model name to use for extraction.")
-@click.option("--path-text", required=True, type=click.Path(exists=True),
-              help="Path to the JSON text to process.")
-@click.option("--framework", default=None,
-              type=click.Choice(["instructor", "llamaindex", "pydanticai"]),
-              help="Validation framework.")
-@click.option("--output-dir", default="results/llm_annotations", type=click.Path(),
-              help="Directory to save output files.")
+@click.option(
+    "--tag-prompt",
+    default="json",
+    type=click.Choice(["json", "json_with_positions"]),
+    help="Descriptor indicating the format of the expected LLM output "
+    "(e.g., 'json' or 'json_with_positions')."
+)
+@click.option(
+    "--path-prompt",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to the prompt file."
+)
+@click.option(
+    "--model",
+    required=True,
+    type=str,
+    help="Model name to use for extraction."
+)
+@click.option(
+    "--path-text",
+    required=True,
+    type=click.Path(exists=True, path_type=Path),
+    help="Path to the JSON text to process."
+)
+@click.option(
+    "--framework",
+    default=None,
+    type=click.Choice(["instructor", "llamaindex", "pydanticai"]),
+    help="Validation framework."
+)
+@click.option(
+    "--output-dir",
+    default="results/llm_annotations",
+    type=click.Path(exists=True, dir_okay=True, file_okay=False, path_type=Path),
+    help="Directory to save output files."
+)
+@click.option(
+    "--max-retries",
+    default=3,
+    type=int,
+    help="Maximum number of retries in case of API or validation failure."
+)
 def extract_entities(
     tag_prompt: str,
     path_prompt: Path,
     model: str,
     path_text: Path,
     framework: str,
-    output_dir: Path
+    output_dir: Path,
+    max_retries: int = 3
 ) -> None:
     """
     Extract structured entities from a text using a specified LLM and framework.
@@ -175,88 +488,128 @@ def extract_entities(
         Path to the prompt file.
     model : str
         Model name to use for extraction.
-    text : str
+    path_text : str
         Path to the JSON text to process.
     framework : str
         Validation framework.
     output_dir : str
         Directory to save output files.
+    max_retries : int (Default is 3)
+        Maximum number of retries in case of API or validation failure.
+
+    Raises
+    ------
+    FileNotFoundError
+        If either the text file or prompt file does not exist.
+    json.JSONDecodeError
+        If the JSON text file cannot be parsed.
+    KeyError
+        If the key "raw_text" is missing from the JSON text file.
     """
     setup_logger(logger, log_dir="logs")
     logger.info("Starting the extraction of entities...")
-    logger.debug(tag_prompt)
-    logger.debug(path_prompt)
-    logger.debug(model)
-    logger.debug(path_text)
-    logger.debug(framework)
-    logger.debug(output_dir)
+    logger.debug(f"===================================================== "
+                 f"📝 Text to annotate path: {path_text} "
+                 f"=====================================================")
+    logger.debug(
+        f"🤖 Model: {model} | 🛠️ Framework: {framework} | 🏷️ Tag: {tag_prompt} | "
+        f"💬 Prompt path: {path_prompt} | 📂 Output dir: {output_dir} | "
+        f"🔁 Max retries: {max_retries}\n"
+    )
 
     # Load text to annotate
-    text_path = Path(path_text)
-    with open(text_path, encoding="utf-8") as f:
-        data = json.load(f)
-        text_to_annotate = data["raw_text"]
+    try:
+        with open(path_text, encoding="utf-8") as f:
+            data = json.load(f)
+            text_to_annotate = data["raw_text"]
+    except FileNotFoundError:
+        logger.error("File not found: %s", path_text)
+        raise
+    except json.JSONDecodeError as e:
+        logger.error("Invalid JSON in file %s: %s", path_text, e)
+        raise
+    except KeyError:
+        logger.error("Expected key 'raw_text' not found in %s", path_text)
+        raise
+    preview = text_to_annotate[:75].replace("\n", " ")
+    logger.debug(f"Loaded text ({len(text_to_annotate)} chars): {preview}...")
 
-    # Retrive the openrouter api key
-    load_dotenv()
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if api_key is None:
-        msg = "OPENROUTER_API_KEY must be set in the environment"
-        raise ValueError(msg)
+    # Load prompt from txt file
+    try:
+        prompt = path_prompt.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        logger.error(f"File not found: {path_prompt}")
+        raise
+    preview = prompt[:75].replace("\n", " ")
+    logger.debug(f"Loaded prompt ({len(prompt)} chars): {preview}...\n")
 
-    # Assign clients based on framework
-    validation = True
-    if framework == "instructor" or framework is None:
-        client = instructor.from_provider(model, mode=instructor.Mode.JSON)
-    elif framework == "llamaindex":
-        llm = OpenRouter(model=model, api_key=api_key)
-        output_model = ListOfEntities if tag_prompt == "json" else ListOfEntitiesPositions
-        client = llm.as_structured_llm(output_cls=output_model)
-    elif framework == "pydanticai":
-        client = OpenAIChatModel(model, provider=OpenRouterProvider(api_key=api_key))
+    # Set response model and retries based on
+    if framework:
+        if tag_prompt == "json":
+            response_model = ListOfEntities
+        else:
+            response_model = ListOfEntitiesPositions
     else:
-        validation = False
-        msg = f"Unknown framework '{framework}'." \
-            "Valid options: 'instructor', 'llamaindex', 'pydanticai'"
-        raise ValueError(msg)
+        response_model = None
+        max_retries = 0
 
     # Run annotation and time it
-    start_time = time.time()
-    path_prompt = Path(path_prompt)
-    response = annotate(text_to_annotate, model, client, tag_prompt, framework, path_prompt=path_prompt, validation=validation)
-    elapsed_time = time.time() - start_time
+    if framework == "instructor" or framework is None:
+        llm_response, inference_time = annotate_with_instructor(
+            text_to_annotate,
+            model,
+            prompt,
+            response_model,
+            max_retries
+        )
+
+    elif framework == "llamaindex":
+        llm_response, inference_time = annotate_with_llamaindex(
+            text_to_annotate,
+            model,
+            prompt,
+            response_model,
+        )
+
+    elif framework == "pydanticai":
+        llm_response, inference_time = annotate_with_pydanticai(
+            text_to_annotate,
+            model,
+            prompt,
+            response_model,
+            max_retries
+        )
 
     # Prepare output paths
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     model_safe = sanitize_filename(model)
-    base_name = f"{text_path.stem}_{model_safe}_{framework}_{timestamp}"
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    base_name = f"{path_text.stem}_{model_safe}_{framework}_{timestamp}"
     json_output_path = output_dir / f"{base_name}.json"
     txt_output_path = output_dir / f"{base_name}.txt"
 
     # Save JSON metadata + response
     json_data = {
-        "model": model,
-        "framework": framework,
-        "text_file": str(text_path),
-        "output_file": str(txt_output_path),
-        "elapsed_time_sec": elapsed_time,
         "timestamp": timestamp,
-        "response": serialize_response(response)
+        "output_file": str(txt_output_path),
+        "text_file": str(path_text),
+        "framework": framework,
+        "model": model,
+        "inference_time_sec": inference_time,
+        "response": serialize_response(llm_response)
     }
-    with open(json_output_path, "w", encoding="utf-8") as f:
-        json.dump(json_data, f, indent=4, ensure_ascii=False)
+    json_output_path.write_text(json.dumps(json_data, indent=4, ensure_ascii=False),
+                                 encoding="utf-8")
+    logger.debug(f"Saved JSON output to {json_output_path}")
 
     # Save raw model response
     txt_output_path.write_text(
-        serialize_response(response),
+        serialize_response(llm_response),
         encoding="utf-8",
     )
+    logger.debug(f"Saved raw response to {txt_output_path}")
 
-    logger.info(f"Saved JSON output to {json_output_path}")
-    logger.info(f"Saved raw response to {txt_output_path}")
-    logger.info(f"Annotation completed in {elapsed_time:.2f} seconds.")
+    logger.success(f"Completed the extraction of entities in {inference_time:.2f} "
+                   "seconds successfully!")
 
 
 # MAIN PROGRAM
