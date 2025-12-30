@@ -1,0 +1,14 @@
+# ty.toml
+
+[environment]
+python-version = "3.13"
+
+[src]
+include = ["src/"]
+exclude = ["venv/", ".venv/", "results/", "logs/"]
+
+[rules]
+invalid-argument-type = "ignore"
+no-matching-overload = "ignore"
+unresolved-attribute = "ignore"
+unresolved-import = "ignore"

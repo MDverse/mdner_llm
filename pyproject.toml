@@ -20,8 +20,9 @@ dependencies = [
     "pydantic-ai>=1.19.0",
     "python-dotenv>=1.1.1",
     "seaborn>=0.13.2",
-    "spacy[lookups,transformers]>=3.8.7",
     "tqdm>=4.67.1",
+    "spacy[lookups,transformers]>=3.8.7",
+    "ty>=0.0.8",
     "watermark>=2.5.0",
 ]
 
