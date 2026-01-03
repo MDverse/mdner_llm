@@ -85,6 +85,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import click
 import instructor
 from dotenv import load_dotenv
@@ -104,8 +106,6 @@ from pydantic_core import ValidationError as CoreValidationError
 
 # UTILITY IMPORTS
 from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
-
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 
 # FUNCTIONS
@@ -140,6 +140,34 @@ def setup_logger(loguru_logger: Any, log_dir: str | Path = "logs") -> None:
         format=fmt,
         level="DEBUG",
     )
+
+
+def ensure_dir(ctx, param, value: Path) -> Path:
+    """
+    Create the directory if it does not already exist.
+
+    Callback for Click options to ensure the provided path
+    is a valid directory. Behaves like `mkdir -p`.
+
+    Parameters
+    ----------
+    ctx : click.Context
+        The Click context for the current command invocation.
+        (Required by Click callbacks but unused in this function.)
+    param : click.Parameter
+        The Click parameter associated with this callback.
+        (Required by Click callbacks but unused in this function.)
+    value : Path
+        The directory path provided by the user, already converted
+        into a `pathlib.Path` object by Click.
+
+    Returns
+    -------
+    Path
+        The same path, after ensuring the directory exists.
+    """
+    value.mkdir(parents=True, exist_ok=True)
+    return value
 
 
 def serialize_response(resp: Any) -> str:
@@ -478,6 +506,17 @@ def extract_entities(
         with open(path_text, encoding="utf-8") as f:
             data = json.load(f)
             text_to_annotate = data["raw_text"]
+            # Retrieve the groundtruth annotation
+            entities = data["entities"]
+            if tag_prompt == "json":
+                # We remove the "start" and "end" keys
+                normalized = [
+                    {"label": ent.get("label"), "text": ent.get("text")}
+                    for ent in entities
+                ]
+                groundtruth = ListOfEntities(entities=normalized)
+            else:
+                groundtruth = ListOfEntitiesPositions(entities=entities)
     except FileNotFoundError:
         logger.error("File not found: %s", path_text)
         raise
@@ -537,7 +576,7 @@ def extract_entities(
         )
 
     # Prepare output paths
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
     model_safe = sanitize_filename(model)
     base_name = f"{path_text.stem}_{model_safe}_{framework}_{timestamp}"
     json_output_path = output_dir / f"{base_name}.json"
@@ -548,10 +587,11 @@ def extract_entities(
         "timestamp": timestamp,
         "output_file": str(txt_output_path),
         "text_file": str(path_text),
-        "framework": framework,
-        "model": model,
+        "framework_name": framework,
+        "model_name": model,
         "inference_time_sec": inference_time,
-        "response": serialize_response(llm_response)
+        "eaw_llm_response": serialize_response(llm_response),
+        "groundtruth": serialize_response(groundtruth)
     }
     json_output_path.write_text(json.dumps(json_data, indent=4, ensure_ascii=False),
                                  encoding="utf-8")
@@ -603,8 +643,9 @@ def extract_entities(
 @click.option(
     "--output-dir",
     default="results/llm_annotations",
-    type=click.Path(exists=True, dir_okay=True, file_okay=False, path_type=Path),
-    help="Directory to save output files."
+    type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
+    help="Directory to save output files.",
+    callback=ensure_dir
 )
 @click.option(
     "--max-retries",

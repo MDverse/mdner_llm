@@ -89,6 +89,68 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 > Remark: This .env file is ignored by git.
 
 ---
+
+## Usage
+
+### Extract entities
+
+
+To extract structured entities from a single text using a specified LLM and framework, run :
+
+```sh
+uv run src/extract_entities.py \
+    --path-prompt prompts/json_few_shot.txt \
+    --model openai/gpt-4o \
+    --path-text annotations/v2/figshare_121241.json \
+    --tag-prompt json \
+    --framework instructor \
+    --output-dir results/llm_annotations \
+    --max-retries 3
+```
+
+
+***Options***:
+
+- `--path-prompt`: Path to a text file containing the extraction prompt.
+
+- `--model`: Language model name to use for extraction find in OpenRouter page model (https://openrouter.ai/models). Example: "openai/gpt-4o-mini".
+
+- `--path-text`: Path to a JSON file containing the text to annotate.
+    Must include a key "raw_text" with the text content.
+
+- `--tag-prompt` (Optional, Default: "json"): Descriptor indicating the format of the expected LLM output. Choices: "json" or "json_with_positions".
+
+- `--framework` (Optional, Default: None (no framework)): Validation framework to apply to model outputs. Choices: "instructor", "llamaindex", "pydanticai".
+
+- `--output-dir` (Optional; Default: "results/llm_annotations"): Directory where the output JSON and text files will be saved.
+    
+
+- `--max-retries` (Optional, Default: 3): Maximum number of retries in case of API or validation failure.
+    
+> This command will extract entities from `annotations/v2/figshare_121241.json` using the prompt in `prompts/json_few_shot.txt` and the "instructor"
+validation framework, saving results in `results/llm_annotations` with base filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files will be generated: a JSON metadata file (`.json`) and a text file with the raw model response (`.txt`). The command will retry up to 3 times in case of API
+errors.
+
+
+### Extract entities for multiple texts
+
+To extract structured entities from multiple texts (from a text file containing selected path of annotation texts: `--path-texts`) using a specified LLM and framework, run :
+
+```sh
+uv run src/extract_entities_all_texts.py \
+        --path-prompt prompts/json_few_shot.txt \
+        --model openai/gpt-4o \
+        --path-texts  results/50_selected_files_20260103_002043.txt \
+        --tag-prompt json \
+        --framework instructor \
+        --output-dir results/llm_annotations \
+        --max-retries 3
+```
+
+> This command processes up to annotation files from ``results/50_selected_files_20260103_002043.txt`` and saves the corresponding ``.json`` and ``.txt`` outputs
+in ``results/llm_annotations/{file_name}_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS``.
+
+
 ## Utilities
 
 ### 1. Format JSON annotations
@@ -137,6 +199,5 @@ defining **annotation rules in molecular dynamics**, helping standardize
 formats, units, and naming conventions. The generated files can be 
 explored in [`notebooks/qc_entity_inventory_explorer.ipynb`](notebooks/qc_entity_inventory_explorer.ipynb) 
 and the rules are documented in [`docs/annotation_rules.md`](docs/annotation_rules.md).
-
 
 ---
