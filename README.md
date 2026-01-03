@@ -113,19 +113,17 @@ uv run src/extract_entities.py \
 
 - `--path-prompt`: Path to a text file containing the extraction prompt.
 
-- `--model`: Language model name to use for extraction find in OpenRouter page model (https://openrouter.ai/models). Example: "openai/gpt-4o-mini".
+- `--model`: Language model name to use for extraction find in OpenRouter page model (https://openrouter.ai/models).
 
-- `--path-text`: Path to a JSON file containing the text to annotate.
-    Must include a key "raw_text" with the text content.
+- `--path-text`: Path to a JSON file containing the text to annotate. Must include a key "raw_text" with the text content.
 
-- `--tag-prompt` (Optional, Default: "json"): Descriptor indicating the format of the expected LLM output. Choices: "json" or "json_with_positions".
+- `--tag-prompt` (Default: "json"): Descriptor indicating the format of the expected LLM output. Choices: "json" or "json_with_positions".
 
-- `--framework` (Optional, Default: None (no framework)): Validation framework to apply to model outputs. Choices: "instructor", "llamaindex", "pydanticai".
+- `--framework` (Default: None): Validation framework to apply to model outputs. Choices: "instructor", "llamaindex", "pydanticai".
 
-- `--output-dir` (Optional; Default: "results/llm_annotations"): Directory where the output JSON and text files will be saved.
+- `--output-dir` (Default: "results/llm_annotations"): Directory where the output JSON and text files will be saved.
     
-
-- `--max-retries` (Optional, Default: 3): Maximum number of retries in case of API or validation failure.
+- `--max-retries` (Default: 3): Maximum number of retries in case of API or validation failure.
     
 > This command will extract entities from `annotations/v2/figshare_121241.json` using the prompt in `prompts/json_few_shot.txt` and the "instructor"
 validation framework, saving results in `results/llm_annotations` with base filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files will be generated: a JSON metadata file (`.json`) and a text file with the raw model response (`.txt`). The command will retry up to 3 times in case of API
@@ -161,7 +159,7 @@ To format old json annotations, run:
 uv run src/format_json_annotations.py
 ```
 
-This command processes all JSON files in `annotations/v1`, reformats the entities with their text and exact positions, and saves the formatted files to `annotations/v2`.
+> This command processes all JSON files in `annotations/v1`, reformats the entities with their text and exact positions, and saves the formatted files to `annotations/v2`.
 
 
 ### 2. Correct JSON annotations
@@ -177,9 +175,7 @@ To perform statistics on the distribution of annotations per files and class, ru
 uv run src/count_entities.py --annotations-dir annotations/v2
 ```
 
-This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class.
-
-This command will also produce plots with class distribution for all entities and entity distribution by class.
+> This command processes all JSON files listed, counts the number of entities per class for each annotation, and outputs a TSV file with the filename, text length, and entity counts per class. It will also produce plots with class distribution for all entities and entity distribution by class.
 
 
 ### 4. Quality Control Inventory of Named Entities
@@ -192,7 +188,9 @@ uv run src/qc_entity_inventory.py \
     --out-folder results/qc_annotations
 ```
 
-This command will scan all JSON annotations, aggregate and normalize entities per class, count their occurrences, and save one vocabulary file per class in the output folder. 
+> This command will scan all JSON annotations, aggregate and normalize entities per class, count their occurrences, and save one vocabulary file per class in the output folder. 
+
+
 > 💡 Running a QC inventory on annotation files ensures that all entities are 
 consistently aggregated and normalized. This is a crucial step for 
 defining **annotation rules in molecular dynamics**, helping standardize 
@@ -201,7 +199,7 @@ explored in [`notebooks/qc_entity_inventory_explorer.ipynb`](notebooks/qc_entity
 and the rules are documented in [`docs/annotation_rules.md`](docs/annotation_rules.md).
 
 
-### 5. Quality Control Inventory of Named Entities
+### 5. Select informative annotation JSON files
 
 To select informative annotation JSON files and export their paths in a text file, run:
 
