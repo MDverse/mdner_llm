@@ -34,10 +34,12 @@ from pathlib import Path
 import click
 from loguru import logger
 
+EntityInfo = dict[str, int | list[str]]
+
 
 def collect_entity_counts(
     annot_folder: Path,
-) -> defaultdict[str, defaultdict[str, int]]:
+) -> dict[str, dict[str, EntityInfo]]:
     """
     Collect normalized entity counts per class from annotation files.
 
@@ -48,13 +50,11 @@ def collect_entity_counts(
 
     Returns
     -------
-    defaultdict[str, defaultdict[str, int]]
+    dict[str, dict[str, EntityInfo]]
         Nested dictionary mapping class labels to entity occurrence counts.
     """
     logger.info("Collecting entity count...")
-    entity_counts: defaultdict[str, defaultdict[str, int]] = defaultdict(
-        lambda: defaultdict(int),
-    )
+    entity_counts: dict[str, dict[str, EntityInfo]] = {}
     json_files = list(annot_folder.glob("*.json"))
     logger.debug(f"Found {len(json_files)} JSON files")
 
@@ -69,27 +69,32 @@ def collect_entity_counts(
             logger.error(f"Failed to parse JSON file {json_file.name}: {exc}")
             continue
 
-        entities = data.get("entities", [])
-        for entity in entities:
+        for entity in data.get("entities", []):
             label = entity.get("label")
             text = entity.get("text")
-
             if not label or not text:
                 continue
 
             normalized_text = text.lower()
-            entity_counts[label][normalized_text] += 1
 
-    class_labels = sorted(entity_counts.keys())
-    classes_str = ", ".join(class_labels)
+            if label not in entity_counts:
+                entity_counts[label] = {}
+
+            if normalized_text not in entity_counts[label]:
+                entity_counts[label][normalized_text] = {"count": 0, "files": []}
+
+            entity_counts[label][normalized_text]["count"] += 1  # ty:ignore[unsupported-operator]
+            entity_counts[label][normalized_text]["files"].append(str(json_file))  # ty:ignore[possibly-missing-attribute]
+
     logger.success(
-        f"Collected entity counts for {len(class_labels)} classes: {classes_str}! \n"
+        f"Collected entity counts for {len(entity_counts)} classes: "
+        f"{', '.join(sorted(entity_counts.keys()))}!"
     )
     return entity_counts
 
 
 def write_inventory_files(
-    entity_counts: defaultdict[str, defaultdict[str, int]],
+    entity_counts: defaultdict[str, defaultdict[str, dict[str, object]]],
     out_folder: Path,
 ) -> None:
     """
@@ -107,12 +112,13 @@ def write_inventory_files(
 
     for label, entities in entity_counts.items():
         output_path = out_folder / f"{label}.txt"
-        total_occurrences = sum(entities.values())
+        total_occurrences = sum(e["count"] for e in entities.values())
 
         sorted_entities = sorted(
             entities.items(),
-            key=lambda item: (-item[1], item[0]),
+            key=lambda item: (-item[1]["count"], item[0]),
         )
+
         with output_path.open("w", encoding="utf-8") as handle:
             handle.write("# QC ENTITY INVENTORY\n")
             handle.write(f"# Class: {label}\n")
@@ -120,8 +126,9 @@ def write_inventory_files(
             handle.write(f"# Total occurrences: {total_occurrences}\n")
             handle.write("# ----------------------------------------\n")
 
-            for entity_text, count in sorted_entities:
-                handle.write(f"{entity_text}\t{count}\n")
+            for entity_text, info in sorted_entities:
+                files_str = ", ".join(info["files"])
+                handle.write(f"{entity_text}\t{info['count']}\t[{files_str}]\n")
 
         logger.debug(f"Written file {output_path.name}")
 

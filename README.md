@@ -130,6 +130,13 @@ uv run src/qc_entity_inventory.py \
     --out-folder results/qc_annotations
 ```
 
-This command will scan all JSON annotations, aggregate and normalize entities per class, count their occurrences, and save one vocabulary file per class in the output folder. You can explore the results in `notebooks/qc_entity_inventory_explorer.ipynb`
+This command will scan all JSON annotations, aggregate and normalize entities per class, count their occurrences, and save one vocabulary file per class in the output folder. 
+> 💡 Running a QC inventory on annotation files ensures that all entities are 
+consistently aggregated and normalized. This is a crucial step for 
+defining **annotation rules in molecular dynamics**, helping standardize 
+formats, units, and naming conventions. The generated files can be 
+explored in [`notebooks/qc_entity_inventory_explorer.ipynb`](notebooks/qc_entity_inventory_explorer.ipynb) 
+and the rules are documented in [`docs/annotation_rules.md`](docs/annotation_rules.md).
+
 
 ---
