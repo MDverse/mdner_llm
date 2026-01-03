@@ -200,4 +200,17 @@ formats, units, and naming conventions. The generated files can be
 explored in [`notebooks/qc_entity_inventory_explorer.ipynb`](notebooks/qc_entity_inventory_explorer.ipynb) 
 and the rules are documented in [`docs/annotation_rules.md`](docs/annotation_rules.md).
 
+
+### 5. Quality Control Inventory of Named Entities
+
+To select informative annotation JSON files and export their paths in a text file, run:
+
+```sh
+uv run src/select_annotation_files.py \
+        --annotations-dir annotations/v2 \
+        --nb-files 50 \
+        --res-path results/50_selected_files_20260103
+```
+
+> This command selects up to 50 annotation JSON files from `annotations/v2` according to entity coverage and recency, and writes their paths to: `results/50_selected_files_20260103.txt`
 ---

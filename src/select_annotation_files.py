@@ -40,9 +40,9 @@ uv run src/select_annotation_files.py \
         --nb-files 50 \
         --res-path results/50_selected_files_20260102
 
-This command selects up to 50 annotation JSON files `from annotations/v2`
+This command selects up to 50 annotation JSON files from `annotations/v2`
 according to entity coverage and recency, and writes their paths to:
-`results/50_selected_files_20260102/selected_annotation_files.txt`
+`results/50_selected_files_20260102.txt`
 """
 
 # METADATAS
