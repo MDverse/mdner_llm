@@ -257,9 +257,13 @@ def annotate_with_instructor(
     float | int:
         The time elapsed for the inference.
     """
+    # Retrive the openrouter api key
+    load_dotenv()
+    api_key = os.getenv("OPENROUTER_API_KEY")
     # Instantiate an Instructor client for the requested model.
     client = instructor.from_provider(model, async_client=False,
-                                                mode=instructor.Mode.JSON)
+                                                mode=instructor.Mode.JSON,
+                                                api_key=api_key)
 
     try:
         # Query the LLM
