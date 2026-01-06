@@ -226,14 +226,12 @@ def main(
         tsv_path=tsv_path,
     )
 
-    output_file = res_path / "selected_annotation_files.txt"
-
     with res_path.open("w", encoding="utf-8") as handle:
         for path in selected_files:
             handle.write(f"{path}\n")
 
     logger.success(
-        f"Wrote selected file paths to {output_file} successfully!"
+        f"Wrote selected file paths to {res_path} successfully!"
     )
 
 
