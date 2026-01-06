@@ -288,18 +288,18 @@ def annotate_with_instructor(
 
     except InstructorValidationError as exc:
         # Raised when the LLM output does not conform to the expected schema.
-        logger.warning("Validation failed: %s", exc)
+        logger.warning(f"Validation failed: {exc}")
         return str(exc), 0
 
     except InstructorRetryException as exc:
         # Raised when all retry attempts fail.
-        logger.warning("Failed after %d attempts", exc.n_attempts)
-        logger.warning("Last completion: %s", exc.last_completion)
+        logger.warning(f"Failed after {exc.n_attempts} attempts")
+        logger.warning(f"Last completion: {exc.last_completion}")
         return str(exc.last_completion), 0
 
     except (ProviderError, ModeError) as exc:
         # Catch-all for provider-level, mode-related, or parsing errors.
-        logger.warning("Instructor error: %s", exc)
+        logger.warning(f"Instructor error: {exc}")
         return str(exc), 0
 
 
@@ -494,7 +494,7 @@ def extract_entities(
     KeyError
         If the key "raw_text" is missing from the JSON text file.
     """
-    setup_logger(logger, log_dir="logs")
+    setup_logger(logger, log_dir=output_dir)
     logger.info("Starting the extraction of entities...")
     logger.debug(f"===================================================== "
                  f"📝 Text to annotate path: {path_text} "
@@ -594,9 +594,10 @@ def extract_entities(
         "framework_name": framework,
         "model_name": model,
         "inference_time_sec": inference_time,
-        "eaw_llm_response": serialize_response(llm_response),
+        "raw_llm_response": serialize_response(llm_response),
         "groundtruth": serialize_response(groundtruth)
     }
+    output_dir.mkdir(parents=True, exist_ok=True)
     json_output_path.write_text(json.dumps(json_data, indent=4, ensure_ascii=False),
                                  encoding="utf-8")
     logger.debug(f"Saved JSON output to {json_output_path}")
