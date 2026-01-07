@@ -46,7 +46,7 @@ To be continued...
 
 **Rules:**
 - Avoid trailing or leading spaces.
-- Only allow software names from the **controlled list** defined in [`docs/md_software.md`](docs/md_software.md).
+- Only allow software names from the **controlled list** defined in [`docs/md_software.md`](md_software.md).
 
 ---
 
