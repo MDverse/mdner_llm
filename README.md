@@ -92,7 +92,7 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 
 ## Usage
 
-### Extract entities
+### Extract entities of one text 🗎
 
 
 To extract structured entities from a single text using a specified LLM and framework, run :
@@ -108,6 +108,9 @@ uv run src/extract_entities.py \
     --max-retries 3
 ```
 
+> This command will extract entities from `annotations/v2/figshare_121241.json` using the prompt in `prompts/json_few_shot.txt` and the "instructor"
+validation framework, saving results in `results/llm_annotations` with base filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files will be generated: a JSON metadata file (`.json`) and a text file with the raw model response (`.txt`). The command will retry up to 3 times in case of API
+errors.
 
 ***Options***:
 
@@ -124,13 +127,10 @@ uv run src/extract_entities.py \
 - `--output-dir` (Default: "results/llm_annotations"): Directory where the output JSON and text files will be saved.
     
 - `--max-retries` (Default: 3): Maximum number of retries in case of API or validation failure.
-    
-> This command will extract entities from `annotations/v2/figshare_121241.json` using the prompt in `prompts/json_few_shot.txt` and the "instructor"
-validation framework, saving results in `results/llm_annotations` with base filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files will be generated: a JSON metadata file (`.json`) and a text file with the raw model response (`.txt`). The command will retry up to 3 times in case of API
-errors.
 
 
-### Extract entities for multiple texts
+
+### Extract entities for multiple texts 🗐
 
 To extract structured entities from multiple texts (from a text file containing selected path of annotation texts: `--path-texts`) using a specified LLM and framework, run :
 

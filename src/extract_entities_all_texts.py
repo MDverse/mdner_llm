@@ -223,6 +223,7 @@ def extract_entities_all_texts(
         for line in path_texts.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
+    print()
     start_time = time.time()
     for file_path in tqdm(
         selected_files,

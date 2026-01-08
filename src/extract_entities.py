@@ -223,6 +223,7 @@ def sanitize_filename(s: str) -> str:
 def annotate_with_instructor(
     text: str,
     model: str,
+    api_key: str | None,
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
@@ -241,6 +242,9 @@ def annotate_with_instructor(
         Input text to annotate.
     model : str
         Identifier of the LLM model to use.
+    api_key : str | None
+        API key used to authenticate requests to OpenRouter
+        (typically provided via the ``OPENROUTER_API_KEY`` environment variable).
     prompt : str
         Instruction prompt provided to the model.
     response_model : ListOfEntities | ListOfEntitiesPositions | None
@@ -256,14 +260,26 @@ def annotate_with_instructor(
         whether validation is enabled and on the chosen response model.
     float | int:
         The time elapsed for the inference.
+
+    Raises
+    ------
+    ValueError
+        If the OpenRouter API key is missing (``OPENROUTER_API_KEY`` is not set),
+        preventing initialization of the Instructor client.
     """
-    # Retrive the openrouter api key
-    load_dotenv()
-    api_key = os.getenv("OPENROUTER_API_KEY")
+    if api_key is None:
+        msg = "OPENROUTER_API_KEY is not set. Unable to initialize Instructor client."
+        logger.error(msg)
+        raise ValueError(msg)
+
     # Instantiate an Instructor client for the requested model.
-    client = instructor.from_provider(model, async_client=False,
-                                                mode=instructor.Mode.JSON,
-                                                api_key=api_key)
+    client = instructor.from_provider(
+        model,
+        async_client=False,
+        mode=instructor.Mode.JSON,
+        base_url="https://openrouter.ai/api/v1",
+        api_key=api_key,
+    )
 
     try:
         # Query the LLM
@@ -306,6 +322,7 @@ def annotate_with_instructor(
 def annotate_with_llamaindex(
     text: str,
     model: str,
+    api_key: str | None,
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
 ) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
@@ -323,6 +340,9 @@ def annotate_with_llamaindex(
         Input text to annotate.
     model : str
         Identifier of the LLM model to use.
+    api_key : str | None
+        API key used to authenticate requests to OpenRouter
+        (typically provided via the ``OPENROUTER_API_KEY`` environment variable).
     prompt : str
         Instruction prompt provided to the model.
     response_model : ListOfEntities | ListOfEntitiesPositions | None
@@ -343,11 +363,9 @@ def annotate_with_llamaindex(
         If the environment variable ``OPENROUTER_API_KEY`` is not set or
         if a ValueError occurs during the LLM call.
     """
-    # Retrive the openrouter api key
-    load_dotenv()
-    api_key = os.getenv("OPENROUTER_API_KEY")
     if api_key is None:
         msg = "OPENROUTER_API_KEY must be set in the environment"
+        logger.error(msg)
         raise ValueError(msg)
 
     # Instantiate an Llamaindex client for the requested model
@@ -358,12 +376,12 @@ def annotate_with_llamaindex(
         # Query the LLM
         start_time = time.time()
         if model.startswith("openai"):
-            api_key = os.getenv("OPENAI_API_KEY")
-            if api_key is None:
+            openai_api_key = os.getenv("OPENAI_API_KEY")
+            if openai_api_key is None:
                 msg = "OPENAI_API_KEY must be set in the environment"
                 raise ValueError(msg)
             model_name = model.split("/")[1]
-            client = llamaOpenAI(model=model_name, api_key=api_key)
+            client = llamaOpenAI(model=model_name, api_key=openai_api_key)
             client = client.as_structured_llm(output_cls=response_model)
 
         llm_response = client.complete(f"{prompt}\n{text}").raw
@@ -382,6 +400,7 @@ def annotate_with_llamaindex(
 def annotate_with_pydanticai(
     text: str,
     model: str,
+    api_key: str | None,
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
@@ -400,6 +419,9 @@ def annotate_with_pydanticai(
         Input text to annotate.
     model : str
         Identifier of the LLM model to use.
+    api_key : str | None
+        API key used to authenticate requests to OpenRouter
+        (typically provided via the ``OPENROUTER_API_KEY`` environment variable).
     prompt : str
         Instruction prompt provided to the model.
     response_model : ListOfEntities | ListOfEntitiesPositions | None
@@ -422,11 +444,9 @@ def annotate_with_pydanticai(
         If the environment variable ``OPENROUTER_API_KEY`` is not set or
         if a ValueError occurs during the LLM call.
     """
-    # Retrive the openrouter api key
-    load_dotenv()
-    api_key = os.getenv("OPENROUTER_API_KEY")
     if api_key is None:
         msg = "OPENROUTER_API_KEY must be set in the environment"
+        logger.error(msg)
         raise ValueError(msg)
 
     # Instantiate an PydanticAI client for the requested model
@@ -542,7 +562,7 @@ def extract_entities(
     preview = prompt[:75].replace("\n", " ")
     logger.debug(f"Loaded prompt ({len(prompt)} chars): {preview}...\n")
 
-    # Set response model and retries based on
+    # Set response model and retries based on tag and framework
     if framework:
         if tag_prompt == "json":
             response_model = ListOfEntities
@@ -552,11 +572,16 @@ def extract_entities(
         response_model = None
         max_retries = 0
 
+    # Retrive the openrouter api key
+    load_dotenv()
+    api_key = os.getenv("OPENROUTER_API_KEY")
+
     # Run annotation and time it
     if framework == "instructor" or framework is None:
         llm_response, inference_time = annotate_with_instructor(
             text_to_annotate,
             model,
+            api_key,
             prompt,
             response_model,
             max_retries
@@ -566,6 +591,7 @@ def extract_entities(
         llm_response, inference_time = annotate_with_llamaindex(
             text_to_annotate,
             model,
+            api_key,
             prompt,
             response_model,
         )
@@ -574,6 +600,7 @@ def extract_entities(
         llm_response, inference_time = annotate_with_pydanticai(
             text_to_annotate,
             model,
+            api_key,
             prompt,
             response_model,
             max_retries
@@ -593,6 +620,8 @@ def extract_entities(
         "text_file": str(path_text),
         "framework_name": framework,
         "model_name": model,
+        "prompt_path": str(path_prompt),
+        "tag_prompt": str(tag_prompt),
         "inference_time_sec": inference_time,
         "raw_llm_response": serialize_response(llm_response),
         "groundtruth": serialize_response(groundtruth)
