@@ -263,6 +263,7 @@ def annotate_with_instructor(
     # Instantiate an Instructor client for the requested model.
     client = instructor.from_provider(model, async_client=False,
                                                 mode=instructor.Mode.JSON,
+                                                base_url="https://openrouter.ai/api/v1",
                                                 api_key=api_key)
 
     try:
