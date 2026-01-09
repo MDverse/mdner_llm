@@ -65,8 +65,6 @@ Example:
 ========
     uv run src/evaluate_json_annotations.py \
         --annotations-dir annotations/v2 \
-        --nb-annotations 50 \
-        --tag-prompt json \
         --results-dir results/json_evaluation_stats/test
 
 This command will evaluate the 50 most recent annotation files found in
@@ -85,11 +83,15 @@ __version__ = "1.0.0"
 
 # LIBRARY IMPORTS
 import json
+import re
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
-import time
 from typing import Any
+import unicodedata
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import click
 import pandas as pd
@@ -100,30 +102,6 @@ from tqdm import tqdm
 
 # UTILITY IMPORTS
 from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
-from utils import (
-    annotate,
-    assign_all_instructor_clients,
-    assign_all_llamaindex_clients,
-    assign_all_pydanticai_clients,
-    normalize_text,
-)
-
-# CONSTANTS
-# To adapt on your needs :
-MODELS_OPENROUTER = [
-    #"openai/gpt-5",
-    "openai/gpt-4o",
-    #"openai/gpt-oss-120b",
-    "meta-llama/llama-4-maverick",
-    #"moonshotai/kimi-k2-thinking",
-    #"google/gemini-3-pro-preview",
-    "qwen/qwen-2.5-72b-instruct",
-    "deepseek/deepseek-chat-v3-0324",
-    #"allenai/olmo-3-32b-think",
-    #"openai/gpt-5.1",
-    #"openai/gpt-5-nano",
-    #"openai/gpt-5-mini",
-]
 
 
 # FUNCTIONS
@@ -188,128 +166,235 @@ def ensure_dir(ctx, param, value: Path) -> Path:
     return value
 
 
-def load_interesting_annotations(
-    annotations_dir: Path,
-    nb_files: int,
-    tag_prompt: str,
-    tsv_path: str = "results/all_annotations_entities_count.tsv",
-) -> list[dict[str, Any]]:
+def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
     """
-    Load the `nb_files` most interesting annotation JSON files.
+    Load JSON annotation files into a DataFrame.
 
-    Selection priority:
-        1. Files with at least one entity of each type.
-        2. Complete with files having between 2 and 5 molecules.
-        3. Fill remaining slots with most recent files.
+    Each row corresponds to one JSON file, and each column corresponds
+    to a top-level key found in the JSON objects.
+
+    Parameters
+    ----------
+    annotations_dir : Path
+        Directory containing JSON annotation files.
 
     Returns
     -------
-    list[dict[str, Any]]
-        Annotation records sorted by modification date (newest first).
-
-    Raises
-    ------
-    ValueError
-        If:
-            - no JSON files are found in the directory,
-            - the TSV file does not contain required columns,
-            - annotation JSON files lack required fields ("raw_text", "entities"),
-            - `tag_prompt` is invalid.
+    pd.DataFrame
+        DataFrame with one row per file and JSON keys as columns.
     """
-    logger.info(f"Loading annotation records from {annotations_dir}...")
+    logger.info(f"Loading annotations from {annotations_dir}...")
+    records: list[dict[str, object]] = []
 
-    # ---- Load TSV entity counts ----
-    df = pd.read_csv(tsv_path, sep="\t")
-    cols = [col for col in df.columns if col.endswith("_nb") and col != "SOFTVERS_nb"]
-
-    # Files with at least one entity of each type
-    df_all_entities = df[(df[cols] > 0).all(axis=1)]
-
-    # Files with between 2 and 5 molecules
-    if "MOLECULE_nb" in df.columns:
-        df_medium_mol = df[(df["MOLECULE_nb"] >= 2) & (df["MOLECULE_nb"] <= 5)]
-    else:
-        df_medium_mol = pd.DataFrame(columns=df.columns)
-
-    # ---- List JSON files by date ----
-    json_files = sorted(
-        (p for p in annotations_dir.glob("*.json") if p.is_file()),
-        key=lambda p: p.stat().st_mtime,
-        reverse=True,
-    )
-    if not json_files:
-        msg = f"No JSON files found in {annotations_dir}"
-        raise ValueError(msg)
-
-    # Convert to names for matching
-    file_to_path = {p.name: p for p in json_files}
-
-    # ---- Priority 1 selection : all-entities files ----
-    selected_names = []
-
-    for fname in df_all_entities["filename"]:
-        if fname in file_to_path:
-            selected_names.append(fname)
-        if len(selected_names) >= nb_files:
-            break
-
-    # ---- Priority 2: molecules 2-5 ----
-    if len(selected_names) < nb_files:
-        for fname in df_medium_mol["filename"]:
-            if fname in file_to_path and fname not in selected_names:
-                selected_names.append(fname)
-            if len(selected_names) >= nb_files:
-                break
-
-    # ---- Priority 3: fallback to most recent files ----
-    if len(selected_names) < nb_files:
-        for p in json_files:
-            if p.name not in selected_names:
-                selected_names.append(p.name)
-            if len(selected_names) >= nb_files:
-                break
-
-    # Keep correct order = recent first
-    selected_files = [file_to_path[name] for name in selected_names]
-
-    # ---- Load JSON contents ----
-    records = []
-
-    for file_path in selected_files:
+    for json_file in sorted(annotations_dir.glob("*.json")):
         try:
-            with file_path.open(encoding="utf-8") as f:
-                data = json.load(f)
+            with json_file.open(encoding="utf-8") as handle:
+                data: dict[str, object] = json.load(handle)
         except json.JSONDecodeError as exc:
-            logger.warning(f"Invalid JSON in {file_path}: {exc}")
+            logger.warning(f"Skipping invalid JSON file {json_file.name}: {exc}")
             continue
 
-        raw_text = data.get("raw_text")
-        entities_with_positions = data.get("entities")
+        data["__file__"] = json_file.name
+        records.append(data)
 
-        if raw_text is None or entities_with_positions is None:
-            msg = f"Missing required fields in {file_path}"
-            raise ValueError(msg)
+    df = pd.DataFrame.from_records(records)
+    logger.success(
+        f"Loaded {df.shape[0]} annotation files into DataFrame successfully! \n")
 
-        # Remove positions if tag_prompt = "json"
-        if tag_prompt == "json":
-            entities = [
-                {"label": ent.get("label"), "text": ent.get("text")}
-                for ent in entities_with_positions
-            ]
-            groundtruth = ListOfEntities(entities=entities)
-        else:
-            groundtruth = ListOfEntitiesPositions(entities=entities_with_positions)
+    return pd.DataFrame.from_records(records)
 
-        records.append(
+
+def add_raw_text_column(df: pd.DataFrame,
+    text_file_col: str = "text_file"
+) -> pd.DataFrame:
+    """
+    Extract 'raw_text' from JSON into a new column'text_to_annotate' in the Df.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame containing a column with paths to JSON files.
+    text_file_col : str
+        Name of the column containing paths to JSON files.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame with an additional column 'text_to_annotate' containing
+        the raw text from each JSON file.
+    """
+    logger.info("Adding the text to annotate in the dataframe...")
+    raw_texts: list[str] = []
+
+    for _idx, json_path in enumerate(df[text_file_col]):
+        path = Path(json_path)
+        if not path.exists():
+            logger.warning(f"JSON file not found: {json_path}")
+            raw_texts.append("")
+            continue
+
+        try:
+            with path.open(encoding="utf-8") as f:
+                data = json.load(f)
+            raw_text = data.get("raw_text", "")
+        except (json.JSONDecodeError, OSError) as exc:
+            logger.warning(f"Failed to read {json_path}: {exc}")
+            raw_text = ""
+
+        raw_texts.append(raw_text)
+
+    df = df.copy()
+    df["text_to_annotate"] = raw_texts
+    logger.success(f"Added 'text_to_annotate' column for {len(df)} files successfully! \n")
+    return df
+
+
+def parse_model(
+    obj: ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str | dict,
+    model_class: type[ListOfEntities | ListOfEntitiesPositions],
+) -> ListOfEntities | ListOfEntitiesPositions | None:
+    """
+    Parse an object into a Pydantic model instance containing `.entities`.
+
+    Supports:
+    - Direct Pydantic model instance
+    - ChatCompletion object
+    - JSON string
+    - Python dict representing JSON
+
+    Parameters
+    ----------
+    obj : ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str | dict
+        The object to parse into a Pydantic model.
+    model_class : type[ListOfEntities | ListOfEntitiesPositions]
+        The Pydantic model class to use for parsing.
+
+    Returns
+    -------
+    ListOfEntities | ListOfEntitiesPositions | None
+        The parsed model instance with an `.entities` attribute, or `None`
+        if parsing fails or if the result has no `.entities`.
+    """
+    try:
+        if isinstance(obj, model_class):
+            entities_model = obj
+        elif isinstance(obj, ChatCompletion):
+            content = obj.choices[0].message.content
+            entities_model = model_class.model_validate_json(content)
+        else:  # str or dict
+            json_str = obj if isinstance(obj, str) else json.dumps(obj)
+            entities_model = model_class.model_validate_json(json_str)
+    except (PydanticValidationError, ValueError, TypeError):
+        return None
+
+    if not hasattr(entities_model, "entities"):
+        return None
+
+    return entities_model
+
+
+def compute_confusion_metrics(
+    df: pd.DataFrame,
+    pred_col: str = "raw_llm_response",
+    gt_col: str = "groundtruth",
+    text_col: str = "text_to_annotate",
+    prompt_tag_col: str = "tag_prompt",
+    beta: float = 0.5,
+) -> pd.DataFrame:
+    """
+    Compute confusion matrix metrics per annotation file.
+
+    Metrics are computed at entity level using exact matching
+    on tuples (label, normalized_text).
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Input DataFrame containing predictions, groundtruth, original text, and prompt tag.
+    pred_col : str
+        Column name containing LLM responses (various types supported).
+    gt_col : str
+        Column name containing ground-truth annotations.
+    text_col : str
+        Column name containing the original text that was annotated.
+    prompt_tag_col : str
+        Column name defining expected JSON format ("json" or "json_with_positions").
+    beta : float
+        Beta value for F-beta score (default: 0.5).
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame with confusion metrics and derived scores added.
+    """
+    logger.info("Computing evaluation metrics per annotation...")
+
+    def _safe_div(num: float, den: float) -> float:
+        return num / den if den > 0 else 0.0
+
+    def _compute_row(row: pd.Series) -> pd.Series:
+        response = row[pred_col]
+        groundtruth = row[gt_col]
+        prompt_tag = row[prompt_tag_col]
+
+        # Select correct model class
+        model_class = ListOfEntities if prompt_tag == "json" else ListOfEntitiesPositions
+
+        # Parse both response and groundtruth in one line using a list comprehension
+        pred_model, gt_model = [parse_model(o, model_class) for o in (response, groundtruth)]
+        # Handle missing models
+        if pred_model is None or gt_model is None:
+            return pd.Series(
+                {
+                    "true_positives": 0,
+                    "false_positives": 0,
+                    "false_negatives": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1": 0.0,
+                    f"fbeta_{beta}": 0.0,
+                }
+            )
+
+        # Create sets of (label, normalized_text)
+        preds_set = {(e.label, normalize_text(e.text)) for e in pred_model.entities}
+        gt_set = {(e.label, normalize_text(e.text)) for e in gt_model.entities}
+
+        tp = len(preds_set & gt_set)
+        fp = len(preds_set - gt_set)
+        fn = len(gt_set - preds_set)
+
+        precision = _safe_div(tp, tp + fp)
+        recall = _safe_div(tp, tp + fn)
+        f1 = _safe_div(2 * precision * recall, precision + recall)
+        fbeta = _safe_div((1 + beta**2) * precision * recall, (beta**2 * precision) + recall)
+
+        return pd.Series(
             {
-                "file_path": file_path,
-                "text_to_annotate": raw_text,
-                "groundtruth": groundtruth,
+                "true_positives": tp,
+                "false_positives": fp,
+                "false_negatives": fn,
+                "precision": precision,
+                "recall": recall,
+                "f1": f1,
+                f"fbeta_{beta}": fbeta,
             }
         )
 
-    logger.success(f"Selected {len(records)} interesting annotations!\n")
-    return records
+    metrics = df.apply(_compute_row, axis=1)
+    res_df = pd.concat([df, metrics], axis=1)
+    mean_metrics = {
+        "Precision": res_df["precision"].mean(),
+        "Recall": res_df["recall"].mean(),
+        "F1": res_df["f1"].mean(),
+        f"F{beta}": res_df[f"fbeta_{beta}"].mean(),
+    }
+    logger.debug(
+        f"\n{'Metric':>10} | {'Mean':>6}\n"
+        f"{'-' * 20}\n" + "\n".join(f"{name:>10} | {value:6.3f}"
+        for name, value in mean_metrics.items()))
+    logger.success(f"Completed metrics computation for {len(res_df)} files!\n")
+    return res_df
 
 
 def is_valid_output_format(
@@ -433,6 +518,116 @@ def has_no_hallucination(
     return True
 
 
+def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Compute evaluation statistics grouped by framework and model.
+
+    For each combination of `framework_name` and `model_name`, this function:
+    - Computes the number of annotations
+    - Calculates the fraction of valid LLM responses
+    - Calculates the fraction of responses without hallucinations
+    - Aggregates true positives, false positives, and false negatives
+    - Computes precision, recall, F1 score, and F-beta score (β=0.5 by default)
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame containing at least the following columns:
+        - "framework_name": name of the annotation framework
+        - "model_name": LLM model name
+        - "raw_llm_response": raw LLM output
+        - "text_to_annotate": original text that was annotated
+        - "prompt_tag": tag specifying expected JSON format
+            ("json" or "json_with_positions")
+        - "true_positives", "false_positives", "false_negatives": counts per row
+
+    Returns
+    -------
+    pd.DataFrame
+        Aggregated metrics per framework and model with the following columns:
+        - "framework_name", "model_name"
+        - "nb_annotations": number of annotations
+        - "pct_valid": fraction of valid responses
+        - "pct_no_hallucination": fraction of responses without hallucinations
+        - "true_positives", "false_positives", "false_negatives": summed per group
+        - "precision", "recall", "f1", "fbeta_0.5": aggregated metrics
+    """
+    df = df.copy()
+
+    # Apply row-level checks for validity and hallucinations
+    def _row_flags(row: pd.Series) -> pd.Series:
+        response = row["raw_llm_response"]
+        original_text = row["text_to_annotate"]
+        prompt_tag = row.get("prompt_tag", "json")
+
+        valid = is_valid_output_format(response, prompt_tag)
+        no_halluc = has_no_hallucination(response, original_text, prompt_tag)
+
+        return pd.Series({
+            "is_valid": valid,
+            "no_hallucination": no_halluc,
+        })
+
+    flags = df.apply(_row_flags, axis=1)
+    df = pd.concat([df, flags], axis=1)
+
+    # Aggregate per framework and per model
+    grouped = (
+        df.groupby(["framework_name", "model_name"])
+        .agg(
+            nb_annotations=("raw_llm_response", "count"),
+            pct_valid=("is_valid", "mean"),
+            pct_no_hallucination=("no_hallucination", "mean"),
+            true_positives=("true_positives", "sum"),
+            false_positives=("false_positives", "sum"),
+            false_negatives=("false_negatives", "sum"),
+        )
+        .reset_index()
+    )
+
+    # Compute precision, recall, F1, F-beta per group
+    beta = 0.5
+    grouped["precision"] = grouped["true_positives"] / (
+        grouped["true_positives"] + grouped["false_positives"] + 1e-8
+    )
+    grouped["recall"] = grouped["true_positives"] / (
+        grouped["true_positives"] + grouped["false_negatives"] + 1e-8
+    )
+    grouped["f1"] = 2 * (grouped["precision"] * grouped["recall"]) / (
+        grouped["precision"] + grouped["recall"] + 1e-8
+    )
+    grouped[f"fbeta_{beta}"] = (
+        (1 + beta**2) * grouped["precision"] * grouped["recall"] /
+        (beta**2 * grouped["precision"] + grouped["recall"] + 1e-8)
+    )
+
+    return grouped
+
+
+def normalize_text(text: str) -> str:
+    """Normalize text by removing special characters and converting to lowercase.
+
+    Parameters
+    ----------
+    text : str
+        The text to normalize.
+
+    Returns
+    -------
+    str
+        The normalized text.
+    """
+    # Normalize unicode characters
+    text_normalized = unicodedata.normalize("NFKD", text)
+    # Convert to lowercase
+    text_normalized = text_normalized.lower()
+    # Remove extra whitespace
+    text_normalized = re.sub(r"\s+", " ", text_normalized)
+    # Strip leading and trailing whitespace
+    text_normalized = text_normalized.strip()
+    return text_normalized
+
+
 def compute_entity_match_percent(
     response: ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str,
     groundtruth: ListOfEntities | ListOfEntitiesPositions,
@@ -534,6 +729,10 @@ def serialize_response(resp: Any) -> str:
     # If it's already a string, nothing to do.
     if isinstance(resp, str):
         return resp
+
+    # If it's a ListOfEntities or ListOfEntitiesPositions object
+    if isinstance(resp, (ListOfEntities, ListOfEntitiesPositions)):
+        return resp.model_dump_json(indent=2)
 
     # Specific handling for ChatCompletion-like objects
     if isinstance(resp, ChatCompletion):
@@ -749,31 +948,69 @@ def save_evaluation_results(
     logger.success(f"Evaluation stats saved to: {path} successfully! \n")
 
 
+def save_grouped_stats_to_excel(
+    df: pd.DataFrame,
+    results_dir: Path,
+    filename_prefix: str = "evaluation_summary",
+) -> Path:
+    """
+    Save grouped evaluation statistics to an Excel file with MultiIndex columns.
+
+    The output Excel file is structured with one row per model and
+    MultiIndex columns of the form:
+        (framework_name, metric)
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame produced by `compute_grouped_stats`.
+    results_dir : Path
+        Directory where the Excel file will be saved.
+    filename_prefix : str
+        Prefix used for the output Excel filename.
+
+    Returns
+    -------
+    Path
+        Path to the generated Excel file.
+    """
+    metrics = [
+        "nb_annotations",
+        "pct_valid",
+        "pct_no_hallucination",
+        "precision",
+        "recall",
+        "f1",
+        "fbeta_0.5",
+    ]
+
+    # Pivot to MultiIndex columns: (framework, metric)
+    df_pivot = (
+        df.set_index(["model_name", "framework_name"])[metrics]
+        .unstack("framework_name")
+    )
+
+    # Reorder column levels: (framework, metric)
+    df_pivot.columns = df_pivot.columns.swaplevel(0, 1)
+    df_pivot = df_pivot.sort_index(axis=1, level=0)
+
+    output_path = results_dir / f"{filename_prefix}_{results_dir.name}.xlsx"
+    df_pivot.to_excel(output_path, index=True)
+
+    logger.success(
+        f"Grouped evaluation statistics saved successfully to: {output_path}\n"
+    )
+
+    return output_path
+
+
 @click.command()
 @click.option(
     "--annotations-dir",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("annotations/v2"),
+    default=Path("results/llm_annotations"),
     show_default=True,
     help="Directory containing the JSON annotation files to evaluate."
-)
-@click.option(
-    "--nb-annotations",
-    type=int,
-    default=10,
-    show_default=True,
-    help="Number of annotation samples to evaluate."
-)
-@click.option(
-    "--tag-prompt",
-    type=click.Choice(["json", "json_with_positions"], case_sensitive=False),
-    default="json",
-    show_default=True,
-    help=(
-        "Tag determining the expected format of the LLM output. "
-        "'json' requests only labels and text, while 'json_with_positions' "
-        "also includes start and end character positions."
-    )
 )
 @click.option(
     "--results-dir",
@@ -785,28 +1022,15 @@ def save_evaluation_results(
 )
 def evaluate_json_annotations(
     annotations_dir: Path,
-    nb_annotations: int,
-    tag_prompt: str,
     results_dir: Path,
 ) -> None:
     """
-    Evaluate the quality of JSON entity annotations produced by multiple LLM models.
-
-    This command loads JSON annotation files, sends the content to several
-    LLM-based processors (Instructor, LlamaIndex, and PydanticAI clients), and
-    compares the predicted annotations against the ground truth. It then
-    aggregates the evaluation metrics and writes the results to the specified
-    output directory.
+    Evaluate the quality of JSON entity annotations.
 
     Parameters
     ----------
     annotations_dir : Path
         Directory containing the JSON annotation files to evaluate.
-    nb_annotations : int
-        Number of annotation samples to process from the dataset.
-    tag_prompt : str
-        Descriptor indicating the format of the expected LLM output
-        (e.g., 'json' or 'json_with_positions').
     results_dir : Path
         Directory where evaluation results, logs, and reports will be written.
     """
@@ -814,19 +1038,25 @@ def evaluate_json_annotations(
     setup_logger(logger, results_dir)
     logger.info("Starting evaluation of JSON annotation outputs...")
     logger.debug(f"Annotations directory: {annotations_dir}")
-    logger.debug(f"Number of annotations to process: {nb_annotations}")
-    logger.debug(f"Tag prompt: {tag_prompt}")
     logger.debug(f"Results directory: {results_dir}")
 
-    # Initialize
-    all_summary_rows = []
+    # Loading annotations with metadatas
+    df = load_json_annotations_as_dataframe(annotations_dir)
+    # Adding the text to annotate into the df
+    df_with_text = add_raw_text_column(df)
+    #df_with_text.to_parquet("annotations_summary.parquet", index=False)
 
-    # Assign each models to instructor/llamaindex/pydanticai clients
-    instructor_clients = assign_all_instructor_clients(MODELS_OPENROUTER)
-    llama_clients = assign_all_llamaindex_clients(MODELS_OPENROUTER)
-    py_clients = assign_all_pydanticai_clients(MODELS_OPENROUTER)
+    # Compute confusion metrics (TP, FP, TN, FN)
+    df_with_conf_metrics = compute_confusion_metrics(df_with_text)
+    #df_with_conf_metrics.to_parquet("annotations_summary_with_metrics.parquet", index=False)
 
-    # Retrieve MD annotated texts with their verified annotations
+    df_grouped_stats = compute_grouped_stats(df_with_conf_metrics)
+
+    save_grouped_stats_to_excel(
+        df=df_grouped_stats,
+        results_dir=results_dir,
+    )
+    """# Retrieve MD annotated texts with their verified annotations
     annotations = load_interesting_annotations(
         annotations_dir,
         nb_annotations,
@@ -1021,7 +1251,7 @@ def evaluate_json_annotations(
             )
 
     # Save summary stats for each models to xlsx
-    save_evaluation_results(all_summary_rows, len(annotations), results_dir, tag_prompt)
+    save_evaluation_results(all_summary_rows, len(annotations), results_dir, tag_prompt)"""
 
 
 # MAIN PROGRAM
