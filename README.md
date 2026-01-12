@@ -109,8 +109,7 @@ uv run src/extract_entities.py \
 ```
 
 > This command will extract entities from `annotations/v2/figshare_121241.json` using the prompt in `prompts/json_few_shot.txt` and the "instructor"
-validation framework, saving results in `results/llm_annotations` with base filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files will be generated: a JSON metadata file (`.json`) and a text file with the raw model response (`.txt`). The command will retry up to 3 times in case of API
-errors.
+validation framework, saving results in `results/llm_annotations` with base filename `figshare_121241_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS`. Two files will be generated: a JSON metadata file (`.json`) and a text file with the raw model response (`.txt`). The command will retry up to 3 times in case of API errors.
 
 ***Options***:
 
@@ -147,6 +146,20 @@ uv run src/extract_entities_all_texts.py \
 
 > This command processes up to annotation files from ``results/50_selected_files_20260103_002043.txt`` and saves the corresponding ``.json`` and ``.txt`` outputs
 in ``results/llm_annotations/{file_name}_openai_gpt-4o_instructor_YYYYMMDD_HHMMSS``.
+
+
+
+### Evaluate LLM annotations ⚖️
+
+To evaluate the quality of JSON entity annotations produced by LLMs and different framework, run:
+
+```sh
+uv run src/evaluate_json_annotations.py \
+        --annotations-dir results/llm_annotations \
+        --results-dir results/json_evaluation_stats
+```
+
+> This command loads all LLM-generated JSON files in results/llm_annotations, computes per-annotation metrics against the ground-truth, and saves the results in `results/json_evaluation_stats/per_text_metrics_YYYY-MM-DDTHH-MM-SS.parquet`. It then creates an Excel summary for each model and framework in `results/json_evaluation_stats/evaluation_summary_YYYY-MM-DDTHH-MM-SS.xlsx`.
 
 
 ## Utilities
