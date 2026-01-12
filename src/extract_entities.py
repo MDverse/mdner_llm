@@ -273,7 +273,9 @@ def annotate_with_instructor(
         raise ValueError(msg)
 
     # Instantiate an Instructor client for the requested model.
-    client = instructor.from_provider(model, async_client=False,
+    model_entry_point = (
+        f"openrouter/{model}" if not model.startswith("openai") else model)
+    client = instructor.from_provider(model_entry_point, async_client=False,
                                                 mode=instructor.Mode.JSON,
                                                 base_url="https://openrouter.ai/api/v1",
                                                 api_key=api_key)
