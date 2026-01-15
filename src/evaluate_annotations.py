@@ -55,7 +55,6 @@ Example:
 ========
     uv run src/evaluate_json_annotations.py
 
-
 This command evaluates all LLM-generated JSON annotations in `results/llm_annotations`,
 computes per-annotation metrics, and saves results into a Parquet file,
 e.g.,`results/json_evaluation_stats/per_text_metrics_2026-01-12T15-30-00.parquet`.
@@ -181,29 +180,38 @@ def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
     logger.info(f"Loading annotations from {annotations_dir}...")
     records: list[dict[str, object]] = []
 
+    # Iterate over all JSON files in the directory in sorted order
     for json_file in sorted(annotations_dir.glob("*.json")):
         try:
+            # Open and parse the JSON file
             with json_file.open(encoding="utf-8") as handle:
                 data: dict[str, object] = json.load(handle)
         except json.JSONDecodeError as exc:
-            logger.warning(f"Skipping invalid JSON file {json_file.name}: {exc}")
+            logger.warning(
+                f"Skipping invalid JSON file {json_file.name}: {exc}"
+            )
             continue
 
+        # Add the source filename as metadata
         data["__file__"] = json_file.name
+        # Store the parsed JSON object
         records.append(data)
 
+    # Convert the list of dictionaries into a DataFrame
     df = pd.DataFrame.from_records(records)
     logger.success(
-        f"Loaded {df.shape[0]} annotation files into DataFrame successfully! \n")
+        f"Loaded {df.shape[0]} annotation files into DataFrame successfully!\n"
+    )
 
-    return pd.DataFrame.from_records(records)
+    return df
 
 
-def add_raw_text_column(df: pd.DataFrame,
-    text_file_col: str = "text_file"
+def add_raw_text_column(
+    df: pd.DataFrame,
+    text_file_col: str = "text_file",
 ) -> pd.DataFrame:
     """
-    Extract 'raw_text' from JSON into a new column'text_to_annotate' in the Df.
+    Extract 'raw_text' from JSON into a new column 'text_to_annotate' in the DataFrame.
 
     Parameters
     ----------
@@ -221,26 +229,37 @@ def add_raw_text_column(df: pd.DataFrame,
     logger.info("Adding the text to annotate in the dataframe...")
     raw_texts: list[str] = []
 
+    # Iterate over the JSON file paths stored in the specified column
     for _idx, json_path in enumerate(df[text_file_col]):
+        # Convert the path string to a Path object
         path = Path(json_path)
+
+        # Handle missing files by appending an empty string
         if not path.exists():
             logger.warning(f"JSON file not found: {json_path}")
             raw_texts.append("")
             continue
 
         try:
+            # Open and parse the JSON file
             with path.open(encoding="utf-8") as f:
                 data = json.load(f)
+
+            # Extract the 'raw_text' field, defaulting to an empty string if absent
             raw_text = data.get("raw_text", "")
         except (json.JSONDecodeError, OSError) as exc:
+            # Handle unreadable or invalid JSON files
             logger.warning(f"Failed to read {json_path}: {exc}")
             raw_text = ""
 
+        # Collect the extracted text in order
         raw_texts.append(raw_text)
 
     df = df.copy()
     df["text_to_annotate"] = raw_texts
-    logger.success(f"Added 'text_to_annotate' column for {len(df)} files successfully! \n")
+    logger.success(
+        f"Added 'text_to_annotate' column for {len(df)} files successfully!\n"
+    )
     return df
 
 
@@ -271,21 +290,35 @@ def parse_model(
         if parsing fails or if the result has no `.entities`.
     """
     try:
+        # If the object is already an instance of the target model, reuse it
         if isinstance(obj, model_class):
             entities_model = obj
+
+        # If the object is a ChatCompletion
         elif isinstance(obj, ChatCompletion):
+            # Extract the message content
             content = obj.choices[0].message.content
+            # And validate it as JSON against the Pydantic model
             entities_model = model_class.model_validate_json(content)
-        else:  # str or dict
+
+        # Otherwise, treat the input as JSON data (string or dict)
+        else:
             json_str = obj if isinstance(obj, str) else json.dumps(obj)
             entities_model = model_class.model_validate_json(json_str)
+
+    # Catch validation, type, or JSON-related errors
     except (PydanticValidationError, ValueError, TypeError):
         return None
 
+    # Ensure the parsed model exposes an `entities` attribute
     if not hasattr(entities_model, "entities"):
         return None
 
     return entities_model
+
+
+def _safe_div(num: float, den: float) -> float:
+    return num / den if den > 0 else 0.0
 
 
 def compute_confusion_metrics(
@@ -295,7 +328,7 @@ def compute_confusion_metrics(
     gt_col: str = "groundtruth",
     text_col: str = "text_to_annotate",
     prompt_tag_col: str = "tag_prompt",
-    beta: float = 0.5,
+    beta: float = 0.5
 ) -> pd.DataFrame:
     """
     Compute confusion matrix metrics per annotation file.
@@ -328,32 +361,32 @@ def compute_confusion_metrics(
     """
     logger.info("Computing evaluation metrics per annotation...")
 
-    def _safe_div(num: float, den: float) -> float:
-        return num / den if den > 0 else 0.0
-
     def _compute_row(row: pd.Series) -> pd.Series:
+        # Extract row info
         response = row[pred_col]
         groundtruth = row[gt_col]
         original_text = row[text_col]
         prompt_tag = row[prompt_tag_col]
         file = row["__file__"]
 
-        format_is_valid = is_valid_output_format(response, prompt_tag)
+        # Check format and hallucinations
+        is_format_valid = is_valid_output_format(response, prompt_tag)
         no_hallucination = has_no_hallucination(
             response,
             original_text,
             prompt_tag,
         )
 
-        # Select correct model class
+        # Determine model type based on prompt
         model_class = (
             ListOfEntities if prompt_tag == "json" else ListOfEntitiesPositions
         )
-
+        # Parse prediction and groundtruth
         pred_model = parse_model(response, model_class)
         gt_model = parse_model(groundtruth, model_class)
 
         if pred_model is None or gt_model is None:
+            # Skip metrics if parsing fails
             reason = (
                 "prediction parsing failed."
                 if pred_model is None
@@ -363,25 +396,26 @@ def compute_confusion_metrics(
 
             return pd.Series(
                 {
-                    "format_is_valid": format_is_valid,
-                    "is_without_hallucination": no_hallucination,
+                    "is_format_valid": is_format_valid,
+                    "has_no_hallucination": no_hallucination,
                     "true_positives": 0,
                     "false_positives": 0,
                     "false_negatives": 0,
-                    "precision_file": 0.0,
-                    "recall_file": 0.0,
-                    "f1_file": 0.0,
-                    f"fbeta_{beta}_file": 0.0,
+                    "precision_of_annotation": 0.0,
+                    "recall_of_annotation": 0.0,
+                    "f1_of_annotation": 0.0,
+                    f"fbeta_{beta}_of_annotation": 0.0,
                 }
             )
-
+        # Convert entities to sets of (label, normalized_text)
         preds_set = {(e.label, normalize_text(e.text)) for e in pred_model.entities}
         gt_set = {(e.label, normalize_text(e.text)) for e in gt_model.entities}
 
+        # Compute confusion counts
         tp = len(preds_set & gt_set)
         fp = len(preds_set - gt_set)
         fn = len(gt_set - preds_set)
-
+        # Compute metrics safely
         precision = _safe_div(tp, tp + fp)
         recall = _safe_div(tp, tp + fn)
         f1 = _safe_div(2 * precision * recall, precision + recall)
@@ -390,13 +424,13 @@ def compute_confusion_metrics(
             (beta**2 * precision) + recall,
         )
 
-        logger.debug(f"[{file}]:")
-        logger.debug(f"Correct output format: {format_is_valid}")
-        logger.debug(f"Is without hallucination: {no_hallucination}")
+        logger.info(f"[{file}]:")
+        logger.info(f"Is correct output format: {is_format_valid}")
+        logger.info(f"Is without hallucination: {no_hallucination}")
         logger.debug(f"Predictions ({len(preds_set)}): {sorted(preds_set)}")
         logger.debug(f"Groundtruth ({len(gt_set)}): {sorted(gt_set)}")
-        logger.debug(f"Confusion counts: TP={tp} | FP={fp} | FN={fn}")
-        logger.debug(
+        logger.info(f"Confusion counts: TP={tp} | FP={fp} | FN={fn}")
+        logger.info(
             f"Evaluation metrics: precision={precision:.3f} | "
             f"recall={recall:.3f} | f1={f1:.3f} | "
             f"fbeta_{beta}={fbeta:.3f}\n"
@@ -404,18 +438,19 @@ def compute_confusion_metrics(
 
         return pd.Series(
             {
-                "format_is_valid": format_is_valid,
-                "is_without_hallucination": no_hallucination,
+                "is_format_valid": is_format_valid,
+                "has_no_hallucination": no_hallucination,
                 "true_positives": tp,
                 "false_positives": fp,
                 "false_negatives": fn,
-                "precision_file": precision,
-                "recall_file": recall,
-                "f1_file": f1,
-                f"fbeta_{beta}_file": fbeta,
+                "precision_of_annotation": precision,
+                "recall_of_annotation": recall,
+                "f1_of_annotation": f1,
+                f"fbeta_{beta}_of_annotation": fbeta,
             }
         )
 
+    # Apply row-wise computation
     metrics = df.apply(_compute_row, axis=1)
     res_df = pd.concat([df, metrics], axis=1)
 
@@ -448,20 +483,24 @@ def _extract_json_string(
     str | None
         The extracted JSON string if available, otherwise `None`.
     """
+    # If response is already a string, return it
     if isinstance(response, str):
         return response
 
+    # If response is a ChatCompletion object
     if isinstance(response, ChatCompletion):
         choices = getattr(response, "choices", None)
-        if not choices:
+        if not choices:  # no choices available
             return None
 
         message = getattr(choices[0], "message", None)
-        if message is None:
+        if message is None:  # message missing
             return None
 
+        # Return the content of the first message
         return getattr(message, "content", None)
 
+    # For other types (e.g., Pydantic models), return None
     return None
 
 
@@ -485,13 +524,14 @@ def _validate_json_string(response_str: str, prompt_tag: str) -> bool:
         False otherwise.
     """
     try:
+        # Validate JSON string against the appropriate Pydantic model
         if prompt_tag == "json":
             ListOfEntities.model_validate_json(response_str)
         else:
             ListOfEntitiesPositions.model_validate_json(response_str)
-        return True
+        return True  # Validation succeeded
     except PydanticValidationError:
-        return False
+        return False  # Validation failed
 
 
 def is_valid_output_format(
@@ -603,7 +643,9 @@ def safe_divide(num: pd.Series, den: pd.Series) -> pd.Series:
         Result of num / den where den > 0, otherwise 0.0,
         rounded to 3 decimal places.
     """
+    # Divide where denominator > 0, else set result to 0
     result = np.where(den > 0, num / den, 0.0)
+    # Round the results to 3 decimal places
     return np.round(result, 3)
 
 
@@ -647,9 +689,9 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
         df.groupby(["framework_name", "model_name", "tag_prompt"])
         .agg(
             nb_annotations=("raw_llm_response", "count"),
-            pct_is_format_valid=("format_is_valid", lambda s: 100 * s.mean()),
-            pct_is_without_hallucination=(
-                "is_without_hallucination", lambda s: 100 * s.mean()),
+            pct_is_format_valid=("is_format_valid", lambda s: 100 * s.mean()),
+            pct_has_without_hallucination=(
+                "has_no_hallucination", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
             false_negatives=("false_negatives", "sum"),
@@ -762,8 +804,8 @@ def save_grouped_stats_to_excel(
     """
     metrics_map = {
         "nb_annotations": "Number of Annotations",
-        "pct_is_format_valid": "Correct Output Format",
-        "pct_is_without_hallucination": "Without Hallucination",
+        "pct_is_format_valid": "Is correct Output Format",
+        "pct_has_without_hallucination": "Has Without Hallucination",
         "precision": "Precision",
         "recall": "Recall",
         "f1": "F1 Score",
@@ -816,7 +858,7 @@ def save_grouped_stats_to_excel(
 @click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/json_evaluation_stats"),
+    default=Path("results/annotations_evaluation_stats"),
     show_default=True,
     help="Target directory where evaluation results will be saved.",
     callback=ensure_dir
@@ -838,8 +880,8 @@ def evaluate_json_annotations(
     # Configure logging
     setup_logger(logger, results_dir)
     logger.info("Starting evaluation of JSON annotation outputs...")
-    logger.debug(f"Annotations directory: {annotations_dir}")
-    logger.debug(f"Results directory: {results_dir} \n")
+    logger.info(f"Annotations directory: {annotations_dir}")
+    logger.info(f"Results directory: {results_dir} \n")
     start_time = time.perf_counter()
 
     # Loading annotations with metadatas
