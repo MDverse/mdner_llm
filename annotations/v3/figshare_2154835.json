@@ -1,0 +1,86 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic and Coarse Grain Topologies for the Cofactors Associated with the Photosystem II Core Complex\n\nElectron transfers within and between\nprotein complexes are core\nprocesses of the electron transport chains occurring in thylakoid\n(chloroplast), mitochondrial, and bacterial membranes. These electron\ntransfers involve a number of cofactors. Here we describe the derivation\nof molecular mechanics parameters for the cofactors associated with\nthe function of the photosystem II core complex: plastoquinone, plastoquinol,\nheme b, chlorophyll A, pheophytin, and β-carotene. Parameters\nwere also obtained for ubiquinol and ubiquinone, related cofactors\ninvolved in the respiratory chain. Parameters were derived at both\natomistic and coarse grain (CG) resolutions, compatible with the building\nblocks of the GROMOS united-atom and Martini CG force fields, respectively.\nStructural and thermodynamic properties of the cofactors were compared\nto experimental values when available. The topologies were further\ntested in molecular dynamics simulations of the cofactors in their\nphysiological environment, e.g., either in a lipid membrane environment\nor in complex with the heme binding protein bacterioferritin.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "plastoquinone",
+            "start": 496,
+            "end": 509
+        },
+        {
+            "label": "MOL",
+            "text": "plastoquinol",
+            "start": 511,
+            "end": 523
+        },
+        {
+            "label": "MOL",
+            "text": "heme b",
+            "start": 525,
+            "end": 531
+        },
+        {
+            "label": "MOL",
+            "text": "chlorophyll A",
+            "start": 533,
+            "end": 546
+        },
+        {
+            "label": "MOL",
+            "text": "pheophytin",
+            "start": 548,
+            "end": 558
+        },
+        {
+            "label": "MOL",
+            "text": "carotene",
+            "start": 566,
+            "end": 574
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinol",
+            "start": 610,
+            "end": 619
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquinone",
+            "start": 624,
+            "end": 634
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS",
+            "start": 809,
+            "end": 815
+        },
+        {
+            "label": "FFM",
+            "text": "Martini CG",
+            "start": 832,
+            "end": 842
+        },
+        {
+            "label": "MOL",
+            "text": "heme",
+            "start": 1171,
+            "end": 1175
+        },
+        {
+            "label": "MOL",
+            "text": "bacterioferritin",
+            "start": 1192,
+            "end": 1208
+        }
+    ]
+}

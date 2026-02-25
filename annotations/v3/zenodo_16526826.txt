@@ -1,0 +1,6 @@
+Supporting Files for the manuscript -"DECIPHERING MICROBIOME-DERIVED PEPTIDES: A COMPUTATIONAL PERSPECTIVE ON CLASS-A GPCR REGULATION"
+
+ 
+This repository contains all computational data and analysis files associated with the manuscript titled DECIPHERING MICROBIOME-DERIVED PEPTIDES: A Computational Perspective on Class-A GPCR Regulation. The study presents a comprehensive in silico evaluation of microbiome-derived peptides and their regulatory impact on class A G protein-coupled receptors (GPCRs), namely NTS1R, V2R, and OX2R.
+The included datasets support molecular docking, molecular dynamics (MD) simulation in triplicates (300 ns trajectories), binding free energy calculations via MM-PBSA, and principal component analysis (PCA) exploring biased signaling and conformational transitions.
+ 

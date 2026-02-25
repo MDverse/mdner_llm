@@ -1,0 +1,12 @@
+Simulations of GpA-based dimers of various lengths in DEPC, DOPC, and DLPC bilayers, part 1/2
+
+Dimers of transmembrane (TM) peptides based on the Glycophorin A (GpA) dimer are simulated in different membrane environments. Three different homodimers with varying TM domain lengths and one heterodimer are considered. The homodimers are formed of either
+
+17L (GRPNLKLLLGVLLGVLLTLLLLEYP)
+23L (GRPNLKLLLLLLGVLLGVLLTLLLLLLLEYP)
+29L (GRPNLKLLLLLLLLLGVLLGVLLTLLLLLLLLLLEYP)
+
+peptides, while the heterodimer consists of one 17L peptide and one 29L peptide. In the sequences, the bold letters denote the amino acids involved in the GpA dimerization motif. The dimers are simulated in DLPC (12:0 PC), DOPC (18:1 PC), or DEPC (22:1 PC) bilayers. Additionally, a polyleucine dimer is simulated in a DOPC bilayer. Bilayers consist of 400 lipids and they are adequately hydrated with 24000 water molecules and 134 mM NaCl. The simulations are 100 ns long with trajectories written every 100 ps.
+The files are named as XXX-YYYY.ZZZ, where XXX denotes to the peptide type ('het' for the heterodimer and 'polyl' for the polyleucine), YYYY denotes the bilayer type, and ZZZ denotes the file type. Files are in Gromacs format: .xtc for trajectories, .edr for energy data, .cpt for continue points, .ndx for index files, .top for topology files, and .tpr for run input files (Gromacs 5.1). The simulation parameter file (md.mdp) is common for all systems. The CHARMM36 force field is used; topologies are obtained from CHARMM-GUI, and those of the peptides are included in Gromacs format (.itp).
+More information on the systems is available in the publication, available here: (TO BE INCLUDED!)
+Note that the data for the heterodimer and for the polyleucine are in part 2/2, available at https://doi.org/10.5281/zenodo.573274

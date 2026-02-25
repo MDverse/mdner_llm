@@ -1,0 +1,3 @@
+HpTonB(30-285) simulation Amber ff99SB-ILDN
+
+Simulation of periplasmic part of TonB protein from Helicobacter Pylori HpTonB(30-285) with Amber ff99SB-ILDN force field. Trajectory contains the whole 387ns simulation. The conformational ensemble is too collapsed here according to the comparison with experimental spin relaxation data.

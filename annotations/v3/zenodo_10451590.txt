@@ -1,0 +1,3 @@
+Data for: Template-Directed Synthesis of Strained meso-meso-Linked Porphyrin Nanorings
+
+Calculated molecular xyz coordinates from molecular dynamics simulations, StrainViz calculations and screening of ligand designs.

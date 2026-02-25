@@ -1,0 +1,28 @@
+Photoswitching of DNA Hybridization Using a Molecular Motor
+
+Reversible control
+over the functionality of biological systems
+via external triggers may be used in future medicine to reduce the
+need for invasive procedures. Additionally, externally regulated biomacromolecules
+are now considered as particularly attractive tools in nanoscience
+and the design of smart materials, due to their highly programmable
+nature and complex functionality. Incorporation of photoswitches into
+biomolecules, such as peptides, antibiotics, and nucleic acids, has
+generated exciting results in the past few years. Molecular motors
+offer the potential for new and more precise methods of photoregulation,
+due to their multistate switching cycle, unidirectionality of rotation,
+and helicity inversion during the rotational steps. Aided by computational
+studies, we designed and synthesized a photoswitchable DNA hairpin,
+in which a molecular motor serves as the bridgehead unit. After it
+was determined that motor function was not affected by the rigid arms
+of the linker, solid-phase synthesis was employed to incorporate the
+motor into an 8-base-pair self-complementary DNA strand. With the
+photoswitchable bridgehead in place, hairpin formation was unimpaired,
+while the motor part of this advanced biohybrid system retains excellent
+photochemical properties. Rotation of the motor generates large changes
+in structure, and as a consequence the duplex stability of the oligonucleotide
+could be regulated by UV light irradiation. Additionally, Molecular
+Dynamics computations were employed to rationalize the observed behavior
+of the motor–DNA hybrid. The results presented herein establish
+molecular motors as powerful multistate switches for application in
+biological environments.

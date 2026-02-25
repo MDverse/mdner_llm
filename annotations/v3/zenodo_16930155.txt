@@ -1,0 +1,4 @@
+POPC sage2.2.1-lipid-v1.0-Increased-Cutoffs
+
+nagl rc.3 charges with sage2.2.1-lipid-v1.0-Increased-Cutoffs
+FF development run 

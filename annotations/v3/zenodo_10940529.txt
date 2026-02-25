@@ -1,0 +1,9 @@
+DMPS monolayer (50A2, 61A2), 50 mM
+
+FF: CHARMM36Engine: GROMACS 5.1.4
+61A^2
+Preequilibration: 250 ns.Trajectory length: 736 ns
+System: 100 DMPS + 10,000 SOL + 15KCl
+50A^2
+Preequilibration: 270 ns.Trajectory length: 278 ns.
+System: 100 DMPS + 10,000 SOL + 20KCl

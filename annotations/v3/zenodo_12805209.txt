@@ -1,0 +1,58 @@
+MD data for Ionizable cationic lipids and helper lipids synergistically contribute to RNA packing and protection in lipid-based nanomaterials
+
+The data stored in this repository is part of the journal article: Zimmer, D. N., Schmid, F., & Settanni, G. (2024). Ionizable Cationic Lipids and Helper Lipids Synergistically Contribute to RNA Packing and Protection in Lipid-Based Nanomaterials. The Journal of Physical Chemistry B https://doi.org/10.1021/acs.jpcb.4c05057
+ 
+Data of multiscale simulations of DLinDMA:DOPE:Cholesterol, DLinDMA:DSPC:Cholesterol, DLinDAP:DOPE:Cholesterol and DLinDAP:DSPC:Cholesterol in the presence of RNA. For each formulation, data is provided with different coarse-grained parameterizations (generic, adapted) and differents treatments of the RNA (ELN, noELN). Provided are the first and the final frame of each run, the associated topologies, and the respective gromacs input files.
+> M_PE, M_PC, P_PE, P_PC
+DLinDMA:DOPE:Cholesterol, DLinDMA:DSPC:Cholesterol, DLinDAP:DOPE:Cholesterol and DLinDAP:DSPC:Cholesterol in presence of a 40mer RNA fragment. 
+
+cg_generic+aa:
+
+cg: 2 microsecond production run based on a generic MARTINI parametrization
+
+md_0.gro: first frame
+md_10.gro: final frame 
+cg_rna_bilayer.top: Topology of the system
+cg_DLD{M/P}_lipid.itp: generic MARTINI topology of DLinDMA/DLinDAP
+martini_v2.0_CHOL_02.itp, martini_v2.0_DSPC_01.itp, martini_v2.0_ions, martini_v2.1.itp, martini_v2.1-dna.itp: Several MARTINI topology files for molecules not included in MARTINI
+Nucleic_A.itp or Nucleic_A_eln.itp: Topology of the RNA fragment for MARTINI
+
+
+aa: 300/600 nanosecond production run based on CHARMM36 
+
+md_0.gro: first frame
+md_60.gro: final frame 
+backmapped.top: Topology of the system (including the parametrization of DLinDMA/DLinDAP)
+CHOL.itp, DOPE.itp, DSPC.itp, 40mer_autopsf.itp: topology files for Cholesterol, DOPE, DSPC and RNA fragment as they are not part of the standard molecules in CHARMM36.
+
+
+ELN and noELN indicate presence or absence of an elastic network to fix the structure of the RNA during the cg runs. 
+cgmdp: Gromacs input files for the cg runs
+aamdp: Gromacs input files for the aa runs
+
+
+cg_adapted+aa:
+
+cg: starting and ending frame of a 2 microsecond production run based on an adapted MARTINI parametrization
+
+md_0.gro: first frame
+md_10.gro: final frame 
+cg_rna_bilayer.top: Topology of the system
+martini_v2.0_DIDMA_20 or martini_v2.0_DIDAP_20: generic MARTINI topology of DLinDMA/DLinDAP
+martini_v2.0_CHOL_02.itp, martini_v2.0_DSPC_01.itp, martini_v2.0_ions, martini_v2.1-dna_cr1_POL_NACL.itp: Several MARTINI topology files for molecules not included in MARTINI
+Nucleic_A.itp or Nucleic_A_eln.itp: Topology of the RNA fragment for MARTINI
+
+
+aa: 300/600 nanosecond production run based on CHARMM36 
+
+md_0.gro: first frame
+md_60.gro: final frame 
+backmapped.top: Topology of the system (including the parametrization of DLinDMA/DLinDAP)
+CHOL.itp, DOPE.itp, DSPC.itp, 40mer_autopsf.itp: topology files for Cholesterol, DOPE, DSPC and RNA fragment as they are not part of the standard molecules in CHARMM36.
+
+
+ELN and noELN indicate presence or absence of an elastic network to fix the structure of the RNA during the cg runs. 
+cgmdp: Gromacs input files for the cg runs
+aamdp: Gromacs input files for the aa runs
+
+

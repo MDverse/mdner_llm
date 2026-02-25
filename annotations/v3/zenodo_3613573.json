@@ -1,0 +1,104 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Simulations of POPC:POPG 1:1 membranes with varying levels of CaCl_2 using the Slipids force field\n\nSimulations of POPC/POPG lipid bilayers consisting of a total of 256 lipids (128 POPC + 128 POPG) spread equally between the two leaflets. The initial CaCl_2 concentration in the water phase was either 0, 100, 200, 500, or 1000 mM. Na+ was used as the counterion for the POPG charges. The simuatlions were performed using the Slipids model, available at http://www.fos.su.se/~sasha/SLipids/ . The Dang ion parameters were used, and they were obtained from https://bitbucket.org/hseara/ions/ . The common simulation parameters are given in the md.mdp file. The simulations are 1500 ns long (except CA0, which is 500 ns long), and the \"extend\" files contain the last 1000 ns of the outputs. The \"extend\" continue points should also be used to extend the simulations beyond 1500 ns. All relevant input and output files are provided to repeat or extend the simulations.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 15,
+            "end": 19
+        },
+        {
+            "label": "MOL",
+            "text": "POPG",
+            "start": 20,
+            "end": 24
+        },
+        {
+            "label": "FFM",
+            "text": "Slipids",
+            "start": 79,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 115,
+            "end": 119
+        },
+        {
+            "label": "MOL",
+            "text": "POPG",
+            "start": 120,
+            "end": 124
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 181,
+            "end": 185
+        },
+        {
+            "label": "MOL",
+            "text": "POPG",
+            "start": 192,
+            "end": 196
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 279,
+            "end": 284
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 332,
+            "end": 335
+        },
+        {
+            "label": "MOL",
+            "text": "POPG",
+            "start": 371,
+            "end": 375
+        },
+        {
+            "label": "FFM",
+            "text": "Slipids",
+            "start": 426,
+            "end": 433
+        },
+        {
+            "label": "STIME",
+            "text": "1500 ns",
+            "start": 676,
+            "end": 683
+        },
+        {
+            "label": "STIME",
+            "text": "500 ns",
+            "start": 677,
+            "end": 683
+        },
+        {
+            "label": "STIME",
+            "text": "1000 ns",
+            "start": 765,
+            "end": 772
+        },
+        {
+            "label": "STIME",
+            "text": "1500 ns",
+            "start": 871,
+            "end": 878
+        }
+    ]
+}

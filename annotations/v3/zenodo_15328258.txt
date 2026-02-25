@@ -1,0 +1,3 @@
+Molecular dynamics simulation of human ρ1 GABAA receptor with GABA analogue GABOB
+
+Molecular dynamics simulation trajectory, parameter files and scripts for the systems of human ρ1 GABAA receptor with GABA analogue GABOB. 

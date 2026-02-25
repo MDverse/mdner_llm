@@ -1,0 +1,3 @@
+MD simulation trajectory for Heterogenous lipid bilayer with no counter-ions
+
+Equilibrated symmetric heterogenous lipid bilayer simulation ran with Gromacs 2020.4, Force field= Charmm36m, 300ns, T=300K, composed of 152 POPC, 96 POPE, 20 POPS, 80 CHOL, 36 PSM, and 16 GM1 molecules, no ions, 19606 water (TIP3P) molecules. 

@@ -1,0 +1,3 @@
+The MD simulation trajectories of IB101/PDL1 and KN035_L108C_6H/PDL1 systems
+
+The MD trajectories of two systems are included, the IB101 with PD-L1 and the KN035_L108C_6H with PD-L1. Each system has three independent trajectories, which is for 400-ns MD simulation. The corresponding psf, crd and pdb files are included. All water boxes were removed in the trajectories to save storage.

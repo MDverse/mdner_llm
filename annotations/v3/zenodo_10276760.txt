@@ -1,0 +1,11 @@
+Molecular dynamics simulation of MFSD1 in apo, His-Ala, Lys-Ala and Leu-Ala bound
+
+The MFSD1 structures were placed in a heterogenous bilayer composed of POPE (20%), 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine (POPC, 30%), Cholesterol (30%), and N-Palmitoyl-sphingomyelin (SPM, 20%) using CHARMM-GUI scripts and all simulations were performed using GROMACS 2021.3. 
+Substrates were fitted into the binding site based on non-protein density observed in the outward-open Cryo-EM structure of GLMP-MFSD1+HisAla. 
+Here, inital structures and 500 ns simulations for each replicate (Rep1-3) with the respective ligands and its starting conformation (Conf1 or Conf2) are given in PDB-format. 
+The following ligands were used for the molecular dynamics simulations:
+
+LA - Leucyl-alanine dipeptide: both termini are charged
+KA - Lysyl-alanine dipeptide: both termini are charged, side chain of lysine is positively charged
+H0A - Histidyl-alanine dipeptide: both termini are charged, side chain of histidine is neutral
+HA - Histidyl-alanine dipeptide: both termini are charged, side chain of histidine is positively charged

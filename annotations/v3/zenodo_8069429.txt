@@ -1,0 +1,8 @@
+The catalytic role of glutathione transferases in heterologous anthocyanin biosynthesis
+
+Electronic energies, entropies, enthalpies, Gibbs free energies, and lowest frequencies of the QM-calculated structures (QM_Energies.xlsx).
+Gaussian 16 input and output files, and optimized geometries in MOL2 format, for all QM-calculated structures (QM_calculations.zip).
+Input coordinates, topology file (in Amber and PDB formats) and output geometries (in PDB format) for the Molecular Dynamics equilibration of the GST-GSH-flav-3-on-4-ol (7) ternary complex (MD_equilibration.zip).
+Optimized geometries for the PtGSTF8-catalyzed deprotonation-protonation reaction: flavan-3-on-4-ol (7), transition state for  deprotonation (7-TS), deprotonation product (8-enolate) and cyanidin (8-B4) bound to the wildtype enzyme and the C13S variant  (QMMM_optimized_structures.zip).
+ 
+ 

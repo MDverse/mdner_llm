@@ -1,0 +1,6 @@
+Initial model and Molecular Dynamics trajectory of WGR domain of PARP2 with ZN ions
+
+Files:
+1. Initial model of PARP2 WGR domain (based on PDB entry: 6F5B) with two sites potentially capable of binding zinc ions: one formed by residues E97, C98, H160 and another - by residues H106, C109, E138
+2. PARP2 WGR domain with Zn ions bound after energy minimization.
+3. 400 ns MD trajectory of PARP2 WGR domain with Zn ions.

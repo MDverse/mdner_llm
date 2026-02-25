@@ -1,0 +1,38 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Discovery of Self-Assembling π‑Conjugated Peptides by Active Learning-Directed Coarse-Grained Molecular Simulation\n\nElectronically\nactive organic molecules have demonstrated great\npromise as novel soft materials for energy harvesting and transport.\nSelf-assembled nanoaggregates formed from π-conjugated oligopeptides\ncomposed of an aromatic core flanked by oligopeptide wings offer emergent\noptoelectronic properties within a water-soluble and biocompatible\nsubstrate. Nanoaggregate properties can be controlled by tuning core\nchemistry and peptide composition, but the sequence–structure–function\nrelations remain poorly characterized. In this work, we employ coarse-grained\nmolecular dynamics simulations within an active learning protocol\nemploying deep representational learning and Bayesian optimization\nto efficiently identify molecules capable of assembling pseudo-1D\nnanoaggregates with good stacking of the electronically active π-cores.\nWe consider the DXXX-OPV3-XXXD oligopeptide family, where D is an\nAsp residue and OPV3 is an oligophenylenevinylene oligomer (1,4-distyrylbenzene),\nto identify the top performing XXX tripeptides within all 203 = 8000 possible sequences. By direct simulation of only 2.3% of\nthis space, we identify molecules predicted to exhibit superior assembly\nrelative to those reported in prior work. Spectral clustering of the\ntop candidates reveals new design rules governing assembly. This work\nestablishes new understanding of DXXX-OPV3-XXXD assembly, identifies\npromising new candidates for experimental testing, and presents a\ncomputational design platform that can be generically extended to\nother peptide-based and peptide-like systems.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 427,
+            "end": 432
+        },
+        {
+            "label": "MOL",
+            "text": "oligopeptide",
+            "start": 304,
+            "end": 316
+        },
+        {
+            "label": "MOL",
+            "text": "oligophenylenevinylene",
+            "start": 1041,
+            "end": 1063
+        },
+        {
+            "label": "MOL",
+            "text": "1,4-distyrylbenzene",
+            "start": 1074,
+            "end": 1093
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+ARNT Steered Molecular Dynamics Dataset
+
+This dataset comprises pre-computed steered molecular dynamics simulation to observe the unfolding of the ARNT PAS-B domain, intended for use with the SOMMD (Self-Organizing Maps for Molecular Dynamics) R package. The files, including .xtc and .pdb formats, serve as input data for analysis within a notebook designed to demonstrate the capabilities of the SOMMD R package.

@@ -1,0 +1,17 @@
+MD trajectories for "Kinetic barrier to enzyme inhibition is manipulated by dynamical local interactions in E. coli DHFR"
+
+Dihydrofolate reductase (DHFR) is an important drug target and a highly studied model
+protein for understanding enzyme dynamics. DHFR’s crucial role in folate synthesis renders it
+an ideal candidate to understand protein function and protein evolution mechanisms. In this
+study, to understand how a newly proposed DHFR inhibitor, 4’-deoxy methyl trimethoprim
+(4’-DTMP), alters evolutionary trajectories, we studied interactions that lead to its superior
+performance over trimethoprim (TMP). To elucidate the inhibition mechanism of 4’-DTMP,
+we first confirmed, both computationally and experimentally, that the relative binding free
+energy cost for the mutation of TMP and 4’-DTMP are the same, pointing to the origin of the
+characteristic differences to be kinetic rather than thermodynamic. We then employed an
+interaction-based analysis by focusing first on the active site, then on the whole enzyme. We
+confirmed that the polar modification in 4’-DTMP induces additional local interactions with
+the enzyme, particularly the M20 loop. These changes are propagated to the whole enzyme as
+shifts in the hydrogen bond networks. To shed light on the allosteric interactions, we support
+our analysis with network-based community analysis and show that segmentation of the loop
+domain of the inhibitor-bound DHFR must be avoided by a successful inhibitor.

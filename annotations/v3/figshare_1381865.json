@@ -1,0 +1,74 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Simulations of Sheet-like Replicators\n\nThis dataset contains 3D structures, MD trajectories and powder X-ray diffractograms (simulated and experimental) of tetrameric carboxynaphthalene disulfide. The MD simulations were performed in water with periodic boundary conditions. Either AMBER or GROMACS packages were used. For detailed description of the simulations see the linked paper (the link will appear upon acceptance). \n \nPDB files are snapshots from the MD simulations; they can be viewed using any 3D structure viewer (e.g. Avogadro). The trajectories (*.xtc - GROMACS, *.mdcrd - AMBER/NetCDF) can be visualized using e.g. VMD.\nPartial charges for the naphthalene building blocks are provided within *.mol2 files (N-0 for the neutral and N-1 for the deprotonated subunit). \nThe parameter/topology files have .top (GROMACS) and .prmtop (AMBER) extensions. \nFiles labeled \"sheet1\" contain results of simulations of 16 repeats of tetramer IV showed in Figure 4 and S13 of the paper. The suffix \"-exp_box\" refers to structures which were constrained to the box determined experimentally (\"min\" - after energy minimization, \"equil\" - after equilibration).\nFiles labeled \"sheet2\" contain results of simulations of 12 repeats of tetramer IV showed in Figure S14 of the paper. \nFiles labeled \"sheet3\" contain results of simulations of 16 repeats of tetramer IV showed in Figure S15 of the paper. The assembly was unstable, the initial structure started dissociating from the very beginning of the simulation. The trajectory is in NetCDF format.\nFiles labeled \"tetramerIV-2\" contain results of simulations of isolated, partially deprotonated tetramer IV in water (solvent was removed from the trajectory).\nLink to the article will be added upon its acceptance.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "carboxynaphthalene disulfide",
+            "start": 186,
+            "end": 214
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 253,
+            "end": 258
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 301,
+            "end": 306
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 310,
+            "end": 317
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 587,
+            "end": 594
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 606,
+            "end": 611
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "VMD",
+            "start": 649,
+            "end": 652
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 840,
+            "end": 847
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 862,
+            "end": 867
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1674,
+            "end": 1679
+        }
+    ]
+}

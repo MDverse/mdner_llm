@@ -1,0 +1,31 @@
+Dissecting the Effect of Temperature on Hyperthermophilic Pf2001 Esterase Dimerization by Molecular Dynamics
+
+Pf2001 esterase (Pf2001) from Pyrococcus
+furiosus has hyperthermophilic properties and exerts
+a biocatalytic function
+in a dimeric state. Crystal structures revealed that the structural
+rearrangement of the cap domain is responsible for the Pf2001 dimer
+formation. However, the details of the cap domain remodeling and the
+effects of temperature on the dimerization process remain elusive
+at the molecular level, taking into account that experimental methods
+are difficult to capture the dynamic process of dimerization to some
+extent. Herein, four dimer models based on the monomeric crystal structure
+(PDB ID: 5G59) were constructed to investigate the conformational
+transition details and temperature effects in the dimerization by
+conventional molecular dynamics and accelerated molecular dynamics
+simulations. Our simulation results indicate that the monomer undergoes
+a conformational change into a “preparatory state” at
+high temperatures, which is more favorable for its transformation
+into a stable dimer. The subsequent free energy landscape analysis
+further identifies four intermediate states (from separated state
+to dimeric state) and discloses that a more accessible α-helix
+driven by stronger hydrophobic interactions induces a rearrangement
+of the cap domain, displaying a “tic-tac-toe” activation
+feature that is important for stabilizing the dimer interface and
+facilitating the formation of hydrophobic pockets. In addition, the
+electrostatic potential surface analysis illustrates that the weaker
+electrostatic repulsion (Lys and Arg) in the dimer interface at high
+temperatures is also a key factor for dimer stabilization. Altogether,
+our results can provide molecular-level insight into the dimer formation
+process of hyperthermophilic esterase and would be useful to understand
+the enzymatic specificity of α/β-hydrolase.

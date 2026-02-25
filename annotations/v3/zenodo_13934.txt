@@ -1,0 +1,3 @@
+DPPC_Berger
+
+MD simulation trajectory and related files for fully hydrated DPPC bilayer. Berger-DPPC-98 force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads) was used with Gromacs 4.6.6. Conditions: T=323K, 72 lipids, 2880 SPC waters. 60 ns trajectory.

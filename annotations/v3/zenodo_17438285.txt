@@ -1,0 +1,45 @@
+Polymyxins slow down lateral diffusion of proteins and lipopolysaccharide in the E. coli outer membrane
+
+Simulation files are included as follows:
+
+
+gro_atmd.zip
+
+Coordinate (*.gro) files from atomistic simulations
+
+
+
+
+
+
+gro_cgmd.zip
+
+Coordinate (*.gro) files from coarse-grained simulations
+
+
+
+
+Each gro_*.zip file includes (i) the initial coordinates of each simulation system, and (ii) the final coordinates of each simulation replicate of each system.
+Note: Coordinates of water molecules are excluded to reduce file sizes. Nonetheless, the number of water molecules in each system is mentioned in the corresponding *.top files.
+ 
+
+
+mdp_topol.zip
+
+MD simulation parameter (*.mdp) files
+Topology (*.top) files - info on the number of molecules of each component in the simulation system
+
+
+
+
+
+
+itp.zip
+
+Topology parameter (*.itp) files describing atom type, bond, angle, dihedral etc. for each protein, lipid, polymyxin and solvent type.
+ATMD directory - atomistic simulations
+CGMD directory - coarse-grained simulations
+
+
+
+Numerical source data for each quantitative plot (based on figure numbers) are provided in : Num_data_for_quant_plots.zip

@@ -1,0 +1,176 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Glycosylated Swiss-model molecular dynamics trajectory of SARS-CoV-2 spike glycoprotein\n\nMolecular dynamics simulation trajectory. The system is the SARS-CoV-2 spike glycoprotein with glycans modeled on using GLYCAM-Web. SARS-CoV2 spike (S) protein structure – A 3D structure of the prefusion \nform of the S protein (RefSeq: YP_009724390.1, UniProt: P0DTC2 \nSPIKE_SARS2), based on a Cryo-EM structure (PDB code 6VSB), was obtained\n from the SWISS-MODEL server (swissmodel.expasy.org). The model has 95% \ncoverage (residues 27 to 1146) of the S protein. The site specific glycans used to model a glycoform representative of \nthe data obtained from the S glycoprotein expressed in HEK293 cells, are\n presented below:\n\nHybrid:\nDManpα1-6[DManpα1-3]DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 657\n\nFA2:\nDGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH\nGlycosites: 149, 165, 331, 343, 616, 1134\n\nA2:\nDGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 1098\n\nFA2B:\nDGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-4][DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH\nGlycosites: 74, 282\n\nM5:\nDManpα1-6[DManpα1-3]DManpα1-6[DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 61, 122, 603, 709, 717, 801, 1074\n\nM8:\nDManpα1-2DManpα1-6[DManpα1-2DManpα1-3]DManpα1-6[DManpα1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 234\n\nGlycan naming system. In cases where the mass spectrometry data allows \nfor multiple structures, such as FA2/FA1B, the glycan with the least \nambiguity was selected. For example, FA2 was selected over FA1B, as the \nposition of the single antennae is ambiguous.Dataset supports the following preprint: 3D Models of glycosylated SARS-CoV-2 spike protein suggest challenges and opportunities for vaccine development. Oliver C. Grant, David Montgomery, Keigo Ito, Robert J. Woods; bioRxiv 2020.04.07.030445; doi: https://doi.org/10.1101/2020.04.07.030445",
+    "entities": [
+        {
+            "label": "SOFTNAME",
+            "text": "Swiss-model",
+            "start": 13,
+            "end": 24
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 spike",
+            "start": 58,
+            "end": 74
+        },
+        {
+            "label": "MOL",
+            "text": "glycoprotein",
+            "start": 75,
+            "end": 87
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 spike",
+            "start": 149,
+            "end": 165
+        },
+        {
+            "label": "MOL",
+            "text": "glycoprotein",
+            "start": 166,
+            "end": 178
+        },
+        {
+            "label": "MOL",
+            "text": "glycans",
+            "start": 184,
+            "end": 191
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GLYCAM-Web",
+            "start": 209,
+            "end": 219
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV2 spike",
+            "start": 221,
+            "end": 236
+        },
+        {
+            "label": "MOL",
+            "text": "S",
+            "start": 61,
+            "end": 62
+        },
+        {
+            "label": "MOL",
+            "text": "S",
+            "start": 152,
+            "end": 153
+        },
+        {
+            "label": "MOL",
+            "text": "P0DTC2",
+            "start": 350,
+            "end": 356
+        },
+        {
+            "label": "MOL",
+            "text": "6VSB",
+            "start": 411,
+            "end": 415
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "SWISS-MODEL",
+            "start": 441,
+            "end": 452
+        },
+        {
+            "label": "MOL",
+            "text": "S",
+            "start": 224,
+            "end": 225
+        },
+        {
+            "label": "MOL",
+            "text": "glycans",
+            "start": 571,
+            "end": 578
+        },
+        {
+            "label": "MOL",
+            "text": "S",
+            "start": 238,
+            "end": 239
+        },
+        {
+            "label": "MOL",
+            "text": "glycoprotein",
+            "start": 653,
+            "end": 665
+        },
+        {
+            "label": "MOL",
+            "text": "FA2",
+            "start": 828,
+            "end": 831
+        },
+        {
+            "label": "MOL",
+            "text": "FA2B",
+            "start": 1067,
+            "end": 1071
+        },
+        {
+            "label": "MOL",
+            "text": "Glycan",
+            "start": 1447,
+            "end": 1453
+        },
+        {
+            "label": "MOL",
+            "text": "FA2",
+            "start": 1552,
+            "end": 1555
+        },
+        {
+            "label": "MOL",
+            "text": "FA1B",
+            "start": 1556,
+            "end": 1560
+        },
+        {
+            "label": "MOL",
+            "text": "glycan",
+            "start": 1566,
+            "end": 1572
+        },
+        {
+            "label": "MOL",
+            "text": "FA2",
+            "start": 1626,
+            "end": 1629
+        },
+        {
+            "label": "MOL",
+            "text": "FA1B",
+            "start": 1648,
+            "end": 1652
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 spike",
+            "start": 1774,
+            "end": 1790
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 80,
+            "end": 87
+        }
+    ]
+}

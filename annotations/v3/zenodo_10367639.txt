@@ -1,0 +1,3 @@
+All-atom simulations of DOPE/DOPC lipid bilayers (0%, 50% and 100% DOPC).
+
+All-atom (CHARMM C36) simulations of DOPE/DOPC bilayers (0, 50 and 100 % DOPE). Size sufficient to get the bending modulus and spontaneous curvature difference using our "Spatial Extent" paper methodology.DCD format trajectories have frames saved every 0.5 nanoseconds (500 picoseconds).Amber dynamics input file included.

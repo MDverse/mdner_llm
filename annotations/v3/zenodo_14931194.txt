@@ -1,0 +1,2 @@
+Molecular dynamics trajectories, and LAMMPS input files for "Controlled and orthogonal partitioning of large particles into biomolecular condensates" by Kelley et. al., 2025
+

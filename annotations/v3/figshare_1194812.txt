@@ -1,0 +1,3 @@
+GROMACS topology files for various lipids for the Charmm36 forcefield
+
+Here you will find Gromacs topology files for various type of lipids for the charmm36 lipid forcefield

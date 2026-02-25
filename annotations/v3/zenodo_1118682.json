@@ -1,0 +1,122 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\n\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 15,
+            "end": 19
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 37,
+            "end": 42
+        },
+        {
+            "label": "MOL",
+            "text": "dihexadecylammonium",
+            "start": 104,
+            "end": 123
+        },
+        {
+            "label": "FFM",
+            "text": "ECC-POPC",
+            "start": 130,
+            "end": 138
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 134,
+            "end": 138
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 220,
+            "end": 225
+        },
+        {
+            "label": "MOL",
+            "text": "dihexadecylammonium",
+            "start": 287,
+            "end": 306
+        },
+        {
+            "label": "FFM",
+            "text": "ECC-POPC",
+            "start": 313,
+            "end": 321
+        },
+        {
+            "label": "FFM",
+            "text": "SPC/E",
+            "start": 346,
+            "end": 351
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 352,
+            "end": 357
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 397,
+            "end": 402
+        },
+        {
+            "label": "MOL",
+            "text": "cations",
+            "start": 510,
+            "end": 517
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 576,
+            "end": 583
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.1.4",
+            "start": 584,
+            "end": 589
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "openMM",
+            "start": 608,
+            "end": 614
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "7",
+            "start": 615,
+            "end": 616
+        },
+        {
+            "label": "STIME",
+            "text": "200 ns",
+            "start": 649,
+            "end": 655
+        },
+        {
+            "label": "TEMP",
+            "text": "313 K",
+            "start": 668,
+            "end": 673
+        }
+    ]
+}

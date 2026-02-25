@@ -1,0 +1,81 @@
+Symmetric bilayers with DPPC, DAPC and Chol
+
+A series of symmetric all-atom bilayer simulations of binary mixtures of DPPC (1,2-dipalmitoyl-sn-glycero-3-phosphocholine) or DAPC (1,2-diarachidonoyl-sn-glycero-3-phosphocholine) with cholesterol (Chol), and a ternary mixture of DPPC/DAPC 1:1 with 30 mol% Chol. The simulations were run constructed with CHARMM-GUI and run with NAMD and the Charmm36 force field.
+Uploaded files include the structure (.psf) and trajectory (.dcd) for each bilayer, as well as a sample input parameters script. The trajectory of the scrambled bilayer has been centered on the bilayer center. All other trajectories have not been pre-processed but represent an equilibrated part of the whole simulation.
+ 
+
+
+
+bilayer
+composition mol%
+total simulation / ns
+uploaded last part / ns
+frames output interval / ps
+
+
+DAPC_0Chol
+DAPC/Chol 100/0
+600
+120
+20
+
+
+DAPC_10Chol
+DAPC/Chol 90/10
+852
+148
+20
+
+
+DAPC_30Chol
+DAPC/Chol 70/30
+856
+145
+20
+
+
+DAPC_50Chol
+DAPC/Chol 50/50
+785
+139
+20
+
+
+DPPC_0Chol
+DPPC/Chol 100/0
+600
+120
+20
+
+
+DPPC_10Chol
+DPPC/Chol 90/10
+589
+94
+20
+
+
+DPPC_30Chol
+DPPC/Chol 70/30
+792
+131
+20
+
+
+DPPC_50Chol
+DPPC/Chol 50/50
+954
+131
+20
+
+
+scramble
+
+DPPC/DAPC/Chol
+35/35/30
+
+1167
+418
+40
+
+

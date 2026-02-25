@@ -1,0 +1,3 @@
+Associative bond swaps in MD: simulations data for figure 3
+
+Simulations data.

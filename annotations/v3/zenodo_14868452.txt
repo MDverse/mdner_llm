@@ -1,0 +1,2 @@
+charmm36 and lipid21 pure POPC
+

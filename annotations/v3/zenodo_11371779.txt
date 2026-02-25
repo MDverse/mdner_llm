@@ -1,0 +1,5 @@
+Assessment of Hydrophilicity/Hydrophobicity in Mesoporous Silica by combining Adsorption, Liquid Intrusion and solid-state NMR spectroscopy
+
+This data publication is based on the metadata and datasets underlying the manuscript "
+Assessment of Hydrophilicity/Hydrophobicity in Mesoporous Silica by Combining Adsorption, Liquid Intrusion, and Solid-State NMR Spectroscopy ("https://doi.org/10.1021/acs.langmuir.3c03516")
+Included are the datasets used, raw and processed data of Adsorption measurements (Water, Ar 87K), Water Intrusion measurements,  solid state MAS NMR measurements. and molecular dynamics simulations. 

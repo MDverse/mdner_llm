@@ -1,0 +1,18 @@
+Free Energy Differences from Molecular Simulations: Exact Confidence Intervals from Transition Counts
+
+Supporting data for Free Energy Differences from Molecular Simulations: Exact Confidence Intervals from Transition Counts
+Molecular simulations make it possible to predict equilibrium constants and corresponding free energy differences. For a system that exists in two states A and B, the equilibrium constant K can be predicted as K = t_B / t_A, where
+t_B and t_A are times spent in states B and A, respectively. The free energy can be calculated as Delta G = -kT log(K). Here we propose a new method for calculation of confidence intervals for K and Delta G. The ratio of the true
+value of K and estimated K follows the F-distribution with degrees of freedom df1 = number of B to A transitions and df2 = number of A to B transitions. This makes it possible to calculated the confidence interval of K solely from
+the number of transitions.
+The code in the directory errors was used to calculate Table 1 of the article. The code in the directory type1error was used to generate 10000 first time passage times for a transition from A to B and B to A as random numbers with
+exponential distribution. This was done for different combinations of number of transition and values of K. Number of confidence intervals not spanning the predefined value of K (type 1 errors) was expected to be 5 % for 95-% confidence intervals. This was in agreement with the result.
+The code in the directory type1errorodd was used to run similar experiment as type1error, but with number of A to B transitions higher than B to A by one. The code in the directory threestates was used to run similar experiment as
+type1error and  type1errorodd but for a system with three states A, B and C. The directory glycerol contains a trajectory, evolution of values of torsion angles and the code for analysis of the simulation of glycerol in water.
+The directory ffmp contains evolution of values of RMSD from the native structure, manual assignments of folded and unfolded states and the code for analysis of simulations of fast folding miniproteins (original data from Lindorf-Larsen et al. Science 2011, 334(6055) 517-520).
+The directory se contains the code for calculation of standard errors numerically and by the method presented in the article.
+The directory parallel presents the code for calculations supporting our method to calculate rate and equilibrium constants in parallel simulations.
+Codes written in R were executed using R version 3.4.4 by running:
+$ R –no-save < code.R > code.log
+File md5sums contains md5sum codes for all files.
+ 

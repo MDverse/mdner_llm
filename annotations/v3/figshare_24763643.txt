@@ -1,0 +1,33 @@
+Automatic Potential Energy Surface Exploration by Accelerated Reactive Molecular Dynamics Simulations: From Pyrolysis to Oxidation Chemistry
+
+Automatic
+potential energy surface (PES) exploration
+is important
+to a better understanding of reaction mechanisms. Existing automatic
+PES mapping tools usually rely on predefined knowledge or computationally
+expensive on-the-fly quantum-chemical calculations. In this work,
+we have developed the PESmapping algorithm for discovering novel reaction
+pathways and automatically mapping out the PES using merely one starting
+species is present. The algorithm explores the unknown PES by iteratively
+spawning new reactive molecular dynamics (RMD) simulations for species
+that it has detected within previous RMD simulations. We have therefore
+extended the RMD simulation tool ChemTraYzer2.1 (Chemical Trajectory
+Analyzer, CTY) for this PESmapping algorithm. It can generate new
+seed species, automatically start replica simulations for new pathways,
+and stop the simulation when a reaction is found, reducing the computational
+cost of the algorithm. To explore PESs with low-temperature reactions,
+we applied the acceleration method collective variable (CV)-driven
+hyperdynamics. This involved the development of tailored CV templates,
+which are discussed in this study. We validate our approach for known
+pathways in various pyrolysis and oxidation systems: hydrocarbon isomerization
+and dissociation (C4H7 and C8H7 PES), mostly dominant at high temperatures and low-temperature
+oxidation of n-butane (C4H9O2 PES) and cyclohexane (C6H11O2 PES). As a result, in addition to new pathways showing up
+in the simulations, common isomerization and dissociation pathways
+were found very fast: for example, 44 reactions of butenyl radicals
+including major isomerizations and decompositions within about 30
+min wall time and low-temperature chemistry such as the internal H-shift
+of RO2 → QO2H within 1 day wall time.
+Last, we applied PESmapping to the oxidation of the recently proposed
+biohybrid fuel 1,3-dioxane and validated that the tool could be used
+to discover new reaction pathways of larger molecules that are of
+practical use.

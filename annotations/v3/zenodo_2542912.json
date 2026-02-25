@@ -1,0 +1,50 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "BPTF-AU1 conformation space network\n\nThis dataset contains:\n\nallstates.gexf: a graph file describing the nodes and edges of the configuration space network.  Nodes are clusters of molecular conformations, and edges are the connections between them, derived from molecular dynamics trajectories.  This file also contains properties for each node: minimum ligand-protein distance (mind), ligand solvent accessible surface area (sasa), number of observations from A-initialized simulations (na), number of observations from B-initialized simulations (nb), total number of observations (ntot), free energy prediction (eig_wt_final_sym).  This file can be opened in network analysis programs (e.g. Gephi).\nbptf_au1.pdb: a PDB file containing the BPTF protein and the AU1 molecule\nclust90.dcd: a trajectory composed of randomly selected structures from cluster 90, which was predicted to be the most stable cluster according to the free energy\nallclusts.tgz: an archive file containing a (randomly selected) PDB structure for every cluster in the network\n",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "BPTF",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "MOL",
+            "text": "AU1",
+            "start": 5,
+            "end": 8
+        },
+        {
+            "label": "MOL",
+            "text": "protein",
+            "start": 361,
+            "end": 368
+        },
+        {
+            "label": "MOL",
+            "text": "bptf",
+            "start": 701,
+            "end": 705
+        },
+        {
+            "label": "MOL",
+            "text": "BPTF",
+            "start": 741,
+            "end": 745
+        },
+        {
+            "label": "MOL",
+            "text": "AU1",
+            "start": 762,
+            "end": 765
+        }
+    ]
+}

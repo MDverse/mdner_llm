@@ -1,0 +1,28 @@
+Discovery and Computational Studies of Potent Covalent Kinase Inhibitors with α‑Substituent Electrophiles Targeting Cysteine
+
+Both reversible noncovalent inhibitors and irreversible
+covalent
+inhibitors targeting tyrosine kinases have their disadvantages. The
+reversible covalent inhibitors with electrophilic group cyanoacrylamide
+as warheads reacting with cysteine residues could solve the dilemmas.
+However, there are still several unresolved issues regarding the electrophilic
+groups. In this manuscript, a series of EGFR inhibitors with double
+electron-withdrawing substituents introduced into the Cα position on the olefin bond were designed and synthesized. The binding
+structures and characteristics of inhibitors with the kinase in both
+the first noncovalent binding phase and the second covalent binding
+step were explored and combined with molecular docking and molecular
+dynamics simulations. Then, the reverse β-elimination reactions
+of the thiol-Michael adducts were investigated by applying density
+functional theory calculations. In addition, the effects of different
+electrophilic substituents of Cα on the binding between
+the inhibitors and kinase were elucidated. The results suggested that
+the electrophilicity and size of the electron-withdrawing groups play
+an important role in the specific interactions during the reaction.
+The compounds with the electron-withdrawing groups that had medium
+electrostatic and steric complementarity to the kinase active site
+could cooperatively stabilize the complexes and showed relatively
+good potent activities in the kinase assay experiment. The mechanical
+and structural information in this study  could enhance our understanding
+of the functioning of the electron-withdrawing groups in the covalent
+inhibitors. The results might help to design efficient cysteine targeting
+inhibitors in the future.

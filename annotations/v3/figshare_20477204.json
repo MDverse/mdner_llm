@@ -1,0 +1,122 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Improving All-Atom Force Field to Accurately Describe DNA G‑Quadruplex Loops\n\nThe DNA G-quadruplex (GQ) displays structural polymorphisms,\nand\ninteractions between its loops and flanking sequences critically determine\nwhich of the diverse GQ conformers is adopted. All-atom molecular\ndynamics (MD) simulations of GQs are computationally challenging due\nto slow folding times and force field (ff) artifacts. In an earlier\nstudy, a direct folding simulation of the simplest DNA GQ (TBA15)\nwas first reported using a modified version of the AMBER bsc1 ff (bsc1_vdW\nff). Despite this successful folding simulation, it was later found\nthat the bsc1_vdW ff is somewhat limited in terms of describing loop\nstructures of GQs, which is problematic because GQ loop regions play\nkey roles in ligand binding to modulate GQ activities. In this study,\nwe further modified the bsc1_vdW ff to enhance the GQ loop prediction\nby fine-tuning a limited number of van der Waals (vdW) parameters\nof the standard AMBER bsc1 ff to improve the GQ loop distribution\nof a target GQ system (three-layered antiparallel GQ; mHtel21). Test\nsimulations of this newly generated ff (bsc1_vdWL ff) on DNA GQs with\ndiverse topologies (hybrid1, hybrid2, and parallel propeller) revealed\nthat loop structures were predicted more accurately than by the bsc1_vdW\nff. We consider that enhanced sampling MD simulation methods in combination\nwith bsc1_vdWL provide useful simulation protocols for resolving outstanding\nissues of DNA GQ folding and GQ/ligand binding at the all-atom level.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "DNA G-quadruplex",
+            "start": 82,
+            "end": 98
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 100,
+            "end": 102
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 239,
+            "end": 241
+        },
+        {
+            "label": "MOL",
+            "text": "GQs",
+            "start": 313,
+            "end": 316
+        },
+        {
+            "label": "MOL",
+            "text": "DNA GQ",
+            "start": 472,
+            "end": 478
+        },
+        {
+            "label": "MOL",
+            "text": "TBA15",
+            "start": 480,
+            "end": 485
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER bsc1",
+            "start": 538,
+            "end": 548
+        },
+        {
+            "label": "MOL",
+            "text": "GQs",
+            "start": 713,
+            "end": 716
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 476,
+            "end": 478
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 747,
+            "end": 749
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 808,
+            "end": 810
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER bsc1",
+            "start": 990,
+            "end": 1000
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 889,
+            "end": 891
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 1019,
+            "end": 1021
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 1052,
+            "end": 1054
+        },
+        {
+            "label": "MOL",
+            "text": "DNA GQs",
+            "start": 1166,
+            "end": 1173
+        },
+        {
+            "label": "MOL",
+            "text": "DNA GQ",
+            "start": 1486,
+            "end": 1492
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 1090,
+            "end": 1092
+        }
+    ]
+}

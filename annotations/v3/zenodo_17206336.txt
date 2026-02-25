@@ -1,0 +1,9 @@
+Multiscale simulations reveal dynamics interfacial network and membrane remodeling of the ankyrin-1 complex
+
+This dataset contains representative molecular dynamics (MD) trajectory segments and their corresponding topology files from the study. All files have been preprocessed to remove solvent molecules (and lipids for all-atom data), enabling efficient visualization and analysis.
+The dataset consists of three parts:
+All-atom simulations – (1) one unbiased 2 μs production trajectory, (2) four independent 2 ns trajectories used for binding free energy calculations, (3) one em.gro and (4) one rmsd_ref.gro.
+Coarse-grained simulations – four 2-μs production trajectories: (1) full ankyrin-1 complex, (2) membrane-only control, (3) full complex including the ankyrin-1 subunit, and (4) truncated complex excluding the ankyrin-1 subunit.
+Topology files – complete topology files required to reproduce and analyze the simulations.
+These subsets capture the key interfacial interactions and membrane remodeling patterns described in the study, while significantly reducing file size for convenient download. The full trajectories are available from the corresponding author upon reasonable request.
+ 

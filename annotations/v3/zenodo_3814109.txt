@@ -1,0 +1,4 @@
+Molecular dynamics simulation data of regulatory ACT domain dimer of human phenylalanine hydroxylase (PAH) (dimer only)
+
+Raw data of molecular dynamics simulations of regulatory ACT domain dimer. Simulation starts from the crystal pose (PDB: 5FII) and is motivated by this paper:
+Yunhui Ge, Elias Borne, Shannon Stewart, Michael R. Hansen, Emilia C. Arturo, Eileen K. Jaffe and Vincent A. Voelz. Simulation of the regulatory ACT domain of human PAH unveil the mechanism of phenylalanine binding. J. Biol. Chem., 2018, 293(51), pp 19532-19543

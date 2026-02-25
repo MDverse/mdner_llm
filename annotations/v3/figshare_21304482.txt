@@ -1,0 +1,5 @@
+SMD Simulations of High Affinity Sequence
+
+Steered Molecular Dynamics (SMD) simulations of the following system in explicit water: H-NS; dsDNA with nucleotide sequences  5’-GCAATATATTGC-3, and neutralized with 50 mM NaCl performed with GROMACS, version 2020.4 patched with PLUMED version 2.6.3.  
+
+All dry_*.pdb and dry_*.xtc contain the topology and SMD trajectories. The COLVAR_* files contain the work and bias output. And the run.mdp and plumed.dat contain the input settings containing the pulling coordinate and simulations settings. The SMD runs are 100 ns long and the force constant is 500 kJ/mol.

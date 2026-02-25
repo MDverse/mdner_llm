@@ -1,0 +1,26 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic Simulation of Phase Transitions and Charge Mobility for the Organic Semiconductor Ph-BTBT-C10\n\nWe\npresent a computational study of the molecular organization\nand charge mobility of Ph-BTBT-C10, a high performance organic semiconductor\nof considerable current interest. We have observed for the first time\nby atomistic molecular dynamics the formation of an ordered smectic\nphase on cooling down from the isotropic melt and upon heating the\ncrystal, for this system, in good agreement with experiment. Although\nwe could observe only a smectic A and not a smectic E phase, the temperature\nvariation of the hole mobility estimated from hopping model calculations\nreproduces the main features of experiments. The crystal phase is\ncharacterized by high mobility bilayers defined by the aromatic π-conjugated\ncores, but it is effectively insulating in the orthogonal direction.\nThe smectic phase is characterized by more disordered monolayers,\nwhich have a good in-plane mobility and a lower, but still appreciable,\ndegree of charge transport across the layers. This feature may be\nadvantageous for applications requiring materials with evenly balanced,\nthree-dimensional conduction paths.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Ph-BTBT-C10",
+            "start": 92,
+            "end": 103
+        },
+        {
+            "label": "MOL",
+            "text": "Ph-BTBT-C10",
+            "start": 191,
+            "end": 202
+        }
+    ]
+}

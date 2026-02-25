@@ -1,0 +1,33 @@
+Efficient Characterization of GPCRs Allosteric Modulation: Application to the Rational Design of De Novo S1PR1 Allosteric Modulators
+
+G-protein-coupled receptors (GPCRs) constitute the largest
+superfamily
+of integral membrane proteins in the human genome that mediate most
+transmembrane signaling processes. Malfunction of these signaling
+processes is related to many human pathologies (Parkinson’s,
+heart diseases, etc.), causing GPCRs to be the largest family of druggable
+proteins. Traditionally, GPCRs were targeted by orthosteric ligands.
+However, this regulation usually causes side effects, provoking many
+GPCRs-associated pathologies to remain without an effective treatment.
+Allosteric regulation offers a promising alternative to circumvent
+this problem, and consequently, comprehending its details is of utmost
+importance. For this reason, we developed in the present work a methodology
+to study the allosteric modulation in a comprehensive way. Specifically,
+this methodology allows calculating the free energy profiles (ΔGtotal) for activation processes of GPCRs and
+their derived complexes combining the usage of targeted molecular
+dynamics (TMD) simulations to generate the intermediate structures
+of a given activation process, with the protein-dipole Langevin-dipole
+(PDLD) method within the linear response approximation (LRA) framework
+(PDLD/S-LRA-2000) and our refined coarse-grained (CG) model for GPCRs
+to calculate the binding and conformational free energy contributions
+(ΔGconf, ΔGbind), respectively, which take into account the cellular
+membrane effects by an implicit membrane. Sphingosine 1-phosphate
+receptor 1 (S1PR1) has been chosen as a case study due to its available
+data for benchmark purposes. Apart from validating our developed methodology,
+the conducted S1PR1 study has partially filled its knowledge gap regarding
+allosteric modulation and has allowed rational design of a de novo
+pure positive allosteric modulator for one of its prospective allosteric
+cavities according to our calculations. The methodology presented
+in this paper provides a very useful tool to study the GPCRs allosteric
+modulation, and the GPCRs activation processes in general, which will
+hopefully encourage a more thorough exploration of the topic.

@@ -1,0 +1,110 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Coarse-Grained Molecular Model for the Glycosylphosphatidylinositol Anchor with and without Protein\n\nGlycosylphosphatidylinositol\n(GPI) anchors are a unique class of\ncomplex glycolipids that anchor a great variety of proteins to the\nextracellular leaflet of plasma membranes of eukaryotic cells. These\nanchors can exist either with or without an attached protein called\nGPI-anchored protein (GPI-AP) both in vitro and in vivo. Although GPIs are known to participate in a broad\nrange of cellular functions, it is to a large extent unknown how these\nare related to GPI structure and composition. Their conformational\nflexibility and microheterogeneity make it difficult to study them\nexperimentally. Simplified atomistic models are amenable to all-atom\ncomputer simulations in small lipid bilayer patches but not suitable\nfor studying their partitioning and trafficking in complex and heterogeneous\nmembranes. Here, we present a coarse-grained model of the GPI anchor\nconstructed with a modified version of the MARTINI force field that\nis suited for modeling carbohydrates, proteins, and lipids in an aqueous\nenvironment using MARTINI’s polarizable water. The nonbonded\ninteractions for sugars were reparametrized by calculating their partitioning\nfree energies between polar and apolar phases. In addition, sugar–sugar\ninteractions were optimized by adjusting the second virial coefficients\nof osmotic pressures for solutions of glucose, sucrose, and trehalose\nto match with experimental data. With respect to the conformational\ndynamics of GPI-anchored green fluorescent protein, the accessible\ntime scales are now at least an order of magnitude larger than for\nthe all-atom system. This is particularly important for fine-tuning\nthe mutual interactions of lipids, carbohydrates, and amino acids\nwhen comparing to experimental results. We discuss the prospective\nuse of the coarse-grained GPI model for studying protein-sorting and\ntrafficking in membrane models.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Glycosylphosphatidylinositol",
+            "start": 39,
+            "end": 67
+        },
+        {
+            "label": "MOL",
+            "text": "Glycosylphosphatidylinositol",
+            "start": 101,
+            "end": 129
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 131,
+            "end": 134
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 370,
+            "end": 373
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 392,
+            "end": 395
+        },
+        {
+            "label": "MOL",
+            "text": "GPIs",
+            "start": 436,
+            "end": 440
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 563,
+            "end": 566
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 955,
+            "end": 958
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 1009,
+            "end": 1016
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 1125,
+            "end": 1132
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1147,
+            "end": 1152
+        },
+        {
+            "label": "MOL",
+            "text": "glucose",
+            "start": 1428,
+            "end": 1435
+        },
+        {
+            "label": "MOL",
+            "text": "sucrose",
+            "start": 1437,
+            "end": 1444
+        },
+        {
+            "label": "MOL",
+            "text": "trehalose",
+            "start": 1450,
+            "end": 1459
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 1540,
+            "end": 1543
+        },
+        {
+            "label": "MOL",
+            "text": "GPI",
+            "start": 1889,
+            "end": 1892
+        }
+    ]
+}

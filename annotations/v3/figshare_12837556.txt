@@ -1,0 +1,25 @@
+Nanoscale Relaxation in “Water-in-Salt” and “Water-in-Bisalt” Electrolytes
+
+“Water-in-salt”
+(WIS) and “water-in-bisalt”
+(WIBS) electrolytes have recently been developed for Li-ion batteries,
+combining the safety and environmental friendliness of aqueous electrolytes
+with a larger operating window made possible by a solid-electrolyte
+interphase. We report quasielastic neutron scattering (QENS) measurements
+on solutions of a WIS electrolyte at two concentrations, 13.9 and
+21 m (molal) lithium bis­(trifluoromethane)­sulfonimide
+LiTFSI in H2O/D2O and a WIBS electrolyte at
+(21 m LiTFSI + 7 m lithium triflate
+(LiOTf)) in H2O/D2O. The data were Fourier transformed
+to obtain experimental intermediate scattering functions (ISFs) and
+compared with corresponding quantities obtained from molecular dynamics
+(MD) simulations. Both QENS and MD ISFs could be fitted well by a
+single stretched exponential function to obtain apparent translational
+diffusion coefficients for the water molecules. The QENS values agree
+well with the MD simulations for the 13.9 and 21 m solutions, but MD simulations predict a slower relaxation of water
+compared to QENS for the WIBS electrolyte. Comparison of the incoherent
+and coherent scattering reveals much faster water dynamics compared
+with structural relaxation of the ionic framework, consistent with
+the nanodomain picture where the lithium diffusion occurs through
+the tortuous water domain around the slower relaxing ionic matrix,
+leading to highly non-Gaussian water motion.

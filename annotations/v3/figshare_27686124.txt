@@ -1,0 +1,3 @@
+SMD trajectories of all the oligosaccharides
+
+Steered molecular dynamics (SMD) simulation is employed to understand the inherent resistance of oligosaccharides towards mechanical stretching and estimation of the associated free energy changes. 

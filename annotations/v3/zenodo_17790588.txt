@@ -1,0 +1,8 @@
+Repository of Auto-MartiniM3: Fast parametrization of Martini3 models for fragments and small molecules
+
+Here, we introduce the data repository of Auto-MartiniM3, an advanced and updated version of the Auto-Martini program, designed to automate the coarse-graining of small molecules to be used with the Martini 3 force field.
+We validated our approach by modeling 81 small molecules from the Martini Database and comparing their water-oil partitionning behavior during solvation free energy simulations with ones obtained from models designed by Martini experts. - simulation and TI computation results, as well as coarse-grain parametrizations created with Auto-MartiniM3 are avaliable in TI_simulations.zip
+Additionally, we assessed the behavior of Auto-MartiniM3-generated models by calculating solute translocation and free energy across lipid bilayers. Computation and simulation data and Auto-MartiniM3-made models (with some manually introduced changes for increasing stability) are available in PMF_simulations.zip
+We evaluated Auto-MartniM3-made caffeine model by testing its binding to the adenosine A2A receptor. Simulation data are available in A2A_POPC_AM3caffeine.zip
+To confirm applicability of Auto-MartiniM3 as the tool for high-throughput coarse grain parametrization, we deployed it on 100 000 molecules from Enamine Fragment Collection (files avaliable in Enamine100k_parametrization.zip) and simulated 23619 ligands in a box of water (simulation results are avaliable in Enamine24k_simulations.zip).
+Auto-MartiniM3 source code is freely available at https://github.com/Martini-Force-Field-Initiative/Automartini_M3

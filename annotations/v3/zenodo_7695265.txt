@@ -1,0 +1,3 @@
+RIG-I and RNA complex MD simulations in ff19SB+OL3, ff14SB+OL3, OPLS4 and AMOEBA force fields
+
+MD simulation trajectories of RIG-I variant in complex with RNA. 10*100ns in AMOEBA (a single file from OpenMM), 4*500ns in Amber(ff19sb+OL3, ff14sb+Ol3, polarizable water in amberpol), 4*500ns in Desmond (opls4). 

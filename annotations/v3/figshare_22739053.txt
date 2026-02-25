@@ -1,0 +1,27 @@
+Interfacial Dynamics and Growth Modes of β2‑Microglobulin Dimers
+
+Protein aggregation
+is a complex process, strongly dependent on
+environmental conditions and highly structurally heterogeneous, both
+at the final level of fibril structure and intermediate level of oligomerization.
+Since the first step in aggregation is the formation of a dimer, it
+is important to clarify how certain properties of the latter (e.g.,
+stability or interface geometry) may play a role in self-association.
+Here, we report a simple model that represents the dimer’s
+interfacial region by two angles and combine it with a simple computational
+method to investigate how modulations of the interfacial region occurring
+on the ns−μs time scale change the dimer’s growth
+mode. To illustrate the proposed methodology, we consider 15 different
+dimer configurations of the β2m D76N mutant protein
+equilibrated with long Molecular Dynamics simulations and identify
+which interfaces lead to limited and unlimited growth modes, having,
+therefore, different aggregation profiles. We found that despite the
+highly dynamic nature of the starting configurations, most polymeric
+growth modes tend to be conserved within the studied time scale. The
+proposed methodology performs remarkably well taking into consideration
+the nonspherical morphology of the β2m dimers, which
+exhibit unstructured termini detached from the protein’s core,
+and the relatively weak binding affinities of their interfaces, which
+are stabilized by nonspecific apolar interactions. The proposed methodology
+is general and can be applied to any protein for which a dimer structure
+has been experimentally determined or computationally predicted.

@@ -1,0 +1,157 @@
+Evaluating the impact of filler size and filler content on the stiffness, strength, and toughness of polymer nanocomposites using coarse-grained molecular dynamics: dataset
+
+Abstract:
+(from [1])
+Their great versatility makes polymer nanocomposites an important class of engineering materials. In order to gain detailed insights into the nanoscale mechanisms underlying their macroscopic mechanical properties, molecular dynamics (MD) simulations are a valuable tool to complement experimental studies. In this work, we modify the analytical potential functions of an efficient bead-spring model representing a generic polymer nanocomposite to account for the breaking of covalent bonds. We perform uniaxial tensile simulations of double-notched specimens and validate the model using experimental trends for overall stiffness, strength, and toughness. First, we study the effects of sample size, notch geometry, strain rate, temperature, and molar mass for the pure thermoplastic matrix material. Second, we analyze the influence of filler size and filler content on the mechanical behavior of the polymer nanocomposite. With this study, we show that in both the development of new materials and the optimization of established materials, it is possible to gain important preliminary insights into the effects of pertinent material characteristics with a simple MD setup, which can then be further refined by increasing the complexity of the material description and the boundary conditions.   
+ 
+ 
+Contact:
+Felix Weber
+Institute of Applied Mechanics
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+Egerlandstr. 5
+91058 Erlangen
+Germany
+ 
+ 
+Software:
+All simulations were performed with LAMMPS [2,3] (version 23 June 2022, patch_23Jun2022_update3) 
+ 
+Compiler: GNU C++ 11.2.0 with OpenMP not enabled
+C++ standard: C++11
+ 
+Active compile time flags:
+-DLAMMPS_GZIP
+-DLAMMPS_SMALLBIG
+ 
+Installed packages:
+BPM CLASS2 DPD-BASIC EXTRA-DUMP EXTRA-FIX EXTRA-MOLECULE INTEL KSPACE MANYBODY 
+MC MISC MOLECULE MOLFILE MPIIO NETCDF OPT 
+ 
+Moreover, we employ a self-avoiding random walker [4,5] implemented in MATLAB [6] for the initial positioning of the polymer chains and nanoparticles.
+ 
+ 
+License:
+Creative Commons Attribution 4.0 International
+ 
+ 
+Context:
+This dataset contains the results presented in [1] and the necessary data to obtain those.
+ 
+ 
+Content:
+Throughout this data set, LAMMPS lj units are used. The files to reproduce our simulations and their results are structured as follows:
+- 01_neat: Neat polymer systems
+   - 01_EQU: Equilibration simulations
+   - 02_UT: Uniaxial tensile simulations, including the notch insertion (token "initcrack")
+      - 1.1: Simulations for different sample sizes/numbers of chains (token "chains") at constant molar mass/number of beads per chain
+      - 1.3: Simulations for different widths of the Dirichlet boundary (token "diri")
+      - 2.1: Simulations for different critical bond lengths (token "bondcrit")
+      - 2.2: Simulations for different bond breaking probabilities (token "bondcprob")
+      - 3.1: Simulations for different crack widths (token "crackwidth")
+      - 3.2: Simulations for different crack lengths (token "crackdepth")
+      - 4: Simulations for different strain rates (token "strainrate")
+      - 5: Simulations for different temperatures (token "tem")
+      - 6: Simulations for different molar masses/numbers of beads per chain (token "chain-len")
+- 02_PNC: Polymer nanocomposite (PNC) systems 
+   - 01_EQU: Equilibration simulations
+   - 02_UT: Uniaxial tensile simulations for different filler radii (token "rF") and filler contents/numbers (token "nF"), including the notch insertion (token "initcrack")
+- parameter_study: Postprocessing of the MD results 
+   - parameter_study.xlsx: Overview of the simulations with their respective parameters and statistical analysis of stiffness, strength, and toughness from filtered stress-strain curves (Savitzky-Golay filter applying a linear polynomial and frame length 21)
+   - .csv files of the single sheets of parameter_study.xlsx:
+   - samples.csv: Individual specimens
+   - averages.csv: Statistical analysis of the different samples corresponding to one batch
+ 
+Each simulation directory contains:
+- LAMMPS input script (*.in) of the simulation
+- input.prm: Input parameters of the simulation (read by the input script)
+- LAMMPS data file (*.data, molecular style) of the investigated sample
+- LAMMPS_out: Resulting LAMMPS data files, log files and simulation results in tabulated form
+   - additional files for the tensile tests: 
+      - brokenbonds.dat: Fix print output for fix brokenbondsprint (step time brokenbondsPerStep brokenbondsSum)
+      - stressstrain.dat: Time-averaged data for fix dumpOpt (step v_strain_xx v_OBSstrain_xx v_Piola_xx) with the local strain at the crack tip v_OBSstrain_xx
+      - thermo_out.Dat: Thermodynamic output in condensed tabulated form
+      - thermo_out_SG.Dat: Thermodynamic output in condensed tabulated form, filtered by a Savitzky-Golay filter (linear polynomial, frame length 21)
+      - thermo_out_STD.Dat: Standard deviation between the filtered and unfiltered data
+- job.out: Simulation log file
+- meta.info: Meta data of the simulation run
+ 
+Naming convention:
+- 01_neat: GTPm-[number of chains]_chains-[number of beads per chain]_chain_len-[temperature]_tem-[parameter value]_[parameter]-[sample]
+   - [parameter]: Parameter studied, i.e. diri/bondcrit/bondcprob/crackwidth/crackdepth/strainrate/tem (see above)
+   - [parameter value]: Value of the parameter studied
+   - [sample]: Sample ID
+- 02_PNC: GTPm_rF-[filler radius]_nF-[number of fillers]_[sample]
+   - [sample]: Sample ID
+ 
+Output quantities (columns of *.Dat files):
+- Step: time step
+- Time: time
+- TotEng: total energy
+- PotEng: potential energy
+- KinEng: kinetic energy
+- E_pair: pair energy
+- E_bond: bond energy
+- E_angle: angle energy
+- E_dihed: dihedral energy
+- Temp: temperature
+- Press: hydrostatic pressure
+- Pxx: xx component of pressure tensor
+- Pyy: yy component of pressure tensor
+- Pzz: zz component of pressure tensor
+- Pxy: xy component of pressure tensor
+- Pxz: xz component of pressure tensor
+- Pyz: yz component of pressure tensor
+- Volume: volume of simulation box
+- Lx: box length in x direction
+- Ly: box length in y direction
+- Lz: box length in z direction
+- Density: mass density
+- c_RG: radius of gyration
+- c_RG[1]: squared radius of gyration tensor (xx component)
+- c_RG[2]: squared radius of gyration tensor (yy component)
+- c_RG[3]: squared radius of gyration tensor (zz component)
+- c_RG[4]: squared radius of gyration tensor (xy component)
+- c_RG[5]: squared radius of gyration tensor (xz component)
+- c_RG[6]: squared radius of gyration tensor (yz component)
+- c_bondave[1]: bond energy averaged over all atoms
+- c_bondave[2]: bond distance averaged over all atoms
+- c_bondave[3]: squared bond distance averaged over all atoms
+- c_angleave[1]: angle energy averaged over all atoms
+- c_angleave[2]: angle averaged over all atoms degree
+- c_angleave[3]: cosine of angle
+- c_angleave[4]: squared cosine of angle
+- c_MSD[1]: mean squared displacement x-direction
+- c_MSD[2]: mean squared displacement y-direction
+- c_MSD[3]: mean squared displacement z-direction
+- c_MSD[4]: total mean squared displacement
+- c_COM[1]: x coordinate of center of mass
+- c_COM[2]: y coordinate of center of mass
+- c_COM[3]: z coordinate of center of mass
+- v_strain_xx: xx component of engineering strain tensor  
+- v_strain_yy: yy component of engineering strain tensor   
+- v_strain_zz: zz component of engineering strain tensor   
+- v_vMisesequivstress: von Mises equivalent stress
+- v_Piola_xx: xx component of the virial stress tensor normalized by the initial volume
+- v_Piola_yy: yy component of the virial stress tensor normalized by the initial volume
+- v_Piola_zz: zz component of the virial stress tensor normalized by the initial volume
+- v_Piola_xy: xy component of the virial stress tensor normalized by the initial volume
+- v_Piola_xz: xz component of the virial stress tensor normalized by the initial volume
+- v_Piola_yz: yz component of the virial stress tensor normalized by the initial volume
+- v_strain_xy: xy component of engineering strain tensor  
+- v_strain_xz: xz component of engineering strain tensor  
+- v_strain_yz: yz component of engineering strain tensor  
+ 
+ 
+References:
+[1] F. Weber, V. Dötschel, P. Steinmann, S. Pfaller, M. Ries, "Evaluating the impact of filler size and filler content on the stiffness, strength, and toughness of polymer nanocomposites using coarse-grained molecular dynamics", Engineering Fracture Mechanics, vol. 307, p. 110270, 2024.
+[2] S. Plimpton, "Fast parallel algorithms for short-range molecular dynamics", Journal of computational physics, vol. 117, no. 1, pp. 1-19, 1995.
+[3] A. P. Thompson, H. M. Aktulga, R. Berger, D. S. Bolintineanu, W. M. Brown, P. S. Crozier, P. J. in 't Veld, A. Kohlmeyer, S. G. Moore, T. D. Nguyen, R. Shan, M. J. Stevens, J. Tranchida, C. Trott, S. J. Plimpton, "LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales", Computer Physics Communications, vol. 271, p. 108171, 2022.
+[4] V. Dötschel, S. Pfaller, and M. Ries, "Studying the mechanical behavior of a generic thermoplastic by means of a fast coarse-grained molecular dynamics model", Polymers and Polymer Composites, vol. 31, pp. 1–11, 2023.
+[5] M. Ries, V. Dötschel, J. Seibert, and S. Pfaller, A self-avoiding random walk algorithm (SARW) for generic thermoplastic polymers and nanocomposites, Zenodo, 2022, https://doi.org/10.5281/zenodo.6245699.
+[6] The MathWorks, Inc., "Matlab. the language of technical computing", https://de.mathworks.com/help/matlab/.
+ 
+ 
+Funding:
+The authors gratefully acknowledge funding by various sources:
+The overall research was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - 377472739/GRK 2423/2-2023. Sebastian Pfaller is furthermore funded by the DFG projects 396414850 (Individual Research Grant 'Identifikation von Interphaseneigenschaften in Nanokompositen') and 505866713 together with the Agence nationale de la recherché (ANR, French Research Agency) – ANR-22-CE92-0049 (Individuel Research Grant 'BIO ART'). In addition, scientific support and HPC resources have been provided by the Erlangen National High Performance Computing Center (NHR@FAU) of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) under the NHR project b136dc. NHR funding is provided by federal and Bavarian state authorities. NHR@FAU hardware is partially funded by the DFG project 440719683.

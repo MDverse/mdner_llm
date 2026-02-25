@@ -1,0 +1,4 @@
+MD data for "Xanomeline displays concomitant orthosteric and allosteric binding modes at the M4 mAChR".
+
+MD simulations for "W.A. Burger, V. Pham, Z. Vuckovic, A.S. Powers, J.I. Mobbs, Y. Laloudakis, A. Glukhova, D. Wootten, A.B. Tobin, P.M. Sexton, S.M. Paul, C.C. Felder, R. Radostin, R.O. Dror, A. Christopoulos, C. Valant, and D.M. Thal. Xanomeline displays concomitant orthosteric and allosteric binding modes at the M4 mAChR. Nature Communications, 14(1): 5440 (2023)."
+ 

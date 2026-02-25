@@ -1,0 +1,30 @@
+Study of Interaction Between PEG Carrier and Three Relevant Drug Molecules: Piroxicam, Paclitaxel, and Hematoporphyrin
+
+Molecular dynamics simulation has been used to study
+the specific
+interactions between poly­(ethylene glycol) (PEG) and three drug molecules
+for which PEG is used to aid delivery: paclitaxel and piroxicam, where
+PEG is a carrier agent, and hematoporphyrin, where PEG is covalently
+attached to form a “stealth shield”. Simulating at physiological
+salt concentration, we found no evidence of any specific interaction
+between paclitaxel or piroxicam with PEG, but found a strong interaction
+for the case of hematoporphyrin. This interaction is lipophilic in
+nature, between the nonpolar (CH2)2 groups of
+the PEG and the porphin ring of the hematoporphyrin. This interaction
+was found to be strong enough that the PEG aggregated to the hematoporphyrin,
+independent of whether or not it was covalently bound. Interestingly,
+when the simulation was repeated in absence of salt we found evidence
+of this interaction being weakened. This led us to hypothesize a previously
+unforeseen mechanism: interaction with salt cations cause the PEG
+to coil around the salt ions, each ion binding to many PEG oxygens,
+increasing the exposure of the nonpolar ethylene groups, thus increasing
+the effective hydrophobicity of PEG. The Hydrophobic ethylene groups
+of the PEG chains adhere strongly to the hydrophobic porphin ring.
+Experiments involving absorption spectra measurements were conducted,
+and these results also indicated that presence of salt at physiological
+level increases the effective attractive interaction between PEG and
+hematoporphyrin. Taken together, our results demonstrate that while
+PEG, due to its solubility in both polar and nonpolar solvents, may
+act as a dissolution aid for paclitaxel and piroxicam, of the three
+drug molecules studied it will only have a protective role for the
+case of the hematoporphyrin.

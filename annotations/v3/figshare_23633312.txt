@@ -1,0 +1,22 @@
+What Can We Learn about PEDOT:PSS Morphology from Molecular Dynamics Simulations of Ionic Diffusion?
+
+Poly­(3,4-ethylenedioxythiophene) polystyrene sulfonate
+(PEDOT:PSS)
+is one of the most important mixed electron-ion conducting polymers,
+where the efficiency of the ion transport is crucial for many of its
+applications. Despite the impressive experimental progress in the
+determination of ionic mobilities in PEDOT:PSS, the fundamentals of
+ion transport in this material remain poorly understood, and the theoretical
+insight into the ion diffusion on the microscopical level is completely
+missing. In the present paper, a Martini 3 coarse-grained molecular
+dynamics (MD) model for PEDOT:PSS is developed and applied to calculate
+the ion diffusion coefficients and ion distribution in the film. We
+find that the ion diffusion coefficients for Na+ ions are
+practically the same in the PEDOT-rich and PSS-rich regions and do
+not show sensitivity to the oxidation level. We compare the calculated
+diffusion coefficients with available experimental results. Based
+on this comparison and based on the MD morphology simulation of PEDOT:PSS
+revealing the formation of pores inside the film, we revise a commonly
+accepted granular morphological model of PEDOT:PSS. Namely, we argue
+that PEDOT:PSS films, in addition to PEDOT-rich and PSS-rich regions,
+must contain a network of pores where the ion diffusion takes place.

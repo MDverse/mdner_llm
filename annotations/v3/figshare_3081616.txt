@@ -1,0 +1,20 @@
+Using MD Simulations To Calculate How Solvents Modulate Solubility
+
+Here, our interest is in predicting
+solubility in general, and
+we focus particularly on predicting how the solubility of particular
+solutes is modulated by the solvent environment. Solubility in general
+is extremely important, both for theoretical reasons – it provides
+an important probe of the balance between solute–solute and
+solute–solvent interactions – and for more practical
+reasons, such as how to control the solubility of a given solute via
+modulation of its environment, as in process chemistry and separations.
+Here, we study how the change of solvent affects the solubility of
+a given compound. That is, we calculate relative solubilities. We
+use MD simulations to calculate relative solubility and compare our
+calculated values with experiment as well as with results from several
+other methods, SMD and UNIFAC, the latter of which is commonly used
+in chemical engineering design. We find that straightforward solubility
+calculations based on molecular simulations using a general small-molecule
+force field outperform SMD and UNIFAC both in terms of accuracy and
+coverage of the relevant chemical space.

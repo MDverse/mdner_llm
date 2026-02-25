@@ -1,0 +1,3 @@
+MD trajectories for intein simulations
+
+MD simulation trajectories and run files for 400ns simulations for MchDnaB1-HAA. MchDnaB1-HN, and gp41-1WCT-HN inteins. The simulations were run with and without the N-extein sequence.

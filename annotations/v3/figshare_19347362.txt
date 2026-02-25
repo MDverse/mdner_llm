@@ -1,0 +1,3 @@
+Coarse grained molecular structure file representing a single S-Protein in an aqueous solution.
+
+(GRO)

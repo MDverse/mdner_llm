@@ -1,0 +1,3 @@
+Modeling the Orthosteric Binding Site of the G Protein-Coupled Odorant Receptor OR5K1- MD simulations
+
+Topology, parameter and coordinates files of the Molecular dynamics (MD) simulations of OR5K1 3D models from AlphaFold 2 (AF2) and Homology Modeling (HM). We used ACEMD3 (v3.5.1) as a molecular engine, CHARMM36 as force field. Three replicas of 100 ns (dcd files) for both systems are reported. Water molecules, ions, and membrane atoms (POPC: phosphatidylcholine) atoms were removed from the original trajectories before the upload.

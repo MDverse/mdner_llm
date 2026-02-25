@@ -1,0 +1,6 @@
+MD trajectories for research "Synthesis and antimicrobial evaluation of chroman-4-one and homoisoflavonoid derivatives"
+
+Molecular dynamics trajectories for research: "Synthesis and antimicrobial evaluation of chroman-4-one and homoisoflavonoid derivatives"
+Files are organized as "Protein"/"Compound"/"Conformation Number"/trj_dry
+The folder trj_dry contains the MD trajectories, for protein and ligands after removing solvent and counterions, for each MD replica (1..5) of the complex. The topology required to further process or visualize the trajectories are found in "Protein"/"Compound"/"Conformation Number"/Complx.prmtop
+ 

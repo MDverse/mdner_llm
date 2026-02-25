@@ -1,0 +1,28 @@
+Force Field and a Surface Model Database for Silica to Simulate Interfacial Properties in Atomic Resolution
+
+Silica
+nanostructures find applications in drug delivery, catalysis,
+and composites, however, understanding of the surface chemistry, aqueous
+interfaces, and biomolecule recognition remain difficult using current
+imaging techniques and spectroscopy. A silica force field is introduced
+that resolves numerous shortcomings of prior silica force fields over
+the last 30 years and reduces uncertainties in computed interfacial
+properties relative to experiment from several 100% to less than 5%.
+In addition, a silica surface model database is introduced for the
+full range of variable surface chemistry and pH (Q2, Q3, Q4 environments with adjustable degree of ionization)
+that have shown to determine selective molecular recognition. The
+force field enables accurate computational predictions of aqueous
+interfacial properties of all types of silica, which is substantiated
+by extensive comparisons to experimental measurements. The parameters
+are integrated into multiple force fields for broad applicability
+to biomolecules, polymers, and inorganic materials (AMBER, CHARMM,
+COMPASS, CVFF, PCFF, INTERFACE force fields). We also explain mechanistic
+details of molecular adsorption of water vapor, as well as significant
+variations in the amount and dissociation depth of superficial cations
+at silica–water interfaces that correlate with ζ-potential
+measurements and create a wide range of aqueous environments for adsorption
+and self-assembly of complex molecules. The systematic analysis of
+binding conformations and adsorption free energies of distinct peptides
+to silica surfaces will be reported separately in a companion paper.
+The models aid to understand and design silica nanomaterials in 3D
+atomic resolution and are extendable to chemical reactions.

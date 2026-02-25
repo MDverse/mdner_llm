@@ -1,0 +1,5 @@
+Simulations of POPC/cholesterol mixtures at 298 K, three system sizes, CHARMM36
+
+GROMACS input and output files. CHARMM36.
+Membranes with 64, 256, and 1024 lipids.
+Version 2: Updated with complete files for CHOL0_small.

@@ -1,0 +1,3 @@
+GROMACS simulations of unfolding of ubiqutin in a strong electric field
+
+The simulations were performed in GROMACS 4.6.7. The dataset contains binary run input files (.tpr) and simulated trajectory files (.trr). Here are 100 statistically independent runs for the field values: E = 3e4 V/nm, E = 5e4 V/nm, E = 7e4 V/nm, E = 11e4 V/nm. The names of files denote the value of the electric field in [V/nm] and the number of independent runs.

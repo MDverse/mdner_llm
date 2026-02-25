@@ -1,0 +1,3 @@
+Equilibration simulation of a Lo/Ld phase coexistence in a DPPC/DOPC/Cholesterol mixture
+
+To be added

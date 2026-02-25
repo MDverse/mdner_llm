@@ -1,0 +1,6 @@
+Research data supporting: "Data-driven assessment of optimal spatiotemporal resolutions for information extraction in noisy timeseries data"
+
+The folder contains the dataset and the codes necessary to perform Optimal resolution analyses.
+Each system dataset (gro/xtc/xyz) is intended to be analyzed by 'compute RDF' function which provide the list of cut offs to be use.
+Those distances need to be used to compute the different descriptors (LENS/SOAP/PHI).
+Onion clusterting can be then be performed on descriptor's timeseries and the different distances ranked with the comparison function.

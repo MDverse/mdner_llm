@@ -1,0 +1,25 @@
+Exploring Free Energies of Specific Protein Conformations Using the Martini Force Field
+
+Coarse-grained (CG) level molecular dynamics simulations
+are routinely
+used to study various biomolecular processes. The Martini force field
+is currently the most widely adopted parameter set for such simulations.
+The functional form of this and several other CG force fields enforces
+secondary protein structure support by employing a variety of harmonic
+potentials or restraints that favor the protein’s native conformation.
+We propose a straightforward method to calculate the energetic consequences
+of transitions between predefined conformational states in systems
+in which multiple factors can affect protein conformational equilibria.
+This method is designed for use within the Martini force field and
+involves imposing conformational transitions by linking a Martini-inherent
+elastic network to the coupling parameter λ. We demonstrate
+the applicability of our method using the example of five biomolecular
+systems that undergo experimentally characterized conformational transitions
+between well-defined structures (Staphylococcal nuclease,
+C-terminal segment of surfactant protein B, LAH4 peptide, and β2-adrenergic receptor) as well as between folded and unfolded
+states (GCN4 leucine zipper protein). The results show that the relative
+free energy changes associated with protein conformational transitions,
+which are affected by various factors, such as pH, mutations, solvent,
+and lipid membrane composition, are correctly reproduced. The proposed
+method may be a valuable tool for understanding how different conditions
+and modifications affect conformational equilibria in proteins.

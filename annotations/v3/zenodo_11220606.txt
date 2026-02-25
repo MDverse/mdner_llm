@@ -1,0 +1,17 @@
+Simulations of POPC bilayers and monolayers at three different sizes. CHARMM36 with OPC water model
+
+Simulations of POPC bilayers and monolayers with the CHARMM36 force field and OPC water. Three system sizes are used: small ("s", 64 lipids), medium ("m", 256 lipids), and large ("l", 1024 lipids). All simulations are 1 µs long. The simulations are performed using GROMACS, and for each system the following are provided for bilayers (without "mono" in the name) and monolayers (with "mono" in the name):
+
+run input file (tpr)
+energy file (edr)
+trajectory file (xtc)
+checkpoint file (cpt) 
+final structure (gro)
+
+Additionally, the following are shared by the monolayer and bilayer, and their naming convention follows the bilayer one.
+
+index file (ndx)
+topology file (top)
+
+The simulation parameter files (mdp) are provided separately for bilayers and monolayers. The molecular topologies (top) are included in TOP.tar.
+The CHARMM36 force field is obtained from http://mackerell.umaryland.edu/charmm_ff.shtml

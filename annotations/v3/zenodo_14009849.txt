@@ -1,0 +1,98 @@
+Molecular dynamics simulation data for the publication "Trapping of spermine, Kukoamine A, and polyamine toxin blockers in GluK2 kainate receptor channels"
+
+This dataset contains unbiased molecular dynamics simulation trajectories, stripped of water and lipid coordinates due to size constraints. It also contains the full initial coordinates for production runs as well as the representative structures for all trajectories.
+Description of the data and file structure
+The data are deposited as a .zip file and organized into 4 folders, each containing MD simulation data for GluK2SPM, GluK2KukoA, GluK2NpTx8, and GluK2PhTx74 systems.
+All trajectory (.nc) files are stripped of water and lipid molecules, and saved sparsely, skipping by 20 frames. Please see the table below for the systems and corresponding topology and trajectory files.
+
+
+
+
+System
+
+
+# of Frames
+
+
+Production Length
+
+
+Topology File
+
+
+Trajectory File
+
+
+
+
+GluK2SPM
+
+
+3992
+
+
+800 ns
+
+
+GLUK2_SPM_closed_nowat_nolip.prmtop
+
+
+GLUK2_SPM_closed_traj_nowat_nolip_skip20.nc
+
+
+
+
+GluK2KukoA
+
+
+2800
+
+
+560 ns
+
+
+GLUK2_KUK_closed_nowat_nolip.prmtop
+
+
+GLUK2_KUK_closed_traj_nowat_nolip_skip20.nc
+
+
+
+
+GluK2PhTx74
+
+
+2800
+
+
+560 ns
+
+
+GLUK2_PTX_closed_nowat_nolip.prmtop
+
+
+GLUK2_PTX_closed_traj_nowat_nolip_skip20.nc
+
+
+
+
+GluK2NpTx8
+
+
+2800
+
+
+560 ns
+
+
+GLUK2_NTX_closed_nowat_nolip.prmtop
+
+
+GLUK2_NTX_closed_traj_nowat_nolip_skip20.nc
+
+
+
+
+ 
+The full (with waters and lipids) initial structures and representative structures of the trajectories and corresponding topology files are located under each system folder. The topology filenames are in the form of *full.prmtop and the coordinate filenames are in the form of *initial.rst7 and *repres.rst7. Representative structures match the structures shown in Figure 6 in the paper.
+MD trajectories in binary NetCDF (.nc) format and the coordinates in .rst7 format can be visualized using VMD after uploading the corresponding topology file (.prmtop).Analysis of the trajectories can be performed using the CPPTRAJ module of AmberTools and VMD.

@@ -1,0 +1,3 @@
+Molecular dynamics trajectories related to manuscript: SARS-CoV-2 nsp3 and nsp4 are minimal constituents of a pore spanning replication organelle
+
+This dataset contains two folders, each with sequentially numbers coordinates files for all-atom molecular dynamics trajectories related to the manuscript "SARS-CoV-2 nsp3 and nsp4 are minimal constituents of a pore spanning replication organelle" by Zimmermann et al. Each folder contains PDB and PSF files specifying the components of each system depicted in Fig. S10 of that manuscript as well as 200 sequentially named DCD files, each containing 5 nanoseconds of a 1 microsecond trajectory.

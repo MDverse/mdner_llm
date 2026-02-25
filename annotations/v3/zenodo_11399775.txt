@@ -1,0 +1,12 @@
+Data for 'Deciphering GB1's Single Mutational Landscape: Insights from MuMi Analysis'
+
+Data for 'Deciphering GB1's Single Mutational Landscape: Insights from MuMi Analysis'
+ 
+Tandac F. Guclu*, Ali Rana Atilgan, Canan Atilgan
+Faculty of Natural Sciences and Engineering, Sabanci University, Tuzla, 34956, Istanbul, Turkey.
+ 
+*Correspondence: Tandac Furkan Guclu, Faculty of Natural Sciences and Engineering, Sabanci University, Tuzla 34956 Istanbul, Turkey, E-mail: tguclu@sabanciuniv.edu
+ 
+Mutational changes that affect the binding of the C2 fragment of Streptococcal protein G (GB1) to the Fc domain of human IgG (IgG-Fc) have been extensively studied using deep mutational scanning (DMS), and the binding affinity of all single mutations has been measured experimentally in the literature. To investigate the underlying molecular basis, we perform in-silico mutational scanning for all possible single mutations, along with 2-µs-long molecular dynamics (WT-MD) simulations of the wild-type (WT) GB1 in both unbound and IgG-Fc bound forms. We compute the hydrogen bonds between GB1 and IgG-Fc in WT-MD to identify the dominant hydrogen bonds for binding, which we then assess in conformations produced by the Mutation and Minimization (MuMi) method to explain the fitness landscape of GB1 and IgG-Fc binding. Furthermore, we analyze MuMi and WT-MD to investigate the dynamics of binding, focusing on the relative solvent accessibility (RSA) of residues and the probability of residues being located at the binding interface. With these analyses, we explain the strong and weak interactions between GB1 and IgG-Fc and display the structural features of binding.
+Inputs, codes, and outputs of each method are deposited as zip files using their respective names: WT-MD, MuMi, AFMi, and MuMi-Dyn. Please see the MuMi_scheme repository for the code to run MuMi analyses. Relative solvent area (RSA) calculations are done using FreeSASA (https://freesasa.github.io/). To run TCL codes, you need VMD (https://www.ks.uiuc.edu/Research/vmd/) software.
+ 

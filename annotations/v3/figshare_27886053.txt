@@ -1,0 +1,29 @@
+Crosstalk of Nucleic Acid Mimics with Lipid Membranes: A Multifaceted Computational and Experimental Study
+
+Nucleic acid mimics (NAMs) have demonstrated high potential
+as
+antibacterial drugs. However, very few studies have assessed their
+possible diffusion across the bacterial envelope. In this work, we
+studied NAMs’ diffusion in lipid bilayer systems that mimic
+the bacterial outer membrane using molecular dynamics (MD) simulations.
+Additionally, we examined the interactions of a NAM sequence with
+lipid membranes and ascertained the partition constants (Kp) through MD and spectroscopic investigations. The NAM
+sequences were composed of locked nucleic acid (LNA) and 2′-O-methyl
+(2′-OMe) residues, whereas the membrane models were composed
+of 1-palmitoyl-2-oleoyl-glycero-3-phosphocholine (POPC) or 1-palmitoyl-2-oleoyl-sn-glycero-3-phospho-(1′-rac-glycerol) (POPG) phospholipids.
+The parametrization protocol followed was validated against literature
+data and demonstrated the reliability of our approach for simulating
+NAM sequences. Investigation into the interaction of the sequences
+with zwitterionic and anionic membranes revealed a preference for
+hydrogen bond formation with the anionic model over the zwitterionic
+one. Additionally, potential of mean force (PMF) calculations unveiled
+a lower free energy barrier for translocation across the zwitterionic
+bilayer model. Contrarily, the partition constants derived suggested
+a slightly higher partitioning within the anionic membrane, emphasizing
+a nuanced interplay of factors. Finally, spectroscopic partition measurements
+with liposomes presented challenges in quantifying the partition of
+NAMs due to minimal signal variations. However, a tendency for quenching
+in anionic vesicles suggested a potential, albeit small, partitioning
+effect that warrants further investigation. In summary, our study
+revealed that NAMs will not, in principle, be able to cross an intact
+bacterial outer membrane by passive diffusion.

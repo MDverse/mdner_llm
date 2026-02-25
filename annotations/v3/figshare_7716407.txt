@@ -1,0 +1,23 @@
+Assessment of GAFF2 and OPLS-AA General Force Fields in Combination with the Water Models TIP3P, SPCE, and OPC3 for the Solvation Free Energy of Druglike Organic Molecules
+
+Molecular dynamics simulations have
+been performed to compute the
+solvation free energy and the octanol/water partition coefficients
+for a challenging set of selected organic molecules, characterized
+by the simultaneous presence of functional groups coarsely spanning
+a large portion of the chemical space in druglike compounds and, in
+many cases, by a complex conformational landscape (2-propoxyethanol,
+acetylsalicylic acid, cyclohexanamine, dialifor, ketoprofen, nitralin,
+profluralin, terbacil). OPLS-AA and GAFF2 parametrizations of the
+organic molecules and of 1-octanol have been done via the Web-based
+automatic parameter generators, LigParGen [Dodda et al. Nucl. Acids Res. 2017, 121, 3864] and PrimaDORAC [Procacci J. Chem. Inf. Model. 2017, 57, 1240], respectively. For the water solvent,
+three popular three-point site models, TIP3P, SPCE, and OPC3, were
+tested. Solvation free energies in water and 1-octanol are evaluated
+using a recently developed nonequilibrium alchemical technology [Procacci et al. J. Chem. Theory Comput. 2014, 10, 2813]. Extensive and accurate simulations, including all possible combinations
+of organic molecule, solvent, and solvent model, are allowed to assess
+the accuracy with regard to solvation free energies of the latest
+release of two widespread force fields, OPLS and GAFF. The collected
+data are relevant in the evaluation of the predictive power of these
+classical force fields (and of the related support software for automated
+parametrization) with regard to binding free energies in a drug-receptor
+system for industrial applications.

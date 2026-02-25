@@ -1,0 +1,5 @@
+MD simulation trajectory of POPC/DOG (18.75 mol%) bilayer and related files
+
+Simulation trajectory pre-equiblirated POPC/DOG bilayer and related files from all-atom molecular dynamics simulations. The system contains 18.75mol% DOG. Simulations have been performed with GROMACS-2021.2 with Lipid17 forcefield and TIP3P water model. The trajectory is 0-1000 ns, and we have disregarded the first 100 ns in our analysis.
+The system in the trajectory consists of 104 POPC, 24 DOG and 6400 water molecules. Temperature 310 K, pressure 1 bar.
+Publication: https://doi.org/10.1016/j.bbamem.2022.183961

@@ -1,0 +1,4 @@
+All-atom simulation of DOPC
+
+Fully hydrated all-atom bilayer of 1,2-dioleoyl-sn-glycero-3-phosphocholine (DOPC). The bilayer was constructed with CHARMM-GUI and has 100 lipids per leaflet and no added salt ions. After equilibration in NAMD following CHARMM-GUI's 7-step protocol, the system was simulated at 25C (298K) with OpenMM for 2 microseconds.
+Uploaded are the structure file (.psf), trajectory centered on the bilayer midplane with output frequency 40 ps (50,200 frames total, .dcd) and a sample OpenMM input parameter file (.txt).

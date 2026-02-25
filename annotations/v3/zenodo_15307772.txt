@@ -1,0 +1,3 @@
+Construction of PROTAC-Mediated Ternary Complex Structure Distribution Profiles Using Extensive Conformational Search
+
+input files for MD simulations, the restart structures in the PaCS-MD and OFLOOD, and analysis scripts

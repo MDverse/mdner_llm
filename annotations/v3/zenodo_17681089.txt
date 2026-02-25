@@ -1,0 +1,52 @@
+Supporting Files for "Critical Structural Perturbations of Ribozyme Active Sites induced by 2'-O-methylation commonly used in Structural Studies"
+
+The archived folder contains the trajectories reported in the paper "Simulation-Guided Conformational Space Exploration to Assess Reactive Conformations of a Ribozyme" by S. Forget, G. Stirnemann, N.A.R. 2026, as well as all the input and force field files necessary to launch the simulations, organized by systems. All simulations were run using the the GROMACS software compiled with the PLUMED plug-in. Data are organized by molecular system.
+ 
+Ribozyme simulationsEach ribozyme directory contains:
+
+
+system topologies
+
+
+initial structures
+
+
+force-field files
+
+
+solvent-free trajectories
+
+
+simulation log files
+
+
+The hairpin ribozyme and hammerhead ribozyme were simulated using Replica Exchange with Solute Tempering (REST2).The log files correspond to the unrescaled replica (replica “0”), and clustering results obtained from this replica are provided.
+ 
+Mono- and dinucleotide systemsThese directories contain:
+
+
+system topologies
+
+
+initial structures
+
+
+PLUMED output files from OPES simulations
+
+
+ 
+ProceduresThe subdirectory procedures provides detailed descriptions of all equilibration protocols, including:
+
+
+mdp parameter files for each equilibration step
+
+
+scripts used to launch the calculations
+
+
+documentation organized by procedure type
+
+
+ 
+ 
+For any additional information, the authors can be contacted by email: selene.forget@gmail.com and guillaume.stirnemann@ens.psl.eu

@@ -1,0 +1,20 @@
+Enhanced Sampling of Protein Conformational Changes via True Reaction Coordinates from Energy Relaxation
+
+The dataset contains RC-uncovered and natural reactive trajectories. Coordinates of water molecules are excluded to reduce data size. It also contains initial and final structures for all trajectories in PDB format.
+ 
+Data Description
+The data are provided as one .zip file. It can be unzipped by running unzip traj_data.zip
+ 
+Trajectories are provided as .xtc files. Initial structures are provided as *-Initial.pdb, and final structures are provided as *-Final.pdb.
+ 
+Two types of trajectories are provided, with RC-covered trajectories labeled as *RC-uncov* and natural reactive trajectories labeled as *NRT*.
+ 
+The dataset includes trajectories for three systems, each labeled as follows:
+DRV-bound HIV-PR is labeled as DRV*
+MA/CA-bound HIV-PR is labeled as MA-CA*
+PDZ domain is labeled as PDZ*
+ 
+Moreover, force field files of the three systems are provided in the directories DRV_ff, MA-CA_ff, and PDZ_ff.
+ 
+Custom Code
+Custom code for generalized work functional approach and custom GROMACS code for generating RC-uncovered trajectories are provided on Code Ocean (https://codeocean.com/capsule/6873439/tree).

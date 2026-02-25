@@ -1,0 +1,27 @@
+CelS-Catalyzed Processive Cellulose Degradation and Cellobiose Extraction for the Production of Bioethanol
+
+Bacterial cellulase enzymes are potent
+candidates for the efficient
+production of bioethanol, a promising alternative to fossil fuels,
+from cellulosic biomass. These enzymes catalyze the breakdown of cellulose
+in plant biomass into simple sugars and then to bioethanol. In the
+absence of the enzyme, the cellulosic biomass is recalcitrant to decomposition
+due to fermentation-resistant lignin and pectin coatings on the cellulose
+surface, which make them inaccessible for hydrolysis. Cellobiohydrolase
+CelS is a microbial enzyme that binds to cellulose fiber and efficiently
+cleaves it into a simple sugar (cellobiose) by a repeated processive
+chopping mechanism. The two contributing factors to the catalytic
+reaction rate and the yield of cellobiose are the efficient product
+expulsion from the product binding site of CelS and the movement of
+the substrate or cellulose chain into the active site. Despite progress
+in understanding product expulsion in other cellulases, much remains
+to be understood about the molecular mechanism of processive action
+of these enzymes. Here, nonequilibrium molecular dynamics simulations
+using suitable reaction coordinates are carried out to investigate
+the energetics and mechanism of the substrate dynamics and product
+expulsion in CelS. The calculated free energy barrier for the product
+expulsion is three times lower than that for the processive action
+indicating that product removal is relatively easier and faster than
+the sliding of the substrate to the catalytic active site. The water
+traffic near the active site in response to the product expulsion
+and the processive action is also explored.

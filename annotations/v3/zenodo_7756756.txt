@@ -1,0 +1,9 @@
+Shear viscosity coefficient of acqueous glycerol from non-equilibrium Molecular Dynamics simulations
+
+This dataset contains the results of non-equilibrium atomistic Molecular Dynamics simulations of water-glycerol liquid mixtures, at various relative concentrations. The goal of the simulations is to quantify the shear viscosity coefficient of said mixtures using the periodic perturbation technique [1]. 
+The pattern "Glycerol***" refers to the mass fraction of glycerol ("000": pure water, "100": pure glycerol). Each folder contains three sets of simulations, with different perturbation force parameters ("Em*"), where configuration files necessary to reproduce molecular simulations simulations are provided. Maps of density and velocity field are in "Em*"->"Flow".
+A small self-contained Python script to fit the velocity fields to a periodic cosine perturbation is provided (fit-periodic.py). Alternatively, viscosity can be obtained from energy outputs by running:
+gmx energy -f ener.edr
+and selecting "1/Viscosity". Simulations are performed with Gromacs. We refer to the code documentation for further information (https://manual.gromacs.org/).
+References:
+[1] B. Hess, Determining the shear viscosity of model liquids from molecular dynamics simulations, J. Chem. Phys. 116, 209–217 (2002) https://doi.org/10.1063/1.1421362

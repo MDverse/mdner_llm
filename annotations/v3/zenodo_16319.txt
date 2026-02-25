@@ -1,0 +1,3 @@
+DPPC_Berger_NaCl
+
+MD simulation trajectory and related files for fully hydrated DPPC bilayer with 150 mM NaCl. Berger-DPPC-98 force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads) was used with Gromacs 5.0.4. Ions were described by the gromos force field. Conditions: T=323K, 72 lipids, 2880 SPC waters, 8 Na, 8 Cl. 120 ns trajectory, last 60 ns analyzed.

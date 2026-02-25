@@ -1,0 +1,3 @@
+Data for "Unveiling the Structure and Dynamic Properties of NaCl Aqueous Solutions Across Wide Concentration and Temperature Ranges: Insights from Deep Potential Molecular Dynamics"
+
+This record contains a dataset of density functional theory calculations used to train a series of deep potential (DP) models, with the corresponding database also included herein. Parameters related to the density functional theory calculations are provided.

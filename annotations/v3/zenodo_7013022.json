@@ -1,0 +1,50 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Using Molecular Dynamics Simulations to Interrogate T Cell Receptor Non-Equilibrium Kinetics\n\nPrinicipal component analysis was performed on TCR-pMHC steered molecular dynamics simulation trajectories. These supplementary videos include rendered videos of those trajectories (named: mutant_equilibrationtime_pull.mp4), principal component trajectories (named: mutant_equilibrationtime_pcx.mp4), and the control trajectory with pull from termini (named: termini_control.mp4). These are template names for the video trajectories (refer to README file for more details). Note, mutants refer to the in silico mutations made to the TCR-pMHC protein structures and are abbreviated L1, MART1, and GVA, respectively. In addition, the starting configurations for all pull simulations have been provided free of charge.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "T Cell Receptor",
+            "start": 52,
+            "end": 67
+        },
+        {
+            "label": "MOL",
+            "text": "TCR-pMHC",
+            "start": 141,
+            "end": 149
+        },
+        {
+            "label": "MOL",
+            "text": "TCR-pMHC",
+            "start": 627,
+            "end": 635
+        },
+        {
+            "label": "MOL",
+            "text": "L1",
+            "start": 675,
+            "end": 677
+        },
+        {
+            "label": "MOL",
+            "text": "MART1",
+            "start": 679,
+            "end": 684
+        },
+        {
+            "label": "MOL",
+            "text": "GVA",
+            "start": 690,
+            "end": 693
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+G-Protein Coupled Receptor-Ligand Dissociation Rates and Mechanisms from tauRAMD Simulations
+
+Data  and Python scripts used for generation and analysis of RAMD  dissociation trajectories for several GPCR complexes (including example showing generation of  the Protein-Ligand Interaction Fingerprints, IFP, for several representative RAMD trajectories),
+reported in the manuscript
+"G-Protein Coupled Receptor-Ligand Dissociation Rates and Mechanisms from tRAMD Simulations" "G-Protein Coupled Receptor-Ligand Dissociation Rates and Mechanisms from tauRAMD Simulations"
+by Daria B. Kokh, Rebecca C. Wade
+submitted to  the Journal of Chemical Theory and Computation
+ 
+1. README.txt - instruction for script usage
+2. PDBs.zip - PDB structures of complexes in water box used in the analysis, ligand PDB and mol2 structures
+3. tauRAMD_v2.py - Python sctipt for estimation relative residence times from Gromacs-RAMD output 
+4. IFP_preprocess_Gromacs.py and IFP_SL-B2AR-WB-EX.py - Python scripts for preprocessing of RAMD trajectories and generation of IFPs
+5. Scripts.zip - additional python functions 
+6. IXO-CHL.zip, IXO-ALO-CHL.zip, ACh-CHL.zip, b2AR.zip - Protein-Ligand Interaction Fingerprints (PL IFPs) generated from RAMD trajectories  for mAChR M2 with iperoxo, mAChR M2  with iperoxo and  PAM, mAChR M2 with ACh, and  β2AR with alprenolol .  
+7. Topology.zip - Gromacs topology, index.ndx, and coordinate gro files for  all four systems
+8. Example_b2AR-alprenolol.zip - a set of data for a test example showing how IFP can be generated from RAMD trajectories (including several representative trajectories)
+9. Example_b2AR-alprenolol.tar - almost  the same set of data as above  (compressed in Windows) but for Linux users. The only difference between tar and zip archive: a short equilibration trajectory that is missing in the zip set but is  included in the tar archive.
+10. Gromacs-IFP-GPCR.ipynb - Jupyter Notebook for analysis of trajectories using generated IFP data
+11. Auxi-Plots-GPCR.ipynb - Jupyter Notebook for generation additional plots from the paper
+12. Waters.zip - number of water molecules in the binding pocket in dissociation trajectories of the  β2AR - alprenolol system
+13. GPCR.yml - JN environment file
+ 

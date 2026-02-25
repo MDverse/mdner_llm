@@ -1,0 +1,5 @@
+Raw Data and Analysis Scripts for: "The N-terminal Lid of the μ-Opioid Receptor Functions as a Dynamic Gate to Confer Ligand-Dependent Pharmacogenetics"
+
+This repository contains the raw data, input files, topology files, and analysis scripts required to reproduce the results presented in the manuscript: "The N-terminal Lid of the μ-Opioid Receptor Functions as a Dynamic Gate to Confer Ligand-Dependent Pharmacogenetics".
+This study investigates the structural dynamics of the Mu Opioid Receptor (MOR), specifically focusing on the N40D pharmacogenetic variant. The data includes molecular dynamics (MD) simulations of both the Wild-type (WT) and N40D mutant receptors in complex with morphine, fentanyl and DAMGO.
+For any questions regarding the data, please contact: Dingjun Jiang at dingjun.jiang@ciac.ac.cn .

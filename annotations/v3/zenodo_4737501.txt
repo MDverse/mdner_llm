@@ -1,0 +1,6 @@
+Order and disorder – an integrative structure of the full-length human growth hormone receptor -- MD Trajectories
+
+Trajectories and initial coordinate files for the MD simulations reported in the associated manuscript
+"Order and disorder – an integrative structure of the full-length human growth hormone receptor" by Kassem and Araya-Secchi et al.
+Other related input files available at: https://github.com/Niels-Bohr-Institute-XNS-StructBiophys/GHRModel
+ 

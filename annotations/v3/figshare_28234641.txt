@@ -1,0 +1,25 @@
+Improved Structure-Based Histidine pKa Prediction for pH-Responsive Protein Design
+
+The near neutral
+pKa of histidine is
+commonly exploited to engineer pH-sensitive biomolecules. For example,
+histidine mutations introduced in the complementarity-determining
+region (CDR) of therapeutic antibodies can enhance selectivity for
+antigens in the acidic microenvironment of solid tumors or increase
+dissociation rates in the acidic early endosomes of cells. While solvent-exposed
+histidines typically have a pKa near 6.5,
+interacting histidines can experience pKa shifts of up to 4 pH units in either direction, making histidine
+one of the most variable titratable residues. To assist in selecting
+potential histidine mutation sites, pKa prediction software should achieve an accuracy significantly better
+than the current standard of around 1.0 pH unit. However, the limited
+availability of experimental histidine pKa measurements hinders the use of AI-based methods. This study evaluates
+histidine pKa predictions using Amber
+force field electrostatics combined with a continuum solvent model,
+previously calibrated in the solvated interaction energy (SIE) function
+for binding affinity predictions. By incorporating limited rotameric
+sampling, proton optimization, and an empirical correction for buried
+side-chains, the method achieves a mean unsigned error of 0.4 pH units
+across a diverse set of 91 histidines from 38 distinct protein structures
+obtained from the PKAD database. This approach should improve the
+in-silico design of pH-responsive mutations. The method is implemented
+in the software program JustHISpKa (https://mm.nrc-cnrc.gc.ca/software/JustHISpKa).

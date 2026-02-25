@@ -1,0 +1,25 @@
+Decoding Morphological Control in Isomeric Non-Fullerene Acceptor–Polymer Blends for Organic Solar Cells
+
+Optimizing organic solar cells necessitates a fundamental
+understanding
+of how noncovalent interactions influence the miscibility and stability
+of nonfullerene acceptor (NFA)–polymer blends. In this study,
+we employ molecular simulations combined with data-driven analysis
+to elucidate the impact of regioisomerism on phase morphology in Y-series
+fused-ring NFAs. Specifically, we compare a C-shaped isomer (CF) and
+an S-shaped isomer (SF) when blended with the donor polymer D18. Our
+findings reveal that the CF blend exhibits superior miscibility, attributed
+to stronger van der Waals interactionsincluding hydrogen bonding
+and interactions involving sulfur and electronegative atomsas
+well as enhanced dipole–dipole interactions. These interactions
+collectively contribute to greater blend stability, as supported by
+noncovalent interactions and energy decomposition analyses. Furthermore, k-means clustering of molecular dynamics trajectories was
+employed to assess miscibility, corroborating the superior miscibility
+of the CF blend, while the SF blend demonstrated phase segregation.
+Voronoi tessellation analysis provides a geometric perspective, linking
+uniform molecular packing in the CF blend to minimal void spaces,
+whereas the SF blend exhibits structural heterogeneity and aspherical
+cavities. These insights establish a direct connection among isomeric
+configuration, intermolecular forces, and blend morphology, offering
+a predictive framework for designing high-performance organic solar
+cells.

@@ -1,0 +1,62 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Datasets and input for \"Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations\"\n\nThis dataset contains data as well as sample input files associated with the study Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations.The following files are included in the dataset:CP2K_inputs.zip: Sample CP2K input files AlPO-11_structures_CIF.zip: DFT-optimised structures (CIF format)AlPO-11_calcined_MD_avpos.zip: AIMD average structures of calcined AlPO-11 (CIF format)AlPO-11_calcined_MD_trajectories.zip: Production part of AIMD trajectories, calcined AlPO-11 (PDB format)AlPO-11_8H2O_MD_avpos.zip: AIMD average structures of hydrated AlPO-11 (CIF format)AlPO-11_8H2O_MD_trajectories.zip: Production part of AIMD trajectories, hydrated AlPO-11 (PDB format)",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "AlPO-11",
+            "start": 74,
+            "end": 81
+        },
+        {
+            "label": "MOL",
+            "text": "AlPO-11",
+            "start": 264,
+            "end": 271
+        },
+        {
+            "label": "MOL",
+            "text": " AlPO-1",
+            "start": 73,
+            "end": 80
+        },
+        {
+            "label": "MOL",
+            "text": " AlPO-1",
+            "start": 263,
+            "end": 270
+        },
+        {
+            "label": "MOL",
+            "text": " AlPO-1",
+            "start": 407,
+            "end": 414
+        },
+        {
+            "label": "MOL",
+            "text": "d AlPO-",
+            "start": 72,
+            "end": 79
+        },
+        {
+            "label": "MOL",
+            "text": "ed AlPO",
+            "start": 71,
+            "end": 78
+        },
+        {
+            "label": "MOL",
+            "text": "ted AlP",
+            "start": 70,
+            "end": 77
+        }
+    ]
+}

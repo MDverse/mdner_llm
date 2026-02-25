@@ -1,0 +1,33 @@
+Using NMR Chemical Shifts and Cryo-EM Density Restraints in Iterative Rosetta-MD Protein Structure Refinement
+
+Cryo-EM has become one of the prime methods for protein
+structure
+elucidation, frequently yielding density maps with near-atomic or
+medium resolution. If protein structures cannot be deduced unambiguously
+from the density maps, computational structure refinement tools are
+needed to generate protein structural models. We have previously developed
+an iterative Rosetta-MDFF protocol that used cryo-EM densities to
+refine protein structures. Here we show that, in addition to cryo-EM
+densities, incorporation of other experimental restraints into the
+Rosetta-MDFF protocol further improved refined structures. We used
+NMR chemical shift (CS) data integrated with cryo-EM densities in
+our hybrid protocol in both the Rosetta step and the molecular dynamics
+(MD) simulations step. In 15 out of 18 cases for all MD rounds, the
+refinement results obtained when density maps and NMR chemical shift
+data were used in combination outperformed those of density map-only
+refinement. Notably, the improvement in refinement was highest when
+medium and low-resolution density maps were used. With our hybrid
+method, the RMSDs of final models obtained were always better than
+the RMSDs obtained by our previous protocol with just density refinement
+for both medium (6.9 Å) and low (9 Å) resolution maps. For
+all the six test proteins with medium resolution density maps (6.9
+Å), the final refined structure RMSDs were lower for the hybrid
+method than for the cryo-EM only refinement. The final refined RMSDs
+were less than 1.5 Å when our hybrid protocol was used with 4
+Å density maps. For four out of the six proteins the final RMSDs
+were even less than 1 Å. This study demonstrates that by using
+a combination of cryo-EM and NMR restraints, it is possible to refine
+structures to atomic resolution, outperforming single restraint refinement.
+This hybrid protocol will be a valuable tool when only low-resolution
+cryo-EM density data and NMR chemical shift data are available to
+refine structures.

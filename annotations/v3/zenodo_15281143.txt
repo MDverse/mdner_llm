@@ -1,0 +1,7 @@
+_2025_thomsen_ppar
+
+Simulation data for full-length PPAR-gamma (Martini 3 with rescaled protein-water interactions), the AB domain of PPAR-gamma (CALVADOS), and the AB domain of PPAR-alpha (CALVADOS).
+
+Zips named "MD" contain simulation trajectory files. For full-length PPAR-gamma, both coarse-grained and all-atom backmapped simulations trajectories can be found here. For the AB domains, the all-atom backmapped simulation trajectores can be found here, while the coarse-grained trajectory files are on Github (https://github.com/KULL-Centre/_2025_thomsen_ppar).
+Zips named "calcdataBME" contain input files for BME reweighting, e.g. SAXS intensities or contacts calculated from simulations.
+Zip named "trajanalysis" contains data from analysis of simulations, e.g. contacts, Rg, and domain distances.

@@ -1,0 +1,3 @@
+Data and Simulation Files for KRAS-HVR MD Study
+
+This dataset includes key simulation input files, processed trajectories, and analysis scripts related to the study titled "Regulation of Membrane Association and Downstream Effector Interaction of K-Ras by its Hypervariable Region." We provide molecular dynamics simulations of full-length farnesylated K-Ras bound to model membranes, using NAMD and Anton2. The dataset includes PSF/PDB files, NAMD configuration files, representative DCD frames, and analysis scripts for figure generation. This resource supports data reproducibility and transparency in accordance with JCIM’s Data Sharing Policy.

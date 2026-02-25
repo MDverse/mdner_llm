@@ -1,0 +1,4 @@
+Pure POPE membrane simulations with the AMOEBA force field at 310K (OpenMM)
+
+MD simulation data of a pure POPE membrane with the AMOEBA force field generated with the OpenMM simulation engine at 310K.
+Parameters from https://doi.org/10.1080/00268976.2018.1436201

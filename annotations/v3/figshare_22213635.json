@@ -1,0 +1,74 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Theoretical Calculations of the Thermal Rate Coefficients for the Interstellar NH3+ + H2 → NH4+ + H Reaction on a New Δ‑Machine Learning Potential Energy Surface\n\nThe NH3+ + H2 →\nNH4+ + H ion–molecule hydrogen-exchange\nreaction\nis important for understanding the mechanisms of ammonia formation\nin interstellar medium and circumstellar environments. The thermal\nrate coefficients of this reaction are calculated using the ring polymer\nmolecular dynamics approach, which can account for the nuclear quantum\neffects, on a newly developed ab initio potential energy surface (PES).\nThe PES was constructed by fitting a large number of ab initio points\nat the MP2/cc-pVDZ and CCSD(T)/cc-pVTZ levels using a Δ-machine\nlearning approach. The obtained rate coefficients exhibited a minimum\nat T ∼ 130 K, and this characteristic temperature-dependent\nbehavior qualitatively agreed with the experimental measurements.\nThis study confirms that quantum tunneling plays a significant role\nin the reaction dynamics along with the existence of the metastable\nNH3+···H2 pre-reactive\ncomplex in the entrance channel of the PES.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "NH3+",
+            "start": 79,
+            "end": 83
+        },
+        {
+            "label": "MOL",
+            "text": "H2",
+            "start": 86,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "NH4+",
+            "start": 91,
+            "end": 95
+        },
+        {
+            "label": "MOL",
+            "text": "H",
+            "start": 80,
+            "end": 81
+        },
+        {
+            "label": "MOL",
+            "text": "NH3+",
+            "start": 167,
+            "end": 171
+        },
+        {
+            "label": "MOL",
+            "text": "H2",
+            "start": 174,
+            "end": 176
+        },
+        {
+            "label": "MOL",
+            "text": "NH4+",
+            "start": 179,
+            "end": 183
+        },
+        {
+            "label": "TEMP",
+            "text": "130 K",
+            "start": 789,
+            "end": 794
+        },
+        {
+            "label": "MOL",
+            "text": "NH3+",
+            "start": 1044,
+            "end": 1048
+        },
+        {
+            "label": "MOL",
+            "text": "H2",
+            "start": 1051,
+            "end": 1053
+        }
+    ]
+}

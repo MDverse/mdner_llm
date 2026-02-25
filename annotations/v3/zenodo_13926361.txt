@@ -1,0 +1,86 @@
+Integrative determination of atomic structure of mutant huntingtin exon 1 fibrils implicated in Huntington disease — data files
+
+This zenodo entry contains MD and solid-state NMR data files for the paper:
+ 
+Mahdi Bagherpoor Helabad et al. (2024)  Integrative determination of atomic structure of mutant huntingtin exon 1 fibrils implicated in Huntington disease
+ 
+ 
+MD datasets and code
+We provide here (in MD_simulations_data_codes.zip) the MD simulations files for the MD runs and also data, and their respective codes, shown in the figures of the above papers.
+ 
+Data file structure: 
+MD_data 
+
+The MD simulation run files for three fully periodic systems—PolyQ15 and HTTex1—include the following: .gro files for both minimization and final structures, production .tpr files, force field parameters, GROMACS .mdp files, and position and dihedral restraint files.
+
+fully_periodic_systems
+polyQ15
+HTTex1
+
+
+
+Figs_Data_Codes
+
+
+The data and in-house Python scripts associated with creating the figures:
+
+Fig2B_S4 for Figure 2B and Supplementary Figure 4
+Fig2D_S5 for Figure 2D and Supplementary Figure 5
+Fig3C_S10 for Figure 3C and Supplementary Figure 10
+Fig4_S12_S13_S14 for Figure 4C and Supplementary Figures 12–14
+Fig6C for Figure 6C
+FigS3B_S6 for Supplementary Figures 3B and 6
+FigS8 for Supplementary Figure 8
+FigS9_S11 for Supplementary Figures 9–11
+FigS16_to_S21 for Supplementary Figures 16–21
+FigS22 for Supplementary Figure 22
+readMe.txt
+ 
+
+
+
+
+
+Fig6_c_barplot_data.xlsx
+
+
+Excel file with data plotted in Figure 6C.
+
+N17_SecStr_convergence.xlsx
+
+
+Excel file with convergence data for N17 domain.
+
+
+
+Solid-state NMR data
+We provide here the solid-state NMR spectrum files for the data shown in figures of the above paper.
+ 
+Data file structure:
+ 
+SSNMR_data_listing_20241011a.txt
+
+
+text file describing the ssNMR data files
+
+
+SSNMR_data.zip
+
+Figure_1 - data for Figure 1F
+Figure_5 - data for Figure 5
+Figure_6 - data for Figure 6
+Figure_S7 - data for Figure 2G and Supplementary Figure 7
+Figure_S15 - NMR data for HDX ssNMR of fibrils – Supplementary Figure 15
+
+Fig6_b_barplot_data.xlsx
+
+
+Excel file with data plotted in Figure 6B, based on previously reported results (DOI 10.1038/ncomms15462)
+
+
+ 
+Data are provided in either Bruker Topspin format, or in NMRPIPE format (ft2 extension).
+Experimental parameters are described in the published paper and its Supplementary Information files. In general, these are all data from magic-angle-spinning (MAS) NMR studies of intact amyloid fibrils made with isotope labeled HTTex1 fibrils. Experimental types include 2D CP-DARR, 2D TOBSY, 2D HETCOR spectra as well as relaxation measurements.  Aside from NMR datafiles, also documents with interpreted and integrated data are included, used to make data curves in the figure (e.g. for Prism software).
+ 
+ 
+ 

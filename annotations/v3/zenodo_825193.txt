@@ -1,0 +1,12 @@
+Atomistic Fingerprint of Hyaluronan-CD44 Binding: Umbrella Sampling Data, Parallel Mode
+
+Simulation files (Gromacs 4.6.7 format) for the "Free Energy" simulations of parallel mode in Ref. [1]. 
+Files include:
+-trajectories (.xtc) that are saved every 100ps 
+-initial structures (.gro), 
+-run input files (.tpr)
+-simulation parameter files (.mdp)
+-system topology file (.top)
+-topology files included in the system topology file (.itp)
+'pullx' ('and pullx2' files, which contain data from the last 80ns) are used to constuct the free energy profile. Command for building the free energy profile is included in 'wham.sh'
+[1] Vuorio J. et al., Atomistic Fingerprint of Hyaluronan-CD44 Binding, PLOS Comp. Biol., 2017. (Submitted)

@@ -1,0 +1,6 @@
+MD simulation of HpTonB(30-285) in 40mM NaCl with Amber ff03ws force field
+
+MD simulation of periplasmic part of TonB protein from Helicobacter Pylori HpTonB(30-285) with Amber ff03ws force field with 40 mM NaCl. Trajectory contains the last 1000ns of the simulation.
+nojump_nowater.xtc (10 ps saving frequency), md_noSOL.tpr, and confENDprot.gro contain only protein.
+micro_40mMNaClskip.xtc (100 ps saving frequency), md.tpr and confEND.gro contain also solvent.
+Force field parameters for proteins and counterions are dowloaded from https://github.com/bestlab/force_fields, for NaCl from https://bitbucket.org/hseara/ions

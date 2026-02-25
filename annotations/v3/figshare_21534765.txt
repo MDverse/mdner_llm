@@ -1,0 +1,3 @@
+Poziotinib binding affinity with HER2 WT and the mutants
+
+These  are the trajectory and the parameter files from the MD simulation for HER2 with Poziotinib bound. After 500 ns of MD simulation for three times, for each of the mutant markov modeling was applied and the most probable states from the markov modeling was used for the MMPBSA simulation. This trajectory included here were taken from the markov modeling and then used for the binding affinity and per residue decomposition analysis using MMPBSA.py module in amber.   

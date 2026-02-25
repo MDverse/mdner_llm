@@ -1,0 +1,3 @@
+Refinement of molecular dynamics ensembles using experimental data and flexible forward models
+
+Supporting data related to manuscript "Refinement of molecular dynamics ensembles using experimental data and flexible forward models"

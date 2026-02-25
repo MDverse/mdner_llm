@@ -1,0 +1,3 @@
+Classical Molecular Dynamics and Quantum Chemistry for TADF Guest host interactions
+
+In this repository, the input files, parameter files and data for our study on the guest-host interactions and their role in solid state solvation effects on the charge transfer states of a Thermally Activated Delayed Fluorescence Emitter can be found.

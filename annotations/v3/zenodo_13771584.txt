@@ -1,0 +1,3 @@
+HCN1 voltage sensor flooding simulations with propofol
+
+Flooding simulations of HCN1 voltage sensing domain in the resting (from 5U6O) and activated (from 6UQF) state simulated with propofol. Simulations were repeated in duplicate from the same starting configuration (restingVSD.gro or activeVSD.gro). Poses for the published binding site obtained from PyLipID were depositied in the Resting Simulations directory in the folder PyLipIDposes

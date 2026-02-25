@@ -1,0 +1,116 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic Perspective on Biomolecular Adsorption on Functionalized Carbon Nanomaterials under Ambient Conditions\n\nThe\nuse of carbon-based nanomaterials is tremendously increasing\nin various areas of technological, bioengineering, and biomedical\napplications. The functionality of carbon-based nanomaterials can\nbe further broadened via chemical functionalization\nof carbon nanomaterial surfaces. On the other hand, concern is rising\non possible adverse effects when nanomaterials are taken up by biological\norganisms. In order to contribute into understanding of interactions\nof carbon-based nanomaterials with biological matter, we have investigated\nadsorption of small biomolecules on nanomaterials using enhanced sampling\nmolecular dynamics. The biomolecules included amino acid side chain\nanalogues, fragments of lipids, and sugar monomers. The adsorption\nbehavior on unstructured amorphous carbon, pristine graphene and its\nderivatives (such as few-layer graphene, graphene oxide, and reduced\ngraphene oxide) as well as pristine carbon nanotubes, and those functionalized\nwith OH–, COOH–, COO–, NH2–, and NH3+ groups\nwas investigated with respect to surface concentration. An adsorption\nprofile, that is, the free energy as a function of distance from the\nnanomaterial surfaces, was determined for each molecule and surface\nusing the Metadynamics approach. The results were analyzed in terms\nof chemical specificity, surface charge, and surface concentration.\nIt was shown that although morphology of the nanomaterial has a limited\neffect on the adsorption properties, functionalization of the surface\nby various molecular groups can drastically change the adsorption\nbehavior that can be used in the design of nanosurfaces with highly\nselective adsorption properties and safe for human health and environment.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Carbon Nanomaterials",
+            "start": 67,
+            "end": 87
+        },
+        {
+            "label": "MOL",
+            "text": "carbon-based nanomaterials",
+            "start": 125,
+            "end": 151
+        },
+        {
+            "label": "MOL",
+            "text": "carbon-based nanomaterials",
+            "start": 280,
+            "end": 306
+        },
+        {
+            "label": "MOL",
+            "text": "carbon nanomaterial",
+            "start": 366,
+            "end": 385
+        },
+        {
+            "label": "MOL",
+            "text": "carbon-based nanomaterials",
+            "start": 579,
+            "end": 605
+        },
+        {
+            "label": "MOL",
+            "text": "lipids",
+            "start": 817,
+            "end": 823
+        },
+        {
+            "label": "MOL",
+            "text": "sugar monomers",
+            "start": 829,
+            "end": 843
+        },
+        {
+            "label": "MOL",
+            "text": "carbon",
+            "start": 895,
+            "end": 901
+        },
+        {
+            "label": "MOL",
+            "text": "pristine graphene",
+            "start": 903,
+            "end": 920
+        },
+        {
+            "label": "MOL",
+            "text": "graphene",
+            "start": 912,
+            "end": 920
+        },
+        {
+            "label": "MOL",
+            "text": "graphene oxide",
+            "start": 970,
+            "end": 984
+        },
+        {
+            "label": "MOL",
+            "text": "pristine carbon",
+            "start": 1025,
+            "end": 1040
+        },
+        {
+            "label": "MOL",
+            "text": "OH",
+            "start": 1082,
+            "end": 1084
+        },
+        {
+            "label": "MOL",
+            "text": "COOH",
+            "start": 1087,
+            "end": 1091
+        },
+        {
+            "label": "MOL",
+            "text": "COO",
+            "start": 1094,
+            "end": 1097
+        },
+        {
+            "label": "MOL",
+            "text": "NH2",
+            "start": 1100,
+            "end": 1103
+        },
+        {
+            "label": "MOL",
+            "text": "NH3+",
+            "start": 1110,
+            "end": 1114
+        }
+    ]
+}

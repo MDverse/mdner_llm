@@ -1,0 +1,98 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "trajectories for: Membrane-binding mechanism of the EEA1 FYVE domain revealed by multi-scale molecular dynamics simulations\n\nCoarse-grained trajectories produced and analysed for publication: \n----------------------\nMembrane-binding mechanism of the EEA1 FYVE domain revealed by multi-scale molecular dynamics simulations\nAndreas Haahr Larsen*, Lilya Tata*, Laura John & Mark S.P. Sansom\nDepartment of Biochemistry, University of Oxford, Oxford, United Kingdom, OX1 3QU\nPLOS comp biol (in press) \n-------------------------\n \n** file overview**\nmd_X.xtc: (X=0..14) 15 repeated CG simulations (1500 ns each) of the FYVE domain from EEA1 binding to POPC:POP1 bilayer. The repeats differ in the rotation of the initial frame.\n\nfinal_cg2at_aligned.pdb: initial frame for AT (after CG2AT)\nprod_cym_cent_repX.xtc (X=1,2,3) 3 repeated AT sims (500 ns each) of the FYVE domain from EEA1 binding to POPC:POP1 bilayer. \n** scripts for reproduction at GitHub**\nscripts and files for reproduction are available at: https://github.com/andreashlarsen/Larsen-Tata2021-FYVE",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "EEA1",
+            "start": 52,
+            "end": 56
+        },
+        {
+            "label": "MOL",
+            "text": "FYVE",
+            "start": 57,
+            "end": 61
+        },
+        {
+            "label": "MOL",
+            "text": "EEA1",
+            "start": 250,
+            "end": 254
+        },
+        {
+            "label": "MOL",
+            "text": "FYVE",
+            "start": 255,
+            "end": 259
+        },
+        {
+            "label": "STIME",
+            "text": "1500 ns",
+            "start": 592,
+            "end": 599
+        },
+        {
+            "label": "MOL",
+            "text": "FYVE",
+            "start": 613,
+            "end": 617
+        },
+        {
+            "label": "MOL",
+            "text": "EEA1",
+            "start": 630,
+            "end": 634
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 646,
+            "end": 650
+        },
+        {
+            "label": "MOL",
+            "text": "POP1",
+            "start": 651,
+            "end": 655
+        },
+        {
+            "label": "STIME",
+            "text": "500 ns",
+            "start": 593,
+            "end": 599
+        },
+        {
+            "label": "MOL",
+            "text": "FYVE",
+            "start": 856,
+            "end": 860
+        },
+        {
+            "label": "MOL",
+            "text": "EEA1",
+            "start": 873,
+            "end": 877
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 889,
+            "end": 893
+        },
+        {
+            "label": "MOL",
+            "text": "POP1",
+            "start": 894,
+            "end": 898
+        }
+    ]
+}

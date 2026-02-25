@@ -1,0 +1,3 @@
+MD data for the article "Structure comparison of beta amyloid peptide Aβ 1-42 isoforms. Molecular dynamics modeling" by Anna P. Tolstova, Alexander A. Makarov, Alexei A. Adzhubei.
+
+There are CMD and REMD trajectories for  Aβ isoforms discussed in the paper together with final coordinate files for these trajectories. The resulting dataset of modeled structures includes wild type Aβ42, isoD7, pS8, D7H and H6R-Aβ42, and wild type Aβ16, isoD7, pS8, D7H and H6R-Aβ16.

@@ -1,0 +1,3 @@
+Simulation data for "Unveiling the Face-Dependent Ice Growth Kinetics: Insights from Molecular Dynamics on Basal and Prism Surfaces"
+
+Ice nucleation and growth are critical in many fields, including atmospheric science, cryobiology, and aviation. However, understanding the detailed mechanisms of ice crystal growth remains challenging. In this work, crystallization at the ice/quasi-liquid layer interface of the basal and primary prism surfaces of hexagonal ice was investigated using molecular dynamics simulations across a wide range of temperatures for the TIP4P/Ice model, with comparisons to the mW coarse-grained model. The simulation and analysis datasets, including the structure, input, trajectory, and analysis files, are deposited here to support this work.

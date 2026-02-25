@@ -1,0 +1,4 @@
+Molecular dynamics simulation data of designed stapled α-helix
+
+Raw simulations data (protein only) and simulation set-up files of designed stapled α-helix peptides. More details can be found in this paper: 
+Arusha Acharyya*, Yunhui Ge*, Haifan Wu*, William DeGrado, Vincent Voelz, Feng Gai. Exposing the Nucleation Site in α-Helix Folding: A Joint Experimental and Simulation Study. J. Phys. Chem. B., 2019, 123 (8), pp 1797-1807 (* shared first author)

@@ -1,0 +1,5 @@
+Amyloid-beta 16-22 peptide monomer simulation with the CHARMM-Drude force field and OpenMM (Run 1)
+
+Amyloid-beta 16-22 peptide (monomer) simulations with the CHARMM-Drude force field and OpenMM. This is the first independent simulation runs out of 3.
+Part 1-2 are 200 ns long, 3-8 are 100 ns each. Total trajectory length is 1 microseconds. Frame saving frequency is 10 ps.
+The system contains ~ 150 mM NaCl.

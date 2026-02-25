@@ -1,0 +1,6 @@
+Interaction of biomolecules with anatase, rutile and amorphous TiO2 surfaces: A molecular dynamics study / supplement
+
+
+S1 File - Short videos representing the interaction of the 6 different biomolecules (KGD, KRSR, LGD, LRSR, RGD and RSR) with the 3 different TiO2 surface (anatase, amorphous and rutile).
+S2 File - A representative trajectory file of the LRSR peptide and amorphous TiO2 surface MD simulation without the ions and water molecules.
+S3 File - Force-distance curve data for the binding energy calculations.

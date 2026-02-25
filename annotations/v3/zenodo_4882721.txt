@@ -1,0 +1,6 @@
+Mutually Beneficial Combination of Molecular Dynamics Computer Simulations and Scattering Experiments - DATA
+
+Specular reflectivities of the SoyPC bilayer stack measured at the vertical reflectometer MARIA  at Heinz Maier-Leibnitz Zentrum (MLZ) in Garching, Germany.
+Offspecular reflectivity map (log scale) of the multilayer sample as a function of theangle of incidence (θi) and of the reflection angle (θi).
+Specular reflectivities of the Si/SiO2/DMPC/H2O at 4 different contrasts (H2O, D2O, SMW and 4MW)
+Small-angle neutron scattering of the unilamellar  SoyPC

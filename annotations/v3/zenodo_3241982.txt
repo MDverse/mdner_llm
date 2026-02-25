@@ -1,0 +1,7 @@
+A structural model of the human serotonin transporter in an outward-occluded state: MD simulation data
+
+The uploads contain relevant data to supplement the study https://www.biorxiv.org/content/10.1101/637009v1, where the details of the methods are described.
+charmm_energy_minimization.inp is the input file that was used to run an energy minimization on structural models
+The two archives contain relevant MD simulation data in coordinate, parameter and trajectory files:
+hSERT_Ce.tar.gz outward-open X-ray structure PDB 5I71
+hSERT_Ceo.tar.gz outward-occluded structural model

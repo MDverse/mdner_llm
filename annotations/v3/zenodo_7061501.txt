@@ -1,0 +1,4 @@
+Scaling protein-water interactions in the Martini 3 coarse-grained force field to simulate transmembrane helix dimers in different lipid environments
+
+This dataset contains molecular dynamics (MD) trajectories used for preparation of the following manuscript: 
+"Scaling protein-water interactions in the Martini 3 coarse-grained force field to simulate transmembrane helix dimers in different lipid environments". 

@@ -1,0 +1,26 @@
+Fortuitous Correlations in Molecular Dynamics Simulations: Their Harmful Influence on the Probability Distributions of the Main Principal Components
+
+Nonsense correlations frequently develop between independent
+random
+variables that evolve with time. Therefore, it is not surprising that
+they appear between the components of vectors carrying out multidimensional
+random walks, such as those describing the trajectories of biomolecules
+in molecular dynamics simulations. The existence of these correlations
+does not imply in itself a problem. Still, it can present a problem
+when the trajectories are analyzed with an algorithm such as the Principal
+Component Analysis (PCA) because it seeks to maximize correlations
+without discriminating whether they have physical origin or not. In
+this Article, we employ random walks occurring on multidimensional
+harmonic potentials to evaluate the influence of fortuitous correlations
+in PCA. We demonstrate that, because of them, this algorithm affords
+misleading results when applied to a single trajectory. The errors
+do not only affect the directions of the first eigenvectors and their
+eigenvalues, but the very definition of the molecule’s “essential
+space” may be wrong. Additionally, the main principal component’s
+probability distributions present artificial structures which do not
+correspond with the shape of the potential energy surface. Finally,
+we show that the PCA of two realistic protein models, human serum
+albumin and lysozyme, behave similarly to the simple harmonic models.
+In all cases, the problems can be mitigated and eventually eliminated
+by doing PCA on concatenated trajectories formed from a large enough
+number of individual simulations.

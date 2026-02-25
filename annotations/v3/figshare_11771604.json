@@ -1,0 +1,146 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Parametrization and Molecular Dynamics Simulations of Nitrogen Oxyanions and Oxyacids for Applications in Atmospheric and Biomolecular Sciences\n\nNitrogen oxyanions\nand oxyacids are important agents in atmospheric\nchemistry and medical biology. Although their chemical behavior in\nsolution is relatively well understood, they may behave very differently\nat the water/air interface of atmospheric aerosols or at the membrane/water\ninterface of cells. Here, we developed a fully classical model for\nmolecular dynamics simulations of NO3–, NO2–, HNO3, and HNO2 in the framework of the GROMOS 53A6 and 54A7 force field\nversions. The model successfully accounted for the poorly structured\nsolvation shell and ion pairing tendency of NO3–. Accurate pure-liquid properties and hydration free energies were\nobtained for the oxyacids. Simulations at the water/air interface\nshowed a local enrichment of HNO3 and depletion of NO3–. The effect was discussed in light of\nearlier spectroscopic data and ab initio calculations, suggesting\nthat HNO3 behaves as a weaker acid at the surface of water.\nOur model will hopefully allow for efficient and accurate simulations\nof nitrogen oxyanions and oxyacids in solution and at microheterogeneous\ninterface environments.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Nitrogen Oxyanions",
+            "start": 54,
+            "end": 72
+        },
+        {
+            "label": "MOL",
+            "text": "Oxyacids",
+            "start": 77,
+            "end": 85
+        },
+        {
+            "label": "MOL",
+            "text": "Nitrogen oxyanions",
+            "start": 145,
+            "end": 163
+        },
+        {
+            "label": "MOL",
+            "text": "oxyacids",
+            "start": 168,
+            "end": 176
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 360,
+            "end": 365
+        },
+        {
+            "label": "MOL",
+            "text": "air",
+            "start": 366,
+            "end": 369
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 423,
+            "end": 428
+        },
+        {
+            "label": "MOL",
+            "text": "NO3",
+            "start": 530,
+            "end": 533
+        },
+        {
+            "label": "MOL",
+            "text": "NO2",
+            "start": 536,
+            "end": 539
+        },
+        {
+            "label": "MOL",
+            "text": "HNO3",
+            "start": 542,
+            "end": 546
+        },
+        {
+            "label": "MOL",
+            "text": "HNO2",
+            "start": 552,
+            "end": 556
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS 53A6",
+            "start": 581,
+            "end": 592
+        },
+        {
+            "label": "MOL",
+            "text": "NO3",
+            "start": 543,
+            "end": 546
+        },
+        {
+            "label": "MOL",
+            "text": "oxyacids",
+            "start": 815,
+            "end": 823
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 844,
+            "end": 849
+        },
+        {
+            "label": "MOL",
+            "text": "air",
+            "start": 708,
+            "end": 711
+        },
+        {
+            "label": "MOL",
+            "text": "HNO3",
+            "start": 893,
+            "end": 897
+        },
+        {
+            "label": "MOL",
+            "text": "NO3",
+            "start": 727,
+            "end": 730
+        },
+        {
+            "label": "MOL",
+            "text": "HNO3",
+            "start": 1029,
+            "end": 1033
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1077,
+            "end": 1082
+        },
+        {
+            "label": "MOL",
+            "text": "nitrogen oxyanions",
+            "start": 1157,
+            "end": 1175
+        },
+        {
+            "label": "MOL",
+            "text": "oxyacids",
+            "start": 1180,
+            "end": 1188
+        }
+    ]
+}

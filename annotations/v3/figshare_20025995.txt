@@ -1,0 +1,7 @@
+Wild type transketolase dynamics
+
+MD simulation of wild-type E.coli transketolase. Carried out in Gromacs by Haoran Yu. Published in Scientific Reports in 2017
+
+Haoran Yu, Yihan Yan, Cheng Zhang, Paul A. Dalby (2017) Two strategies to engineer flexible loops for improved enzyme thermostability. Scientific Reports, 7, 41212.
+
+DOI: 10.1038/srep41212

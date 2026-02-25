@@ -1,0 +1,92 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "All-atom Phospholipid membranes of various sizes and compositions\n\nPublication: Ripple-like instability in the simulated gel phase of finite size phosphocholine bilayers\nPublished on: To be published\nJournal: To be submitted\nDescription: Simulation files of different lipid bilayer made either of DPPC, DPPE or DSPC. Different number of lipids per bilayers are provided (given in the name of the file). The average number of water molecules per lipid is circa 160 water molecules per lipid.\nComplete simulations are provided for two of the systems\nSimulation details:\n\nSoftware: Gromacs (v. 2016.4)\nForcefield: Charmm36 (v. June 2015) - Water: TIP3P\nThermostat: Nose-hoover (0.4ps, 2 groups)\nBarostat: Parrinello-Rahman semi-isotropic (2.0ps, 1.0 bar on each axis, 4.5e-5 bar-1)\nDuration: 50 ns\n",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Phospholipid",
+            "start": 9,
+            "end": 21
+        },
+        {
+            "label": "MOL",
+            "text": "phosphocholine",
+            "start": 146,
+            "end": 160
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 297,
+            "end": 301
+        },
+        {
+            "label": "MOL",
+            "text": "DPPE",
+            "start": 303,
+            "end": 307
+        },
+        {
+            "label": "MOL",
+            "text": "DSPC",
+            "start": 311,
+            "end": 315
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 425,
+            "end": 430
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 464,
+            "end": 469
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 579,
+            "end": 586
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "(v. 2016.4)",
+            "start": 587,
+            "end": 598
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36 (v. June 2015)",
+            "start": 611,
+            "end": 634
+        },
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 637,
+            "end": 642
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 644,
+            "end": 649
+        },
+        {
+            "label": "STIME",
+            "text": "50 ns",
+            "start": 789,
+            "end": 794
+        }
+    ]
+}

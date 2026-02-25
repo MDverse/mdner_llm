@@ -1,0 +1,3 @@
+ice8p350.gro
+
+Configuration of a simulation equilibrated at 8 GPa and 350K

@@ -1,0 +1,31 @@
+Accurate Prediction of Mechanical Property of Organic Crystals Using Molecular Dynamics-Based Nanoindentation Simulations
+
+Developing reliable
+methods to predict the mechanical
+response
+of organic crystals is essential due to their growing recognition
+as soft, compliant, lightweight, and ultrafast smart dynamic materials
+that have applications ranging from pharmaceuticals to biomaterials.
+Traditional experimental methods, such as nanoindentation, come with
+practical convenience such as simplicity and efficacy; however, they
+are restrictive with regard to the surface quality and are subject
+to other experimental constraints such as the availability of suitable
+samples and accessibility of as-grown crystal faces. Computational
+approaches, including quantum mechanics and classical molecular dynamics
+(MD), offer an alternative approach that is independent of the sample,
+yet they are known to vary greatly in their predictive accuracy. To
+account for this shortfall of predictive tools, in this study, we
+systematically benchmark three major computational methods, including
+density functional theory (DFT), MD-based approaches based on deformation,
+and direct nanoindentation simulations, against experimental Young’s
+moduli. Our results show that the MD-simulated process of indentation
+conforms most favorably with the experiments and has the lowest mean
+absolute error. The intermolecular interactions, crystal size, indenter
+spacing, and unloading rates are identified as the key factors that
+determine the stiffness, as given by the modulus. Our findings underscore
+the importance of incorporating both thermal effects and experimental
+conditions into computational models for improved predictive accuracy
+and highlight the potential of nanoindentation simulations as a reliable
+tool for the assessment of the mechanical properties and, possibly,
+also for the design of organic crystals with predetermined mechanical
+properties and dynamic behavior.

@@ -1,0 +1,3 @@
+Advanced Molecular Dynamics Model for Investigating Biological-Origin Microfibril Structures
+
+This data contains all necessary input file to construct the micro fibril.

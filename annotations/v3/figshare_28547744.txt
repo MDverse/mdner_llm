@@ -1,0 +1,3 @@
+QM/MM MD Simulations on the Origin of Donor/Acceptor Selectivity of Family GH51 α-L-Arabinofuranosidase-Catalyzed Hydrolysis and Transglycosylation Reactions
+
+This dataset accompanies the paper: " QM/MM MD Simulations on the Origin of Donor/Acceptor Selectivity of Family GH51 α-L-Arabinofuranosidase-catalyzed Hydrolysis and Transglycosylation Reactions".It contains sample CHARMM input and output files, and topologies required for QM/MM MD and QM/MM umbrella sampling simulation of hydrolysis and transglycosylation reactions in a GH51 α-L-arabinofuranosidase.

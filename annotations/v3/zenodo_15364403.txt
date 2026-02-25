@@ -1,0 +1,75 @@
+Assembly of polyplexes for RNA delivery
+
+This repository contains simulation data, input files, and analysis scripts used to prepare the manuscript "Assembly of polyplexes for RNA delivery" by Jonas Hans Lehnen, Jorge Moreno Herrero, Heinrich Haas, Friederike Schmid, Giovanni Settanni. 
+Directory Structure and Contents
+
+
+Trajectories/
+
+It contains simulation trajectories corresponding to the results presented in the manuscript.
+For convenience, the trajectories for each simulated condition are provided in separate ZIP archives.
+The file: `md_tuned.xtc` contains the trajectory (GROMACS xtc format).
+The GROMACS run input file `md_tuned.tpr` as well as the GROMACS coordinate files `md_tuned.gro` and `em.gro`are also provided.
+
+The files `md_tuned_PEI.*` and `md_tuned_RNA.*` are from equilibration simulations of PEI or RNA individually.
+
+Subdirectories:
+
+`trajectories_lPEI*`: Simulations with different PEI chain lengths and 8 RNA chains.
+`trajectories_nRNA32/` and `trajectories_nRNA64/`: Simulations with 32 or 64 RNA chains and PEI chains of length 10.
+`trajectories_merged_start/`: Simulations where PEI is added to a pre-formed nanoparticle (NP).
+`trajectories_density0*/` : Simulations where RNA concentration is 0.* times the concentration of the other simulations.
+`Npei*` : Simulations with different amounts of PEI chains
+
+
+
+
+SimulationSkripts/
+
+It contains all necessary input files and scripts required to run the simulations.
+
+
+Data/
+
+It contains averaged results across all simulation runs, including:
+
+Radius of gyration (Rg)
+Net charge
+Zeta potential
+
+
+
+
+AnalysisSkripts/
+
+It contains Python scripts used to analyze simulation trajectories.
+Key Script: `full_analysis_fname.py` to analyze a single trajectoryUsage:      python full_analysis_fname.py [PATH_TO_SIMULATION]where [PATH_TO_SIMULATION] is the full path and prefix of the simulation files (i.e. without extension `.tpr` and `.trr`)For example, to analyze the trajectory stored in the files     `foo/md_tuned.tpr` and `foo/md_tuned.trr`, the command is:      python full_analysis_fname.py "foo/md_tuned"Note: This script can also analyze PEI and RNA counterions, but this feature is disabled by default due to its slow performance and large output size.Hint: Use `full_analysis_fname_xtc.py` to analyze provided `.xtc` trajectory files.
+4.1. AnalysisSkripts/Cluster_Analysis/
+
+It  contains scripts used to generate aggregated results for (results are show in /DATA):
+
+Rg (radius of gyration)
+Charge
+Zeta potential
+
+
+Refer to the README file inside this directory for more details.
+
+
+
+
+SimulationSkripts/
+
+It contains all necessary scripts to run the simulations.
+Refer to the README file inside this directory for more details.
+
+
+
+
+
+Notes
+-----
+- All data and scripts are provided as used in the publication to support reproducibility.
+- For questions or customization of scripts, please refer to the inline comments within each script.
+"""
+ 

@@ -1,0 +1,4 @@
+SHP2
+
+Title: "E76K mutation promotes SHP2 activation by rewiring allosteric networks that drives conformational transitions"
+(1) initial PDB structure files, GRO files, TPR files, TOP files, RMSD, and RMSF for 10 MD simulations, contained within the MD_WT and MD_E76K files; (2) initial PDB structure files used in the Markov State Model; and (3) initial PDB structure files and some output matrix files used in the Neural Relational Inference (NRI) Model.

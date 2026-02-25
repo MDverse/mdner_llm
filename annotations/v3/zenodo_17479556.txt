@@ -1,0 +1,6 @@
+Molecular Dynamics Data for: The dynamic lateral gate of the mitochondrial β-barrel biogenesis machinery is blocked by darobactin A
+
+This dataset contains simulation input, output, and processed analysis files that support the manuscript. 
+Simulation outputs: Reduced molecular dynamics trajectory files (.dcd) and system topology files (.psf).
+Simulation inputs: NAMD configuration files (.conf), MDFF input files (*pdb) (.namd) used for production runs.
+Processed data: Numerical datasets used to generate figure panels.

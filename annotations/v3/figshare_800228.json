@@ -1,0 +1,206 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Insight into the Intermolecular Recognition Mechanism between Keap1 and IKKβ Combining Homology Modelling, Protein-Protein Docking, Molecular Dynamics Simulations and Virtual Alanine Mutation\n\nDegradation of certain proteins through the ubiquitin-proteasome pathway is a common strategy taken by the key modulators responsible for stress responses. Kelch-like ECH-associated protein-1(Keap1), a substrate adaptor component of the Cullin3 (Cul3)-based ubiquitin E3 ligase complex, mediates the ubiquitination of two key modulators, NF-E2-related factor 2 (Nrf2) and IκB kinase β (IKKβ), which are involved in the redox control of gene transcription. However, compared to the Keap1-Nrf2 protein-protein interaction (PPI), the intermolecular recognition mechanism of Keap1 and IKKβ has been poorly investigated. In order to explore the binding pattern between Keap1 and IKKβ, the PPI model of Keap1 and IKKβ was investigated. The structure of human IKKβ was constructed by means of the homology modeling method and using reported crystal structure of Xenopus laevis IKKβ as the template. A protein-protein docking method was applied to develop the Keap1-IKKβ complex model. After the refinement and visual analysis of docked proteins, the chosen pose was further optimized through molecular dynamics simulations. The resulting structure was utilized to conduct the virtual alanine mutation for the exploration of hot-spots significant for the intermolecular interaction. Overall, our results provided structural insights into the PPI model of Keap1-IKKβ and suggest that the substrate specificity of Keap1 depend on the interaction with the key tyrosines, namely Tyr525, Tyr574 and Tyr334. The study presented in the current project may be useful to design molecules that selectively modulate Keap1. The selective recognition mechanism of Keap1 with IKKβ or Nrf2 will be helpful to further know the crosstalk between NF-κB and Nrf2 signaling. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 62,
+            "end": 67
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 72,
+            "end": 75
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin",
+            "start": 237,
+            "end": 246
+        },
+        {
+            "label": "MOL",
+            "text": "proteasome",
+            "start": 247,
+            "end": 257
+        },
+        {
+            "label": "MOL",
+            "text": "Kelch-like ECH-associated protein-1",
+            "start": 349,
+            "end": 384
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 385,
+            "end": 390
+        },
+        {
+            "label": "MOL",
+            "text": "Cullin3",
+            "start": 430,
+            "end": 437
+        },
+        {
+            "label": "MOL",
+            "text": "Cul3",
+            "start": 439,
+            "end": 443
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin E3 ligase",
+            "start": 451,
+            "end": 470
+        },
+        {
+            "label": "MOL",
+            "text": "NF-E2-related factor 2",
+            "start": 531,
+            "end": 553
+        },
+        {
+            "label": "MOL",
+            "text": "Nrf2",
+            "start": 555,
+            "end": 559
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 579,
+            "end": 582
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 674,
+            "end": 679
+        },
+        {
+            "label": "MOL",
+            "text": "Nrf2",
+            "start": 680,
+            "end": 684
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 764,
+            "end": 769
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 774,
+            "end": 777
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 857,
+            "end": 862
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 867,
+            "end": 870
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 890,
+            "end": 895
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 900,
+            "end": 903
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 946,
+            "end": 949
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 1063,
+            "end": 1066
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 1145,
+            "end": 1150
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 1151,
+            "end": 1154
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 1540,
+            "end": 1545
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 1546,
+            "end": 1549
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 1597,
+            "end": 1602
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 1790,
+            "end": 1795
+        },
+        {
+            "label": "MOL",
+            "text": "Keap1",
+            "start": 1836,
+            "end": 1841
+        },
+        {
+            "label": "MOL",
+            "text": "IKK",
+            "start": 1847,
+            "end": 1850
+        },
+        {
+            "label": "MOL",
+            "text": "Nrf2",
+            "start": 1855,
+            "end": 1859
+        },
+        {
+            "label": "MOL",
+            "text": "Nrf2",
+            "start": 1924,
+            "end": 1928
+        }
+    ]
+}

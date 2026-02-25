@@ -1,0 +1,21 @@
+Data set for validation of a Python script for computation of Protein-Ligand Interaction Fingerprints
+
+1. Data set for  for validation of the Protein-Ligand Interaction Fingerprints, which includes examples of protein structures  (original PDB and equilibrated) and molecular dynamics trajectories (equilibration and ligand dissociation generated using Random Acceleration MD simulations, RAMD)
+mdifp_validation_data.tar.gz - archive that contains benchmark dataset for evaluation of the protein-ligand IFP protocol (PDB structures of protonated complexes, ligands, and MOL2 files of ligands) published in  D. B. Kokha, B. Doser, S. Richter, F. Ormersbach, X. Cheng, R. C. Wade "A Workflow for Exploring Ligand Dissociation from a Macromolecule: Efficient Random Acceleration Molecular Dynamics Simulation and Interaction Fingerprints Analysis of Ligand Trajectories" J. Chem. Phys. 153, 125102 (2020); https://doi.org/10.1063/5.0019088
+(2020) arXiv:2006.11066  
+2YKI - protein-ligand complex , PDB ID 2YKI
+   - 2yki_MOE.pdb complex with hydrogen added and energy minimized using MOE software (https://www.chemcomp.com/)
+   -  ligand_2yki_MOE.mol2 and ligand_2yki_MOE.pdb - ligand structure with hydrogens prepered by MOE software (https://www.chemcomp.com/)
+6EI5 - MD trajectory of the protein-ligand complex generated from PDB ID 6EI5
+   - ref-min.pdb  minimized structure
+   - ref.prmtop topology file
+   - moe.mol2 - ligand structure in mol2 format
+   - amber2namd2.dcd generated MD trajectory 
+SAD_3-RAMD-03-2020.pkl - a pkl dataset with IFPs generated from RAMD dissociation trajectory of the complex PDB ID: 5LQ9 (trajectories from the paper Front. Mol. Biosci., 2019 DOI:10.3389/fmolb.2019.00036)
+HSP90_Gromacs.zip - an archive that contains three pkl data sets of protein-ligand IFPs (for three HSP90 complexes; PDB ID: 5J64, 5J86, 5LQ9) generated from RAMD dissociation trajectories simulated using new Gromacs-RAMD engine (https://github.com/HITS-MCM/gromacs-ramd)
+The rest of the files contains data obtained from simulation of the complex of GPCR muscarinic receptor M2 (PDB ID:4MQT); immersed in a mixed membrane: 50% CHL, 30% POPC, 20% POPE)  with a small molecule agonist iperoxo. 
+   - IXO.pdb and moe.mol2 - PDBand MOL2 structure of iperoxo
+   - AMBER_eq.tar.gz - structure of the equilibrated complex generated using AMBER software
+   - NAMD_eq.tar.gz - two equilibration trajectories in dcd format generated using NAMD software 
+   - RAMD_eq.tar.gz - dissociation tarjectoris of iprtoxo from the M2 protein generated from the last snapshot of two NAMD equilibration trajectories (for each case 2 RAMD dissociaiton trajectories are available) 
+( *csv files were added erroneously and do not belong to the project)

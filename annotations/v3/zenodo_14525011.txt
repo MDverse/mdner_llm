@@ -1,0 +1,11 @@
+MD simulation of 50-lipid DOPS(protonated) monolayers in the water-air interface, CHARMM36+OPC4 @298.15K
+
+This record contains the simulation files of 50-lipid DOPS (protonated) monolayers simulated in the water-air interface. It models the situation when experimentator doesn't have any electrolyte in the solution, and DOPS is likely almost completely protonated by carboxylic group at these conditions. Protonated residue is generated using the same partial charges as CHARMM36 uses in protonated Asp and Glu amino acids, and the same way of assigning force potentials around protonated carboxylic group. The DOPSP.itp residue topology is supplemented inside toppar.zip file. Some fixes are made directly in the force field folder, so you should download charmm36-jul2022-ff.zip as well!
+The initial strcuture of the systems was assembled using CHARMM-GUI, with sodium counterions to neutralize the system, and equilibrated with GROMACS v.2024.x by following their recommended protocol. Then system was protonated using standard GROMACS routines, sodium ions where removed, and the monolayer was equilibrated at zero sufrace tension. Then the membrane was then compressed and expanded in a simulation using PLUMED, from which states at different values of area per lipid (APL) were extracted.
+Each of these systems was the initial state of a 100 ns long simulation in the NVT ensemble (T=298.15 K), the ones here provided.
+For all simulations, CHARMM36 parameters for the lipids and the 4-point OPC water model were used.
+Files provided:
+
+Compressed file with all ITP files with the parameters used for the simulations.
+MDP file used for the production simulations.
+For each simulation, TOP with the topology, TRR of the simulation, trajectory in TRR format, energy contributions in EDR format,  CPT generated and GRO with the final state of the system. All files corresponding to the same simulation are labeled as NVT_XX, where XX is the nominal APL at which the simulations were carried out.

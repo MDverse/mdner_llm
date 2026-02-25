@@ -1,0 +1,4 @@
+SIRAH Tools GUI case studies
+
+This dataset contains the processed trajectories of the cases studies for the SIRAH Tools GUI paper. The Nucleosome Core Particle (NCP) and the membrane bilayer path production simulations have one microsecond each and were performed using the SIRAH force field.
+This work was partially funded by FOCEM (MERCOSUR Structural Convergence Fund), COF 03/11.

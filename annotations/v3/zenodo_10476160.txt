@@ -1,0 +1,3 @@
+Simulations of Synaptotagmin-7, C2A, C2B, and C2AB in PC/PS, PC/PS/PIP2, PC/PIP2, and PC/PS/Chol bilayers
+
+All-atom simulations of Synaptotagmin-7 (C2A, C2B, and tandem domains) in four bilayer compositions. Circa 2 microseconds total with AMBER (dcd files are labeled with "amber").

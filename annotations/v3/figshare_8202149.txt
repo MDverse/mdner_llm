@@ -1,0 +1,3 @@
+Molecular Dynamics trajectories of membrane protein YiiP
+
+Molecular dynamics (MD) trajectory files of the YiiP membrane protein in a POPE:POPG 4:1 model membrane. The equilibrium simulation was performed in the NPT ensemble at T=300K and P=1 bar. The system was simulated with Gromacs 2018.1, using the CHARMM36 force field, the TIP3P explicit water model, NaCl at approximately 100 mM concentration, and Zinc ions.Trajectory frames were saved every 100 ps for a total of 9 ns and 90ns simulated time. The topology contains the whole system (protein, membrane, water and ions).The topology is contained in the YiiP_system.pdb file. The 9-ns trajectory is contained in the YiiP_system_9ns_center.xtc file. The 90-ns trajectory is contained in the YiiP_system_90ns_center.xtc file.

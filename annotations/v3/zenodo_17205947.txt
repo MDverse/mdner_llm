@@ -1,0 +1,3 @@
+Conformations of Polyglutamate Chains near Single walled Carbon Nanotubes
+
+The coordinate files for the polyglutamate nanotube systems.

@@ -1,0 +1,13 @@
+Design, Synthesis and Biological Evaluation of 7-Chloro-9H-pyrimido[4,5-b]indole-based Glycogen synthase kinase-3β inhibitors
+
+The dataset related to the publication:
+Andreev et al. Design, Synthesis and Biological Evaluation of 7 Chloro-9H-pyrimido[4,5-b]indole-based Glycogen synthase kinase-3β inhibitors.
+
+The files include:
+1) Movies of the MD simulations of compounds 14b  (Cmpd14b.mpg) and 24 (Cmpd24.mpg).
+2) Raw trajectory files of the Desmond MD simulations of the compounds 14b (14b.zip), 24 (24.zip) and 24 (3aR, 7aS) (24_3aR_7aS.zip) (contains out.cms and the full trj files).
+3) Output conformations of the QM Tautomer & Conformation Predictor of Maestro (Schrödinger, LLC, New York, NY, 2019) of the compounds
+14b (Cmpd14b_QMconftauto_output.mae; Cmpd14b_QMconftauto_output.sdf), 
+24 (Cmpd24_QMconftauto_output.mae; Cmpd24_QMconftauto_output.sdf) and  
+24 (3aR, 7aS) (Cmpd24_3aR_7aS_QMconftauto_output.mae; Cmpd24_3aR_7aS_QMconftauto_output.sdf)
+4) Jaguar pKa calculation (conformations) output-files for compounds 14b, 14c, 14d, 14e, 14f, 14g, 14h, 14i, 14j, 14k, 14l, 14m, 14n pKa.zip (contains conformation in .mae file and Final weighted pKa value in .out file).

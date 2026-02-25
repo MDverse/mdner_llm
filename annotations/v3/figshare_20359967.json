@@ -1,0 +1,104 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Mebendazole’s Conformational Space and Its Predicted Binding to Human Heat-Shock Protein 90\n\nRecent experimental evidence suggests that mebendazole,\na popular\nantiparasitic drug, binds to heat shock protein 90 (Hsp90) and inhibits\nacute myeloid leukemia cell growth. In this study we use quantum mechanics\n(QM), molecular similarity, and molecular dynamics (MD) calculations\nto predict possible binding poses of mebendazole to the adenosine\ntriphosphate (ATP) binding site of Hsp90. Extensive conformational\nsearches and minimization of the five mebendazole tautomers using\nthe MP2/aug-cc-pVTZ theory level resulted in 152 minima. Mebendazole-Hsp90\ncomplex models were subsequently created using the QM optimized conformations\nand protein coordinates obtained from experimental crystal structures\nthat were chosen through similarity calculations. Nine different poses\nwere identified from a total of 600 ns of explicit solvent, all-atom\nMD simulations using two different force fields. All simulations support\nthe hypothesis that mebendazole is able to bind to the ATP binding\nsite of Hsp90.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Mebendazole",
+            "start": 0,
+            "end": 11
+        },
+        {
+            "label": "MOL",
+            "text": "Heat-Shock Protein 90",
+            "start": 70,
+            "end": 91
+        },
+        {
+            "label": "MOL",
+            "text": "mebendazole",
+            "start": 136,
+            "end": 147
+        },
+        {
+            "label": "MOL",
+            "text": "heat shock protein 90",
+            "start": 188,
+            "end": 209
+        },
+        {
+            "label": "MOL",
+            "text": "Hsp90",
+            "start": 211,
+            "end": 216
+        },
+        {
+            "label": "MOL",
+            "text": "mebendazole",
+            "start": 412,
+            "end": 423
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 455,
+            "end": 458
+        },
+        {
+            "label": "MOL",
+            "text": "Hsp90",
+            "start": 476,
+            "end": 481
+        },
+        {
+            "label": "MOL",
+            "text": "mebendazole",
+            "start": 546,
+            "end": 557
+        },
+        {
+            "label": "MOL",
+            "text": "Mebendazole",
+            "start": 631,
+            "end": 642
+        },
+        {
+            "label": "MOL",
+            "text": "Hsp90",
+            "start": 643,
+            "end": 648
+        },
+        {
+            "label": "STIME",
+            "text": "600 ns",
+            "start": 900,
+            "end": 906
+        },
+        {
+            "label": "MOL",
+            "text": "mebendazole",
+            "start": 1030,
+            "end": 1041
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 1065,
+            "end": 1068
+        },
+        {
+            "label": "MOL",
+            "text": "Hsp90",
+            "start": 1085,
+            "end": 1090
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Structure and Dynamics of Dioleoyl-Phosphatidylcholine Bilayers under the Influence of Quercetin and Rutin\n\nQuercetin and rutin, two widely studied flavonoids with applications\nforeseen in the sectors of pharmaceutical and cosmetic industries,\nhave been chosen as model compounds for a detailed structural and\ndynamical investigation onto their influence on fluid lipid bilayers.\nCombining global small angle X-ray scattering analysis with molecular\ndynamics, various changes in the properties of dioleoyl-phosphatidylcholine\n(DOPC) bilayers have been determined. The solubility of quercetin\nin DOPC membranes is assured up to 12 mol %, whereas rutin, with additional\nglucose and rhamnose groups, are fully soluble only up to 6 mol %.\nBoth flavonoids induce an increase in membrane undulations and thin\nthe bilayers slightly (<1 Å) in a concentration dependent\nmanner, wherein quercetin shows a stronger effect. Concomitantly,\nin the order of 2–4%, the adjacent bilayer distance increases\nwith the flavonoid’s concentration. Partial molecular areas\nof quercetin and rutin are determined to be 26 and 51 Å2, respectively. Simulated averaged areas per molecule confirm these\nestimates. A 60° tilted orientation of quercetin is observed\nwith respect to the bilayer normal, whereas the flavonoid moiety of\nrutin is oriented more perpendicular (α-angle 30°) to the\nmembrane surface. Both flavonoid moieties are located at a depth of\n12 and 16 Å for quercetin and rutin, respectively, while their\nanionic forms display a location closer to the polar interface. Finally,\nat both simulated concentrations (1.5 and 12 mol %), DOPC–rutin\nsystems induce a stronger packing of the pure DOPC lipid bilayer,\nmainly due to stronger attractive electrostatic interactions in the\npolar lipid head region.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Dioleoyl-Phosphatidylcholine",
+            "start": 26,
+            "end": 54
+        },
+        {
+            "label": "MOL",
+            "text": "Quercetin",
+            "start": 87,
+            "end": 96
+        },
+        {
+            "label": "MOL",
+            "text": "Rutin",
+            "start": 101,
+            "end": 106
+        },
+        {
+            "label": "MOL",
+            "text": "Quercetin",
+            "start": 108,
+            "end": 117
+        },
+        {
+            "label": "MOL",
+            "text": "rutin",
+            "start": 122,
+            "end": 127
+        },
+        {
+            "label": "MOL",
+            "text": "dioleoyl-phosphatidylcholine",
+            "start": 497,
+            "end": 525
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 527,
+            "end": 531
+        },
+        {
+            "label": "MOL",
+            "text": "quercetin",
+            "start": 582,
+            "end": 591
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 595,
+            "end": 599
+        },
+        {
+            "label": "MOL",
+            "text": "rutin",
+            "start": 645,
+            "end": 650
+        },
+        {
+            "label": "MOL",
+            "text": "glucose",
+            "start": 668,
+            "end": 675
+        },
+        {
+            "label": "MOL",
+            "text": "rhamnose",
+            "start": 680,
+            "end": 688
+        },
+        {
+            "label": "MOL",
+            "text": "quercetin",
+            "start": 877,
+            "end": 886
+        },
+        {
+            "label": "MOL",
+            "text": "flavonoid",
+            "start": 148,
+            "end": 157
+        },
+        {
+            "label": "MOL",
+            "text": "quercetin",
+            "start": 1052,
+            "end": 1061
+        },
+        {
+            "label": "MOL",
+            "text": "rutin",
+            "start": 1066,
+            "end": 1071
+        },
+        {
+            "label": "MOL",
+            "text": "quercetin",
+            "start": 1212,
+            "end": 1221
+        },
+        {
+            "label": "MOL",
+            "text": "flavonoid",
+            "start": 740,
+            "end": 749
+        },
+        {
+            "label": "MOL",
+            "text": "rutin",
+            "start": 1302,
+            "end": 1307
+        },
+        {
+            "label": "MOL",
+            "text": "flavonoid",
+            "start": 998,
+            "end": 1007
+        },
+        {
+            "label": "MOL",
+            "text": "quercetin",
+            "start": 1444,
+            "end": 1453
+        },
+        {
+            "label": "MOL",
+            "text": "rutin",
+            "start": 1458,
+            "end": 1463
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 1617,
+            "end": 1621
+        },
+        {
+            "label": "MOL",
+            "text": "rutin",
+            "start": 1622,
+            "end": 1627
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 1674,
+            "end": 1678
+        }
+    ]
+}

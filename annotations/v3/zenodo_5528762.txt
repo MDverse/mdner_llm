@@ -1,0 +1,3 @@
+Exploring Kv1.2 channel inactivation through MD simulations and network analysis
+
+MD equilibration trajectories of Kv1.2 WT and mutants in dcd format can be visualized using visualization tools such as VMD or PyMol after uploading the topology file (.prmtop).

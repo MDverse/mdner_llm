@@ -1,0 +1,27 @@
+Functional Calmodulin States are Selected from an Electrostatically Tuned Free Energy Landscape
+
+Contents
+
+
+Conventional MD trajectories: Duplicate 1 μs conventional molecular dynamics (cMD) simulations for all systems.
+
+
+Metadynamics output files: PMF files and collective variable trajectory files used to reconstruct the free-energy surfaces of calmodulin under different ionic strength and calcium-binding conditions.
+
+
+Conformer-based analyses: Unbiased cMD simulations initiated from conformers selected from metadynamics free-energy minima, together with the corresponding analysis outputs, including:
+
+
+Dihedral–distance analysis files
+
+
+Salt-bridge analysis files
+
+
+Radial distribution function (RDF) analysis files
+
+
+Associated trajectory files
+
+
+

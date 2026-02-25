@@ -1,0 +1,3 @@
+Data From: Theoretical Design of Imprinted Albumin against Foodborne Toxins
+
+This dataset contains molecular dynamics trajectories of a single protein (bovine serum albumin (BSA)) and ligand-protein complexes (BSA–zearalenone (ZEA), BSA–deoxynivalenol (DON), BSA–aflatoxin B1 (AFB1), and BSA–kwakhurin (KWA)).

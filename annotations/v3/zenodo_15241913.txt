@@ -1,0 +1,3 @@
+Impact of Peptide Initial Configuration and Membrane Composition on Melittin's Pore-Forming Ability under Unbiased All-Atom Molecular Dynamics Simulations
+
+The input, parameter, and mdp files of the MD simulations are included in the zip file.

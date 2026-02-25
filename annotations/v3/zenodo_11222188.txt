@@ -1,0 +1,123 @@
+Dynamics of terminal fraying-peeling and hydrogen bonds dictate the sequential vs co-operative melting pathways of nanoscale DNA and PNA triplexes
+
+##################################################################################################
+ 
+The simulation dataset used for the analysis reported in the manuscript titled -
+ 
+            "Dynamics of terminal fraying-peeling and hydrogen bonds dictate the sequential vs co-operative melting pathways of nanoscale DNA and PNA triplexes."
+             by Sandip Mandal, Krishna N. Ganesh, and Prabal K. Maiti*
+ 
+ 
+*E-mail: maiti@iisc.ac.in
+Center for Condensed Matter Theory, Department of Physics,
+Indian Institute of Science, Bangalore 560012, India
+ 
+##################################################################################################
+        
+Packages required:
+                Visual Molecular Dynamics (VMD)
+                xmgrace
+                numpy
+                matplotlib
+                scipy
+                tleap/xleap
+                AMBER
+                CPPTRAJ
+                MMGBSA
+                Gaussian09 for partial charge calculation of the PNA protonated cytosine residues
+ 
+##################################################################################################
+ 
+ 
+Contents:
+ 
+The First main directory contains three folders and a README file--
+(1)PNA_DNA_PNA_Triplex
+        (2)DNA_DNA_DNA_Triplex
+(3)Sequence_Dependence
+(4)README file
+ 
+ 
+##################################################################################################
+ 
+ 
+1. PNA_DNA_PNA_Triplex directory contains sub-directory for Protonated PNA-DNA-PNA triplexes simulation data, such as ---
+(a) Setup_files
+(b) Results
+ 
+ 
+(a)Setup_files:
+It contains input coordinates (PDP_18bp_PP.pdb, Protonated_PNA_DNA_PNA.inpcrd ..), topology files, and files required to build to complete 
+system for simulation including library files for non-standard PNA residues and tleap script for the system setup.
+ 
+(b)Results: --folder contains simulation data and analysis scripts for Protonated PNA-DNA-PNA triplexes -----
+ 
+(a)Simulation Trajectories ( It contains simualtion trajectories for three independent trial runs named run1, run2, and run3)
+(b)RMSD
+(c)Hbond (hydrogen bonding)
+(d)Stiffness 
+(e)Free Energy Landscape (FEL)
+(f)PCA (Principal Component Analysis)
+(g)Simulation Movies for the Protonated PNA-DNA-PNA triplex
+ 
+ 
+##################################################################################################
+ 
+ 
+2. DNA_DNA_DNA_Triplex directory contains sub-directory for Protonated DNA-DNA-DNA triplexes simulation data, such as ---
+                (a) Setup_files
+                (b) Results
+ 
+ 
+(a)Setup_files :
+It contains input coordinates (DDD_18bp_Protonated_NAB.pdb, 18bp_Protonated_NAB.inpcrd ...) and files required to build to complete
+system for simulation, including amber input files in the "Sander-Input-files" subdirectory, a script to run the simulation in a GPU clusters, and a leap script for the system setup.
+ 
+(b)Results --folder contains simulation data and analysis scripts for-----
+ 
+                (a)Simulation Trajectories ( It contains simulation trajectory for three independent trial runs named run1, run2, and run3)
+                (b)RMSD
+                (c)Hydrogen bonding
+                (d)Stiffness
+                (e)Free Energy Landscape
+                (f)PCA
+                (g)Simulation Movies for the Protonated DNA-DNA-DNA triplex
+ 
+ 
+##################################################################################################
+ 
+3. Sequence_Dependence  directory contains sub-directory for triplexes with all TAT base triples simualtion data, such as ---
+                (A) DNA_DNA_DNA_with_all_TAT_sequence
+                (B) PNA_DNA_PNA_with_all_TAT_sequence
+ 
+(A)Sub-directory contains simulation data for DNA-DNA-DNA triplexes with 18 TAT base triples (no protonated cytosine residues) ---
+(a)Set_up_files
+(b)Trajectory
+(c)RMSD
+(d)Hbond
+ 
+ 
+(B)Sub-directory contains simulation data for PNA-DNA-PNA triplexes with 18 TAT base triples (no protonated cytosine residues) ---
+                                (a)Set_up_files
+                                (b)Trajectory
+                                (c)RMSD
+                                (d)Hbond
+ 
+##################################################################################################
+ 
+ 
+The trajectories are sampled at 1 ns intervals (since the full trajectory dumped at 10 ps interval, will take huge dataspace) in each trajectory file:
+(a)The first frame corresponds to the structure immediately after 5 ns NPT equilibriation.
+(b)The next 200 frames are from the production run, at 1 to 200 ns.
+ 
+ 
+References:
+The DNA-DNA-DNA and PNA-DNA-PNA models were constructed using NAB code [1].
+System preparation with water and ions are done with the help of tleap/xleap [2].
+All simulation runs are conducted in AMBER2020 [3].
+For visualization we have used VMD [4].
+ 
+[1] T. J. Macke and D. A. Case, Modeling unusual nucleic acid structures, 1998
+[2] D. R. Roe and T. E. Cheatham III, Journal of chemical theory and computation, 2013, 9, 3084–3095
+[3]D. A. Case, H. M. Aktulga, K. Belfon, I. Ben-Shalom, S. R.Brozell, D. S. Cerutti, T. E. Cheatham III, V. W. D. Cruzeiro,T. A. Darden, R. E. Duke et al., Amber 2021, University of California, San Francisco, 2021
+[4] Humphrey W, Dalke A, Schulten K. VMD: visual molecular dynamics. J. Mol. Graph. 14(1), 33-38 (1996).

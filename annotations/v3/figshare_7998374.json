@@ -1,0 +1,182 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Complex Behavior of Phosphatidylcholine–Phosphatidic Acid Bilayers and Monolayers: Effect of Acyl Chain Unsaturation\n\nPhosphatidic\nacids (PAs) have many biological functions in biomembranes,\ne.g., they are involved in the proliferation, differentiation, and\ntransformation of cells. Despite decades of research, the molecular\nunderstanding of how PAs affect the properties of biomembranes remains\nelusive. In this study, we explored the properties of lipid bilayers\nand monolayers composed of PAs and phosphatidylcholines (PCs) with\nvarious acyl chains. For this purpose, the Langmuir monolayer technique\nand atomistic molecular dynamics (MD) simulations were used to study\nthe miscibility of PA and PC lipids and the molecular organization\nof mixed bilayers. The monolayer experiments demonstrated that the\nmiscibility of membrane components strongly depends on the structure\nof the hydrocarbon chains and thus on the overall lipid shape. Interactions\nbetween PA and PC molecules vary from repulsive, for systems containing\nlipids with saturated and unsaturated acyl tails (strongly positive\nvalues of the excess free energy of mixing), to attractive, for systems\nin which all lipid tails are saturated (negative values of the excess\nfree energy of mixing). The MD simulations provided atomistic insight\ninto polar interactions (formation of hydrogen bonds and charge pairs)\nin PC–PA systems. H-bonding between PA monoanions and PCs in\nmixed bilayers is infrequent, and the lipid molecules interact mainly\nvia electrostatic interactions. However, the number of charge pairs\nsignificantly decreases with the number of unsaturated lipid chains\nin the PA–PC system. The PA dianions weakly interact with the\nzwitterionic lipids, but their headgroups are more hydrated as compared\nto the monoanionic form. The acyl chains in all PC–PA bilayers\nare more ordered compared to single-component PC systems. In addition,\ndepending on the combination of lipids, we observed a deeper location\nof the PA phosphate groups compared to the PC phosphate groups, which\ncan alter the presentation of PAs for the peripheral membrane proteins,\naffecting their accessibility for binding.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Acyl",
+            "start": 93,
+            "end": 97
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 138,
+            "end": 141
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 347,
+            "end": 350
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 493,
+            "end": 496
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylcholines",
+            "start": 501,
+            "end": 521
+        },
+        {
+            "label": "MOL",
+            "text": "PCs",
+            "start": 523,
+            "end": 526
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 541,
+            "end": 545
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 693,
+            "end": 695
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 700,
+            "end": 702
+        },
+        {
+            "label": "MOL",
+            "text": "hydrocarbon",
+            "start": 884,
+            "end": 895
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 961,
+            "end": 963
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 968,
+            "end": 970
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 1063,
+            "end": 1067
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1379,
+            "end": 1381
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1382,
+            "end": 1384
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1412,
+            "end": 1414
+        },
+        {
+            "label": "MOL",
+            "text": "PCs",
+            "start": 1430,
+            "end": 1433
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1650,
+            "end": 1652
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1653,
+            "end": 1655
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1668,
+            "end": 1670
+        },
+        {
+            "label": "MOL",
+            "text": "lipids",
+            "start": 703,
+            "end": 709
+        },
+        {
+            "label": "MOL",
+            "text": "acyl",
+            "start": 1806,
+            "end": 1810
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1825,
+            "end": 1827
+        },
+        {
+            "label": "MOL",
+            "text": "PA",
+            "start": 1828,
+            "end": 1830
+        },
+        {
+            "label": "MOL",
+            "text": "PC",
+            "start": 1886,
+            "end": 1888
+        },
+        {
+            "label": "MOL",
+            "text": "PA phosphate",
+            "start": 1988,
+            "end": 2000
+        },
+        {
+            "label": "MOL",
+            "text": "PC phosphate",
+            "start": 2024,
+            "end": 2036
+        },
+        {
+            "label": "MOL",
+            "text": "PAs",
+            "start": 2081,
+            "end": 2084
+        }
+    ]
+}

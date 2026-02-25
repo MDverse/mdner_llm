@@ -1,0 +1,22 @@
+GROMOS-RONS: A Force Field for Simulations of Reactive Oxygen and Nitrogen Species
+
+Reactive oxygen and nitrogen species (RONS) play pivotal
+roles
+in biological and atmospheric systems, yet their transient nature
+challenges experimental study. Molecular dynamics (MD) simulations
+offer a powerful alternative, as long as reliable molecular mechanical
+models are available that accurately reproduce key physical properties
+of the simulated species. Correct partitioning behavior is crucial
+for biomolecular and atmospheric chemistry simulations, where RONS
+interactions at interfacessuch as phospholipid membranes and
+water–air boundariesunderpin essential processes. This
+study presents GROMOS-RONS, a force field for MD simulations of RONS
+and related compounds within the framework of the GROMOS 53A6 and
+54A7 force field families. By integrating electronic structure calculations,
+thermodynamic integration, and equilibrium MD simulations, parameters
+were optimized to reproduce solvation free energies of various RONS
+in both water and hydrophobic media. In the case of ionic species,
+emphasis was placed on the correct hydration structure and ion-pairing
+tendencies. This force field provides a robust, validated tool for
+studying RONS dynamics and interactions across diverse scientific
+domains.

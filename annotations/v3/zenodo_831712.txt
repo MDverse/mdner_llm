@@ -1,0 +1,10 @@
+Coarse-grained Simulation data (part 2 of 2) for "Long-chain GM1 gangliosides alter transmembrane domain registration through interdigitation"
+
+Coarse-grained simulation data for the paper "Long-chain GM1 gangliosides alter transmembrane domain registration through interdigitation", Biochimica et Biophysica Acta (BBA) - Biomembrane Volume 1859, Issue 5, May 2017, Pages 870–87, DOI: 10.1016/j.bbamem.2017.01.033
+The simulations were performed using GROMACS 5.0.x [1]. The Martini force field [2,3] was employed.
+This part (2/2) of the upload contains data for the 10 replica simulations of the systems with GM1 with a normal tail and of the systems with a smaller concentration (1.5%) of GM1 with an extended tail. Trajectories, each 10 microseconds long and stored every 1ns, are given in xtc format. A common run input file for each type of system is given in the tpr format for analysis, although the initial structures of the replicas are different. These files are compatible with GROMACS 5. A common index file in ndx format and a common topology in top format are given for each system type. Simulation parameters, common for all simulated systems, are given in the mdp file. The itp files can be obtained from the Martini homepage http://cgmartini.nl/ 
+The file names denote what kind of tail was used (normal vs. extended), the concentration of GM1 (1.5% (1) vs. 6% (6)), and the replica simulations are numbered from 1 to 10. For the systems without GM1 (NoGM1), the concentration is obviously not given, and there are only 8 replicas (see part 1).
+Part 1 of this upload is available at https://doi.org/10.5281/zenodo.831672.
+[1] M.J. Abraham et al., GROMACS: High performance molecular simulations through multi-level parallelism from laptops to supercomputers. SoftwareX, 2015, 1–2, pp. 19–25, DOI: 10.1016/j.softx.2015.06.001 
+[2] S.J. Marrink et al., The MARTINI Force Field:  Coarse Grained Model for Biomolecular Simulations. J. Phys. Chem. B, 2007, 111, pp 7812–7824, DOI: 10.1021/jp071097f
+[3] C.A. López et al., Martini Force Field Parameters for Glycolipids. J. Chem. Theory Comput., 2013, 9, pp 1694–1708, DOI: 10.1021/ct3009655 

@@ -1,0 +1,242 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "MD simulations of P-glycoprotein started from three different crystal strucures: 3G5U, 4M1M and 4KSB\n\nMolecular simulations of mouse P-glycoprotein started from three different crystal structures with PDB IDs corresponding to 3G5U, 4KSB and 4M1M. The protein was transferred to POPC/cholesterol bilayer, followed by energy minimization and 10 ns equilibration period. All the simulations were performed in Gromacs 3.3.3 in conjunction with GROMOS54a7 force field at 300 K and pressure of 1 bar. Each system was run in triplicates for 200 ns. The uploaded fileset contains:    - MD protocol used to run simulations for 3G5U, 4M1M and 4KSB systems;     - Example input file for a production run for each system (3G5U_run1.mdp, 4M1M_run1.mdp, 4KSB_run1.mdp);    - System topologies (3G5U_memb.top, 4M1M_memb.top, 4KSB_memb.top) and relevant parameter files (3g5u.itp, 4m1m.itp, 4ksb.itp, CLR.itp, POPC.itp, vdw_OML_CH3L.itp);      - Set of three trajectories containing membrane-embedded P-glycoprotein with 1000 frames for each simulated system (snapshots printed every 200 ps);    - Movies generated from each trajectory with a more detailed description provided in Movie_Legends.pdf;    - Model data calculated using principal component analysis method, including the covariance matrices, for each replica (3G5U1-3.eda.npz, 4KSB1-3.eda.npz, 4M1M1-3.eda.npz) and for the concatenated trajectory containing all 9 replicas (3G5U_4KSB_4M1M.eda.npz). The files containing data for the transmembrane domain only have the tmd prefix. These models can be further explored in ProDy package by using loadModel() function.     - Figures representing cholesterol distributions in the upper (dark violet) and lower leaflets (light violet) in all three systems at the beginning and at the end of each simulation. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "P-glycoprotein",
+            "start": 18,
+            "end": 32
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 81,
+            "end": 85
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 87,
+            "end": 91
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 96,
+            "end": 100
+        },
+        {
+            "label": "MOL",
+            "text": "P-glycoprotein",
+            "start": 133,
+            "end": 147
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 226,
+            "end": 230
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 232,
+            "end": 236
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 241,
+            "end": 245
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 278,
+            "end": 282
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 283,
+            "end": 294
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 406,
+            "end": 413
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "3.3.3",
+            "start": 414,
+            "end": 419
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS54a7",
+            "start": 440,
+            "end": 450
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 466,
+            "end": 471
+        },
+        {
+            "label": "STIME",
+            "text": "200 ns",
+            "start": 534,
+            "end": 540
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 618,
+            "end": 622
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 624,
+            "end": 628
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 633,
+            "end": 637
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 710,
+            "end": 714
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 725,
+            "end": 729
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 740,
+            "end": 744
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 780,
+            "end": 784
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 795,
+            "end": 799
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 810,
+            "end": 814
+        },
+        {
+            "label": "MOL",
+            "text": "P-glycoprotein",
+            "start": 985,
+            "end": 999
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 1307,
+            "end": 1311
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 1324,
+            "end": 1328
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ProDy",
+            "start": 1567,
+            "end": 1572
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 1639,
+            "end": 1650
+        },
+        {
+            "label": "MOL",
+            "text": "3g5u",
+            "start": 855,
+            "end": 859
+        },
+        {
+            "label": "MOL",
+            "text": "4m1m",
+            "start": 865,
+            "end": 869
+        },
+        {
+            "label": "MOL",
+            "text": "4ksb",
+            "start": 875,
+            "end": 879
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 894,
+            "end": 898
+        },
+        {
+            "label": "MOL",
+            "text": "CLR",
+            "start": 885,
+            "end": 888
+        },
+        {
+            "label": "MOL",
+            "text": "3G5U",
+            "start": 1421,
+            "end": 1425
+        },
+        {
+            "label": "MOL",
+            "text": "4KSB",
+            "start": 1426,
+            "end": 1430
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 1341,
+            "end": 1345
+        },
+        {
+            "label": "MOL",
+            "text": "4M1M",
+            "start": 1431,
+            "end": 1435
+        }
+    ]
+}

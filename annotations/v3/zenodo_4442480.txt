@@ -1,0 +1,5 @@
+hnRNPA1* and hSUMO-hnRNPA1* all-atom MD trajectories and protein-water rescaling MD trajectories
+
+All-atom trajectories of hnRNPA1* and hSUMO-hnRNPA1* with varying NaCl concentrations back-mapped from CG simulations. CG trajectories of hnRNPA1* and hSUMO-hnRNPA1* with varying PW-rescaling parameter lambda (theta in file names). Supporting data for "Interplay of folded domains and the disordered low-complexity domain in mediating hnRNPA1 phase separation".
+
+ 

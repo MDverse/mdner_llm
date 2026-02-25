@@ -1,0 +1,7 @@
+Simulation of a POPE bilayer at 310K with the CHARMM36 force field
+
+A bilayer of 144 POPE lipids (72 per leaflet) simulated in water (40 molecules per lipid) for 500 ns using the CHARMM36 force field [1] using GROMACS v. 2018.6 [2]. Topologies are obtained from CHARMM-GUI [3].
+[1] DOI: 10.1021/jp101759q
+[2] DOI: 10.1016/j.softx.2015.06.001
+[3] DOI: 10.1021/acs.jctc.5b00935
+ 

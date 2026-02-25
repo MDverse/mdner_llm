@@ -1,0 +1,116 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Data for: Excitatory and inhibitory D-serine binding to the NMDA receptor\n\nN-methyl-D-aspartate receptors (NMDARs) uniquely require binding of two different neurotransmitter agonists for synaptic transmission. D-serine and glycine bind to one subunit, GluN1, while glutamate binds to the other, GluN2. These agonists bind to the receptor's bi-lobed ligand-binding domains (LBDs), which close around the agonist during receptor activation. To better understand the unexplored mechanisms by which D-serine contributes to receptor activation, we performed multi-microsecond molecular dynamics simulations of the GluN1/GluN2A LBD dimer with free D-serine and glutamate agonists. Surprisingly, we observed D-serine binding to both GluN1 and GluN2A LBDs, suggesting that D-serine competes with glutamate for binding to GluN2A. This mechanism is confirmed by our electrophysiology experiments, which show that D-serine is indeed inhibitory at high concentrations. Although free energy calculations indicate that D-serine stabilizes the closed GluN2A LBD, its inhibitory behavior suggests that it either does not remain bound long enough or does not generate sufficient force for ion channel gating. We developed a workflow using pathway similarity analysis to identify groups of residues working together to promote binding. These conformation-dependent pathways were not significantly impacted by the presence of N-linked glycans, which act primarily by interacting with the LBD bottom lobe to stabilize the closed LBD.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 36,
+            "end": 44
+        },
+        {
+            "label": "MOL",
+            "text": "NMDA receptor",
+            "start": 60,
+            "end": 73
+        },
+        {
+            "label": "MOL",
+            "text": "N-methyl-D-aspartate receptors",
+            "start": 75,
+            "end": 105
+        },
+        {
+            "label": "MOL",
+            "text": "NMDARs",
+            "start": 107,
+            "end": 113
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 210,
+            "end": 218
+        },
+        {
+            "label": "MOL",
+            "text": "glycine",
+            "start": 223,
+            "end": 230
+        },
+        {
+            "label": "MOL",
+            "text": "glutamate",
+            "start": 265,
+            "end": 274
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 495,
+            "end": 503
+        },
+        {
+            "label": "STIME",
+            "text": "multi-microsecond",
+            "start": 553,
+            "end": 570
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 642,
+            "end": 650
+        },
+        {
+            "label": "MOL",
+            "text": "glutamate",
+            "start": 655,
+            "end": 664
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 701,
+            "end": 709
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 765,
+            "end": 773
+        },
+        {
+            "label": "MOL",
+            "text": "glutamate",
+            "start": 788,
+            "end": 797
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 903,
+            "end": 911
+        },
+        {
+            "label": "MOL",
+            "text": "D-serine",
+            "start": 1005,
+            "end": 1013
+        },
+        {
+            "label": "MOL",
+            "text": "glycans",
+            "start": 1416,
+            "end": 1423
+        }
+    ]
+}

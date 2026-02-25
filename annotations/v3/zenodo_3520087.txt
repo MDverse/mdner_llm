@@ -1,0 +1,6 @@
+PROSEECO developement, 0.8 scaling, POPC + Na, Ca ions
+
+POPC membrane, 200 lipids, 9000 waters
+310 K, gromacs 2018
+ 
+Test of 0.8 scaling

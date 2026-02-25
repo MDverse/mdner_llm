@@ -1,0 +1,3 @@
+hMff_micelle_50SDS_CHARMM_310K_Na_Neut_OPC_23500water_replica1
+
+hMff_micelle_50SDS_CHARMM_310K_Na_Neut_OPC_23500water_replica1

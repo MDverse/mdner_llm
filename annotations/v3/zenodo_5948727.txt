@@ -1,0 +1,4 @@
+Supplementary Information: Effects of cryo-EM cooling on structural ensembles
+
+This data set contains a pdb file with the ribosome-EF-Tu complex atoms used for analysis. The trajectories (xtc files) contain the ensembles of structures before cooling and after cooling with various cooling time spans.
+model3_training.zip contains the code to train and and analyse kinetic model3 as well as the rmsf quantiles obtained from MD simulations, and the temperature drop estimates used for the model.

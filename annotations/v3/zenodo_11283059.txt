@@ -1,0 +1,3 @@
+Raw data molecular dynamics and alphafold (Lemaire et al)
+
+Raw data molecular dynamics and alphafold for manuscript NCOMMS-24-29370

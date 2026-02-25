@@ -1,0 +1,139 @@
+Datasets for manuscript "Exploring Chemistry and Catalysis by Biasing Skewed Distributions via Deep Learning"
+
+The following datasets contains several branches:
+Dataset Overview
+This repository contains the raw data, simulation trajectories, and analysis scripts required to reproduce the figures and results presented in the manuscript "Exploring Chemistry and Catalysis by Biasing Skewed Distributions via Deep Learning". The data supports the validation of the Loxodynamics method, a machine-learning approach using Skewencoder to bias molecular dynamics simulations towards rare reaction events.
+File Inventory & Descriptions
+1. Core Simulation Data
+
+
+NN-Plumed.zip (863.81 MB)
+
+
+Content: All datasets related to the NN training procedure, i.e. log files of the loxodynamics simulations generating the trajectories shown in the manuscript. 
+
+
+Context: 
+Within this parent directory, each subfolder corresponds to a specific case study presented in the manuscript. Each subfolder for test cases contains:
+
+Training Datasets: COLVAR files used for training.
+Trained Models: Skewencoder models (.pt files) from each biased iteration of the simulation.
+PLUMED Files: Used for generating the COLVAR files.
+Lightning Logs: Logs generated during training.
+
+For example, consider the SN2 subfolder. The structure of this folder is as follows:├───Reverse│   ├───unbiased│   ├───results│   │   ├───iter_0│   │   │   └───data│   │   ├───iter_1│   │   │   └───data│   │   ├───iter_10│   │   │   └───data│   │   ├───iter_2│   │   │   └───data│   │   ├───iter_3│   │   │   └───data│   │   ├───iter_4│   │   │   └───data│   │   ├───iter_5│   │   │   └───data│   │   ├───iter_6│   │   │   └───data│   │   ├───iter_7│   │   │   └───data│   │   ├───iter_8│   │   │   └───data│   │   └───iter_9│   │       └───data│   └───lightning_logs│       ├───version_0│       ├───version_1│       ├───version_10│       ├───version_2│       ├───version_3│       ├───version_4│       ├───version_5│       ├───version_6│       ├───version_7│       ├───version_8│       └───version_9└───Forward    ├───results    │   ├───iter_0    │   │   └───data    │   ├───iter_1    │   │   └───data    │   ├───iter_10    │   │   └───data    │   ├───iter_2    │   │   └───data    │   ├───iter_3    │   │   └───data    │   ├───iter_4    │   │   └───data    │   ├───iter_5    │   │   └───data    │   ├───iter_6    │   │   └───data    │   ├───iter_7    │   │   └───data    │   ├───iter_8    │   │   └───data    │   └───iter_9    │       └───data    └───unbiased
+The reverse and forward folders correspond to specific reaction directions described in the manuscript. The unbiased folder contains the unbiased simulation training data along with the PLUMED input file used for data generation. In the results folder, each subfolder represents a biased simulation iteration and includes:
+
+The trained model.
+The PLUMED input file for the simulation.
+The generated COLVAR file.
+
+
+
+
+
+                      For Chabazite related folders, the different configurations are named after the type of reaction and the product, namely:
+
+
+
++---chaba-ethanol¦   +---concerted1¦   +---concerted2¦   +---stepwise+---chaba-butanol¦   +---1-butene¦   +---cis-butene¦    +---stepwise2¦   +---stepwise1¦   +---trans-butene
+
+
+
+                       Simulation results for 2D model potentials (corresponding to trajectories in the main text and SI) are located in the 2dTest folder, organized by potential type.
+
+
+Trajectories.zip (863.81 MB)
+
+
+Content: Raw molecular dynamics (MD) trajectories generated during the exploration phases.
+
+
+Context: Contains the coordinate files (likely .xyz or .pdb) illustrating the reaction pathways discovered by the Loxodynamics engine for the test systems (S_N2, Diels-Alder, and Chabazite).
+
+├───chaba-ethanol│   ├───concerted2│   ├───stepwise│   └───concerted1
+├───chaba-butanol│   ├───1-butene
+│   ├───cis-butene
+│   ├───trans-butene│   ├───stepwise1
+│   ├───stepwise2├───DA│   ├───Backwards│   ├───Forwards│   └───shallow└───SN2    ├───Backwards    └───Forwards
+
+MetaD.zip (1.16 GB)
+
+
+Content: Metadynamics simulation data.
+
+
+Context: Used for sampling comparison or free energy surface reconstruction. Contains COLVAR files and bias potentials used to benchmark the Loxodynamics approach against standard Metadynamics.
+
++---2dtest¦   +---elogated¦   +---MB¦   +---OPES¦   +---OPES_2+---reactions    +---DA-MetaD    +---SN2-MetaD
+
+
+
+neb-chabazite.zip (3.61 GB)
+
+
+Content: Nudged Elastic Band (NEB) calculation inputs and outputs.
+
+
+Context: Specific to the acidic chabazite zeolite system (catalytic alcohol dehydration). This data validates the minimum energy pathways (MEP) found by the deep learning model against standard quantum chemical NEB barriers.
+
+
+
+2d-test.zip (660.61 MB)
+
+Content: All simulation details for 3 different 2d model potentials.
+Context: Including all the simulation configurations for 2d model potentials and the raw data for loss function comparisons script and Autoencoder structure comparison script.
+
+
+2. Figure-Specific Support Data
+
+FigS5-lossfunCompare.zip (460.24 MB)
+
+
+Content: Data for Supplementary Figure 5.
+
+
+Description: Comparison of different loss functions tested during the training of the Skewencoder. Includes training curves and validation metrics demonstrating the efficiency of the skewness-based loss.
+
+
+
+
+FigS6-2pathways.zip (186 bytes)
+
+
+Content: Data for Supplementary Figure 6.
+
+
+Description: Source data for Loxodynamics simulation of the two distinct reaction pathways (e.g., competing mechanisms) identified during the exploration.
+
+
+
+
+FigS7-Warmstart.zip (66.62 MB)
+
+
+Content: Data for Supplementary Figure 7.
+
+
+Description: Performance metrics and convergence plots justifying the "warm-start" training strategy for the neural network, comparing it against cold-start initialization.
+
+
+
+
+FigS10-FeatureImportance.zip (3.33 KB)
+
+
+Content: Data for Supplementary Figure 10.
+
+
+Description: Feature importance analysis output. Lists or plots showing which geometric descriptors (distances, angles) were most critical for the Skewencoder to identify the reaction coordinate.
+
+
+
+3. Data and codes for plotting all figures
+Plotcommand.zip
+
+content: codes and data for figure plots
+context: raw data for figures and python codes for plotting.
+
+

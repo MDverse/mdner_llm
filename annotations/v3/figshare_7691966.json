@@ -1,0 +1,74 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Addressing Polarization Phenomena in Molecular Machines Containing Transition Metal Ions with an Additive Force Field\n\nModeling transition metals in supramolecular\nassemblies, in general,\nis extremely challenging due to polarization and charge transfer.\nIn this work, we demonstrate that the inherent shortcomings of additive\nforce fields in modeling Cu+–ether-O and Cu+–olefin-C interactions are rooted in the Lorentz–Berthelot\nrules. A general method for investigating transition-metal-containing\nmolecular assays using classical force fields is, therefore, proposed.\nIn this strategy, QM/MM calculations have been performed to determine\nthe potential of mean force (PMF) describing the interaction of a\ncation and a specific functional group. van der Waals parameters for\nthe corresponding pairs of particles have then been optimized using\nthe NBFIX feature of the CHARMM force field to fit the QM/MM PMF.\nThis method has been applied to decipher the mechanism underlying\nthe “dialing” of a molecular machine controlled by Li+ and Cu+ cations, indicating that the process is\ncontrolled by the competition between cation–ether-O and cation–olefin-C\ninteractions.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Metal Ions",
+            "start": 78,
+            "end": 88
+        },
+        {
+            "label": "MOL",
+            "text": "Cu+",
+            "start": 351,
+            "end": 354
+        },
+        {
+            "label": "MOL",
+            "text": "ether-O",
+            "start": 355,
+            "end": 362
+        },
+        {
+            "label": "MOL",
+            "text": "Cu+",
+            "start": 367,
+            "end": 370
+        },
+        {
+            "label": "MOL",
+            "text": "olefin-C",
+            "start": 371,
+            "end": 379
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 868,
+            "end": 874
+        },
+        {
+            "label": "MOL",
+            "text": "Li+",
+            "start": 1026,
+            "end": 1029
+        },
+        {
+            "label": "MOL",
+            "text": "Cu+",
+            "start": 1034,
+            "end": 1037
+        },
+        {
+            "label": "MOL",
+            "text": "ether-O",
+            "start": 1123,
+            "end": 1130
+        },
+        {
+            "label": "MOL",
+            "text": "olefin-C",
+            "start": 1142,
+            "end": 1150
+        }
+    ]
+}

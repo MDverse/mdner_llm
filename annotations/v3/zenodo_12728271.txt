@@ -1,0 +1,10 @@
+The conformational plasticity of structurally unrelated lipid transport proteins correlates with their mode of action
+
+Supporting DATA files for "Conformational plasticity of structurally unrelated lipid transport proteins correlates with their mode of action".
+
+zenodo_simulation_starting_files_and_result_pdbs.zip contains input files for atomistic and coarse-grained MD simulations, membrane binding interface results from coarse-grained simulations, and apo-like and holo-like conformations of lipid transfer domains arising from clustering of atomistic simulations
+zenodo_data_and_codes.zip contains the raw data and/or scripts used for the analysis of the figures of the paper as well as a README file explaining the contents. The figure caption in the manuscript indicates the folder name that contains data relevant to that particular figure. 
+The trajectories have not been uploaded here, in case you are interested, please ask the corresponding author (stefano.vanni@unifr.ch).
+
+
+ 

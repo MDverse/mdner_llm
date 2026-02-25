@@ -1,0 +1,3 @@
+Heat8p.edr
+
+Energy data from an annealed simulation with a fixed pressure of 8 GPa and temperatures ranging from 320K to 450K

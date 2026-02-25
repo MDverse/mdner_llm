@@ -1,0 +1,2 @@
+MD simulation of DMPC bilayer with OPLS4 force field. 10 w/l.
+

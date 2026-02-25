@@ -1,0 +1,3 @@
+Molecule definitions, topologies and coordinates for Aryl-urea uncouplers
+
+Definitions of molecules and topologies for NM3D-DOPC, NM3P-DOPC and mixed NM3P-NMPD-DOPC bilayer systems in SPC water with 100mM NaCl. GROMOS-54A7 FF

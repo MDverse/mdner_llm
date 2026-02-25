@@ -1,0 +1,20 @@
+Using Enhanced Sampling Simulations to Study the Conformational Space of Chiral Aromatic Peptoid Monomers
+
+Peptoids, or N-substituted glycines, are peptide-like
+materials
+that form a wide variety of secondary structures owing to their enhanced
+flexibility and a diverse collection of possible side chains. Compared
+to that of peptides, peptoids have a substantially more complex conformational
+landscape. This is mainly due to the ability of the peptoid amide
+bond to exist in both cis- and trans-conformations. This makes conventional molecular dynamics simulations
+and even some enhanced sampling approaches unable to sample the complete
+energy landscapes. In this article, we present an extension to the
+CGenFF-NTOID peptoid atomistic forcefield by adding parameters for
+four side chains to the previously available collection. We employ
+explicit solvent well-tempered metadynamics simulations to optimize
+our forcefield parameters and parallel bias metadynamics to study
+the cis–trans isomerism for
+SN1-phenylethyl (s1pe) and SN1-naphthylethyl (s1ne) peptoid monomers, the free energy minima generated from which are
+validated with available experimental data. In the absence of experimental
+data, we supported our atomistic simulations with ab initio calculations. This work represents an important step toward the
+computational design of peptoid-based materials.

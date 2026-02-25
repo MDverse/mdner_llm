@@ -1,0 +1,3 @@
+Pure--No Build--POPE OpenFF Fix Attempt 1
+
+Reused 200 ns 64:64 POPE bilayer hydrated with 5000 TIP3P waters.

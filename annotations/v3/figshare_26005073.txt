@@ -1,0 +1,14 @@
+Design, Synthesis, and Biological Evaluation of Chroman Derivatives as PD-1/PD-L1 Antagonists
+
+Programmed
+death-ligand 1 (PD-L1) has emerged as a promising therapeutic
+target for various cancers due to its crucial role in promoting tumor
+immune evasion. Here, we report a novel class of chroman-like small-molecule
+PD-L1 inhibitors exhibiting significant activity in inhibiting the
+PD-1/PD-L1 interaction. Employing a “ring-close” strategy
+for conformational restriction, we have achieved compound C27, which demonstrates superior PD-1/PD-L1 inhibitory activity compared
+to the positive control. Molecular dynamics simulation and binding
+free energy calculation predict that (R)-C27 with inhibitory activity surpassed (S)-C27. The experimental
+results from bioassay and X-ray structural analysis corroborate these
+findings. All these results collectively indicate that (R)-C27 is a promising
+lead compound deserving further exploration.

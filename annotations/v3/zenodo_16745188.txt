@@ -1,0 +1,7 @@
+SND3 is the membrane insertase within a distinct SEC61 translocon complex
+
+This repository contains all the simulation files for the project.
+Title: SND3 is the membrane insertase within a fungal multipass transloconAuthors: Tzu-Jing Yang, Saumyak Mukherjee, Julian D. Langer, Gerhard Hummer, Melanie A. McDowellRef: https://doi.org/10.1101/2025.07.08.663624.
+The directory "CODES" contains the jupyter-notebooks to compute and plot native contact time evolution and lipid tail tilt angle distribution.
+The directory "ALL.ATOM" contains the MD simulation parameter files (MDP) for atomistic simulations (CHARMM36m) in GROMACS. Configuration (GRO), toplogy (TOP), index (NDX), and analysis data (XVG, NPZ) files for each replica are contained in the subdirectories REPLICAn (n = 1, 2, 3). The directory toppar contains force field parameters (ITP).
+The directory "COARSE.GRAINED" contains the MDP, GRO, NDX, ITP, TOP, and XVG files for coarse grained simulations (MARTINI3) in GROMACS.

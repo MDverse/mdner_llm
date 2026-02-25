@@ -1,0 +1,3 @@
+Fs MD Trajectories
+
+This dataset consists of 28 molecular dynamics trajectories of Fs peptide (Ace-A_5(AAARA)_3A-NME), a widely studied model system for protein folding. Each trajectory is 500 ns in length, and saved at a 50 ps time interval (14 us aggegrate sampling). The simulations were performed using the AMBER99SB-ILDN force field with GBSA-OBC implicit solvent at 300K, starting from randomly sampled conformations from an initial 400K unfolding simulation. The simulations were performed with OpenMM 6.0.1.The files in this dataset include the 28 trajectories in xtc format, the scripts used setup and run the simulations, and the starting conformations in .pdb format.

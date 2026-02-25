@@ -1,0 +1,25 @@
+Particle Deformability Enables Control of Interactions between Membrane-Anchored Nanoparticles
+
+Nanoparticles
+adsorbed on a membrane can induce deformations
+of
+the membrane that give rise to effective interactions between the
+particles. Previous studies have focused primarily on rigid nanoparticles
+with fixed shapes. However, DNA origami technology has enabled the
+creation of deformable nanostructures with controllable shapes and
+mechanical properties, presenting new opportunities to modulate interactions
+between particles adsorbed on deformable surfaces. Here we use coarse-grained
+molecular dynamics simulations to investigate deformable, hinge-like
+nanostructures anchored to lipid membranes via cholesterol anchors.
+We characterize deformations of the particles and membrane as a function
+of the hinge stiffness. Flexible particles adopt open configurations
+to conform to a flat membrane, whereas stiffer particles induce deformations
+of the membrane. We further show that particles spontaneously aggregate
+and that cooperative effects lead to changes in their shape when they
+are close together. Using umbrella sampling methods, we quantify the
+effective interaction between two particles and show that stiffer
+hinge-like particles experience stronger and longer-ranged attraction.
+Our results demonstrate that interactions between deformable, membrane-anchored
+nanoparticles can be controlled by modifying mechanical properties
+of the particles, suggesting new ways to modulate the self-assembly
+of particles on deformable surfaces.

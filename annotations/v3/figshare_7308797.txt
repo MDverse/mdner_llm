@@ -1,0 +1,3 @@
+SI: Radical Stabilization Energies for Enzyme Engineering – Tackling the Substrate Scope of the Radical Enzyme QueE: Topologies and MD parameter files
+
+Topologies and MD parameter files for MD simulations described in the paper "Radical Stabilization Energies for Enzyme Engineering – Tackling the Substrate Scope of the Radical Enzyme QueE"

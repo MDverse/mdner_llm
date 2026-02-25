@@ -1,0 +1,4 @@
+CHARMM36 POPC/POPE (50%-50%) MD simulation (300 K - 300ns - 1 bar)
+
+CHARMM36 POPC 50% POPE 50% bilayer simulation (300 K, starting structure from CHARMM-GUI with 128 POPC and 128 POPE lipids (64 per leaflet for each species) fully hydrated with 34 water molecules per lipid). The trajectory contains the whole simulation from 0 to 300 ns skipped every 100 ps and centered on the P atoms. No ions were added as there is no charge in the system. This bilayer was used to calculate the order parameter and the area per lipid for the NMRlipids project (on the time window 50-300 ns).
+ 

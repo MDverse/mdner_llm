@@ -1,0 +1,26 @@
+Design Principles for Gradient Porous Carbon on Aqueous Zinc-Ion Hybrid Capacitors: A Combined Molecular Dynamic and Machine Learning Study
+
+Gradient porous carbon has become
+a potential electrode
+material
+for energy storage devices, including the aqueous zinc-ion hybrid
+capacitor (ZIHC). Compared with the sufficient studies on the fabrication
+of ZIHCs with high electrochemical performance, there is still lack
+of in-depth understanding of the underlying mechanisms of gradient
+porous structure for energy storage, especially the synergistic effect
+of ultramicropores (<1 nm) and micropores (1–2 nm). Here,
+we report a design principle for the gradient porous carbon structure
+used for ZIHC based on the data-mining machine learning (ML) method.
+It is clarified that the combination of 0.6–0.9 nm ultramicropore
+and 1.6 nm micropore achieves the highest specific capacity. Molecular
+dynamic simulation was further employed to investigate the electric
+double-layer structures in several kinds of electrified gradient porous
+carbon electrode/electrolyte interface. It is found that the Zn2+ ions in the 1.6 nm micropore balance the most charges of
+the electrode surface as the counterion with the modification of the
+solvation structure. Furthermore, the ML-based force field is trained
+and employed in the simulation of the ion charging dynamic in the
+gradient porous carbon electrode. Based on the free energy profile
+result, the remarkable benefit of the step-by-step desolvation process
+is found in the 0.86 and 1.6 nm gradient porous structure, which could
+be the origin of the enhanced ion charging dynamic and better capacity
+retention performance.

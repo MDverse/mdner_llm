@@ -1,0 +1,5 @@
+MD simulations on MnmE
+
+Unbiased and biased MD simulations of MnmE that were generated in the context of the research presented in the following publication:
+
+INSERT PUBLICATION

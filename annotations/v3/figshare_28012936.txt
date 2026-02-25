@@ -1,0 +1,23 @@
+Enhancing Rebaudioside M Synthesis via Introducing Sulfur-Mediated Interactions between Glycosyltransferase UGT76G1 and Rebaudioside D
+
+Rebaudioside
+M (Reb M), a zero-calorie sweetener with
+high sweetness,
+faces production challenges due to its low yield and purity. UGT76G1,
+a uridine diphosphate glucose (UDPG)-dependent glycosyltransferase,
+forms a β-1,3-glycosidic bond with rebaudioside D (Reb D) to
+produce Reb M but with an efficiency lower than that for stevioside
+(ST). This study identified the variant UGT76G1-L200A/L379 M (No.11),
+which exhibited a 10-fold increase in enzymatic activity toward Reb
+D compared to wild-type UGT76G1 (WT). Coupled with mbSUS, the No.11
+effectively synthesized Reb M, achieving a 96.85% yield from 34.89
+mM Reb D in 60 min at 50 °C. Molecular dynamics revealed the
+molecular mechanism behind this enhanced catalytic activity: the No.11,
+UGT76G1-L200A, and UGT76G1-L379 M complexes showed shorter and more
+stable interactions between Reb D-C19-Glc1-3-hydroxyl,
+catalytic residue H20, and UDPG-C1’ compared to WT. The root-mean-square
+fluctuation (RMSF) values and binding free energy analyses further
+explained the No.11’s superior catalytic efficiency. This study
+introduces a novel protein engineering approach by introducing specific
+amino acids to trigger nonclassical interactions, improving ligand–protein
+binding and catalysis.

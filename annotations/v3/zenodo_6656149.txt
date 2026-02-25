@@ -1,0 +1,6 @@
+Simulation input files and analysis scripts for "Small ionic radii limit time step in Martini 3molecular dynamics simulations"
+
+Simulation input files and analysis scripts for "Small ionic radii limit time step in Martini 3molecular dynamics simulations".
+See https://aip.scitation.org/doi/10.1063/5.0095523 for details.
+NOTE: some combinations of settings result in simulations that crash!
+ 

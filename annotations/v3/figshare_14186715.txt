@@ -1,0 +1,26 @@
+Halogen Bonding: An Underestimated Player in Membrane–Ligand Interactions
+
+Halogen
+bonds (XBs) are noncovalent interactions where halogen
+atoms act as electrophilic species interacting with Lewis bases. These
+interactions are relevant in biochemical systems being increasingly
+explored in drug discovery, mainly to modulate protein–ligand
+interactions, but are also found in engineered protein or nucleic
+acid systems. In this work, we report direct evidence for the existence
+of XBs in the context of biological membrane systems, thus expanding
+the scope of application of these interactions. Indeed, our molecular
+dynamics simulations show the presence of favorable interactions between
+halobenzene derivatives and both phosphate or ester oxygen acceptors
+from a model phospholipid bilayer, thus supporting the existence of
+XB-mediated phospholipid–halogen recognition phenomena influencing
+the membrane insertion profile of the ligands and their orientational
+preferences. This represents a relevant interaction, previously overlooked,
+eventually determining the pharmacological or toxicological activity
+of halogenated compounds and hence with potential implications in
+drug discovery and development, a place where such species account
+for a significant part of the chemical space. We also provide insights
+into a potential role for XBs in the water-to-membrane insertion of
+halogenated ligands as XBs are systematically observed during this
+process. Therefore, our data strongly suggest that, as the ubiquitous
+hydrogen bond, XBs should be accounted for in the development of membrane
+partition models.

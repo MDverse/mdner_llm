@@ -1,0 +1,16 @@
+Evolutionary constraints preserve dynamic interaction networks that enable high-temperature adaptation in thermophilic β-glucosidases
+
+
+Evolutionary constraints preserve dynamic interaction networks that enable high-temperature adaptation in thermophilic β-glucosidases
+ 
+Data Section
+The raw data were derived from β-glucosidase-related datasets and stored in the ./data folder. The training and test datasets are deposited in the NRI folder.
+ 
+Molecular Dynamics (MD) Simulation Section
+Files pertaining to interpretability analysis are stored in the MD_datas folder, including the corresponding initial PDB files, XTC trajectory files, as well as datasets of Root Mean Square Deviation (RMSD), Root Mean Square Fluctuation (RMSF), and Secondary Structure Content (SSC). Scripts such as jiechu.py and rmsd-q-300bs2.py in the MD folder are utilized for trajectory visualization and quantitative analysis of MD simulations.
+ 
+Model Section
+The initial PDB files, filtered output matrix files, and script file (trst.ipynb) for constructing the Neural Relational Inference (NRI) model are stored in the NRI folder.
+ 
+Evolution Section
+The structural sequences associated with family co-evolution, together with the generation and processing files of model language parameters, are all deposited in the Evolution folder.

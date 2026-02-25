@@ -1,0 +1,4 @@
+Data underlying the article: 3DDPDs: Describing protein dynamics for proteochemometric bioactivity prediction. A case for (mutant) G protein-coupled receptors
+
+This repository contains the datasets and results supporting the conclusions of the manuscript "3DDPDs: Describing protein dynamics for proteochemometric bioactivity prediction. A case for (mutant) G protein-coupled receptors". 
+Publicly available data is not included in this repository. The source code to generate the results gathered here can be found on GitHub (https://github.com/CDDLeiden/3ddpd). 

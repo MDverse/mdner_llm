@@ -1,0 +1,6 @@
+Discovery and Evaluation of Enantiopure 9H-pyrimido[4,5-b]indoles as Nanomolar GSK-3β Inhibitors with Improved Metabolic Stability
+
+Dataset related to publication Andreev et al.: "Discovery and Evaluation of Enantiopure 9H-pyrimido[4,5-b]indoles as Nanomolar GSK-3β Inhibitors with Improved Metabolic Stability" Int. J. Mol. Sci. 2020, 21(21), 7823 https://doi.org/10.3390/ijms21217823
+Containing:
+a) Raw-trajectory files of 1 microsecond Desmond simulations of (R)-2 and (R)-28 (-out-cms and trj)
+b) QM Conformer & Tautomer predictor tool derived conformations of compounds (S)-2; (R)-2 and (R)-28; (.mae) (10 lowest energy conformations in each file)

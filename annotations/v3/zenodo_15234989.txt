@@ -1,0 +1,3 @@
+Molecular dynamics simulation data of HLp-DNA complexes
+
+This repository contains the molecular dynamics simulation trajectories of the HLp-DNA complexes, including the wrapping model, the bridging model, and the unwrapping simulation, and the Jupyter notebooks used to analyze and visualize these data. 

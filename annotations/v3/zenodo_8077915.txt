@@ -1,0 +1,6 @@
+Equilibrium Molecular Dynamics of aqueous glycerol menisca
+
+This dataset contains the results of Molecular Dynamics simulations of quasi-2D water-glycerol liquid meniscus, confined between silica-like surfaces. The goal of the simulations is to observe and quantify liquid density layering close to solid surfaces.
+The pattern "Glycerol***" refers to the mass fraction of glycerol ("000": pure water, "100": pure glycerol). Each folder contains configuration files and compressed output molecular trajectories. Post-processing is performed on density maps binned on-the-fly using a customized Gromacs version (https://github.com/pjohansson/gromacs-flow-field); frames are placed in a tarball ("wat-gly-*p-eq.tar.gz").
+The zipped folder 'scripts.zip' contains a self-contained library of functions to read density maps and a Jupyter notebook with an example of density reading and plotting.
+Simulations are performed with Gromacs. We refer to the code documentation for further information (https://manual.gromacs.org/).

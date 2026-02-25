@@ -1,0 +1,3 @@
+Structural Insights into Antagonist Recognition by the Vasopressin V2 Receptor
+
+These files contain molecular dynamics (MD) simulation trajectories of the V2R–tolvaptan and V2R–conivaptan complexes. For each system, three independent 1000-ns trajectories were generated. The trajectories have been processed with stride filtering (saving 1 frame every 10 frames) to reduce file size. Please use the corresponding TVP.dry.prmtop and CVP.dry.prmtop topology files for analysis and visualization. 

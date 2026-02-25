@@ -1,0 +1,3 @@
+Raw data and files for A Computational Approach for the the Prediction of p53 and BCL-2 Protein-Protein Interactions
+
+This data is part of a research project that describes a predictive method used to examine potential interactions between p53 variants and wild-type BCL-2. Included in the zip file are raw data files and GROMACS code texts for simulations of each p53 variant.

@@ -1,0 +1,16 @@
+The Effect of SARS-COV‑2 Protein Fragments on the Dimerization of α‑Synuclein
+
+There is evidence that amyloidogenic segments in SARS-COV-2
+proteins
+can induce aggregation of α-synuclein (αS), the main component
+of brain-located amyloids whose presence is connected with Parkinson’s
+Disease (PD). Using molecular dynamics simulations, we showed in earlier
+work that SARS-COV-2 protein fragments shift the ensemble of αS
+chains toward more aggregation-prone conformations. However, the mechanism
+by which these chains assemble into fibrils, the presumed neurotoxic
+agents in PD, is not clear. The first step on that route is the formation
+of dimers. For this reason, we have now, using again molecular dynamics
+simulations, studied how the fragment 194FKNIDGYFKI203 (FI10) of the SARS-COV-2 spike protein and the fragment 54SFYVYSRVK62 (SK9) of the envelope protein alter
+the ensemble of α-synuclein dimers. Our simulations suggest
+a differential stabilization of such dimers that would preferentially
+seed rod-like fibrils over the competing twister-like structures.

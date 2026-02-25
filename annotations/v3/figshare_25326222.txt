@@ -1,0 +1,30 @@
+Cyclization Scaffolding for Improved Vaccine Immunogen Stability: Application to Tau Protein in Alzheimer’s Disease
+
+Effective scaffolding of immunogens
+is crucial for generating
+conformationally
+selective antibodies through active immunization, particularly in
+the treatment of protein misfolding diseases such as Alzheimer’s
+and Parkinson’s disease. Previous computational work has revealed
+that a disorder-prone region of the tau protein, when in a stacked
+form, is predicted to structurally resemble a small, soluble protofibril,
+having conformational properties similar to those of experimental
+in vitro tau oligomers. Such an oligomeric structural mimic has the
+potential to serve as a vaccine immunogen design for Alzheimer’s
+disease. In this study, we developed a cyclization scaffolding method
+in Rosetta, in which multiple cyclic peptides are stacked into a protofibril.
+Cyclization results in significant stabilization of protofibril-like
+structures by constraining the conformational space. Applying this
+method to the disorder-prone region of the tau fibril, we evaluated
+the metastability of the cyclized tau immunogen using molecular dynamics
+simulations, and we identified sequences of two cyclic constructs
+having high metastability in the protofibril. We then assessed their
+thermodynamic stability by computing the free energy required to separate
+a distal chain from the rest of the stacked structure. Our computational
+results, based on molecular dynamics simulations and free energy calculations,
+demonstrate that two cyclized constructs, cyclo-(VKSEKLDFKDRVQSKIFyN)
+and cyclo-(VKSEKLDFKDRVQSKIYvG) (lowercase letters indicate d-form amino acids), possess significantly increased thermodynamic
+stability in the protofibril over an uncyclized linear construct VKSEKLDFKDRVQSKI.
+The cyclization scaffolding approach proposed here holds promise as
+a means to effectively design immunogens for protein misfolding diseases,
+particularly those involving liposome-conjugated peptide constructs.

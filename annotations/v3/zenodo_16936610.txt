@@ -1,0 +1,3 @@
+Molecular dynamics data for 'Structure and function of otoferlin, a synaptic protein of sensory hair cells essential for hearing'
+
+The data in this archive serves as a supplement to the MD simulations part of the publication 'Structure and function of otoferlin, a synaptic protein of sensory hair cells essential for hearing'.The archive contains structures, protocols, forcefield files and trajectories necessary to replicate the analysis shown in the publication.

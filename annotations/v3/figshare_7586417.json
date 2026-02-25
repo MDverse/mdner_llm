@@ -1,0 +1,110 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular modelling of HPV E6 protein reveal new potential inhibitors against high-risk Human Papillomavirus: Supporting Information\n\nAbstract: High-risk strains of human papillomavirus (HPV) have been identified as the etiologic agent of some anogenital tract, head, and neck cancers. Although prophylactic HPV vaccines have been approved; it is still necessary a drug-based treatment against the infection and its oncogenic effects. The E6 oncoprotein is one of the most studied therapeutic targets of HPV, it has been identified as a key factor in cell immortalization and tumor progression in HPV-positive cells. E6 can promote the degradation of p53, a tumor suppressor protein, through the interaction with the cellular ubiquitin ligase E6AP. Therefore, preventing the formation of the E6-E6AP complex is one of the main strategies to inhibit the viability and proliferation of infected cells. Herein, we propose an in silico pipeline to identify small-molecule inhibitors of the E6-E6AP interaction. Virtual screening was carried out by predicting the ADME properties of the molecules and performing ensemble-based docking simulations to E6 protein followed by binding free energy estimation through MM/PB(GB)SA methods. Finally, the top-three compounds were selected, and their stability in the E6 docked complex and their effect in the inhibition of the E6-E6AP interaction was corroborated by molecular dynamics simulation. Therefore, this pipeline and the identified molecules represent a new starting point in the development of anti-HPV drugs.This fileset contains raw data from molecular dynamics simulations of HPV-16 E6 protein, including initial files and backbone trajectories. Also includes the initial compound library, ADME properties predictions, molecular docking results and hit compounds in mol2 format.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 27,
+            "end": 29
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 439,
+            "end": 441
+        },
+        {
+            "label": "MOL",
+            "text": "oncoprotein",
+            "start": 442,
+            "end": 453
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 617,
+            "end": 619
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 651,
+            "end": 654
+        },
+        {
+            "label": "MOL",
+            "text": "ubiquitin ligase",
+            "start": 726,
+            "end": 742
+        },
+        {
+            "label": "MOL",
+            "text": "E6AP",
+            "start": 743,
+            "end": 747
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 792,
+            "end": 794
+        },
+        {
+            "label": "MOL",
+            "text": "E6AP",
+            "start": 795,
+            "end": 799
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 986,
+            "end": 988
+        },
+        {
+            "label": "MOL",
+            "text": "E6AP",
+            "start": 989,
+            "end": 993
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 1145,
+            "end": 1147
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 1303,
+            "end": 1305
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 1363,
+            "end": 1365
+        },
+        {
+            "label": "MOL",
+            "text": "E6AP",
+            "start": 1366,
+            "end": 1370
+        },
+        {
+            "label": "MOL",
+            "text": "E6",
+            "start": 1633,
+            "end": 1635
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+Amphetamine-like iron chelators trajectory files
+
+Computional Data for  El Safadi, M., Wilson, K.A., Strudwicke, I., O'Mara, M., Bhadbhade, M., Rawling, T., and McDonagh A.M. (2024) Amphetamine-like Deferiprone and Clioquinol Derivatives as Iron Chelating Agents. Molecules, 29, 4213. (doi.org/10.3390/molecules29174213)

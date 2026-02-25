@@ -1,0 +1,6 @@
+Dataset for "An inter-subunit path is required for entropically-driven and negatively cooperative binding of cyclic nucleotides in the HCN2 channel"
+
+
+step5_production.inp is an example of input file used for the simulations
+the files *_initial.pdb are the PDB files with the starting configurations of each system; 1Q3E and 1Q5O are the corresponding PDB ID
+the files *_final.pdb are the PDB files with the ending configurations (at the end of each production phase)

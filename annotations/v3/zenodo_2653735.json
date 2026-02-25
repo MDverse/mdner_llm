@@ -1,0 +1,122 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic simulations of DAPC/cholesterol bilayers with one cholesterol restrained to the membrane core\n\nMembranes consisting of 260 DAPC and 28 (10 mol%) cholesterol molecules were simulated at various temperatures of 285, 298, 310, 320, and 333 K. Notably, one cholesterol molecule was restrained to the membrane core. The CHARMM36 force field [1] was used and the membranes were generated using CHARMM-GUI [2].\nFor simulations without a restrained cholesterol, see the other upload at DOI:\nThe simulations were run for 2 microseconds using the GROMACS simulation suite [3]. Simulation parameters are found in the common mdp file (note that the temperature varies between simulations).\nThe upload contains simulation inputs and outputs that allows the replication, extension, or analysis of the simulation data:\n\nTopology files (top) and molecular definitions (itp)\nIndex files (ndx)\nA common run parameter file (mdp)\nA run input file (tpr)\nTrajectory file (xtc) written every 100 ps\nEnergy file (edr)\nLog file (log)\nFinal structure file (gro)\nContinue point file (cpt)\n\nThe files are named LLLL_AA_CHOLXX_CORE_TTT.FFF, where\n\nLLLL is the type of phospholipid\nAA stands for all atom (Coarse-grained data in a separate upload)\nCHOLXX stands for the cholesterol concentration (CHOL10 for 10 mol%)\nTTT is the temperature\nFFF is the tile type (see above)\n\nNote that topologies/index files are the same regardless of temperature, and hence their file names do not have the TTT section.\n[1] DOI: 10.1021/jp101759q\n[2] DOI: 10.1021/acs.jctc.5b00935\n[3] DOI: 10.1016/j.softx.2015.06.001",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "DAPC",
+            "start": 25,
+            "end": 29
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 30,
+            "end": 41
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 60,
+            "end": 71
+        },
+        {
+            "label": "MOL",
+            "text": "DAPC",
+            "start": 133,
+            "end": 137
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 155,
+            "end": 166
+        },
+        {
+            "label": "TEMP",
+            "text": "285",
+            "start": 219,
+            "end": 222
+        },
+        {
+            "label": "TEMP",
+            "text": "298",
+            "start": 224,
+            "end": 227
+        },
+        {
+            "label": "TEMP",
+            "text": "310",
+            "start": 229,
+            "end": 232
+        },
+        {
+            "label": "TEMP",
+            "text": "320",
+            "start": 234,
+            "end": 237
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 263,
+            "end": 274
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 325,
+            "end": 333
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 398,
+            "end": 408
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 451,
+            "end": 462
+        },
+        {
+            "label": "STIME",
+            "text": "2 microseconds",
+            "start": 522,
+            "end": 536
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 547,
+            "end": 554
+        },
+        {
+            "label": "MOL",
+            "text": "phospholipid",
+            "start": 1149,
+            "end": 1161
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 1250,
+            "end": 1261
+        },
+        {
+            "label": "TEMP",
+            "text": "333 K",
+            "start": 243,
+            "end": 248
+        }
+    ]
+}

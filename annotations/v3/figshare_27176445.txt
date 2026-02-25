@@ -1,0 +1,3 @@
+GaMD simulation for apo GC-A
+
+Topology file: step5_input.parm7 (AMBER format)Initial coordinate file: step5_input.rst7 (AMBER format)GaMD equilibration input file: md.inGaMD production input file: gamd-restart.inFinal snapshot of GaMD simulations (500ns):run1-gamd-500ns.pdb (simulation 1);run2-gamd-500ns.pdb (simulation 2);run3-gamd-500ns.pdb (simulation 3)

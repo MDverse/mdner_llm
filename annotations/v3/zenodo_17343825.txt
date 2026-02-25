@@ -1,0 +1,3 @@
+The molecular basis of sodium-dependent fluoride export by the eukaryotic fluoride channel FEX
+
+The tar file contains simulation input files (pdb. inpcrd, prmtop) of all three systems. and all input files to run the simulations. 

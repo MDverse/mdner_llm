@@ -1,0 +1,3 @@
+Dopamine D2 Receptor isoforms heteroreceptor complexes with the Growth Hormone Secretagogue Receptor 1a reveals isoform-specific interaction interface dynamics
+
+This repository contains the input files and scripts used in this study. It includes the modelled receptors (hD2SR, hD2LR, and hGHSR1a) in all-atom and coarse-grained resolution as monomers, the heteromeric structures obtained in HADDOCK, and the self-assembly arrangements used for the coarse-grained molecular dynamic (CG-MD) simulations. Also, folders with the topology for each receptor and the already prepared systems, and all the CG-MD simulations parameter files are included as well. 

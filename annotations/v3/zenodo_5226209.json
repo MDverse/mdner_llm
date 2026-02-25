@@ -1,0 +1,116 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Dataset - Dynamics of GLP-1R peptide agonist engagement are correlated with kinetics of G protein activation\n\nMolecular dynamics simulations of the glucagon-like peptide receptor (GLP-1R) in complex with Gs protein and four different agonist peptides: GLP-1, exendin-4, oxyntomodulin, and exendin-P5. \nFor each system, the .xtc file is the result of the merging of 4 replicas of 500 ns for a total of 2 microseconds (8 microseconds considering all four GLP-1R complexes). The original MD trajectories have been stripped of water, ions and phosphatidylcholine atoms before the upload. The CHARMM36 force field was used.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "GLP-1R",
+            "start": 41,
+            "end": 47
+        },
+        {
+            "label": "MOL",
+            "text": "G protein",
+            "start": 107,
+            "end": 116
+        },
+        {
+            "label": "MOL",
+            "text": "glucagon-like peptide receptor",
+            "start": 167,
+            "end": 197
+        },
+        {
+            "label": "MOL",
+            "text": "GLP-1R",
+            "start": 199,
+            "end": 205
+        },
+        {
+            "label": "MOL",
+            "text": "Gs protein",
+            "start": 223,
+            "end": 233
+        },
+        {
+            "label": "MOL",
+            "text": "GLP-1",
+            "start": 271,
+            "end": 276
+        },
+        {
+            "label": "MOL",
+            "text": "exendin-4",
+            "start": 278,
+            "end": 287
+        },
+        {
+            "label": "MOL",
+            "text": "oxyntomodulin",
+            "start": 289,
+            "end": 302
+        },
+        {
+            "label": "MOL",
+            "text": "exendin-P5",
+            "start": 308,
+            "end": 318
+        },
+        {
+            "label": "STIME",
+            "text": "500 ns",
+            "start": 398,
+            "end": 404
+        },
+        {
+            "label": "STIME",
+            "text": "2 microseconds",
+            "start": 420,
+            "end": 434
+        },
+        {
+            "label": "STIME",
+            "text": "8 microseconds",
+            "start": 436,
+            "end": 450
+        },
+        {
+            "label": "MOL",
+            "text": "GLP-1R",
+            "start": 472,
+            "end": 478
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 542,
+            "end": 547
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 155,
+            "end": 159
+        },
+        {
+            "label": "MOL",
+            "text": "phosphatidylcholine",
+            "start": 558,
+            "end": 577
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 607,
+            "end": 615
+        }
+    ]
+}

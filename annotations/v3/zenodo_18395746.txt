@@ -1,0 +1,14 @@
+Source Data: Mitigating Stainless Steel Dissolution in LiFSI-based Electrolytes: Insights into Dissolution Mechanisms and Enhancing Cycle Life in Lithium-ion Batteries
+
+These are the 2nd version source data for the paper: Mitigating Stainless Steel Dissolution in LiFSI-based Electrolytes: Insights into Dissolution Mechanisms and Enhancing Cycle Life in Lithium-ion Batteries
+Source Data Figure 1,3 and 7 are updated compared to version 1.Source data for the figures displayed in the main text are provided. In addition, the most relevant files to reproduce the DFT calculation are also provided
+
+Here needs to be noticed for the DFT calculation:
+
+The initial CONTCAR structure (first folder) was based on the experimental structure optimized by DFT. This file is converted by the Python script, which can be called via
+
+python vasp2groions.py CONTCAR LiFSI.pdb 2.0
+
+where the last value specifies the distance by which the ion pair is placed above the Fe2O3 surface.
+
+Subsequently, the thus obtained .gro files can be used in GROMACS (see example of cooling simulation in second folder).

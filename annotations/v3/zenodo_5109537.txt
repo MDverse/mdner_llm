@@ -1,0 +1,7 @@
+Dataset - Exploring Ligand Binding to Calcitonin Gene-Related Peptide Receptors
+
+Spervised molecular dynamics simulations (SuMD) of:
+-  CGRP binding to CGRPR TMD
+-  telcagepant binding to CGRPR ECD
+-  telcagepant unbinding from CGRPR ECD
+(Water molecules, POPC and ions removed)

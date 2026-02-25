@@ -1,0 +1,68 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Level Understanding of the Free Energy Landscape in Early Stages of Metal–Organic Framework Nucleation\n\nThe\nassembly mechanism of  Metal-Organic Frameworks (MOFs) is\ncontrolled by the choice of solvent and the presence of spectator\nions. In this paper, we apply  enhanced sampling molecular\ndynamics methods to investigate the role of solvent and ions in\nthe early stages of the synthesis of MIL-101­(Cr). Microsecond-long\nwell-tempered metadynamics  simulations uncover a  rich  structural\nfree energy landscape, with secondary building units (SBUs) adopting distinct\ncrystal and noncrystal like configurations. In the presence\nof ions (Na+, F–), we observe a complex\neffect on the crystallinity of SBUs. By  modulating the\ninteractions between terephthalate linkers and Cr atoms, ions affect\nthe  abundance of crystal-like SBUs, consequently controlling\nthe percentage of defects. Solvent effects are assessed by comparing\nwater with  N,N-dimethylformamide,\nin which SBU adducts are appreciably more stable and compact. These\nresults shed light on how solvent and ionic strength impact the free\nenergy of the assembly phenomena that ultimately control\nmaterial synthesis.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "MIL-101",
+            "start": 402,
+            "end": 409
+        },
+        {
+            "label": "MOL",
+            "text": "Cr",
+            "start": 411,
+            "end": 413
+        },
+        {
+            "label": "STIME",
+            "text": "Microsecond",
+            "start": 416,
+            "end": 427
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 648,
+            "end": 651
+        },
+        {
+            "label": "MOL",
+            "text": "F",
+            "start": 37,
+            "end": 38
+        },
+        {
+            "label": "MOL",
+            "text": "terephthalate",
+            "start": 756,
+            "end": 769
+        },
+        {
+            "label": "MOL",
+            "text": "Cr",
+            "start": 782,
+            "end": 784
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 935,
+            "end": 940
+        },
+        {
+            "label": "MOL",
+            "text": "N,N-dimethylformamide",
+            "start": 947,
+            "end": 968
+        }
+    ]
+}

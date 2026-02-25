@@ -1,0 +1,5 @@
+Simulations of DPPC/DOPC/CHOL 2/1/1 mixture using the model by Carpenter et al., Part 3
+
+Simulations of 2/1/1 mixture of DPPC/DOPC/CHOL with the refined Martini model by Carpenter et al. 
+Simulations are performed using a time step of 35 fs for 15 µs. The files are named 211_XX.YYY, where XX is either "sep" for simulations in which all lipid types are coupled separately to the thermostat, or "lincs", where different values for lincs_order (8 instead of standard 4) and lincs_iter (2 intead of standard 1) are used. YYY are GROMACS-compatible file formats: xtc for trajectory, edr for energy outputs, cpt for checkpoint file, tpr for run input file, and gro for final structure at the end of simulation. Additionally, files with _trr are included, which are 100 ns-long extensions to the aforementioned files. For them, a trr trajectory with velocities and coordinates is provided.
+The topology (topol.top) and index file (index.ndx) are common for all simulations, and the TOP.tar contains all the force field parameters (itp). The run input parameters (mdp) are provided for each system.

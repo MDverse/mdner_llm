@@ -1,0 +1,24 @@
+Mechanism Analysis and Property Prediction of Extended Surfactants Based on the Respectively Optimized Force Field
+
+Extended surfactants represent a novel class of anionic–nonionic
+surfactants with exceptional performance and unique application value
+in chemically enhanced oil recovery. Although molecular dynamics (MD)
+simulations can efficiently screen these surfactants, the current
+research is limited. Here, it is proven for the first time that existing
+generic force fields (GAFF and CHARMM) cannot accurately describe
+extended surfactants, and traditional approaches are insufficient
+for obtaining precise charge parameters. The concept of the respectively
+optimized force field (ROFF) with the purports of specialization and
+accuracy is proposed to construct high-accuracy models for MD simulations,
+and a new approach is developed to simulate the interface model. By
+combining the newly specialized alkane model, ROFF-based surfactant
+models, and the innovative simulation protocol, high accuracy and
+reliability can be obtained in predicting hydration free energies,
+minimum of area per molecule, and critical micelle concentration of
+extended surfactants. Key properties of the newly designed extended
+surfactants in conventional oil–water interfaces and oil reservoir
+environments are comprehensively predicted by using advanced analytical
+and characterization methods. Furthermore, the more rigorous mechanism
+underlying the special amphiphilicity of the extended surfactant is
+revealed, potentially offering significant improvements over previous
+empirical perspectives.

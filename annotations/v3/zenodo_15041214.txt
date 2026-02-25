@@ -1,0 +1,6 @@
+Supplemental Data for Kinetics and mechanism of phase separation in ternary lipid mixtures containing APP C99: atomistic vs coarse-grained MD simulations
+
+This archive contains supplemental data for the article "Kinetics and mechanism of phase separation in ternary lipid mixtures containing APP C99: atomistic vs coarse-grained MD simulations" published in the Journal of Chemical Theory and Computation in 2025.
+This archive contains scripts for performing analyses of the molecular dynamics trajectories presented in the manuscript.
+We have archived a simulation of a 37% DPPC, 37% DUPC, and 26% cholesterol lipid bilayer with two transmembrane congeners of the APP protein C99 domain simulated using the Anton2 supercomputer using the Desmond simulation package and continued using the GROMACS simulation package on a GPU-accelerated node. This ~500,000-atom, ~24 microsecond-long trajectory, which captures lipid phase separation at all-atom resolution in the CHARMM36 force field, is provided at 2400-ps resolution in a compressed XTC format.
+Also included are all files containing initial configuration, system construction scripts, runtime scripts, and simulation parameters used for coarse-grained simulations of the same lipid mixture using various verison of the MARTINI force field.

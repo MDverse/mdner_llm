@@ -1,0 +1,5 @@
+1-microsecond trajectories for UDG around nucleosome including Uracil at various positions
+
+Results of 1-microsec MD simulations with GROMACS-2023, of UDG around various positions of the nucleosome, where a T (T-trajectories) or U (U-trajectories) has been flipped out in extrahelical position.
+For each of the 7+7 positions, the input .tpr file and the corresponding .xtc trajectory file in condensed GROMACS format is included (14 trajectories total + 14 .tpr files). Trajectories are stored at steps of 1 ns, therefore each .xtc file contains 1000 consecutive frames.
+Water molecules are removed, hence each .xtc file contains all the atoms (H included) for the UDG, nucleosome (DNA+histones) and ions in the whole box. Each file therefore includes about 26,000 atoms.

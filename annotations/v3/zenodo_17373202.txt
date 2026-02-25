@@ -1,0 +1,8 @@
+MD simulations of poly(D-lactic acid) chains of various molecular weights in melt with tabulated dihedral potential
+
+Molecular Dynamics (MD) Simulations of poly(D-lactic acid) (PDLA) with different molecular weights in melt. The preparation of the systems is described elsewhere [1].
+The dataset contains the production run for each system. The label PDLA denotes a system with only D-type of monomers. The production runs were performed at constant temperature of 500K and constant pressure of 1 atm. 
+All files are in Gromacs format. The used force field parameters are summarized in PLAFF3.itp file in each directory.  The force field was taken from ref[2]. The data set was analyzed and the results were used for the comparison with the results produced with a force field without the tabulated dihedral potential. The results were published in the Supplementary Information of ref.[1]. The dataset with the modified force field is publicly accesible [3].
+[1] Bačová, P; Harmandaris, V.; Molina,  S. I.; Macromolecules 2025 58 (16), 8572-8580, https://pubs.acs.org/doi/10.1021/acs.macromol.5c00918
+[2] McAliley, J. H.; Bruce, D. A. Development of Force Field Parameters for Molecular Simulation of Polylactide. Journal of Chemical Theory and Computation 2011, 7, 3756–3767, DOI: 10.1021/ct200251x
+[3] Bacova, P., Harmandaris, V., & Molina, S. I. (2025). MD simulations of poly(lactic acid) chains of various molecular weights in melt [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17186105

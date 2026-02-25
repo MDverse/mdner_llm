@@ -1,0 +1,9 @@
+Raw data for: Simulation of neurotrophin receptor transmembrane helix interactions reveals active states and distinct signaling mechanisms
+
+This repository contains raw data and code related to "Simulation of neurotrophin receptor transmembrane helix interactions reveals active states and distinct signaling mechanisms" by Athanasiou et al.
+Included are molecular dynamics parameter files, initial structures and structures shown in the figures of the manuscript.
+ 
+Contact information:
+Name: Rebecca C. WadeInstitution: Molecular and Cellular Modeling Group, Heidelberg Institute for Theoretical Studies (HITS); Heidelberg, GermanyEmail: Rebecca.wade@h-its.org
+ 
+This research was funded by the European Union’s Horizon 2020 research and innovation programme “Euroneurotrophin” under the Marie Skłodowska-Curie grant agreement No 765704 and the Klaus Tschira Foundation.  

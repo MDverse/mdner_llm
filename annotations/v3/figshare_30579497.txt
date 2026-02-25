@@ -1,0 +1,25 @@
+Random Heteropolymers Enable Nonspecific Protein Binding and Loop-Mediated Stabilization
+
+Membrane proteins play essential roles in cellular signaling,
+transport,
+and catalysis, but their structural instability outside of lipid bilayers
+presents a major challenge for biophysical studies and therapeutic
+applications. Here, we demonstrate that methacrylate-based random
+heteropolymers (MMA-based RHPs) can stabilize the β-barrel membrane
+protein, OmpLA in aqueous environments, without the need for lipids
+or detergents. Using large-scale atomistic molecular dynamics simulations,
+we investigate how RHP composition, binding orientation, and contact
+geometry affect protein stability. We find that RHPs preferentially
+bind to the lateral β-sheet surfaces of the OmpLA while avoiding
+direct binding to the top and bottom loop regions. Despite this, RHPs
+enable contacts to the loops to loop via lateral binding due to their
+comparable size and spatial reach. Among various factors, loop-mediated
+stabilization emerges as the dominant mechanism: increased RHP contact
+with flexible loop regions reduces local fluctuations and correlates
+with enhanced global structural integrity. This effect is prominent
+for MMA-based RHPs, which present a chemically heterogeneous, patchy
+binding interface, unlike core–shell architectures formed by
+other backbones. Our findings reveal a nonspecific yet effective way
+of protein stabilization driven by loop-targeting interactions, offering
+design principles for polymer-based chaperonin mimetics to stabilize
+membrane proteins in abiotic environments.

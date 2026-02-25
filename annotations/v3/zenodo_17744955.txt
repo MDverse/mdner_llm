@@ -1,0 +1,4 @@
+Molecular dynamics simulation of PTE variants containing starting structure, topology and trajectory files
+
+Molecular dynamics (MD) simulation trajectories for R0, R6, R8, R22, revR6 and revR12 variants of PTE and AE variants. It contains the starting structure of the simulation and MD trajectory for the simulation with truncated water atoms and including the topology files.
+PDB IDs: 4PCP (R0), 4XAG (R6), 4XAY (R8), 4PCN(R22), 4PBE (revR6), 4PBF (revR12)

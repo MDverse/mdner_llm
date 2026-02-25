@@ -1,0 +1,5 @@
+Discovering cryptic pocket opening and binding of a stimulant derivative in a vestibular site of the 5-HT3A receptor
+
+Raw MD simulation data of 4-Bromoamphetamine-5HT3A complex in two different forceeild, AMBER and CHARMM.
+Original paper title: "Discovering cryptic pocket opening and binding of a stimulant derivative in a vestibular site of the 5-HT3A receptor"
+Author list: Nandan Haloi, Emelia Karlsson, Marc Delarue, Rebecca J. Howard, Erik Lindahl

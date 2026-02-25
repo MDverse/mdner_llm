@@ -1,0 +1,4 @@
+Trajectories of Microsecond Molecular Dynamics Simulations of the Orexin Receptor 2 System with Compound 1
+
+This data set contains psf files and trajectories (.dcd files) of the performed simulations for the orexin receptor 2 system:
+1) the orexin type 2 receptor (OX2R) in complex with compound 1, three replicas, 2 microseconds.

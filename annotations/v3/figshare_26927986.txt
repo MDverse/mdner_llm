@@ -1,0 +1,3 @@
+big8p800k.edr
+
+Energy log of a simulation equilibrated at 8 GPa and 800K

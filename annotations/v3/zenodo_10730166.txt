@@ -1,0 +1,3 @@
+POPC 120 POPS 24 Na counterions 100mM CaCl CHARMM NBFIX HAN 298K
+
+prosECCo 75 paper related data

@@ -1,0 +1,9 @@
+Molecular dynamics simulations of coronavirus 2019-nCoV protease model in complex with G75 and G82 ligands (covalently bound)
+
+Molecular dynamics simulations (500 ps MD at 310 K) of comparative 
+model of novel coronavirus 2019-nCoV protease Mpro in complex with the 
+covalently bound ligands G75 and G82. The starting position of the ligands has been 
+respectively taken from 3SZN and 3TIU PDB structures.The
+ archives contain also an heatmap representing the protein-ligand 
+contact frequencies. Green-boxed occurrences in the heatmap represent 
+hydrogen bond formation during the simulation.

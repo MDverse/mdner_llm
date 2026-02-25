@@ -1,0 +1,5 @@
+An integrated approach including docking, MD simulations, and network analysis highlights the action mechanism of the cardiac hERG activator RPR260243
+
+500 ns MD trajectories of the hERG bound states (protein and ligand) used for the analyses discussed in the paper. There are three replica for each system. The trajectories can be visualized using molecular visualization programs such as Pymol or VMD uploading the PDB and the DCD file.
+The PDB and the topology files of the hERG bound state (protein, membrane, ions and ligand) are also included.
+An example of input file used for the production step of the dynamics has been provided (production_1.conf). 

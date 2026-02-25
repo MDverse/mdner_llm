@@ -1,0 +1,3 @@
+Scrutinizing the protein hydration shell from molecular dynamics simulations against consensus small-angle scattering data (Simulation input files)
+
+Simulation input files for gromacs to reproduce the data from the manuscript "Scrutinizing the protein hydration shell from molecular dynamics simulations against consensus small-angle scattering data" (submitted to Comm. Chem.)

@@ -1,0 +1,3 @@
+Supporting data (2/2) for "In silico identification of 2,4-diaminopyrimidine based compounds as potential CK1ε inhibitors"
+
+This dataset contains the supporting information for the article "In silico identification of 2,4-diaminopyrimidine based compounds as potential CK1ε inhibitors". In this upload you can find the representative complexes of CK1ε with the reference compounds (pdb). Additionally, we provide the full 200 ns MD trajectories (xtc) and the simulation input files (tpr).

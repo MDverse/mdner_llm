@@ -1,0 +1,3 @@
+Structural basis for substrate recognition by the pain-associated neuronal polyamine transporter SLC45A4
+
+This repository contains molecular dynamics simulation data investigating the structural dynamics of SLC45A4, a neuronal polyamine transporter linked to chronic pain regulation. The dataset includes .xtc trajectories, .gro structure files, and .tpr input files derived from 1 μs all-atom simulations of five distinct systems: the apo protein in detergent and nanodisc environments, and the transporter bound to the substrates putrescine, spermidine, and spermine within a mixed lipid bilayer. These files were utilized for the analysis and conclusions presented in the associated manuscript.

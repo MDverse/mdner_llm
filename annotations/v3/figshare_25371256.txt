@@ -1,0 +1,29 @@
+Probe Substrate Dependencies in CYP3A4 Allosteric Inhibition: A Novel Molecular Mechanism Involving F–F′ Loop Perturbations
+
+The biochemical basis for substrate dependences in apparent
+inhibition
+constant values (Ki) remains unknown.
+Our study aims to elucidate plausible structural determinants underpinning
+these observations. In vitro steady-state inhibition assays conducted
+using human recombinant CYP3A4 enzyme and testosterone substrate revealed
+that fibroblast growth factor receptor (FGFR) inhibitors erdafitinib
+and pemigatinib noncompetitively inhibited CYP3A4 with apparent Ki values of 10.2 ± 1.1 and 3.3 ± 0.9
+μM, respectively. However, when rivaroxaban was adopted as the
+probe substrate, there were 2.0- and 3.2-fold decreases in its apparent Ki values. To glean mechanistic insights into
+this phenomenon, erdafitinib and pemigatinib were docked to allosteric
+sites in CYP3A4. Subsequently, molecular dynamics (MD) simulations
+of apo- and holo-CYP3A4 were conducted to investigate the structural
+changes induced. Comparative structural analyses of representative
+MD frames extracted by hierarchical clustering revealed that the allosteric
+inhibition of CYP3A4 by erdafitinib and pemigatinib did not substantially
+modulate its active site characteristics. In contrast, we discovered
+that allosteric binding of the FGFR inhibitors reduces the structural
+flexibility of the F–F′ loop region, an important gating
+mechanism to regulate access of the substrate to the catalytic heme.
+We surmised that the increased rigidity of the F-F′ loop engenders
+a more constrained entrance to the CYP3A4 active site, which in turn
+impedes access to the larger rivaroxaban molecule to a greater extent
+than testosterone and culminates in more potent inhibition of its
+CYP3A4-mediated metabolism. Our findings suggest a potential mechanism
+to rationalize probe substrate dependencies in Ki arising from the allosteric noncompetitive inhibition of
+CYP3A4.

@@ -1,0 +1,3 @@
+Transport and inhibition of the sphingosine-1-phosphate exporter SPNS2
+
+This study by Huanyu et al., involves experiments and atomistic molecular dynamics simulations of the sphingosine-1 phosphate exporter SPNS2. The simulations of SPNS2 are conducted in 3 different conditions i.e. SPNS2 bound to a different substrate (S1P, FTY720-P, 33p) in each condition. This zip file contains the input files, parameters, and the initial and final structural states of all 5 production simulations performed for each condition.

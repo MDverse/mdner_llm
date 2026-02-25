@@ -1,0 +1,4 @@
+MD simulations: Conditions for the stable adsorption of lipid monolayers to solid surfaces
+
+Essential files for Gromacs used in the study "Conditions for the stable adsorption of lipid monolayers to solid surfaces."
+Systems: DLPC bilayer, SAM+DLPC pulling, SAM with water droplets

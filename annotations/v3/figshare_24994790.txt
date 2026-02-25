@@ -1,0 +1,3 @@
+Results of the simulation - protein without ligand
+
+.gro file is the Gromacs structure file after the simulation and .xtc file is the trajectory file

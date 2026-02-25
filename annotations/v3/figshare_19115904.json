@@ -1,0 +1,98 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Mechanistic Characterization of Zeolite-Catalyzed Aromatic Electrophilic Substitution at Realistic Operating Conditions\n\nZeolite-catalyzed\nbenzene ethylation is an important industrial\nreaction, as it is the first step in the production of styrene for\npolymer manufacturing. Furthermore, it is a prototypical example of\naromatic electrophilic substitution, a key reaction in the synthesis\nof many bulk and fine chemicals. Despite extensive research, the reaction\nmechanism and the nature of elusive intermediates at realistic operating\nconditions is not properly understood. More in detail, the existence\nof the elusive arenium ion (better known as Wheland complex) formed\nupon electrophilic attack on the aromatic ring is still a matter of\ndebate. Temperature effects and the presence of protic guest molecules\nsuch as water are expected to impact the reaction mechanism and lifetime\nof the reaction intermediates. Herein, we used enhanced sampling ab\ninitio molecular dynamics simulations to investigate the complete\nmechanism of benzene ethylation with ethene and ethanol in the H-ZSM-5\nzeolite. We show that both the stepwise and concerted mechanisms are\nactive at reaction conditions and that the Wheland intermediate spontaneously\nappears as a shallow minimum in the free energy surface after the\nelectrophilic attack on the benzene ring. Addition of water enhances\nthe protonation kinetics by about 1 order of magnitude at coverages\nof one water molecule per Brønsted acidic site. In the fully\nsolvated regime, an overstabilization of the BAS as hydronium ion\noccurs and the rate enhancement disappears. The obtained results give\ncritical atomistic insights in the role of water to selectively tune\nthe kinetics of protonation reactions in zeolites.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Zeolite",
+            "start": 32,
+            "end": 39
+        },
+        {
+            "label": "MOL",
+            "text": "Zeolite",
+            "start": 121,
+            "end": 128
+        },
+        {
+            "label": "MOL",
+            "text": "benzene",
+            "start": 139,
+            "end": 146
+        },
+        {
+            "label": "MOL",
+            "text": "styrene",
+            "start": 240,
+            "end": 247
+        },
+        {
+            "label": "MOL",
+            "text": "elusive arenium",
+            "start": 612,
+            "end": 627
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 820,
+            "end": 825
+        },
+        {
+            "label": "MOL",
+            "text": "benzene",
+            "start": 1032,
+            "end": 1039
+        },
+        {
+            "label": "MOL",
+            "text": "ethene",
+            "start": 1056,
+            "end": 1062
+        },
+        {
+            "label": "MOL",
+            "text": "ethanol",
+            "start": 1067,
+            "end": 1074
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1357,
+            "end": 1362
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1447,
+            "end": 1452
+        },
+        {
+            "label": "MOL",
+            "text": "hydronium",
+            "start": 1553,
+            "end": 1562
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1680,
+            "end": 1685
+        },
+        {
+            "label": "MOL",
+            "text": "zeolites",
+            "start": 1747,
+            "end": 1755
+        }
+    ]
+}

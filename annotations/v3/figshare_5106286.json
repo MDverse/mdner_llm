@@ -1,0 +1,32 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "PrimaDORAC: A Free Web Interface for the Assignment of Partial Charges, Chemical Topology, and Bonded Parameters in Organic or Drug Molecules\n\nWe present PrimaDORAC, a simple and\nfreely accessible web interface\nfor generating the topology and the parameter files of organic or\ndrug molecules to be used in molecular mechanics or molecular dynamics\ncalculations. The interface relies on our in-house FORTRAN90 parser,\nworking on the recently released Generalized Amber Force Field parameter\nset (GAFF2). AM1/BCC charges are computed using the Public Domain\nMOPAC7 program and the bond charge corrections (BCC) reported in Jakalian,\nA.; Jack, D. B.; Bayly, C. I.; J. Comp. Chem., 2002, 23, 1623–1641. The interface\nhas been tested on about 52,000 compounds (identified with a CAS registry\nnumber) taken from the National Cancer Institute (NCI) Open Database.\nPrimaDORAC has been found to be very reliable, producing GAFF2 minimized\nstructures bearing a mean root square displacement of about 0.01–0.02\nnm with respect to the original CORINA-generated 3D NCI structures.\nAs a demonstrative example, we release the full topology and parameter\nfiles, along with the AM1/BCC-GAFF2 computed in vacuo IR spectrum, for some recently discovered PARP/MCL1 inhibitors.\nThe web interface and parser, including the sources, are part of the\nORAC code (Procacci, P.; J. Chem. Inf. Model., 2016, 56, 1117–1121), distributed\nunder the General Public License at www.chim.unifi.it/orac",
+    "entities": [
+        {
+            "label": "FFM",
+            "text": "Generalized Amber Force Field",
+            "start": 450,
+            "end": 479
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF2",
+            "start": 495,
+            "end": 500
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF2",
+            "start": 914,
+            "end": 919
+        }
+    ]
+}

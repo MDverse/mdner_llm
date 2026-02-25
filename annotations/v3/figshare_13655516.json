@@ -1,0 +1,128 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "GerAB\n\nBacillus subtilis forms dormant spores upon nutrient depletion. Germinant receptors (GRs) in spore’s inner membrane respond to ligands such as L-alanine, and trigger spore germination. In B. subtilis spores, GerA is the major GR, and has three subunits, GerAA, GerAB, and GerAC. L-Alanine activation of GerA requires all three subunits, but which binds L-alanine is unknown. To date, how GRs trigger germination is unknown, in particular due to lack of detailed structural information about B subunits. Using homology modelling with molecular dynamics (MD) simulations, we present structural predictions for the integral membrane protein GerAB. These predictions indicate that GerAB is an alpha-helical transmembrane protein containing a water channel. The MD simulations with free L-alanine show that alanine binds transiently to specific sites on GerAB. These results provide a starting point for unraveling the mechanism of L-alanine mediated signaling by GerAB, which may facilitate early events in spore germination.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "GerAB",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "label": "MOL",
+            "text": "Germinant receptors",
+            "start": 71,
+            "end": 90
+        },
+        {
+            "label": "MOL",
+            "text": "GRs",
+            "start": 92,
+            "end": 95
+        },
+        {
+            "label": "MOL",
+            "text": "L-alanine",
+            "start": 150,
+            "end": 159
+        },
+        {
+            "label": "MOL",
+            "text": "GerA",
+            "start": 215,
+            "end": 219
+        },
+        {
+            "label": "MOL",
+            "text": "GR",
+            "start": 233,
+            "end": 235
+        },
+        {
+            "label": "MOL",
+            "text": "GerAA",
+            "start": 261,
+            "end": 266
+        },
+        {
+            "label": "MOL",
+            "text": "GerAB",
+            "start": 268,
+            "end": 273
+        },
+        {
+            "label": "MOL",
+            "text": "GerAC",
+            "start": 279,
+            "end": 284
+        },
+        {
+            "label": "MOL",
+            "text": "L-Alanine",
+            "start": 286,
+            "end": 295
+        },
+        {
+            "label": "MOL",
+            "text": "GerA",
+            "start": 310,
+            "end": 314
+        },
+        {
+            "label": "MOL",
+            "text": "L-alanine",
+            "start": 360,
+            "end": 369
+        },
+        {
+            "label": "MOL",
+            "text": "GRs",
+            "start": 395,
+            "end": 398
+        },
+        {
+            "label": "MOL",
+            "text": "GerAB",
+            "start": 645,
+            "end": 650
+        },
+        {
+            "label": "MOL",
+            "text": "GerAB",
+            "start": 684,
+            "end": 689
+        },
+        {
+            "label": "MOL",
+            "text": "L-alanine",
+            "start": 789,
+            "end": 798
+        },
+        {
+            "label": "MOL",
+            "text": "GerAB",
+            "start": 856,
+            "end": 861
+        },
+        {
+            "label": "MOL",
+            "text": "L-alanine",
+            "start": 934,
+            "end": 943
+        },
+        {
+            "label": "MOL",
+            "text": "GerAB",
+            "start": 966,
+            "end": 971
+        }
+    ]
+}

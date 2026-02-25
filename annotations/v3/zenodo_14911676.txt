@@ -1,0 +1,3 @@
+Machine learning of molecular dynamics simulations provides insights into modulation of viral capsid assembly
+
+These are the inputs and scripts necessary to carry out a machine-learning-based analysis of molecular dynamics simulations of the Hepatitis B Virus Cp tetramer. MD simulations were run with NAMD. Scripts use VMD and Python.

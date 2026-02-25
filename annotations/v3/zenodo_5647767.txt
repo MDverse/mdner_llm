@@ -1,0 +1,6 @@
+Solvent sites detection from molecular dynamics in mixed solvents
+
+In this zip file, you will find 3 molecular dynamics (MDs) that were run using the AMBER molecular dynamics package (https://ambermd.org/), and the necessary scripts to obtain the solvent sites.
+The MDs correspond to the kinase and rubredoxin domains of protein kinase G from Mycobacterium tuberculosis. 
+ 
+ 

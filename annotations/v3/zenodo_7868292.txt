@@ -1,0 +1,3 @@
+Pure POPC bilayer MD simulations with CHARMM36 force field with GROMACS_v2019
+
+500 ns MD simulation of POPC bilayer with CHARMM36 force field at 300 K generated with GROMACS 2019 simulation engine. The system contains 100 POPC lipids per leaflet (200 in total) and 2000 TIP3P water molecules. No, NaCl in the system. This data set contains 500 ns data with 50000 frames (saving frequency is every 10 ps). 

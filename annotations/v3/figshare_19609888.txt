@@ -1,0 +1,25 @@
+Impact of Remdesivir Incorporation along the Primer Strand on SARS-CoV‑2 RNA-Dependent RNA Polymerase
+
+Remdesivir
+was the first antiviral drug that received emergency
+use authorization from the United States Food and Drug Administration
+and is now formally approved to treat COVID-19. Remdesivir is a nucleotide
+analogue that targets the RNA-dependent RNA polymerase (RdRp) of coronaviruses,
+including SARS-CoV-2. The solution of multiple RdRp structures has
+been one of the main axes of research in the race against the SARS-CoV-2
+virus. Several hypotheses of the mechanism of inhibition of RdRp by
+remdesivir have been proposed, although open questions remain. This
+work uses molecular dynamics simulations to explore the impact of
+remdesivir and two analogues as incoming nucleotides and of up to
+four incorporations of remdesivir along the primer strand on RdRp.
+The simulation results suggest that the overall structure and the
+dynamical behavior of RdRp are destabilized by remdesivir and the
+two analogues in the incoming position. The incorporation of remdesivir
+along the primer strand impacts specific non-bonded interactions between
+the nascent RNA and the polymerase subunit, as well as the overall
+dynamical networks on RdRp. The strongest impact on the structure
+and dynamics are observed after three incorporations, when remdesivir
+is located at position −A3, in agreement with previously reported
+experimental and computational results. Our results provide atomic-level
+details of the role played by remdesivir on the disruption of RNA
+synthesis by RdRp and the main drivers of these disruptions.

@@ -1,0 +1,9 @@
+Simulating a Chemically-Fueled Molecular Motor with Nonequilibrium Molecular Dynamics
+
+This .zip file contains the code, simulation scripts and settings, and figure generation scripts for our manuscript "Simulating a Chemically-Fueled Molecular Motor with Nonequilibrium Molecular Dynamics."  More detailed descriptions are found in the 0README.txt files within the .zip folder.
+ 
+Manuscript link:
+https://arxiv.org/abs/2102.06298
+ 
+Manuscript abstract:
+Most computer simulations of molecular dynamics take place under equilibrium conditions—in a closed, isolated system, or perhaps one held at constant temperature or pressure. Sometimes, extra tensions, shears, or temperature gradients are introduced to those simulations to probe one type of nonequilibrium response to external forces. Catalysts and molecular motors, however, function based on the nonequilibrium dynamics induced by a chemical reaction's thermodynamic driving force. In this scenario, simulations require chemostats capable of preserving the chemical concentrations of the nonequilibrium steady state. We develop such a dynamic scheme and use it to observe cycles of a new particle-based classical model of a catenane-like molecular motor. Molecular motors are frequently modeled with detailed-balance-breaking Markov models, and we explicitly construct such a picture by coarse graining the microscopic dynamics of our simulations in order to extract rates. This work identifies inter-particle interactions that tune those rates to create a functional motor, thereby yielding a computational playground to investigate the interplay between directional bias, current generation, and coupling strength in molecular information ratchets.

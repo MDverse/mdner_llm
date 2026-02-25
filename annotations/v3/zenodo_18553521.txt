@@ -1,0 +1,37 @@
+Reproducibility Archive for Integrated Model Development, Consensus ML Screening, Protein Selection, Docking, and MD to Identify GSK3β Inhibitors
+
+This Zenodo repository contains the complete reproducibility archive for the study:
+“Integrated Model Development, Consensus ML Screening, Protein Selection, Docking, and MD to Identify GSK3β Inhibitors”
+The archive includes:
+Machine Learning
+·       Raw and processed datasets
+·       Full descriptor matrices (normalized + raw)
+·       Pre-processing, feature selection, and PCA scripts
+·       Hyperparameter tuning and model development notebooks
+Virtual Screening
+·       ASINEX screening datasets (full, AD-filtered, ML-filtered)
+·       Screening workflow notebooks and scripts
+Molecular Docking
+·       Receptor files (cleaned PDB, PDBQT)
+·       Ligand structures (SDF)
+·       Grid parameter files- config file
+·       Docking logs and best poses for selected ligands
+·       Docking preparation and analysis notebooks
+·       Binding energy results from docking
+Molecular Dynamics (AMBER + GROMACS Hybrid Workflow)
+·       All AMBER input files: tleap.in, min.in, heat.in, density.in, equil.in, mmpbsa.in
+·       GROMACS production input (prod.mdp), GRO/TOP/TPR files
+·       Ligand parameterization files (mol2, frcmod)
+·       Conversion scripts (acpype, parmed)
+·       Per-ligand MD directories with input files
+·       RMSD, RMSF, SASA, Rg, PCA, HBond, DSSP analysis scripts and outputs
+·       Per-residue MMGBSA and MMPBSA energy results
+Webtool
+·       Full Streamlit webtool implementation
+·       Final trained RF and ET models (.pkl)
+·       Applicability domain statistics (means, covariance matrices, cutoffs)
+·       ML models, AD cutoffs
+·       Validation datasets and codes
+ 
+This archive is provided to ensure complete transparency and computational reproducibility for peer review.It will be made public upon acceptance of the manuscript.
+First author: Dr. Dileep KumarCorresponding author: Dr. Dileep KumarBoth Authors, Dr. Dileep Kumar and Ajwin Joseph Martin contributed equally. 

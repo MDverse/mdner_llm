@@ -1,0 +1,3 @@
+Molecular Dynamics trajectory for 4AKE protein - chain A in XTC format - full data
+
+Molecular Dynamics trajectory in GRO format. The file contains 1000 frames recorded every 10 ps.

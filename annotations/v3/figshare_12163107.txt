@@ -1,0 +1,3 @@
+GTT-1-protein-221.dcdWW domain trajectories
+
+Trajectories of ww domainTrajectories dataTrajectories of WW domain

@@ -1,0 +1,50 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "First-Principles Simulations of the Initial Phase of Self-Aggregation of a Cyanine Dye: Structure and Optical Spectra\n\nUsing first-principles simulations,\nwe investigated the initial\nsteps of the self-aggregation of the dye pseudoisocyanine (PIC) in\nwater. First, we performed molecular dynamics (MD) simulations of\nthe self-aggregation process, in which pile-of-coins oligomers ranging\nfrom dimers to stacks of about 20 molecules formed. The oligomer structures\nwere found to be very flexible, with the dimers entering a weakly\ncoupled state and then returning to a stable π–π\nstacked conformation on a nanosecond time scale. The structural information\nfrom the MD simulations was combined with quantum chemical calculations\nto generate a time-dependent Frenkel exciton Hamiltonian for monomers,\ndimers, and trimers, which included vibronic coupling. This Hamiltonian,\nin turn, was used to calculate the absorption spectra for these systems.\nThe simulated dimer spectrum compared well to experiment, validating\nthe face-to-face stacked dimer arrangement found in our MD simulations.\nComparison of the simulated trimer spectrum to experiment suggested\nthat oligomers larger than the dimer cannot be abundant at the onset\nof J-aggregation. Finally, the conformation of the PIC J-aggregate\nwas investigated by testing the stability of several possible conformations\nin our MD simulations; none of the tested structures was found to\nbe stable.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Cyanine",
+            "start": 75,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "pseudoisocyanine",
+            "start": 224,
+            "end": 240
+        },
+        {
+            "label": "MOL",
+            "text": "PIC",
+            "start": 242,
+            "end": 245
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 250,
+            "end": 255
+        },
+        {
+            "label": "STIME",
+            "text": "nanosecond",
+            "start": 604,
+            "end": 614
+        },
+        {
+            "label": "MOL",
+            "text": "PIC",
+            "start": 1272,
+            "end": 1275
+        }
+    ]
+}

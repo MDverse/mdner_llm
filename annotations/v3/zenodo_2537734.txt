@@ -1,0 +1,8 @@
+Cellulose test MD dataset for analysis with Galaxy and BRIDGE
+
+This coordinate and trajectory dataset is that of cellulase and octaose substrate in water. It has been derived from the 7CEL PDB structure of a fungal cellobiohydrolase. 
+The original enzyme has been modified to revert the mutation at position 217 and to include disulfide bonds. The octaose substrate is an oligosaccharide consisting of 8 beta 1-4 linked glucose monomers.  The enzyme and substrate have been placed in a cubic TIP3P water box containing 0.15 M ions (NaCl).
+The files includes are: 
+
+cbh1test.pdb: the coordinates of the entire system (water, protein and substrate) in PDB format. 
+cbh1test.dcd: a short MD trajectory (16 frames) in CHARMM DCD format.

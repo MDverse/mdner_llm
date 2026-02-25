@@ -1,0 +1,29 @@
+Single-Parameter Scaling Strategy for Force Field Optimization: A Case Study on Alkane Melting-Point Prediction
+
+Classical
+force fields critically determine the reliability of
+molecular simulations, yet simultaneous optimization of their high-dimensional
+parameters remains inefficient and risks disrupting cross-system compatibility.
+Using alkane melting points as the target property, this work systematically
+investigates how scaling individual parameters in multiscale force
+fields affects prediction accuracy. Three linear alkanes (octane (C8), hexadecane (C16), and tetracosane (C24)) were evaluated with two all-atom (AA) models (L-OPLS, CHARMM36),
+three united-atom (UA) models (TraPPE-UA, PYS, and OPLS-UA), and one
+coarse-grained (CG) model (Martini 3). Unmodified force field tests
+showed that L-OPLS, CHARMM36, PYS, and TraPPE-UA predicted melting
+points within 7% of experimental values, whereas OPLS-UA consistently
+overpredicted all alkane melting points, and Martini 3 exhibited significant
+overprediction for C8. Parameter scaling revealed that,
+for the UA models, bond force constant (kb) and angle force constant (ka) negligibly
+impact melting points, whereas melting points positively correlate
+with dihedral force constant (kn) and
+Lennard-Jones (LJ) parameters (ε, σ).
+Since LJ parameter scaling substantially perturbs liquid densities
+and self-diffusion coefficientsunlike dihedral adjustmentsscaling kn emerges as the optimal strategy. Melting points
+were corrected to experimental values with ± 10% kn scaling for TraPPE-UA and PYS, whereas
+OPLS-UA required ≈50% reduction of kn. For AA models, partial charge scaling effectively tuned melting
+points with minimal effects on the liquid properties. In Martini 3,
+angle force constant scaling improved predictions (except for angle-lacking
+C8). This systematic single-parameter scaling (SPS) delineates
+structure–property relationships between force field parameters
+and alkane thermophysical behavior, providing an efficient strategy
+for the rapid refinement of established force fields.

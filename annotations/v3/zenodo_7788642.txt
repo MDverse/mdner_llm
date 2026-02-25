@@ -1,0 +1,3 @@
+Empty micelle - 60 SDS - Na neutralized - CHARMM36m - 293K - OPC water model - replica 0
+
+Empty micelle simulation to investigate the effect of water model and peptide on SRD.

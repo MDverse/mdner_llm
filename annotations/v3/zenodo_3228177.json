@@ -1,0 +1,122 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Simulation POPC_512_NaCl_150mM_310K membrane\n\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation POPC membrane using charmm36 at 310K.\nMD engine: 2016.1\n\n \nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 4200 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC      512\nwater     20480\nCl-          55\nNa+        55\nOther information:\n  * Center of mass motion removed independently for bilayer and water+ions\n  * 01-* are the merged files.\n  * 02-* are the original simulation files. So do not concatenate 02 and 01 files.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 11,
+            "end": 15
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 20,
+            "end": 24
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 31,
+            "end": 35
+        },
+        {
+            "label": "MOL",
+            "text": "Ceramide",
+            "start": 67,
+            "end": 75
+        },
+        {
+            "label": "MOL",
+            "text": "Late Endosomal Protein",
+            "start": 101,
+            "end": 123
+        },
+        {
+            "label": "MOL",
+            "text": "LAPTM4B",
+            "start": 124,
+            "end": 131
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 267,
+            "end": 271
+        },
+        {
+            "label": "FFM",
+            "text": "charmm36",
+            "start": 287,
+            "end": 295
+        },
+        {
+            "label": "TEMP",
+            "text": "310K.",
+            "start": 299,
+            "end": 304
+        },
+        {
+            "label": "FFM",
+            "text": "charmm36",
+            "start": 339,
+            "end": 347
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 361,
+            "end": 366
+        },
+        {
+            "label": "STIME",
+            "text": "4200 ns",
+            "start": 400,
+            "end": 407
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 452,
+            "end": 456
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 466,
+            "end": 471
+        },
+        {
+            "label": "MOL",
+            "text": "Cl-",
+            "start": 482,
+            "end": 485
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 498,
+            "end": 501
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 595,
+            "end": 600
+        },
+        {
+            "label": "MOL",
+            "text": "ions",
+            "start": 601,
+            "end": 605
+        }
+    ]
+}

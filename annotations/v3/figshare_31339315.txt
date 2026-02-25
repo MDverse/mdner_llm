@@ -1,0 +1,3 @@
+Molecular docking and MD data
+
+This dataset contains molecular docking and molecular dynamics (MD) simulation outputs supporting the study of potential interactions between 2,3,7,8-tetrachlorodibenzo-p-dioxin (TCDD) and psoriasis-relevant targets prioritized by integrative systems toxicology.Contact: Xuan Zhang (zhangxuan431@gmail.com).

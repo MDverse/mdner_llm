@@ -1,0 +1,3 @@
+Simulations of different single-component bilayers, three different system sizes
+
+For the calculation of shear viscosities based on Vögele et al., Phys. Rev. Lett. 120, 268104 (2018). All simulations at 333 K.

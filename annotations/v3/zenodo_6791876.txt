@@ -1,0 +1,4 @@
+Basket-type G-Quadruplex with Two Tetrads in the Presence of TMAO and Urea: A Molecular Dynamics Study
+
+Molecular Dynamics simulation trajectories of basket-type DNA G-quadruplex (PDB: 2KF7). The structures have been simulated in the temperatures 300 K and 360 K in pure water, 1 M TMAO solution, 2 M urea solution and the mixture of 1 M TMAO and 2 M urea.
+ 

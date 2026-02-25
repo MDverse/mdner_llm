@@ -1,0 +1,5 @@
+Mycobacterium tuberculosis FtsB and PerM interact via a C-terminal helix: MD trajectories and microscopy data
+
+Data accompanying the manuscript "Mycobacterium tuberculosis FtsB and PerM interact via a C-terminal helix in FtsB to modulate cell division" currently published at bioRxiv at https://doi.org/10.1101/2024.03.11.584518
+Molecular dynamics trajectories (only protein atoms to limit size) are provided to reproduce analysis in the paper.Raw microscope image data is provided to reproduce analysis and figures in the paper.
+Other files and scripts required to reproduce the paper are available at https://github.com/smmlab/mtb-perm-ftsb

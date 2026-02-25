@@ -1,0 +1,4 @@
+POPC membrane simulated with Slipids/CHARMM36 hybrid topology
+
+Simulations with a hybrid POPC topology. Tails are from Slipids and glycerol and headgroup from CHARMM36. 
+BSc thesis project.

@@ -1,0 +1,3 @@
+Expulsion mechanism of the substrate-translocating subunit in ECF transporters
+
+Data for coarse-grained molecular dynamics simulations (final snapshots, cleaned trajectories, starting structure/simulation parameters) described in "Expulsion mechanism of the substrate-translocating subunit in ECF transporters".

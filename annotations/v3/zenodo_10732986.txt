@@ -1,0 +1,2 @@
+OpenFF POPC Sim (200 ns equilibration test)
+

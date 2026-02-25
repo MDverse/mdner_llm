@@ -1,0 +1,3 @@
+Supplementary data for 'Nucleosome-mediated conformational switches in micro-eccDNAs'.
+
+The desolvated molecular dynamics (MD) trajectories containing imaged counterions are available to download in AMBER topology (parm7) and trajectory (netcdf) formats. The fully solvated AMBER format topology and coordinate files of the starting structures used in the MD simulations for representative di- and mononucleosome and naked eccDNA structures are also available.

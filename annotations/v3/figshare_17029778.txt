@@ -1,0 +1,11 @@
+Supporting data for publication: The Activation of Glycyl Radical Enzymes – Multiscale Modelling Insights into Catalysis and Radical Control in Pyruvate Formate-Lyase Activating Enzyme
+
+Supporting data for the publication "The Control Mechanisms of Activation and Glycyl Radical Formation in Glycyl Radical Enzymes as Catalysed by the Pyruvate Formate-Lyase Activating Enzyme" by Marko Hanzevacki, Anna K. Croft, and Christof M. Jäger including:
+
+- Directory PARAMETERS contains subdirectories with force field parameters, initial toplogy and coordinate files for MD simulations for each system: Gly-Peptide-PFL-AE, Gly-radical-Peptide-PFL-AE, S-Ala-Peptide-PFL-AE, R-Ala-Peptide-PFL-AE, Ala-radical-Peptide-PFL-AE, Gly-PFL and Gly-radical-PFL.
+- Directory DOCKING contains subfolders 1, 2 and 3 with force field parameters, topology and coordinates for best three docking complexes between Gly-C-terminus and PFL-AE.
+- Additional DOCKING structures for C-terminus docking added (C-TERMINUS-OPEN/CLOSED-DOCKING)
+
+- Directory RSE contains Gaussian QM output files used to calculate the RSEs.
+
+- Directory ONIOM contains subdirectories with Gaussian ONIOM outputs and pdb files used to calculate the H-abstraction profiles for each system: Gly-Peptide (6 structures), Ala-Peptide (6 structures), Gly-C-terminus (10 structures) and Ala-C-terminus (1 structure).

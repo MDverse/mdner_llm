@@ -1,0 +1,86 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "MD simulation trajectory and related files for POPC bilayer in low hydration (GAFFlipid, Gromacs 4.5)\n\nEquilibrated POPC lipid bilayer simulation ran with Gromacs 4.5, GAFFlipid force field (http://dx.doi.org/10.1039/C2SM26007G) in low hydration, 40ns, T=303K, 126 POPC molecules, 896 water molecules. This data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi. If data is used, please cite nmrlipids.blogspot.fi project and the original publication of the parameters: Dickson et al. Soft Matter, 2012,8, 9617-9627 http://dx.doi.org/10.1039/C2SM26007G.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "label": "FFM",
+            "text": "GAFFlipid",
+            "start": 78,
+            "end": 87
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 89,
+            "end": 96
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5",
+            "start": 97,
+            "end": 100
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 116,
+            "end": 120
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 155,
+            "end": 162
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5",
+            "start": 163,
+            "end": 166
+        },
+        {
+            "label": "FFM",
+            "text": "GAFFlipid",
+            "start": 168,
+            "end": 177
+        },
+        {
+            "label": "STIME",
+            "text": "40ns",
+            "start": 247,
+            "end": 251
+        },
+        {
+            "label": "TEMP",
+            "text": "303K",
+            "start": 255,
+            "end": 259
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 265,
+            "end": 269
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 285,
+            "end": 290
+        }
+    ]
+}

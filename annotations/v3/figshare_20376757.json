@@ -1,0 +1,98 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Role of Enzyme and Active Site Conformational Dynamics in the Catalysis by α‑Amylase Explored with QM/MM Molecular Dynamics\n\nWe assessed enzyme:substrate conformational dynamics\nand the rate-limiting\nglycosylation step of a human pancreatic α-amylase:maltopentose\ncomplex. Microsecond molecular dynamics simulations suggested that\nthe distance of the catalytic Asp197 nucleophile to the anomeric carbon\nof the buried glucoside is responsible for most of the enzyme active\nsite fluctuations and that both Asp197 and Asp300 interact the most\nwith the buried glucoside unit. The buried glucoside binds either\nin a 4C1 chair or 2SO skew conformations,\nboth of which can change to TS-like conformations characteristic of\nretaining glucosidases. Starting from four distinct enzyme:substrate\ncomplexes, umbrella sampling quantum mechanics/molecular mechanics\nsimulations (converged within less than 1 kcal·mol–1 within a total simulation time of 1.6 ns) indicated that the reaction\noccurrs with a Gibbs barrier of 13.9 kcal·mol –1, in one asynchronous concerted step encompassing an acid–base\nreaction with Glu233 followed by a loose SN2-like nucleophilic\nsubstitution by the Asp197. The transition state is characterized\nby a 2H3 half-chair conformation\nof the buried glucoside that quickly changes to the E3 envelope conformation preceding the attack of the anomeric\ncarbon by the Asp197 nucleophile. Thermodynamic analysis of the reaction\nsupported that a water molecule tightly hydrogen bonded to the glycosidic\noxygen of the substrate at the reactant state (∼1.6 Å)\nforms a short hydrogen bond with Glu233 at the transition state (∼1.7\nÅ) and lowers the Gibbs barrier in over 5 kcal·mol–1. The resulting Asp197-glycosyl was mostly found in the 4C1 conformation, although the more endergonic B3,O conformation was also observed.\nAltogether, the combination of short distances for the acid–base\nreaction with the Glu233 and for the nucleophilic attack by the Asp197\nnucleophile and the availability of water within hydrogen bonding\ndistance of the glycosidic oxygen provides a reliable criteria to\nidentify reactive conformations of α-amylase complexes.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Amylase",
+            "start": 77,
+            "end": 84
+        },
+        {
+            "label": "MOL",
+            "text": "amylase",
+            "start": 243,
+            "end": 250
+        },
+        {
+            "label": "MOL",
+            "text": "maltopentose",
+            "start": 251,
+            "end": 263
+        },
+        {
+            "label": "STIME",
+            "text": "Microsecond",
+            "start": 273,
+            "end": 284
+        },
+        {
+            "label": "MOL",
+            "text": "glucoside",
+            "start": 417,
+            "end": 426
+        },
+        {
+            "label": "MOL",
+            "text": "glucoside",
+            "start": 556,
+            "end": 565
+        },
+        {
+            "label": "MOL",
+            "text": "glucoside",
+            "start": 583,
+            "end": 592
+        },
+        {
+            "label": "MOL",
+            "text": "glucosidases",
+            "start": 726,
+            "end": 738
+        },
+        {
+            "label": "STIME",
+            "text": "1.6 ns",
+            "start": 939,
+            "end": 945
+        },
+        {
+            "label": "MOL",
+            "text": "glucoside",
+            "start": 1262,
+            "end": 1271
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1452,
+            "end": 1457
+        },
+        {
+            "label": "MOL",
+            "text": "glycosyl",
+            "start": 200,
+            "end": 208
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1998,
+            "end": 2003
+        },
+        {
+            "label": "MOL",
+            "text": "amylase",
+            "start": 2131,
+            "end": 2138
+        }
+    ]
+}

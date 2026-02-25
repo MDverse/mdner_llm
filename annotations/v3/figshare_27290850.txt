@@ -1,0 +1,28 @@
+Computational Analysis of Sarin, Soman, and Their Water Mixtures in NU-1000: Interaction Mechanisms, Distribution Patterns, and Pairing Effects
+
+Due to their extraordinary structural stability under
+humid conditions,
+zirconium-based metal–organic frameworks (Zr-MOFs) have been
+widely investigated for the hydrolytic degradation of nerve agents.
+That said, mechanisms of hydrolysis in the solid state and the participation
+of environmental water are not well understood. This work utilizes
+computational techniques to evaluate the behavior of water and two
+organophosphorus nerve agents (sarin and soman) in NU-1000, a Zr-MOF
+with the characteristic attributes for hydrolytic efficiency under
+humid conditions. Density functional theory (DFT) calculations reveal
+that soman binds more favorably to NU-1000 active sites than sarin,
+resulting in different preferential locations of each nerve agent
+within the framework. The strength of nerve agent binding is also
+found to vary depending on the site environment, with more favorable
+binding of both nerve agents occurring in the c-pores of NU-1000 than
+in the mesopores. Molecular dynamics (MD) simulation results further
+illustrate that free water molecules in NU-1000 prioritize interactions
+with nerve agents. Given the variation in their affinity for active
+site interactions, the introduction of different nerve agents to the
+framework results in substantial differences in water distribution
+and behavior. The results give insight into potential variances in
+the functionality of NU-1000 toward the hydrolysis of each nerve agent.
+More importantly, they emphasize the significance of considering the
+role of environmental water in hydrolysis and the possibility of diverse
+reaction variables based on the type of nerve agent and the properties
+of the MOF.

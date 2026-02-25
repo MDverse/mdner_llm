@@ -1,0 +1,6 @@
+Revealing the Reovirus T1L-NgR1 binding interface using single-molecule approaches
+
+Initial topology, parameter and coordinate files of the molecular dynamics (MD) simulation of human and mouse NgR1 in complex with two σ3 subunits. We used AMBER for the equilibration phase and GROMACS (2022.3) for the production as molecular engines (input_gromacs.mdp). For each system we run three independent replicas of 2.5 µs. Water molecules and ion atoms were removed from the original trajectories and topology prior to upload. All replicas were previously aligned to chain A (NgR1):
+
+system 1: human NgR1 in complex with two σ3 subunits
+system 2: murine NgR1 in complex with two σ3 subunits

@@ -1,0 +1,4 @@
+Preliminary Gromacs files
+
+Some few simulatitons files for SARS CoV 2
+ 

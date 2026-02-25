@@ -1,0 +1,8 @@
+Data sharing information.zip
+
+ 
+The compressed file ‘Data sharing information’ includes all the required information for generating the results of the molecular dynamics (MD) simulations, which are explained specially as below:
+'Structures for MD simulations' folder: This folder contains the initial dimer structures generated using AlphaFold2. These structures serve as the starting structures for the MD simulations.
+'Parameters for MD simulations' folder: This folder contains the necessary parameter files required for running the MD simulations using GROMACS.
+'Scripts for dipole fluctuations calculation of chains' folder: This folder contains example script files and a README file that provide instructions and explanations for calculating dipole fluctuations of the chains.
+'Parameters and original results for g_mmpbsa calculations' folder: This file contains the necessary input files for performing free binding energy calculations using the g_mmpbsa method. These calculations are used to estimate the binding affinities between molecules. The file also includes the original results obtained from these calculations.

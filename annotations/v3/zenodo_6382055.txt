@@ -1,0 +1,13 @@
+Structure and Mechanism of a Cold-Adapted Bacterial Lipase
+
+Input files and structures used to obtain computational results published in:
+Structure and Mechanism of a Cold-Adapted Bacterial Lipase
+DOI: 10.1021/acs.biochem.2c00087
+See included README file and publication for more details.
+Funding
+This work was supported by the Swedish Research Council
+(VR), the Knut and Alice Wallenberg Foundation, and the
+Research Council of Norway through a Centre of Excellence
+and project grant (Grant Nos. 262695 and 274858).
+Computational resources were provided by the Swedish
+National Infrastructure for Computing (SNIC)

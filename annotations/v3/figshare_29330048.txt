@@ -1,0 +1,26 @@
+Adding the AMBER 14SB Force Field to the Stochastic Titration CpHMD Method
+
+Incorporating pH into molecular dynamics simulations
+is vital for
+accurately capturing the fully coupled conformational, energetic,
+and protonation landscape of many systems. The constant-pH molecular
+dynamics (CpHMD) methodologies represent state-of-the-art approaches
+to achieve this, with stochastic titration CpHMD (st-CpHMD) currently
+being one of the most well-developed and validated methods. St-CpHMD
+is already compatible with both the GROMOS 54A7 and CHARMM 36m force
+fields, and we extend it here to support the AMBER 14SB force field
+available in the GROMACS software package. We introduce and validate
+a minor modification to the official atomic partial charges of ff14SB
+(to achieve neutralization of the main chain) to render them compatible
+with st-CpHMD, and we benchmark the final implementation using lysozyme
+and Staphylococcal nuclease proteins. Although the root-mean-square
+error (RMSE) values of the predictions for pKa versus experimental data align closely with those obtained
+using the other supported force fields, we also identified several
+challenging cases where the method requires further improvement. AMBER
+14SB simulations showed a lower computational cost compared to CHARMM
+36m, despite being slightly higher than the GROMOS 54A7 simulations.
+Our findings also indicate that to further enhance computational speed,
+future efforts should concentrate on accelerating the PB/MC step.
+With this extension, we have developed the first CpHMD method implementation
+compatible with the three most widely used protein force fields, enabling,
+for the first time, a direct performance comparison among them.

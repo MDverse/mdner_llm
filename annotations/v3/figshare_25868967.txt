@@ -1,0 +1,19 @@
+Exploring Aromatic Cage Flexibility Using Cosolvent Molecular Dynamics SimulationsAn In-Silico Case Study of Tudor Domains
+
+Cosolvent molecular dynamics (MD) simulations have proven
+to be
+powerful in silico tools to predict hotspots for binding regions on
+protein surfaces. In the current study, the method was adapted and
+applied to two Tudor domain-containing proteins, namely Spindlin1
+(SPIN1) and survival motor neuron protein (SMN). Tudor domains are
+characterized by so-called aromatic cages that recognize methylated
+lysine residues of protein targets. In the study, the conformational
+transitions from closed to open aromatic cage conformations were investigated
+by performing MD simulations with cosolvents using six different probe
+molecules. It is shown that a trajectory clustering approach in combination
+with volume and atomic distance tracking allows a reasonable discrimination
+between open and closed aromatic cage conformations and the docking
+of inhibitors yields very good reproducibility with crystal structures.
+Cosolvent MDs are suitable to capture the flexibility of aromatic
+cages and thus represent a promising tool for the optimization of
+inhibitors.

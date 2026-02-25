@@ -1,0 +1,18 @@
+Structural Disorder at the Edges of Rubrene Crystals Enhances Singlet Fission
+
+Materials
+that undergo singlet fission are of interest for their
+use in light-harvesting, photocatalysis, and quantum information science,
+but their ability to undergo fission can be sensitive to local variations
+in molecular packing. Herein we employ transient absorption microscopy,
+molecular dynamics simulations, and electronic structure calculations
+to interrogate how structures found at the edges of orthorhombic rubrene
+crystals impact singlet fission. Within a micrometer-scale spatial
+region at the edges of rubrene crystals, we find that the rate of
+singlet fission increases nearly 4-fold. This observation is consistent
+with formation of a region at crystal edges with reduced order that
+accelerates singlet fission by disrupting the symmetry found in rubrene’s
+orthorhombic crystal structure. Our work demonstrates that structural
+distortions of singlet fission materials can be used to control fission
+in time and in space, potentially offering a means of controlling
+this process in light harvesting and quantum information applications.

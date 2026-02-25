@@ -1,0 +1,3 @@
+a-Synuclein MD simulations:homo-(G68E+V95G)
+
+Molecular dynamics simulations of a-Synuclein amyloids, homo-(G68E+V95G)

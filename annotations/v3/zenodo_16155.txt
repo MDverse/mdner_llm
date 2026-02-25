@@ -1,0 +1,7 @@
+Topology and structure of Au144(SRNH3+)60 from "Atomistic Simulations of Functional Au144(SR)60 Gold Nanoparticles in Aqueous Environment"
+
+Positively charged monolayer-protected gold nanoparticles (AuNPs) structure and topology files for GROMACS used in DOI: 10.1021/jp301094m.  The final structure of the simulation reported in DOI: 10.1021/jp301094m for the neutral case is provided.
+The gold nanoparticle contain a core of 144 Au atoms and 60 functionalized alkanethiol side groups (undecanyl chain, R = C11H22), each possessing a positively charged amonium terminal group.
+When using this structure do not forget to cite DOI: 10.1021/jp301094m. 
+NOTE1: Different versions for the topology files are provided of both AuNPs. All versions were used for the publication. The changes only affect the core surface and therefore had no influence in the reported properties. Still we recommentd using the latest version: AU144SRNH360_v3.itp.
+NOTE2: The original simulations used GROMACS 4.0.5. The files should work, however, as well up to GROMACS 4.6.7.

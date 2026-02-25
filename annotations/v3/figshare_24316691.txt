@@ -1,0 +1,19 @@
+Understanding the Anomalous Diffusion of Water in Aqueous Electrolytes Using Machine Learned Potentials
+
+The diffusivity of water in aqueous cesium iodide solutions
+is
+larger than that in neat liquid water and vice versa for sodium chloride
+solutions. Such peculiar ion-specific behavior, called anomalous diffusion,
+is not reproduced in typical force field based molecular dynamics
+(MD) simulations due to inadequate treatment of ion–water interactions.
+Herein, this hurdle is tackled by using machine learned atomic potentials
+(MLPs) trained on data from density functional theory calculations.
+MLP based atomistic MD simulations of aqueous salt solutions reproduce
+experimentally determined thermodynamic, structural, dynamical, and
+transport properties, including their varied trends in water diffusivities
+across salt concentration. This enables an examination of their intermolecular
+structure to unravel the microscopic underpinnings of the differences
+in their transport properties. While both ions in CsI solutions contribute
+to the faster diffusion of water molecules, the competition between
+the heavy retardation by Na ions and the slight acceleration by Cl
+ions in NaCl solutions reduces their water diffusivity.

@@ -1,0 +1,20 @@
+Scaling Protein–Water Interactions in the Martini 3 Coarse-Grained Force Field to Simulate Transmembrane Helix Dimers in Different Lipid Environments
+
+Martini 3, the latest
+version of the widely used Martini force
+field for coarse-grained molecular dynamics simulations, is a promising
+tool to investigate proteins in phospholipid bilayers. However, simulating
+other lipid environments, such as detergent micelles, presents challenges
+due to the absence of validated parameters for their constituent molecules.
+Here, we propose parameters for the micelle-forming surfactant, dodecylphosphocholine
+(DPC). These result in micelle assembly with aggregation numbers in
+agreement with the experimental values. However, we identified a lack
+of hydrophobic interactions between transmembrane helix protein dimers
+and the tails of DPC molecules, preventing insertion and stabilization
+of the protein in the micelles. This problem was also observed for
+protein insertion by self-assembling 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine (POPC) or dipalmitoylphosphatidylcholine
+(DPPC) bilayers. We propose the reduction of the nonbonded interactions
+between protein and water beads by 10% as a simple and effective solution
+to this problem that enables protein encapsulation in phospholipid
+micelles and bilayers without altering protein dimerization or the
+bilayer structure.

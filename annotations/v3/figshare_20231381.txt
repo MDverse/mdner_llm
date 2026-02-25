@@ -1,0 +1,20 @@
+Protein Model Quality Estimation Using Molecular Dynamics Simulation
+
+The estimation of
+protein model quality remains a challenging task
+and is important for protein structural model utilization. In the
+last decade, existing methods that rely on machine learning to deep
+learning have been developed and shown progressive improvement. Despite
+utilizing more sophisticated techniques and introducing new features,
+none of these methods employ explicit protein structure stability
+information. Hypothetically, protein model quality might be indicated
+by its structural stability in an in silico system disclosed by the
+structural difference from its initial structure. One of the possible
+methods to exploit such information is by implementing molecular dynamics
+simulations that have shown successful applications in many research
+fields. We present a novel approach by introducing explicit protein
+structure stability information using molecular dynamics simulation.
+Despite using only simple features, small data with no training process
+required, and a short molecular dynamics simulation time, our method
+shows comparable performance to the state-of-the-art deep learning-based
+method.

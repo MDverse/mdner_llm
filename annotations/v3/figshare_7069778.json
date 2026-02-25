@@ -1,0 +1,13 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Anomalous Effects of Velocity Rescaling Algorithms: The Flying Ice Cube Effect Revisited\n\nThe flying ice cube effect is a molecular\ndynamics simulation artifact\nin which the use of velocity rescaling thermostats sometimes causes\nviolation of the equipartition theorem, affecting both structural\nand dynamic properties. The reason for this artifact and the conditions\nunder which it occurs have not been fully understood. Since the flying\nice cube effect was first demonstrated, a new velocity rescaling algorithm\n(the CSVR thermostat) has been developed and become popular without\nits effects on the equipartition theorem being truly known. Meanwhile,\nthe use of simple velocity rescaling and Berendsen (weak coupling)\nthermostat algorithms has not abated but has actually continued to\ngrow. Here, we have calculated the partitioning of the kinetic energy\nbetween translational, rotational, and vibrational modes in simulations\nof diatomic molecules to explicitly determine whether the equipartition\ntheorem is violated under different thermostats and while rescaling\nvelocities to different kinetic energy distributions. We have found\nthat the underlying cause of the flying ice cube effect is a violation\nof balance leading to systematic redistributions of kinetic energy\nunder simple velocity rescaling and the Berendsen thermostat. When\nvelocities are instead rescaled to the canonical ensemble’s\nkinetic energy distribution, as is done with the CSVR thermostat,\nthe equipartition theorem is not violated, and we show that the CSVR\nthermostat satisfies detailed balance. The critical necessity for\nmolecular dynamics practitioners to abandon the use of popular yet\nincorrect velocity rescaling algorithms is underscored with an example\ndemonstrating that the main result of a highly cited study is entirely\ndue to artifacts resulting from the study’s use of the Berendsen\nthermostat.",
+    "entities": []
+}

@@ -1,0 +1,2 @@
+MD simulation of POPC bilayer with OPLS4 force field. 12 w/l.
+

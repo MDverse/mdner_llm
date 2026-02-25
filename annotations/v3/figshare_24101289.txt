@@ -1,0 +1,29 @@
+Martini‑3 Coarse-Grained Models for the Bacterial Lipopolysaccharide Outer Membrane of Escherichia coli
+
+The
+outer lipopolysaccharide (LPS) membrane of Gram-negative bacteria
+forms the main barrier for transport of antimicrobial molecules into
+the bacterial cell. In this study we develop coarse-grained models
+for the outer membrane of Escherichia coli in the Martini-3 framework. The coarse-grained model force field
+was parametrized and validated using all-atom simulations of symmetric
+membranes of lipid A and rough LPS as well as a complete asymmetric
+membrane of LPS with the O-antigen. The bonded parameters were obtained
+using an iterative refinement procedure with target bonded distributions
+obtained from all-atom simulations. The membrane thickness, area of
+the LPS, and density distributions for the different regions as well
+as the water and ion densities in Martini-3 simulations show excellent
+agreement with the all-atom data. Additionally the solvent accessible
+surface area for individual molecules in water was found to be in
+good agreement. The binding of calcium ions with phosphate and carboxylate
+moieties of LPS is accurately captured in the Martini-3 model, indicative
+of the integrity of the highly negatively charged LPS molecules in
+the outer membranes of Gram-negative bacteria. The melting transition
+of the coarse-grained lipid A membrane model was found to occur between
+300 and 310 K, and the model captured variations in area per LPS,
+order parameter, and membrane thickness across the melting transition.
+Our study reveals that the proposed Martini-3 models for LPS are able
+to capture the physicochemical balance of the complex sugar architecture
+of the outer membrane of Escherichia coli. The coarse-grained models developed in this study would be useful
+for determining membrane protein interactions and permeation of potential
+antimicrobials through bacterial membranes at mesoscopic spatial and
+temporal scales.

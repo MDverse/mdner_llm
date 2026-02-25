@@ -1,0 +1,7 @@
+Structural data of drug molecules for force field AMBER99 used for MD simulations of solubilization into taurocholate/DOPC micelles
+
+The dataset includes the following files for the molecules of fenofibrate, progesterone, 17-OH-progesterone, albendazole, paracetamol and ibuprofen:
+1) pdb files of the drug molecules after optimization with DFT functional B3LYP and basis set 6-31G*.
+2) itp files for AMBER99 force field in GROMACS software.
+3) ffbonded_drugs.dat includes extra added bonded paramters for the simulated molecules adopted from GAFF or similar structures.
+4) TC_drugs_structures.dat inclueds the information from the rtp file of the force field.

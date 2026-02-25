@@ -1,0 +1,13 @@
+Mechanism of conductance control and neurosteroid binding in NMDA receptors - Cl- PMF run inputs
+
+Run inputs for PMF calculations of Cl- as the 24S open state TMD for the paper:
+ "Mechanism of conductance control and neurosteroid binding in NMDA receptors" 
+Authors:
+Hyunook Kang1, Ruben Steigerwald1, Elijah Z. Ullman2, Max Epstein1, Srinu Paladugu3, Dennis C. Liotta3, Stephen F. Traynelis2,4, and Hiro Furukawa1*
+Affiliations
+1W.M. Keck Structural Biology Laboratory, Cold Spring Harbor Laboratory, Cold Spring Harbor, NY 11724, USA.
+2Department of Pharmacology and Chemical Biology, Emory University School of Medicine, Atlanta, GA, USA. 
+3Department of Chemistry, Emory University, Atlanta, GA, USA.
+4Neurodegenerative Disease Center, Emory University School of Medicine, Atlanta, GA, USA.
+*Corresponding Author: Hiro Furukawa 
+furukawa@cshl.edu

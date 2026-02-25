@@ -1,0 +1,3 @@
+Molecular Models obtained in the paper "In situ architecture of the ER-mitochondria encounter structure"
+
+The zip file contains prototypical NAMD input files to carry out the molecular dynamics flexible fitting simulations performed in the paper, and the initial and final structures (best models) obtained using the MDFF protocol.

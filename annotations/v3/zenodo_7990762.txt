@@ -1,0 +1,21 @@
+Trajectories of simulated lipid membranes interacting with antimicrobial peptidomimetic AMC-109 and simulation setup files
+
+Trajectories of simulated lipid membranes with antimicrobial peptidomimetic AMC-109.
+Trajectories are in GROMACS format ".xtc", the frame rate is 10 ns, and water and NaCl ions were omitted from the trajectory deposit to reduce the size to acceptable limits.
+The molecules are described using MARTINI 3 coarse grained force field.
+This repository contains a set of simulations with varying ratio of POPC:POPG lipids from
+100% POPC, 0% POPG (denoted as "pg000p..") to
+0% POPC, 100% POPG (denoted as "pg100p..").
+Ratios between these two extremes go in steps of 10%,
+e.g. "pg060p.." denotes 40% POPC, 60% POPG.
+ 
+The  files with ".out" or ".xvg" suffix are properties analyzed from the simulation. Namely, they are:
+- "thickness" : thickness of the membrane
+- "apl" : area per lipid of the lipid membrane
+- "numcont" : number of contacts between the peptidomimetic AMC-109 and the lipids
+- "ordPars" : order parameters of the end tail segments of the sn-1 tail of POPC lipids.
+More details about how these properties were generated can be found in the attached scripts (".sh" files) in this repository.
+Sample topology files in GROMACS format (binary ".tpr" and ASCII ".itp") are provided to complete the description of the molecular topologies used to generate the presented simulations.
+ 
+This repository was created as a Supporting Information to a scientific paper at Nature Communications,
+Lateral membrane organization as target of an antimicrobial peptidomimetic compound, 2023.

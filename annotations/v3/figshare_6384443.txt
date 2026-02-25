@@ -1,0 +1,21 @@
+Coarse-Grained Force Field for Imidazolium-Based Ionic Liquids
+
+We develop coarse-grained force fields
+(CGFFs) for computationally
+efficient and accurate molecular simulation of imidazolium-based ionic
+liquids. To obtain CGFF parameters, we employ a systematic coarse-graining
+approach based on the relative entropy (RE) method to reproduce not
+only the structure but also the thermodynamic properties of the reference
+all-atom molecular model. Our systematic coarse-graining approach
+adds a constraint to the RE minimization using the Lagrange multiplier
+method in order to reproduce thermodynamic properties such as pressure.
+The Boltzmann inversion technique is used to obtain the bonded interactions,
+and the non-bonded and long-range electrostatic interactions are obtained
+using the constrained relative entropy method. The structure and pressure
+obtained from the coarse-grained (CG) models for different alkyl chain
+lengths are in agreement with the all-atom molecular dynamics simulations
+at different thermodynamic states. We also find that the dynamical
+properties, such as diffusion, of the CG model preserve the faster
+dynamics of bulky cation compared to the anion. The methodology developed
+here for reproduction of thermodynamic properties and treatment of
+long-range Coulombic interactions is applicable to other soft-matter.

@@ -1,0 +1,3 @@
+Amphiphilic Cyclic Antimicrobial Peptides Derived from the [W4R4] Scaffold: Structural Studies and Correlation with Activity
+
+Data for Publication “Amphiphilic Cyclic Antimicrobial Peptides Derived from the [W4R4] Scaffold: Structural Studies and Correlation with Activity.” The file archive "WR_peptides_MD.zip" contains the starting structures of peptides, molecular topologies of peptides, representative MD trajectories of peptides in water and the DOPC/DOPG bilayer, as well as MD simulation parameters. See the README.txt file in this archive for details.

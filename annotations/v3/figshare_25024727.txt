@@ -1,0 +1,17 @@
+Cation–π Interactions Greatly Influence Ion Transportability of the Light-Driven Sodium Pump KR2: A Molecular Dynamics Study
+
+Krokinobacter eikastus rhodopsin
+2 (KR2) is a typical light-driven sodium pump. Although wild-type
+KR2 exhibits high Na+ selectivity, mutagenesis performed
+on the residues constituting the entrance enables permeation of K+ and Cs+, while the underlying mechanism remains
+elusive. This study presents a comprehensive molecular dynamics investigation,
+including force field optimization, metadynamics, and alchemical free
+energy methods, to explore the N61L/G263F mutant of KR2, which exhibits
+transportability for K+ and Cs+. The introduced
+Phe263 residue can directly promote ion binding at the entrance through
+cation–π interactions, while the N61L mutation can enhance
+ion binding at Phe46 by relieving steric hindrance. These results
+suggest that cation–π interactions may significantly
+influence the ion transportability and selectivity of KR2, which can
+provide important insights for protein engineering and the design
+of artificial ion transporters.

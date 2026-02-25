@@ -1,0 +1,13 @@
+OpenMM simulations of POPE using the CHARMM Drude2023 force field
+
+
+The dataset contains a PSF, a formatted coordinate file (CRD), and DCD files with the final 200 ns from
+each of 3 replicate simulations from the paper
+
+Drude Polarizable Lipid Force Field with Explicit Treatment of LongRange Dispersion:
+Parametrization and Validation for Saturated and Monounsaturated Zwitterionic Lipids
+Yalun Yu, Richard M. Venable, Jonathan Thirman, Payal Chatterjee, Anmol Kumar, Richard W. Pastor,*
+Benoît Roux,* Alexander D. MacKerell, Jr.,* and Jeffery B. Klauda*
+https://doi.org/10.1021/acs.jctc.3c00203
+
+DCD file names indicate the lipid, replica number, and the time point of the final coordinate set in the file; each file has frames spaced at 10 ps over a 50 ns interval.

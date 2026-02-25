@@ -1,0 +1,17 @@
+Simulations for: Patched 1 regulates Smoothened by controlling sterol binding to its extracellular cysteine-rich domain.
+
+Atomistic simulations of Smoothened:
+Atomistic molecular dynamics simulations of glycosylated mouse Smoothened (mSMO) and human Smoothened (hSMO) in distinct liganded states:
+- mSMO in an apo state (mSMO_apo)
+- mSMO with TMD cholesterol bound (mSMO_chol_TMD)
+- mSMO with CRD cholesterol bound (mSMO_chol_CRD)
+- mSMO with cholesterol bound to the CRD and TMD (mSMO_2chol_TMD_CRD)
+- mSMO bound to CRD cholesterol and Smoothened agonist (SAG) (mSMO_chol_CRD_SAG)
+- mSMO bound to CRD and TMD cholesterols, SAG and an intracellular nanobody (mSMO_2chol_SAG_nanobody)
+- mSMO bound to CRD and TMD cholesterol and with an additional cholesterol bound at a proposed 'mid' position (mSMO_3chol)
+- hSMO bound to CRD cholesterol and SAG (hSMO_chol_CRD_SAG)
+ 
+All simulations were run for 5x 300 ns. The active mSMO conformation was obtained from the Protein Data Bank (PDB ID: 6O3C). The hSMO structure was determined using X-ray crystallography as outlined within this study.  
+File description for each system:
+- md_fit_firstframe.pdb : Initial frame used for atomistic simulations (replicate 1, each replicate equilibrated independently). 
+- md_fit_X.xtc : Gromacs trajectory file for each replicate (X=replicate number). 

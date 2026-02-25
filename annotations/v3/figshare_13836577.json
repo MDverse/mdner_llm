@@ -1,0 +1,260 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Simulation of the n‑Octacosane–Water Mixture Confined in Graphene Mesopores: Comparison of Atomistic and Coarse-Grained Calculations and the Effect of Catalyst Nanoparticle\n\nFischer–Tropsch\nsynthesis (FTS) is used extensively in the\ngas-to-liquids (GTL) process to produce clean, high-quality low emission\ntransportation fuels from synthesis gas. In order to gain a better\nunderstanding of the phase behavior of the produced wax–water\nmixtures at reaction conditions by accounting for confinement effects\nof either hydrophilic or hydrophobic characteristics and catalyst\nnanoparticles (NPs), one needs to closely examine the validity of\nincorporating coarse grained approaches in the context of FTS. The\npresent study focuses on simulating by means of atomistic (AA) and\ncoarse-grained (CG) molecular dynamics (MD; CGMD) simulations the n-octacosane (n-C28)–water\nmixture inside graphene (G) and graphene oxide (GO) mesopores under\nlow-temperature FTS conditions (473.15 K) with the inclusion of a\nCo NP. Graphene derivatives were selected as they are emerging catalyst\nsupport materials in the FTS reaction and allow for direct comparisons\nbetween the AA and CG methodologies. We also evaluated the presence\nof long-chain alcohols such as dodecan-1-ol at 7 wt % on the n-C28–H2O mixture phase behavior.\nThe AA simulations involved the use of the united atom TraPPE (TraPPE-UA)\nforce field for n-C28 and the alcohols\nand the TIP4P/2005 force field for water, while the MARTINI force\nfield was used for the CG description. With regard to the mixtures\ninside the G pore, both AA and CG simulation methods capture the phase\nseparation of the mixture, with water molecules occupying the center\nof the pore and n-C28 forming layers at\nthe pore walls; inside GO, both methodologies show that water separates\nnear the surface and the model wax lies at the pore center. Both AA\nand CG simulations accurately capture the n-C28 and H2O diffusivity as a function of the distance\nfrom the G and GO pore centers, respectively, being lower closer to\nthe pore surface. Dodecan-1-ol is mostly located at the n-C28–H2O interface showing a higher\npreference toward the wax as a consequence of increased van der Waals\nintermolecular interactions, slightly reducing the mobility of water.\nThe agreement between AA and CG MD simulations paved the way for novel\nCGMD simulations with DFT-derived parameters for Co, to study the n-C28–H2O behavior in its presence.\nOur results show that the Co NP does not affect phase separation of\nthe n-C28–H2O mixture\ninside the pores; however, water at such high concentrations covers\nthe Co NP surface extensively. Given the experimental difficulties\nin exploring the relevant mechanisms at this scale, our results showcase\nthat CGMD using the MARTINI force field can be employed to study FTS-related\nprocesses at this level and are expected to open new pathways in the\ninvestigation of confined mixtures relevant to the FTS reaction in\nthe presence of supported catalyst NPs.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Water",
+            "start": 50,
+            "end": 55
+        },
+        {
+            "label": "MOL",
+            "text": "Graphene",
+            "start": 76,
+            "end": 84
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 448,
+            "end": 453
+        },
+        {
+            "label": "MOL",
+            "text": "n-octacosane",
+            "start": 856,
+            "end": 868
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 870,
+            "end": 875
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 877,
+            "end": 882
+        },
+        {
+            "label": "MOL",
+            "text": "graphene",
+            "start": 898,
+            "end": 906
+        },
+        {
+            "label": "MOL",
+            "text": "G",
+            "start": 131,
+            "end": 132
+        },
+        {
+            "label": "MOL",
+            "text": "graphene oxide",
+            "start": 915,
+            "end": 929
+        },
+        {
+            "label": "MOL",
+            "text": "GO",
+            "start": 931,
+            "end": 933
+        },
+        {
+            "label": "TEMP",
+            "text": "473.15 K",
+            "start": 983,
+            "end": 991
+        },
+        {
+            "label": "MOL",
+            "text": "Graphene",
+            "start": 1024,
+            "end": 1032
+        },
+        {
+            "label": "MOL",
+            "text": "alcohols",
+            "start": 1242,
+            "end": 1250
+        },
+        {
+            "label": "MOL",
+            "text": "dodecan-1-ol",
+            "start": 1259,
+            "end": 1271
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 1289,
+            "end": 1294
+        },
+        {
+            "label": "MOL",
+            "text": "H2O",
+            "start": 1295,
+            "end": 1298
+        },
+        {
+            "label": "FFM",
+            "text": "TraPPE",
+            "start": 1378,
+            "end": 1384
+        },
+        {
+            "label": "FFM",
+            "text": "TraPPE-UA",
+            "start": 1386,
+            "end": 1395
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 1413,
+            "end": 1418
+        },
+        {
+            "label": "FFM",
+            "text": "TIP4P/2005",
+            "start": 1444,
+            "end": 1454
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1471,
+            "end": 1476
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 1488,
+            "end": 1495
+        },
+        {
+            "label": "MOL",
+            "text": "G",
+            "start": 268,
+            "end": 269
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1672,
+            "end": 1677
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 1725,
+            "end": 1730
+        },
+        {
+            "label": "MOL",
+            "text": "GO",
+            "start": 1772,
+            "end": 1774
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1805,
+            "end": 1810
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 1931,
+            "end": 1936
+        },
+        {
+            "label": "MOL",
+            "text": "H2O",
+            "start": 1941,
+            "end": 1944
+        },
+        {
+            "label": "MOL",
+            "text": "G",
+            "start": 807,
+            "end": 808
+        },
+        {
+            "label": "MOL",
+            "text": "GO",
+            "start": 2002,
+            "end": 2004
+        },
+        {
+            "label": "MOL",
+            "text": "Dodecan-1-ol",
+            "start": 2073,
+            "end": 2085
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 2111,
+            "end": 2116
+        },
+        {
+            "label": "MOL",
+            "text": "H2O",
+            "start": 2117,
+            "end": 2120
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 2281,
+            "end": 2286
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 2425,
+            "end": 2430
+        },
+        {
+            "label": "MOL",
+            "text": "H2O",
+            "start": 2431,
+            "end": 2434
+        },
+        {
+            "label": "MOL",
+            "text": "n-C28",
+            "start": 2533,
+            "end": 2538
+        },
+        {
+            "label": "MOL",
+            "text": "H2O",
+            "start": 2539,
+            "end": 2542
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 2578,
+            "end": 2583
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 2779,
+            "end": 2786
+        }
+    ]
+}

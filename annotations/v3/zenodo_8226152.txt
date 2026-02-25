@@ -1,0 +1,6 @@
+The Role of Criptic Ancestral Symmetry In Histone Folding Mechanisms Across Eukarya and Archaea
+
+The shown folders contain the molecular dynamics simulation data, used tools, and scripts for the study of "The Role of Criptic Ancestral Symmetry In Histone Folding Mechanisms Across Eukarya and Archaea". The simulation data includes the force field and simulation setup for both AWSEM-MD and atomistic MD in OpenMM, the data analyses that are presented in the related paper, and the representative conformations from each simulation. Due to the large file size, the original trajectory files are available upon separate request.
+The tools and scripts folder includes the specific version of the AWSEM model, implemented in the LAMMPS package, and the scripts used to analyze the simulations. For detailed instructions on using AWSEM model, please refer to our Github: https://github.com/adavtyan/awsemmd/wiki. For detailed instructions on using the LAMMPS package, please refer to https://www.lammps.org/#gsc.tab=0. For detailed instructions on using the OpenMM package, please refer to https://openmm.org/. For any questions about using this data repository, please feel free to contact the author.
+ 
+ 

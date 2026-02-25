@@ -1,0 +1,3 @@
+MD Simulation Trajectories of the Best Ligand: Flavonoid Screening for RIPK1 Inhibitors
+
+Screening flavonoids using molecular docking, pharmacokinetic profiling, molecular dynamics simulations, and free energy calculations.Trajectories were prepared with gmx trjconv with the option -dt 100 to reduce the file size.

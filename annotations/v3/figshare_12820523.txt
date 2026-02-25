@@ -1,0 +1,3 @@
+HSDHSE_traj.xtc
+
+Molecular dynamics simulation trajectory, AmtB in twin-His HSD-HSE state

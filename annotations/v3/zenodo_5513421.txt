@@ -1,0 +1,9 @@
+Structural determinants of ligands recognition by the human mitochondrial basic amino acids transporter SLC25A29. Insights from molecular dynamics simulations of the c-state.
+
+Initial coordinates, molecular dynamics trajectories and representative snapshots resulting from the study "Structural determinants of ligands recognition by the human mitochondrial basic amino acids transporter SLC25A29. Insights from molecular dynamics simulations of the c-state." by Pasquadibisceglie and Polticelli.
+The MD folders contain the parameter/topology (parm7) and initial coordinates (rst7) for the molecular dynamics simulations. Moreover, a NetCDF trajectory "prod.nc" of the production phase is also included.
+In detail:
+- MD0 -> SLC25A29 in absence of ligands;
+- MD1, MD3, MD4 -> SLC25A29-ARG complex;
+- MD1-LYS, MD3-LYS, MD4-LYS -> SLC25A29-LYS complex.
+The folder PDB_figures contains the PDB files used to produce the figures presented in the manuscript.

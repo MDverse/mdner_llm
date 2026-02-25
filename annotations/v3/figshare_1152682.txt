@@ -1,0 +1,10 @@
+Molecular Dynamics Simulation of an Allosteric Receptor by Simultaneous Casting and Molding in a Dynamic Combinatorial Library
+
+Raw results of the molecular dynamics simulations performed for the paper:
+An Allosteric Receptor by Simultaneous Casting and Molding in a Dynamic Combinatorial Library, J. Li, P. Nowak and S. Otto.
+This fileset contains results of MD simulations on the macrocyclic isomer III (isoIII), gamma-cyclodextrin (CD), quaternary ammonium template (2) and complexes formed by them (CD-isoIII, isoIII-2, CD-isoIII-2). 
+Files with the "structure_" prefix are snaphots from MD simulations at the time indicated in the filename.
+Files with the ".traj" extension are Amber trajectory files (without water box) which can be loaded into a trajectory visualisation program (e.g. VMD, http://www.ks.uiuc.edu/Research/vmd/). The corresponding topology/parameter files have the ".prmtop" extension. The structures were saved every 10000 steps and the timestep was 2 fs. Therefore, in order to convert the frame number into simulation time, the former has to be multiplied by 1/50 ns. 
+Files with the "distGAX-Y_" prefix contain the distances between the mass centers of glucopyranose residues X and Y of either free or complexed gamma-cyclodextrin as a function of simulation time.
+Files with the "rmsfit" extension contain RMSD errors as a function of simulation time.
+File "1BB.mol2" is the naphtalene fragment (from building block 1) used to construct the isomer III macrocycle with the leap program. It was generated using restrained electrostatic fit (RESP) with RED.III.5 program. File "2TM" corresponds to the template 2 and was obtained the same way. 

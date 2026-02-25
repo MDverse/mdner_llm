@@ -1,0 +1,3 @@
+Illuminating Two-Component Signaling with Model Bacteriophytochromes
+
+Models of DrBphP and Agp1 HK-RR complexes, prepared for simulation with GROMACS and structures used in PISA analysis.

@@ -1,0 +1,34 @@
+The Gas Phase Thermochemistry and the Hydrogen Atom Abstraction Reactions of Trimethyl Phosphite
+
+Phosphorus-based
+compounds are increasingly studied for energy
+applications due to their unique functional properties and practical
+uses. However, phosphites, particularly in the gas phase, remain relatively
+underexplored. As a result, significant gaps persist in our understanding
+of their reactivity and stability. This study investigates trimethyl
+phosphite (TMPI) by combining quantum-chemical calculations to determine
+its thermochemical properties, reactive molecular dynamics (ReaxFF-MD)
+simulations to identify decomposition pathways, and kinetic calculations
+of hydrogen-atom abstraction (HAA) reactions. Molecular geometries
+were optimized at the M06-2X/6-311++G(d,p) level. Single-point energies
+were obtained using composite methods (G3, G3B3, CBS-QB3) and wavefunction-based
+calculations (MP2 and CCSD(T)). Composite results were averaged, while
+MP2 and CCSD(T) energies were extrapolated from cc-pVDZ to cc-pVQZ
+to approach the complete basis set (CBS) limit. The resulting averaged
+and CBS-extrapolated values were used to derive consistent bond dissociation
+energies (BDEs) and reaction energetics across various pathways. BDEs
+computed using the CBS-extrapolated method for C–O, C–H,
+and O–P bonds were 98.3, 56.4, and 93.9 kcal/mol, respectively.
+ReaxFF-MD-postulated decomposition pathways and product evolution
+trends corroborated key HAA and initiation pathways identified by
+quantum calculations. Six HAA reactions with O2 and radicals
+(Ḣ, ȮH, HȮ2, ĊH3, and CH3Ȯ) were evaluated using the Master Equation
+System Solver (MESS). The trend in reactivity based on forward barrier
+heights follows the order ȮH < Ḣ < CH3Ȯ < ĊH3 < HȮ2 <
+O2. The ȮH radicals showed the lowest activation
+barrier (<1 kcal/mol) and the highest branching ratio at low temperatures.
+In contrast, the abstraction with Ḣ dominated the branching
+ratios at high temperatures. As experimental data on TMPI remain limited,
+these results provide insight into its gas-phase reactivity, which
+is relevant to combustion chemistry, flame inhibition, and the environmental
+degradation of organophosphorus compounds.

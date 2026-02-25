@@ -1,0 +1,2 @@
+source data for "Dissecting the role of hydroxyl moiety at C14 in (+)-opioid based TLR4 antagonists via wet-lab experiments and molecular dynamics simulations"
+

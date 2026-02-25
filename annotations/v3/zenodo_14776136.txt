@@ -1,0 +1,5 @@
+Amber Lipid21 bilayer simulations
+
+GROMACS files for Lipid21 bilayer simulations. Trajectories have been processed using trjconv -skip 10 and the first 100 ns of the 500 ns simulations were removed. Used for comparison with OpenFF Sage 2.2.0 and refit simulations.
+128 lipid systems include: POPC, POPE, DMPC, POPS, SM16(PSM), 15% POPC/CHOL, and 50% POPC/CHOL
+Visit this Git repository for a workflow to generate other Lipid21 compositions for GROMACS simulations

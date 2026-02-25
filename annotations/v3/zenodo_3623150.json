@@ -1,0 +1,146 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Function and evolution of B-Raf loop dynamics relevant to cancer recurrence under drug inhibition\n\nOncogenic mutations in the kinase domain of the B-Raf protein have long been associated with cancers involving the RAF-MEK-ERK pathway. One constitutive ERK activating mutation in B-Raf, the V600E (valine to glutamate) replacement occurring adjacent to a site of threonine phosphorylation (T599) occurs in many types of cancer, and in a large percentage of certain cancers, such as melanoma. Because natural ATP binding activity and the V600E mutation are both known to alter the physical behavior of the activation loop in the ATP binding domain, this system is especially amenable to comparative functional analyses using molecular dynamics of drug classes and genetic variants at all-atom resolution. Here, we employ machine learning enabled identification of functionally conserved protein dynamics to compare how disease pertinent molecular variations impact conserved loop dynamics during the binding of four ATP competitive B-Raf inhibitors (sorafenib, vemurafenib, dabrafenib, and PLX7904) that differ in their effectiveness in preventing cancer recurrence. We demonstrate that drug development targeting B-Raf has progressively moved towards ATP competitive inhibitors that demonstrate less tendency to mimic the functional dynamic shifts associated with ATP binding in this domain. We argue this functional dynamic mimicry in first generation B-Raf inhibitors increases the side effect of hyperactivation (i.e. inducing MAPK activation in non-tumorous cells in the absence of secondary mutation). Within the context of the binding interaction of each inhibitor, we compare the functional dynamic impacts of V600E and other sensitizing and drug resistance causing mutations in the activation and P-loops, confirming sites of low mutational tolerance in these two functional regions. Lastly, we investigate V600E sensitivity of B-Raf loop dynamics in an evolutionary context, demonstrating that while it probably shares partial origin with its early evolution in primitive eukaryotes, the functional sensitivity to V600E was secondarily increased during early jawed vertebrate evolution.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "B-Raf",
+            "start": 26,
+            "end": 31
+        },
+        {
+            "label": "MOL",
+            "text": "kinase",
+            "start": 126,
+            "end": 132
+        },
+        {
+            "label": "MOL",
+            "text": "B-Raf",
+            "start": 147,
+            "end": 152
+        },
+        {
+            "label": "MOL",
+            "text": "RAF",
+            "start": 214,
+            "end": 217
+        },
+        {
+            "label": "MOL",
+            "text": "MEK",
+            "start": 218,
+            "end": 221
+        },
+        {
+            "label": "MOL",
+            "text": "ERK",
+            "start": 222,
+            "end": 225
+        },
+        {
+            "label": "MOL",
+            "text": "ERK",
+            "start": 252,
+            "end": 255
+        },
+        {
+            "label": "MOL",
+            "text": "B-Raf",
+            "start": 279,
+            "end": 284
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 507,
+            "end": 510
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 627,
+            "end": 630
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 1014,
+            "end": 1017
+        },
+        {
+            "label": "MOL",
+            "text": "B-Raf inhibitors",
+            "start": 1030,
+            "end": 1046
+        },
+        {
+            "label": "MOL",
+            "text": "sorafenib",
+            "start": 1048,
+            "end": 1057
+        },
+        {
+            "label": "MOL",
+            "text": "vemurafenib",
+            "start": 1059,
+            "end": 1070
+        },
+        {
+            "label": "MOL",
+            "text": "dabrafenib",
+            "start": 1072,
+            "end": 1082
+        },
+        {
+            "label": "MOL",
+            "text": "PLX7904",
+            "start": 1088,
+            "end": 1095
+        },
+        {
+            "label": "MOL",
+            "text": "B-Raf",
+            "start": 1212,
+            "end": 1217
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 1250,
+            "end": 1253
+        },
+        {
+            "label": "MOL",
+            "text": "ATP",
+            "start": 1363,
+            "end": 1366
+        },
+        {
+            "label": "MOL",
+            "text": "B-Raf",
+            "start": 1452,
+            "end": 1457
+        },
+        {
+            "label": "MOL",
+            "text": "MAPK",
+            "start": 1529,
+            "end": 1533
+        },
+        {
+            "label": "MOL",
+            "text": "B-Raf",
+            "start": 1935,
+            "end": 1940
+        }
+    ]
+}

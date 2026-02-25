@@ -1,0 +1,30 @@
+Head-to-Tail Cyclization Enhances Ice-Growth Inhibition by Linear Threonine Oligomers
+
+Developing
+short antifreeze peptides with low immunogenicity is
+considered to be a promising strategy for improving cryopreservation.
+Inspired by the design principles of cyclic peptide drugs characterized
+by high stability and strong affinity, we propose to use the cyclization
+strategy as a principle for the design of antifreeze peptides, aiming
+to enhance their structural stability and ice-binding ability, thereby
+significantly improving their antifreeze activity. In this study,
+we choose linear threonine oligomers (L-(Thr)n), composed of common and biocompatible threonine residues, to investigate
+the mechanism and efficacy of cyclization. Molecular dynamics (MD)
+simulations are used to compare the ice-growth inhibition ability
+of a series of linear oligomers and their corresponding cyclic counterparts
+(49 molecular systems) on different ice planes, resulting in 80.8
+μs MD trajectories. A detailed analysis of conformational changes
+during inhibition and their correlation with inhibitory efficiency
+reveals that conformational variability is detrimental to the binding
+of L-(Thr)n to ice, while β-sheet-like
+conformation has a significant advantage in inhibiting ice growth
+and is identified as a key factor for the superior performance of
+cyclized oligomers (C-(Thr)n) over their
+linear counterparts. Encouragingly, we find that C-(Thr)12 exhibits the most prominent performance, surpassing previously reported
+cyclic peptides of similar size due to its enhanced structural stability,
+superior ice binding, coverage, and antiengulfment capabilities. This
+study provides valuable insights into the design of small-sized ice-growth
+inhibitors through head-to-tail cyclization of linear oligomers. However,
+it should be noted that our findings are based purely on computational
+simulations, and experimental validation in actual cryopreservation
+conditions remains necessary.

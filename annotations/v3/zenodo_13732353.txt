@@ -1,0 +1,4 @@
+Dissected Antiporter Modules Establish Minimal Proton-Conduction Elements in the Respiratory Complex I
+
+
+Snapshots from MD simulations (see SI table 4 for reference)

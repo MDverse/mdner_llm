@@ -1,0 +1,22 @@
+MD Simulation and Free Energy Analysis Data for Guava Leaf-Derived Inhibitors Targeting Coagulation Factor IXa
+
+
+
+
+
+
+
+
+This dataset provides a comprehensive collection of molecular dynamics (MD) simulation trajectories and free energy analysis results for guava (Psidium guajava) leaf-derived inhibitors targeting Coagulation Factor IXa. The data supports a detailed investigation into protein–ligand interactions and contributes to computational drug discovery efforts.
+Key features of the dataset include:
+• Multiple MD Simulation Reruns: Simulations were performed in triplicate with distinct initial random velocities to ensure robustness and reproducibility. Each run covers a complete workflow from system minimization, equilibration (NVT and NPT phases), to a production phase lasting 10 ns.
+• Extensive Free Energy Calculation Data: Binding free energies (ΔG_bind) were computed using the gmx_mmpbsa package for both Poisson-Boltzmann (PB) and Generalized Born (GB) models. Calculations were performed every 0.01 ns (totaling 1000 data points per rerun), providing detailed temporal resolution of energy fluctuations.
+• Structural Analysis Outputs: The dataset includes computed structural descriptors such as root mean squared deviation (RMSD), root mean squared fluctuation (RMSF), solvent accessible surface area (SASA), and radius of gyration. Additionally, secondary structure analyses and cluster analysis performed in GROMACS are provided. Cluster analysis identifies both the most frequently visited conformer and the most stable conformer based on average binding free energy calculations.
+• Complete Documentation and Analysis Scripts: All relevant input files (topologies, parameter files, and .mdp files), raw trajectory data, processing scripts, and post-simulation analysis outputs are included. Detailed README files document the simulation procedures, directory structure, and steps for reproducibility.
+This dataset is ideal for researchers interested in the molecular dynamics of protein–ligand interactions and computational free energy perturbation methods. It not only serves as a reproducible archive of the computational experiments but also provides a foundation for further studies and the development of novel therapeutic strategies against coagulation disorders.
+
+
+
+
+
+

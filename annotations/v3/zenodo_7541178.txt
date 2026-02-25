@@ -1,0 +1,8 @@
+Data set for "On the interplay between lipids and asymmetric dynamics of an NBS degenerate ABC transporter"
+
+Supplementary data from molecular dynamics simulations performed on different states of bMRP1 (IF apo, IF ATP- and/or LTX-bound, as well as OF ATP-bound states) and embedded in different lipid bilayer membranes (namely POPC, POPE, POPC:POPE (3:1), POPC-Chol (3:1) and POPC:POPE:Chol (2:1:1).
+Are included:
+- Initial and postMD data
+- MD inputs used
+- Raw source data used for plot (ABC structural parameters, H-bond and non-covalent analyses, lipid order parameters, and efficiencies from Allopath tool)
+- PCA supplementary movies (PC1)

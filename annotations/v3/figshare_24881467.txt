@@ -1,0 +1,35 @@
+High Throughput Prescreening of Asphaltene Chemical Inhibitors Using Molecular Dynamics Approach
+
+Choosing an effective chemical inhibitor
+to prevent asphaltene
+precipitation and deposition in oil reservoirs is crucial for flow
+assurance management in the oil industry. Traditional laboratory screening
+methods are time-consuming and expensive. Therefore, we propose an
+alternative, which is employing molecular dynamics (MD) simulations
+for efficient prescreening of asphaltene inhibitors. In this study,
+MD is employed to screen six potential inhibitors, including cetyltrimethylammonium
+bromide (CTAB), octylphenol (OP), Triton X-100, 1-butyl-3-methylimidazolium
+bromide ([BMIM][Br]), 1-butyl-3-methylimidazolium chloride ([BMIM][Cl]),
+and 1-octyl-3-methylimidazolium chloride ([OMIM][Cl]). The results
+conclude that CTAB has the highest inhibitory effect on asphaltene
+precipitation in n-heptane and heptol at both atmospheric
+and elevated thermodynamic conditions (pressure of 60 bar and temperature
+of 360 K). OP is selected as the second-ranked inhibitor in n-heptane, while Triton X-100 prevents asphaltene precipitation
+better than OP when heptol is the carrying fluid. Ionic liquids show
+weaker inhibitory effects compared to surfactants. Nevertheless, [OMIM][Cl]
+is selected as the best ionic liquid to prevent asphaltene precipitation
+in n-heptane at  atmospheric conditions, while [BMIM][Cl]
+is selected as the best one in heptol. Hence, inhibitor screening
+tests for asphaltene precipitation consistently demonstrate CTAB as
+the most effective inhibitor. Subsequently, the CTAB performance is
+studied on the prevention of asphaltene deposition in a calcite pore.
+The results show that the presence of CTAB reduces the asphaltene
+deposition by about 30%. The lab scale cost ranking of inhibitors,
+from low to high, is as follows: Triton X-100, CTAB, [BMIM][Cl], [BMIM][Br],
+[OMIM][Cl], and OP. This shows CTAB has economic benefit over the
+others, while further field scale cost evaluation is needed before
+a final decision. This research introduces a cost-effective and efficient
+screening method for selecting chemical compounds based on molecular
+interactions. The introduced method for inhibitor screening is less
+expensive and faster than regular experimental approaches, while it
+provides proven accuracy compared with experimental techniques.

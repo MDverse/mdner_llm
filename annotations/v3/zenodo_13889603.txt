@@ -1,0 +1,16 @@
+Datasets for the article "Light-dependent flavin redox and adduct states control the conformation and DNA binding activity of the transcription factor EL222"
+
+#Figures
+All spectra (NMR, infrared, UV/Visible), molecular models, and plots presented in the main text and Supplementary Information are available in this directory. 
+# Classical Molecular Dynamic (MD) and Metadynamics Simulations (metaD) Data and Analysis
+This part of the repository contains data, parameters and scripts used in classical MD (oxi_MD, cov_MD and red_MD models) and meta-dynamics simulations (oxi_metaD, cov_metaD and red_metaD models) presented in our publication, including files essential for running metaD simulations, collective variable (COLVAR) analysis, and data processing for publication figures. Each directory contains a README file with instructions on file usage, script dependencies, and suggested analysis methods.
+## Contents
+#### MD and metaD Simulation Files
+- Input Files: MD and metaD input files used to initialize and configure the simulations, including system setup, force field parameters, and environment settings.
+- MetaD Parameters: Parameter files used for metaD simulations, detailing the biasing parameters, collective variables, and simulation controls.
+#### HILLS and COLVAR Files
+- HILLS Files: Files containing the metaD hills added during simulations, providing information on biasing potentials over time.
+- COLVAR Files: Files capturing the values of the collective variables (CVs) during the simulations, enabling analysis of CV-based system evolution
+#### Post-Processing Scripts
+- Data Analysis and Plotting Scripts: these scripts used to analyze metaD data, including COLVAR data parsing and bias potential extraction and plotting investigated variables over simulation time.
+- Extracting Max Bias during metaD Simulations: Provides the script used for extracting the maximum bias values from COLVAR files in metaD models.

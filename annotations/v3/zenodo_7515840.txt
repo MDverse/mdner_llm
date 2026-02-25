@@ -1,0 +1,3 @@
+Benzalkonium chlorides MARTINI force field parameters
+
+Benzalkonium chlorides MARTINI force field parameters (BAK8, BAK12, CKC).

@@ -1,0 +1,20 @@
+Expanding the Paradigm of Structure-Based Drug Design: Molecular Dynamics Simulations Support the Development of New Pyridine-Based Protein Kinase C‑Targeted Agonists
+
+Protein kinase C
+(PKC) modulators hold therapeutic potential for
+various diseases, including cancer, heart failure, and Alzheimer’s
+disease. Targeting the C1 domain of PKC represents a promising strategy;
+the available protein structures warrant the design of PKC-targeted
+ligands via a structure-based approach. However, the PKC C1 domain
+penetrates the lipid membrane during binding, complicating the design
+of drug candidates. The standard docking–scoring approach for
+PKC lacks information regarding the dynamics and the membrane environment.
+Molecular dynamics (MD) simulations with PKC, ligands, and membranes
+have been used to address these shortcomings. Previously, we observed
+that less computationally intensive simulations of just ligand–membrane
+interactions may help elucidate C1 domain-binding prospects. Here,
+we present the design, synthesis, and biological evaluation of new
+pyridine-based PKC agonists implementing an enhanced workflow with
+ligand–membrane MD simulations. This workflow holds promise
+to expand the approach in drug design for ligands targeted to weakly
+membrane-associated proteins.

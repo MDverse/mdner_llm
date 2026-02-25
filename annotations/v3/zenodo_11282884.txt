@@ -1,0 +1,3 @@
+TonB C-terminal domain simulation with amber99SBws (5 replicas)
+
+MD simulations of the folded C-terminal domain of TonB (residues 195-285) with amber99SBws force field. Five replicas from different starting structures from taken from RCSB PDB: 5LW8 (model 1, 5, 10, 15 and 20). Simulations were run wtih 40 mM NaCl at 303 K. The trajectory has a saving frequency of 10 ps. 

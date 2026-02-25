@@ -1,0 +1,3 @@
+Initial and final configurations of MD trajectories in Probing Catalyst-Free Hydroxyl Radical Generation at Microbubble Interfaces
+
+Five groups of initial and final configurations of MD trajectories in the article [Probing Catalyst-Free Hydroxyl Radical Generation at Microbubble Interfaces], including N₂ bubble (Fig 4a), OH ion-bubble-OH ion-bulk (Supplementary Fig. 20 21), OH radical-bubble(Fig 4c),  OH radical-bulk(Fig 4d),O2bubble 200-600 (Supplementary Fig. 18) and N2bubble 400-800 (Supplementary Fig. 19)

@@ -1,0 +1,3 @@
+Supplementary Data for: Conformational Gating Mechanism and Bioavailability Trap in Deep-sea Reductive Dehalogenases
+
+This dataset contains supplementary materials supporting the manuscript "Conformational Gating Mechanism and Bioavailability Trap in Deep-sea Reductive Dehalogenases". The data includes: 1. Metagenomic sequence metadata and filtered V3 datasets. 2. AlphaFold2 predicted structures (PDB format). 3. GROMACS molecular dynamics parameter files (.mdp). 4. Custom analysis scripts for data mining, plotting, and PyMOL visualization.

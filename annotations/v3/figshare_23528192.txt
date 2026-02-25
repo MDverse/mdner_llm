@@ -1,0 +1,31 @@
+Robust Mechanical Destruction to the Cell Membrane of Carbon Nitride Polyaniline (C3N): A Molecular Dynamics Simulation Study
+
+The
+drug-resistant bacteria, particularly multidrug-resistant
+bacteria,
+has emerged as a major global public health concern posing serious
+threats to human life and survival. Nanomaterials, including graphene,
+have shown promise as effective antibacterial agents owing to their
+unique antibacterial mechanism compared with traditional drugs. Despite
+the structural similarity to graphene, the potential antibacterial
+activity of carbon nitride polyaniline (C3N) remains unexplored.
+In this study, we employed molecular dynamics simulations to investigate
+the effects of the interaction between the C3N nanomaterial
+and the bacterial membrane to evaluate the potential antibacterial
+activity of C3N. Our results suggest that C3N is capable of inserting deep into the bacterial membrane interior,
+regardless of the presence or absence of positional restraints in
+the C3N. The insertion process also resulted in local lipid
+extraction by the C3N sheet. Additional structural analyses
+revealed that C3N induced significant changes in membrane
+parameters, including mean square displacement, deuterium order parameters,
+membrane thickness, and area per lipid. Docking simulations, where
+all the C3N are restraint to a specific positions, confirmed
+that C3N can extract lipids from the membrane, indicating
+the strong interaction between the C3N material and the
+membrane. Free-energy calculations further revealed that the insertion
+of the C3N sheet is energetically favorable and that C3N exhibits membrane insertion capacity comparable to that
+observed for graphene, suggesting their potential for similar antibacterial
+activity. This study provides the first evidence of the potential
+antibacterial properties of C3N nanomaterials via bacterial
+membrane damage and underscores the potential for its use as antibacterial
+agents in the future applications.

@@ -1,0 +1,7 @@
+Eliminating Finite-size Effects on the Calculation of X-ray Scattering from Molecular Dynamics Simulations
+
+Data repository for the work with the same name. Gitlab version
+All plots for the figures in the work can be generated via plots_resubmission.ipynb
+This version is accompanying the final resubmission to JCP.
+ 
+Uses the pypi package grsq

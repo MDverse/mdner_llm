@@ -1,0 +1,34 @@
+Developing a Coarse-Grained Model for Bacterial Cell Walls: Evaluating Mechanical Properties and Free Energy Barriers
+
+The bacterial cell envelope of Gram-negative
+bacteria is a complex
+biological barrier with multiple layers consisting of the inner membrane,
+periplasm of peptidoglycan, and the outer membrane with lipopolysaccharides
+(LPS). With rising antimicrobial resistance there is increasing interest
+in understanding interactions of small molecules with the cell membrane
+to aid in the development of novel drug molecules. Hence suitable
+representations of the bacterial membrane are required to carry out
+meaningful molecular dynamics simulations. Given the complexity of
+the cell envelope, fully atomistic descriptions of the cell membrane
+with explicit solvent are computationally prohibitive, allowing limited
+sampling with small system sizes. However, coarse-grained (CG) models
+such as MARTINI allow one to study phenomena at physiologically relevant
+length and time scales. Although MARTINI models for lipids and the
+LPS are available in literature, a suitable CG model of peptidoglycan
+is lacking. Using an all-atom model described by Gumbart et al. [PLoS Comput. Biol. 2014, 10, e1003475], we develop a CG model of the peptidoglycan network within
+the MARTINI framework. The model is parametrized to reproduce the
+end-to-end distance of glycan strands. The structural properties such
+as the equilibrium angle between adjacent peptides along the strands,
+area per disaccharide, and cavity size distributions agree well with
+the atomistic simulation results. Mechanical properties such as the
+area compressibility and the bending modulus are accurately reproduced.
+While developing novel antibiotics it is important to assess barrier
+properties of the peptidogylcan network. We evaluate and compare the
+free energy of insertion for a thymol molecule using umbrella sampling
+on both the MARTINI and all-atom peptidoglycan models. The insertion
+free energy was found to be less than kBT for both the MARTINI and all-atom models. Additional
+restraint free simulations reveal rapid translocation of thymol across
+peptidogylcan. We expect that the proposed MARTINI model for peptidoglycan
+will be useful in understanding phenomena associated with bacterial
+cell walls at larger length and time scales, thereby overcoming the
+current limitations of all-atom models.

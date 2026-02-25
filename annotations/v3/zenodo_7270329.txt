@@ -1,0 +1,4 @@
+Trajectories from "A glutamine-based single ɑ-helix scaffold to target globular proteins" Escobedo et al. 2022
+
+Trajectories from the manuscript "A glutamine-based single ɑ-helix scaffold to target globular proteins" Escobedo et al. 2022.
+https://www.biorxiv.org/content/10.1101/2022.05.06.490931v1

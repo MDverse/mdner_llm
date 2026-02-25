@@ -1,0 +1,8 @@
+Protonation state of proteins in crystals (CpHMD simulations)
+
+Input files to run simulations for:
+"What is the protonation state of proteins in crystals: insights from constant pH molecular dynamics simulations"
+by Noora Aho*†, Gerrit Groenhof*, and Pavel Buslaev* (manuscript submitted in August 2024)
+*Nanoscience Center and Department of Chemistry, University of Jyväskylä, Finland
+†Theoretical Physics and Center for Biophysics, Saarland University, Germany
+ 

@@ -1,0 +1,5 @@
+Molecular and pharmacological disruption of the prenol salvage pathway of Plasmodium parasites enhances fosmidomycin antimalarial activity in vitro and in vivo
+
+Raw trajectories, predicted binding energies and protein-ligand interactions generated from molecular dynamics simulations of PF3D7_0710300 with different ligands.
+MD simulations were run with Desmond, OPLS4, using TIP3P water models embedded in POPC membrances within a PBC box of 10x10x13. More details in the assoaciated publication
+1305- PF3D7_0710300 with geraniol CTP, POPC, T3P, 10x10x131306- PF3D7_0710300 with geranic acid CTP, POPC, T3P, 10x10x131307- PF3D7_0710300 with r_2,7-Dimethyl-1-octanol CTP, POPC, T3P, 10x10x131308- PF3D7_0710300 with s_2,7-Dimethyl-1-octanol CTP, POPC, T3P, 10x10x131309- PF3D7_0710300 with r_citronellol CTP, POPC, T3P, 10x10x131310- PF3D7_0710300 with s_citronellol CTP, POPC, T3P, 10x10x13

@@ -1,0 +1,6 @@
+MD simulations of MHCII variants bound to different peptides and HLA-DM
+
+Simulated by Sebastian Stolzenberg in the Frank Noé Lab at Freie Universität Berlin, Germany.
+The data presented here is a subset of the data used for the papers:- MHC class II complexes sample intermediate states along the peptide exchange pathway- MHC-II dynamics are maintained in HLA-DR allotypes to ensure catalyzed peptide exchange
+Please cite these publications when using the data.
+This version of the dataset was curated by Tim Hempel and Aldo S. Pasos-Trejo.

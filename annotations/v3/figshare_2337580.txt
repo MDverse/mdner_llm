@@ -1,0 +1,15 @@
+Refined OPLS All-Atom Force Field Parameters for n‑Pentadecane, Methyl Acetate, and Dimethyl Phosphate
+
+OPLS All-Atom (OPLS/AA) is a generic
+all-atom force field which
+was fine-tuned to accurately reproduce condensed phase properties
+of organic liquids. Its application in modeling of lipid membranes
+is, however, limited mainly due to the inability to correctly describe
+phase behavior and organization of the hydrophobic core of the model
+lipid bilayers. Here we report new OPLS/AA parameters for n-pentadecane, methyl acetate, and dimethyl phosphate anion.
+For the new force field parameters, we show very good agreement between
+calculated and numerous reference data, including liquid density,
+enthalpy of vaporization, free energy of hydration, and selected transport
+properties. The new OPLS/AA parameters have been used in successful
+submicrosecond MD simulations of bilayers made of bacterial glycolipids
+whose results will be published elsewhere shortly.

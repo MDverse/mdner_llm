@@ -1,0 +1,18 @@
+How Ethylene Glycol Chains Enhance the Dielectric Constant of Organic Semiconductors: Molecular Origin and Frequency Dependence
+
+Incorporating
+ethylene glycols (EGs) into organic semiconductors has become the
+prominent strategy to increase their dielectric constant. However,
+EG’s contribution to the dielectric constant is due to nuclear
+relaxations, and therefore, its relevance for various organic electronic
+applications depends on the time scale of these relaxations, which
+remains unknown. In this work, by means of a new computational protocol
+based on polarizable molecular dynamics simulations, the time- and
+frequency-dependent dielectric constant of a representative fullerene
+derivative with EG side chains is predicted, the origin of its unusually
+high dielectric constant is explained, and design suggestions are
+made to further increase it. Finally, a dielectric relaxation time
+of ∼1 ns is extracted which suggests that EGs may be too slow
+to reduce the Coulombic screening in organic photovoltaics but are
+definitely fast enough for organic thermoelectrics with much lower
+charge carrier velocities.

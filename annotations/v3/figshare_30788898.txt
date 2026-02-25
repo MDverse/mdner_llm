@@ -1,0 +1,30 @@
+Selective Activation of GPCRs: Molecular Dynamics Shows Siponimod Binds but Fails To Activate S1PR2, Unlike S1PR1
+
+G protein-coupled receptors (GPCRs) are central to drug
+discovery,
+accounting for nearly 40% of approved pharmaceuticals due to their
+regulatory role in diverse physiological processes. Given the high
+structural similarity among homologues, achieving receptor selectivity
+while minimizing off-target effects remains a major challenge in designing
+drugs that target GPCRs. Sphingosine-1-phosphate receptors (S1PRs),
+comprising five subtypes, are therapeutically important GPCRs critical
+for immune and cardiovascular functions. Siponimod, an FDA-approved
+drug for multiple sclerosis, selectively modulates S1PR1 over S1PR2,
+unlike earlier S1PR modulators. However, the molecular basis for this
+selectivity is unclear, as cellular and biochemical assays provide
+limited insights. In this study, we used long-time-scale molecular
+dynamics simulations to investigate how S1P and Siponimod binding
+affects the structural dynamics of S1PR1 and S1PR2. Both ligands exhibited
+strong active site binding in both receptors. Crucially, while S1P
+and Siponimod induced similar activation-linked conformational changes
+in S1PR1, Siponimod failed to trigger these rearrangements in S1PR2.
+Specifically, Siponimod binding to S1PR2 led to altered side-chain
+dynamics of key TM7 residues (viz., Y7.37, F7.38, F7.39) and a drift of transmembrane helix 6 (TM6) toward
+orientations observed in the inactive state. These unique structural
+features differentiate Siponimod’s behavior from S1P and explain
+its inability to modulate S1PR2. Our findings elucidate molecular
+determinants of Siponimod’s selectivity toward S1PR1 and highlight
+these residues as potential differentiators for selective modulator
+design. This study demonstrates how structural and dynamic insights
+from atomistic simulations aid rational drug design for targets with
+high homology.

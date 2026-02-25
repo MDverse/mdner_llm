@@ -1,0 +1,11 @@
+Molecular Dynamics Simulations of Dynamic Combinatorial Catenanes
+
+Raw results of the molecular dynamics simulations performed for the paper:
+Catenanes from Catenanes: Quantitative Assessment of Cooperativity in Dynamic Combinatorial Catenation, J. Li, P. Nowak, H. Fanlo-Virgos and S. Otto, Chemical Science, 2014, DOI: 10.1039/C4SC01998A
+This fileset contains results of MD simulations on the self-assembled tetrameric azobenzene macrocycle (4AB), beta-cyclodextrin (BCD), gamma-cyclodextrin (GCD) and [2]- and [3]catenanes formed by them. In case of [3]catenanes there are two possible orientations of the cyclodextrins - parallel and antiparallel. They are denoted by "p" and "ap" suffixes. Example: filenames containing "4AB-2BCDap" correspond to the [3]catenane composed of a single tetrameric azobenzene macrocycle and two beta-cyclodextrins oriented in an antiparallel fashion.
+Files with the "-structure_" prefix are snaphots from MD simulations at the time indicated in the filename.
+Files with the ".traj" extension are 40 ns trajectory files (without water box) which can be loaded into a trajectory visualisation program (e.g. VMD, http://www.ks.uiuc.edu/Research/vmd/). The corresponding topology/parameter files have the ".prmtop" extension.
+Files with the "distCD_" prefix contain the distance between the center of a cyclodextrin (CD1 and CD2 for the first and the second, respectively) and the 4AB macrocycle in the function of time.
+Files with the "distSS_" prefix contain the distance between the centers of the opposite disulfide bonds in the 4AB macrocycle in the function of time.
+Files with the "sasa_" prefix contain the solvent accessible surface areas in the function of time. The surface was partitioned between different molecules (4AB, CD1, and CD2 suffixes) and with respect to the hydrophobicity/hydrophilicity (denoted by the suffix). Files with the "hbond_" prefix contain the number of hydrogen bonds between the 4AB macrocycle and cyclodextrins in the function of time.
+File "AB2.mol2" is the azobenzene fragment used to construct the 4AB macrocycle with the leap program. It was generated using restrained electrostatic fit (RESP) with RED.III.5 program.

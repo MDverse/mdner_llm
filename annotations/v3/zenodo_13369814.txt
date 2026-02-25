@@ -1,0 +1,3 @@
+MD simulations for "Molecular basis of neurosteroid and anticonvulsant regulation of TRPM3"
+
+MD simulations for the publication "­­­Molecular basis of neurosteroid and anticonvulsant regulation of TRPM3" in Nature Structural and Molecular Biology. Initial system setup (step5_input.psf/crd) and trajectories of the 4 simulation systems are provided, with each simulation system having 3 replicas (rep0/1/2). The assembly names mentioned in the publication and the corresponding alias are as follows: 1) TRPM3-PregS/CIM with CIM in pose I: "trpm3-cim1";2) TRPM3-PregS/CIM with CIM in pose II: "trpm3-cim2";3) TRPM3-CHS: "trpm3-apo-chs";4) TRPM3-Cholesterol: "trpm3-apo-chol".  

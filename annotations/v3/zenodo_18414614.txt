@@ -1,0 +1,3 @@
+Simulation data for rg-rich-regions (CALVADOS v3): RG/RGG tract grammar analyses
+
+This record contains simulation trajectories and derived analysis outputs of [XRGG]7 peptides, with and without RNA ([UG]12), generated with the CALVADOS v3 coarse-grained model to support RG/RGG tract grammar analyses and figure panels in the associated study.

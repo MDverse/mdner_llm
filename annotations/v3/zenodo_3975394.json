@@ -1,0 +1,392 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics trajectories for SARS-CoV-2 Mpro with 7 HIV inhibitors\n\nRaw trajectory data (GROMACS format) of all atom molecular dynamics simulation of COVID-19 related SARS-CoV-2 dimeric main protease (based on PDB 6LU7) with 7 kinds of HIV inhibitors (darunavir, indinavir, lopinavir, nelfinavir, ritonavir, saquinavir, and tipranavir) were calculated on massively parallel supercomputer HOKUSAI Big Waterfall at RIKEN ISC, and a special-purpose computer, MDGRAPE-4A, at RIKEN BDR, JAPAN. For each ligand, 200ns length 28 trajectories were calculated. Some of these trajectories were calculated further longer. We can observe formation of encounter complex and investigate potential binding sites on the surface of the dimeric protease. We hope that these raw data are valuable for further drug repurposing/development research targeting the SARS-CoV-2 main protease. We will submit analysis of these data to refereed journal.\nMolecular dynamics simulations were performed under NVT at 310K, with the time step 2.5fs. The starting structure was prepared based on PDB 6LU7, with amber14sb force field in about 10nm cubic box with periodic boundary conditions. The ligands were initially placed apart from the active sites of the dimeric main protease.\nWe have also already deposited 10 microseconds trajectories of the dimeric protease without ligand (with amber99sb-ildn force field) in the repository https://data.mendeley.com/datasets/vpps4vhryg/1 (DOI:10.17632/vpps4vhryg.1).\nFiles:\n\nLIG_28traj200ns_every200ps.zip    (28trajectories for each ligand)\n\n\t\ntraj200ns_every200ps/LIG/a/traj200ns_every200ps_LIG-a-n.xtc\n\n\t\t\n(trajectory in GROMACS XTC)\n\n\ntraj200ns_every200ps/LIG/a/conf.gro\n\t\t\n(initial condition in GROMACS GRO)\n\n\ntraj200ns_every200ps/LIG/topology/\n\t\t\n(contains topology files)\n\n\ntraj200ns_every200ps/LIG/mdp/\n\t\t\n(contains run paramter files)\n\n\n\n\nZZZ_20traj1us_every200ps.zip               (20trajectories extended to 1microsecond)\n\t\ntraj1us_every200ps/traj1us_every200ps_LIG-a-n.xtc\n\t\t\nDAR-C-06, DAR-D-07\nIND-C-05, IND-C-06, IND-D-06\nLOP-A-02, LOP-D-03\nNEL-B-01, NEL-C-07, NEL-D-02\nRIT-B-07, RIT-C-07\nSAQ-B-01, SAQ-C-04, SAQ-D-03\nTPR-A-07, TPR-B-04, TPR-B-06, TPR-C-05, TPR-D-02\n\n\n\n\nZZZ_3traj6us_every1ns.zip                 (3trajectories extended to 6microseconds or more)\n\t\ntraj6us_every1ns/traj6us_every1ns_LIG-a-n.xtc\n\t\t\nIND-D-06, NEL-B-01, TPR-B-04\n\n\n\n\n\n \n\nZZZ_LigandBindingPosePDBs.zip        (pickup 3 snapshots for each ligand)\n\t\nLigandBindingPosePDBs/LIG-a-n_frame.pdb\n\n\n\n \n\nmovies_overlooking_28traj200ns.zip     (7x2movies)\n\t\nmovies_28traj200ns/movie_overlooking_LIG_28traj200ns-viewA.mp4\n\n\t\t\ninspecting 28traj at once\n\n\nmovies_28traj200ns/movie_overlooking_LIG_28traj200ns-viewB.mp4\n\t\t\nfrom the opposite angle\n\n\n\n\nmovies_1us.zip          (17movies)\n\t\nmovies_1us/movie_LIG-a-n_1us.mp4\n\n\nmovies_6us.zip          (3movies)\n\t\nmovies_6us/movie_LIG-a-n_6us.mp4\n\n\n\n        where\n             LIG={DAR,IND,LOP,NEL,RIT,SAQ,TPR}\n                 DAR:darunavir\n                 IND:indinavir\n                 NEL:nelfinavir\n                 RIT:ritonavir\n                 SAQ:saquinavir\n                 TPR:tipranavir\n             a={A,B,C,D}\n             n={01,02,03,04,05,06,07}\n \n\nZZZz_3traj1us_every200ps_unbinding.zip      (3trajectories extended to 1microsecond exhibiting unbinding)\nZZZz_56traj200ns_every200ps_negative_control.zip    (56trajectories as a negative control)\nZZZz_LigandBindingPosePDBsRevised.zip                    (pickuped 3 snapshots for each ligand)\n\n ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 Mpro",
+            "start": 36,
+            "end": 51
+        },
+        {
+            "label": "MOL",
+            "text": "HIV inhibitors",
+            "start": 59,
+            "end": 73
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 96,
+            "end": 103
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 dimeric main protease",
+            "start": 174,
+            "end": 206
+        },
+        {
+            "label": "MOL",
+            "text": "6LU7",
+            "start": 221,
+            "end": 225
+        },
+        {
+            "label": "MOL",
+            "text": "HIV inhibitors",
+            "start": 243,
+            "end": 257
+        },
+        {
+            "label": "MOL",
+            "text": "darunavir",
+            "start": 259,
+            "end": 268
+        },
+        {
+            "label": "MOL",
+            "text": "indinavir",
+            "start": 270,
+            "end": 279
+        },
+        {
+            "label": "MOL",
+            "text": "lopinavir",
+            "start": 281,
+            "end": 290
+        },
+        {
+            "label": "MOL",
+            "text": "nelfinavir",
+            "start": 292,
+            "end": 302
+        },
+        {
+            "label": "MOL",
+            "text": "ritonavir",
+            "start": 304,
+            "end": 313
+        },
+        {
+            "label": "MOL",
+            "text": "saquinavir",
+            "start": 315,
+            "end": 325
+        },
+        {
+            "label": "MOL",
+            "text": "tipranavir",
+            "start": 331,
+            "end": 341
+        },
+        {
+            "label": "STIME",
+            "text": "200ns",
+            "start": 513,
+            "end": 518
+        },
+        {
+            "label": "MOL",
+            "text": "dimeric protease",
+            "start": 726,
+            "end": 742
+        },
+        {
+            "label": "MOL",
+            "text": "SARS-CoV-2 main protease",
+            "start": 849,
+            "end": 873
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 993,
+            "end": 997
+        },
+        {
+            "label": "MOL",
+            "text": "6LU7",
+            "start": 1074,
+            "end": 1078
+        },
+        {
+            "label": "FFM",
+            "text": "amber14sb",
+            "start": 1085,
+            "end": 1094
+        },
+        {
+            "label": "MOL",
+            "text": "dimeric main protease",
+            "start": 185,
+            "end": 206
+        },
+        {
+            "label": "STIME",
+            "text": "10 microseconds",
+            "start": 1289,
+            "end": 1304
+        },
+        {
+            "label": "MOL",
+            "text": "dimeric protease",
+            "start": 1325,
+            "end": 1341
+        },
+        {
+            "label": "FFM",
+            "text": "amber99sb-ildn",
+            "start": 1363,
+            "end": 1377
+        },
+        {
+            "label": "STIME",
+            "text": "6microseconds",
+            "start": 2273,
+            "end": 2286
+        },
+        {
+            "label": "MOL",
+            "text": "DAR",
+            "start": 2007,
+            "end": 2010
+        },
+        {
+            "label": "MOL",
+            "text": "DAR",
+            "start": 2017,
+            "end": 2020
+        },
+        {
+            "label": "MOL",
+            "text": "DAR",
+            "start": 2924,
+            "end": 2927
+        },
+        {
+            "label": "MOL",
+            "text": "DAR",
+            "start": 2970,
+            "end": 2973
+        },
+        {
+            "label": "MOL",
+            "text": "darunavir",
+            "start": 2974,
+            "end": 2983
+        },
+        {
+            "label": "MOL",
+            "text": "IND",
+            "start": 2026,
+            "end": 2029
+        },
+        {
+            "label": "MOL",
+            "text": "IND",
+            "start": 2036,
+            "end": 2039
+        },
+        {
+            "label": "MOL",
+            "text": "IND",
+            "start": 2046,
+            "end": 2049
+        },
+        {
+            "label": "MOL",
+            "text": "IND",
+            "start": 2347,
+            "end": 2350
+        },
+        {
+            "label": "MOL",
+            "text": "IND",
+            "start": 2928,
+            "end": 2931
+        },
+        {
+            "label": "MOL",
+            "text": "IND",
+            "start": 3001,
+            "end": 3004
+        },
+        {
+            "label": "MOL",
+            "text": "indinavir",
+            "start": 3005,
+            "end": 3014
+        },
+        {
+            "label": "MOL",
+            "text": "NEL",
+            "start": 2074,
+            "end": 2077
+        },
+        {
+            "label": "MOL",
+            "text": "NEL",
+            "start": 2084,
+            "end": 2087
+        },
+        {
+            "label": "MOL",
+            "text": "NEL",
+            "start": 2094,
+            "end": 2097
+        },
+        {
+            "label": "MOL",
+            "text": "NEL",
+            "start": 2357,
+            "end": 2360
+        },
+        {
+            "label": "MOL",
+            "text": "NEL",
+            "start": 2936,
+            "end": 2939
+        },
+        {
+            "label": "MOL",
+            "text": "NEL",
+            "start": 3032,
+            "end": 3035
+        },
+        {
+            "label": "MOL",
+            "text": "nelfinavir",
+            "start": 3036,
+            "end": 3046
+        },
+        {
+            "label": "MOL",
+            "text": "RIT",
+            "start": 2103,
+            "end": 2106
+        },
+        {
+            "label": "MOL",
+            "text": "RIT",
+            "start": 2113,
+            "end": 2116
+        },
+        {
+            "label": "MOL",
+            "text": "RIT",
+            "start": 2940,
+            "end": 2943
+        },
+        {
+            "label": "MOL",
+            "text": "RIT",
+            "start": 3064,
+            "end": 3067
+        },
+        {
+            "label": "MOL",
+            "text": "ritonavir",
+            "start": 3068,
+            "end": 3077
+        },
+        {
+            "label": "MOL",
+            "text": "SAQ",
+            "start": 2122,
+            "end": 2125
+        },
+        {
+            "label": "MOL",
+            "text": "SAQ",
+            "start": 2132,
+            "end": 2135
+        },
+        {
+            "label": "MOL",
+            "text": "SAQ",
+            "start": 2142,
+            "end": 2145
+        },
+        {
+            "label": "MOL",
+            "text": "SAQ",
+            "start": 2944,
+            "end": 2947
+        },
+        {
+            "label": "MOL",
+            "text": "SAQ",
+            "start": 3095,
+            "end": 3098
+        },
+        {
+            "label": "MOL",
+            "text": "saquinavir",
+            "start": 3099,
+            "end": 3109
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2151,
+            "end": 2154
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2161,
+            "end": 2164
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2171,
+            "end": 2174
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2181,
+            "end": 2184
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2191,
+            "end": 2194
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2367,
+            "end": 2370
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 2948,
+            "end": 2951
+        },
+        {
+            "label": "MOL",
+            "text": "TPR",
+            "start": 3127,
+            "end": 3130
+        },
+        {
+            "label": "MOL",
+            "text": "tipranavir",
+            "start": 3131,
+            "end": 3141
+        }
+    ]
+}

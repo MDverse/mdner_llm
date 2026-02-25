@@ -1,0 +1,104 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "POPC/Cholesterol (50:50) lipid membrane, 303K, Charmm36 force field, simulation files and 100 ns trajectory for GROMACS simulation engine v5\n\nAll runs were performed with GROMACS simulation engine v5 and CHARMM36 additive force field parameters obtained from MacKerell lab website (http://mackerell.umaryland.edu/charmm_ff.shtml, also available at\nhttps://doi.org/10.5281/zenodo.209080). Conditions: T=303, 80 POPC and 80 Cholesterol molecules, 7200 tip3p waters, 100ns trajectory (preceded with equilibration). \nThese data were originally obtained for the nmrlipids.blospot.fi project.\nFind more details at nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "MOL",
+            "text": "Cholesterol",
+            "start": 5,
+            "end": 16
+        },
+        {
+            "label": "TEMP",
+            "text": "303K",
+            "start": 41,
+            "end": 45
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 47,
+            "end": 55
+        },
+        {
+            "label": "STIME",
+            "text": "100 ns",
+            "start": 90,
+            "end": 96
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 112,
+            "end": 119
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "simulation engine v5",
+            "start": 120,
+            "end": 140
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 171,
+            "end": 178
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM36",
+            "start": 204,
+            "end": 212
+        },
+        {
+            "label": "TEMP",
+            "text": "303",
+            "start": 402,
+            "end": 405
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 410,
+            "end": 414
+        },
+        {
+            "label": "MOL",
+            "text": "Cholesterol",
+            "start": 422,
+            "end": 433
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 450,
+            "end": 455
+        },
+        {
+            "label": "MOL",
+            "text": "waters",
+            "start": 456,
+            "end": 462
+        },
+        {
+            "label": "STIME",
+            "text": "100ns",
+            "start": 464,
+            "end": 469
+        }
+    ]
+}

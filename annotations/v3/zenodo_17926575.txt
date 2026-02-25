@@ -1,0 +1,3 @@
+Input parameter files for manuscript "Design, Synthesis and Computational Insights of 7-Hydroxystilbene-Coumarin Hybrid Scaffolds as SARS-CoV-2 3CLpro Inhibitors"
+
+Input parameters used for molecular dynamics simulations on AMBER24 software as well as MMGBSA and FMO for calculating binding free energy, in the manuscript with the title: "Design, Synthesis and Computational Insights of 7-Hydroxystilbene-Coumarin Hybrid Scaffolds as SARS-CoV-2 3CLpro Inhibitors"

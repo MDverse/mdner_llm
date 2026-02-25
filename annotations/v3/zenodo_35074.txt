@@ -1,0 +1,3 @@
+POPC_AMBER_LIPID14_CaCl2_1Mol
+
+MD simulation trajectory and related files for fully hydrated POPC bilayer with 1M CaCl2. The LIPID14 force field was used with Gromacs 5.0.3. Ions were described by AMBER99SB-ILDN force field. Conditions: T=298.15, 128 POPC molecules, 6400 tip3p waters (lipid/water 1:50), 100 Ca, 200 Cl. 200ns trajectory  (preceded by 5ns NPT equillibration) (2 files of 100ns).

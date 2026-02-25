@@ -1,0 +1,4 @@
+Busca por novos inibidores da PCSK9 empregando técnicas de planejamento de fármacos baseado na estrutura do alvo
+
+O item Simulações.zip contém as trajetórias de todas as simulações (XXX_trj) e as respectivas topologias dos sistemas (XXX-out.cms). Para visualizar as trajetórias é necessário utilizar um software de visualização molecular, tal como Pymol, VMD ou Maestro.
+ 

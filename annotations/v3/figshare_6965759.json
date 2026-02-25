@@ -1,0 +1,140 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Reactive Oxygen and Nitrogen Species at Phospholipid Bilayers: Peroxynitrous Acid and Its Homolysis Products\n\nPeroxynitrite is\na powerful and long-lived oxidant generated in\nvivo. Peroxynitrous acid (ONOOH), its protonated form, may penetrate\ninto phospholipid bilayers and undergo homolytic cleavage to nitrogen\ndioxide (·NO2) and hydroxyl radicals (·OH), causing\nsevere nitro-oxidative damage. The membrane environment is thought\nto influence ONOOH reactions, but the mechanisms remain speculative.\nMost experimental techniques lack the level of resolution required\nto keep track of the motion of very reactive species and their interactions\nwith the membrane. Here, we performed molecular dynamics simulations\nof the permeation, interactions, and dynamics of ONOOH and its homolysis\nproducts in the phospholipid membrane environment. We started by developing\nan ONOOH model that successfully accounted for its conformational\nequilibria and solvation energies. Membrane permeation of ONOOH was\naccompanied by conformational changes. ONOOH exhibited a strong tendency\nto bind to and accumulate at the membrane headgroup region. There,\nONOOH homolysis led to ·NO2 radicals, which in turn\npartitioned to the membrane interior. About one-third of the ·OH\nradicals readily escaped to the aqueous phase within 1 ns. However,\na significant number of ·OH radicals became trapped at the lipid\nheadgroup region for a longer period. The possible implications for\nmembrane-based nitration and oxidation processes were discussed.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Oxygen",
+            "start": 9,
+            "end": 15
+        },
+        {
+            "label": "MOL",
+            "text": "Nitrogen",
+            "start": 20,
+            "end": 28
+        },
+        {
+            "label": "MOL",
+            "text": "Phospholipid",
+            "start": 40,
+            "end": 52
+        },
+        {
+            "label": "MOL",
+            "text": "Peroxynitrous Acid",
+            "start": 63,
+            "end": 81
+        },
+        {
+            "label": "MOL",
+            "text": "Peroxynitrite",
+            "start": 110,
+            "end": 123
+        },
+        {
+            "label": "MOL",
+            "text": "Peroxynitrous acid",
+            "start": 180,
+            "end": 198
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 200,
+            "end": 205
+        },
+        {
+            "label": "MOL",
+            "text": "phospholipid",
+            "start": 248,
+            "end": 260
+        },
+        {
+            "label": "MOL",
+            "text": "NO2",
+            "start": 323,
+            "end": 326
+        },
+        {
+            "label": "MOL",
+            "text": "hydroxyl",
+            "start": 332,
+            "end": 340
+        },
+        {
+            "label": "MOL",
+            "text": "OH",
+            "start": 203,
+            "end": 205
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 445,
+            "end": 450
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 762,
+            "end": 767
+        },
+        {
+            "label": "MOL",
+            "text": "phospholipid",
+            "start": 802,
+            "end": 814
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 865,
+            "end": 870
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 986,
+            "end": 991
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 1035,
+            "end": 1040
+        },
+        {
+            "label": "MOL",
+            "text": "ONOOH",
+            "start": 1136,
+            "end": 1141
+        },
+        {
+            "label": "MOL",
+            "text": "NO2",
+            "start": 1160,
+            "end": 1163
+        },
+        {
+            "label": "MOL",
+            "text": "OH",
+            "start": 352,
+            "end": 354
+        },
+        {
+            "label": "MOL",
+            "text": "OH",
+            "start": 448,
+            "end": 450
+        }
+    ]
+}

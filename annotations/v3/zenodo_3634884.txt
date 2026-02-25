@@ -1,0 +1,4 @@
+Kir simulations with multiple lipid species
+
+Final snapshots and input tpr files of simuluations of Kir2.2 channels with multiple lipid compositions.
+The mdp file uploaded was used for all the simualtions

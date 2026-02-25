@@ -1,0 +1,140 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Specificity and Reactivity of Mycobacterium tuberculosis Serine/Threonine Kinases PknG and PknB\n\nMycobacterium tuberculosis (Mtb),\nthe causative agent of Tuberculosis, has 11 eukaryotic-like serine/threonine\nprotein kinases, which play essential roles in cell growth, signal\ntransduction, and pathogenesis. Protein kinase G (PknG) regulates\nthe carbon and nitrogen metabolism by phosphorylation of the glycogen\naccumulation regulator (GarA) protein at Thr21. Protein kinase B (PknB)\nis involved in cell wall synthesis and cell shape, as well as phosphorylates\nGarA but at Thr22. While PknG seems to be constitutively activated\nand recognition of GarA requires phosphorylation in its unstructured\ntail, PknB activation is triggered by phosphorylation of its activation\nloop, which allows binding of the forkhead-associated domain of GarA.\nIn the present work, we used molecular dynamics and quantum-mechanics/molecular\nmechanics simulations of the catalytically competent complex and kinase\nactivity assays to understand PknG/PknB specificity and reactivity\ntoward GarA. Two hydrophobic residues in GarA, Val24 and Phe25, seem\nessential for PknG binding and allow specificity for Thr21 phosphorylation.\nOn the other hand, phosphorylated residues in PknB bind Arg26 in GarA\nand regulate its specificity for Thr22. We also provide a detailed\nanalysis of the free energy profile for the phospho-transfer reaction\nand show why PknG has a constitutively active conformation not requiring\npriming phosphorylation in contrast to PknB. Our results provide new\ninsights into these two key enzymes relevant for Mtb and the mechanisms\nof serine/threonine phosphorylation in bacteria.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Serine/Threonine Kinases",
+            "start": 57,
+            "end": 81
+        },
+        {
+            "label": "MOL",
+            "text": "PknG",
+            "start": 82,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "PknB",
+            "start": 91,
+            "end": 95
+        },
+        {
+            "label": "MOL",
+            "text": "Protein kinase G",
+            "start": 307,
+            "end": 323
+        },
+        {
+            "label": "MOL",
+            "text": "PknG",
+            "start": 325,
+            "end": 329
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 435,
+            "end": 439
+        },
+        {
+            "label": "MOL",
+            "text": "Protein kinase B",
+            "start": 459,
+            "end": 475
+        },
+        {
+            "label": "MOL",
+            "text": "PknB",
+            "start": 477,
+            "end": 481
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 560,
+            "end": 564
+        },
+        {
+            "label": "MOL",
+            "text": "PknG",
+            "start": 585,
+            "end": 589
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 646,
+            "end": 650
+        },
+        {
+            "label": "MOL",
+            "text": "PknB",
+            "start": 702,
+            "end": 706
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 832,
+            "end": 836
+        },
+        {
+            "label": "MOL",
+            "text": "PknG",
+            "start": 1020,
+            "end": 1024
+        },
+        {
+            "label": "MOL",
+            "text": "PknB",
+            "start": 1025,
+            "end": 1029
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 1064,
+            "end": 1068
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 1098,
+            "end": 1102
+        },
+        {
+            "label": "MOL",
+            "text": "PknG",
+            "start": 1140,
+            "end": 1144
+        },
+        {
+            "label": "MOL",
+            "text": "PknB",
+            "start": 1248,
+            "end": 1252
+        },
+        {
+            "label": "MOL",
+            "text": "GarA",
+            "start": 1267,
+            "end": 1271
+        },
+        {
+            "label": "MOL",
+            "text": "PknG",
+            "start": 1422,
+            "end": 1426
+        }
+    ]
+}

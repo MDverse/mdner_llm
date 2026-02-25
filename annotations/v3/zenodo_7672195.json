@@ -1,0 +1,68 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Classification of GTP-dependent K-Ras4B active and inactive conformational states\n\nDataset for the paper: Classification of GTP-dependent K-Ras4B active and inactive conformational states.\nCite as: J. Chem. Phys. 158, 000000 (2023); DOI: 10.1063/5.0139181\nSubmitted: 18 December 2022; Accepted: 13 February 2023; Published Online: 13 February 2023.\nAll molecular dynamics and molecular docking data presented, analyzed, and discussed in this paper are available at reasonable\nrequests submitted to the corresponding author. The following data are also available online: (i) file KRas4B_pdbs.zip, a compressed\narchive including coordinate (.pdb) and structure (.psf) files for KRas-4B WT and D33E proteins, (ii) KRas4B_WT_traj.zip,\na compressed archive including trajectory files (.trr) for the WT KRas-4B runs, including 120 \"*.trr\"-formatted trajectories each corresponding to 40 ns of MD simulation time, and (iii) a sample Python script to generate a free energy plot as shown in Fig. 2.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "GTP",
+            "start": 18,
+            "end": 21
+        },
+        {
+            "label": "MOL",
+            "text": "K-Ras4B",
+            "start": 32,
+            "end": 39
+        },
+        {
+            "label": "MOL",
+            "text": "GTP",
+            "start": 124,
+            "end": 127
+        },
+        {
+            "label": "MOL",
+            "text": "K-Ras4B",
+            "start": 138,
+            "end": 145
+        },
+        {
+            "label": "MOL",
+            "text": "KRas-4B",
+            "start": 676,
+            "end": 683
+        },
+        {
+            "label": "MOL",
+            "text": "D33E",
+            "start": 691,
+            "end": 695
+        },
+        {
+            "label": "MOL",
+            "text": "proteins",
+            "start": 696,
+            "end": 704
+        },
+        {
+            "label": "MOL",
+            "text": "KRas-4B",
+            "start": 797,
+            "end": 804
+        },
+        {
+            "label": "STIME",
+            "text": "40 ns",
+            "start": 878,
+            "end": 883
+        }
+    ]
+}

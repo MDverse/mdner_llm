@@ -1,0 +1,3 @@
+Dataset to reproduce MD simulations described in "Asymmetric CorA gating mechanism as observed by molecular dynamics simulations"
+
+Models and parameter files

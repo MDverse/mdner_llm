@@ -1,0 +1,26 @@
+Development of Imidazolium-Based Parameters for AMOEBA-IL
+
+A new approach for the efficient parametrization of the
+polarizable
+ionic liquid potential AMOEBA-IL and its application to develop parameters
+for imidazolium-based cations is presented. The new approach relies
+on the development of parameters for fragments that can be transferred
+to generate new molecules. The parametrization uses the original AMOEBA-IL
+parametrization approach, including the use of Gaussian electrostatic
+model-distributed multipoles (GEM-DM) for the permanent multipoles
+and approximation of the van der Waals parameters using quantum mechanics
+energy decomposition analysis (QM-EDA) data. Based on this, functional
+groups of the selected initial structures are employed as building
+blocks to develop parameters for new imidazolium-based cations (symmetric
+or asymmetric) with longer alkyl chains. The parameters obtained with
+this proposed method were compared with intermolecular interactions
+from QM references via energy decomposition analysis using symmetry
+adapted perturbation theory (SAPT) and counterpoise-corrected total
+intermolecular interactions. The validation of the new parametrized
+cations was carried out by running molecular dynamics simulations
+on a series of imidazolium-based ionic liquids with different anions
+to compare selected thermodynamic and transport properties, including
+density ρ, enthalpy of vaporization ΔHvap, radial distribution function g(r), and diffusion coefficients D±, with experimental data. Overall, the calculated gas-phase and bulk
+properties show good agreement with the reference data. The new procedure
+provides a straightforward approach to generating the required AMOEBA-IL
+parameters for any imidazolium-based cation.

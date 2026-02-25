@@ -1,0 +1,27 @@
+Aggregation of Asphaltene Subfractions A1 and A2 in Different Solvents from the Perspective of Molecular Dynamics Simulations
+
+The aggregation behavior of model molecules of asphaltene
+subfractions
+A1 and A2 dissolved in heptane, toluene, and tetrahydrofuran (THF)
+were studied using molecular dynamics simulations. The proposed asphaltene
+molecular models are based on previously studied structures with two
+new models, including a highly aromatic model with a prominent island-type
+molecule and another molecule with a prominent archipelago-type architecture.
+The aggregation mechanisms in toluene, THF, and heptane solvents were
+studied. The results in heptane and toluene were consistent with the
+solubility of asphaltenes and their subfractions in these solvents.
+The size of the aggregates is well-correlated with aromaticity. When
+considering THF, large aggregates are broken down into smaller aggregates.
+This could lead to the mixture of high, medium, and low molecular
+weight distribution bands usually observed when gel permeation chromatography
+(GPC) analyses are conducted on asphaltene samples in THF. The size
+distribution extracted from the simulations shows a bimodal distribution
+with profiles similar to the size distribution profiles usually found
+in GPC analysis for asphaltene samples in THF. The distributions of
+dipole moments of the aggregates against the number of molecules in
+aggregates were constructed in both THF and toluene and reveal that
+the dipole moment of the aggregates vanishes when the number of molecules
+increases as a result of a random structure of the aggregates. The
+contributions of different molecular interactions to the aggregation
+mechanism, such as π stacking, van der Waals, and hydrogen bonds,
+are described.

@@ -1,0 +1,146 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Simulation CER160_128_POPC_512_NaCl_150mM_310K_rep1 membrane\n\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation 512 POPCs membrane containing 128 ceramides (CER160)  using charmm36 at 310K.\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 3000 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC        512\nCER160    128\nSOL      32000\nNA             86\nCL              86\nAdditional information:",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "CER160",
+            "start": 11,
+            "end": 17
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 22,
+            "end": 26
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 31,
+            "end": 35
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 42,
+            "end": 46
+        },
+        {
+            "label": "MOL",
+            "text": "Ceramide",
+            "start": 83,
+            "end": 91
+        },
+        {
+            "label": "MOL",
+            "text": "Late Endosomal Protein",
+            "start": 117,
+            "end": 139
+        },
+        {
+            "label": "MOL",
+            "text": "LAPTM4B",
+            "start": 140,
+            "end": 147
+        },
+        {
+            "label": "MOL",
+            "text": "POPCs",
+            "start": 287,
+            "end": 292
+        },
+        {
+            "label": "MOL",
+            "text": "ceramides",
+            "start": 317,
+            "end": 326
+        },
+        {
+            "label": "MOL",
+            "text": "CER160",
+            "start": 328,
+            "end": 334
+        },
+        {
+            "label": "FFM",
+            "text": "charmm36",
+            "start": 343,
+            "end": 351
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "gromacs",
+            "start": 372,
+            "end": 379
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2016.1",
+            "start": 380,
+            "end": 386
+        },
+        {
+            "label": "FFM",
+            "text": "charmm36",
+            "start": 400,
+            "end": 408
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 422,
+            "end": 427
+        },
+        {
+            "label": "STIME",
+            "text": "3000 ns",
+            "start": 461,
+            "end": 468
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 513,
+            "end": 517
+        },
+        {
+            "label": "MOL",
+            "text": "CER160",
+            "start": 529,
+            "end": 535
+        },
+        {
+            "label": "MOL",
+            "text": "SOL",
+            "start": 543,
+            "end": 546
+        },
+        {
+            "label": "MOL",
+            "text": "NA",
+            "start": 558,
+            "end": 560
+        },
+        {
+            "label": "MOL",
+            "text": "CL",
+            "start": 576,
+            "end": 578
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 355,
+            "end": 359
+        }
+    ]
+}

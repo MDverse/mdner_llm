@@ -1,0 +1,39 @@
+Prediction of Alkanolamine pKa Values by Combined Molecular Dynamics Free Energy Simulations and ab Initio Calculations
+
+Knowledge of aqueous protonation constants (pKa) of chemical species is of significant importance
+in
+CO2 reactive absorption system design. Their theoretical
+prediction has mainly relied on implicit solvent models, and the performance
+of explicit solvent simulations based on classical force fields have
+rarely been studied. In this paper, we report the results of simulations
+in explicit TIP3P water with the General Amber Force Field (GAFF)
+and with the SMD continuum solvent method for the deprotonation pKa values of 29 conformationally diverse alkanolamine
+species commonly used in CO2 capture. In both cases, we
+employ the Tissandier value for the hydration free energy of the proton
+(“The proton’s absolute aqueous enthalpy and Gibbs free
+energy of solvation from cluster–ion solvation data”,
+Tissandier, M.D. et al., J. Phys. Chem. A, 1998, 102, 7787–7794). The ideal–gas
+reaction free energies and their uncertainties were obtained from
+electronic structure calculations using five different compound methods
+(CBS-QB3, CBS-APNO, G3, G3B3, G4). The hydration free energies of
+the neutral and protonated forms of the alkanolamines were calculated
+using the semiempirical AM1-BCC charge method, in addition to several
+partial atomic charge sets based on the RESP fitting method using
+electrostatic potentials computed at different ab initio theory/levels
+in the gas phase as well as in the presence of the solvent reaction
+field. We incorporated the Galvani surface potential of the ions in
+the (pKa) calculations. Although the individual
+species hydration free energies show significant sensitivity to the
+charge model, the resulting pKa values
+from different charge models are quite similar. Moreover, we found
+that the protonated amine hydration free energies show slightly less
+sensitivity to the partial charge method than in the case of the neutral
+amine. While the predicted pKa values
+based on the RESP charges yield reasonable agreement with the experimental
+data, they are prone to occasional disagreement for molecules of complex
+geometry. The best performance was achieved using the semiempirical
+AM1-BCC charges, which showed a mean absolute error of less than 0.73
+pKa units in comparison with experimental
+data. Our results suggest that the AM1-BCC charge method may be used
+to model electrolyte solutions encountered in the CO2 reactive
+absorption process.

@@ -1,0 +1,21 @@
+Accuracy of Alternate Nonpolarizable Force Fields for the Determination of Protein–Ligand Binding Affinities Dominated by Cation−π Interactions
+
+Modifying
+pair-specific Lennard-Jones parameters through the nonbonded
+FIX (NBFIX) feature of the CHARMM36 force field has proven cost-effective
+for improving the description of cation−π interactions
+in biological objects by means of pairwise additive potential energy
+functions. Here, two sets of newly optimized CHARMM36 force-field
+parameters including NBFIX corrections, coined CHARMM36m-NBF and CHARMM36-WYF,
+and the original force fields, namely CHARMM36m and Amber ff14SB,
+are used to determine the standard binding free energies of seven
+protein–ligand complexes containing cation−π interactions.
+Compared with precise experimental measurements, our results indicate
+that the uncorrected, original force fields significantly underestimate
+the binding free energies, with a mean error of 5.3 kcal/mol, while
+the mean errors of CHARMM36m-NBF and CHARMM36-WYF amount to 0.8 and
+2.1 kcal/mol, respectively. The present study cogently demonstrates
+that the use of modified parameters jointly with NBFIX corrections
+dramatically increases the accuracy of the standard binding free energy
+of protein–ligand complexes dominated by cation−π
+interactions, most notably with CHARMM36m-NBF.

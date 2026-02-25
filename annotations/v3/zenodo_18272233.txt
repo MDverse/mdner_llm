@@ -1,0 +1,11 @@
+Input files, parameters and scripts used in the analysis of the Identification of 14-3-3 and TRP interactions
+
+In this File we provide a folder containing all data necessary to replicate the results obtained regarding TRP and 14-3-3 interactions.
+Four subfolders are contained:
+
+Scripts: Contains all the python scripts used in the generation and analysis of data.
+Coevolution_input: Contains the multiple sequence alignments used for coevolution analysis.
+Input_docking: Contains the files required to generate the Lightdock molecular dockings
+Input_MD: Contains the necessary files to replicate the molecular dynamics through NAMD.
+
+ 

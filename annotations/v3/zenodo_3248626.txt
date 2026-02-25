@@ -1,0 +1,21 @@
+Simulation CER160_128_POPC_512_TM3_10_5up_5down_NaCl_150mM_310K_rep2 membrane
+
+Title publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction
+Year publication: 2018
+DOI publication: 10.1021/acscentsci.7b00582
+Description: Simulation of a membrane containing 512 POPC and 128 ceramide (CER160) together with ten LAPTM4B-TM3 peptides using charmm36 at 310K.
+MD engine: 2016.2-dev-20170105-4feb0be
+Force field: charmm36
+Temperature: 310 K
+Pressure: 1 bar
+Simulation time: 4200 ns
+Saving frequency: 100 ps
+Molecular content:
+TM3            10
+POPC        512
+CER160     128
+SOL       31990
+NA              96
+CL               86
+Additional information:
+    * Membrane containing LAPTM4B TM3 peptides (Ac-AWIIPFFCYQIFDFALNMLVAITVLIY-NH2).

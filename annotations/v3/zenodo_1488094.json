@@ -1,0 +1,128 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics simulations of lipid bilayers containing POPC and POPS (various mixtures) with ECC-lipids force field, and Na+ (K+) counterions\n\nClassical molecular dynamics simulations of various mixtures of POPC:POPS lipid bilayers in water solution with only Na+ counterions (or with K+ counterions when noted with \"_KCl\" suffix).\nECC-lipids force field parameters used for lipids, SPC/E water model and ECC-ions, all parameters available at https://github.com/jmelcr/ecc_lipids\nsimulations performed with Gromacs 2018.0 (*.xtc files)\nsimulation length 1000 ns = 1 microsecond\ntemperature 298 K\nGromacs simulation setting is in the file npt_lipid_bilayer.mdp",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 60,
+            "end": 64
+        },
+        {
+            "label": "MOL",
+            "text": "POPS",
+            "start": 69,
+            "end": 73
+        },
+        {
+            "label": "FFM",
+            "text": "ECC-lipids",
+            "start": 98,
+            "end": 108
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 126,
+            "end": 129
+        },
+        {
+            "label": "MOL",
+            "text": "K+",
+            "start": 131,
+            "end": 133
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 212,
+            "end": 216
+        },
+        {
+            "label": "MOL",
+            "text": "POPS",
+            "start": 217,
+            "end": 221
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 240,
+            "end": 245
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 265,
+            "end": 268
+        },
+        {
+            "label": "MOL",
+            "text": "K+",
+            "start": 290,
+            "end": 292
+        },
+        {
+            "label": "FFM",
+            "text": "ECC-lipids",
+            "start": 337,
+            "end": 347
+        },
+        {
+            "label": "FFM",
+            "text": "SPC/E",
+            "start": 388,
+            "end": 393
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 394,
+            "end": 399
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 512,
+            "end": 519
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2018.0",
+            "start": 520,
+            "end": 526
+        },
+        {
+            "label": "STIME",
+            "text": "1000 ns",
+            "start": 559,
+            "end": 566
+        },
+        {
+            "label": "STIME",
+            "text": "1 microsecond",
+            "start": 569,
+            "end": 582
+        },
+        {
+            "label": "TEMP",
+            "text": "298 K",
+            "start": 595,
+            "end": 600
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 601,
+            "end": 608
+        }
+    ]
+}

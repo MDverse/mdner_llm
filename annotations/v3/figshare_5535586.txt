@@ -1,0 +1,3 @@
+Create Molecular Dynamics starting configuration
+
+Little script (relying on GROMACS) to create initial molecular dynamics (MD) boxes. The example attached is for a box of a fullerene derivative, PTEG-1, but the script can be adapted to anything else. See the "a_new_fullerene_box.sh" for some instructions. There is plenty of room for improving the script.The MD files (i.e., single molecule coordinates and topology) for the fullerene derivative are from:Enhancing doping efficiency by improving host-dopant miscibility for fullerene-based n-type thermoelectricsL. Qiu, J. Liu, R. Alessandri, X. Qiu, M. Koopmans, R.W.A. Havenith, S.J. Marrink, R.C. Chiechi, L.J.A. Koster, J.C. HummelenJournal of Material Chemistry A, 2017, DOI: 10.1039/C7TA06609K

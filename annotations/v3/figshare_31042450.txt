@@ -1,0 +1,3 @@
+MD Input files
+
+MD simulation input files for research paper: GerAB Residues Predicted to Interact with Water Based on MD Simulations Mediate Germinosome Stability in Bacillus subtilis spores

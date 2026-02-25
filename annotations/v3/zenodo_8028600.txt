@@ -1,0 +1,12 @@
+Molecular dynamics simulations of hyaluronan octamer–tetrapeptide mixtures
+
+To cite: Riopedre-Fernandez, M.; Biriukov, D.; Dračínský, M.; Martinez-Seara, H. Hyaluronan-arginine enhanced and dynamic interaction emerges from distinctive molecular signature due to electrostatics and side-chain specificity. Carbohydr. Polym. 2024, 325, 121568. DOI: 10.1016/j.carbpol.2023.121568
+MD simulations of hyaluronan octamer (HA8) with tetrapeptides. Simulation files and molecular topologies are provided.
+Tetrapeptides simulated: tetraarginine (R4), tetralysine (K4), tetraalanine (A4), tetraproline (P4), tetraglycine (G4), arginine-lysine-arginine-lysine (RKRK), and tetraglutamic acid (E4).
+Two force fields were compared: CHARMM (version charmm36-jul2020.ff.tgz from http://mackerell.umaryland.edu/charmm_ff.shtml#gromacs) and prosECCo75 (https://gitlab.com/sparkly/prosecco/prosECCo75).
+Each simulation contained one hyaluronan polymer, one tetrapeptide, CHARMM-specific TIP3P water, and potassium counterions (standard "K" model in CHARMM and "K_s" model in prosECCo75) when necessary.
+We also additionally performed: (i) reference simulations with only hyaluronan octamer and potassium counterions; (ii) reference simulations with only R4 or K4 peptide and chloride counterions; (iii) simulations with two peptides (R4, K4, or G4) and two hyaluronan octamers.
+Simulations were done in Gromacs.
+Length - at least 1 µs, prolonged till 2 µs for prosECCo75 systems with R4, K4, or G4 peptides.
+Temperature - 300 K.
+For peer-reviewing process, extracted PDB configurations (a configuration every 10 ns of 2 μs simulations excluding the first 100 ns of equilibration) from selected systems were separately uploaded to http://doi.org/10.5281/zenodo.8423276

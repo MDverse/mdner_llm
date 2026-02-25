@@ -1,0 +1,5 @@
+POPC sage2.2.0-rc3 Run2
+
+sage2.2.0 NAGL model rc3
+298.15K, 500 ns 
+ 

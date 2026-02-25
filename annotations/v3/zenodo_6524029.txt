@@ -1,0 +1,6 @@
+Simulation data for the article ,,Filling the gap with long n-alkanes: incorporation of C20 and C30 into phospholipid membranes" - Set2
+
+First set of simulation trajectories and input files for the manuscript ,,Filling the gap with long n-alkanes: incorporation of C20 and C30 into phospholipid membranes" (submitted to Langmuir, under peer-review).
+System: DPPC + n-eicosane (CHARMM36); 72 DPPC, 18 water molecules per lipid, 333K, unless otherwise noted in the file name.
+Numbers of n-eicosane molecules are given in the file names.
+Simulations consisted of three 100ns runs, an .xtc trajectory is only included for the final run. Trajectories were created with -dt 10(ps) and -pbc nojump, as used for analysis in the manuscript. Solvent molecules were removed from the trajectories for file size reduction.

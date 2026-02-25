@@ -1,0 +1,3 @@
+Molecular Dynamics trajectory for Bacteriocin Plantaracin E peptide (plnE) - chain A in XTC format
+
+Molecular Dynamics trajectory in XTC format. Original wild-type structure from PDBID 2JUI. Simulation was run using Amber 22 with f14SB force field. The file contains 70000 frames recorded every 10 ps.

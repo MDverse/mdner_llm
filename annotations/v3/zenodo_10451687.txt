@@ -1,0 +1,8 @@
+Classical Molecular Dynamics at 50°C of HIV-1 Envelope gp120 from a transmitted founder virus of the CH505 isolate
+
+
+
+
+A total of 250, 5-μs trajectories were run for closed gp120 at 50°C. The Amber22 software package with pmemd CUDA implementation in the CHARMM36 force field and TIP3P water model was used for simulations. A 150-Å octahedral box was used to allow for V1/V2 and V3 dislocation during simulation. Both systems were neutralized with 150 mM NaCl. Ten thousand steps of energy minimization were performed with 1000 steps of steepest descent minimization with restraints (500 kcal/mol·Å) on protein. A second unrestrained energy minimization consisting of 10,000 steps and 1000 steepest descent steps followed. Minimization was followed by 20 ps of NVT heating with restraints (10 kcal/mol·Å) applied to protein atoms and a subsequent 5 ns of NPT equilibration with no restraints, with a constant temperature of 323.15 K maintained using a Langevin thermostat (96), and pressure of 1 atm was maintained with isotropic position scaling. Two hundred fifty nanoseconds of unrestrained simulations in the NVT ensemble was performed to equilibrate the system, followed by 5 μs of production simulation in the NVT ensemble. Electrostatic interactions were calculated with the Particle Mesh Ewald method (97) with a cutoff of 12 Å and switching distance of 10 Å. The SHAKE algorithm (98) with hydrogen mass repartitioning (99) was used to constrain hydrogen atoms and allow for a 4-fs time step. 
+
+

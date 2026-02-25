@@ -1,0 +1,12 @@
+Mechanism of rotenone binding to respiratory complex I depends on ligand flexibility
+
+Snapshots from MD simulations (with umbrella sampling and metadynamics) of
+respiratory complex I. Only subunits ND1, NDUFS2 and NDUFS7 (with the membrane spanning N-terminus
+truncated) and rotenone are shown in binding mode (see Fig. 2 of main paper): 
+1) ROT1:        configurations/rot1.pdb
+2) pre-redox:   configurations/rot1.5.pdb
+3) ROT2:        configurations/rot2.pdb
+Force-field and topology files in GROMACS format:
+4) Bonded parameters:           parameters/rotenoids_ffBonded.itp
+5) Rotenone:                    parameters/rot.itp
+6) Dehydrated derivative:       parameters/dehyd_rot.itp

@@ -1,0 +1,4 @@
+Comparative Molecular Dynamics Study of E- and Z-Biliverdin-IXα Binding to Human Serum Albumin
+
+We believe in the importance of transparency and reproducibility for any computational publication, including this work, the complete workflow used in the paper, as well as the trajectory data and representative frames are available in this deposit
+Z/E DCD trajectories, Z/E initial pdb structures, Z/E psf files (topology is identical though). All trajectories are trimmed (no water or ions) to save space and ease of processing. Workflow is available in the ipynb file, the obtained representative structures (medoid) are available in the contact_clustering.7z

@@ -1,0 +1,56 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Capturing the Recognition Dynamics of para-Sulfonato-calix[4]arenes by Cytochrome c: Toward a Quantitative Free Energy Assessment\n\nCalix[n]arenes’ selective recognition of\nprotein surfaces covers a broad range of timely applications, from\ncontrolling protein assembly and crystallization to trapping partially\ndisordered proteins. Here, the interaction of para-sulfonated calix-[4]-arenes with cytochrome c is investigated through\nall-atom, explicit water molecular dynamics simulations which allow\ncharacterization of two binding sites in quantitative agreement with\nexperimental evidence. Free energy calculations based on the MM-PBSA\nand the attach-pull-release (APR) methods highlight key residues implicated\nin the recognition process and provide binding free energy results\nin quantitative agreement with isothermal titration calorimetry. Our\nstudy emphasizes the role of MD simulations to capture and describe\nthe “walk” of sulfonated calix-[4]-arenes on the cytochrome\nc surface, with the arginine R13 as a pivotal interacting residue.\nOur MD investigation allows, through the quasi-harmonic multibasin\n(QHMB) method, probing an allosteric reinforcement of several per-residue\ninteractions upon calixarene binding, which suggests a more complex\nmode of action of these supramolecular auxiliaries.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "para-Sulfonato-calix[4]arenes",
+            "start": 38,
+            "end": 67
+        },
+        {
+            "label": "MOL",
+            "text": "Cytochrome c",
+            "start": 71,
+            "end": 83
+        },
+        {
+            "label": "MOL",
+            "text": "Calix[n]arenes",
+            "start": 131,
+            "end": 145
+        },
+        {
+            "label": "MOL",
+            "text": "para-sulfonated calix-[4]-arenes",
+            "start": 356,
+            "end": 388
+        },
+        {
+            "label": "MOL",
+            "text": "cytochrome c",
+            "start": 394,
+            "end": 406
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 450,
+            "end": 455
+        },
+        {
+            "label": "MOL",
+            "text": "calix-[4]-arenes",
+            "start": 372,
+            "end": 388
+        }
+    ]
+}

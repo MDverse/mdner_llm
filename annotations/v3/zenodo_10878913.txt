@@ -1,0 +1,6 @@
+Identification of Potential IL4I1 Inhibitors through Structure-Based Virtual Screening and Molecular Dynamics Simulations, Molecular dynamics trajectory file
+
+Dataset for molecular dynamics simulations of the article: Identification of Potential IL4I1 Inhibitors through Structure-Based Virtual Screening and Molecular Dynamics Simulations.
+First_600ns_MD.rar contains the 600ns molecular dynamics simulation trajectory file of IL4I1-FAD-CIT complex using desmond.
+Second_500ns_MD_ZL35_F963.rar contains the 500ns molecular dynamics simulation trajectory file of IL4I1-FAD-ZL35 complex, which initial conformation of this part of dynamics simulation was obtained by docking the conformation of the 963rd frame from the first dynamics simulation with ZL35 through induced fit.
+script.rar include scripts and calculation methods for free energy landscape, RMSD matrix, and thermol MM/GBSA.

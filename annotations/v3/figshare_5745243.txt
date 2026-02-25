@@ -1,0 +1,15 @@
+Scale-Dependent Miscibility of Polylactide and Polyhydroxybutyrate: Molecular Dynamics Simulations
+
+Miscibility of polylactide
+(PLA) and polyhydroxybutyrate (PHB)
+is studied by the microsecond atomistic molecular dynamics (MD) simulations
+for the first time. The model and the simulation protocol were confirmed
+through comparison of the glass transition temperature (Tg) with experimental data. It was established that PLA
+and PHB are miscible on the basis of the Flory–Huggins theory.
+Analysis of the mobilities of PLA and PHB subchains revealed that
+the blends have two transitions to a glassy state at the length scale
+of a few Kuhn segments, which is in line with the predictions of the
+self-concentration model. At the same time at the larger length scale
+a single transition to a glassy state was observed, suggesting scale
+dependence of PLA and PHB miscibility. This scale dependence was confirmed
+through the evaluation of the interchain pair correlation functions.

@@ -1,0 +1,27 @@
+CHARMM Force-Fields with Modified Polyphosphate Parameters Allow Stable Simulation of the ATP-Bound Structure of Ca2+-ATPase
+
+Adenosine triphosphate
+(ATP) is an indispensable energy source
+in cells. In a wide variety of biological phenomena like glycolysis,
+muscle contraction/relaxation, and active ion transport, chemical
+energy released from ATP hydrolysis is converted to mechanical forces
+to bring about large-scale conformational changes in proteins. Investigation
+of structure–function relationships in these proteins by molecular
+dynamics (MD) simulations requires modeling of ATP in solution and
+ATP bound to proteins with accurate force-field parameters. In this
+study, we derived new force-field parameters for the triphosphate
+moiety of ATP based on the high-precision quantum calculations of
+methyl triphosphate. We tested our new parameters on membrane-embedded
+sarcoplasmic reticulum Ca2+-ATPase and four soluble proteins.
+The ATP-bound structure of Ca2+-ATPase remains stable during
+MD simulations, contrary to the outcome in shorter simulations using
+original parameters. Similar results were obtained with the four ATP-bound
+soluble proteins. The new force-field parameters were also tested
+by investigating the range of conformations sampled during replica-exchange
+MD simulations of ATP in explicit water. Modified parameters allowed
+a much wider range of conformational sampling compared with the bias
+toward extended forms with original parameters. A diverse range of
+structures agrees with the broad distribution of ATP conformations
+in proteins deposited in the Protein Data Bank. These simulations
+suggest that the modified parameters will be useful in studies of
+ATP in solution and of the many ATP-utilizing proteins.

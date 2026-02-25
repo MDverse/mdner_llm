@@ -1,0 +1,4 @@
+Analysis of Plumed output by Metadynminer - Plumed Masterclass 2022
+
+We provide input data for the Plumed Masterclass "Analysis of Plumed output by Metadynminer". Input and output data are available for metadynamics simulations of alanine dipeptide in water using Gromacs and Plumed. It was calculated with two collective variables phi and psi (10 ns), or with a single collective variable phi or psi (1 ns).
+ 

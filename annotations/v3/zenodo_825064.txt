@@ -1,0 +1,12 @@
+Atomistic Fingerprint of Hyaluronan-CD44 Binding: Clustering Simulations
+
+Simulation files (Gromacs 4.6.7 format) for the "Clustering" simulations in Ref. [1]. There are two replicas marked with "_1" and "_2".
+Files include:
+-trajectories (.xtc) that are saved every 100ps 
+-initial structures (.gro), 
+-run input files (.tpr)
+-checkpoint files (.cpt)
+-simulation parameter files (.mdp)
+-system topology file (.top)
+-topology files included in the system topology file (.itp)
+[1] Vuorio J. et al., Atomistic Fingerprint of Hyaluronan-CD44 Binding, PLOS Comp. Biol., 2017. (Submitted)

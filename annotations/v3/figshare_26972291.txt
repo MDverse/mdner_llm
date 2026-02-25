@@ -1,0 +1,15 @@
+All-Atom Membrane Builder via Multiscale Simulation
+
+I present an automated and flexible
+tool designed for
+constructing
+bilayer membranes at all-atom (AA) resolution. The builder initiates
+the construction and equilibration of bilayer membranes at Martini
+coarse-grained (CG) resolution, followed by resolution enhancement
+to the atomic level using the accompanying backmapping tool. Notably,
+this tool enables users to create bilayer membranes with user-defined
+lipid compositions and protein structures, while also offering the
+flexibility to accommodate new lipid types. To assess the simplicity
+and robustness of the tool, I demonstrate the construction of several
+membranes incorporating protein structures. The tool is freely available
+at github.com/ksy141/mstool.

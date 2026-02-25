@@ -1,0 +1,18 @@
+Simulation POPC_9_POPC_512_NaCl_150mM_310K_rep2
+
+Title publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction
+Year publication: 2018
+DOI publication: 10.1021/acscentsci.7b00582
+Description: Simulation POPC membrane containing 9 POPC originally in the water phase using charmm36 at 310K.
+MD engine: gromacs 2018
+Force field: charmm36
+Temperature: 310 K
+Pressure: 1 bar
+Simulation time: 3800 ns
+Saving frequency: 100 ps
+Molecular content:
+POPC         521
+SOL       34248
+NA              92
+CL               92
+Additional information:

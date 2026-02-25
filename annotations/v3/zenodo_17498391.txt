@@ -1,0 +1,7 @@
+MD simulation dataset:Interactions of ions and odorant molecules with graphene-based nanostructures in synthetic urine: a molecular dynamics exploration
+
+This folder contains the datasets corresponding to the publication:“Interactions of ions and odorant molecules with graphene-based nanostructures in synthetic urine: A molecular dynamics exploration.”
+1. AFU_GRA – Dataset representing the interaction of pristine graphene with p-cresol (PCRO) molecules at two concentrations, PCRO-3 and PCRO-6, in the complex environment of synthetic urine.
+2. AFU_GRO – Dataset representing the interaction of graphene oxide (0%, 50%, and 100% deprotonation) with p-cresol (PCRO) molecules at two concentrations, PCRO-3 and PCRO-6, in the complex environment of synthetic urine.
+3. Aqua_GRA – Dataset representing the interaction of pristine graphene with p-cresol (PCRO) molecules at a concentration of PCRO-3 in an aqueous environment.
+4. Aqua_GRO_0% – Dataset representing the interaction of graphene oxide (0% deprotonation) with p-cresol (PCRO) molecules at a concentration of PCRO-3 in an aqueous environment.

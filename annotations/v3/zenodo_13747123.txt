@@ -1,0 +1,3 @@
+MD Simulation Files for Dual BACH1 regulation by complementary SCF-type E3 ligases
+
+MD Simulation input files and analysis files for the SKP1-FBXO22/BACH1BTB complex, SKP1-FBXO22 by itself, BACH1BTB, and the BACH1BTB F9A mutant.

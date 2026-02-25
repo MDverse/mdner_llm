@@ -1,0 +1,21 @@
+Free Energy-Based Refinement of DNA Force Field via Modification of Multiple Nonbonding Energy Terms
+
+The amber-OL21 force field (ff) was developed to better
+describe
+noncanonical DNA, including Z-DNA. Despite its improvements for DNA
+simulations, this study found that OL21′s scope of application
+was limited by embedded ff artifacts. In a benchmark set of seven
+DNA molecules, including two double-stranded DNAs transitioning between
+B- and Z-DNA and five single-stranded DNAs folding into mini-dumbbell
+or G-quadruplex structures, the free energy landscapes obtained using
+OL21 revealed several issues: Z-DNA was overly stabilized; misfolded
+states in mini-dumbbell DNAs were most stable; DNA GQ folding was
+consistently biased toward an antiparallel topology. To address these
+issues, a simple van der Waals (vdW) correction scheme, referred to
+as vdW5, was proposed for OL21. This involved revising multiple nonbonding
+energy terms to improve the overall quality of the free energy landscapes.
+The vdW5 correction effectively eliminated the artifacts in OL21,
+providing significantly improved free energy representations for DNAs
+tested. The vdW5-level revision substantially enhanced the predictive
+power of DNA simulations, thereby extending the scope of application
+for amber-OL21.

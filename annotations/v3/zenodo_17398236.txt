@@ -1,0 +1,4 @@
+Dataset for the computational results on the article "Specific chemical determinants are central for achieving ligands for selective detection of amyloid-β deposits in Alzheimer's disease"
+
+This dataset contains the relevant MD trajectories and MD input files (topologies, force field, etc) related to the article: "Specific chemical determinants are central for achieving ligands for selective detection of amyloid-β deposits in Alzheimer’s disease". The published article can be found at []. 
+The relevant scripts and all input files necessary to reproduce the computational results presented in this paper can be found in https://github.com/DavidCdeB/amyloid-paper

@@ -1,0 +1,26 @@
+Discovery of Potent Selective HDAC6 Inhibitors with 5‑Phenyl‑1H‑indole Fragment: Virtual Screening, Rational Design, and Biological Evaluation
+
+Among the HDACs family, histone deacetylase 6 (HDAC6)
+has attracted
+extensive attention due to its unique structure and biological functions.
+Numerous studies have shown that compared with broad-spectrum HDACs
+inhibitors, selective HDAC6 inhibitors exert ideal efficacy in tumor
+treatment with insignificant toxic and side effects, demonstrating
+ promising clinical application prospect. Herein, we carried out rational
+drug design by integrating a deep learning model, molecular docking,
+and molecular dynamics simulation technology to construct a virtual
+screening process. The designed derivatives with 5-phenyl-1H-indole fragment as Cap showed desirable cytotoxicity to
+the various tumor cell lines, all of which were within 15 μM
+(ranging from 0.35 to 14.87 μM), among which compound 5i had the best antiproliferative activities
+against HL-60 (IC50 = 0.35 ± 0.07 μM) and arrested
+HL-60 cells in the G0/G1 phase. In addition, 5i exhibited better isotype selective inhibitory activities
+due to the potent potency against HDAC6 (IC50 = 5.16 ±
+0.25 nM) and the reduced inhibitory activities against HDAC1 (selective
+index ≈ 124), which was further verified by immunoblotting
+results. Moreover, the representative binding conformation of 5i on HDAC6 was revealed and the key residues
+contributing 5i’s binding were
+also identified via decomposition free-energy analysis. The discovery
+of lead compound 5i also indicates that
+virtual screening is still a beneficial tool in drug discovery and
+can provide more molecular skeletons with research potential for drug
+design, which is worthy of widespread application.

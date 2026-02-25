@@ -1,0 +1,10 @@
+Trajectories and other input/output files of Molecular Dynamics Simulations of DPPS lipidic bilayers with salted water (0.25M NaCl) and hydration Number=15
+
+
+Trajectories and other input/output files of Molecular Dynamics Simulations of  DPPS lipidic bilayers with salted water (0.25M NaCl) and hydration Number=15
+Force Field = CHARMM36 and mTIP3P
+Composition :   200 DPPS, 3000 water, 205 Na+, 05 Cl- 
+Simulation time : 1000 ns
+Temperatures : 333.15, 338.15, 343.15, 348.15 and 353.15 K
+Pressure  : 1 Bar, no surface tension, semi-isotropic barostat
+time lag between conformations in the trajectory : 0.1 ns

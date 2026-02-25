@@ -1,0 +1,3 @@
+ECC-POPC, 28mM, 2600mM
+
+POPC mambrane with different concentrations of calcium ions simulated with ECC-POPC force-field

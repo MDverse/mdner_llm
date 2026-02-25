@@ -1,0 +1,3 @@
+a-Synuclein MD simulations:homo-(A53T+S87N)
+
+Molecular dynamics simulations of a-Synuclein amyloids, homo-(A53T+S87N)

@@ -1,0 +1,14 @@
+CHARMM Force Field Parameters for β-aryl-α-chloro-β-keto esters
+
+Optimized parameters for: 
+ 
+* Ethyl 2-Chloro-3-oxo-3-(thiophen-2-yl)propanoate
+    - CMP1
+ 
+* Ethyl 2-Chloro-3-(4-(methylthio)phenyl)-3-oxopropanoate
+    - CMP5
+ 
+* Ethyl 3-(Benzo[d]thiazol-6-yl)-2-chloro-3-oxopropanoate
+    - CMP20
+ 
+Compatible with the CHARMM force field.

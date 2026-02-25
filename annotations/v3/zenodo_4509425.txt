@@ -1,0 +1,3 @@
+Modelling Molecular Emitters in Organic Light Emitting Diodes with the Quantum Mechanical Bespoke Force Field
+
+Raw trajectory files of the molecular dynamics samplings mentioned in the paper. The relevant *.pdb files are provided with the *.dcd files.

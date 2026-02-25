@@ -1,0 +1,3 @@
+Discovery of novel Nav1.5-selective inhibitors for effectively reducing cardiac conduction through integrated structure-based virtual screening and biological evaluation
+
+This repository contains molecular dynamics simulation input files, parameter files, and analysis scripts used in the study entitled “Discovery of novel Nav1.5-selective inhibitors for effectively reducing cardiac conduction through integrated structure-based virtual screening and biological evaluation”. The dataset is currently under embargo during peer review and will be made publicly accessible upon manuscript acceptance.

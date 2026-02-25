@@ -1,0 +1,19 @@
+Capturing Protein–Ligand Recognition Pathways in Coarse-Grained Simulation
+
+Protein–ligand recognition
+is dynamic and complex. A key
+approach in deciphering the mechanism underlying the recognition process
+is to capture the kinetic process of the ligand in its act of binding
+to its designated protein cavity. Toward this end, ultralong all-atom
+molecular dynamics simulation has recently emerged as a popular method
+of choice because of its ability to record these events at high spatial
+and temporal resolution. However, success via this route comes at
+an exorbitant computational cost. Herein, we demonstrate that coarse-grained
+models of the protein, when systematically optimized to maintain its
+tertiary fold, can capture the complete process of spontaneous protein–ligand
+binding from bulk media to the cavity at crystallographic precision
+and within wall clock time that is orders of magnitude shorter than
+that of all-atom simulations. The exhaustive sampling of ligand exploration
+in protein and solvent, harnessed by coarse-grained simulation, leads
+to elucidation of new ligand recognition pathways and discovery of
+non-native binding poses.

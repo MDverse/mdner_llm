@@ -1,0 +1,9 @@
+Test Development 2
+
+
+The trajectories were pulled from files already existing in IDP NMRLipids databank 
+10.5281/zenodo.13254445And the simulation files are associated with publication 
+
+https://doi.org/10.26434/chemrxiv-2024-h3pmt
+
+

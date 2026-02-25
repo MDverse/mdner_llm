@@ -1,0 +1,3 @@
+Simulation Parameters for Two Cooperative Binding Sites Sensitize PI(4,5)P2 Recognition by the Tubby Domain
+
+Dataset to perform the coarse-grained MD simulations presented in "Two cooperative binding sites sensitize PI(4,5)P2 recognition by the tubby domain". The dataset includes protein structures and GROMACS simulation files such as mdp, itp, gro, and index files for the tubby domain as well as PLC-delta1 PH domain.

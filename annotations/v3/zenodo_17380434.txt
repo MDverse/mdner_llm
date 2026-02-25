@@ -1,0 +1,3 @@
+SI for "Watching Pseudomonas mevalonii HMG-CoA Reductase in Action"
+
+FIles for the recreation of simulations involving the sulfur of CoA being protonated and deprotonated, with H381 being appropriately protonated in adjustment to the former's state. Input files for all ligands and the protein, as well as average files of the last 500 frames of each simulation, three each of CoA's sulfur being protonated and deprotonated. 

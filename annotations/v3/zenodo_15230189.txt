@@ -1,0 +1,26 @@
+ACS Omega - In silico potential of bergenin complexed in β-cyclodextrin and AI-designed derivates in diabetic neuropathy pathway
+
+
+ 
+
+
+
+
+Here you will find the raw data from the research involving the molecular dynamics of protein-ligand complex with receptors involved in diabetic neuropathy, which includes: 
+ 
+P2Y12 + Selatogrel complex (PDB ID: 7PPI) in a 200 simulation ns on Desmond by Schrodinger Maestro 2021-2 (Linux version) 
+ 
+P2Y12 + ACD5b complex (PDB ID: 7PPI), corresponding to the nitrobenzyl derivative of bergenin, in a 200 ns simulation on Desmond by Schrodinger Maestro 2021-2 (Linux version) 
+ 
+P2Y12 + Bergenin complex (PDB ID: 4NTJ), which corresponds to the bergenin molecule interacting with P2Y12, in a 200 ns simulation on Desmond by Schrodinger Maestro 2021-2 (Linux version) 
+ 
+P2X3 + Bergenin complex (PDB ID: 5SVR), which corresponds to the bergenin molecule interacting with P2X3, in a 200 ns simulation on Desmond by Schrodinger Maestro 2021-2 (Linux version) 
+ 
+P2X3 + ACD5b complex (PDB ID: 5SVR), which corresponds to the bergenin molecule interacting with P2X3, in a 200 ns simulation on Desmond by Schrodinger Maestro 2021-2 (Linux version) 
+ 
+Note: These results can be viewed in the academic version of Desmond, which includes the Schrodinger Maestro graphical interface, as well as in the open-source software VMD (Visual Molecular Dynamics).
+ 
+https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD
+https://www.deshawresearch.com/downloads/download_desmond.cgi/
+
+

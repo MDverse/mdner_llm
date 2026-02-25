@@ -1,0 +1,24 @@
+Simulation Dataset: The antimicrobial fibupeptide lugdunin forms water-filled channel structures in lipid membranes
+
+The Zenodo repository contains data to the molecular dynamics simulations in the following manuscript: 
+The antimicrobial fibupeptide lugdunin forms water-filled channel structures in lipid membranes 
+by
+Dominik Ruppelt, Marius F. W. Trollmann, Taulant Dema, Sebastian N. Wirtz, Hendrik Flegel, Sophia Mönnikes, Stephanie Grond, Rainer A. Böckmann*, Claudia Steinem*
+0) Lugdunin-parameterization
+1) Lugdunin-stack-stability
+    - trans_configuration.gro: Artifical lugdunin stack in trans configuration (see SFig. 23 a).
+    - gauche_configuration.gro: Artifical lugdunin stack in gauche configuration (see SFig. 23 b)
+    - DMPC
+    - DOPC
+    - POPC
+    - POPC_CHOL
+2) Partitioning-of-Lugdunin-in-Membranes
+    - POPC
+    - POPC_CHOL
+    - GRAMPOS
+3) PMF-calculations
+    - GRAMPOS_WT
+    - POPC_CHOL_MUT
+    - POPC_CHOL_WT
+    - POPC_MUT
+    - POPC_WT

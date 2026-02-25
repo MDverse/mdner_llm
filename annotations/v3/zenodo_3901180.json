@@ -1,0 +1,194 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "On calculating the bending modulus of lipid bilayer membranes from buckling simulations\n\nMolecular dynamics simulations files that correspond to the buckling simulations method to calculate the bending modulus and the box area fluctuations method to calculate the area compressibility modulus. We performed all molecular dynamics (MD) simulations using the GROMACS software (v. 2016.4) and the MARTINI coarse-grained (CG) force field (v. 2.2), using standard simulation parameters. Each file contains GRO, TOP, ITPs, and MDP files that correspond to the equilibration and the production runs. The name of each folder indicates the types of lipids. We simulate single-component lipid bilayers includes: DLPC, (14:0-14:0), DPPC (16:0-16:0), POPC (16:0-18:1),  DOPC (18:1-18:1),  PUPC (16:0-22:6),  DLiPC (18:2-18:2), DNPC (24:6-24:6), POPG (16:0-18:1), POPS (16:0-18:1), POPE (16:0-18:1), and DPSM (16:0-16:0), and lipid mixtures includes : DOPC:CHOL, DPPC:CHOL, POPC:POPE, DPPC:DLPC, POPC:PUPC, DNPC:DLPC, and DPPC:DLiPC:CHOL, with different molar ratios specified in the folders names.  ",
+    "entities": [
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 357,
+            "end": 364
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "software (v. 2016.4)",
+            "start": 365,
+            "end": 385
+        },
+        {
+            "label": "FFM",
+            "text": "MARTINI",
+            "start": 394,
+            "end": 401
+        },
+        {
+            "label": "MOL",
+            "text": "DLPC",
+            "start": 702,
+            "end": 706
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 721,
+            "end": 725
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 739,
+            "end": 743
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 758,
+            "end": 762
+        },
+        {
+            "label": "MOL",
+            "text": "PUPC",
+            "start": 777,
+            "end": 781
+        },
+        {
+            "label": "MOL",
+            "text": "DLiPC",
+            "start": 796,
+            "end": 801
+        },
+        {
+            "label": "MOL",
+            "text": "DNPC",
+            "start": 815,
+            "end": 819
+        },
+        {
+            "label": "MOL",
+            "text": "POPG",
+            "start": 833,
+            "end": 837
+        },
+        {
+            "label": "MOL",
+            "text": "POPS",
+            "start": 851,
+            "end": 855
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 869,
+            "end": 873
+        },
+        {
+            "label": "MOL",
+            "text": "DPSM",
+            "start": 891,
+            "end": 895
+        },
+        {
+            "label": "MOL",
+            "text": "lipid",
+            "start": 38,
+            "end": 43
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 939,
+            "end": 943
+        },
+        {
+            "label": "MOL",
+            "text": "CHOL",
+            "start": 944,
+            "end": 948
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 950,
+            "end": 954
+        },
+        {
+            "label": "MOL",
+            "text": "CHOL",
+            "start": 955,
+            "end": 959
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 961,
+            "end": 965
+        },
+        {
+            "label": "MOL",
+            "text": "POPE",
+            "start": 966,
+            "end": 970
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 972,
+            "end": 976
+        },
+        {
+            "label": "MOL",
+            "text": "DLPC",
+            "start": 977,
+            "end": 981
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 983,
+            "end": 987
+        },
+        {
+            "label": "MOL",
+            "text": "PUPC",
+            "start": 988,
+            "end": 992
+        },
+        {
+            "label": "MOL",
+            "text": "DNPC",
+            "start": 994,
+            "end": 998
+        },
+        {
+            "label": "MOL",
+            "text": "DLPC",
+            "start": 999,
+            "end": 1003
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 1009,
+            "end": 1013
+        },
+        {
+            "label": "MOL",
+            "text": "DLiPC",
+            "start": 1014,
+            "end": 1019
+        },
+        {
+            "label": "MOL",
+            "text": "CHOL",
+            "start": 1020,
+            "end": 1024
+        }
+    ]
+}

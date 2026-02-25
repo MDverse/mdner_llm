@@ -1,0 +1,5 @@
+Substrate scope and catalytic mechanism of α, β-epoxyketone synthase EpnF illuminated by in situ esterase-mediated deprotection - MD simulations
+
+This record contains MD trajectories used in manuscript Substrate scope and catalytic mechanism of α, β-epoxyketone synthase EpnF illuminated by in situ esterase-mediated deprotection" by Callum J. Bullock, Marlene L. Rothe, Joshua W. Cartwright, Munro Passmore, Alex J. Mullins, Fabrizio Alberti, Józef R. Lewandowski, Lona M. Alkhalaf and Gregory L. Challis. 
+Simulation 1 contains repeats of 100 ns classical MD of EpnF dimer with fully oxidised FAD in both active site pockets and N-acyl-dipeptidyl β-ketoacid substrate in one of the pockets. Simulation 2 contains repeats of 100 ns classical MD of EpnF dimer with enone intermediate in both pockets and with FADH- in one pocket and FADHO2- in the other pocket. 
+The trajectories are in AMBER NetCDF format and are stripped of water and ions. For the details on the simulations see the accompanying paper

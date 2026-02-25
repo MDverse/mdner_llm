@@ -1,0 +1,4 @@
+Equilibration and RAMD simulations for ligand 12 bound to PYK
+
+The zip file contains input files and trajectories for equilibration of the complex formed between PYK and ligand 12 (directories AMBER and NAMD1-6) and dissociation of ligand 12 from PYK using tauRAMD (directories RAMD1-6). Further details about the method can be found in the publication "Structure-kinetic relationship reveals the mechanism of selectivity of FAK inhibitors over PYK2" (doi: https://doi.org/10.1016/j.chembiol.2021.01.003).
+ 

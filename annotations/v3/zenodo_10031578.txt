@@ -1,0 +1,3 @@
+In silico study on a binding mechanism of ssDNA aptamers targeting glycosidic bond-containing small molecules
+
+Files with the 5 ssDNA and their complexes with glycosidic bond-containing small molecules after docking, used in the MD simulations, along with MD simulation trajectories, are included as compressed files (.zip). Glycosidic bond-containing small molecules docking performed using AutoDock Vina, and MD simulations based on amber software and DNA.bsc1 force fields.

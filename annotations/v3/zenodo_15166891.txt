@@ -1,0 +1,12 @@
+Equilibrated Configurations, QMD-FF Topologies, and Molecular Dynamics Details Supporting the Study: "Anticooperative Self-Assembly of Perylene Diimide Dyes in Water Unveiled by Advanced Molecular Dynamics Simulations"
+
+This dataset supports the study “Anticooperative Self-Assembly of Perylene Diimide Dyes in Water Unveiled by Advanced Molecular Dynamics Simulations”.  All the necessary files for reproducing and further exploring the molecular dynamics simulations performed in the study are reported here.
+The systems comprise N,N-bis(2-(trimethylammonium)ethylene)perylene-3,4,9,10-tetracarboxylic acid bis-imide (PDI) aggregates in water, with two chloride counterions per PDI unit to ensure charge neutrality. Five aggregate sizes were studied, from dimers to dodecamers.
+Each system is provided in a separate directory and includes:
+
+Equilibrated coordinate files (.gro)
+QMD-derived topology files (.top)
+GROMACS index files (.ndx)
+
+Additionally, a PROD.mdp file is included for the production run parameters (500 ns) used in all simulations. A schematic image of the simulated system is also provided for visual reference in each zip archive.
+All files are formatted for use with the GROMACS package. This dataset facilitates reproducibility and enables the broader community to further explore supramolecular aggregation behavior of charged aromatic dyes in aqueous environments.

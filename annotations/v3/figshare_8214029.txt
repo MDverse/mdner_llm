@@ -1,0 +1,21 @@
+Perturbation of Short Hydrogen Bonds in Photoactive Yellow Protein via Noncanonical Amino Acid Incorporation
+
+Photoactive yellow protein (PYP)
+is a small photoreceptor protein
+that has two unusually short hydrogen bonds between the deprotonated p-coumaric acid chromophore and two amino acids, a tyrosine
+and a glutamic acid. This has led to considerable debate as to whether
+the glutamic acid-chromophore hydrogen bond is a low barrier hydrogen
+bond, with conflicting results in the literature. We have modified
+the pKa of the tyrosine by amber suppression
+and of the chromophore by chemical substitution. X-ray crystal structures
+of these modified proteins are nearly identical to the wild-type protein,
+so the heavy atom distance between proton donor and acceptor is maintained,
+even though these modifications change the relative proton affinity
+between donor and acceptor. Despite a considerable change in relative
+proton affinity, the NMR chemical shifts of the hydrogen-bonded protons
+are only moderately affected. QM/MM calculations were used to explore
+the protons’ potential energy surface and connect the calculated
+proton position with empirically measured proton chemical shifts.
+The results are inconsistent with a low barrier hydrogen bond but
+in all cases are consistent with a localized proton, suggesting an
+ionic hydrogen bond rather than a low barrier hydrogen bond.

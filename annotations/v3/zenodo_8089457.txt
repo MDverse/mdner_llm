@@ -1,0 +1,3 @@
+Microscopic View of the iRGD Peptide Binding Mechanism
+
+Input and trajectory files used to obtain an atomistic picture of the  folding and mechanism of binding of the iRGD peptide to RGD integrin receptors.

@@ -1,0 +1,16 @@
+gmx_ffconv: A Fast, User-Friendly Semi-Automated All-Atom Force Field Converter for GROMACS
+
+This application note presents gmx_ffconv, a command-line
+tool
+developed to facilitate the conversion of systems between all-atom
+force fields within GROMACS. As different force fields use their own
+naming conventions and atom ordering, force field conversion within
+GROMACS is usually a time-consuming, error-prone process. gmx_ffconv
+resolves atom ordering and naming mismatches between different force
+fields by reordering the coordinate file via molecular graph matching.
+This enables the use of identical starting coordinates across force
+fields, facilitating comparative simulations without requiring manual
+reordering or scripting. The tool has been validated on a broad range
+of systems, from small, nonstandard ligands to large, solvated heterogeneous
+systems with more than two million atoms. gmx_ffconv is available
+on GitHub: github.com/Jassu1998/gmx_ffconv.

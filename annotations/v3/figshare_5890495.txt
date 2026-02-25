@@ -1,0 +1,31 @@
+Accuracy Comparison of Generalized Born Models in the Calculation of Electrostatic Binding Free Energies
+
+The need for accurate
+yet efficient representation of the aqueous
+environment in biomolecular modeling has led to the development of
+a variety of generalized Born (GB) implicit solvent models. While
+many studies have focused on the accuracy of available GB models in
+predicting solvation free energies, a systematic assessment of the
+quality of these models in binding free energy calculations, crucial
+for rational drug design, has not been undertaken. Here, we evaluate
+the accuracies of eight common GB flavors (GB-HCT, GB-OBC, GB-neck2,
+GBNSR6, GBSW, GBMV1, GBMV2, and GBMV3), available in major molecular
+dynamics packages, in predicting the electrostatic binding free energies
+(ΔΔGel) for
+a diverse set of 60 biomolecular complexes belonging to four main
+classes: protein–protein, protein-drug, RNA-peptide, and small
+complexes. The GB flavors are examined in terms of their ability to
+reproduce the results from the Poisson–Boltzmann (PB) model,
+commonly used as accuracy reference in this context. We show that
+the agreement with the PB of ΔΔGel estimates varies widely between different
+GB models and also across different types of biomolecular complexes,
+with R2 correlations ranging from 0.3772
+to 0.9986. A surface-based “R6” GB model recently implemented
+in AMBER shows the closest overall agreement with reference PB (R2 = 0.9949, RMSD = 8.75 kcal/mol). The RNA-peptide
+and protein-drug complex sets appear to be most challenging for all
+but one model, as indicated by the large deviations from the PB in ΔΔGel. Small neutral
+complexes present the least challenge for most of the GB models tested.
+The quantitative demonstration of the strengths and weaknesses of
+the GB models across the diverse complex types provided here can be
+used as a guide for practical computations and future development
+efforts.

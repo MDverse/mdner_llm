@@ -1,0 +1,3 @@
+Mutation-Induced Resistance of SARS-CoV-2 Mpro to WU-04 Revealed by Multi-Scale Modeling
+
+Experimental data, molecular dynamics (MD) simulation parameter files, and NRI script files used in the study

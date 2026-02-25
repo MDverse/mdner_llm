@@ -1,0 +1,13 @@
+MD simulation of DPPC monolayer (Slipids, TIP3) 43-78A2
+
+About these systems:
+This record contains the simulation files of 50-lipid DPPC monolayers simulated in the water-air interface with (~85 water per lipid). 
+ 
+The initial structure of the systems was assembled by disjoining of monolayers in published GRO-file taken from Slipids website; obtained monolayer system was then equilibrated with GROMACS by following their recommended protocol. The membrane was then compressed and expanded in a simulation using PLUMED, from which states at different values of area per lipid were extracted.
+Each of these systems was the initial state of a 100 ns long simulation in the NVT ensemble (T=298.15 K), the ones here provided.
+For all simulations, Slipids parameters (from 2020 year) for the lipids and the 3-point TIP3P water model were used.
+Files provided:
+
+Compressed file with all ITP files with the parameters used for the simulations. TOP for entire system topology
+MDP file used for the production simulations. 
+For each simulation, TPR of the simulation, trajectory in TRR format, EDR file, and GRO file representing the final state of the system. All files corresponding to the same simulation are labeled as NVTXX, where XX is the nominal APL at which the simulations were carried out (APL = 43-80 Å2).

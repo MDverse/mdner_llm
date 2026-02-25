@@ -1,0 +1,32 @@
+Thermodynamics of N‑Isopropylacrylamide in Water: Insight from Experiments, Simulations, and Kirkwood–Buff Analysis Teamwork
+
+The
+behavior of thermoresponsive polymer poly­(N-isopropylacrylamide)
+(PNiPAM), an essential building block in the
+design of smart soft materials, in aqueous solutions has attracted
+much interest, which contrasts with our knowledge of N-isopropylacrylamide (NiPAM) monomer. Strikingly, the physicochemical
+properties of aqueous NiPAM are similarly rich, and their understanding
+is far from being complete. This stems from the lack of accurate thermodynamic
+data and quantitative model for atomistic simulations. In this joint
+study, we have probed the thermodynamic behavior of aqueous NiPAM
+by experimental methods, molecular dynamics (MD) simulations, and
+Kirkwood–Buff (KB) analysis at ambient conditions. From the
+partial molar volumes and simultaneously correlated osmotic coefficients,
+with excess partial molar enthalpies of NiPAM in water, the concentration
+and temperature dependence of KB integrals was determined. For the
+purpose of this work, we have developed and employed a novel NiPAM
+force field, which not only reproduces KB integrals (Gij) and adequately captures macroscopic
+thermodynamic quantities but also provides more accurate structural
+insight than the original force fields. We revealed in the vicinity
+of NiPAM the competing effect of amide hydration with interaction
+between nonpolar regions. This microscopic picture is reflected in
+the experimentally observed NiPAM–NiPAM association, which
+is present from highly dilute conditions up to the solubility limit
+and is evidenced by G22. From intermediate
+concentrations, it is accompanied by the existence of apparent dense-water
+regions, as indicated by positive G11 values.
+The here-employed KB-based framework provided a mutually consistent
+thermodynamic and microscopic insight into the NiPAM solution and
+may be further extended for ion-specific effects. Moreover, our findings
+contribute to the understanding of thermodynamic grounds behind PNiPAM
+collapse transition.

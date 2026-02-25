@@ -1,0 +1,23 @@
+Lipid Oxidation: Role of Membrane Phase-Separated Domains
+
+Lipid
+oxidation is associated with several inflammatory and neurodegenerative
+diseases, but many questions to unravel its effects on biomembranes
+are still open due to the complexity of the topic. For instance, recent
+studies indicated that phase-separated domains can have a significant
+effect on membrane function. It is reported that domain interfaces
+are “hot spots” for pore formation, but the underlying
+mechanisms and the effect of oxidation-induced phase separation on
+membranes remain elusive. Thus, to evaluate the permeability of the
+membrane coexisting of liquid-ordered (Lo) and liquid-disordered (Ld)
+domains, we performed atomistic molecular dynamics simulations. Specifically,
+we studied the membrane permeability of nonoxidized or oxidized homogeneous
+membranes (single-phase) and at the Lo/Ld domain interfaces of heterogeneous
+membranes, where the Ld domain is composed of either oxidized or nonoxidized
+lipids. Our simulation results reveal that the addition of only 1.5%
+of lipid aldehyde molecules at the Lo/Ld domain interfaces of heterogeneous
+membranes increases the membrane permeability, whereas their addition
+at homogeneous membranes does not have any effect. This study is of
+interest for a better understanding of cancer treatment methods based
+on oxidative stress (causing among others lipid oxidation), such as
+plasma medicine and photodynamic therapy.

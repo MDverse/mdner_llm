@@ -1,0 +1,4 @@
+Molecular Dynamics simulations of spreading droplets
+
+This dataset contains the results of non-equilibrium Molecular Dynamic simulations of 2-dimensional SPC/E water nanodroplets spontaneously spreading over silica-like walls, performed using Gromacs. The main purpose of these simulations is to study the motion of three-phases contact lines over high-friction surfaces and to test contact line friction models.
+Further details can be found in 'documentation.pdf'.

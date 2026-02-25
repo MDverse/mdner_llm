@@ -1,0 +1,3 @@
+All atomistic MD of mannose binding interface in DC-SIGN and MRC1
+
+This is a set of all atomistic MD simulations made with gromacs. It includes simulations of the CRD of DC-SIGN solvated in water wihtout ligand, with mannose as ligand and with a variation of mannose based ligands. It also includes the same set of simulations with MRC1 as receptor. Simulations were done at 295.15 K with the charmm36 forcefield.

@@ -1,0 +1,49 @@
+Molecular dynamics trajectories of apomyoglobin at pH 4
+
+Dataset
+This dataset contains molecular dynamics trajectories of apomyoglobin simulated at pH 4 on NCSA Blue Waters using GROMACS 5.0.4.
+At pH 4.0, all GLU and ASP sidechains are unprotonated (with -1 charge) and all HIS sidechains are (doubly) protonated (with +1 charge). 
+See the README.md for a description of the full dataset, only a subset if represented here.
+ 
+Nine replicates (run1 thru run9) of restrained simulations to encourage local unfolding…
+
+each at 6 different temperatures (300K, 330K, 350K, 370K, 400K, 415K)
+…and at each temperature different restraint strengths (k0.1 k0.2 k0.3 k0.4 k0.5 k0.6 k0.7 k0.8 k0.9 k1.0 k1.1 k1.2 k1.5)
+
+Trajectories are about 760 ns in length:
+
+traj.xtc files - compressed protein coords (no solvent) saved every 100 ps
+
+ 
+Contents
+README.md   -  a description of the full dataset (available) upon requection 
+confout.gro   -  GROMACS structure of apomyoglobin with full solvent
+confout_protein_only.gro   -  GROMACS structure of apomyoglobin only (use to visualize/analyze xtc files)
+index.ndx   -  GROMACS index file defining atom groups
+ 
+Archives of trajectory data:
+run1.tar.gz   -  archive of trajectory data (with trr files removed)
+run2.tar.gz   -  archive of trajectory data (with trr files removed)
+run3.tar.gz   -  archive of trajectory data (with trr files removed)
+run4.tar.gz   -  archive of trajectory data (with trr files removed)
+run5.tar.gz   -  archive of trajectory data (with trr files removed)
+run6.tar.gz   -  archive of trajectory data (with trr files removed)
+run7.tar.gz   -  archive of trajectory data (with trr files removed)
+run8.tar.gz   -  archive of trajectory data (with trr files removed)
+ 
+tprs.tar.gz - archive of GROMACS binary *.tpr files for simulation (545 MB)
+scripts.tar.gz - archive of scripts used for preparing and running simulation
+
+make_whole.py
+mcopy.py
+mm.py
+NOTE
+qsub.sh
+reduce_trr.py
+submit_all
+submit_all_runs
+submit_all_runs.py
+
+Citation
+Wan, Hongbin, Yunhui Ge, Asghar Razavi, and Vincent A. Voelz. "Reconciling simulated ensembles of apomyoglobin with experimental hydrogen/deuterium exchange data using bayesian inference and multiensemble markov state models." Journal of chemical theory and computation 16, no. 2 (2020): 1333-1348.
+DOI: https://doi.org/10.1021/acs.jctc.9b01240

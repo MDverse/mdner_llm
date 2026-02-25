@@ -1,0 +1,25 @@
+Investigating Solvent-Induced Aggregation in Edge-Functionalized Layered Silicates via All-Atom Molecular Dynamics Simulations
+
+Molecular dynamics simulations can
+provide the means
+to visualize
+and understand the role of intermolecular interactions in the mechanisms
+involved in molecular aggregation. Along these lines, simulations
+can allow the study of how surface chemical modifications can influence
+nanomaterial assembly at the molecular level. Layered silicate clays
+have been of significant interest for some time, particularly with
+regard to their use in organic/inorganic nanocomposites. However,
+despite numerous reports on the covalent linkage of organic moieties
+via silanol condensation, the theoretical understanding of these systems
+has heretofore been limited to noncovalent interactions, specifically
+ionic interactions at the charged basal surfaces. Herein, a model
+for edge-functionalized layered aluminosilicate clay, based on the
+siloxane linkage, is presented. In addition to reproducing experimentally
+observed degrees of molecular aggregation of clay-linked perylene
+diimide derivatives with different terminal functional groups as a
+function of solvent composition, a molecular-level understanding of
+the role of van der Waals interactions and hydrogen bonding of the
+different end-groups on the aggregation state in different water/N,N-dimethylformamide mixtures is obtained.
+The reported model provides a means to simulate organic moieties covalently
+bound to the layered silicate edge, which will enable future simulations
+of nanocomposites and organic/inorganic hybrids based on this system.

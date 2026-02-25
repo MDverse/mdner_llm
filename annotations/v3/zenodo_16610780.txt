@@ -1,0 +1,89 @@
+Modelling Data related to the article "Phosphorylation of SNAP-25 at Ser187 is Enhanced Following its Cleavage by Botulinum Neurotoxin Serotype A, Promoting the Dominant-Negative Effect of the Resulting Fragment."
+
+This dataset accompanies the molecular dynamics (MD) study of the SNARE complex in its wild-type and modified forms, as well as umbrella sampling simulations of a model peptide designed to explore the impact of serine phosphorylation on helical stability. The data have been generated using the Amber20 package with CUDA-accelerated pmemd, and system preparation and analysis were performed using AmberTools21.
+SNARE Complex MD Simulations
+Four different SNARE complexes were simulated:
+
+
+SNAP-25 (wild-type)
+
+
+pSNAP-25_Ser187 (phosphorylated at Ser187)
+
+
+SNAP_1-197 (cleaved at the C-terminal helix of SNAP-25, residues 198–204 removed)
+
+
+pSNAP_1-197_Ser187 (cleaved and phosphorylated at Ser187)
+
+
+Included Files (per complex)
+
+
+Topology file (geom.prmtop) with TIP4Pew water and neutralizing ions
+
+
+Initial coordinates (geom.inpcrd) of the fully solvated system
+
+
+Post-heatup coordinates (heatup_1.rst, heatup_2.rst) representing the solvated and heated up system before production
+
+
+Two production trajectories and their topology file  (stripped_1500_1.nc, stripped_1500_2.nc, stripped_1500.prmtop) per system (750 ns each), recorded every 40 ps→ Trajectories are provided in a stripped format: ions removed, and only the 1500 closest water molecules retained per frame to reduce file size.
+
+
+Each simulation was conducted in the NPT ensemble (Anderson thermostat and Berendsen barostat), using a 2 fs timestep and periodic boundary conditions. The SHAKE algorithm was applied to constrain hydrogen-involving bonds. Analyses focus on the last 300 ns of each replicate to ensure equilibrium sampling.
+Umbrella Sampling Simulations
+Two 10-residue model peptides were simulated to probe the impact of phosphorylation on α-helical stability:
+
+
+Model peptide : (peptide) ACE-LYS-ALA-ASP-SER-ASN-LYS-THR-ARG-NME
+
+
+Phosphorylated model peptide: (pho_peptide) same sequence with Ser → phosphoserine (SEP)
+
+
+Umbrella sampling was used to stretch the peptide by biasing the distance between the α-carbons of the N-terminal lysine and the C-terminal arginine across 17 windows (10.0 to 18.0 Å, spaced by 0.5 Å), using a harmonic force constant of 8.0 kcal/mol/Å² (Amber input). Each peptide system was independently simulated 50 times.
+Included Files (per peptide type)
+
+
+Topology and initial coordinate files
+
+
+50 replicate umbrella sampling sets, each containing:
+
+
+potential of mean force (PMF) output
+
+
+WHAM metadata file
+
+
+For each window of each replicate:
+
+
+reaction coordinate trajectory
+
+
+final restart file of the equilibrated window
+
+
+
+
+
+
+These umbrella sampling simulations were performed with the same solvent model, force fields, and equilibration protocol as the SNARE systems.
+Force Field Parameters
+
+
+Protein: ff14SB
+
+
+Phosphorylated serine: adapted from Homeyer et al.
+
+
+Solvent: TIP4Pew water model
+
+
+Electrostatics: Particle Mesh Ewald (PME), 12.0 Å real-space cutoff
+

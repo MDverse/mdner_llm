@@ -1,0 +1,3 @@
+MD simulation results.
+
+The initial models (PDB file format) and the MD simulation results (DCD file format). (ZIP)

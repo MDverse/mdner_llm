@@ -1,0 +1,3 @@
+Swissparam CHARMM parameter file for Pam3CSK4, and CU-T12-9.
+
+Swiss param [http://swissparam.ch/] CHARMM parameter files for Pam3CSK4, and CU-T12-9.

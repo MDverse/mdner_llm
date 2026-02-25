@@ -1,0 +1,3 @@
+Data for: Caspase-Based Fusion Protein Technology: Substrate Cleavability Described by Computational Modeling and Simulation
+
+This dataset contains all files necessary to set up the simulations conducted in this work. It further contains the scripts that were used to do the stitching and combining of the CASPON-tag and the N-termini of the POIs. The manuscript was just submitted and accepted: 10.1021/acs.jcim.4c00316

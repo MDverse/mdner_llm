@@ -1,0 +1,10 @@
+Supporting data for "Selective ubiquitination of drug-like small molecules by the ubiquitin ligase HUWE1"
+
+
+Force Field parameters for BI8626
+
+Compatible with CHARMM36 (tested with release jul21 & jul22)
+
+
+Main bound poses of BI8626 identified from MD simulations
+Alphafold3 predictions of a restrained BI8626 complex with the HUWE1 HECT domain and ubiquitin

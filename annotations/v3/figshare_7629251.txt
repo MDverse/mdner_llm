@@ -1,0 +1,23 @@
+Development of GROMOS-Compatible Parameter Set for Simulations of Chalcones and Flavonoids
+
+Chalcones
+and flavonoids constitute a large family of plant secondary
+metabolites that have been explored as a potential source of novel
+pharmaceutical products. While the simulation of these compounds by
+molecular dynamics (MD) can be a valuable strategy to assess their
+conformational properties and so further develop their role in drug
+discovery, there are no set of force field parameters specifically
+designed and experimentally validated for their conformational description
+in condensed phase. So the current work developed a new parameter
+set for MD simulations of these compounds’ main scaffolds under
+GROMOS force field. We employed a protocol adjusting the atomic charges
+and torsional parameters to the respective quantum mechanical derived
+dipole moments and dihedrals rotational profiles, respectively. Experimental
+properties of organic liquids were used as references to the calculated
+values to validate the parameters. Additionally, metadynamics simulations
+were performed to evaluate the conformational space of complex chalcones
+and flavonoids, while NOE contacts during simulations were measured
+and compared to experimental data. Accordingly, the employed protocol
+allowed us to obtain force field parameters that reproduce well the
+target data and may be expected to contribute in more accurate computational
+studies on the biological/therapeutical role of such molecules.

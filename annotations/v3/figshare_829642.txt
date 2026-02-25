@@ -1,0 +1,13 @@
+Molecular dynamics simulation trajectory of a fully hydrated DMPC lipid bilayer
+
+System: DMPC (dimyristoylphosphatidylcholine) bilayer in water.
+Number of lipids: 128.Number of waters: 5097.
+Lipid model: 'Berger' united-atom [Biophys. J. 72 2002 (1997)].Water model: SPC [In Intermolecular Forces, ed. Pullman. 331 (1981)].
+Simulation engine: Gromacs 3.x [www.gromacs.org]
+Trajectory length: 110 ns.Previously equilibrated for: 20 ns.Sampling rate: every 10 ps.
+Time integration step: 2 fs.
+Thermodynamic ensemble: NpT. Temperature coupling: 'Berendsen' [J. Chem. Phys. 81 3684 (1984)] with lipids and water coupled separately at T = 323 K.Pressure coupling: 'Berendsen' [J. Chem. Phys. 81 3684 (1984)] with xy and z coupled separately at p = 1.0 bar.
+Electrostatics: PME [J. Chem. Phys. 98 10089 (1993); J. Chem. Phys. 103 8577 (1995)], real-space cutoff at 1.0 nm.Van der Waals: Truncated at 1.0 nm.
+Constraints: Covalent bond lengths in lipids using LINCS [J. Comput. Chem. 18 1463 (1997)], in water using SETTLE [J. Comput. Chem. 13 952 (1992)].
+Used in publication: Markus S. Miettinen, Andrey A. Gurtovenko, Ilpo Vattulainen, and Mikko Karttunen: "Ion Dynamics in Cationic Lipid Bilayer Systems in Saline Solutions". J. Phys. Chem. B 113 9226 (2009).
+Modifications of data: The 5097 water molecules were excluded from this file to keep the file size below 250 Mb.

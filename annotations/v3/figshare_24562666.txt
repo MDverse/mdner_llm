@@ -1,0 +1,21 @@
+Redox-Based Defect Detection in Packed DNA: Insights from Hybrid Quantum Mechanical/Molecular Mechanics Molecular Dynamics Simulations
+
+The impact of an 8-oxoguanine (8oxoG) defect on the redox properties
+of DNA within the nucleosome core particle (NCP) was investigated
+employing hybrid quantum mechanical/molecular mechanics (QM/MM) molecular
+dynamics simulations of native and 8oxoG-containing NCP systems with
+an explicit representation of a biologically relevant environment.
+Two distinct NCP positions with varying solvent accessibility were
+considered for 8oxoG insertion. In both cases, it is found that the
+presence of 8oxoG drastically decreases the redox free energy of oxidation
+by roughly 1 eV, which is very similar to what was recently reported
+for free native and 8oxoG-containing DNA. In contrast, the effect
+of 8oxoG on the reorganization free energy is even smaller for packed
+DNA (decrease of 0.13 and 0.01 eV for defect-free and defect-containing
+systems, respectively) compared to the one for free DNA (0.25 eV),
+consistent with the increased rigidity of the NCP as compared to free
+DNA. Furthermore, the presence of an 8oxoG defect does not yield any
+significant changes in the packed DNA structure. Such a conclusion
+favors the idea that in the case of chromatin, defect-induced changes
+in DNA redox chemistry can also be exploited to detect damaged bases
+via DNA-mediated hole transfer.

@@ -1,0 +1,104 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics Simulations of the Interactions of DMSO with DPPC and DOPC Phospholipid Membranes\n\nMolecular dynamics simulations have been used to investigate\nthe\neffect of DMSO on 1,2-dipalmitoyl-sn-glycero-3-phosphatidylcholine\n(DPPC) and 1,2-dioleoyl-sn-glycero-3-phosphocholine\n(DOPC) phospholipid bilayers. The concentration of DMSO was varied\nbetween 0 and 25.0 mol %. For both lipids, DMSO causes the membrane\nto expand in the plane of\nthe membrane while thinning normal to that plane. Above a critical\nconcentration, pores in the membrane form spontaneously, and if the\nconcentration is increased further, then the bilayer structure is\ndestroyed. Even at concentrations below those required to induce pores,\nDMSO readily diffuses across the bilayers. The free-energy profile\nassociated with the diffusion of a DMSO molecules across the membrane\nhas been calculated. The simulations suggest that the DOPC bilayer\nis more resistant to the deleterious effects of DMSO, both increasing\nthe stability of the membranes and decreasing the rate at which DMSO\ndiffuses across the membrane. In this way, the work highlights the\nimportance of investigating the lipid composition of cell membranes\nwhen characterizing the effects of cryosolvents.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 54,
+            "end": 58
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 64,
+            "end": 68
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 73,
+            "end": 77
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 177,
+            "end": 181
+        },
+        {
+            "label": "MOL",
+            "text": "1,2-dipalmitoyl-sn-glycero-3-phosphatidylcholine",
+            "start": 185,
+            "end": 233
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 235,
+            "end": 239
+        },
+        {
+            "label": "MOL",
+            "text": "1,2-dioleoyl-sn-glycero-3-phosphocholine",
+            "start": 245,
+            "end": 285
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 287,
+            "end": 291
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 337,
+            "end": 341
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 396,
+            "end": 400
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 720,
+            "end": 724
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 822,
+            "end": 826
+        },
+        {
+            "label": "MOL",
+            "text": "DOPC",
+            "start": 911,
+            "end": 915
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 972,
+            "end": 976
+        },
+        {
+            "label": "MOL",
+            "text": "DMSO",
+            "start": 1058,
+            "end": 1062
+        }
+    ]
+}

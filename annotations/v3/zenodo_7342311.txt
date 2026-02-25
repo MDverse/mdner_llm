@@ -1,0 +1,8 @@
+Dataset III related to the publication: In silico Evaluation of the Thr58-associated Conserved Water with KRAS Switch-II Pocket Binders
+
+Desmond trajectories of simulations conducted with TIP4P water model related to the publication:
+Leini R, Pantsar T: In Silico Evaluation of the Thr58-Associated Conserved Water with 2 KRAS Switch-II Pocket Binders. J. Chem. Inf. Model. [accepted] https://doi.org/10.1021/acs.jcim.2c01479
+
+Individual .zip files contain the Desmond trajectories and -out.cms -files.
+
+Related datasets: 10.5281/zenodo.7656467 and 10.5281/zenodo.7341954

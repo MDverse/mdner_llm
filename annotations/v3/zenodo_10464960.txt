@@ -1,0 +1,3 @@
+POPC bilayer at 310K with the prosECCo75 force field, 111 mM NaCl
+
+prosECCo 75 paper related data

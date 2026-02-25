@@ -1,0 +1,13 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Short-Range Solvation Effects on Chiroptical Properties: A Time-Dependent Density Functional Theory and ab Initio Molecular Dynamics Computational Case Study on Austdiol\n\nThe description of solvation effects\non the chiroptical properties\nof chiral molecules is still a difficult challenge in the field of\ncomputational spectroscopy; this issue is critical in stereochemical\ncharacterization, since a reliable assessment of absolute configuration\nrequires high accuracy. The present case study reports the huge effect\nof solvation on the chiroptical properties of austdiol, a fungal metabolite\nof known stereochemistry. Standard protocols based on time-dependent\ndensity functional theory calculations failed to reproduce its experimental\nchiroptical properties in methanol. When short-range solvation effects\nare explicitly considered by means of ab initio molecular dynamics,\nthe correlation between calculated and experimental data is greatly\nimproved because of a better description of the chiral environment\naround the ketone chromophore, showing that the modeling of subtle\nsolvent-induced perturbations may require the most accurate computational\nmethods.",
+    "entities": []
+}

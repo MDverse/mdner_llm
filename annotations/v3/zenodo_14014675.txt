@@ -1,0 +1,5 @@
+Molecular Dynamics Trajectories of Membrane-bound Influenza Hemagglutinin (A/duck/Alberta/35/76) in Complex with 0-3 Copies of FISW84 Fab Fragments
+
+MD simulation trajectories of influenza hemagglutinin (A/duck/Alberta/35/76) in a bilayer mimicking the viral membrane, with 0-3 copies of FISW84 antibody's Fab domains bound.
+Files are named as (copy number of Fab).(simulation replica ID).(file type extension). The systems were constructed in CHARMM format PSF files and the trajectories were recorded in DCD format.
+Simulations were performed with NAMD3. The trajectories were re-centered and re-wrapped about the periodic boundary from the raw trajectories, in order to keep the HA-Fab complex and the lipid bilayer appearing as a single continuous entity instead of isolated molecules at the opposite side of the periodic boundary. Water molecules in the simulation were removed in these trajectories due to file size limitations.

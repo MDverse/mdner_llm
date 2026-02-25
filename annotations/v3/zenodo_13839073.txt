@@ -1,0 +1,3 @@
+Indocyanine Green Simulations
+
+Data set to carry on computational simulations of a voltage sensitive dye (Indocyanine Green) inmersed in a polarized lipid membrane. 

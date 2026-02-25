@@ -1,0 +1,3 @@
+OpenFF Triethanolamine Simulation w/ Extended Equilibration
+
+2 ns NVT, 10 ns NPT, 20 ns production.

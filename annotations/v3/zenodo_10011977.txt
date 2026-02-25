@@ -1,0 +1,3 @@
+MD files (psf, pdb, and toppar) for the trajectories of the glycoprotein receptors FSHR and LHCGR.
+
+PSF and PDB files for trajectories on FSHR and LHCGR in SDPC lipids. Top and par parameters for charmm36m included.PDB files and trr files include only backbone atoms. All frames were fitted to the to the transmembrane domains.

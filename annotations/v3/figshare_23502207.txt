@@ -1,0 +1,18 @@
+Stealthy Player in Lipid Experiments? EDTA Binding to Phosphatidylcholine Membranes Probed by Simulations and Monolayer Experiments
+
+Ethylenediaminetetraacetic acid (EDTA) is frequently
+used in lipid
+experiments to remove redundant ions, such as Ca2+, from
+the sample solution. In this work, combining molecular dynamics (MD)
+simulations and Langmuir monolayer experiments, we show that on top
+of the expected Ca2+ depletion, EDTA anions themselves
+bind to phosphatidylcholine (PC) monolayers. This binding, originating
+from EDTA interaction with choline groups of PC lipids, leads to the
+adsorption of EDTA anions at the monolayer surface and concentration-dependent
+changes in surface pressure as measured by monolayer experiments and
+explained by MD simulations. This surprising observation emphasizes
+that lipid experiments carried out using EDTA-containing solutions,
+especially of high concentrations, must be interpreted very carefully
+due to potential interfering interactions of EDTA with lipids and
+other biomolecules involved in the experiment, e.g., cationic peptides,
+that may alter membrane-binding affinities of studied compounds.

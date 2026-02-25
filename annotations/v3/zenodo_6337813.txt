@@ -1,0 +1,13 @@
+MD simulation of POPC bilayer with CHARMM36 force field, 200 mM CaCl2
+
+MD simulation of POPC bilayer with CHARMM36 force field, 200 mM CaCl2
+Dataset contains simulation files including centered trajectory files. For the ease of the upload, trajectory files (.xtc) are divided to 100ns pieces (Cacl200mM_x-x.xtc)
+System: POPC bilayer in water
+Number of lipids: 200 (100/leaflet)
+Number of waters: 8880
+Salt: CaCl2
+Concentration: 200 mM
+Number of cations: 32
+Simulation time: 1000 ns
+Simulation engine: GROMACS 2019.5
+Temperature: 300 K

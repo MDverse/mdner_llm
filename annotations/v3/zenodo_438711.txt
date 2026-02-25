@@ -1,0 +1,5 @@
+Molecular dynamic trajectory of calcium binding wild type for the article "Ca 2+ binding to F-ATP synthase β subunit triggers the mitochondrial permeability transition"
+
+ATP synthase molecular dynamics simulations files for wild type of the beta subunit binding calcium:
+50ns trajectory (ATPsynth_woh2o_Ca_wt.dcd) and corresponding psf file (ATPsynth_ca_wt.psf)
+ 

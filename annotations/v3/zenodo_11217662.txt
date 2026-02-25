@@ -1,0 +1,3 @@
+Differentially stressed DLPC bilayer
+
+DLPC (C12:0 PC) bilayer with 80 lipids in one leaflet and 70 lipids in the opposite leaflet. The bilayer was simulated in all-atom representation with NAMD and the CHARMM36 lipid force field. The uploaded trajectory is the last 400 ns (from a 650 ns total simulation) at 27 C (300.15 K). Uploaded are: the trajectory with output frequency of 40 ps centered on the bilayer midplane, structure files (.psf and .pdb) and sample NAMD parameter file.

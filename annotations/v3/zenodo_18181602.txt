@@ -1,0 +1,20 @@
+A Multi-Scale Mechanistic Model Reveals How 14-3-3 Tunes ASK1 Activity Through Long-Range Allosteric Remodeling
+
+This dataset contains all molecular dynamics system-preparation files, simulation input parameters, workflow scripts, and initial structural models required to reproduce the computational methodology and key mechanistic analyses reported in the study “A Multi-Scale Mechanistic Model Reveals How 14-3-3 Tunes ASK1 Activity Through Long-Range Allosteric Remodeling.”
+The archive includes:
+
+
+PDB files for all monomeric and dimeric systems, including experimentally determined structures, SAXS-derived conformers, and AlphaFold-Multimer models
+
+
+AMBER input files for energy minimization, equilibration, and production molecular dynamics simulations
+
+
+Bash scripts for automated system preparation and MD execution
+
+
+Documentation describing the computational workflow and simulation protocols
+
+
+Raw production trajectories are not included due to size constraints. These trajectories are not required to reproduce the essential results or mechanistic conclusions, which are derived from reproducible analyses of structural ensembles, pocket volumes, hydration behavior, and residue-interaction metrics.
+Representative trajectory movies corresponding to the production simulations are publicly available via Figshare links provided in the associated manuscript.

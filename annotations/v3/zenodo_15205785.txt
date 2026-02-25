@@ -1,0 +1,21 @@
+Tutorial files for CICLOPv2_waterdynamics
+
+The end to end solution for identifying and characterizing protein cavities and the water within them
+CICLOP v2.0 is a an extension of CICLOP (https://ciclop.raylab.iiitd.edu.in/), a robust Python-based molecular dynamics trajectory analysis tool tailored for identifying and characterizing protein cavities (internal cavities) and the water contained within them. This tool takes molecular dynamics simulation trajectories or a single pdb file as its input. Here, we provide a concise guide on how to use CICLOP to characterize water within protein cavities.
+CICLOP is built on python3.11. The following are the dependencies required to run CICLOP
+
+numpy, scipy, math, pandas, sys, os, time
+MDAnalysis
+tqdm
+multiprocessing
+shapely
+gc
+argparse
+concurrent.futures
+collections
+
+The above dependncies can be installed seperately or using the yml file provided. And viola! You are ready to delve into the vast world of protein cavities.
+A detailed turotial is also provided to help you get accustomed to the tool's usage.
+For more help with input flags : CICLOP -h or python3 CICLOP.py -h
+For basic usage: CICLOP -w tip3p -f input.pdb -o Output.pdb
+ 

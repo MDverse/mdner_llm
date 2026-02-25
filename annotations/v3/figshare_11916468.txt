@@ -1,0 +1,32 @@
+Influence of Organic Structure-Directing Agents on Fluoride Dynamics in As-Synthesized Silicalite‑1
+
+Silicalite-1, an
+all-silica zeolite having the MFI topology, can
+be synthesized in the presence of fluoride ions, which balance the
+charge of the cationic organic structure-directing agents (OSDAs;
+such as tetrapropylammonium). In as-synthesized Silicalite-1, the
+fluoride anions occupy well-defined positions in the 41·52·62 cages where they are covalently
+bonded to framework Si atoms. Previous experimental studies showed
+that the fluoride anions are dynamically disordered at room temperature.
+The dynamic disorder can be suppressed by cooling to cryogenic temperatures
+and also through a variation of the OSDA, pointing to an interplay
+between framework and extra framework dynamics. In the present work,
+ab initio molecular dynamics (AIMD) simulations in the framework of
+density functional theory (DFT) were employed to study the influence
+of the OSDA on the fluoride dynamics, comparing a total of eight alkylammonium
+OSDAs having either four alkyl chains of equal length (symmetric)
+or one short and three longer chains (asymmetric). In addition to
+time-averaged quantities, such as atomic root mean square displacements,
+the number of dynamic events in which fluoride ions “jump”
+from one Si atom to a neighboring one was analyzed. While the timescale
+accessible to the AIMD simulations was found to be too short to observe
+significant fluoride dynamic disorder at room temperature, it was
+clearly detectable when increasing the temperature to 373 K. For systems
+incorporating symmetric OSDAs, increasing the OSDA size correlated
+with decreasing freedom of motion of the framework atoms. In line
+with previous experimental findings, a drastic reduction of the fluoride
+dynamic disorder was observed for systems containing tributylammonium-based
+OSDAs having one short (methyl or ethyl) chain. Besides reproducing
+the experimental observations, the computational approach also helped
+to explain this suppression of the dynamic disorder on the basis of
+the size and shape of the OSDA.

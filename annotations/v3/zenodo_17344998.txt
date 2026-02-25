@@ -1,0 +1,5 @@
+POPC sage2.2.1-lipids-v1.2-with-revert-alkane-parms
+
+Charges assinged with rc3 model
+300K
+rcoulomb 1.2, switch 1.15

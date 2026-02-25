@@ -1,0 +1,8 @@
+Molecular dynamics simulation data for "Complete structures of the YenTc holotoxin prepore and pore reveal the evolutionary basis for chitinase incorporation into ABC toxins"
+
+Molecular dynamics simulation files of the AlphaFold predicted structure of the Chi1-CBD-B interface associated with manuscript titled: "Complete structures of the YenTc holotoxin prepore and pore reveal the evolutionary basis for chitinase incorporation into ABC toxins". These simulations were used to validate crosslinking mass spectrometry data against the AlphaFold prediction.
+"Legfoot" is an abbreviation for the Chi1 (foot) - CBD-B (leg) interface.
+Included are the starting .gro file for the three replicates, the .itp, .top, .ndx and .mdp files to generate new .tpr files from the starting configuration. Additionally, the raw, unprocessed .xtc files for the three replicates are included. To correct for PBC effects for analysis of cross-linking distances, we recomend using the folloiwng GROMACS flags for trjconv: -pbc cluster, -center, -fit rot+trans.
+Simulations were performed using GROMACS2022. 
+Forcefield: gromos54a7
+Water model: SPC216

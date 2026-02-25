@@ -1,0 +1,8 @@
+POPC bilayer, 154 mM NaCl ions, prosECCo75 version of CHARMM36 FF, 310K, gromacs 2021.2
+
+Atomistic molecular dynamic simulation of POPC lipid bilayer in 154 mM NaCl water solution.
+Water model: TIP3P - CHARMM36 version
+Lipids: prosECCo75 version of CHARMM36
+Ions: Sodium: Na_s:  DOI: 10.1021/acs.jpcb.5b05221 ; Jungwirth2015 ; scaled
+      Chloride: Cl_2s: DOI: 10.1080/00268976.2013.875231 ; Jungwirth2014b ; scaled
+README.yaml contains info on simulations files, plus basic analysis (headgroup order parameters, area per lipid)

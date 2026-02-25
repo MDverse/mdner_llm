@@ -1,0 +1,29 @@
+Supporting data for: "A Mg-Chelatase Subunit I Missense Mutant in Barley Exhibits a Cold-Sensitive Phenotype Under Field Conditions"
+
+In this repository we deposited trajectories and input files for the paper "A Mg-Chelatase Subunit I Missense Mutant in Barley Exhibits a Cold-Sensitive Phenotype Under Field Conditions"
+The file "persello_et_al.zip" contains:
+K298:
+dump.mdp           #Molecular Dynamics Parameter production file (gmx dump), 277.15 K
+index.ndx             #Index file compatible with TPRs.
+K_277.tpr             #K298(A), 277.15 K TPR file
+K_295.tpr             #K298(A), 295.15 K TPR file
+K1_277.xtc           #K298(A), 277.15 K replica 1 trajectory file (protein, ATP, magnesium ion)
+K1_295.xtc           #K298(A), 295.15 K replica 1 trajectory file (protein, ATP, magnesium ion)
+K2_277.xtc           #K298(A), 277.15 K replica 2 trajectory file (protein, ATP, magnesium ion)
+K2_295.xtc           #K298(A), 295.15 K replica 2 trajectory file (protein, ATP, magnesium ion)
+K3_277.xtc           #K298(A), 277.15 K replica 3 trajectory file (protein, ATP, magnesium ion)
+K3_295.xtc           #K298(A), 295.15 K replica 3 trajectory file (protein, ATP, magnesium ion)
+ref.pdb                #K298(A) reference PDB file (protein, ATP, magnesium ion)
+R298:
+dump.mdp           #Molecular Dynamics Parameter production file (gmx dump), 277.15 K
+index.ndx             #Index file compatible with TPRs.
+R_277.tpr             #R298(A), 277.15 K TPR file
+R_295.tpr             #R298(A), 295.15 K TPR file
+R1_277.xtc           #R298(A), 277.15 K replica 1 trajectory file (protein, ATP, magnesium ion)
+R1_295.xtc           #R298(A), 295.15 K replica 1 trajectory file (protein, ATP, magnesium ion)
+R2_277.xtc           #R298(A), 277.15 K replica 2 trajectory file (protein, ATP, magnesium ion)
+R2_295.xtc           #R298(A), 295.15 K replica 2 trajectory file (protein, ATP, magnesium ion)
+R3_277.xtc           #R298(A), 277.15 K replica 3 trajectory file (protein, ATP, magnesium ion)
+R3_295.xtc           #R298(A), 295.15 K replica 3 trajectory file (protein, ATP, magnesium ion)
+ref.pdb                #R298(A) reference PDB file (protein, ATP, magnesium ion)
+ 

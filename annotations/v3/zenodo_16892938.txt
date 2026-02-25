@@ -1,0 +1,3 @@
+Research data supporting: "A data driven approach to classify descriptors based on their efficiency in translating noisy trajectories into physically-relevant information".
+
+This repository contains the set of data shown in the paper "A data driven approach to classify descriptors based on their efficiency in translating noisy trajectories into physically-relevant information", published on MLST (DOI: 10.1088/2632-2153/adfa66).

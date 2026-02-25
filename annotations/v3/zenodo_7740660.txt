@@ -1,0 +1,3 @@
+Characterizing the Folding Transition State Ensembles in the Energy Landscape of an RNA Tetraloop - available data.
+
+Trajectory file and scripts necessary to generate an ELViM [Oliveira, A. B.; Yang, H.; Whitford, P. C.; Leite, V. B. P. JCTC, 2019, 15, p.6482] projection of the conformational space for the GCAA tetraloop.

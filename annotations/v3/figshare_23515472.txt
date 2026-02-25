@@ -1,0 +1,23 @@
+Ab Initio Derived Classical Force Field for Molecular Dynamics Simulations of ZnO Surfaces in Biological Environment
+
+Zinc oxide nanostructures
+are used in an ever increasing line of
+applications in technology and biomedical fields. This requires a
+detailed understanding of the phenomena that occur at the surface
+particularly in aqueous environments and in contact with biomolecules.
+In this work, we used ab initio molecular dynamics (AIMD) simulations
+to determine structural details of ZnO surfaces in water and to develop
+a general and transferable classical force field for hydrated ZnO
+surfaces. AIMD simulations show that water molecules dissociate near
+unmodified ZnO surfaces, forming hydroxyl groups at about 65% of the
+surface Zn atoms and protonating 3-coordinated surface oxygen atoms,
+while the rest of the surface Zn atoms bind molecularly adsorbed waters.
+Several force field atom types for ZnO surface atoms were identified
+by analysis of the specific connectivities of atoms. The analysis
+of the electron density was then used to determine partial charges
+and Lennard-Jones parameters for the identified force field atom types.
+The obtained force field was validated by comparison with AIMD results
+and with available experimental data on adsorption and immersion enthalpies,
+as well as adsorption free energies of several amino acids in methanol.
+The developed force field can be used for modeling of ZnO in aqueous
+and other fluid environments and in interaction with biomolecules.

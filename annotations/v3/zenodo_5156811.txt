@@ -1,0 +1,3 @@
+bd oxidase force field parameters
+
+Amber force field parameters for E. coli cytochrome bd oxidase (PDB: 6RKO)

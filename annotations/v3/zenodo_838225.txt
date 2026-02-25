@@ -1,0 +1,8 @@
+MD simulation trajectory of a POPC/POPS (4:1) bilayer with 1M KCl, Berger force field for lipids, Dang's for K+ and ffgmx for Cl-
+
+MD simulation trajectory of a POPC/POPS (4:1) bilayer with 1M KCl (102 POPC, 26 POPS, 4290 WAT, 106 K+, 80 Cl-). Additional K+ cations added to neutralize the negative charge of POPS. Berger force field for lipids, Dang's for K+ (), ffgmx for Cl- are employed. Gromacs 4.0.7, T=310K, 200 ns trajectories were calculated with the last 50 ns stored here).K+ nonbonding parameters (from Dang's JPC B 1999, 103, 8195 based on  Vacha et al. Biophys. J 2009, 96, 4493.):
+sig=0.3048655  eps=0.418400
+Used in:
+P. Jurkiewicz, L. Cwiklik, A. Vojtiskova, P. Jungwirth, M. Hof, Structure, Dynamics, and Hydration of POPC/POPS Bilayers Suspended in NaCl, KCl, and CsCl 
+BBA Biomembranes 2012, 1818, 609-616.
+DOI: 10.1016/j.bbamem.2011.11.033

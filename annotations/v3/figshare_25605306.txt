@@ -1,0 +1,23 @@
+Cationic Ring-Opening Photopolymerization of Long-Chain Epoxides in the Rotator Phase: Confirmation, Mechanism, and Combination
+
+Rotator-phase photopolymerization has been developed
+in the field
+of free-radical addition polymerization since the photopolymerization
+in the rotator phase was first proposed, and other mechanisms urgently
+need to be extended. Herein, four long-chain glycidyl ethers were
+synthesized, and their polymorphic behavior was studied by differential
+scanning calorimetry and X-ray diffraction. Among all, the octadecyl
+glycidyl ether (OGE) and the hexadecyl glycidyl ether (HGE) are proven
+existing rotator phases. The cationic ring-opening photopolymerization
+of the OGE in the rotator phase was achieved, and the highest conversion
+reached 68.6% at 30 °C, which is even higher than that of liquid-state
+photopolymerization at adjacent higher temperatures (27.2% at 40 °C).
+The mechanism was discussed and explained with the aid of a molecular
+dynamic simulation. In order to further develop the cationic ring-opening
+photopolymerization in rotator phases at relatively low temperatures,
+three types of long-chain compounds were chosen to separately blend
+with the OGE to construct binary systems. The conversion of the OGE
+at 20 °C (17% in the pure OGE system) could be obviously improved
+in all binary systems, and the maximum conversion could reach 56%.
+Subsequently, the interactions of different long-chain compounds on
+the OGE and the effect on polymerization behavior are both discussed.

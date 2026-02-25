@@ -1,0 +1,28 @@
+A Theory of Ultrafast Charge Transfer Relaxation with Non-Innocent Solvent Molecules
+
+We revisit the photodynamics of tetracyanoethylene-hexamethylbenzene
+(TCNE-HMB), the molecular complex studied by Hochstrasser et al. [J. Chem. Phys. 100, 4797–4810, 1994] that has long
+challenged the applicability of Marcus’s theory of electron
+transfer for predicting photochemical reactions. Using a novel black-box
+electronic structure algorithm (time-dependent density functional
+theory with one double, TDDFT-1D) to efficiently run molecular dynamics
+that can treat charge recombination, we run ab initio surface hopping
+molecular dynamics and confirm that, for a polar solvent, charge recombination
+rates can be incredibly fast (indeed faster than the solvent relaxation
+time); for nonpolar solvents, the rate is much slower. We demonstrate
+that, although Marcus theory cannot be directly applied, these nonequilibrium
+(and sometimes incredibly fast) photoexcited dynamics can be effectively
+explained within a two-state model without any evidence of a transition
+through a conical intersection. Most importantly, for this paradigmatic
+model system, we are able to identify two nuclear
+coordinates of interest (rather than the single coordinate predicted
+by Marcus or a full set of internal quantum modes studied by Bixon
+and Jortner): the solvent relaxation in the first shell (that strongly
+modulates the energies of the charge transfer state and differentiates
+time scales for relaxation) and a nuclear displacement in the TCNE-HMB
+complex arising from a handful of vibrations that induces non-Born–Oppenheimer
+motion and eventually facilitates an abrupt electronic transition
+to the ground state. Altogether, these findings suggest a tractable
+generalization of Marcus theory for future simulations of photochemistry
+with non-innocent solvent environments in the spirit of a Hamiltonian
+suggested by Stuchebrukhov (J. Chem. Phys. 107, 3821, 1997).

@@ -1,0 +1,5 @@
+MD trajectory for DLPC bilayer (Berger, Gromacs 4.5.4), nw=12 w/l
+
+Equilibrated DLPC lipid bilayer ran with Gromacs 4.5.4 with Berger force field, 80ns, T=300K, 72 DLPC molecules, hydration level nw=12 water/lipid.
+This data is used in the project "Matching lipid force fields with NMR data". More information at : http://nmrlipids.blogspot.fi/
+ 

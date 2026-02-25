@@ -1,0 +1,2 @@
+Coricello et al. MD Trajectory Data for WT Human ASNS (Enzyme Monomer/Aspartyl-AMP Complex)
+

@@ -1,0 +1,3 @@
+Amyloid-beta 16-22 peptide dimer simulation (150mM NaCl) with the CHARMM36m force field and Gromacs (Run 1)
+
+Amyloid-beta 16-22 peptide dimer simulation with the CHARMM36m force field. This directory contains first of the three independent trajectories and the simulation length is 1 microseconds. The system contains two amyloid-beta 16-22 monomers, 30 Na+, 30 Cl-, and 10564 TIP3P water.

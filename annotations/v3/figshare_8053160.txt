@@ -1,0 +1,3 @@
+Portable compressed binary tCONCOORD trajectory file - 3KK8 A
+
+XTC trajectory

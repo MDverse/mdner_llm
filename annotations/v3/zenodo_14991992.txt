@@ -1,0 +1,7 @@
+Molcular Dynamics Trajectories for Delta Opioid Receptor bound with C5-Quino
+
+Molecular Dynamics Data for publication at Nature Communications, doi.org/10.1038/s41467-025-57734-5.
+Balazs R. Varga1#, Sarah M. Bernhard1#, Amal El Daibani1#, Saheem Zaidi2#, Jordy H. Lam2, Jhoan Aguilar1, Kevin Appourchaux1, Antonina Nazarova2, Alexa Kouvelis1, Ryosuke Shinouchi3, Haylee R. Hammond3, Shainnel O. Eans3, Violetta Weinreb4, Elyssa B. Margolis5, Jonathan F. Fay6, Xi-Ping Huang4, Amynah Pradhan1, Vsevolod Katritch2*, Jay P. McLaughlin3*, Susruta Majumdar1* and Tao Che1*
+Structure-guided design of partial agonists at an opioid receptor
+This folder contains the PDB format file ("Topology") and the XTC format file (Trajectories). The timestep in this strided trajectory is 0.5 ns per frame. Periodic boundary condition (pbc) can be restored using VMD's standard pbc commands.
+Please cite us if you find this data useful!

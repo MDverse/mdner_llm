@@ -1,0 +1,3 @@
+Structure and transport mechanism of the human prostaglandin transporter SLCO2A1
+
+SLCO2A1 is a member of the organic anion transporting polypeptide (OATP) family, which preferentially transports prostaglandins (PGs) into cells and thus plays a vital role in regulating PGs inactivation and distribution. Dysregulation or genetic mutation of SLCO2A1 is associated with severe consequences such as primary hypertrophic osteoarthropathy (PHO) and chronic enteropathy associated with the SLCO2A1 gene (CEAS). How SLCO2A1 recognizes and transports PGs remains largely unknown. On the basis of cryo-electron microscopy structures of human SLCO2A1 in apo and PGE2-bound forms, we conducted MD simulations on two systems, including SLCO2A1 in apo form and SLCO2A1 with PGE2 bound.

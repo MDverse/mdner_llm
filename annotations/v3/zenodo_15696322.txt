@@ -1,0 +1,11 @@
+Simulation input and output files for: "Predicting residue ionization of OmpF channel using Constant pH Molecular Dynamics as benchmarking"
+
+This dataset contains input and selected output files to reproduce one replica of the simulations described in the preprint:
+"Predicting residue ionization of OmpF channel using Constant pH Molecular Dynamics as benchmarking"Available at bioRxiv: https://doi.org/10.1101/2025.06.16.659857
+The files are organized in the CpH-MD-DPPC directory and include:
+    Parameter (.mdp) files for Constant-pH Molecular Dynamics (CpH-MD) simulations
+    System topology and starting structure files (.top, .gro, etc.)
+    Output .xvg files from gmx cphmd, containing lambda values used to derive titration curves
+Simulations were performed using a modified version of the GROMACS package that implements CpH-MD, available at:https://gitlab.com/gromacs-constantph/constantph
+    Note: Full trajectory and log output files are not included here due to their large size. They are available upon reasonable request by contacting the corresponding author.
+This dataset is intended as a supplementary resource to facilitate reproducibility and further analysis.

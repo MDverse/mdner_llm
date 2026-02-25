@@ -1,0 +1,10 @@
+Raw data for: Structure of the human dopamine transporter and mechanisms of allosteric inhibition
+
+This repository contains raw data related to "Structure of the human dopamine transporter and mechanisms of allosteric inhibition" by Srivastava et al.
+Included are molecular dynamics input parameter files, amber prmtop, production trajectories and analysis scripts. Trajectories are subsampled with one frame every 10 ns. 
+ 
+Contact information:
+Name: Md Fulbabu Sk
+Institution: Theoretical and Computational Biophysics Group (TCBG), Beckman Institute, University of Illinois Urbana Champaign
+Address: 405 N. Mathews Avenue, Urbana, Illinois 61801
+Email: mfsk@illinois.edu

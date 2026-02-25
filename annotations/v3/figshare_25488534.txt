@@ -1,0 +1,25 @@
+Water Potential from Adaptive Force Matching for Ice and Liquid with Revised Dispersion Predicts Supercooled Liquid Anomalies in Good Agreement with Two Independent Experimental Fits
+
+A revised version of the Water potential from Adaptive
+force matching
+for Ice and Liquid (WAIL) was developed by using the previous data
+set for fitting the WAIL model but with a dispersion term calculated
+using symmetry adapted perturbation theory (SAPT). The model has no
+adjustable parameters and relies solely on fitting first-principles
+information. The new model, named revised WAIL (rWAIL), shows improved
+predictions of most properties of water when compared to the previously
+published WAIL model. The rWAIL model also compares favorably to other
+first-principles-derived water models, such as MB-Pol, at only a fraction
+of the computational cost. The rWAIL model is used to study the properties
+of supercooled water. The model shows evidence of a liquid–liquid
+phase transition (LLPT) in the supercooled regimes with the liquid–liquid
+critical point (LLCP) at 203 K and 90 MPa. This estimate is in good
+agreement with a recent polynomial fit to the experimental density
+of water. Also, the fit to the surface tension of supercooled water
+based on the rWAIL model shows excellent agreement with the corresponding
+fit to the experimental data. Consistent with previously published
+molecular dynamics and experimental data, the surface tension of water
+exhibits exponential growth in the supercooled regime, which is likely
+a result of the emergence of a low-density liquid form of water. The
+simulation thus unites two separate experimental fits with one first-principles-based
+model, lending strong evidence of an LLPT in real water.

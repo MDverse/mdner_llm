@@ -1,0 +1,50 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Functional Loop Dynamics and Characterization of the Inactive State of the NS2B-NS3 Dengue Protease due to Allosteric Inhibitor Binding\n\nDengue virus, a flavivirus that causes dengue shock syndrome\nand\ndengue hemorrhagic fever, is currently prevalent worldwide. A two-component\nprotease (NS2B-NS3) is essential for maturation, representing an important\ntarget for designing anti-flavivirus drugs. Previously, consideration\nhas been centered on developing active-site inhibitors of NS2B-NS3pro.\nHowever, the flat and charged nature of its active site renders difficulties\nin developing inhibitors, suggesting an alternative strategy for identifying\nallosteric inhibitors. The allosterically sensitive site of the dengue\nprotease is located near Ala125, between the 120s loop and 150s loop.\nUsing atomistic molecular dynamics simulations, we have explored the\nprotease’s conformational dynamics upon binding of an allosteric\ninhibitor. Furthermore, characterization of the inherent flexible\nloops (71–75s loop, 120s loop, and 150s loop) is carried out\nfor allosteric-inhibitor-bound wild-type and mutant A125C variants\nand a comparison is performed with its unbound state to extract the\nstructural changes describing the inactive state of the protease.\nOur study reveals that compared to the unliganded system, the inhibitor-bound\nsystem shows large structural changes in the 120s loop and 150s loop\nin contrast to the rigid 71–75s loop. The unliganded system\nshows a closed-state pocket in contrast to the open state for the\nwild-type complex that locks the protease into the open and inactive-state\nconformations. However, the mutant complex fluctuates between open\nand closed states. Also, we tried to see how mutation and binding\nof an allosteric inhibitor perturb the connectivity in a protein structure\nnetwork (PSN) at contact levels. Altogether, our study reveals the\nmechanism of conformational rearrangements of loops at the molecular\nlevel, locking the protein in an inactive conformation, which may\nbe useful for developing allosteric inhibitors.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "NS2B-NS3 Dengue Protease",
+            "start": 75,
+            "end": 99
+        },
+        {
+            "label": "MOL",
+            "text": "protease",
+            "start": 278,
+            "end": 286
+        },
+        {
+            "label": "MOL",
+            "text": "NS2B-NS3",
+            "start": 288,
+            "end": 296
+        },
+        {
+            "label": "MOL",
+            "text": "NS2B-NS3pro",
+            "start": 481,
+            "end": 492
+        },
+        {
+            "label": "MOL",
+            "text": "protease",
+            "start": 719,
+            "end": 727
+        },
+        {
+            "label": "MOL",
+            "text": "protease",
+            "start": 858,
+            "end": 866
+        }
+    ]
+}

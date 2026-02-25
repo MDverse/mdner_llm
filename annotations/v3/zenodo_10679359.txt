@@ -1,0 +1,32 @@
+Dataset for Mechanistic Insights into Interactions Between Ionizable Lipid Nanodroplets and Biomembranes
+
+This repository contains data from the manuscript:
+Čechová, P., Paloncýová, M., Šrejber, M., Otyepka, M. 
+Mechanistic Insights into Interactions Between Ionizable Lipid Nanodroplets and Biomembranes Journal of Biomolecular Structure and Dynamics 
+ https://doi.org/10.1080/07391102.2024.2329307 
+> Data >                                            : contains detail informations about simulated systems;Data_4Zenodo.xlsx (detail properties of simulated systems);Melting_dynamics.xlsx (processed data used in Figure 4);Systems_and_simulations_Detailed_SI.xlsx (molecular composition and simulation parameters for all simulations)
+> Data > Figures                                : data used for generation of figures in the article
+> Data > input_files                           : *.mdp files used for simulations (for details see Systems_and_simulations_Detailed_SI.xlsx)
+> Data > PMF_data_share                  :
+> Data > scripts                                 : scripts used for data analysis of system properties
+> Starting_structures > Membrane only      : starting structures and topologies files for lipid bilayers
+> Starting_structures > Pulling                   : starting structures and topologies for pulling simulations
+> Starting_structures > Pulling > Post_pulling     : final structures after biased pulling later used as starting structures for unbiased simulations
+> Starting_structures > Stress           : snapshots of simulations used as starting points for for simulations used for calculations of lateral pressures
+> Trajectories_Membrane_only   : compressed simulation trajectories (*.xtc) and corresponding run input files (*.tpr) for lipid bilayer
+> Trajectories_Pulling                 : compressed trajectories (*.xtc) for pulling simulations and subsequent unbiased runs and corresponding run input files (*.tpr)
+> Builder_4Zenodo                    : script for bilayer building and the input file for membrane composition definition
+> Builder_4Zenodo > lipids       : lipid structure, topology and equilibration files used by the Builder.sh script
+> Builder_4Zenodo > Building_folder_test      : folder with a finished building process with a sample bilayer          
+ 
+NOMENCLATURE
+A3D                  : ALC-0315 ionizable lipid (deprotonated)          
+A3P                  : ALC-0315 ionizable lipid (protonated)
+p1-p3                : replicas 1-3 for individual systems (pulling and subsequent unbiased runs)
+free                  : replica for given system (unbiased runs)
+ndisk                : denotes simulations used for preparation of nanodisc/LNP
+tiny                   : denotes simulations used for long term membrane stability assessment
+pure                  : denotes pure lipid bilayer
+CHL                  : denotes cholesterol content (35 % of molar ratio) in lipid bilayers
+ 
+NOTE: For more details on simulation setup please see the file Systems_and_simulation_Details_SI.xlsx (in > Data)

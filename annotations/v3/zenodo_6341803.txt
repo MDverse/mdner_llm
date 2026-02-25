@@ -1,0 +1,18 @@
+Dataset: 800 QM/MM minimum energy pathway conformations for the acylation reactions of Toho-1/ampicillin and Toho-1/cefalexin
+
+This dataset consists of 800 coordinate files (in the CHARMM psf/cor format) for the QM/MM minimum energy pathways of the acylation reactions between a Class A beta-lactamases (Toho-1) and two beta-lactam antibiotic molecules (ampicillin and cefalexin).
+These files are:
+
+toho_amp.r1-ae.zip: The R1-AE acylation pathways for Toho-1/Ampicillin (200 pathways);
+toho_amp.r2-ae.zip: The R2-AE acylation pathways for Toho-1/Ampicillin (200 pathways);
+toho_cex.r1-ae.zip: The R1-AE acylation pathways for Toho-1/Cefalexin (200 pathways);
+toho_cex.r2-ae.zip: The R2-AE acylation pathways for Toho-1/Cefalexin (200 pathways);
+energies.zip: the replica energies at B3LYP-D3/6-31+G**/C36 level;
+chelpgs.zip: the ChElPG charges of all reactant replicas at B3LYP-D3/6-31+G**/C36 level;
+farrys.zip: the featurzied NumPy arrays for model training;
+peephole.zip: an example file for how the optimized MEPs look like; 
+dftb3_benchmark.zip: the reference calculations to justify the use of DFTB3/3OB-F/C36 in MEP optimizations, the reference level of theory is B3LYP-D3/6-31G**/C36. 
+
+The R1-AE pathways are the acylation uses Glu166 as the general base; the R2-AE pathways uses Lys73 and Glu166 as the concerted base. 
+All QM/MM pathways are optimized at the DFTB3/3OB-f/CHARMM36 level of theory. 
+Z. Song et al Mechanistic Insights into Enzyme Catalysis from Explaining Machine-Learned Quantum Mechanical and Molecular Mechanical Minimum Energy Pathways. ACS Phys. Chem Au 2022, 2, 4, 316–330. DOI: 10.1021/acsphyschemau.2c00005

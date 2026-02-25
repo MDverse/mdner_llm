@@ -1,0 +1,3 @@
+LetA defines a structurally distinct transporter family involved in lipid trafficking
+
+This repository includes all input structures, NAMD configuration files, and output coordinates/trajectories for a set of simulations investigating the lipid transport by LetAB. LetAB_MD_Simulations_Zenodo_Reduced.zip contains only the atmoic coordinates in the first and last frame of simulations, while LetAB_MD_Simulations_Zenodo_Full.zip contains full simulation trajectories. Recommended software to use is VMD for visualization and NAMD for MD simulations.

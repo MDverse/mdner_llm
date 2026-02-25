@@ -1,0 +1,3 @@
+CLN_1UAO_GYDPETGTWG_wildtype
+
+molecular dynamics simulations of 100 replicas of PDB-ID 1UAO

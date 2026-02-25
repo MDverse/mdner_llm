@@ -1,0 +1,5 @@
+Dataset for CDL vs MLCL in mitochondrial Complex III - Complex IV supercomplexes
+
+Coarse-grained structure (gro) and trajectory (xtc) files for yeast, mouse, and human respiratory supercomplexes in a membrane containing either cardiolipin (CL) or monolysocardiolipin (MLCL).  
+Atomistic structure (gro) and trajectory (xtc) files for the yeast respiratory supercomplex in a membrane containing either CL or MLCL.
+Three repeats of each simulation are present in each case.

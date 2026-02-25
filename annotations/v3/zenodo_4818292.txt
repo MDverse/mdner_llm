@@ -1,0 +1,6 @@
+Biophysical characterization of the SARS-CoV-2 E protein
+
+Molecular dynamics simulations of E protein of SARS-COV-2.
+- CG: coarse-grained simulations for Figure 3
+- AA_unbiased: atomistic simulations for Table S1
+- AA_AWH: AWH simulations for Figure 5

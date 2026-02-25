@@ -1,0 +1,8 @@
+Datasets for for the manuscript "Identification of novel MmpL3 inhibitors using in silico methods: Virtual Screening, Rational Design, and Biological Evaluation"
+
+This repository contains datasets for the manuscript "Identification of novel MmpL3 inhibitors using in silico methods: Virtual Screening, Rational Design, and Biological Evaluation"
+Ligands_from_ChEMBL_database_200 to 700_daltons.zip: A compressed directory containing structures of Ligands that were retrieved from the ChEMBL database with molecular weights ranging from 200 to 700 daltons in .sdf format.
+glide-grid_6AJG.zip: The docking site was defined by generating a receptor grid around the co-crystallised ligand SQ109 within the MmpL3 protein with PDB ID: 6AJG.
+Phase database.zip: The ligand library from the ChEMBL database was refined by applying Lipinski's Rule of Five, then energy minimisation and optimisation at physiological pH 7.0 ± 2.0 using a phase database creation tool from Schrödinger 2020-3 suite, Maestro version 12.5.
+Virtual Screening of ChEMBL database for MmpL3 inhibitors.prj.zip: A compressed archive of the entire Maestro project, which includes comprehensive data for visualisation and analysis of computational work done in the manuscript.
+MD simulations.zip: Trajectory Files for molecular dynamics simulations done in the manuscript.

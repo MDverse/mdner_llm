@@ -1,0 +1,35 @@
+Free energy simulations of receptor-binding domain opening in the SARS-CoV-2 spike indicate a barrierless transition with slow conformational motions
+
+This online data set accompanies the manuscript entitled "Free energy
+simulations of receptor-binding domain opening in the SARS-CoV-2 spike
+indicate a barrierless transition with  slow conformational motions."
+The dataset is composed of the following files:
+* pmf0-now.dcd -- pmf63-now.dcd : molecular dynamics trajectory frames in
+each of the 64 umbrella sampling windows, from which water has been
+removed to save space
+* s1am_0-now.pdb -- s1am_63-now.pdb : initial coordinates in each of the 64
+umbrella sampling windows, from which water has been removed,
+corresponding to the trajectory data above
+* view -- Visual Molecular Dynamics command script to load a trajectory, 
+e.g., in Linux, use "vmd -e view"
+* s1am_0-cg.dcd -- s1am_63-cg.dcd : molecular dynamics
+trajectory frames in each of the 64 umbrella sampling windows, coarse-grained to
+1 bead per residue.
+* s1am_0-cg.pdb -- s1am_63-cg.pdb : initial coordinates in each of the 64
+umbrella sampling windows, corresponding to the coarse-grained trajectory
+data above.
+* viewcg -- Visual Molecular Dynamics command script to load a
+coarse-grained trajectory,  e.g., in Linux, use "vmd -e viewcg"
+* 0readme -- brief instructions on how to view the trajectories
+* colors.vmd -- utility script for VMD
+* covmacros.vmd -- VMD script to define coronavirus spike subdomains
+* fe.zip -- ZIP archive that contains data and Matlab analysis files to
+reproduce the free energy profiles
+* diff.zip -- ZIP archive that contains data and Matlab analysis files to
+reproduce the diffusion and mean first passage times calculations
+* pca-qha.zip -- ZIP archive that contains the data and Matlab analysis files
+to compute the autocorrelation functions of trajectory displacements
+along principal/quasiharmonic modes
+Each ZIP archive contains a "0readme" file with brief instructions, and also the 
+results of the calculations
+ 

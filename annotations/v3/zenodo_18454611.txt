@@ -1,0 +1,30 @@
+MD Preview and tICA Analysis for "Towards Molecular Dynamics Simulation of Membrane-Targeting Photosensitizing Antivirals"
+
+This is a preview of the MD data and tICA analysis for paper “Towards Molecular Dynamics Simulation of Membrane-Targeting Photosensitizing Antivirals”, submitted to PCCP journal. Work seeks for structure–activity relationships for several peryleneuracil homologous compounds, which photosensitizing and antiviral activity was published previously (here referred to as compounds 5, 6a, c, d, f, h). Files included in this dataset:
+
+
+MD input.zip holds six folders with files needed to launch the molecular dynamics (MD) simulation in GROMACS of each compound inside the solvated lipid box: em.gro, heat.gro and md.gro are system coordinates after energy minimization, heating and production MD, respectively; *.mdp are corresponding MD settings files; and topol.top and toppar/ is system topology, initially created in CHARMM-GUI, including CHARMM36 forcefield and the compound, POPC, water [and ion] topology *.itp files.
+
+
+MD traj.zip are the respective MD trajectories, one of three replicas per molecule, calculated in this work; with water removed and written at one frame per nanosecond frequency. Each folder contains md_no_pbc.gro and md_no_pbc.xtc structure and trajectory files, respectively.
+
+
+tICA.zip contains the dataset on peryleneuracil derivatives conformations during MD, tICA analysis results and a jupyter notebook needed to perform this analysis.
+
+
+
+dataset.csv is geometry data extracted from MD calculations for each compound: molecule ID (mol column), MD replica (num), MD time (time), Z of perylene moiety and the substituent (Z per / Z tail), etc. (full details in the paper).
+
+
+tICA_analysis.ipynb: the python Jupyter notebook needed to perform tICA analysis on the dataset.
+
+
+tica_results_with_clusters.csv: results of this analysis performed; duplicates all the dataset columns and adds three more: global_tica_1 / global_tica_2 and global_cluster_id (cluster labels: 0 and 1 are dense clusters, -1 for points outside).
+
+
+tica_weights.csv contains calculated weights of tICA linear transformation (formula to receive Global tIC 1 / 2 coordinates from the dataset variables).
+
+
+global_tica_heatmaps_lag200.png and global_tica_weights_lag200.png are visualizations of this analysis: heatmaps are provided in Fig. S6 of the paper while weights are printed in the tica_weights.csv file.
+
+

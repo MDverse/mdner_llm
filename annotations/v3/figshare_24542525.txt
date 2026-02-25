@@ -1,0 +1,17 @@
+Physical Chemistry of Chloroquine Permeation through the Cell Membrane with Atomistic Detail
+
+We
+provide a molecular-level description of the thermodynamics
+and mechanistic aspects of drug permeation through the cell membrane.
+As a case study, we considered the antimalaria FDA approved drug chloroquine.
+Molecular dynamics simulations of the molecule (in its neutral and
+protonated form) were performed in the presence of different lipid
+bilayers, with the aim of uncovering key aspects of the permeation
+process, a fundamental step for the drug’s action. Free energy
+values obtained by well-tempered metadynamics simulations suggest
+that the neutral form is the only permeating protomer, consistent
+with experimental data. H-bond interactions of the drug with water
+molecules and membrane headgroups play a crucial role for permeation.
+The presence of the transmembrane potential, investigated here for
+the first time in a drug permeation study, does not qualitatively
+affect these conclusions.

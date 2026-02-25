@@ -1,0 +1,14 @@
+Structure and Cl- Conductance Properties of the Open State of Human CFTR (part 1)
+
+Part I of the dataset. For part II, go to: 10.5281/zenodo.14583611
+ 
+Files in this record:
+
+protein_xyz.nc.gz: atomic coordinates of protein from of MD trajectories in netCDF4 format, gzipped for extra compression.
+
+NetCDF4 compression setting: compression='zlib', least_significant_digit=3, chunksizes=(1, 1001, 20, 1), complevel=9 (performed with netcdf4-python)
+
+
+1_init.gro: a GROMACS gro file for the entire molecular system containing ATP-bound CFTR
+1_init.gro.ndx: a GROMACS index file corresponding to the gro file. 3D coordinates in protein_xyz.nc correspond to atoms in the group "Protein".
+600_init.gro: a GROMACS gro file for the entire molecular system containing ATP-free CFTR

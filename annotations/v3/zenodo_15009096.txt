@@ -1,0 +1,3 @@
+OpenFF Sage 2.2.0 3 Replicates
+
+HMR, 0.9 rvdw, 0.8 switch, 300K. Trajectories have been modified to remove the first 100 ns, remove PBC jumps, center the system, and make molecules whole.

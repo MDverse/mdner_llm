@@ -1,0 +1,103 @@
+Trajectory for MD simulation in EGFR TM-JM sequence in ordered membrane
+
+Trajectory for MD simulation on EGFR TM-JM sequence in the ordered membrane.
+Protein:
+- Source: PDB entry (EGFR transmembrane-juxtamembrane domain structure)
+- Number of copies: 4
+- Chains labeled A, B, C, D
+- Conversion: martinize2 version 2.6 with elastic network constraints
+ 
+Membrane:
+- Box dimensions: 40 × 40 × 10 nm³
+- Total lipid molecules: ~5300
+ 
+Upper leaflet (analyzed):
+- DIPC: 33 mol%
+- CHOL: 33 mol%
+- DPSM (sphingomyelin): 33 mol%
+ 
+Lower leaflet (not analyzed):
+
+DIPC: 33 mol%
+CHOL: 33 mol%
+DIPS (dilinoleoyl phosphatidylserine): 33 mol%
+
+ 
+Force field: MARTINI 2.2 with MARTINI protein model
+Electrostatics:
+- Method: Reaction-field
+- Cutoff: 1.2 nm
+- Relative dielectric constant (εᵣ): 15 (MARTINI standard)
+ 
+Van der Waals:
+- Method: Shifted potential
+- Cutoff: 1.2 nm
+- Switch: 1.0 nm (shifted to zero at cutoff)
+ 
+Constraints:
+- Protein elastic network: Enabled (maintains secondary structure)
+- Cutoff: 0.9 nm (backbone beads)
+- Force constant: 500 kJ mol⁻¹ nm⁻²
+- Bond constraints: None (MARTINI uses harmonic bonds)
+ 
+Lipid parameters:
+- DIPC: MARTINI lipid type "C1A" headgroup, "C1" tail beads
+- DOPS/DIPS: MARTINI lipid type "C1A" headgroup with charge
+- CHOL: MARTINI cholesterol model (4 beads)
+- DPSM: MARTINI sphingomyelin model
+ 
+S2.3 Simulation Protocols
+S2.3.1 Energy Minimization
+- Algorithm: Steepest descent
+- Convergence criterion: Maximum force < 10 kJ mol⁻¹ nm⁻¹
+- Typical steps: 5,000-10,000
+- Purpose: Remove steric clashes from initial structure
+ 
+S2.3.2 Equilibration
+Duration: 100 ns
+Ensemble: NPT (constant number, pressure, temperature)
+Temperature control:
+- Target: 298 K
+- Thermostat: Velocity-rescale (v-rescale, modified Berendsen)
+- Time constant: 1.0 ps
+- Coupling groups: Protein, lipids, solvent (separately coupled)
+Pressure control:
+- Target: 1 bar
+- Barostat: Semi-isotropic Berendsen
+- Time constant: 5.0 ps
+- Compressibility: 3 × 10⁻⁴ bar⁻¹
+- Semi-isotropic: xy plane coupled, z independent
+Integration:
+- Time step: 20 fs (0.020 ps, standard for MARTINI)
+- Neighbor list update: every 10 steps
+Position restraints:
+- Protein backbone: 1000 kJ mol⁻¹ nm⁻² (first 50 ns)
+- Released gradually over 50-100 ns
+Output:
+- Coordinates: every 1 ns
+- Energies: every 100 ps
+ 
+S2.3.3 Production Run
+Duration: 10 μs total for all systems
+Ensemble: NPT
+Temperature control:
+- Same as equilibration (298 K, v-rescale, τ = 1.0 ps)
+Pressure control:
+- Target: 1 bar
+- Barostat: Parrinello-Rahman (more accurate than Berendsen for production)
+- Time constant: 12.0 ps (longer than equilibration to reduce fluctuations)
+- Compressibility: 3 × 10⁻⁴ bar⁻¹
+- Semi-isotropic: xy plane coupled, z independent
+Integration:
+- Time step: 20 fs
+- Neighbor list update: every 10 steps (with Verlet scheme)
+Output frequencies:
+- Coordinates: every 100 ps (5000 steps)
+- Energies: every 100 ps
+- Velocities: not saved (to reduce file size)
+- Forces: not saved
+Periodic boundary conditions: xyz (all dimensions)
+Neighbor searching:
+- Method: Verlet cutoff scheme
+- Cutoff: 1.4 nm
+- Update frequency: automatically determined by GROMACS

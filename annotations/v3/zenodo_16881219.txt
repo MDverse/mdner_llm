@@ -1,0 +1,3 @@
+Human Sigma-2 Receptor MD Simulation Input Files and Representative Structures
+
+This dataset includes the molecular dynamics simulation input files for the human sigma-2 receptor (σ₂R) homodimer, along with representative conformations extracted from the latent space of a convolutional variational autoencoder (CVAE).

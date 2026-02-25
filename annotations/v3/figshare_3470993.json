@@ -1,0 +1,80 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Structural Characterization of Alkylsilane and Fluoroalkylsilane Self-Assembled Monolayers on SiO2 by Molecular Dynamics Simulations\n\nWe present molecular dynamics simulations\nof self-assembled monolayers\n(SAMs) chemisorbed on an atomically flat amorphous silicon dioxide\nsubstrate. We model two prototypical SAM-forming alkylsilanes, octadecyl­trichlorosilane\n(OTS) and 1H,1H,2H,2H-perfluoro­decyl­trichlorosilane (FDTS),\nthat find widespread use in organic electronic applications. Crucially,\nour model does not rely on an explicit bonding between the alkylsilane\nand the substrate, thus allowing for the spontaneous organization\nof molecules into regular structures, which we studied as a function\nof coverage. By comparing the calculated tilt angle, film thickness,\nand lattice parameters with experiments, we conclude that the simulated\nmorphologies are quantitatively consistent with the experimental evidence,\ndemonstrating the accuracy of the simulation methodology. We take\nadvantage of the atomistic resolution of the calculations for carrying\nout a detailed one-to-one comparison between the structure and the\nelectronic properties of the two SAMs. In particular, we find that\nOTS molecules show a coverage-dependent tilt, while FDTS molecules\nare always vertically oriented, regardless of the coverage. More importantly\nfor organic electronic applications, we observe that OTS SAMs do not\nalter the electrostatic potential of silica, while FDTS SAMs induce\na negative voltage shift which increases with coverage and saturates\nat about −2 V.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Alkylsilane",
+            "start": 31,
+            "end": 42
+        },
+        {
+            "label": "MOL",
+            "text": "Fluoroalkylsilane",
+            "start": 47,
+            "end": 64
+        },
+        {
+            "label": "MOL",
+            "text": "SiO2",
+            "start": 94,
+            "end": 98
+        },
+        {
+            "label": "MOL",
+            "text": "alkylsilanes",
+            "start": 321,
+            "end": 333
+        },
+        {
+            "label": "MOL",
+            "text": "OTS",
+            "start": 362,
+            "end": 365
+        },
+        {
+            "label": "MOL",
+            "text": "FDTS",
+            "start": 416,
+            "end": 420
+        },
+        {
+            "label": "MOL",
+            "text": "alkylsilane",
+            "start": 53,
+            "end": 64
+        },
+        {
+            "label": "MOL",
+            "text": "OTS",
+            "start": 1188,
+            "end": 1191
+        },
+        {
+            "label": "MOL",
+            "text": "FDTS",
+            "start": 1240,
+            "end": 1244
+        },
+        {
+            "label": "MOL",
+            "text": "OTS",
+            "start": 1385,
+            "end": 1388
+        },
+        {
+            "label": "MOL",
+            "text": "FDTS",
+            "start": 1452,
+            "end": 1456
+        }
+    ]
+}

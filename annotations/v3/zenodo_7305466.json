@@ -1,0 +1,38 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFMNAME",
+        "FFMVERS",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics simulations of the tripartite interface (Syt1_C2B—SNARE—Cpx Complex)\n\nSynaptic transmission is mediated by an orchestra of presynaptic proteins that precisely control and trigger fusion between synaptic vesicles and the neuron terminal at the active zone upon an action potential. Critical to this process are the neuronal SNAREs (Soluble N-ethylmaleimide sensitive factor Attachment protein REceptor), the Ca2+-sensor synaptotagmin, the activator/regulator complexin, and other factors. Here we present the data for molecular dynamics simulations of the tripartite interface bewteen these proteins. ",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "SNAREs",
+            "start": 342,
+            "end": 348
+        },
+        {
+            "label": "MOL",
+            "text": "Soluble N-ethylmaleimide sensitive factor Attachment protein REceptor",
+            "start": 350,
+            "end": 419
+        },
+        {
+            "label": "MOL",
+            "text": "Ca2+-sensor synaptotagmin",
+            "start": 426,
+            "end": 451
+        },
+        {
+            "label": "MOL",
+            "text": "activator/regulator complexin",
+            "start": 457,
+            "end": 486
+        }
+    ]
+}
