@@ -23,7 +23,7 @@ Arguments:
 
     --model: str
         Language model name to use for extraction find in OpenRouter page model
-        (https://openrouter.ai/models). Example: "openai/gpt-4o-mini".
+        (https://openrouter.ai/models). Example: "openai/gpt-4o".
 
     --path-text: Path
         Path to a JSON file containing the text to annotate.
@@ -170,6 +170,111 @@ def ensure_dir(ctx, param, value: Path) -> Path:
     return value
 
 
+def load_text_and_groundtruth(
+    path_text: str | Path,
+    tag_prompt: str,
+) -> tuple[str, ListOfEntities | ListOfEntitiesPositions]:
+    """Load raw text and ground truth annotations from a JSON file.
+
+    The JSON file must contain a ``raw_text`` field and an ``entities`` field.
+    Depending on the value of ``tag_prompt``, entities are normalized or kept
+    with positional information.
+
+    Parameters
+    ----------
+    path_text
+        Path to the JSON file containing the text and annotations.
+    tag_prompt
+        Annotation format selector. If equal to ``"json"``, entity positions
+        are removed.
+
+
+    Returns
+    -------
+    tuple[str, str, ListOfEntities | ListOfEntitiesPositions]
+        The raw text to annotate and the corresponding ground truth object.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the input file does not exist.
+    json.JSONDecodeError
+        If the file content is not valid JSON.
+    KeyError
+        If required keys are missing from the JSON structure.
+    """
+    try:
+        with open(path_text, encoding="utf-8") as file:
+            data = json.load(file)
+
+        text_to_annotate = data["raw_text"]
+        entities = data["entities"]
+
+        if tag_prompt == "json":
+            # Remove positional information from entities
+            normalized = [
+                {"label": ent.get("label"), "text": ent.get("text")}
+                for ent in entities
+            ]
+            groundtruth = ListOfEntities(entities=normalized)
+        else:
+            groundtruth = ListOfEntitiesPositions(entities=entities)
+
+    except FileNotFoundError:
+        logger.error(f"File not found: {path_text}")
+        raise
+    except json.JSONDecodeError as exc:
+        logger.error(f"Invalid JSON in file {path_text}: {exc}")
+        raise
+    except KeyError as exc:
+        logger.error(f"Missing expected key {exc} in {path_text}")
+        raise
+
+    preview = text_to_annotate[:75].replace("\n", " ")
+    logger.debug(
+        f"Loaded text ({len(text_to_annotate)} chars): {preview}..."
+    )
+
+    return text_to_annotate, groundtruth
+
+
+def load_prompt(
+    path_prompt: Path,
+) -> str:
+    """Load a prompt from a text file.
+
+    The file is read using UTF-8 encoding. A short preview of the prompt
+    content is logged at debug level.
+
+    Parameters
+    ----------
+    path_prompt
+        Path to the text file containing the prompt.
+
+    Returns
+    -------
+    str
+        The prompt content.
+
+    Raises
+    ------
+    FileNotFoundError
+        If the prompt file does not exist.
+    """
+    try:
+        prompt = path_prompt.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        logger.error(f"File not found: {path_prompt}")
+        raise
+
+    preview = prompt[:75].replace("\n", " ")
+    logger.debug(
+        f"Loaded prompt ({len(prompt)} chars): {preview}...\n"
+    )
+
+    return prompt
+
+
 def serialize_response(resp: Any) -> str:
     """
     Serialize various response objects into a JSON-safe string representation.
@@ -227,7 +332,7 @@ def annotate_with_instructor(
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
-) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
+) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
             float | int]:
     """
     Annotate a text using the Instructor framework.
@@ -255,7 +360,7 @@ def annotate_with_instructor(
 
     Returns
     -------
-    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None
         Annotation result returned by the LLM. The returned type depends on
         whether validation is enabled and on the chosen response model.
     float | int:
@@ -304,18 +409,18 @@ def annotate_with_instructor(
     except InstructorValidationError as exc:
         # Raised when the LLM output does not conform to the expected schema.
         logger.warning(f"Validation failed: {exc}")
-        return str(exc), 0
+        return None, 0
 
     except InstructorRetryException as exc:
         # Raised when all retry attempts fail.
         logger.warning(f"Failed after {exc.n_attempts} attempts")
         logger.warning(f"Last completion: {exc.last_completion}")
-        return str(exc.last_completion), 0
+        return exc.last_completion, 0
 
     except (ProviderError, ModeError) as exc:
         # Catch-all for provider-level, mode-related, or parsing errors.
         logger.warning(f"Instructor error: {exc}")
-        return str(exc), 0
+        return None, 0
 
 
 def annotate_with_llamaindex(
@@ -324,7 +429,7 @@ def annotate_with_llamaindex(
     api_key: str | None,
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
-) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
+) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
             float | int]:
     """
     Annotate a text using the Llamaindex framework.
@@ -367,33 +472,40 @@ def annotate_with_llamaindex(
         logger.error(msg)
         raise ValueError(msg)
 
-    # Instantiate an Llamaindex client for the requested model
-    llm = OpenRouter(model=model, api_key=api_key)
-    client = llm.as_structured_llm(output_cls=response_model)
+    # Instantiate an Llamaindex client
+    # Using openai api key for openai models
+    if model.startswith("openai"):
+        openai_api_key = os.getenv("OPENAI_API_KEY")
+        if openai_api_key is None:
+            msg = "OPENAI_API_KEY must be set in the environment"
+            raise ValueError(msg)
+        model_name = model.split("/")[1]
+        base_llm = llamaOpenAI(model=model_name, api_key=openai_api_key)
+    else:
+        # Using openrouter api key for other models
+        base_llm = OpenRouter(model=model, api_key=api_key)
 
-    try:
-        # Query the LLM
-        start_time = time.time()
-        if model.startswith("openai"):
-            openai_api_key = os.getenv("OPENAI_API_KEY")
-            if openai_api_key is None:
-                msg = "OPENAI_API_KEY must be set in the environment"
-                raise ValueError(msg)
-            model_name = model.split("/")[1]
-            client = llamaOpenAI(model=model_name, api_key=openai_api_key)
-            client = client.as_structured_llm(output_cls=response_model)
+    # Structured response
+    if response_model is not None:
+        try:
+            # Query the LLM
+            start_time = time.time()
+            structured_llm = base_llm.as_structured_llm(output_cls=response_model)
+            llm_response = structured_llm.complete(f"{prompt}\n{text}").raw
+            elapsed_time: int | float = time.time() - start_time
+            return llm_response, elapsed_time
 
-        llm_response = client.complete(f"{prompt}\n{text}").raw
-        elapsed_time: int | float = time.time() - start_time
-        return llm_response, elapsed_time
+        except (ValueError, PydanticValidationError) as exc:
+            logger.warning(
+                "Structured parsing failed, falling back "
+                f"to the raw llm response: {exc}"
+            )
 
-    except ValueError as e:
-        logger.error(f"ValueError during LLM call: {e}")
-        return str(e), 0
-
-    except PydanticValidationError as e:
-        logger.error(f"Pydantic validation error: {e}")
-        return str(e), 0
+    # Raw LLM response
+    start_time = time.time()
+    raw_response = base_llm.complete(f"{prompt}\n{text}").text
+    elapsed = time.time() - start_time
+    return raw_response, elapsed
 
 
 def annotate_with_pydanticai(
@@ -403,7 +515,7 @@ def annotate_with_pydanticai(
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
-) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions,
+) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
             float | int]:
     """
     Annotate a text using the PydanticAI framework.
@@ -466,15 +578,15 @@ def annotate_with_pydanticai(
 
     except PydanticValidationError as e:
         logger.error(f"Pydantic validation error: {e}")
-        return str(e), 0
+        return None, 0
 
     except CoreValidationError as e:
         logger.error(f"Core validation error: {e}")
-        return str(e), 0
+        return None, 0
 
     except UnexpectedModelBehavior as e:
         logger.error(f"Unexpected model behavior: {e}")
-        return str(e), 0
+        return None, 0
 
 
 def extract_entities(
@@ -503,15 +615,7 @@ def extract_entities(
         Directory to save output files.
     max_retries : int (Default is 3)
         Maximum number of retries in case of API or validation failure.
-
-    Raises
-    ------
-    FileNotFoundError
         If either the text file or prompt file does not exist.
-    json.JSONDecodeError
-        If the JSON text file cannot be parsed.
-    KeyError
-        If the key "raw_text" is missing from the JSON text file.
     """
     setup_logger(logger, log_dir=output_dir)
     logger.info("Starting the extraction of entities...")
@@ -525,41 +629,10 @@ def extract_entities(
     )
 
     # Load text to annotate
-    try:
-        with open(path_text, encoding="utf-8") as f:
-            data = json.load(f)
-            text_to_annotate = data["raw_text"]
-            # Retrieve the groundtruth annotation
-            entities = data["entities"]
-            if tag_prompt == "json":
-                # We remove the "start" and "end" keys
-                normalized = [
-                    {"label": ent.get("label"), "text": ent.get("text")}
-                    for ent in entities
-                ]
-                groundtruth = ListOfEntities(entities=normalized)
-            else:
-                groundtruth = ListOfEntitiesPositions(entities=entities)
-    except FileNotFoundError:
-        logger.error("File not found: %s", path_text)
-        raise
-    except json.JSONDecodeError as e:
-        logger.error("Invalid JSON in file %s: %s", path_text, e)
-        raise
-    except KeyError:
-        logger.error("Expected key 'raw_text' not found in %s", path_text)
-        raise
-    preview = text_to_annotate[:75].replace("\n", " ")
-    logger.debug(f"Loaded text ({len(text_to_annotate)} chars): {preview}...")
+    text_to_annotate, groundtruth = load_text_and_groundtruth(path_text, tag_prompt)
 
     # Load prompt from txt file
-    try:
-        prompt = path_prompt.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        logger.error(f"File not found: {path_prompt}")
-        raise
-    preview = prompt[:75].replace("\n", " ")
-    logger.debug(f"Loaded prompt ({len(prompt)} chars): {preview}...\n")
+    prompt = load_prompt(path_prompt)
 
     # Set response model and retries based on tag and framework
     if framework:
@@ -576,7 +649,10 @@ def extract_entities(
     api_key = os.getenv("OPENROUTER_API_KEY")
 
     # Run annotation and time it
-    if framework == "instructor" or framework is None:
+    if framework == "instructor" or framework == "none":
+        if framework == "none":
+            response_model = None
+            max_retries = 0
         llm_response, inference_time = annotate_with_instructor(
             text_to_annotate,
             model,
@@ -604,6 +680,13 @@ def extract_entities(
             response_model,
             max_retries
         )
+
+    if llm_response is None:
+        logger.warning(
+            f"LLM did not return a response for text '{path_text.name}'. "
+            "Skipping saving of annotation results."
+        )
+        return
 
     # Prepare output paths
     timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
@@ -669,8 +752,8 @@ def extract_entities(
 )
 @click.option(
     "--framework",
-    default=None,
-    type=click.Choice(["instructor", "llamaindex", "pydanticai"]),
+    default="none",
+    type=click.Choice(["instructor", "llamaindex", "pydanticai", "none"]),
     help="Validation framework."
 )
 @click.option(

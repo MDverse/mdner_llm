@@ -8,7 +8,7 @@ This project explores methods for reliably annotating dataset descriptions and s
 ```mermaid
 classDiagram
     class ListOfEntities {
-        entities: list[Molecule | SimulationTime | ForceFieldModel | Temperature | SoftwareName | SoftwareVersion]
+        entities: list[Molecule | SimulationTime | ForceFieldModelName | ForceFieldModelVersion | Temperature | SoftwareName | SoftwareVersion]
     }
 
     class SoftwareVersion {
@@ -36,8 +36,13 @@ classDiagram
         text: str
     }
 
-    class ForceFieldModel {
-        label: str = 'FFM'
+    class ForceFieldModelName {
+        label: str = 'FFMNAME'
+        text: str
+    }
+
+    class ForceFieldModelVersion {
+        label: str = 'FFMVERSION'
         text: str
     }
 
@@ -51,7 +56,8 @@ classDiagram
     ListOfEntities ..> SimulationTime
     ListOfEntities ..> Temperature
     ListOfEntities ..> SoftwareName
-    ListOfEntities ..> ForceFieldModel
+    ListOfEntities ..> ForceFieldModelName
+    ListOfEntities ..> ForceFieldModelVersion
 ```
 
 

@@ -134,11 +134,11 @@ def select_annotation_files(
             if fname in file_map
         )
 
-    # Priority 2: files with a moderate number of molecules (2-5)
+    # Priority 2: files with a moderate number of molecules (2-10)
     # Applied only if the selection is still incomplete
     if "MOLECULE_nb" in df.columns and len(selected) < nb_files:
         df_mol = df[
-            (df["MOLECULE_nb"] >= 2) & (df["MOLECULE_nb"] <= 5)
+            (df["MOLECULE_nb"] >= 2) & (df["MOLECULE_nb"] <= 10)
         ]
         selected.extend(
             fname for fname in df_mol["filename"]

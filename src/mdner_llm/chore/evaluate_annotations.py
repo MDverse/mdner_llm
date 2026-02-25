@@ -690,7 +690,7 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
         .agg(
             nb_annotations=("raw_llm_response", "count"),
             pct_is_format_valid=("is_format_valid", lambda s: 100 * s.mean()),
-            pct_has_without_hallucination=(
+            pct_has_no_hallucination=(
                 "has_no_hallucination", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
@@ -805,7 +805,7 @@ def save_grouped_stats_to_excel(
     metrics_map = {
         "nb_annotations": "Number of Annotations",
         "pct_is_format_valid": "Is correct Output Format",
-        "pct_has_without_hallucination": "Has Without Hallucination",
+        "pct_has_no_hallucination": "Has no Hallucination",
         "precision": "Precision",
         "recall": "Recall",
         "f1": "F1 Score",

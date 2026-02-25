@@ -94,7 +94,7 @@ from tqdm import tqdm
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from extract_entities import extract_entities
+from src.mdner_llm.chore.extract_entities import extract_entities
 
 
 # FUNCTIONS
@@ -152,8 +152,8 @@ def setup_logger(loguru_logger: Any, log_dir: str | Path = "logs") -> None:
 )
 @click.option(
     "--framework",
-    default="instructor",
-    type=click.Choice(["instructor", "llamaindex", "pydanticai"]),
+    default="none",
+    type=click.Choice(["instructor", "llamaindex", "pydanticai", "none"]),
     help="Validation framework.",
 )
 @click.option(
@@ -228,8 +228,9 @@ def extract_entities_all_texts(
     for file_path in tqdm(
         selected_files,
         desc="Annotating texts...",
-        total=len(selected_files), unit="file"
-        ):
+        total=len(selected_files),
+        unit="file",
+    ):
         try:
             extract_entities(
                 tag_prompt=tag_prompt,
@@ -238,22 +239,16 @@ def extract_entities_all_texts(
                 path_text=file_path,
                 framework=framework,
                 output_dir=output_dir,
-                max_retries=max_retries
+                max_retries=max_retries,
             )
         except FileNotFoundError as exc:
-            logger.error(
-                f"Input file not found ({file_path.name}): {exc}"
-            )
+            logger.error(f"Input file not found ({file_path.name}): {exc}")
 
         except json.JSONDecodeError as exc:
-            logger.error(
-                f"Invalid JSON in {file_path.name}: {exc}"
-            )
+            logger.error(f"Invalid JSON in {file_path.name}: {exc}")
 
         except KeyError as exc:
-            logger.error(
-                f"Missing required field {exc} in {file_path.name}"
-            )
+            logger.error(f"Missing required field {exc} in {file_path.name}")
 
         except ValueError as exc:
             logger.error(
@@ -261,9 +256,7 @@ def extract_entities_all_texts(
             )
 
         except RuntimeError as exc:
-            logger.error(
-                f"Runtime failure while processing {file_path.name}: {exc}"
-            )
+            logger.error(f"Runtime failure while processing {file_path.name}: {exc}")
     elapsed_time: int | float = time.time() - start_time
     minutes, seconds = divmod(elapsed_time, 60)
     logger.success(
