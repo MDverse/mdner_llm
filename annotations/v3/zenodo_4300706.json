@@ -78,18 +78,6 @@
         },
         {
             "label": "FFM",
-            "text": "Charmm36 (v. June 2015)",
-            "start": 974,
-            "end": 997
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 1000,
-            "end": 1005
-        },
-        {
-            "label": "FFM",
             "text": "TIP3P",
             "start": 1007,
             "end": 1012
@@ -99,6 +87,18 @@
             "text": "358K",
             "start": 696,
             "end": 700
+        },
+        {
+            "label": "FFMNAME",
+            "text": "Charmm36",
+            "start": 974,
+            "end": 982
+        },
+        {
+            "label": "FFMVERS",
+            "text": "v. June 2015",
+            "start": 984,
+            "end": 996
         }
     ]
 }
