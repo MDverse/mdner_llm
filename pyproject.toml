@@ -29,7 +29,6 @@ dependencies = [
     "click>=8.3.0",
     "fastparquet>=2025.12.0",
     "gliner2>=1.2.3",
-    "groq>=0.29.0",
     "instructor>=1.14.1",
     "ipython==8.13.2",
     "jupyterlab>=4.4.4",
@@ -44,12 +43,8 @@ dependencies = [
     "pydantic-ai>=1.43.0",
     "pydantic-ai-slim[openrouter]>=1.43.0",
     "python-dotenv>=1.1.1",
-    "seaborn>=0.13.2",
     "spacy>=3.8.11",
     "tabulate>=0.9.0",
-    "tqdm>=4.67.1",
-    "ty>=0.0.8",
-    "watermark>=2.5.0",
 ]
 
 [dependency-groups]
