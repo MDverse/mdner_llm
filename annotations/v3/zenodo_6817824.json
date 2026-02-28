@@ -71,13 +71,13 @@
             "end": 748
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Charmm36",
             "start": 800,
             "end": 808
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OPC",
             "start": 543,
             "end": 546
@@ -113,7 +113,7 @@
             "end": 1073
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Charmm36",
             "start": 1096,
             "end": 1104
@@ -125,7 +125,7 @@
             "end": 1287
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OPC",
             "start": 859,
             "end": 862

@@ -59,13 +59,13 @@
             "end": 634
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS",
             "start": 809,
             "end": 815
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Martini CG",
             "start": 832,
             "end": 842

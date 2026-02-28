@@ -35,19 +35,19 @@
             "end": 583
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OPLS-AA/M",
             "start": 766,
             "end": 775
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 1201,
             "end": 1207
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER",
             "start": 1212,
             "end": 1217

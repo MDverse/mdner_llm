@@ -107,13 +107,13 @@
             "end": 1298
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TraPPE",
             "start": 1378,
             "end": 1384
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TraPPE-UA",
             "start": 1386,
             "end": 1395
@@ -125,7 +125,7 @@
             "end": 1418
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP4P/2005",
             "start": 1444,
             "end": 1454
@@ -137,7 +137,7 @@
             "end": 1476
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "MARTINI",
             "start": 1488,
             "end": 1495
@@ -251,7 +251,7 @@
             "end": 2583
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "MARTINI",
             "start": 2779,
             "end": 2786

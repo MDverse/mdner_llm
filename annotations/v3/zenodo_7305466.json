@@ -12,6 +12,12 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "Syt1_C2B—SNARE—Cpx Complex",
+            "start": 60,
+            "end": 86
+        },
+        {
+            "label": "MOL",
             "text": "SNAREs",
             "start": 342,
             "end": 348

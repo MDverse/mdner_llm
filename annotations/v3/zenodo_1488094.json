@@ -23,7 +23,7 @@
             "end": 73
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "ECC-lipids",
             "start": 98,
             "end": 108
@@ -71,13 +71,13 @@
             "end": 292
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "ECC-lipids",
             "start": 337,
             "end": 347
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "SPC/E",
             "start": 388,
             "end": 393

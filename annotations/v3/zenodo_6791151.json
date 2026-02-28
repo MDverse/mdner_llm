@@ -23,7 +23,7 @@
             "end": 74
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber",
             "start": 138,
             "end": 143
@@ -35,7 +35,7 @@
             "end": 175
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER",
             "start": 240,
             "end": 245

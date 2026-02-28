@@ -17,7 +17,7 @@
             "end": 23
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber LIPID17",
             "start": 36,
             "end": 49
@@ -29,7 +29,7 @@
             "end": 80
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber LIPID17",
             "start": 93,
             "end": 106
@@ -41,13 +41,13 @@
             "end": 202
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber",
             "start": 237,
             "end": 242
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "LIPID17",
             "start": 42,
             "end": 49
@@ -59,7 +59,7 @@
             "end": 410
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber",
             "start": 272,
             "end": 277

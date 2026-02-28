@@ -35,19 +35,19 @@
             "end": 422
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber ff99SB-ILDN",
             "start": 527,
             "end": 544
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber ff99SB",
             "start": 632,
             "end": 644
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 697,
             "end": 702

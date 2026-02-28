@@ -29,13 +29,13 @@
             "end": 76
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 560,
             "end": 564
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AutoDock",
             "start": 569,
             "end": 577

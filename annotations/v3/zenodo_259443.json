@@ -59,13 +59,13 @@
             "end": 298
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 324,
             "end": 331
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "tip3p",
             "start": 368,
             "end": 373
@@ -167,7 +167,7 @@
             "end": 972
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 983,
             "end": 990

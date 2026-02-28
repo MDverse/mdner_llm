@@ -89,7 +89,7 @@
             "end": 361
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "'Berger",
             "start": 369,
             "end": 376
@@ -107,7 +107,7 @@
             "end": 499
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "SPC",
             "start": 507,
             "end": 510

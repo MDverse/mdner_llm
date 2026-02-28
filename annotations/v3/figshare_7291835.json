@@ -11,13 +11,13 @@
     "raw_text": "The Impact of Using Single Atomistic Long-Range Cutoff Schemes with the GROMOS 54A7 Force Field\n\nWith\nthe recent increase in computing power, the molecular modeling\ncommunity is now more focused on improving the accuracy and overall\nquality of biomolecular simulations. For the available simulation\npackages, force fields, and all other associated methods used, this\nrelates to how well they describe the conformational space and thermodynamic\nproperties of a biomolecular system. The parameter sets of GROMOS\nforce fields have been parametrized and validated with the reaction\nfield (RF) method using charge groups and a twin-range cutoff scheme\n(0.8/1.4 nm). However, the most recent versions of GROMACS (since\nv.2016) discontinued the support for charge groups. To take full advantage\nof the newer and faster versions of this software package with GROMOS\n54A7 and RF, we need to evaluate the impact of using a single cutoff\nscheme (vs twin-range) and of using the Verlet list update method\n(which is atomistic) compared to the group-based cutoff scheme. Our\nresults show that the GROMOS 54A7 force field seems consistent with\na single cutoff, since the resulting conformation and protonation\nensembles were indistinguishable. The GROMOS parametrization procedure\nwas also reproduced using an atomistic cutoff scheme, and we have\nobserved that the hydration free energy values of small amino acid\nside-chain analogues were similar to the ones obtained with the group-based\nprotocol. We do observe a small impact of the atomistic cutoff scheme\nin the conformational space of the model systems studied (G1-PAMAM\nand DMPC). However, since the structural properties of these systems\nare well converged for the cutoff range used (1.4–2.0 nm),\nunlike with the group-based cutoff schemes, we are confident that\nthe atomistic cutoff can be adopted with RF for MD and constant-pH\nMD biomolecular simulations using the GROMOS 54A7 force field.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS 54A7",
             "start": 72,
             "end": 83
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS",
             "start": 503,
             "end": 509
@@ -29,19 +29,19 @@
             "end": 705
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS 54A7",
             "start": 1083,
             "end": 1094
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS 54A7",
             "start": 1911,
             "end": 1922
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS",
             "start": 851,
             "end": 857

@@ -29,6 +29,18 @@
             "end": 75
         },
         {
+            "label": "FFMNAME",
+            "text": "Charmm36",
+            "start": 150,
+            "end": 158
+        },
+        {
+            "label": "FFMNAME",
+            "text": "OPC",
+            "start": 47,
+            "end": 50
+        },
+        {
             "label": "MOL",
             "text": "POPC",
             "start": 497,
@@ -71,10 +83,22 @@
             "end": 922
         },
         {
+            "label": "FFMNAME",
+            "text": "Charmm36",
+            "start": 945,
+            "end": 953
+        },
+        {
             "label": "SOFTNAME",
             "text": "Charmm-GUI",
             "start": 1206,
             "end": 1216
+        },
+        {
+            "label": "FFMNAME",
+            "text": "OPC",
+            "start": 213,
+            "end": 216
         },
         {
             "label": "SOFTNAME",
@@ -93,30 +117,6 @@
             "text": "Charmm36",
             "start": 38,
             "end": 46
-        },
-        {
-            "label": "FFMNAME",
-            "text": "Charmm36",
-            "start": 150,
-            "end": 158
-        },
-        {
-            "label": "FFMNAME",
-            "text": "Charmm36",
-            "start": 945,
-            "end": 953
-        },
-        {
-            "label": "FFMNAME",
-            "text": "OPC",
-            "start": 47,
-            "end": 50
-        },
-        {
-            "label": "FFMNAME",
-            "text": "OPC",
-            "start": 213,
-            "end": 216
         },
         {
             "label": "FFMNAME",

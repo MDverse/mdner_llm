@@ -23,7 +23,7 @@
             "end": 26
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 37,
             "end": 45

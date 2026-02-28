@@ -35,13 +35,13 @@
             "end": 306
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER99SB-ILDN",
             "start": 316,
             "end": 330
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 402,
             "end": 407

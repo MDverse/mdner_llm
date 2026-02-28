@@ -47,19 +47,19 @@
             "end": 487
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36m",
             "start": 495,
             "end": 504
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 507,
             "end": 513
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 523,
             "end": 528

@@ -47,13 +47,13 @@
             "end": 250
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "General Amber Force Field",
             "start": 256,
             "end": 281
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 283,
             "end": 287
@@ -65,7 +65,7 @@
             "end": 421
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 510,
             "end": 514
@@ -203,7 +203,7 @@
             "end": 1660
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 2130,
             "end": 2135

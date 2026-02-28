@@ -122,39 +122,32 @@ def select_annotation_files(
 
     # Identify entity-count columns (excluding SOFTVERS)
     entity_cols = [
-        col for col in df.columns
-        if col.endswith("_nb") and col != "SOFTVERS_nb"
+        col for col in df.columns if col.endswith("_nb") and col != "SOFTVERS_nb"
     ]
 
     # Priority 1: files containing at least one instance of each entity type
     if entity_cols:
         df_all = df[(df[entity_cols] > 0).all(axis=1)]
-        selected.extend(
-            fname for fname in df_all["filename"]
-            if fname in file_map
-        )
+        selected.extend(fname for fname in df_all["filename"] if fname in file_map)
 
     # Priority 2: files with a moderate number of molecules (2-10)
     # Applied only if the selection is still incomplete
     if "MOLECULE_nb" in df.columns and len(selected) < nb_files:
-        df_mol = df[
-            (df["MOLECULE_nb"] >= 2) & (df["MOLECULE_nb"] <= 10)
-        ]
+        df_mol = df[(df["MOLECULE_nb"] >= 2) & (df["MOLECULE_nb"] <= 10)]
         selected.extend(
-            fname for fname in df_mol["filename"]
+            fname
+            for fname in df_mol["filename"]
             if fname in file_map and fname not in selected
         )
 
     # Priority 3: fill remaining slots with the most recent files
     if len(selected) < nb_files:
-        selected.extend(
-            fname for fname in file_map
-            if fname not in selected
-        )
+        selected.extend(fname for fname in file_map if fname not in selected)
 
     selected_files = [file_map[name] for name in selected[:nb_files]]
-    logger.success(f"Selected {len(selected_files)} "
-                   "interesting annotations successfully!")
+    logger.success(
+        f"Selected {len(selected_files)} interesting annotations successfully!"
+    )
     # Return paths, truncated to the requested number of files
     return selected_files
 
@@ -168,7 +161,7 @@ def select_annotation_files(
         dir_okay=True,
         path_type=Path,
     ),
-    default=Path("annotations/v2"),
+    default=Path("annotations/v3"),
     show_default=True,
     help="Directory containing annotation JSON files.",
 )
@@ -190,6 +183,7 @@ def select_annotation_files(
     help=(
         "Output text file path. "
         "If not provided, a timestamped file is created under 'results/'."
+        "Example: results/50_selected_files_20260102.txt"
     ),
 )
 def main(
@@ -230,9 +224,7 @@ def main(
         for path in selected_files:
             handle.write(f"{path}\n")
 
-    logger.success(
-        f"Wrote selected file paths to {res_path} successfully!"
-    )
+    logger.success(f"Wrote selected file paths to {res_path} successfully!")
 
 
 # MAIN PROGRAM

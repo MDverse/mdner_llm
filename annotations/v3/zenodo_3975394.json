@@ -119,7 +119,7 @@
             "end": 1078
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber14sb",
             "start": 1085,
             "end": 1094
@@ -143,7 +143,7 @@
             "end": 1341
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "amber99sb-ildn",
             "start": 1363,
             "end": 1377

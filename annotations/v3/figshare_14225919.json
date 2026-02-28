@@ -23,43 +23,43 @@
             "end": 140
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TraPPE",
             "start": 595,
             "end": 601
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "PYS",
             "start": 603,
             "end": 606
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 608,
             "end": 616
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "L-OPLS",
             "start": 618,
             "end": 624
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "COMPASS",
             "start": 626,
             "end": 633
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Williams",
             "start": 635,
             "end": 643
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Williams 7B",
             "start": 669,
             "end": 680
@@ -95,13 +95,13 @@
             "end": 857
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "PYS",
             "start": 941,
             "end": 944
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Williams 7B",
             "start": 949,
             "end": 960
@@ -113,19 +113,19 @@
             "end": 1135
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Williams",
             "start": 1369,
             "end": 1377
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "COMPASS",
             "start": 1405,
             "end": 1412
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Williams 7B",
             "start": 1503,
             "end": 1514

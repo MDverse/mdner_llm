@@ -83,7 +83,7 @@
             "end": 125
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 2040,
             "end": 2048
@@ -95,7 +95,7 @@
             "end": 2108
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 2118,
             "end": 2126
@@ -131,13 +131,13 @@
             "end": 2614
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36 forcefield (version July 2020)",
             "start": 2665,
             "end": 2704
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 2940,
             "end": 2948

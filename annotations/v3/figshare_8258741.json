@@ -11,31 +11,31 @@
     "raw_text": "AMOEBA+ Classical Potential for Modeling Molecular Interactions\n\nClassical potentials based on isotropic\nand additive atomic charges\nhave been widely used to model molecules in computers for the past\nfew decades. The crude approximations in the underlying physics are\nhindering both their accuracy and transferability across chemical\nand physical environments. Here we present a new classical potential,\nAMOEBA+, to capture essential intermolecular forces, including permanent\nelectrostatics, repulsion, dispersion, many-body polarization, short-range\ncharge penetration, and charge transfer, by extending the polarizable\nmultipole-based AMOEBA (Atomic Multipole Optimized Energetics for\nBiomolecular Applications) model. For a set of common organic molecules,\nwe show that AMOEBA+ with general parameters can reproduce both quantum\nmechanical interactions and energy decompositions according to Symmetry-Adapted\nPerturbation Theory (SAPT). Additionally, a new water model based\non the AMOEBA+ framework captures various liquid-phase properties\nin molecular dynamics simulations while remaining consistent with\nSAPT energy decompositions, utilizing both ab initio data and experimental\nliquid properties. Our results demonstrate that it is possible to\nimprove the physical basis of classical force fields to advance their\naccuracy and general applicability.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMOEBA+",
             "start": 0,
             "end": 7
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMOEBA+",
             "start": 404,
             "end": 411
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMOEBA",
             "start": 638,
             "end": 644
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMOEBA+",
             "start": 774,
             "end": 781
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMOEBA+",
             "start": 986,
             "end": 993

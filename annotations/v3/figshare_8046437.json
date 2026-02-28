@@ -41,22 +41,10 @@
             "end": 568
         },
         {
-            "label": "FFM",
-            "text": "GROMOS 54A7",
-            "start": 598,
-            "end": 609
-        },
-        {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "SPC",
             "start": 617,
             "end": 620
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 634,
-            "end": 639
         },
         {
             "label": "MOL",
@@ -75,6 +63,18 @@
             "text": "MDAnalysis",
             "start": 994,
             "end": 1004
+        },
+        {
+            "label": "FFMNAME",
+            "text": "GROMOS",
+            "start": 598,
+            "end": 604
+        },
+        {
+            "label": "FFMVERS",
+            "text": "54A7",
+            "start": 605,
+            "end": 609
         }
     ]
 }

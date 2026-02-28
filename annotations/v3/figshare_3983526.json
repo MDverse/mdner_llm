@@ -29,7 +29,7 @@
             "end": 144
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM 27",
             "start": 153,
             "end": 162
@@ -59,7 +59,7 @@
             "end": 257
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 275,
             "end": 280

@@ -17,7 +17,7 @@
             "end": 4
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OPLS",
             "start": 18,
             "end": 22
@@ -59,7 +59,7 @@
             "end": 250
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "tip3p",
             "start": 267,
             "end": 272

@@ -17,6 +17,12 @@
             "end": 51
         },
         {
+            "label": "FFMNAME",
+            "text": "GAFFlipid",
+            "start": 61,
+            "end": 70
+        },
+        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 72,
@@ -47,6 +53,12 @@
             "end": 149
         },
         {
+            "label": "FFMNAME",
+            "text": "GAFFlipid",
+            "start": 151,
+            "end": 160
+        },
+        {
             "label": "STIME",
             "text": "50ns",
             "start": 213,
@@ -69,18 +81,6 @@
             "text": "water",
             "start": 251,
             "end": 256
-        },
-        {
-            "label": "FFMNAME",
-            "text": "GAFFlipid",
-            "start": 61,
-            "end": 70
-        },
-        {
-            "label": "FFMNAME",
-            "text": "GAFFlipid",
-            "start": 151,
-            "end": 160
         }
     ]
 }

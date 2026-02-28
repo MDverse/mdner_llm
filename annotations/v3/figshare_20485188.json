@@ -35,13 +35,13 @@
             "end": 146
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER99SB-ILDB",
             "start": 207,
             "end": 221
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 223,
             "end": 228

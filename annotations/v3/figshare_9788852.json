@@ -29,55 +29,55 @@
             "end": 562
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 633,
             "end": 639
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C22*",
             "start": 662,
             "end": 666
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C36m",
             "start": 668,
             "end": 672
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C36mCU",
             "start": 678,
             "end": 684
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C36m",
             "start": 729,
             "end": 733
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C36mCU",
             "start": 738,
             "end": 744
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C22*",
             "start": 780,
             "end": 784
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C36mCU",
             "start": 885,
             "end": 891
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "C36m.",
             "start": 897,
             "end": 902

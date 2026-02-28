@@ -12,6 +12,12 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "ribonucleases H",
+            "start": 94,
+            "end": 109
+        },
+        {
+            "label": "MOL",
             "text": "E. coli ribonuclease H",
             "start": 151,
             "end": 173
@@ -57,6 +63,12 @@
             "text": "E. coli apo",
             "start": 1041,
             "end": 1052
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogens",
+            "start": 1131,
+            "end": 1140
         },
         {
             "label": "MOL",

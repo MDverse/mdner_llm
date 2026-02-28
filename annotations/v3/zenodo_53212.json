@@ -95,7 +95,7 @@
             "end": 400
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Berger",
             "start": 422,
             "end": 428
@@ -107,13 +107,7 @@
             "end": 481
         },
         {
-            "label": "MOL",
-            "text": "Water",
-            "start": 546,
-            "end": 551
-        },
-        {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "SPC",
             "start": 559,
             "end": 562

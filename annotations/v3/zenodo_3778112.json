@@ -17,7 +17,7 @@
             "end": 11
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber ff03ws",
             "start": 37,
             "end": 49
@@ -29,7 +29,7 @@
             "end": 89
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber ff03ws",
             "start": 105,
             "end": 117

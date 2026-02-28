@@ -20,7 +20,7 @@ Arguments:
 Example:
     uv run src/transfer_annotations.py \
         --old-annotations-path annotations/v2 \
-        --clean-descriptions-path annotations/v3 \
+        --clean-descriptions-path annotations/v3
 """
 
 import json
@@ -96,6 +96,9 @@ def recompute_entities(
         # Extract the label and text value
         label = entity["label"]
         text_value = entity["text"]
+        # Update class names to new schema
+        if label == "FFM":
+            label = "FFMNAME"
         # Find all occurrences of the entity text in the raw text
         occurrences = find_all_occurrences(raw_text, text_value)
         # Try to find an occurrence that hasn't been used yet
@@ -181,11 +184,11 @@ def main(
             logger.warning(
                 f"Missing cleaned description {txt_file} for {json_file.name}."
             )
-            logger.info(f"Skipping {json_file.name}.")
+            logger.warning(f"Skipping {json_file.name}.")
             continue
 
         process_file(json_file, txt_file, clean_descriptions_path)
-        logger.info(f"Processed {json_file.name}")
+        logger.info(f"Processed {json_file.name}.")
 
     logger.success(
         f"Saved {len(old_json_files)} updated annotations successfully "

@@ -65,19 +65,19 @@
             "end": 210
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 221,
             "end": 229
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 282,
             "end": 288
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 298,
             "end": 303
@@ -101,7 +101,7 @@
             "end": 390
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 438,
             "end": 444

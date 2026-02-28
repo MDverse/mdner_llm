@@ -41,19 +41,19 @@
             "end": 566
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "q4md-CD",
             "start": 1071,
             "end": 1078
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 1079,
             "end": 1083
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Bind3P",
             "start": 1084,
             "end": 1090

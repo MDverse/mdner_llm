@@ -29,9 +29,15 @@
             "end": 45
         },
         {
-            "label": "FFM",
-            "text": "Charmm36",
+            "label": "FFMNAME",
+            "text": "Charmm",
             "start": 47,
+            "end": 53
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 53,
             "end": 55
         },
         {
@@ -48,8 +54,8 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "simulation engine v5",
-            "start": 120,
+            "text": "v5",
+            "start": 138,
             "end": 140
         },
         {
@@ -59,9 +65,21 @@
             "end": 178
         },
         {
-            "label": "FFM",
-            "text": "CHARMM36",
+            "label": "SOFTVERS",
+            "text": "v5",
+            "start": 197,
+            "end": 199
+        },
+        {
+            "label": "FFMNAME",
+            "text": "CHARMM",
             "start": 204,
+            "end": 210
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 210,
             "end": 212
         },
         {
@@ -83,16 +101,10 @@
             "end": 433
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "tip3p",
             "start": 450,
             "end": 455
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 456,
-            "end": 462
         },
         {
             "label": "STIME",

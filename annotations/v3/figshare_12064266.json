@@ -11,31 +11,31 @@
     "raw_text": "On Use of the Amber Potential with the Langevin Dipole Method\n\nInclusion of solvent effects in biomolecular simulations is most ideally done using explicit methods, as they\nare able to capture the heterogeneous environment typical of biomolecules and systems involving them (e.g.,\nproteins at solid interfaces). Common explicit methods based on molecular solvent models (e.g., TIP and\nSPC models) and molecular dynamic or Monte Carlo simulation are computationally expensive and are,\ntherefore, not well-suited to situations where many simulations are required (e.g., in the ab initio structure\nprediction or design contexts). In such cases, more coarse-grained explicit approaches such as the Langevin\ndipole (LD) method of Warshel and co-workers are more appropriate. The recent incarnations of the LD\nmethod appear to produce good solvation free energy estimates. These incarnations use charges and solute\nstructures obtained from high-level quantum mechanics simulations. As such an approach is clearly not possible\nfor larger solutes or when many structures are to be considered, an alternative must be sought. One possibility\nis to use structures and charges derived from an existing analytical potential modelwe report on such a\ncoupling here with the Amber potential model. The accuracy and computational performance of this hybrid\napproach, which we term LD−Amber to distinguish it from previous incarnations of the LD method, was\nassessed by comparing results obtained from the approach with those from experiment and other theoretical\nmethods for the solvation of 18 amino acid analogues and the alanine dipeptide. This comparison shows that\nthe LD−Amber approach can yield results in line with experiment both qualitatively and quantitatively and\nis as accurate as other explicit methods while being computationally much cheaper.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 14,
             "end": 19
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP",
             "start": 377,
             "end": 380
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "SPC",
             "start": 385,
             "end": 388
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 1260,
             "end": 1265
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 1368,
             "end": 1373
@@ -53,7 +53,7 @@
             "end": 1625
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 1661,
             "end": 1666

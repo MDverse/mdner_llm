@@ -11,7 +11,7 @@
     "raw_text": "GROMOS 43A1-S3 POPE Simulations (versions 1 and 2) 313 K (NOTE: anisotropic pressure coupling)\n\nTwo GROMOS 43A1-S3 POPE bilayer simulations performed using GROMACS 4.0.7 for 200 ns with different starting velocities. Simulations were performed with the standard 43A1-S3 settings: a 1.0 nm cut-off with PME for the Coulombic interactions and a twin-range 1.0/1.6 nm cut-off for the van der Waals interactions. These simulations were performed at 313 K with a 128 lipid bilayer and used anisotropic pressure coupling. The full trajectories are provided bar the initial 100 ns. The starting structure was made through the conversion of an equilibrated GROMOS 43A1-S3 POPC membrane.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS 43A1-S3",
             "start": 0,
             "end": 14
@@ -29,7 +29,7 @@
             "end": 56
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS 43A1-S3",
             "start": 100,
             "end": 114
@@ -65,7 +65,7 @@
             "end": 450
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS 43A1-S3",
             "start": 649,
             "end": 663
@@ -77,25 +77,25 @@
             "end": 668
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "43A1-S3",
             "start": 7,
             "end": 14
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "43A1-S3",
             "start": 107,
             "end": 114
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "43A1-S3",
             "start": 262,
             "end": 269
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "43A1-S3",
             "start": 656,
             "end": 663

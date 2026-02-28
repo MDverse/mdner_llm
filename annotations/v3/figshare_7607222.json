@@ -11,7 +11,7 @@
     "raw_text": "A GROMOS Force Field for Furanose-Based Carbohydrates\n\nThe\narticle describes a GROMOS force field parameter set for molecular\ndynamics simulations of furanose carbohydrates. The proposed united-atom\nforce field is designed and validated with respect to the conformational\nproperties of furanose mono-, di-, oligo-, and polymers in aqueous\nsolvent. The set accounts for the possibility of arbitrary glycosidic\nlinkage connectivity between units, O-alkylation, as well as of different\nanomery. The compatibility with the already existing, pyranose-dedicated\nGROMOS 56A6CARBO/CARBO_R set allows one to use the presently\nproposed extension for studying more diverse and biologically relevant\ncarbohydrates that exploit both pyranose and furanose units. The validation\nperformed against the quantum-mechanical and experimental data concerning\nthe structural and conformational features shows that the newly developed\nset is capable to reproduce conformational equilibrium within the\nfuranose ring, relative free energies of anomers, hydroxymethyl rotamers,\nand glycosidic linkage conformers. Additionally, the results concerning\nthe conformation of the furanose ring with relation to the two-state\nmodel as well as other conformational features of furanose-containing\nsaccharides are discussed.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS",
             "start": 2,
             "end": 8
@@ -29,7 +29,7 @@
             "end": 53
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GROMOS",
             "start": 79,
             "end": 85

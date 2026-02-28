@@ -29,6 +29,12 @@
             "end": 123
         },
         {
+            "label": "FFMNAME",
+            "text": "ECC-POPC",
+            "start": 130,
+            "end": 138
+        },
+        {
             "label": "MOL",
             "text": "water",
             "start": 220,
@@ -39,6 +45,18 @@
             "text": "dihexadecylammonium",
             "start": 287,
             "end": 306
+        },
+        {
+            "label": "FFMNAME",
+            "text": "ECC-POPC",
+            "start": 313,
+            "end": 321
+        },
+        {
+            "label": "FFMNAME",
+            "text": "SPC/E",
+            "start": 346,
+            "end": 351
         },
         {
             "label": "MOL",
@@ -87,24 +105,6 @@
             "text": "313 K",
             "start": 668,
             "end": 673
-        },
-        {
-            "label": "FFMNAME",
-            "text": "ECC-POPC",
-            "start": 130,
-            "end": 138
-        },
-        {
-            "label": "FFMNAME",
-            "text": "ECC-POPC",
-            "start": 313,
-            "end": 321
-        },
-        {
-            "label": "FFMNAME",
-            "text": "SPC/E",
-            "start": 346,
-            "end": 351
         }
     ]
 }

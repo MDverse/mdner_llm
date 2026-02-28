@@ -47,7 +47,7 @@
             "end": 485
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER bsc1",
             "start": 538,
             "end": 548
@@ -77,7 +77,7 @@
             "end": 810
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER bsc1",
             "start": 990,
             "end": 1000

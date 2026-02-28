@@ -71,7 +71,7 @@
             "end": 320
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "charmm36",
             "start": 328,
             "end": 336
@@ -89,7 +89,7 @@
             "end": 392
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "charmm36",
             "start": 406,
             "end": 414

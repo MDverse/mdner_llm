@@ -29,13 +29,13 @@
             "end": 54
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 375,
             "end": 380
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 385,
             "end": 391
@@ -53,13 +53,13 @@
             "end": 450
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 565,
             "end": 570
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 575,
             "end": 581
@@ -77,19 +77,19 @@
             "end": 637
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36m",
             "start": 676,
             "end": 685
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM36mW",
             "start": 692,
             "end": 702
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 820,
             "end": 825
@@ -125,7 +125,7 @@
             "end": 944
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 947,
             "end": 952
@@ -149,7 +149,7 @@
             "end": 1069
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 1072,
             "end": 1078
@@ -173,19 +173,19 @@
             "end": 1195
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 1265,
             "end": 1270
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Amber",
             "start": 1400,
             "end": 1405
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 1507,
             "end": 1513

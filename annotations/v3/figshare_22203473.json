@@ -11,7 +11,7 @@
     "raw_text": "Extension of the TraPPE Force Field for Battery Electrolyte Solvents\n\nOptimizing electrolyte formulations is key to improving\nperformance\nof Li-/Na-ion batteries, where transport properties (diffusion coefficient,\nviscosity) and permittivity need to be predicted as functions of temperature,\nsalt concentration and solvent composition. More efficient and reliable\nsimulation models are urgently needed, owing to the high cost of experimental\nmethods and the lack of united-atom molecular dynamics force fields\nvalidated for electrolyte solvents. Here the computationally efficient\nTraPPE united-atom force field is extended to be compatible with carbonate\nsolvents, optimizing the charges and dihedral potential. Computing\nthe properties of electrolyte solvents, ethylene carbonate (EC), propylene\ncarbonate (PC), dimethyl carbonate (DMC), diethyl carbonate (DEC),\nand dimethoxyethane (DME), we observe that the average absolute errors\nin the density, self-diffusion coefficient, permittivity, viscosity,\nand surface tension are approximately 15% of the corresponding experimental\nvalues. Results compare favorably to all-atom CHARMM and OPLS-AA force\nfields, offering computational performance improvement of at least\n80%. We further use TraPPE to predict the structure and properties\nof LiPF6 salt in these solvents and their mixtures. EC\nand PC form complete solvation shells around Li+ ions,\nwhile the salt in DMC forms chain-like structures. In the poorest\nsolvent, DME, LiPF6 forms globular clusters despite DME’s\nhigher permittivity than DMC.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TraPPE",
             "start": 17,
             "end": 23
@@ -23,7 +23,7 @@
             "end": 151
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TraPPE",
             "start": 581,
             "end": 587
@@ -83,19 +83,19 @@
             "end": 889
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM",
             "start": 1127,
             "end": 1133
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OPLS-AA",
             "start": 1138,
             "end": 1145
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TraPPE",
             "start": 1239,
             "end": 1245

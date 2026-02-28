@@ -53,25 +53,25 @@
             "end": 675
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 997,
             "end": 1001
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM c36",
             "start": 1005,
             "end": 1015
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 1066,
             "end": 1070
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "CHARMM c36",
             "start": 1074,
             "end": 1084

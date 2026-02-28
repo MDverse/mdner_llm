@@ -1,6 +1,7 @@
 """Correct annotation files by adding missing entities and removing incorrect ones."""
 
 import json
+import operator
 from pathlib import Path
 
 from mdner_llm.utils.visualize_annotations import visualize_annotations
@@ -8,27 +9,48 @@ from mdner_llm.utils.visualize_annotations import visualize_annotations
 
 def remove_entity_annotation_file(
     file_path: Path,
-    entities_to_remove: list[tuple[str, str]],
+    entities_to_remove: list[tuple[str, str, int | None]],
 ) -> None:
     """
-    Remove specific (label, text) entities from an annotation file.
+    Remove specific entities from an annotation file.
 
     Parameters
     ----------
     file_path : Path
         Path to the formatted annotation JSON file.
-    entities_to_remove : List[Tuple[str, str]]
-        List of (label, text) pairs to remove.
+    entities_to_remove : List[Tuple[str, str, Optional[int]]]
+        List of (label, text, index) tuples to remove.
+        - If index is None, remove all occurrences.
+        - If index is an int, remove only that occurrence (0-based).
     """
     # Load annotation data
     with open(file_path, encoding="utf-8") as file:
         data = json.load(file)
-        # Filter out matching entities
-        data["entities"] = [
-            ent
-            for ent in data["entities"]
-            if (ent["label"], ent["text"]) not in entities_to_remove
-        ]
+
+    new_entities = []
+    for ent in data["entities"]:
+        keep = True
+        for label, text, idx in entities_to_remove:
+            if ent["label"] == label and ent["text"] == text:
+                if idx is None:
+                    keep = False  # Remove all occurrences
+                    break
+                else:
+                    # Remove only the specific indexed occurrence
+                    # Count occurrences
+                    matches = [
+                        e
+                        for e in data["entities"]
+                        if e["label"] == label and e["text"] == text
+                    ]
+                    if matches.index(ent) == idx:
+                        keep = False
+                        break
+        if keep:
+            new_entities.append(ent)
+
+    data["entities"] = sorted(new_entities, key=operator.itemgetter("start"))
+
     # Save updated file
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
@@ -100,6 +122,9 @@ def add_entity_annotation_file(
 
             if entity_dict not in data["entities"]:
                 data["entities"].append(entity_dict)
+
+    # Sort entities by start index
+    data["entities"] = sorted(data["entities"], key=operator.itemgetter("start"))
 
     # Save updated file
     with open(file_path, "w", encoding="utf-8") as file:

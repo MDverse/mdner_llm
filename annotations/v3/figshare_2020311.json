@@ -23,7 +23,7 @@
             "end": 499
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 564,
             "end": 571
@@ -71,13 +71,13 @@
             "end": 732
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 913,
             "end": 920
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "AMBER",
             "start": 1716,
             "end": 1721
@@ -101,7 +101,7 @@
             "end": 1815
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 1846,
             "end": 1853

@@ -71,6 +71,12 @@
             "end": 334
         },
         {
+            "label": "FFMNAME",
+            "text": "charmm36",
+            "start": 343,
+            "end": 351
+        },
+        {
             "label": "SOFTNAME",
             "text": "gromacs",
             "start": 372,
@@ -81,6 +87,12 @@
             "text": "2016.1",
             "start": 380,
             "end": 386
+        },
+        {
+            "label": "FFMNAME",
+            "text": "charmm36",
+            "start": 400,
+            "end": 408
         },
         {
             "label": "TEMP",
@@ -129,18 +141,6 @@
             "text": "310K",
             "start": 355,
             "end": 359
-        },
-        {
-            "label": "FFMNAME",
-            "text": "charmm36",
-            "start": 343,
-            "end": 351
-        },
-        {
-            "label": "FFMNAME",
-            "text": "charmm36",
-            "start": 400,
-            "end": 408
         }
     ]
 }

@@ -65,7 +65,7 @@
             "end": 205
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 293,
             "end": 298
@@ -83,7 +83,7 @@
             "end": 327
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OPLS",
             "start": 356,
             "end": 360

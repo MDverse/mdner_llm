@@ -23,13 +23,19 @@
             "end": 99
         },
         {
-            "label": "FFM",
-            "text": "CHARMM36",
+            "label": "FFMNAME",
+            "text": "CHARMM",
             "start": 109,
+            "end": 115
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 115,
             "end": 117
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 125,
             "end": 132
@@ -53,45 +59,51 @@
             "end": 268
         },
         {
-            "label": "FFM",
-            "text": "CHARMM36",
+            "label": "FFMNAME",
+            "text": "CHARMM",
             "start": 278,
+            "end": 284
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 284,
             "end": 286
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Slipids",
             "start": 294,
             "end": 301
         },
         {
-            "label": "FFM",
-            "text": "CHARMM36",
+            "label": "FFMNAME",
+            "text": "CHARMM",
             "start": 360,
+            "end": 366
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 366,
             "end": 368
         },
         {
-            "label": "STIME",
-            "text": "100",
-            "start": 581,
-            "end": 584
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 423,
+            "end": 425
         },
         {
             "label": "STIME",
-            "text": "200ns",
-            "start": 585,
+            "text": "100-200ns",
+            "start": 581,
             "end": 590
         },
         {
             "label": "STIME",
-            "text": "200",
+            "text": "200-300ns",
             "start": 604,
-            "end": 607
-        },
-        {
-            "label": "STIME",
-            "text": "300ns",
-            "start": 608,
             "end": 613
         }
     ]

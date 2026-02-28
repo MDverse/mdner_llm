@@ -47,6 +47,18 @@
             "end": 363
         },
         {
+            "label": "FFMNAME",
+            "text": "TIP3P",
+            "start": 440,
+            "end": 445
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 446,
+            "end": 451
+        },
+        {
             "label": "MOL",
             "text": "KCl",
             "start": 476,
@@ -59,10 +71,22 @@
             "end": 683
         },
         {
+            "label": "FFMNAME",
+            "text": "GAFF",
+            "start": 732,
+            "end": 736
+        },
+        {
             "label": "SOFTNAME",
             "text": "Antechamber",
             "start": 738,
             "end": 749
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1029,
+            "end": 1034
         },
         {
             "label": "STIME",
@@ -93,24 +117,6 @@
             "text": "2018",
             "start": 787,
             "end": 791
-        },
-        {
-            "label": "FFMNAME",
-            "text": "TIP3P",
-            "start": 440,
-            "end": 445
-        },
-        {
-            "label": "FFMNAME",
-            "text": "GAFF",
-            "start": 732,
-            "end": 736
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1029,
-            "end": 1034
         }
     ]
 }

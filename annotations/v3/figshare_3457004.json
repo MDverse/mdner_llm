@@ -11,7 +11,7 @@
     "raw_text": "General AMBER Force Field Parameters for Diphenyl Diselenides and Diphenyl Ditellurides\n\nThe\nGeneral AMBER Force Field (GAFF) has been extended to describe a series\nof selenium and tellurium diphenyl dichalcogenides. These compounds,\nbesides being eco-friendly catalysts for numerous oxidations in organic\nchemistry, display peroxidase activity, i.e., can reduce hydrogen\nperoxide and harmful organic hydroperoxides to water/alcohols and\nas such are very promising antioxidant drugs. The novel GAFF parameters\nare tested in MD simulations in different solvents and the 77Se NMR chemical shift of diphenyl diselenide is computed using structures\nextracted from MD snapshots and found in nice agreement with the measured\nvalue in CDCl3. The whole computational protocol is described\nin detail and integrated with in-house code to allow easy derivation\nof the force field parameters for analogous compounds as well as for\nSe/Te organocompounds in general.",
     "entities": [
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "General AMBER Force Field",
             "start": 0,
             "end": 25
@@ -29,13 +29,13 @@
             "end": 87
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "General AMBER Force Field",
             "start": 93,
             "end": 118
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 120,
             "end": 124
@@ -53,7 +53,7 @@
             "end": 215
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAFF",
             "start": 494,
             "end": 498

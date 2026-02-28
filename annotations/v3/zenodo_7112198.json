@@ -47,19 +47,19 @@
             "end": 191
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GDML",
             "start": 318,
             "end": 322
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "GAP",
             "start": 324,
             "end": 327
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "SchNet",
             "start": 333,
             "end": 339

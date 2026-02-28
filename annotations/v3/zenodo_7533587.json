@@ -30,6 +30,12 @@
         },
         {
             "label": "MOL",
+            "text": "FH5–7",
+            "start": 162,
+            "end": 167
+        },
+        {
+            "label": "MOL",
             "text": "ApoE2",
             "start": 168,
             "end": 173
@@ -47,21 +53,39 @@
             "end": 233
         },
         {
+            "label": "MOL",
+            "text": "lysine",
+            "start": 279,
+            "end": 285
+        },
+        {
             "label": "SOFTNAME",
             "text": "HADDOCK",
             "start": 418,
             "end": 425
         },
         {
-            "label": "FFM",
-            "text": "CHARMM36m",
+            "label": "FFMNAME",
+            "text": "CHARMM",
             "start": 542,
+            "end": 548
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36m",
+            "start": 548,
             "end": 551
         },
         {
-            "label": "FFM",
-            "text": "Amber FF14SB",
+            "label": "FFMNAME",
+            "text": "Amber",
             "start": 556,
+            "end": 561
+        },
+        {
+            "label": "FFMVERS",
+            "text": "FF14SB",
+            "start": 562,
             "end": 568
         },
         {

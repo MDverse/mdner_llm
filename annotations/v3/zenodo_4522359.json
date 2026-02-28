@@ -65,7 +65,7 @@
             "end": 598
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "Charmm36 (v. June 2015)",
             "start": 611,
             "end": 634
@@ -77,7 +77,7 @@
             "end": 642
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "TIP3P",
             "start": 644,
             "end": 649

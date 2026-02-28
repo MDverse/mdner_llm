@@ -125,7 +125,7 @@
             "end": 1185
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OL15",
             "start": 1263,
             "end": 1267
@@ -137,7 +137,7 @@
             "end": 1287
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "parm99",
             "start": 1292,
             "end": 1298
@@ -149,13 +149,13 @@
             "end": 1302
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "parmbsc0",
             "start": 1314,
             "end": 1322
         },
         {
-            "label": "FFM",
+            "label": "FFMNAME",
             "text": "OL15",
             "start": 1328,
             "end": 1332

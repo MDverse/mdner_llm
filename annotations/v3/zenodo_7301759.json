@@ -48,9 +48,39 @@
         },
         {
             "label": "MOL",
+            "text": "GluN1",
+            "start": 252,
+            "end": 257
+        },
+        {
+            "label": "MOL",
             "text": "glutamate",
             "start": 265,
             "end": 274
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2",
+            "start": 295,
+            "end": 300
+        },
+        {
+            "label": "MOL",
+            "text": "bi-lobed ligand-binding domains",
+            "start": 340,
+            "end": 371
+        },
+        {
+            "label": "MOL",
+            "text": "LBDs",
+            "start": 373,
+            "end": 377
+        },
+        {
+            "label": "MOL",
+            "text": "LBD",
+            "start": 373,
+            "end": 376
         },
         {
             "label": "MOL",
@@ -63,6 +93,30 @@
             "text": "multi-microsecond",
             "start": 553,
             "end": 570
+        },
+        {
+            "label": "MOL",
+            "text": "GluN1",
+            "start": 609,
+            "end": 614
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2",
+            "start": 615,
+            "end": 620
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2A",
+            "start": 615,
+            "end": 621
+        },
+        {
+            "label": "MOL",
+            "text": "LBD",
+            "start": 622,
+            "end": 625
         },
         {
             "label": "MOL",
@@ -84,6 +138,36 @@
         },
         {
             "label": "MOL",
+            "text": "GluN1",
+            "start": 726,
+            "end": 731
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2",
+            "start": 736,
+            "end": 741
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2A",
+            "start": 736,
+            "end": 742
+        },
+        {
+            "label": "MOL",
+            "text": "LBDs",
+            "start": 743,
+            "end": 747
+        },
+        {
+            "label": "MOL",
+            "text": "LBD",
+            "start": 743,
+            "end": 746
+        },
+        {
+            "label": "MOL",
             "text": "D-serine",
             "start": 765,
             "end": 773
@@ -93,6 +177,18 @@
             "text": "glutamate",
             "start": 788,
             "end": 797
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2",
+            "start": 813,
+            "end": 818
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2A",
+            "start": 813,
+            "end": 819
         },
         {
             "label": "MOL",
@@ -108,9 +204,39 @@
         },
         {
             "label": "MOL",
+            "text": "GluN2",
+            "start": 1036,
+            "end": 1041
+        },
+        {
+            "label": "MOL",
+            "text": "GluN2A",
+            "start": 1036,
+            "end": 1042
+        },
+        {
+            "label": "MOL",
+            "text": "LBD",
+            "start": 1043,
+            "end": 1046
+        },
+        {
+            "label": "MOL",
             "text": "glycans",
             "start": 1416,
             "end": 1423
+        },
+        {
+            "label": "MOL",
+            "text": "LBD",
+            "start": 1469,
+            "end": 1472
+        },
+        {
+            "label": "MOL",
+            "text": "LBD",
+            "start": 1509,
+            "end": 1512
         }
     ]
 }
