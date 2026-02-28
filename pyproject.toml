@@ -1,9 +1,30 @@
 [project]
 name = "mdner-llm"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python package for Molecular Dynamics NER tasks using Large Language Models."
 readme = "README.md"
-requires-python = "==3.13.*"
+license = "BSD-3-Clause"
+authors = [
+    { name = "Pierre Poulain", email = "pierre.poulain@cupnet.net" },
+    { name = "Essmay Touami", email = "essmay.touami@etu.u-paris.fr" },
+    { name = "Giulia Di Gennaro", email = "giulia.di-gennaro@etu.u-paris.fr"}
+]
+maintainers = [
+   { name = "Essmay Touami", email = "essmay.touami@etu.u-paris.fr" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Intended Audience :: Science/Research",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+]
+requires-python = ">=3.12"
 dependencies = [
     "click>=8.3.0",
     "fastparquet>=2025.12.0",
@@ -33,5 +54,27 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "ruff>=0.12.2",
+    "bandit>=1.9.3",
+    "jupyterlab>=4.4.9",
+    "matplotlib>=3.10.1",
+    "plotly>=6.0.0",
+    "prek>=0.3.2",
+    "pysankeybeta>=1.4.2",
+    "pytest>=9.0.2",
+    "ruff>=0.15.1",
+    "upsetplot>=0.9.0",
+    "watermark>=2.5.0",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["uv_build>=0.9.22,<0.10.0"]
+build-backend = "uv_build"
+
+[project.scripts]
+select-annotations = "mdner_llm.utils.select_annotations:main"
+transfer-annotations = "mdner_llm.utils.transfer_annotations:main"
+qc-annotations = "mdner_llm.utils.qc_annotations:main"
+extract-description = "mdner_llm.utils.extract_description_from_parquets:main"
