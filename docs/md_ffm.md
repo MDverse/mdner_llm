@@ -1,0 +1,35 @@
+# Controlled list of force field or model for annotation (FFMNAME)
+
+*Each line corresponds to a valid force field/model name* :
+
+AMBER
+CHARMM
+GROMOS
+OPLS
+MARTINI
+SPC
+TIP3P
+TIP4P
+TIP5P
+LIPID
+SLIPID
+PARM
+GAFF
+OPC
+BERGER
+SPC/E
+TRAPPE
+GAL
+GAFFLIPID
+43A1-S3
+AMOEBA
+HIPPO
+WILLIAMS
+SIRAH
+RSFF
+ECC-LIPIDS
+COMPASS
+L-OPLS
+Q4MD-CD
+GDML
+BIND3P

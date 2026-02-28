@@ -21,7 +21,7 @@ def remove_entity_annotation_file(
     ----------
     file_path : Path
         Path to the formatted annotation JSON file.
-    entities_to_remove : List[Tuple[str, str, Optional[int]]]
+    entities_to_remove : list[tuple[str, str, int | None]]
         List of (label, text, index) tuples to remove.
         - If index is None, remove all occurrences.
         - If index is an int, remove only that occurrence (0-based).
@@ -72,7 +72,7 @@ def find_entity_positions(raw_text: str, entity_text: str) -> list[tuple[int, in
 
     Returns
     -------
-    List[Tuple[int, int]]
+    list[tuple[int, int]]
         Character index pairs for each occurrence.
     """
     positions: list[tuple[int, int]] = []
@@ -102,7 +102,7 @@ def add_entity_annotation_file(
     ----------
     file_path : Path
         Path to the formatted annotation JSON file.
-    new_entities : List[Tuple[str, str]]
+    new_entities : list[tuple[str, str]]
         List of (label, text) pairs to insert.
     """
     # Load annotation data
@@ -198,3 +198,115 @@ def clean_annotation_file_temperatures(file_path: Path) -> None:
     # Save cleaned file
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
+
+
+def load_ffm_list(md_path: Path) -> list[str]:
+    """
+    Load controlled force field names from a markdown file.
+
+    Parameters
+    ----------
+    md_path : Path
+        Path to the markdown file containing the controlled list.
+
+    Returns
+    -------
+    list[str]
+        List of force field names.
+    """
+    ffm_names = []
+    with open(md_path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            # Ignore empty lines and comments (lines starting with # or *)
+            if not line or line.startswith("#") or line.startswith("*"):
+                continue
+            ffm_names.append(line.split()[0])
+
+    return ffm_names
+
+
+def split_ffm_entities(
+    annotation_file: Path,
+    ffm_md_path: Path,
+) -> None:
+    """
+    Split FFMNAME entities into FFMNAME + FFMVERS when applicable.
+
+    Parameters
+    ----------
+    annotation_file : Path
+        Path to annotation JSON file.
+    ffm_md_path : Path
+        Path to markdown file containing controlled FFM names.
+    """
+    # Load controlled FFM names
+    ffm_names = load_ffm_list(ffm_md_path)
+    # Sort by length to match longest names first (e.g., "CHARMM36" before "CHARMM")
+    # This prevents partial matches that could occur if shorter names are matched first.
+    ffm_names = sorted(ffm_names, key=len, reverse=True)
+    # Load annotation data
+    with open(annotation_file, encoding="utf-8") as f:
+        data = json.load(f)
+
+    raw_text = data["raw_text"]
+    new_entities = []
+    for ent in data["entities"]:
+        # Only process FFMNAME entities
+        if ent["label"] != "FFMNAME":
+            new_entities.append(ent)
+            continue
+        # Extract the text of the entity
+        text = ent["text"]
+        # Find the first matching controlled FFM name in the entity text
+        matched_name = None
+        for name in ffm_names:
+            if name.lower() in text.lower():
+                matched_name = name
+                break
+        # If no controlled FFM name is found in the entity text
+        # keep it as is
+        if not matched_name:
+            new_entities.append(ent)
+            continue
+        # Find the exact position of the matched FFM name
+        pattern = re.compile(re.escape(matched_name), re.IGNORECASE)
+        match = pattern.search(text)
+        # If the matched name is not found in the entity text (should not happen),
+        # keep the original entity
+        if not match:
+            new_entities.append(ent)
+            continue
+        ffm_start = ent["start"] + match.start()
+        ffm_end = ffm_start + len(match.group(0))
+        # Create new FFMNAME entity for the matched name
+        new_entities.append(
+            {
+                "label": "FFMNAME",
+                "text": text[match.start() : match.end()],
+                "start": ffm_start,
+                "end": ffm_end,
+            }
+        )
+
+        # Check if there is a version of the FFM
+        remaining_start_in_ent = match.end()
+        remaining_text = text[remaining_start_in_ent:]
+        # If there is remaining text after the matched FFM name
+        if remaining_text:
+            vers_start = ent["start"] + remaining_start_in_ent
+            vers_end = vers_start + len(remaining_text)
+            # Create new FFMVERS entity for the remaining text
+            new_entities.append(
+                {
+                    "label": "FFMVERS",
+                    "text": raw_text[vers_start:vers_end],
+                    "start": vers_start,
+                    "end": vers_end,
+                }
+            )
+
+    data["entities"] = sorted(new_entities, key=operator.itemgetter("start"))
+
+    with open(annotation_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
