@@ -23,7 +23,7 @@ Arguments
 Examples
 --------
 uv run src/qc_entity_inventory.py \
-    --annot-folder annotations/v2 \
+    --annot-folder annotations/v3 \
     --out-folder results/qc_annotations
 """
 
@@ -137,7 +137,7 @@ def write_inventory_files(
 @click.option(
     "--annot-folder",
     type=click.Path(exists=True, file_okay=False, path_type=Path),
-    default=Path("annotations/v2"),
+    default=Path("annotations/v3"),
     show_default=True,
     help="Folder containing JSON annotation files.",
 )

@@ -24,9 +24,9 @@
         },
         {
             "label": "TEMP",
-            "text": "5000 K.",
+            "text": "5000 K",
             "start": 820,
-            "end": 827
+            "end": 826
         },
         {
             "label": "MOL",

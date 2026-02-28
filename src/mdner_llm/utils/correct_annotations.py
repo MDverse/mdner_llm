@@ -2,7 +2,10 @@
 
 import json
 import operator
+import re
 from pathlib import Path
+
+from loguru import logger
 
 from mdner_llm.utils.visualize_annotations import visualize_annotations
 
@@ -141,3 +144,57 @@ def correct_and_visualize(
         remove_entity_annotation_file(file_path, remove_ent)
 
     visualize_annotations(file_path)
+
+
+def clean_trailing_dot(text: str) -> str:
+    """
+    Remove a dot if it is at the end of a word and not followed by a digit.
+
+    Parameters
+    ----------
+    text : str
+        Raw text to clean.
+
+    Returns
+    -------
+    str
+        Cleaned text.
+    """
+    # Pattern explanation:
+    # \. matches a literal dot
+    # (?!\d) is a negative lookahead that asserts
+    # the dot is not followed by a digit
+    return re.sub(r"\.(?!\d)", "", text)
+
+
+def clean_annotation_file_temperatures(file_path: Path) -> None:
+    """
+    Correct temperature annotations in a JSON annotation file.
+
+    Parameters
+    ----------
+    file_path : Path
+        Path to the formatted annotation JSON file.
+    """
+    with open(file_path, encoding="utf-8") as file:
+        data = json.load(file)
+    # Clean trailing dots for temperature annotations
+    count = 0
+    for ent in data.get("entities", []):
+        if ent.get("label") == "TEMP":
+            raw_entity = ent["text"]
+            ent["text"] = clean_trailing_dot(ent["text"])
+            if ent["text"] != raw_entity:
+                logger.debug(f"Annotation file '{file_path.name}':")
+                logger.debug(f"Changed '{raw_entity}' to '{ent['text']}'")
+                count += 1
+            # Ajust end index if text length changed
+            if ent["text"] != data["raw_text"][ent["start"] : ent["end"]]:
+                ent["end"] = ent["start"] + len(ent["text"])
+
+    if count > 0:
+        logger.success(f"Cleaned {count} temperature annotations!")
+
+    # Save cleaned file
+    with open(file_path, "w", encoding="utf-8") as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)

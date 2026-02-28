@@ -36,9 +36,9 @@
         },
         {
             "label": "TEMP",
-            "text": "340 K.",
+            "text": "340 K",
             "start": 614,
-            "end": 620
+            "end": 619
         },
         {
             "label": "FFMNAME",

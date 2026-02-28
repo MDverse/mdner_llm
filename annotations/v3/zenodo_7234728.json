@@ -60,9 +60,9 @@
         },
         {
             "label": "TEMP",
-            "text": "4000 K.",
+            "text": "4000 K",
             "start": 544,
-            "end": 551
+            "end": 550
         },
         {
             "label": "SOFTNAME",
