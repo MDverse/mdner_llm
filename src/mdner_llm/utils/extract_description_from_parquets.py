@@ -28,8 +28,6 @@ Example:
         --output-dir annotations/v3
 """
 
-from __future__ import annotations
-
 import re
 from collections.abc import Iterable
 from pathlib import Path
@@ -38,7 +36,7 @@ import click
 import pandas as pd
 from loguru import logger
 
-REQUIRED_COLUMNS: set[str] = {
+REQUIRED_COLUMNS = {
     "title",
     "description",
     "dataset_repository_name",
@@ -136,8 +134,8 @@ def process_parquet_file(parquet_path: Path, output_dir: Path) -> int:
 @click.option(
     "--input-dir",
     type=click.Path(exists=True, file_okay=False, path_type=Path),
-    required=True,
     help="Directory containing parquet files.",
+    default="data/",
 )
 @click.option(
     "--output-dir",
