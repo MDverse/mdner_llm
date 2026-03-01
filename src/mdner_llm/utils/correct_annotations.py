@@ -7,7 +7,7 @@ from pathlib import Path
 
 from loguru import logger
 
-from mdner_llm.utils.visualize_annotations import visualize_annotations
+from mdner_llm.utils.visualize_annotations import visualize_annotations_from_file
 
 
 def remove_entity_annotation_file(
@@ -143,7 +143,7 @@ def correct_and_visualize(
     if remove_ent:
         remove_entity_annotation_file(file_path, remove_ent)
 
-    visualize_annotations(file_path)
+    visualize_annotations_from_file(file_path)
 
 
 def clean_trailing_dot(text: str) -> str:
