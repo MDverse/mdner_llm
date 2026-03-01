@@ -1,10 +1,10 @@
 """Pydantic model for entities with character positions extracted by an LLM for NER."""
 
-from typing import Literal
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, Field
 
-from src.mdner_llm.models.entities import Entity
+from mdner_llm.models.entities import Entity
 
 
 # =====================================================================
@@ -56,13 +56,23 @@ class SoftwareVersionPosition(EntityWithPosition):
     label: Literal["SOFTVERS"] = Field("SOFTVERS")
 
 
+EntityUnion = Annotated[
+    MoleculePosition
+    | SimulationTimePosition
+    | ForceFieldPosition
+    | TemperaturePosition
+    | SoftwareNamePosition
+    | SoftwareVersionPosition,
+    Field(discriminator="label"),
+]
+
+
 # =====================================================================
 # Container class for all extracted entities with positions
 # =====================================================================
 class ListOfEntitiesPositions(BaseModel):
     """Structured list of all extracted entities with character positions."""
 
-    entities: list[
-        MoleculePosition | SimulationTimePosition | ForceFieldPosition,
-        TemperaturePosition | SoftwareNamePosition | SoftwareVersionPosition,
-    ] = Field(..., description="List of entities with positions")
+    entities: list[EntityUnion] = Field(
+        ..., description="List of entities with positions"
+    )

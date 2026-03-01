@@ -11,7 +11,6 @@ This ensures that only the correct entity type can be assigned, preventing miscl
 (e.g., a force field entity cannot be assigned to a Molecule class). All entities share the
 base fields `label` and `text`.
 
-
 ```mermaid
 classDiagram
     class ListOfEntities {
@@ -71,27 +70,25 @@ classDiagram
 
 ### [`ListOfEntities`](entities.py)
 
-A Pydantic model representing a list of `Entity` instances.  
-Each `Entity` contains:
-- `label`: short code identifying the entity type (e.g., `"MOL"`, `"STIME"`).  
-- `text`: exact substring extracted from the source text.  
+A Pydantic model representing a list of `Entity` instances.Each `Entity` contains:
+
+- `label`: short code identifying the entity type (e.g., `"MOL"`, `"STIME"`).
+- `text`: exact substring extracted from the source text.
 
 Useful for storing or validating multiple entities extracted from a document.
 
 ### [`ListOfEntitiesPositions`](entities_with_positions.py)
 
-A Pydantic model representing a list of `EntityWithPosition` instances.  
-Each `EntityWithPosition` contains:
-- `label`: short code identifying the entity type.  
-- `text`: exact substring.  
-- `start`: start index in the source text.  
-- `end`: end index in the source text.  
+A Pydantic model representing a list of `EntityWithPosition` instances.Each `EntityWithPosition` contains:
 
-Useful when you need to retain the exact location of entities for downstream tasks like highlighting or alignment.
+- `label`: short code identifying the entity type.
+- `text`: exact substring.
+- `start`: start index in the source text.
+- `end`: end index in the source text.
+
+Useful when you need to retain the exact location of entities for downstream tasks like highlighting.
 
 ## Purpose
 
 These models provide a unified schema to validate, store, and manipulate NER results
 produced by automated extraction pipelines.
-Strict type enforcement via `Literal` ensures consistency and reduces errors
-when handling multiple entity types.
