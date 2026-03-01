@@ -85,8 +85,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-
 import click
 import instructor
 from dotenv import load_dotenv
@@ -105,7 +103,8 @@ from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_core import ValidationError as CoreValidationError
 
 # UTILITY IMPORTS
-from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
+from mdner_llm.models.entities import ListOfEntities
+from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 
 
 # FUNCTIONS
@@ -213,8 +212,7 @@ def load_text_and_groundtruth(
         if tag_prompt == "json":
             # Remove positional information from entities
             normalized = [
-                {"label": ent.get("label"), "text": ent.get("text")}
-                for ent in entities
+                {"label": ent.get("label"), "text": ent.get("text")} for ent in entities
             ]
             groundtruth = ListOfEntities(entities=normalized)
         else:
@@ -231,9 +229,7 @@ def load_text_and_groundtruth(
         raise
 
     preview = text_to_annotate[:75].replace("\n", " ")
-    logger.debug(
-        f"Loaded text ({len(text_to_annotate)} chars): {preview}..."
-    )
+    logger.debug(f"Loaded text ({len(text_to_annotate)} chars): {preview}...")
 
     return text_to_annotate, groundtruth
 
@@ -268,9 +264,7 @@ def load_prompt(
         raise
 
     preview = prompt[:75].replace("\n", " ")
-    logger.debug(
-        f"Loaded prompt ({len(prompt)} chars): {preview}...\n"
-    )
+    logger.debug(f"Loaded prompt ({len(prompt)} chars): {preview}...\n")
 
     return prompt
 
@@ -332,8 +326,9 @@ def annotate_with_instructor(
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
-) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
-            float | int]:
+) -> tuple[
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
+]:
     """
     Annotate a text using the Instructor framework.
 
@@ -379,11 +374,15 @@ def annotate_with_instructor(
 
     # Instantiate an Instructor client for the requested model.
     model_entry_point = (
-        f"openrouter/{model}" if not model.startswith("openai") else model)
-    client = instructor.from_provider(model_entry_point, async_client=False,
-                                                mode=instructor.Mode.JSON,
-                                                base_url="https://openrouter.ai/api/v1",
-                                                api_key=api_key)
+        f"openrouter/{model}" if not model.startswith("openai") else model
+    )
+    client = instructor.from_provider(
+        model_entry_point,
+        async_client=False,
+        mode=instructor.Mode.JSON,
+        base_url="https://openrouter.ai/api/v1",
+        api_key=api_key,
+    )
 
     try:
         # Query the LLM
@@ -429,8 +428,9 @@ def annotate_with_llamaindex(
     api_key: str | None,
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
-) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
-            float | int]:
+) -> tuple[
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
+]:
     """
     Annotate a text using the Llamaindex framework.
 
@@ -515,8 +515,9 @@ def annotate_with_pydanticai(
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
-) -> tuple[ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
-            float | int]:
+) -> tuple[
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
+]:
     """
     Annotate a text using the PydanticAI framework.
 
@@ -596,7 +597,7 @@ def extract_entities(
     path_text: Path,
     framework: str,
     output_dir: Path,
-    max_retries: int = 3
+    max_retries: int = 3,
 ) -> None:
     """
     Extract structured entities from a text using a specified LLM and framework.
@@ -619,9 +620,11 @@ def extract_entities(
     """
     setup_logger(logger, log_dir=output_dir)
     logger.info("Starting the extraction of entities...")
-    logger.debug(f"===================================================== "
-                 f"📝 Text to annotate path: {path_text} "
-                 f"=====================================================")
+    logger.debug(
+        f"===================================================== "
+        f"📝 Text to annotate path: {path_text} "
+        f"====================================================="
+    )
     logger.debug(
         f"🤖 Model: {model} | 🛠️ Framework: {framework} | 🏷️ Tag: {tag_prompt} | "
         f"💬 Prompt path: {path_prompt} | 📂 Output dir: {output_dir} | "
@@ -654,12 +657,7 @@ def extract_entities(
             response_model = None
             max_retries = 0
         llm_response, inference_time = annotate_with_instructor(
-            text_to_annotate,
-            model,
-            api_key,
-            prompt,
-            response_model,
-            max_retries
+            text_to_annotate, model, api_key, prompt, response_model, max_retries
         )
 
     elif framework == "llamaindex":
@@ -673,12 +671,7 @@ def extract_entities(
 
     elif framework == "pydanticai":
         llm_response, inference_time = annotate_with_pydanticai(
-            text_to_annotate,
-            model,
-            api_key,
-            prompt,
-            response_model,
-            max_retries
+            text_to_annotate, model, api_key, prompt, response_model, max_retries
         )
 
     if llm_response is None:
@@ -706,11 +699,12 @@ def extract_entities(
         "tag_prompt": str(tag_prompt),
         "inference_time_sec": inference_time,
         "raw_llm_response": serialize_response(llm_response),
-        "groundtruth": serialize_response(groundtruth)
+        "groundtruth": serialize_response(groundtruth),
     }
     output_dir.mkdir(parents=True, exist_ok=True)
-    json_output_path.write_text(json.dumps(json_data, indent=4, ensure_ascii=False),
-                                 encoding="utf-8")
+    json_output_path.write_text(
+        json.dumps(json_data, indent=4, ensure_ascii=False), encoding="utf-8"
+    )
     logger.debug(f"Saved JSON output to {json_output_path}")
 
     # Save raw model response
@@ -720,8 +714,10 @@ def extract_entities(
     )
     logger.debug(f"Saved raw response to {txt_output_path}")
 
-    logger.success(f"Completed the extraction of entities in {inference_time:.2f} "
-                   "seconds successfully!")
+    logger.success(
+        f"Completed the extraction of entities in {inference_time:.2f} "
+        "seconds successfully!"
+    )
 
 
 @click.command()
@@ -730,44 +726,41 @@ def extract_entities(
     default="json",
     type=click.Choice(["json", "json_with_positions"]),
     help="Descriptor indicating the format of the expected LLM output "
-    "(e.g., 'json' or 'json_with_positions')."
+    "(e.g., 'json' or 'json_with_positions').",
 )
 @click.option(
     "--path-prompt",
     required=True,
     type=click.Path(exists=True, path_type=Path),
-    help="Path to the prompt file."
+    help="Path to the prompt file.",
 )
 @click.option(
-    "--model",
-    required=True,
-    type=str,
-    help="Model name to use for extraction."
+    "--model", required=True, type=str, help="Model name to use for extraction."
 )
 @click.option(
     "--path-text",
     required=True,
     type=click.Path(exists=True, path_type=Path),
-    help="Path to the JSON text to process."
+    help="Path to the JSON text to process.",
 )
 @click.option(
     "--framework",
     default="none",
     type=click.Choice(["instructor", "llamaindex", "pydanticai", "none"]),
-    help="Validation framework."
+    help="Validation framework.",
 )
 @click.option(
     "--output-dir",
     default="results/llm_annotations",
     type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
     help="Directory to save output files.",
-    callback=ensure_dir
+    callback=ensure_dir,
 )
 @click.option(
     "--max-retries",
     default=3,
     type=int,
-    help="Maximum number of retries in case of API or validation failure."
+    help="Maximum number of retries in case of API or validation failure.",
 )
 def extract_entities_from_cli(
     tag_prompt: str,
@@ -776,7 +769,7 @@ def extract_entities_from_cli(
     path_text: Path,
     framework: str,
     output_dir: Path,
-    max_retries: int = 3
+    max_retries: int = 3,
 ) -> None:
     """CLI entrypoint."""
     extract_entities(
