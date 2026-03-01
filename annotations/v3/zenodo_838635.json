@@ -17,6 +17,18 @@
             "end": 10
         },
         {
+            "label": "FFMNAME",
+            "text": "Charmm36",
+            "start": 38,
+            "end": 46
+        },
+        {
+            "label": "FFMNAME",
+            "text": "OPC",
+            "start": 47,
+            "end": 50
+        },
+        {
             "label": "TEMP",
             "text": "298 K",
             "start": 53,
@@ -37,8 +49,8 @@
         {
             "label": "FFMNAME",
             "text": "OPC",
-            "start": 47,
-            "end": 50
+            "start": 213,
+            "end": 216
         },
         {
             "label": "MOL",
@@ -47,9 +59,27 @@
             "end": 501
         },
         {
+            "label": "FFMNAME",
+            "text": "OPC",
+            "start": 498,
+            "end": 501
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 629,
+            "end": 635
+        },
+        {
             "label": "MOL",
             "text": "POPC",
             "start": 643,
+            "end": 647
+        },
+        {
+            "label": "FFMNAME",
+            "text": "OPC",
+            "start": 644,
             "end": 647
         },
         {
@@ -63,6 +93,12 @@
             "text": "DPPC",
             "start": 781,
             "end": 785
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 808,
+            "end": 814
         },
         {
             "label": "STIME",
@@ -93,42 +129,6 @@
             "text": "Charmm-GUI",
             "start": 1206,
             "end": 1216
-        },
-        {
-            "label": "FFMNAME",
-            "text": "OPC",
-            "start": 213,
-            "end": 216
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "PLUMED",
-            "start": 629,
-            "end": 635
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "PLUMED",
-            "start": 808,
-            "end": 814
-        },
-        {
-            "label": "FFMNAME",
-            "text": "Charmm36",
-            "start": 38,
-            "end": 46
-        },
-        {
-            "label": "FFMNAME",
-            "text": "OPC",
-            "start": 498,
-            "end": 501
-        },
-        {
-            "label": "FFMNAME",
-            "text": "OPC",
-            "start": 644,
-            "end": 647
         },
         {
             "label": "FFMNAME",

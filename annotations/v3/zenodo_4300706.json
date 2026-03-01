@@ -53,6 +53,12 @@
             "end": 691
         },
         {
+            "label": "TEMP",
+            "text": "358K",
+            "start": 696,
+            "end": 700
+        },
+        {
             "label": "MOL",
             "text": "DPPC",
             "start": 777,
@@ -78,18 +84,6 @@
         },
         {
             "label": "FFMNAME",
-            "text": "TIP3P",
-            "start": 1007,
-            "end": 1012
-        },
-        {
-            "label": "TEMP",
-            "text": "358K",
-            "start": 696,
-            "end": 700
-        },
-        {
-            "label": "FFMNAME",
             "text": "Charmm36",
             "start": 974,
             "end": 982
@@ -99,6 +93,12 @@
             "text": "v. June 2015",
             "start": 984,
             "end": 996
+        },
+        {
+            "label": "FFMNAME",
+            "text": "TIP3P",
+            "start": 1007,
+            "end": 1012
         }
     ]
 }

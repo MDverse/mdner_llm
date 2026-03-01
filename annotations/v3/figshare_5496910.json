@@ -12,14 +12,8 @@
     "entities": [
         {
             "label": "SOFTNAME",
-            "text": "doGlycans",
+            "text": "doGlycans–Tools",
             "start": 0,
-            "end": 9
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "Tools",
-            "start": 10,
             "end": 15
         },
         {

@@ -54,18 +54,6 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "Visual",
-            "start": 646,
-            "end": 652
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "Molecular Dynamics",
-            "start": 653,
-            "end": 671
-        },
-        {
-            "label": "SOFTNAME",
             "text": "VMD",
             "start": 673,
             "end": 676

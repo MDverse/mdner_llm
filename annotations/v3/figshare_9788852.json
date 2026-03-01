@@ -36,9 +36,9 @@
         },
         {
             "label": "FFMNAME",
-            "text": "C22*",
+            "text": "C22",
             "start": 662,
-            "end": 666
+            "end": 665
         },
         {
             "label": "FFMNAME",
@@ -66,9 +66,9 @@
         },
         {
             "label": "FFMNAME",
-            "text": "C22*",
+            "text": "C22",
             "start": 780,
-            "end": 784
+            "end": 783
         },
         {
             "label": "FFMNAME",
@@ -78,9 +78,9 @@
         },
         {
             "label": "FFMNAME",
-            "text": "C36m.",
+            "text": "C36m",
             "start": 897,
-            "end": 902
+            "end": 901
         }
     ]
 }

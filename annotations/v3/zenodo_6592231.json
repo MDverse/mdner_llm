@@ -114,15 +114,27 @@
         },
         {
             "label": "FFMNAME",
-            "text": "CHARMM36m.",
+            "text": "CHARMM36m",
             "start": 1031,
-            "end": 1041
+            "end": 1040
         },
         {
             "label": "SOFTNAME",
-            "text": "AutoDock4",
+            "text": "I-Tasser",
+            "start": 1092,
+            "end": 1100
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AutoDock",
             "start": 1141,
-            "end": 1150
+            "end": 1149
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4",
+            "start": 1149,
+            "end": 1151
         }
     ]
 }

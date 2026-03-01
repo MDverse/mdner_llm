@@ -54,14 +54,8 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "Autodock",
+            "text": "Autodock Vina",
             "start": 594,
-            "end": 602
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "Vina",
-            "start": 603,
             "end": 607
         },
         {

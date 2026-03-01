@@ -17,6 +17,18 @@
             "end": 51
         },
         {
+            "label": "FFMNAME",
+            "text": "GROMOS",
+            "start": 85,
+            "end": 91
+        },
+        {
+            "label": "FFMVERS",
+            "text": "53A6_L",
+            "start": 92,
+            "end": 98
+        },
+        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 100,
@@ -47,6 +59,18 @@
             "end": 194
         },
         {
+            "label": "FFMNAME",
+            "text": "GROMOS",
+            "start": 263,
+            "end": 269
+        },
+        {
+            "label": "FFMVERS",
+            "text": "53A6_L",
+            "start": 270,
+            "end": 276
+        },
+        {
             "label": "STIME",
             "text": "100ns",
             "start": 339,
@@ -69,30 +93,6 @@
             "text": "water",
             "start": 379,
             "end": 384
-        },
-        {
-            "label": "FFMNAME",
-            "text": "GROMOS",
-            "start": 85,
-            "end": 91
-        },
-        {
-            "label": "FFMNAME",
-            "text": "GROMOS",
-            "start": 263,
-            "end": 269
-        },
-        {
-            "label": "FFMVERS",
-            "text": "53A6_L",
-            "start": 92,
-            "end": 98
-        },
-        {
-            "label": "FFMVERS",
-            "text": "53A6_L",
-            "start": 270,
-            "end": 276
         }
     ]
 }

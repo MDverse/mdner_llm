@@ -54,9 +54,9 @@
         },
         {
             "label": "FFMNAME",
-            "text": "ff03*",
+            "text": "ff03",
             "start": 844,
-            "end": 849
+            "end": 848
         },
         {
             "label": "FFMNAME",
@@ -66,9 +66,9 @@
         },
         {
             "label": "FFMNAME",
-            "text": "ff99sb*",
+            "text": "ff99sb",
             "start": 858,
-            "end": 865
+            "end": 864
         },
         {
             "label": "FFMNAME",

@@ -42,6 +42,18 @@
         },
         {
             "label": "FFMNAME",
+            "text": "GROMOS",
+            "start": 598,
+            "end": 604
+        },
+        {
+            "label": "FFMVERS",
+            "text": "54A7",
+            "start": 605,
+            "end": 609
+        },
+        {
+            "label": "FFMNAME",
             "text": "SPC",
             "start": 617,
             "end": 620
@@ -63,18 +75,6 @@
             "text": "MDAnalysis",
             "start": 994,
             "end": 1004
-        },
-        {
-            "label": "FFMNAME",
-            "text": "GROMOS",
-            "start": 598,
-            "end": 604
-        },
-        {
-            "label": "FFMVERS",
-            "text": "54A7",
-            "start": 605,
-            "end": 609
         }
     ]
 }

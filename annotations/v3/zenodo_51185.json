@@ -25,6 +25,18 @@
         {
             "label": "FFMNAME",
             "text": "Charmm",
+            "start": 31,
+            "end": 37
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 37,
+            "end": 39
+        },
+        {
+            "label": "FFMNAME",
+            "text": "Charmm",
             "start": 53,
             "end": 59
         },
@@ -49,6 +61,18 @@
         {
             "label": "FFMNAME",
             "text": "Charmm",
+            "start": 430,
+            "end": 436
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 436,
+            "end": 438
+        },
+        {
+            "label": "FFMNAME",
+            "text": "Charmm",
             "start": 478,
             "end": 484
         },
@@ -63,6 +87,18 @@
             "text": "Charmm",
             "start": 551,
             "end": 557
+        },
+        {
+            "label": "FFMNAME",
+            "text": "Charmm",
+            "start": 600,
+            "end": 606
+        },
+        {
+            "label": "FFMVERS",
+            "text": "36",
+            "start": 606,
+            "end": 608
         },
         {
             "label": "SOFTNAME",
@@ -87,42 +123,6 @@
             "text": "CHARMM",
             "start": 1193,
             "end": 1199
-        },
-        {
-            "label": "FFMNAME",
-            "text": "Charmm",
-            "start": 31,
-            "end": 37
-        },
-        {
-            "label": "FFMNAME",
-            "text": "Charmm",
-            "start": 430,
-            "end": 436
-        },
-        {
-            "label": "FFMNAME",
-            "text": "Charmm",
-            "start": 600,
-            "end": 606
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 37,
-            "end": 39
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 436,
-            "end": 438
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 606,
-            "end": 608
         }
     ]
 }

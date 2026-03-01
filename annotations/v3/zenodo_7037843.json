@@ -12,18 +12,6 @@
     "entities": [
         {
             "label": "STIME",
-            "text": "microsecond",
-            "start": 408,
-            "end": 419
-        },
-        {
-            "label": "STIME",
-            "text": "us",
-            "start": 99,
-            "end": 101
-        },
-        {
-            "label": "STIME",
             "text": "4.1 us",
             "start": 496,
             "end": 502
@@ -48,12 +36,6 @@
         },
         {
             "label": "MOL",
-            "text": "dspc",
-            "start": 723,
-            "end": 727
-        },
-        {
-            "label": "MOL",
             "text": "DSPC",
             "start": 770,
             "end": 774
@@ -69,18 +51,6 @@
             "text": "0.633 us",
             "start": 884,
             "end": 892
-        },
-        {
-            "label": "STIME",
-            "text": "microsecond",
-            "start": 1714,
-            "end": 1725
-        },
-        {
-            "label": "STIME",
-            "text": "us",
-            "start": 123,
-            "end": 125
         },
         {
             "label": "FFMNAME",
@@ -132,15 +102,27 @@
         },
         {
             "label": "FFMNAME",
-            "text": "CHARMM36 forcefield (version July 2020)",
+            "text": "CHARMM36",
             "start": 2665,
-            "end": 2704
+            "end": 2673
+        },
+        {
+            "label": "FFMVERS",
+            "text": "version July 2020",
+            "start": 2686,
+            "end": 2703
         },
         {
             "label": "FFMNAME",
             "text": "CHARMM36",
             "start": 2940,
             "end": 2948
+        },
+        {
+            "label": "FFMVERS",
+            "text": "version July 2020",
+            "start": 2972,
+            "end": 2989
         },
         {
             "label": "MOL",

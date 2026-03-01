@@ -90,8 +90,8 @@
         },
         {
             "label": "FFMNAME",
-            "text": "'Berger",
-            "start": 369,
+            "text": "Berger",
+            "start": 368,
             "end": 376
         },
         {
@@ -99,12 +99,6 @@
             "text": "DMTAP",
             "start": 297,
             "end": 302
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 494,
-            "end": 499
         },
         {
             "label": "FFMNAME",

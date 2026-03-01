@@ -18,9 +18,21 @@
         },
         {
             "label": "MOL",
-            "text": "Non-structural (NS) proteins 1",
-            "start": 184,
-            "end": 214
+            "text": "Zika virus",
+            "start": 222,
+            "end": 232
+        },
+        {
+            "label": "MOL",
+            "text": "ZIKV-UG",
+            "start": 246,
+            "end": 253
+        },
+        {
+            "label": "MOL",
+            "text": "ZIKV-BR",
+            "start": 267,
+            "end": 274
         },
         {
             "label": "SOFTNAME",
@@ -57,12 +69,6 @@
             "text": "10 µs",
             "start": 809,
             "end": 814
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 858,
-            "end": 863
         }
     ]
 }

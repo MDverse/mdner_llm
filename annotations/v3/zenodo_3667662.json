@@ -48,8 +48,8 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "simulation engine version 2019.4",
-            "start": 200,
+            "text": "version 2019.4",
+            "start": 218,
             "end": 232
         }
     ]

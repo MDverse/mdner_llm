@@ -186,9 +186,9 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "4.6->",
+            "text": "4.6",
             "start": 1420,
-            "end": 1425
+            "end": 1423
         },
         {
             "label": "TEMP",
