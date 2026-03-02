@@ -41,6 +41,7 @@ extend-select = [
 ignore = [
     "COM812", # Redundant with ruff formatter. See: https://docs.astral.sh/ruff/rules/missing-trailing-comma/
     "S101",  # Allow use of assert statements in tests. See: https://docs.astral.sh/ruff/rules/assert/
+    "G004",  # Allow use of f-strings in logging with loguru. See: https://docs.astral.sh/ruff/rules/logging-format-fstring/
 ]
 
 # Force numpy-style for docstrings
