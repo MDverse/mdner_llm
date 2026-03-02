@@ -126,8 +126,8 @@
         {
             "label": "MOL",
             "text": "dimeric main protease",
-            "start": 185,
-            "end": 206
+            "start": 1235,
+            "end": 1256
         },
         {
             "label": "STIME",
@@ -155,69 +155,9 @@
         },
         {
             "label": "MOL",
-            "text": "DAR",
-            "start": 2007,
-            "end": 2010
-        },
-        {
-            "label": "MOL",
-            "text": "DAR",
-            "start": 2017,
-            "end": 2020
-        },
-        {
-            "label": "MOL",
-            "text": "DAR",
-            "start": 2924,
-            "end": 2927
-        },
-        {
-            "label": "MOL",
-            "text": "DAR",
-            "start": 2970,
-            "end": 2973
-        },
-        {
-            "label": "MOL",
             "text": "darunavir",
             "start": 2974,
             "end": 2983
-        },
-        {
-            "label": "MOL",
-            "text": "IND",
-            "start": 2026,
-            "end": 2029
-        },
-        {
-            "label": "MOL",
-            "text": "IND",
-            "start": 2036,
-            "end": 2039
-        },
-        {
-            "label": "MOL",
-            "text": "IND",
-            "start": 2046,
-            "end": 2049
-        },
-        {
-            "label": "MOL",
-            "text": "IND",
-            "start": 2347,
-            "end": 2350
-        },
-        {
-            "label": "MOL",
-            "text": "IND",
-            "start": 2928,
-            "end": 2931
-        },
-        {
-            "label": "MOL",
-            "text": "IND",
-            "start": 3001,
-            "end": 3004
         },
         {
             "label": "MOL",
@@ -227,69 +167,9 @@
         },
         {
             "label": "MOL",
-            "text": "NEL",
-            "start": 2074,
-            "end": 2077
-        },
-        {
-            "label": "MOL",
-            "text": "NEL",
-            "start": 2084,
-            "end": 2087
-        },
-        {
-            "label": "MOL",
-            "text": "NEL",
-            "start": 2094,
-            "end": 2097
-        },
-        {
-            "label": "MOL",
-            "text": "NEL",
-            "start": 2357,
-            "end": 2360
-        },
-        {
-            "label": "MOL",
-            "text": "NEL",
-            "start": 2936,
-            "end": 2939
-        },
-        {
-            "label": "MOL",
-            "text": "NEL",
-            "start": 3032,
-            "end": 3035
-        },
-        {
-            "label": "MOL",
             "text": "nelfinavir",
             "start": 3036,
             "end": 3046
-        },
-        {
-            "label": "MOL",
-            "text": "RIT",
-            "start": 2103,
-            "end": 2106
-        },
-        {
-            "label": "MOL",
-            "text": "RIT",
-            "start": 2113,
-            "end": 2116
-        },
-        {
-            "label": "MOL",
-            "text": "RIT",
-            "start": 2940,
-            "end": 2943
-        },
-        {
-            "label": "MOL",
-            "text": "RIT",
-            "start": 3064,
-            "end": 3067
         },
         {
             "label": "MOL",
@@ -299,87 +179,9 @@
         },
         {
             "label": "MOL",
-            "text": "SAQ",
-            "start": 2122,
-            "end": 2125
-        },
-        {
-            "label": "MOL",
-            "text": "SAQ",
-            "start": 2132,
-            "end": 2135
-        },
-        {
-            "label": "MOL",
-            "text": "SAQ",
-            "start": 2142,
-            "end": 2145
-        },
-        {
-            "label": "MOL",
-            "text": "SAQ",
-            "start": 2944,
-            "end": 2947
-        },
-        {
-            "label": "MOL",
-            "text": "SAQ",
-            "start": 3095,
-            "end": 3098
-        },
-        {
-            "label": "MOL",
             "text": "saquinavir",
             "start": 3099,
             "end": 3109
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2151,
-            "end": 2154
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2161,
-            "end": 2164
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2171,
-            "end": 2174
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2181,
-            "end": 2184
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2191,
-            "end": 2194
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2367,
-            "end": 2370
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 2948,
-            "end": 2951
-        },
-        {
-            "label": "MOL",
-            "text": "TPR",
-            "start": 3127,
-            "end": 3130
         },
         {
             "label": "MOL",

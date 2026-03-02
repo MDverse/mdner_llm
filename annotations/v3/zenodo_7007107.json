@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "phosphoenolpyruvate synthase",
+            "start": 832,
+            "end": 860
+        },
+        {
+            "label": "MOL",
             "text": "PPSA",
             "start": 862,
             "end": 866
@@ -46,6 +52,12 @@
             "end": 1518
         },
         {
+            "label": "MOL",
+            "text": "lysines",
+            "start": 1660,
+            "end": 1667
+        },
+        {
             "label": "FFM",
             "text": "SIRAH",
             "start": 1721,
@@ -65,12 +77,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 2463,
-            "end": 2468
-        },
-        {
-            "label": "MOL",
             "text": "Na+",
             "start": 2544,
             "end": 2547
@@ -86,12 +92,6 @@
             "text": "NaCl",
             "start": 2626,
             "end": 2630
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 2757,
-            "end": 2762
         },
         {
             "label": "MOL",
@@ -254,18 +254,6 @@
             "text": "PPSA",
             "start": 7359,
             "end": 7363
-        },
-        {
-            "label": "MOL",
-            "text": "phosphoenolpyruvate synthase",
-            "start": 832,
-            "end": 860
-        },
-        {
-            "label": "MOL",
-            "text": "lysines",
-            "start": 1660,
-            "end": 1667
         }
     ]
 }

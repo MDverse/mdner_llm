@@ -23,45 +23,15 @@
         },
         {
             "label": "MOL",
-            "text": "lipid",
-            "start": 38,
-            "end": 43
-        },
-        {
-            "label": "MOL",
             "text": "POPC",
             "start": 90,
             "end": 94
         },
         {
-            "label": "MOL",
-            "text": "lipids",
-            "start": 118,
-            "end": 124
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 133,
-            "end": 138
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 153,
-            "end": 158
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 181,
-            "end": 185
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 200,
-            "end": 205
+            "label": "TEMP",
+            "text": "298 K",
+            "start": 189,
+            "end": 194
         },
         {
             "label": "FFM",
@@ -70,28 +40,10 @@
             "end": 298
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 299,
-            "end": 304
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 323,
-            "end": 327
-        },
-        {
             "label": "FFM",
             "text": "OPLS",
             "start": 356,
             "end": 360
-        },
-        {
-            "label": "MOL",
-            "text": "ion",
-            "start": 7,
-            "end": 10
         },
         {
             "label": "STIME",
@@ -110,12 +62,6 @@
             "text": "2016.3",
             "start": 483,
             "end": 489
-        },
-        {
-            "label": "TEMP",
-            "text": "298 K",
-            "start": 189,
-            "end": 194
         }
     ]
 }

@@ -52,6 +52,12 @@
             "end": 135
         },
         {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 159,
+            "end": 165
+        },
+        {
             "label": "FFM",
             "text": "CHARMM",
             "start": 258,
@@ -62,6 +68,12 @@
             "text": "POPC",
             "start": 378,
             "end": 382
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 474,
+            "end": 480
         },
         {
             "label": "FFM",
@@ -82,12 +94,6 @@
             "end": 570
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 581,
-            "end": 586
-        },
-        {
             "label": "FFM",
             "text": "Charmm",
             "start": 604,
@@ -95,9 +101,15 @@
         },
         {
             "label": "MOL",
-            "text": "ion",
-            "start": 7,
-            "end": 10
+            "text": "CaCl_2",
+            "start": 641,
+            "end": 647
+        },
+        {
+            "label": "MOL",
+            "text": "calcium",
+            "start": 710,
+            "end": 717
         },
         {
             "label": "FFM",
@@ -124,10 +136,10 @@
             "end": 1102
         },
         {
-            "label": "MOL",
-            "text": "calcium",
-            "start": 710,
-            "end": 717
+            "label": "SOFTVERS",
+            "text": "v. 5.1",
+            "start": 1103,
+            "end": 1109
         }
     ]
 }

@@ -88,12 +88,6 @@
             "end": 536
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 547,
-            "end": 552
-        },
-        {
             "label": "FFM",
             "text": "Charmm36",
             "start": 558,
@@ -116,6 +110,12 @@
             "text": "GROMACS",
             "start": 912,
             "end": 919
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 5.1",
+            "start": 920,
+            "end": 926
         }
     ]
 }

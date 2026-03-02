@@ -23,9 +23,15 @@
         },
         {
             "label": "MOL",
-            "text": "RNA",
+            "text": "SARS-CoV‑2",
+            "start": 103,
+            "end": 113
+        },
+        {
+            "label": "MOL",
+            "text": "RNA virus",
             "start": 125,
-            "end": 128
+            "end": 134
         },
         {
             "label": "MOL",
@@ -54,8 +60,8 @@
         {
             "label": "MOL",
             "text": "SARS-CoV-2",
-            "start": 586,
-            "end": 596
+            "start": 736,
+            "end": 746
         },
         {
             "label": "MOL",
@@ -77,9 +83,9 @@
         },
         {
             "label": "MOL",
-            "text": "ACE2.",
+            "text": "ACE2",
             "start": 863,
-            "end": 868
+            "end": 867
         },
         {
             "label": "MOL",
@@ -96,8 +102,8 @@
         {
             "label": "MOL",
             "text": "SARS-CoV-2",
-            "start": 736,
-            "end": 746
+            "start": 1078,
+            "end": 1088
         },
         {
             "label": "MOL",
@@ -107,15 +113,9 @@
         },
         {
             "label": "MOL",
-            "text": "ACE2.",
+            "text": "ACE2",
             "start": 1104,
-            "end": 1109
-        },
-        {
-            "label": "MOL",
-            "text": "s-protein",
-            "start": 1180,
-            "end": 1189
+            "end": 1108
         },
         {
             "label": "MOL",
@@ -162,14 +162,20 @@
         {
             "label": "MOL",
             "text": "SARS-CoV-2",
-            "start": 1078,
-            "end": 1088
+            "start": 1467,
+            "end": 1477
         },
         {
             "label": "MOL",
             "text": "s-protein",
             "start": 1478,
             "end": 1487
+        },
+        {
+            "label": "MOL",
+            "text": "RBD",
+            "start": 1513,
+            "end": 1516
         },
         {
             "label": "MOL",
@@ -180,8 +186,8 @@
         {
             "label": "MOL",
             "text": "SARS-CoV-2",
-            "start": 1467,
-            "end": 1477
+            "start": 1604,
+            "end": 1614
         },
         {
             "label": "MOL",
@@ -191,15 +197,15 @@
         },
         {
             "label": "MOL",
-            "text": "ACE2",
-            "start": 1811,
-            "end": 1815
-        },
-        {
-            "label": "MOL",
             "text": "s-protein",
             "start": 1645,
             "end": 1654
+        },
+        {
+            "label": "MOL",
+            "text": "ACE2",
+            "start": 1811,
+            "end": 1815
         },
         {
             "label": "MOL",
@@ -216,8 +222,8 @@
         {
             "label": "MOL",
             "text": "SARS-CoV-2",
-            "start": 1604,
-            "end": 1614
+            "start": 2048,
+            "end": 2058
         },
         {
             "label": "MOL",

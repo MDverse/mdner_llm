@@ -64,6 +64,12 @@
             "end": 237
         },
         {
+            "label": "TEMP",
+            "text": "333 K",
+            "start": 243,
+            "end": 248
+        },
+        {
             "label": "MOL",
             "text": "cholesterol",
             "start": 263,
@@ -110,12 +116,6 @@
             "text": "cholesterol",
             "start": 1250,
             "end": 1261
-        },
-        {
-            "label": "TEMP",
-            "text": "333 K",
-            "start": 243,
-            "end": 248
         }
     ]
 }

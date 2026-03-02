@@ -47,6 +47,12 @@
         },
         {
             "label": "MOL",
+            "text": "DMPC",
+            "start": 216,
+            "end": 220
+        },
+        {
+            "label": "MOL",
             "text": "dimyristoylphosphatidylcholine",
             "start": 222,
             "end": 252
@@ -60,8 +66,8 @@
         {
             "label": "MOL",
             "text": "DMPC",
-            "start": 216,
-            "end": 220
+            "start": 305,
+            "end": 309
         },
         {
             "label": "MOL",
@@ -94,12 +100,6 @@
             "end": 482
         },
         {
-            "label": "MOL",
-            "text": "Water",
-            "start": 547,
-            "end": 552
-        },
-        {
             "label": "FFM",
             "text": "SPC",
             "start": 560,
@@ -119,33 +119,21 @@
         },
         {
             "label": "STIME",
+            "text": "110 ns",
+            "start": 685,
+            "end": 691
+        },
+        {
+            "label": "STIME",
             "text": "11 ns",
             "start": 722,
             "end": 727
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 395,
-            "end": 400
-        },
-        {
-            "label": "MOL",
-            "text": "lipids",
-            "start": 264,
-            "end": 270
         },
         {
             "label": "TEMP",
             "text": "323 K",
             "start": 930,
             "end": 935
-        },
-        {
-            "label": "STIME",
-            "text": "110 ns",
-            "start": 685,
-            "end": 691
         }
     ]
 }

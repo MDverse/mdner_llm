@@ -12,30 +12,6 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 0,
-            "end": 4
-        },
-        {
-            "label": "FFM",
-            "text": "Ulmschneider",
-            "start": 5,
-            "end": 17
-        },
-        {
-            "label": "FFM",
-            "text": "OPLS",
-            "start": 18,
-            "end": 22
-        },
-        {
-            "label": "MOL",
-            "text": "NaCl",
-            "start": 23,
-            "end": 27
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
             "start": 96,
             "end": 100
         },
@@ -68,12 +44,6 @@
             "text": "5.0.3",
             "start": 183,
             "end": 188
-        },
-        {
-            "label": "MOL",
-            "text": "Ions",
-            "start": 196,
-            "end": 200
         },
         {
             "label": "FFM",
@@ -113,12 +83,6 @@
         },
         {
             "label": "MOL",
-            "text": "waters",
-            "start": 309,
-            "end": 315
-        },
-        {
-            "label": "MOL",
             "text": "Na",
             "start": 320,
             "end": 322
@@ -126,14 +90,26 @@
         {
             "label": "MOL",
             "text": "Cl",
-            "start": 25,
-            "end": 27
+            "start": 327,
+            "end": 329
         },
         {
             "label": "STIME",
             "text": "200ns",
             "start": 331,
             "end": 336
+        },
+        {
+            "label": "FFM",
+            "text": "Ulmschneider",
+            "start": 544,
+            "end": 556
+        },
+        {
+            "label": "FFM",
+            "text": "Ulmschneider",
+            "start": 564,
+            "end": 576
         }
     ]
 }

@@ -16,12 +16,6 @@
             "end": 8
         },
         {
-            "label": "MOL",
-            "text": "Water",
-            "start": 35,
-            "end": 40
-        },
-        {
             "label": "TEMP",
             "text": "288K",
             "start": 81,
@@ -40,16 +34,16 @@
             "end": 703
         },
         {
+            "label": "TEMP",
+            "text": "358K",
+            "start": 708,
+            "end": 712
+        },
+        {
             "label": "MOL",
             "text": "DPPC",
             "start": 806,
             "end": 810
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 846,
-            "end": 851
         },
         {
             "label": "SOFTNAME",
@@ -59,21 +53,15 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "(v. 2016.4)",
-            "start": 981,
-            "end": 992
+            "text": "v. 2016.4",
+            "start": 982,
+            "end": 991
         },
         {
             "label": "FFM",
             "text": "Charmm36 (v. June 2015)",
             "start": 1005,
             "end": 1028
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 1031,
-            "end": 1036
         },
         {
             "label": "FFM",
@@ -86,12 +74,6 @@
             "text": "50 ns",
             "start": 1183,
             "end": 1188
-        },
-        {
-            "label": "TEMP",
-            "text": "358K",
-            "start": 708,
-            "end": 712
         }
     ]
 }

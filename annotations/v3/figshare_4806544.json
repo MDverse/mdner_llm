@@ -119,123 +119,15 @@
         },
         {
             "label": "MOL",
-            "text": "3G5U",
-            "start": 710,
-            "end": 714
-        },
-        {
-            "label": "MOL",
-            "text": "4M1M",
-            "start": 725,
-            "end": 729
-        },
-        {
-            "label": "MOL",
-            "text": "4KSB",
-            "start": 740,
-            "end": 744
-        },
-        {
-            "label": "MOL",
-            "text": "3G5U",
-            "start": 780,
-            "end": 784
-        },
-        {
-            "label": "MOL",
-            "text": "4M1M",
-            "start": 795,
-            "end": 799
-        },
-        {
-            "label": "MOL",
-            "text": "4KSB",
-            "start": 810,
-            "end": 814
-        },
-        {
-            "label": "MOL",
             "text": "P-glycoprotein",
             "start": 985,
             "end": 999
         },
         {
             "label": "MOL",
-            "text": "3G5U",
-            "start": 1307,
-            "end": 1311
-        },
-        {
-            "label": "MOL",
-            "text": "4KSB",
-            "start": 1324,
-            "end": 1328
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "ProDy",
-            "start": 1567,
-            "end": 1572
-        },
-        {
-            "label": "MOL",
             "text": "cholesterol",
             "start": 1639,
             "end": 1650
-        },
-        {
-            "label": "MOL",
-            "text": "3g5u",
-            "start": 855,
-            "end": 859
-        },
-        {
-            "label": "MOL",
-            "text": "4m1m",
-            "start": 865,
-            "end": 869
-        },
-        {
-            "label": "MOL",
-            "text": "4ksb",
-            "start": 875,
-            "end": 879
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 894,
-            "end": 898
-        },
-        {
-            "label": "MOL",
-            "text": "CLR",
-            "start": 885,
-            "end": 888
-        },
-        {
-            "label": "MOL",
-            "text": "3G5U",
-            "start": 1421,
-            "end": 1425
-        },
-        {
-            "label": "MOL",
-            "text": "4KSB",
-            "start": 1426,
-            "end": 1430
-        },
-        {
-            "label": "MOL",
-            "text": "4M1M",
-            "start": 1341,
-            "end": 1345
-        },
-        {
-            "label": "MOL",
-            "text": "4M1M",
-            "start": 1431,
-            "end": 1435
         }
     ]
 }

@@ -12,18 +12,6 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 0,
-            "end": 4
-        },
-        {
-            "label": "MOL",
-            "text": "CaCl2",
-            "start": 19,
-            "end": 24
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
             "start": 95,
             "end": 99
         },
@@ -36,8 +24,8 @@
         {
             "label": "FFM",
             "text": "LIPID14",
-            "start": 11,
-            "end": 18
+            "start": 130,
+            "end": 137
         },
         {
             "label": "SOFTNAME",
@@ -50,12 +38,6 @@
             "text": "5.0.3.",
             "start": 172,
             "end": 178
-        },
-        {
-            "label": "MOL",
-            "text": "Ions",
-            "start": 179,
-            "end": 183
         },
         {
             "label": "FFM",
@@ -83,24 +65,6 @@
         },
         {
             "label": "MOL",
-            "text": "waters",
-            "start": 283,
-            "end": 289
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 291,
-            "end": 296
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 297,
-            "end": 302
-        },
-        {
-            "label": "MOL",
             "text": "Ca",
             "start": 313,
             "end": 315
@@ -108,8 +72,8 @@
         {
             "label": "MOL",
             "text": "Cl",
-            "start": 21,
-            "end": 23
+            "start": 320,
+            "end": 322
         },
         {
             "label": "STIME",
@@ -122,18 +86,6 @@
             "text": "100ns",
             "start": 391,
             "end": 396
-        },
-        {
-            "label": "MOL",
-            "text": "CaCl2",
-            "start": 420,
-            "end": 425
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 426,
-            "end": 430
         }
     ]
 }

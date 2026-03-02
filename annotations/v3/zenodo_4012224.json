@@ -82,12 +82,6 @@
             "end": 303
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 314,
-            "end": 319
-        },
-        {
             "label": "SOFTNAME",
             "text": "CHARMM-GUI",
             "start": 351,

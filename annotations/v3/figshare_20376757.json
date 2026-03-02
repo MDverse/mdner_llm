@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "glycosyl",
+            "start": 200,
+            "end": 208
+        },
+        {
+            "label": "MOL",
             "text": "amylase",
             "start": 243,
             "end": 250
@@ -68,24 +74,6 @@
             "text": "glucoside",
             "start": 1262,
             "end": 1271
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1452,
-            "end": 1457
-        },
-        {
-            "label": "MOL",
-            "text": "glycosyl",
-            "start": 200,
-            "end": 208
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1998,
-            "end": 2003
         },
         {
             "label": "MOL",

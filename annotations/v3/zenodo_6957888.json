@@ -14,24 +14,6 @@
             "text": "HOOMD-blue",
             "start": 127,
             "end": 137
-        },
-        {
-            "label": "MOL",
-            "text": "cations",
-            "start": 440,
-            "end": 447
-        },
-        {
-            "label": "MOL",
-            "text": "anions",
-            "start": 449,
-            "end": 455
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 623,
-            "end": 628
         }
     ]
 }

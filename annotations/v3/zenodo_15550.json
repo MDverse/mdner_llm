@@ -74,12 +74,6 @@
             "text": "DPPC",
             "start": 230,
             "end": 234
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 251,
-            "end": 256
         }
     ]
 }

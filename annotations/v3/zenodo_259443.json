@@ -23,12 +23,6 @@
         },
         {
             "label": "MOL",
-            "text": "phospholipid",
-            "start": 39,
-            "end": 51
-        },
-        {
-            "label": "MOL",
             "text": "DOPC",
             "start": 117,
             "end": 121
@@ -58,6 +52,12 @@
             "end": 298
         },
         {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 312,
+            "end": 318
+        },
+        {
             "label": "FFM",
             "text": "Slipids",
             "start": 324,
@@ -71,15 +71,15 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 384,
-            "end": 389
-        },
-        {
-            "label": "MOL",
             "text": "NaCl",
             "start": 432,
             "end": 436
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 486,
+            "end": 492
         },
         {
             "label": "MOL",
@@ -92,6 +92,12 @@
             "text": "200 ns",
             "start": 525,
             "end": 531
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 549,
+            "end": 555
         },
         {
             "label": "STIME",
@@ -142,6 +148,12 @@
             "end": 729
         },
         {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 737,
+            "end": 742
+        },
+        {
             "label": "MOL",
             "text": "DPPC",
             "start": 863,
@@ -152,6 +164,12 @@
             "text": "cholesterol",
             "start": 875,
             "end": 886
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 929,
+            "end": 931
         },
         {
             "label": "MOL",
@@ -190,28 +208,16 @@
             "end": 1425
         },
         {
-            "label": "TEMP",
-            "text": "310 K",
-            "start": 737,
-            "end": 742
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 1828,
+            "end": 1830
         },
         {
             "label": "MOL",
-            "text": "CaCl",
-            "start": 312,
-            "end": 316
-        },
-        {
-            "label": "MOL",
-            "text": "CaCl",
-            "start": 486,
-            "end": 490
-        },
-        {
-            "label": "MOL",
-            "text": "CaCl",
-            "start": 549,
-            "end": 553
+            "text": "NaCl",
+            "start": 2332,
+            "end": 2336
         }
     ]
 }

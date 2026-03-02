@@ -53,12 +53,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 634,
-            "end": 639
-        },
-        {
-            "label": "MOL",
             "text": "AAAQAAQAQWAQRQATWQA",
             "start": 706,
             "end": 725

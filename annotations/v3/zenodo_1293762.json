@@ -74,30 +74,6 @@
             "text": "POPC",
             "start": 664,
             "end": 668
-        },
-        {
-            "label": "FFM",
-            "text": "43A1-S3",
-            "start": 7,
-            "end": 14
-        },
-        {
-            "label": "FFM",
-            "text": "43A1-S3",
-            "start": 107,
-            "end": 114
-        },
-        {
-            "label": "FFM",
-            "text": "43A1-S3",
-            "start": 262,
-            "end": 269
-        },
-        {
-            "label": "FFM",
-            "text": "43A1-S3",
-            "start": 656,
-            "end": 663
         }
     ]
 }

@@ -82,12 +82,6 @@
             "end": 304
         },
         {
-            "label": "TEMP",
-            "text": "310K",
-            "start": 308,
-            "end": 312
-        },
-        {
             "label": "STIME",
             "text": "500ns",
             "start": 330,

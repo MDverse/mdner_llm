@@ -53,12 +53,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 446,
-            "end": 451
-        },
-        {
-            "label": "MOL",
             "text": "KCl",
             "start": 476,
             "end": 479
@@ -82,10 +76,16 @@
             "end": 749
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 1029,
-            "end": 1034
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 782,
+            "end": 787
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2018",
+            "start": 787,
+            "end": 791
         },
         {
             "label": "STIME",
@@ -104,18 +104,6 @@
             "text": "PAH",
             "start": 1556,
             "end": 1559
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Amber",
-            "start": 782,
-            "end": 787
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "2018",
-            "start": 787,
-            "end": 791
         }
     ]
 }

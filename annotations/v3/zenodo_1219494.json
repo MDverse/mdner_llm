@@ -11,30 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "CER160",
-            "start": 11,
-            "end": 17
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 21,
-            "end": 25
-        },
-        {
-            "label": "MOL",
-            "text": "NaCl",
-            "start": 30,
-            "end": 34
-        },
-        {
-            "label": "TEMP",
-            "text": "310K",
-            "start": 41,
-            "end": 45
-        },
-        {
-            "label": "MOL",
             "text": "Ceramide",
             "start": 75,
             "end": 83
@@ -74,6 +50,12 @@
             "text": "charmm36",
             "start": 328,
             "end": 336
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 340,
+            "end": 344
         },
         {
             "label": "SOFTNAME",
@@ -134,12 +116,6 @@
             "text": "CL",
             "start": 735,
             "end": 737
-        },
-        {
-            "label": "TEMP",
-            "text": "310K",
-            "start": 340,
-            "end": 344
         }
     ]
 }

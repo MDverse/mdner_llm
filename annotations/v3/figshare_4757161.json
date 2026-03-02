@@ -16,10 +16,16 @@
             "end": 38
         },
         {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 31,
-            "end": 38
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 126,
+            "end": 131
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 131,
+            "end": 133
         },
         {
             "label": "MOL",
@@ -47,9 +53,9 @@
         },
         {
             "label": "FFM",
-            "text": "General Amber Force Field",
-            "start": 256,
-            "end": 281
+            "text": "Amber",
+            "start": 264,
+            "end": 269
         },
         {
             "label": "FFM",
@@ -94,16 +100,16 @@
             "end": 719
         },
         {
+            "label": "MOL",
+            "text": "hydrogen",
+            "start": 730,
+            "end": 738
+        },
+        {
             "label": "SOFTNAME",
             "text": "AmberTools",
             "start": 874,
             "end": 884
-        },
-        {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 158,
-            "end": 165
         },
         {
             "label": "MOL",
@@ -119,27 +125,9 @@
         },
         {
             "label": "MOL",
-            "text": "styrene",
-            "start": 1023,
-            "end": 1030
-        },
-        {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 1429,
-            "end": 1436
-        },
-        {
-            "label": "MOL",
             "text": "methyl",
             "start": 1518,
             "end": 1524
-        },
-        {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 1451,
-            "end": 1458
         },
         {
             "label": "MOL",
@@ -155,21 +143,9 @@
         },
         {
             "label": "MOL",
-            "text": "styrene",
-            "start": 1490,
-            "end": 1497
-        },
-        {
-            "label": "MOL",
             "text": "SPA",
             "start": 1648,
             "end": 1651
-        },
-        {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 1553,
-            "end": 1560
         },
         {
             "label": "MOL",
@@ -190,28 +166,10 @@
             "end": 1825
         },
         {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 1600,
-            "end": 1607
-        },
-        {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 1653,
-            "end": 1660
-        },
-        {
             "label": "FFM",
             "text": "TIP3P",
             "start": 2130,
             "end": 2135
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 2136,
-            "end": 2142
         },
         {
             "label": "TEMP",
@@ -226,6 +184,12 @@
             "end": 2542
         },
         {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 2661,
+            "end": 2666
+        },
+        {
             "label": "STIME",
             "text": "100 ns",
             "start": 2770,
@@ -234,14 +198,14 @@
         {
             "label": "TEMP",
             "text": "300 K",
-            "start": 2661,
-            "end": 2666
-        },
-        {
-            "label": "TEMP",
-            "text": "300 K",
             "start": 2780,
             "end": 2785
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogen",
+            "start": 3180,
+            "end": 3188
         },
         {
             "label": "SOFTNAME",
@@ -251,15 +215,21 @@
         },
         {
             "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 3345,
+            "end": 3350
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 3350,
+            "end": 3352
+        },
+        {
+            "label": "SOFTNAME",
             "text": "AmberTools",
             "start": 3449,
             "end": 3459
-        },
-        {
-            "label": "MOL",
-            "text": "styrene",
-            "start": 1955,
-            "end": 1962
         },
         {
             "label": "SOFTNAME",
@@ -270,8 +240,8 @@
         {
             "label": "SOFTNAME",
             "text": "Amber",
-            "start": 126,
-            "end": 131
+            "start": 3750,
+            "end": 3755
         },
         {
             "label": "MOL",
@@ -284,48 +254,6 @@
             "text": "SPA",
             "start": 4070,
             "end": 4073
-        },
-        {
-            "label": "MOL",
-            "text": "hydrogen",
-            "start": 730,
-            "end": 738
-        },
-        {
-            "label": "MOL",
-            "text": "hydrogen",
-            "start": 3180,
-            "end": 3188
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "16",
-            "start": 131,
-            "end": 133
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "16",
-            "start": 1675,
-            "end": 1677
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Amber",
-            "start": 264,
-            "end": 269
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Amber",
-            "start": 3345,
-            "end": 3350
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Amber",
-            "start": 3750,
-            "end": 3755
         }
     ]
 }

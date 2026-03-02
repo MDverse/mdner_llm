@@ -17,12 +17,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 37,
-            "end": 42
-        },
-        {
-            "label": "MOL",
             "text": "dihexadecylammonium",
             "start": 104,
             "end": 123
@@ -36,14 +30,8 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 134,
-            "end": 138
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 220,
-            "end": 225
+            "start": 198,
+            "end": 202
         },
         {
             "label": "MOL",
@@ -62,24 +50,6 @@
             "text": "SPC/E",
             "start": 346,
             "end": 351
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 352,
-            "end": 357
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 397,
-            "end": 402
-        },
-        {
-            "label": "MOL",
-            "text": "cations",
-            "start": 510,
-            "end": 517
         },
         {
             "label": "SOFTNAME",

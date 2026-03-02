@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "phenylene",
+            "start": 72,
+            "end": 81
+        },
+        {
+            "label": "MOL",
             "text": "Boron Nitride",
             "start": 86,
             "end": 99
@@ -50,12 +56,6 @@
             "text": "Cu",
             "start": 298,
             "end": 300
-        },
-        {
-            "label": "MOL",
-            "text": "phenylene",
-            "start": 72,
-            "end": 81
         }
     ]
 }

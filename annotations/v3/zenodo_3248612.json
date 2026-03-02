@@ -11,39 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "CER160",
-            "start": 11,
-            "end": 17
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 22,
-            "end": 26
-        },
-        {
-            "label": "MOL",
-            "text": "NaCl",
-            "start": 31,
-            "end": 35
-        },
-        {
-            "label": "TEMP",
-            "text": "310K",
-            "start": 42,
-            "end": 46
-        },
-        {
-            "label": "MOL",
             "text": "Ceramide",
             "start": 83,
             "end": 91
-        },
-        {
-            "label": "MOL",
-            "text": "Late Endosomal Protein",
-            "start": 117,
-            "end": 139
         },
         {
             "label": "MOL",
@@ -56,6 +26,12 @@
             "text": "POPCs",
             "start": 287,
             "end": 292
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 287,
+            "end": 291
         },
         {
             "label": "MOL",
@@ -74,6 +50,12 @@
             "text": "charmm36",
             "start": 343,
             "end": 351
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 355,
+            "end": 359
         },
         {
             "label": "SOFTNAME",
@@ -134,12 +116,6 @@
             "text": "CL",
             "start": 576,
             "end": 578
-        },
-        {
-            "label": "TEMP",
-            "text": "310K",
-            "start": 355,
-            "end": 359
         }
     ]
 }

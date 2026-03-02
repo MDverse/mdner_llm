@@ -28,12 +28,6 @@
             "end": 74
         },
         {
-            "label": "TEMP",
-            "text": "310K",
-            "start": 76,
-            "end": 80
-        },
-        {
             "label": "SOFTNAME",
             "text": "GROMACS",
             "start": 82,
@@ -94,12 +88,6 @@
             "end": 548
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 559,
-            "end": 564
-        },
-        {
             "label": "FFM",
             "text": "Charmm",
             "start": 582,
@@ -134,6 +122,12 @@
             "text": "GROMACS",
             "start": 1009,
             "end": 1016
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 5.1",
+            "start": 1017,
+            "end": 1023
         }
     ]
 }

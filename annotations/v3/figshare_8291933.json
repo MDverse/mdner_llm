@@ -41,15 +41,15 @@
         },
         {
             "label": "MOL",
-            "text": "biocides",
-            "start": 440,
-            "end": 448
-        },
-        {
-            "label": "MOL",
             "text": "lipids",
             "start": 355,
             "end": 361
+        },
+        {
+            "label": "MOL",
+            "text": "biocides",
+            "start": 440,
+            "end": 448
         },
         {
             "label": "MOL",

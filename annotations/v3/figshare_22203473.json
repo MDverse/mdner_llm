@@ -71,6 +71,12 @@
         },
         {
             "label": "MOL",
+            "text": "EC",
+            "start": 860,
+            "end": 862
+        },
+        {
+            "label": "MOL",
             "text": "dimethoxyethane",
             "start": 869,
             "end": 884
@@ -104,12 +110,6 @@
             "text": "LiPF6",
             "start": 1289,
             "end": 1294
-        },
-        {
-            "label": "MOL",
-            "text": "EC",
-            "start": 860,
-            "end": 862
         },
         {
             "label": "MOL",

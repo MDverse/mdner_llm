@@ -12,20 +12,14 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 0,
-            "end": 4
+            "start": 99,
+            "end": 103
         },
         {
             "label": "FFM",
-            "text": "OPLS",
-            "start": 18,
-            "end": 22
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 99,
-            "end": 103
+            "text": "Ulmschneider",
+            "start": 151,
+            "end": 163
         },
         {
             "label": "MOL",
@@ -64,12 +58,6 @@
             "end": 272
         },
         {
-            "label": "MOL",
-            "text": "waters",
-            "start": 273,
-            "end": 279
-        },
-        {
             "label": "STIME",
             "text": "200ns",
             "start": 281,
@@ -80,6 +68,18 @@
             "text": "CHARMM-GUI",
             "start": 373,
             "end": 383
+        },
+        {
+            "label": "FFM",
+            "text": "Ulmschneider",
+            "start": 547,
+            "end": 559
+        },
+        {
+            "label": "FFM",
+            "text": "Ulmschneider",
+            "start": 567,
+            "end": 579
         }
     ]
 }

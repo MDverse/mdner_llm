@@ -70,6 +70,12 @@
             "end": 601
         },
         {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 656,
+            "end": 661
+        },
+        {
             "label": "SOFTNAME",
             "text": "ASEgui",
             "start": 740,
@@ -104,12 +110,6 @@
             "text": "Martini 3",
             "start": 992,
             "end": 1001
-        },
-        {
-            "label": "TEMP",
-            "text": "310 K",
-            "start": 656,
-            "end": 661
         }
     ]
 }

@@ -74,12 +74,6 @@
             "text": "POPC",
             "start": 265,
             "end": 269
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 285,
-            "end": 290
         }
     ]
 }

@@ -11,12 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "cationic lipid",
-            "start": 46,
-            "end": 60
-        },
-        {
-            "label": "MOL",
             "text": "DMTAP",
             "start": 81,
             "end": 86
@@ -47,8 +41,8 @@
         },
         {
             "label": "MOL",
-            "text": "DMPC",
-            "start": 216,
+            "text": "zwitterionic DMPC",
+            "start": 203,
             "end": 220
         },
         {
@@ -88,12 +82,6 @@
             "end": 373
         },
         {
-            "label": "MOL",
-            "text": "waters",
-            "start": 394,
-            "end": 400
-        },
-        {
             "label": "FFM",
             "text": "Berger",
             "start": 422,
@@ -104,12 +92,6 @@
             "text": "DMTAP",
             "start": 476,
             "end": 481
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 546,
-            "end": 551
         },
         {
             "label": "FFM",
@@ -130,28 +112,16 @@
             "end": 646
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 897,
-            "end": 902
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1294,
-            "end": 1299
+            "label": "STIME",
+            "text": "190 ns",
+            "start": 684,
+            "end": 690
         },
         {
             "label": "TEMP",
             "text": "323 K",
             "start": 929,
             "end": 934
-        },
-        {
-            "label": "STIME",
-            "text": "190 ns",
-            "start": 684,
-            "end": 690
         }
     ]
 }

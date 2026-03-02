@@ -11,12 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "cationic lipid",
-            "start": 46,
-            "end": 60
-        },
-        {
-            "label": "MOL",
             "text": "DMTAP",
             "start": 81,
             "end": 86
@@ -66,8 +60,8 @@
         {
             "label": "MOL",
             "text": "DMPC",
-            "start": 216,
-            "end": 220
+            "start": 305,
+            "end": 309
         },
         {
             "label": "MOL",
@@ -86,12 +80,6 @@
             "text": "Cl-",
             "start": 370,
             "end": 373
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 395,
-            "end": 401
         },
         {
             "label": "FFM",
@@ -134,18 +122,6 @@
             "text": "110 ns",
             "start": 685,
             "end": 691
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 898,
-            "end": 903
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1295,
-            "end": 1300
         },
         {
             "label": "TEMP",

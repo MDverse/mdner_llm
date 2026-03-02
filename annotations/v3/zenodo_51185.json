@@ -22,6 +22,12 @@
             "end": 11
         },
         {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 23,
+            "end": 29
+        },
+        {
             "label": "FFM",
             "text": "Charmm36",
             "start": 31,
@@ -41,6 +47,12 @@
         },
         {
             "label": "MOL",
+            "text": "CaCl_2",
+            "start": 111,
+            "end": 117
+        },
+        {
+            "label": "MOL",
             "text": "glycerol",
             "start": 218,
             "end": 226
@@ -50,6 +62,12 @@
             "text": "POPC",
             "start": 322,
             "end": 326
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 418,
+            "end": 424
         },
         {
             "label": "FFM",
@@ -70,16 +88,16 @@
             "end": 517
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 528,
-            "end": 533
-        },
-        {
             "label": "FFM",
             "text": "Charmm",
             "start": 551,
             "end": 557
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 588,
+            "end": 594
         },
         {
             "label": "FFM",
@@ -104,6 +122,12 @@
             "text": "GROMACS",
             "start": 1046,
             "end": 1053
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 5.0",
+            "start": 1054,
+            "end": 1060
         },
         {
             "label": "FFM",

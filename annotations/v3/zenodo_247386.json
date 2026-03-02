@@ -47,8 +47,8 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "simulation engine v5",
-            "start": 120,
+            "text": "v5",
+            "start": 138,
             "end": 140
         },
         {
@@ -56,6 +56,12 @@
             "text": "GROMACS",
             "start": 171,
             "end": 178
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v5",
+            "start": 197,
+            "end": 199
         },
         {
             "label": "FFM",
@@ -86,12 +92,6 @@
             "text": "tip3p",
             "start": 450,
             "end": 455
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 456,
-            "end": 462
         },
         {
             "label": "STIME",

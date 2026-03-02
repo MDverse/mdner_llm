@@ -52,12 +52,6 @@
             "end": 702
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 703,
-            "end": 708
-        },
-        {
             "label": "TEMP",
             "text": "300 K",
             "start": 757,
@@ -65,8 +59,14 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "gromacs-2020.6",
+            "text": "gromacs",
             "start": 929,
+            "end": 936
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2020.6",
+            "start": 937,
             "end": 943
         }
     ]
