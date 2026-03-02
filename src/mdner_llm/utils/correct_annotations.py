@@ -7,7 +7,7 @@ from pathlib import Path
 
 from loguru import logger
 
-from mdner_llm.utils.visualize_annotations import visualize_annotations_from_file
+from mdner_llm.utils.visualize_annotations import visualize_annotations_from_json_file
 
 
 def remove_entity_annotation_file(
@@ -75,7 +75,7 @@ def find_entity_positions(raw_text: str, entity_text: str) -> list[tuple[int, in
     list[tuple[int, int]]
         Character index pairs for each occurrence.
     """
-    positions: list[tuple[int, int]] = []
+    positions = []
     start_idx = 0
 
     # Iteratively search for non-overlapping occurrences
@@ -135,15 +135,19 @@ def add_entity_annotation_file(
 
 
 def correct_and_visualize(
-    file_path: Path, add_ent: list[tuple[str, str]], remove_ent: list[tuple[str, str]]
+    file_path: Path | str,
+    add_ent: list[tuple[str, str]],
+    remove_ent: list[tuple[str, str]],
 ) -> None:
     """Correct an annotation file then visualize the results."""
+    # Ensure file_path is a Path object
+    file_path = Path(file_path)
     if add_ent:
         add_entity_annotation_file(file_path, add_ent)
     if remove_ent:
         remove_entity_annotation_file(file_path, remove_ent)
 
-    visualize_annotations_from_file(file_path)
+    visualize_annotations_from_json_file(file_path)
 
 
 def clean_trailing_dot(text: str) -> str:
@@ -185,15 +189,14 @@ def clean_annotation_file_temperatures(file_path: Path) -> None:
             raw_entity = ent["text"]
             ent["text"] = clean_trailing_dot(ent["text"])
             if ent["text"] != raw_entity:
-                logger.debug(f"Annotation file '{file_path.name}':")
-                logger.debug(f"Changed '{raw_entity}' to '{ent['text']}'")
+                logger.info(f"Changed '{raw_entity}' to '{ent['text']}'")
                 count += 1
             # Ajust end index if text length changed
             if ent["text"] != data["raw_text"][ent["start"] : ent["end"]]:
                 ent["end"] = ent["start"] + len(ent["text"])
 
     if count > 0:
-        logger.success(f"Cleaned {count} temperature annotations!")
+        logger.success(f"Cleaned {count} temperature annotations in {file_path.name}.")
 
     # Save cleaned file
     with open(file_path, "w", encoding="utf-8") as file:

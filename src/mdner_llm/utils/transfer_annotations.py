@@ -1,12 +1,10 @@
 """
 Transfer annotations to cleaned descriptions.
 
-This script updates annotation JSON files by replacing the `raw_text` 
+This script updates annotation JSON files by replacing the `raw_text`
 field with cleaned descriptions from another directory and
 recomputing entity character offsets.
 
-It also updates the list of classes to the new schema,
-by replacing `FFM` with `FFMNAME` and `FFMVERS`.
 
 Usage:
     python src/transfer_annotations.py \
@@ -34,8 +32,7 @@ NEW_CLASSES = [
     "SOFTVERS",
     "STIME",
     "MOL",
-    "FFMNAME",
-    "FFMVERS",
+    "FFM",
     "TEMP",
 ]
 
@@ -96,9 +93,6 @@ def recompute_entities(
         # Extract the label and text value
         label = entity["label"]
         text_value = entity["text"]
-        # Update class names to new schema
-        if label == "FFM":
-            label = "FFMNAME"
         # Find all occurrences of the entity text in the raw text
         occurrences = find_all_occurrences(raw_text, text_value)
         # Try to find an occurrence that hasn't been used yet
@@ -156,13 +150,13 @@ def process_file(
 @click.option(
     "--old-annotations-path",
     type=click.Path(exists=True, file_okay=False, path_type=Path),
-    required=True,
+    default=Path("annotations/v2"),
     help="Directory containing original annotation JSON files.",
 )
 @click.option(
     "--clean-descriptions-path",
     type=click.Path(exists=True, file_okay=False, path_type=Path),
-    required=True,
+    default=Path("annotations/v3"),
     help="Directory containing cleaned text descriptions.",
 )
 def main(

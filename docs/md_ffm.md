@@ -1,4 +1,4 @@
-# Controlled list of force field or model for annotation (FFMNAME)
+# Controlled list of force field or model for annotation (FFM)
 
 *Each line corresponds to a valid force field/model name* :
 
@@ -33,3 +33,4 @@ L-OPLS
 Q4MD-CD
 GDML
 BIND3P
+PLUM

@@ -122,7 +122,7 @@ def process_parquet_file(parquet_path: Path, output_dir: Path) -> int:
         title = str(row["title"]) if pd.notna(row["title"]) else ""
         description = str(row["description"]) if pd.notna(row["description"]) else ""
         # Combine title and description into the content to write
-        content = f"{title}\n\n{description}"
+        content = f"{title}\n{description}"
         # Save the content to a text file
         output_path.write_text(content, encoding="utf-8")
     # Return the number of descriptions extracted

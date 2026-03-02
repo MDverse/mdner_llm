@@ -7,6 +7,7 @@ from typing import Any
 from loguru import logger
 from spacy import displacy
 
+from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 
@@ -52,7 +53,7 @@ def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]
     return [{"text": formatted_text, "ents": ents}]
 
 
-def visualize_annotations_from_file(file_path: Path) -> None:
+def visualize_annotations_from_json_file(file_path: Path) -> None:
     """
     Render annotated entities in the browser using spaCy displaCy.
 
@@ -83,6 +84,31 @@ def visualize_annotations_from_file(file_path: Path) -> None:
     displacy.render(converted_data, style="ent", manual=True, options=options)
 
     print()
+
+
+def visualize_all_annotations_from_dir(annotation_dir: Path | str) -> None:
+    """
+    Visualize all JSON annotation files in a directory.
+
+    Parameters
+    ----------
+    annotation_dir : Path | str
+        Path to the directory containing JSON annotation files.
+    """
+    # Create logger
+    logger = create_logger()
+    # Load all JSON annotation files in the specified directory
+    annotation_files = list(Path(annotation_dir).glob("*.json"))
+    logger.info(
+        f"Found {len(annotation_files)} JSON annotation files in {annotation_dir}."
+    )
+    if not annotation_files:
+        logger.error(f"No JSON annotation files found in {annotation_dir}")
+        return
+
+    for annotation_file_path in annotation_files:
+        # Visualize each annotation file
+        visualize_annotations_from_json_file(annotation_file_path)
 
 
 def convert_ner_response_to_entities(

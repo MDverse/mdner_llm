@@ -45,28 +45,18 @@ according to entity coverage and recency, and writes their paths to:
 `results/50_selected_files_20260102.txt`
 """
 
-# METADATAS
-__authors__ = ("Pierre Poulain", "Essmay Touami")
-__contact__ = "pierre.poulain@u-paris.fr"
-__copyright__ = "AGPL-3.0 license"
-__date__ = "2025"
-__version__ = "1.0.0"
-
-
-# LIBRARY IMPORTS
 from datetime import datetime
 from pathlib import Path
 
 import click
-import pandas as pd
 from loguru import logger
 
+from mdner_llm.utils.count_entities import CLASSES, compute_entity_counts_df
 
-# FUNCTIONS
+
 def select_annotation_files(
     annotations_dir: Path,
     nb_files: int,
-    tsv_path: Path = Path("results/all_annotations_entities_count.tsv"),
 ) -> list[Path]:
     """
     Select informative annotation JSON files from a directory.
@@ -82,8 +72,6 @@ def select_annotation_files(
         Directory containing annotation JSON files.
     nb_files : int
         Maximum number of files to select.
-    tsv_path : Path
-        TSV file containing entity counts.
 
     Returns
     -------
@@ -95,31 +83,23 @@ def select_annotation_files(
     ValueError
         If no JSON files are found or the TSV file is invalid.
     """
-    logger.info(f"Selecting text to annotate from {annotations_dir}...")
-    # Load entity count table (one row per annotation file)
-    df = pd.read_csv(tsv_path, sep="\t")
-
-    # Ensure the TSV can be matched to JSON filenames
+    logger.info(f"Selecting text to annotate from {annotations_dir}.")
+    # Load all annotation files in the directory
+    df = compute_entity_counts_df(annotations_dir, CLASSES)
+    # Ensure the DataFrame can be matched to JSON filenames
     if "filename" not in df.columns:
-        msg = "TSV file must contain a 'filename' column"
+        msg = "DataFrame must contain a 'filename' column to match JSON files."
         raise ValueError(msg)
-
     # List all available annotation JSON files, sorted by recency
     json_files = sorted(
         annotations_dir.glob("*.json"),
         key=lambda p: p.stat().st_mtime,
         reverse=True,
     )
-    if not json_files:
-        msg = f"No JSON files found in {annotations_dir}"
-        raise ValueError(msg)
-
     # Map filenames to paths for fast lookup
     file_map = {p.name: p for p in json_files}
-
     # Accumulator for selected filenames (keeps insertion order)
     selected: list[str] = []
-
     # Identify entity-count columns (excluding SOFTVERS)
     entity_cols = [
         col for col in df.columns if col.endswith("_nb") and col != "SOFTVERS_nb"
@@ -145,6 +125,7 @@ def select_annotation_files(
         selected.extend(fname for fname in file_map if fname not in selected)
 
     selected_files = [file_map[name] for name in selected[:nb_files]]
+    logger.info(f"First annotation file path: {selected_files[0]!s}")
     logger.success(
         f"Selected {len(selected_files)} interesting annotations successfully!"
     )
@@ -204,20 +185,9 @@ def main(
         )
     res_path.parent.mkdir(parents=True, exist_ok=True)
 
-    available_files = list(annotations_dir.glob("*.json"))
-    total_files = len(available_files)
-
-    if nb_files > total_files:
-        logger.warning(
-            f"Requested {nb_files} files, but only {total_files} annotation files "
-            f"are available in {annotations_dir}."
-        )
-
-    tsv_path = Path("results/all_annotations_entities_count.tsv")
     selected_files = select_annotation_files(
         annotations_dir=annotations_dir,
         nb_files=nb_files,
-        tsv_path=tsv_path,
     )
 
     with res_path.open("w", encoding="utf-8") as handle:
@@ -227,6 +197,5 @@ def main(
     logger.success(f"Wrote selected file paths to {res_path} successfully!")
 
 
-# MAIN PROGRAM
 if __name__ == "__main__":
     main()

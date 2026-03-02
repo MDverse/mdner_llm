@@ -6,42 +6,22 @@ The script outputs a TSV file containing the filename, annotated text length
 and the number of entities by class.
 """
 
-__authors__ = ("Pierre Poulain", "Essmay Touami")
-__contact__ = "pierre.poulain@u-paris.fr"
-__copyright__ = "AGPL-3.0 license"
-__date__ = "2025"
-__version__ = "1.0.0"
-
-
 import json
 import math
-import sys
 from pathlib import Path
 
 import click
-import matplotlib
+import loguru
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import watermark
 from loguru import logger
 
+from mdner_llm.core.logger import create_logger
+
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
-
-
-def setup_logger(logger) -> None:
-    """Update logger configuration."""
-    logger.remove()
-    fmt = (
-        "{time:YYYY-MM-DD HH:mm:ss}"
-        "| <level>{level:<8}</level> "
-        "| <level>{message}</level>"
-    )
-    logger.add(
-        sys.stdout,
-        format=fmt,
-        level="DEBUG",
-    )
 
 
 def display_watermark(logger) -> None:
@@ -56,7 +36,9 @@ def display_watermark(logger) -> None:
     logger.info(f"Environment information:\n{wm}")
 
 
-def list_json_files(directory: Path) -> list[Path]:
+def list_json_files(
+    directory: Path, logger: "loguru.Logger" = loguru.logger
+) -> list[Path]:
     """
     Retrieve all JSON files from a given directory.
 
@@ -72,6 +54,43 @@ def list_json_files(directory: Path) -> list[Path]:
     files = list(directory.rglob("*.json"))
     logger.success(f"Found {len(files)} JSON annotation files.")
     return files
+
+
+def collect_entity_counts(
+    json_files: list[Path], classes: list[str]
+) -> list[dict[str, int]]:
+    """
+    Collect entity counts per class from a list of JSON annotation files.
+
+    Parameters
+    ----------
+    json_files : list[Path]
+        List of paths to JSON annotation files.
+    classes : list[str]
+        List of entity classes to count.
+
+    Returns
+    -------
+    list[dict[str, int]]
+        List of dictionaries containing entity counts,
+        filename, and text length for each file.
+    """
+    all_counts = []
+
+    for filepath in json_files:
+        json_data = load_json(filepath)
+        if not json_data or "raw_text" not in json_data:
+            logger.warning(
+                f"File {filepath} is missing 'raw_text' or failed to load. Skipping."
+            )
+            continue
+
+        counts = count_entities_per_class(json_data, classes)
+        counts["filename"] = filepath.name
+        counts["text_length"] = len(json_data["raw_text"])
+        all_counts.append(counts)
+
+    return all_counts
 
 
 def load_json(json_file_path: Path) -> dict:
@@ -205,7 +224,7 @@ def plot_class_distribution(df: pd.DataFrame, output_dir: Path) -> None:
     classes = [col.replace("_nb", "") for col in summary.index]
     counts = summary.to_numpy()
 
-    cmap = matplotlib.colormaps.get_cmap("viridis")
+    cmap = mpl.colormaps.get_cmap("viridis")
     colors = cmap(np.linspace(0, 1, len(classes)))
 
     fig, ax = plt.subplots(figsize=(10, 5))
@@ -246,7 +265,7 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
     cols = [col for col in df.columns if col.endswith("_nb")]
     n_classes = len(cols)
 
-    cmap = matplotlib.colormaps.get_cmap("Set1")
+    cmap = mpl.colormaps.get_cmap("Set1")
     colors = cmap(np.linspace(0, 1, n_classes))
 
     n_cols = 2
@@ -268,10 +287,10 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
         # Add last boundary depending on data beyond the fixed boundary.
         if max_val <= max_bins:
             bins = np.append(bins, max_bins + 1)
-            labels = labels + [f"{max_bins}"]
+            labels = [*labels, f"{max_bins}"]
         else:
             bins = np.append(bins, max_val)
-            labels = labels + [f"{max_bins}+"]
+            labels = [*labels, f"{max_bins}+"]
         ticks = np.arange(0, len(bins) - 1) + 0.5
         # Compute histogram values first.
         heights, _ = np.histogram(data, bins=bins)
@@ -303,6 +322,36 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
     logger.success(f"Entity distribution by class plot saved as '{filename}'")
 
 
+def compute_entity_counts_df(
+    annotations_dir: Path, classes: list, logger: "loguru.Logger" = loguru.logger
+) -> pd.DataFrame:
+    """
+    Compute a DataFrame of entity counts per class from all JSON files in a directory.
+
+    Parameters
+    ----------
+    annotations_dir : Path
+        Path to the directory containing JSON annotation files.
+    classes : list
+        List of entity classes to count.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame with counts per class, filename, and text length.
+    """
+    # List JSON files
+    json_files = list_json_files(annotations_dir, logger)
+    if not json_files:
+        logger.warning(f"No JSON files found in {annotations_dir}")
+        return pd.DataFrame()
+    # Collect entity counts for each file
+    all_counts = collect_entity_counts(json_files, classes)
+    # Aggregate results into a DataFrame
+    counts_df = aggregate(all_counts, classes)
+    return counts_df
+
+
 def main(annotations_dir: Path, results_dir: Path) -> None:
     """
     Run entire workflow to count entities per class in JSON annotation files.
@@ -314,24 +363,12 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
     results_dir : Path
         Directory where results will be saved.
     """
-    setup_logger(logger)
+    logger = create_logger()
     display_watermark(logger)
     logger.info("Searching for JSON files...")
     json_files = list_json_files(annotations_dir)
-    all_counts = []
     logger.info("Counting entities...")
-    for filepath in json_files:
-        json_data = load_json(filepath)
-        if not json_data or "raw_text" not in json_data:
-            logger.warning(
-                f"File {filepath} is missing 'raw_text' or failed to load. Skipping.",
-            )
-            continue
-        counts = count_entities_per_class(json_data, CLASSES)
-        counts["filename"] = filepath.name
-        counts["text_length"] = len(json_data["raw_text"])
-        all_counts.append(counts)
-
+    all_counts = collect_entity_counts(json_files, CLASSES)
     # Aggregate results.
     counts_df = aggregate(all_counts, CLASSES)
     # Display statistics.
@@ -348,7 +385,7 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
 @click.option(
     "--annotations-dir",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("annotations/v2"),
+    default=Path("annotations/v3"),
     show_default=True,
     help="Directory containing JSON annotation files",
 )

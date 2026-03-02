@@ -32,14 +32,16 @@ from collections import defaultdict
 from pathlib import Path
 
 import click
+import pandas as pd
 from loguru import logger
 
-EntityInfo = dict[str, int | list[str]]
+from mdner_llm.core.logger import create_logger
+from mdner_llm.utils.count_entities import list_json_files
 
 
 def collect_entity_counts(
     annot_folder: Path,
-) -> dict[str, dict[str, EntityInfo]]:
+) -> dict[str, dict[str, dict[str, int | list[str]]]]:
     """
     Collect normalized entity counts per class from annotation files.
 
@@ -53,10 +55,11 @@ def collect_entity_counts(
     dict[str, dict[str, EntityInfo]]
         Nested dictionary mapping class labels to entity occurrence counts.
     """
-    logger.info("Collecting entity count...")
-    entity_counts: dict[str, dict[str, EntityInfo]] = {}
-    json_files = list(annot_folder.glob("*.json"))
-    logger.debug(f"Found {len(json_files)} JSON files")
+    logger = create_logger()
+    logger.info("Collecting entity counts.")
+    entity_counts = {}
+    json_files = list_json_files(annot_folder)
+    logger.debug(f"Found {len(json_files)} JSON files.")
 
     if not json_files:
         logger.warning(f"No JSON annotation files found in {annot_folder}")
@@ -83,8 +86,8 @@ def collect_entity_counts(
             if normalized_text not in entity_counts[label]:
                 entity_counts[label][normalized_text] = {"count": 0, "files": []}
 
-            entity_counts[label][normalized_text]["count"] += 1  # ty:ignore[unsupported-operator]
-            entity_counts[label][normalized_text]["files"].append(str(json_file))  # ty:ignore[possibly-missing-attribute]
+            entity_counts[label][normalized_text]["count"] += 1
+            entity_counts[label][normalized_text]["files"].append(str(json_file))
 
     logger.success(
         f"Collected entity counts for {len(entity_counts)} classes: "
@@ -108,7 +111,7 @@ def write_inventory_files(
         Directory where output files will be written.
     """
     out_folder.mkdir(parents=True, exist_ok=True)
-    logger.info(f"Saving QC inventory files to {out_folder}...")
+    logger.info(f"Saving QC inventory files to {out_folder}.")
 
     for label, entities in entity_counts.items():
         output_path = out_folder / f"{label}.txt"
@@ -133,6 +136,109 @@ def write_inventory_files(
         logger.debug(f"Written file {output_path.name}")
 
 
+def main(
+    annot_folder: Path,
+    out_folder: Path,
+) -> dict[str, dict[str, dict[str, int | list[str]]]]:
+    """
+    Run the QC entity inventory process.
+
+    Parameters
+    ----------
+    annot_folder : Path
+        Directory containing annotation JSON files.
+    out_folder : Path
+        Directory where QC inventory files will be saved.
+
+    Returns
+    -------
+    dict[str, dict[str, dict[str, int | list[str]]]]
+        Nested dictionary mapping class labels to entity occurrence counts.
+    """
+    logger = create_logger()
+    logger.info("Starting QC entity inventory.")
+    logger.debug(f"Annotation folder: {annot_folder}.")
+    logger.debug(f"Output folder: {out_folder}.")
+
+    entity_counts = collect_entity_counts(annot_folder)
+    write_inventory_files(entity_counts, out_folder)
+
+    logger.success("QC entity inventory completed successfully!")
+    return entity_counts
+
+
+def build_entity_inventory(entity_counts):
+    """
+    Create a structured inventory of entities from the collected counts.
+
+    Parameters
+    ----------
+    entity_counts : dict
+        Dictionary structured as:
+        {
+            "CLASS": {
+                "entity_text": {
+                    "count": int,
+                    "files": list[str]
+                }
+            }
+        }
+
+    Returns
+    -------
+    dict
+        Dictionary mapping each entity class to a DataFrame
+        with columns: ["entity", "count", "annotation_paths"].
+    """
+    entity_data = {}
+
+    for entity_class, entities in entity_counts.items():
+        rows = []
+
+        for entity_text, data in entities.items():
+            rows.append(
+                {
+                    "entity": entity_text,
+                    "count": data["count"],
+                    # Remove duplicates and sort file paths
+                    "annotation_paths": ",".join(sorted(set(data["files"]))),
+                }
+            )
+
+        df = pd.DataFrame(rows)
+
+        if not df.empty:
+            df = df.sort_values("count", ascending=False).reset_index(drop=True)
+
+        entity_data[entity_class] = df
+
+    return entity_data
+
+
+def process_qc_entity_inventory(
+    annot_folder: Path,
+    out_folder: Path,
+) -> None:
+    """
+    Run the QC entity inventory process.
+
+    Parameters
+    ----------
+    annot_folder : Path
+        Directory containing annotation JSON files.
+    out_folder : Path
+        Directory where QC inventory files will be saved.
+
+    Returns
+    -------
+    dict
+        Dictionary mapping each entity class to a pandas DataFrame
+        with columns: ["entity", "count", "annotation_paths"].
+    """
+    entity_counts = main(annot_folder, out_folder)
+    return build_entity_inventory(entity_counts)
+
+
 @click.command()
 @click.option(
     "--annot-folder",
@@ -148,20 +254,9 @@ def write_inventory_files(
     show_default=True,
     help="Output folder for QC inventory files.",
 )
-@click.option(
-    "--log-level",
-    type=click.Choice(
-        ["DEBUG", "INFO", "WARNING", "ERROR"],
-        case_sensitive=False,
-    ),
-    default="INFO",
-    show_default=True,
-    help="Logging verbosity level.",
-)
-def main(
+def run_main_from_cli(
     annot_folder: Path,
     out_folder: Path,
-    log_level: str,
 ) -> None:
     """
     Run the QC entity inventory process.
@@ -172,18 +267,9 @@ def main(
         Directory containing annotation JSON files.
     out_folder : Path
         Directory where QC inventory files will be saved.
-    log_level : str
-        Logging verbosity level.
     """
-    logger.info("Starting QC entity inventory...")
-    logger.debug(f"Annotation folder: {annot_folder}")
-    logger.debug(f"Output folder: {out_folder} \n")
-
-    entity_counts = collect_entity_counts(annot_folder)
-    write_inventory_files(entity_counts, out_folder)
-
-    logger.success("QC entity inventory completed successfully!")
+    main(annot_folder, out_folder)
 
 
 if __name__ == "__main__":
-    main()
+    run_main_from_cli()
