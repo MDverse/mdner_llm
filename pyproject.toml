@@ -69,7 +69,7 @@ requires = ["uv_build>=0.9.22,<0.10.0"]
 build-backend = "uv_build"
 
 [project.scripts]
-select-annotations = "mdner_llm.utils.select_annotations:main"
+select-annotations = "mdner_llm.utils.select_annotation_files:main"
 transfer-annotations = "mdner_llm.utils.transfer_annotations:main"
-qc-annotations = "mdner_llm.utils.qc_annotations:main"
+qc-annotations = "mdner_llm.utils.qc_annotations:run_main_from_cli"
 extract-description = "mdner_llm.utils.extract_description_from_parquets:main"
