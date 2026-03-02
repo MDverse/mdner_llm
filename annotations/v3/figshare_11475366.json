@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Ensemble-Based Molecular Simulation of Chemical Reactions under Vibrational Nonequilibrium\n\nWe present an approach to incorporate the effect of vibrational\nnonequilibrium in molecular dynamics (MD) simulations. A perturbed\ncanonical ensemble, in which selected modes are excited to higher\ntemperature while all others remain equilibrated at low temperature,\nis simulated by applying a specifically tailored bias potential. Our\nmethod can be readily applied to any (classical or quantum mechanical)\nMD setup at virtually no additional computational cost and allows\nthe study of reactions of vibrationally excited molecules in nonequilibrium\nenvironments such as plasmas. In combination with enhanced sampling\nmethods, the vibrational efficacy and mode selectivity of vibrationally\nstimulated reactions can then be quantified in terms of chemically\nrelevant observables, such as reaction rates and apparent free energy\nbarriers. We first validate our method for the prototypical hydrogen\nexchange reaction and then show how it can capture the effect of vibrational\nexcitation on a symmetric SN2 reaction and radical addition\non CO2.",

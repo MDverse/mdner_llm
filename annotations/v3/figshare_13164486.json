@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Self-Assembled Solute Networks in Crowded Electrolyte Solutions and Nanoconfinement of Charged Redoxmer Molecules\n\nRedoxmers\nare electrochemically active organic molecules storing\ncharge and energy in electrolyte fluids circulating through redox\nflow batteries (RFBs). Such molecules typically have solvent-repelling\ncores and solvent-attracting pendant groups introduced to increase\nsolubility in liquid electrolytes. These two features can facilitate\nnanoscale aggregation of the redoxmer molecules in crowded solutions.\nIn some cases, this aggregation leads to the emergence of continuous\nnetworks of solute molecules in contact, and the solution becomes\nmicroscopically heterogeneous. Here, we use small-angle X-ray scattering\n(SAXS) and molecular dynamics modeling to demonstrate formation of\nsuch networks and examine structural factors controlling this self-assembly.\nWe also show that salt ions become excluded from these solute aggregates\ninto small pockets of electrolytes, where these ions strongly associate.\nThis confinement by exclusion is also likely to occur to charged redoxmer\nmolecules in a “sea” of neutral precursors coexisting\nin the same solution. Here, we demonstrate that the decay lifetime\nof the confined charged molecules in such solutions can increase several\nfold compared to dilute solutions. We attribute this behavior to a\n“microreactor effect” on reverse reactions of the confined\nspecies during their decomposition.",

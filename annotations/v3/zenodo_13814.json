@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "MD simulation trajectory and related files for POPC bilayer in low hydration (Berger model delivered by Tieleman, Gromacs 4.5)\n\nEquilibrated POPC lipid bilayer simulation in low hydration (7 water per lipid molecule) ran with Gromacs 4.5, Berger force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads) with fixed double bond dihedrals, 60ns, T=298K, 128 POPC molecules, 896 water molecules. This data is used in the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi. If data is used, please cite the nmrlipids.blogspot.fi project and the original publications related to the force field.",
@@ -17,7 +16,7 @@
             "end": 51
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Berger",
             "start": 78,
             "end": 84
@@ -59,7 +58,7 @@
             "end": 237
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Berger",
             "start": 239,
             "end": 245

@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Molecular dynamics simulation trajectories of HIV protein gp120 in complex with antibody VRC01 and 30 of its Ala mutants\n\nThis data set accompanies the publication by S. Conti, E. Lau, and V. Ovchinnikov entitled \"On the rapid calculation of binding affinities for antigen and antibody design and affinity maturation simulations\", to be published in the MDPI journal Antibodies. It contains molecular dynamics simulation trajectories of HIV protein gp120 in complex with antibody VRC01 and 30 of its Ala mutants, as described in the paper. The format of the trajectory files is CHARMM-compatible dcd. The files can be visualized with the program Visual Molecular Dynamics (VMD) (see paper by Humphrey et al. 1996, J. Molec. Graphics).  The accompanying file \"view\" is a tcl-based script for VMD that can be executed in the Linux environment using: \"vmd -e view\", which will display the trajectory of the mutant specified by editing the first noncomment line of the script.\n ",
@@ -47,10 +46,22 @@
             "end": 485
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM",
             "start": 578,
             "end": 584
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Visual",
+            "start": 646,
+            "end": 652
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "Molecular Dynamics",
+            "start": 653,
+            "end": 671
         },
         {
             "label": "SOFTNAME",

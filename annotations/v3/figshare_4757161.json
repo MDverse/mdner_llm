@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Enzyme Inspired Catalysts\n\nPolystyrene\nfragments containing catalytic and hydrophobic residues were built\nand simulated using Amber16 package.\u0007Parameters for styrene\n(STY), catalyst (CAT) and hydrophobic (SPA) residues were assigned\nusing Antechamber\u0007 and General Amber Force Field (GAFF),\u0007\b\nwhile the charges were derived using two-stage RESP fitting\nprocedure\u0007\b to the electrostatic potential calculated with\nGaussian09 at HF/6-31G(d) level of theory.\b\u0007\b\u0007 This level of\ntheory was used to be consistent with GAFF parameterization. Geometry\nof each residue was optimized in the gas phase and polymer backbone\natoms were capped with a methyl group. Styrene monomer\nwas modelled as 2-phenylpropane. The additional methyl group and\nhydrogen atom were removed in the subsequent step to ensure correct\nconnectivity between the monomers, which was defined with prepgen\nmodule of AmberTools. Charges on these capping groups were required\nto sum to zero and the excess charge was distributed between the\nremaining atoms. Terminal styrene residues were capped with methyl groups. Identical approach was employed for creating\ncatalyst and hydrophobic residue parameters, except multi-conformer\nfitting was performed for these molecules due to their conformational\nflexibility.  We used 10 conformers for each molecule in the RESP\nprocedure of partial charge derivation. The uploaded files include prep libraries required for building polystyrene system:* STY: styrene monomer * HST: terminal (head) styrene monomer capped with methyl group* TST: terminal (tail) styrene monomer capped with methyl group* CAT: styrene residue with catalytic moiety attached* SPA: styrene residue with C16 alkyl chain attached* SCL: cross-linking residue (p-divinylbenzene) with 1 additional branching point* SDB: cross-linking residue (p-divinylbenzene) with 2 additional branching points (double-branch)Six fragments\ncontaining catalyst and hydrophobic residue separated by 0 to 5\nstyrene units (EIC-0 to EIC-5) were built, with three additional\nstyrene units added on each side of catalyst and hydrophobic residue.\nThese fragments were then solvated with TIP3P waters in a truncated\noctahedron box with 10 Å buffer in each direction from the solute.\nThe solvated fragments were relaxed in 4 steps: 1) steepest descent\nminimization was performed with maximum of 10 000 cycles; 2) slow\nheating of the system from 0 to 300 K in 100 ps with harmonic\nposition restraints on solute (2.5 kcal/mol Å2)\nunder constant volume (NVT); 3) constant pressure (NPT) dynamics at\n300 K for 1 ns with harmonic position restraints placed on solute\n(2.5 kcal/mol Å2);\n4) constant pressure (NPT) dynamics at 300 K without restraints for\nanother 1 ns. After relaxation (total of 2.1 ns), each system was\nsimulated for 100 ns at 300 K under constant volume (NVT). Periodic boundary\nconditions were used and long range electrostatic interactions were\ncalculated with the Particle-Mesh Ewald (PME) technique with a cutoff\nof 8.0 Å. The temperature in all simulations was set to 300 K and\ncontrolled by Langevin thermostat combined with random seed\ngenerator.\u0007[6]\b The SHAKE algorithm\u0007[7]\b was employed to constrain\nbonds involving hydrogen atoms during dynamics and an integration\ntime step of 2 fs was used. The simulations were carried out using\nGPU version of PMEMD program implemented in the Amber16 package,\nsaving snapshots every 10 ps. Analysis was performed using cpptraj\nmodule available in AmberTools. For clustering, all-atom RMS\ndeviations of catalyst and hydrophobic residues (styrene residues\nwere not included) was used in conjunction with k-means\nalgorithm with maximum number of clusters set to 20. \n\nAn example input file to build a fragment with these residues using LEaP module of Amber package is provided (build_example.leap), as well as the input files for running molecular dynamics (min.in, heat.in, npt-restr.in, npt.in, nvt.in). Conformations representing the two most populated clusters for each fragments is shown in figure named top2clusters_EIC0-5.png. Distances calculated between CAT and SPA residues, as well as the distances measured between head and tail atoms for each of these two residues is shown in figure named Distances&initial_conformations.png. Finally, the system topologies and resulting trajectories with stripped solvent are provided (eic-N.prmtop and eic-N.nc files). ",
@@ -47,13 +46,13 @@
             "end": 250
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "General Amber Force Field",
             "start": 256,
             "end": 281
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "GAFF",
             "start": 283,
             "end": 287
@@ -65,7 +64,7 @@
             "end": 421
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "GAFF",
             "start": 510,
             "end": 514
@@ -203,7 +202,7 @@
             "end": 1660
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "TIP3P",
             "start": 2130,
             "end": 2135

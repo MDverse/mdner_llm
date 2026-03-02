@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "General Force-Field Parametrization Scheme for Molecular Dynamics Simulations of Conjugated Materials in Solution\n\nWe\ndescribe a general scheme to obtain force-field parameters for\nclassical molecular dynamics simulations of conjugated polymers. We\nidentify a computationally inexpensive methodology for calculation\nof accurate intermonomer dihedral potentials and partial charges.\nOur findings indicate that the use of a two-step methodology of geometry\noptimization and single-point energy calculations using DFT methods\nproduces potentials which compare favorably to high level theory calculation.\nWe also report the effects of varying the conjugated backbone length\nand alkyl side-chain lengths on the dihedral profiles and partial\ncharge distributions and determine the existence of converged lengths\nabove which convergence is achieved in the force-field parameter sets.\nWe thus determine which calculations are required for accurate parametrization\nand the scope of a given parameter set for variations to a given molecule.\nWe perform simulations of long oligomers of dioctylfluorene and hexylthiophene\nin explicit solvent and find peristence lengths and end-length distributions\nconsistent with experimental values.",

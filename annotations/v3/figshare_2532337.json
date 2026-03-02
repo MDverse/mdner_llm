@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Are Protein Force Fields Getting Better? A Systematic Benchmark on 524 Diverse NMR Measurements\n\nRecent hardware and software advances have enabled simulation\nstudies\nof protein systems on biophysically relevant time scales, often revealing\nthe need for improved force fields. Although early force field development\nwas limited by the lack of direct comparisons between simulation and\nexperiment, recent work from several laboratories has demonstrated\ndirect calculation of NMR observables from protein simulations. Here,\nwe quantitatively evaluate 11 recent molecular dynamics force fields\nin combination with 5 solvent models against a suite of 524 chemical\nshift and J coupling (3JHNHα, 3JHNCβ, 3JHαC′, 3JHNC′, and 3JHαN) measurements\non dipeptides, tripeptides, tetra-alanine, and ubiquitin. Of the force\nfields examined (ff96, ff99, ff03, ff03*, ff03w, ff99sb*, ff99sb-ildn,\nff99sb-ildn-phi, ff99sb-ildn-NMR, CHARMM27, and OPLS-AA), two force\nfields (ff99sb-ildn-phi, ff99sb-ildn-NMR) combining recent side chain\nand backbone torsion modifications achieved high accuracy in our benchmark.\nFor the two optimal force fields, the calculation error is comparable\nto the uncertainty in the experimental comparison. This observation\nsuggests that extracting additional force field improvements from\nNMR data may require increased accuracy in J coupling\nand chemical shift prediction. To further investigate the limitations\nof current force fields, we also consider conformational populations\nof dipeptides, which were recently estimated using vibrational spectroscopy.",
@@ -35,79 +34,79 @@
             "end": 794
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff96",
             "start": 826,
             "end": 830
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff99",
             "start": 832,
             "end": 836
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff03",
             "start": 838,
             "end": 842
         },
         {
-            "label": "FFMNAME",
-            "text": "ff03",
+            "label": "FFM",
+            "text": "ff03*",
             "start": 844,
-            "end": 848
+            "end": 849
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff03w",
             "start": 851,
             "end": 856
         },
         {
-            "label": "FFMNAME",
-            "text": "ff99sb",
+            "label": "FFM",
+            "text": "ff99sb*",
             "start": 858,
-            "end": 864
+            "end": 865
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff99sb-ildn",
             "start": 867,
             "end": 878
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff99sb-ildn-phi",
             "start": 880,
             "end": 895
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff99sb-ildn-NMR",
             "start": 897,
             "end": 912
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM27",
             "start": 914,
             "end": 922
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "OPLS-AA",
             "start": 928,
             "end": 935
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff99sb-ildn-phi",
             "start": 956,
             "end": 971
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "ff99sb-ildn-NMR",
             "start": 973,
             "end": 988

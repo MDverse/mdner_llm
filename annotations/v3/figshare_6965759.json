@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Reactive Oxygen and Nitrogen Species at Phospholipid Bilayers: Peroxynitrous Acid and Its Homolysis Products\n\nPeroxynitrite is\na powerful and long-lived oxidant generated in\nvivo. Peroxynitrous acid (ONOOH), its protonated form, may penetrate\ninto phospholipid bilayers and undergo homolytic cleavage to nitrogen\ndioxide (·NO2) and hydroxyl radicals (·OH), causing\nsevere nitro-oxidative damage. The membrane environment is thought\nto influence ONOOH reactions, but the mechanisms remain speculative.\nMost experimental techniques lack the level of resolution required\nto keep track of the motion of very reactive species and their interactions\nwith the membrane. Here, we performed molecular dynamics simulations\nof the permeation, interactions, and dynamics of ONOOH and its homolysis\nproducts in the phospholipid membrane environment. We started by developing\nan ONOOH model that successfully accounted for its conformational\nequilibria and solvation energies. Membrane permeation of ONOOH was\naccompanied by conformational changes. ONOOH exhibited a strong tendency\nto bind to and accumulate at the membrane headgroup region. There,\nONOOH homolysis led to ·NO2 radicals, which in turn\npartitioned to the membrane interior. About one-third of the ·OH\nradicals readily escaped to the aqueous phase within 1 ns. However,\na significant number of ·OH radicals became trapped at the lipid\nheadgroup region for a longer period. The possible implications for\nmembrane-based nitration and oxidation processes were discussed.",

@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Insights into the Atomistic Mechanisms of Phosphorylation in Disrupting Liquid–Liquid Phase Separation and Aggregation of the FUS Low-Complexity Domain\n\nFused in sarcoma (FUS), a nuclear\nRNA binding protein, can not\nonly undergo liquid–liquid phase separation (LLPS) to form\ndynamic biomolecular condensates but also aggregate into solid amyloid\nfibrils which are associated with the pathology of amyotrophic lateral\nsclerosis and frontotemporal lobar degeneration diseases. Phosphorylation\nin the FUS low-complexity domain (FUS-LC) inhibits FUS LLPS and aggregation.\nHowever, it remains largely elusive what are the underlying atomistic\nmechanisms of this inhibitory effect and whether phosphorylation can\ndisrupt preformed FUS fibrils, reversing the FUS gel/solid phase toward\nthe liquid phase. Herein, we systematically investigate the impacts\nof phosphorylation on the conformational ensemble of the FUS37–97 monomer and dimer and the structure of the FUS37–97 fibril by performing extensive all-atom molecular dynamics simulations.\nOur simulations reveal three key findings: (1) phosphorylation shifts\nthe conformations of FUS37–97 from the β-rich,\nfibril-competent state toward a helix-rich, fibril-incompetent state;\n(2) phosphorylation significantly weakens protein–protein interactions\nand enhances protein–water interactions, which disfavor FUS-LC\nLLPS as well as aggregation and facilitate the dissolution of the\npreformed FUS-LC fibril; and (3) the FUS37–97 peptide\ndisplays a high β-strand probability in the region spanning\nresidues 52–67, and phosphorylation at S54 and S61 residues\nlocated in this region is crucial for the disruption of LLPS and aggregation\nof FUS-LC. This study may pave the way for ameliorating phase-separation-related\npathologies via site-specific phosphorylation.",

@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "trajectories for: Membrane-binding mechanism of the EEA1 FYVE domain revealed by multi-scale molecular dynamics simulations\n\nCoarse-grained trajectories produced and analysed for publication: \n----------------------\nMembrane-binding mechanism of the EEA1 FYVE domain revealed by multi-scale molecular dynamics simulations\nAndreas Haahr Larsen*, Lilya Tata*, Laura John & Mark S.P. Sansom\nDepartment of Biochemistry, University of Oxford, Oxford, United Kingdom, OX1 3QU\nPLOS comp biol (in press) \n-------------------------\n \n** file overview**\nmd_X.xtc: (X=0..14) 15 repeated CG simulations (1500 ns each) of the FYVE domain from EEA1 binding to POPC:POP1 bilayer. The repeats differ in the rotation of the initial frame.\n\nfinal_cg2at_aligned.pdb: initial frame for AT (after CG2AT)\nprod_cym_cent_repX.xtc (X=1,2,3) 3 repeated AT sims (500 ns each) of the FYVE domain from EEA1 binding to POPC:POP1 bilayer. \n** scripts for reproduction at GitHub**\nscripts and files for reproduction are available at: https://github.com/andreashlarsen/Larsen-Tata2021-FYVE",

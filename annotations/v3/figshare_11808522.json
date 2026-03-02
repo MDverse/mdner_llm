@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Inclusion Complexation of Organic Micropollutants with β‑Cyclodextrin\n\nRecently, β-cyclodextrin\n(βCD)-based polymers with\nenhanced adsorption kinetics and high removal capacity of organic\nmicropollutants (OMPs) and uptake rates have been synthesized and\ntested experimentally. Although the exact physical–chemical\nmechanisms via which these polymers capture the various types of OMPs\nare not yet fully understood, it is suggested that the inclusion complex\nformation of OMPs with βCD is very important. In this study,\nthe inclusion complex formation of OMPs with βCD in an aqueous\nsolution is investigated by using the well-established attach–pull–release\nmethod in force field-based molecular dynamics simulations. A representative\nset of OMPs is selected based on the measured occurrences in surface\nand ground waters and the directives published by the European Union.\nTo characterize the formation of the inclusion complex, the binding\nfree energies, enthalpies, and entropies are computed and compared\nto experimental values. It is shown that computations using the q4md-CD/GAFF/Bind3P\nforce field combination yield binding free energies that are in reasonable\nagreement with the experimental results for all OMPs studied. The\nbinding enthalpies are decomposed into the main contributing interaction\ntypes. It is shown that, for all studied OMPs, the van der Waals interactions\nare favorable for the inclusion complexion and the hydrogen bond formation\nof the guest with the solvent and βCD plays a crucial role in\nthe binding mechanism. Our findings show that MD simulations can adequately\ndescribe the inclusion complex formation of βCD with OMPs, which\nis the first step toward understanding the underlying mechanisms via\nwhich the βCD-based polymers capture OMPs.",
@@ -41,19 +40,19 @@
             "end": 566
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "q4md-CD",
             "start": 1071,
             "end": 1078
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "GAFF",
             "start": 1079,
             "end": 1083
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Bind3P",
             "start": 1084,
             "end": 1090

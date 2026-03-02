@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Recognition and Binding of RsmE to an AGGAC Motif of RsmZ: Insights from Molecular Dynamics Simulations\n\nCsrA/RsmE is a post-transcriptional\nregulator protein widely distributed\nin bacteria. It impedes the expression of target mRNAs by attaching\ntheir 5′ untranslated region. The translation is restored by\nsmall, noncoding RNAs that sequester CsrA/RsmE acting as sponges.\nIn both cases, the protein recognizes and attaches to specific AGGAX\nand AXGGAX motifs, where X refers to any nucleotide. RsmZ of Pseudomonas protegens is one of these small RNAs. The structures\nof some of its complexes with RsmE were disclosed a few years ago.\nWe have used umbrella sampling simulations to force the unbinding\nof RsmE from the AGGAC motif located in the single-stranded region\nsited between stem loops 2 and 3 of RsmZ. The calculations unveiled\nthe identity of the main residues and nucleotides involved in the\nprocess. They also showed that the region adopts a hairpin-like conformation\nduring the initial stages of the binding. The ability to acquire this\nconformation requires that the region has a length of at least nine\nnucleotides. Besides, we performed standard molecular dynamics simulations\nof the isolated fragments, analyzed their typical conformations, and\ncharacterized their movements. This analysis revealed that the free\nmolecules oscillate along specific collective coordinates that facilitate\nthe initial stages of the binding. The results strongly suggest that\nthe flexibility of the single-stranded region of RsmZ crucially affects\nthe ability of its binding motif to catch RsmE.",

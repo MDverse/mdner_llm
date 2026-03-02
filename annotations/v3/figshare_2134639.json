@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Molecular Dynamics Simulations of the Initial-State Predict Product Distributions of Dediazoniation of Aryldiazonium in Binary Solvents\n\nThe\ndediazoniation of aryldiazonium salts in mixed solvents proceeds\nby a borderline SN1 and SN2 pathway, and product\ndistribution should be proportional to the composition of the solvation\nshell of the carbon attached to the −N2 group (ipso\ncarbon). The rates of dediazoniation of 2,4,6-trimethylbenzenediazonium\nin water, methanol, ethanol, propanol, and acetonitrile were similar,\nbut measured product distributions were noticeably dependent on the\nnature of the water/cosolvent mixture. Here we demonstrated that solvent\ndistribution in the first solvation shell of the ipso carbon, calculated\nfrom classical molecular dynamics simulations, is equal to the measured\nproduct distribution. Furthermore, we showed that regardless of the\ncharge distribution of the initial state, i.e., whether the positive\ncharge is smeared over the molecule or localized on phenyl moiety,\nthe solvent distribution around the reaction center is nearly the\nsame.",

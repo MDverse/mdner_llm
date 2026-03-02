@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Assessing the Efficacy of Poly(N‑isopropylacrylamide) for Drug Delivery Applications Using Molecular Dynamics Simulations\n\nAll-atom molecular dynamic simulations\n(AA-MD) are performed for\naqueous solutions of hydrophobic drug molecules (phenytoin) with model\npolymer excipients, namely, (1) N-isopropylacrylamide,\n(pNIPAAm), (2) pNIPAAm-co-acrylamide (Am), and (3)\npNIPAAm-co-dimethylacrylamide (DMA). After validating\nthe force field parameters using the well-known lower critical solution\nbehavior of pNIPAAm, we simulate the polymer–drug complex in\nwater and its behavior at temperatures below (295 K) and above the\nLCST (310 K). Using radial distribution functions, we find that there\nis an optimum comonomer molar fraction of around 20–30% DMA\nat which interaction with phenytoin drug molecules is strongest, consistent\nwith recent experimental findings. The results provide evidence that\nmolecular simulations are able to provide guidance in the optimization\nof novel polymer excipients for drug release.",

@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Interaction of Hematoporphyrin with Lipid Membranes\n\nNatural or synthetic porphyrins are being used as photosensitizers\nin photodiagnosis (PD) and photodynamic therapy (PDT) of malignancies\nand some other diseases. Understanding the interactions between porphyrins\nand cell membranes is therefore important to rationalize the uptake\nof photosensitizers and their passive transport through cell membranes.\nIn this study, we consider the properties of hematoporphyrin (Hp),\na well-known photosensitizer for PD and PDT, in the presence of a\n1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine\n(POPC) bilayer that we use as a model system for protein-free cell\nmembranes. For this purpose, we employed 200 ns atomic-scale molecular\ndynamics (MD) simulations for five systems containing the neutral\n(Hp0) or the dianionic form (Hp2–) of\nHp and the POPC bilayer. MD simulations allowed one to estimate the\nposition, orientation, and dynamics of Hp molecules inside the membrane.\nThe dye molecules were found to reside in the phospholipid headgroup\narea close to the carbonyl groups of the POPC acyl chains. Their orientations\nwere dependent on the protonation state of two propionic groups. Hp2– was found to have a lower affinity to enter the membrane\nthan the neutral form. The dianions, being in the aqueous phase, formed\nstable dimers with a strictly determined geometry. Our results fully\nsupported the experimental data and provide a more detailed molecular-level\ndescription of the interactions of photosensitizers with lipid membranes.",

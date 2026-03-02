@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "A1810 raw data\n\nMolecular dynamics simulation trajectories of kinesin motor domain exposed to electric field and the starting structure (system.gro). \nList of the files\n\nsystem.gro – the initial structure of the system\n\n \nTrajectories, kinesin recentered\ntrajectories with no electric field applied\n\nNOFIELD-traj_1_cent.xtc\nNOFIELD-traj_2_cent.xtc\nNOFIELD-traj_3_cent.xtc\n\n \ntrajectories with 100 MV/m electric field in X direction\n\nX-traj_1_cent.xtc\nX-traj_2_cent.xtc\nX-traj_3_cent.xtc\n\ntrajectories with 100 MV/m electric field in -X direction\n\nXrev-traj_1_cent.xtc \nXrev-traj_2_cent.xtc\nXrev-traj_3_cent.xtc\n\ntrajectories with 100 MV/m electric field in Y direction\n\nY-traj_1_cent.xtc\nY-traj_2_cent.xtc\nY-traj_3_cent.xtc\n\ntrajectories with 100 MV/m electric field in -Y direction\n\nYrev-traj_1_cent.xtc\nYrev-traj_2_cent.xtc\nYrev-traj_3_cent.xtc\n",

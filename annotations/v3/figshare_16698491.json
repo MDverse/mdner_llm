@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Experimental and Theoretical Exploration of Volumetric Properties of Aminobutyric Acid and l‑Valine in the Electrolytic Environment at T = 283.15 to 318.15 K and Pressure P = 0.1 MPa\n\nIn\nthe present work, density (ρ) calculations, molecular dynamics\n(MD) simulations, and quantum chemical calculations of pseudo-binary\nmixtures of aminobutyric acid and l-valine in aqueous solutions\nof sodium thiosulfate (Na2S2O3) at T = 283.15 to 318.15 K and atmospheric pressure (0.1 MPa)\nwere performed. MD simulations reveal the formation of molecular aggregates\ninduced by the preferential solvation in the mixture, due to the electrostatic\ninteractions at the first layer of solvation between the charged groups\nof amino acids and the inorganic salt. The formation of these molecular\naggregates is promoted by an increase in the salt concentration. Noncovalent\ninteractions within the pseudo-binary mixtures were studied by the\nnoncovalent interaction index (NCI) and IGM analysis, which well supported\nthe experimental findings.",

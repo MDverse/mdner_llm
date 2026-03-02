@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Derivation and Systematic Validation of a Refined All-Atom Force Field for Phosphatidylcholine Lipids\n\nAn all-atomistic force field (FF) has been developed\nfor fully\nsaturated phospholipids. The parametrization has been largely based\non high-level ab initio calculations in order to keep the empirical\ninput to a minimum. Parameters for the lipid chains have been developed\nbased on knowledge about bulk alkane liquids, for which thermodynamic\nand dynamic data are excellently reproduced. The FFs ability to simulate\nlipid bilayers in the liquid crystalline phase in a tensionless ensemble\nwas tested in simulations of three lipids: 1,2-diauroyl-sn-glycero-3-phospocholine (DLPC), 1,2-dimyristoyl-sn-glycero-3-phosphocholine (DMPC), and 1,2-dipalmitoyl-sn-glycero-3-phospcholine (DPPC). Computed areas and volumes per lipid,\nand three different kinds of bilayer thicknesses, have been investigated.\nMost importantly NMR order parameters and scattering form factors\nagree in an excellent manner with experimental data under a range\nof temperatures. Further, the compatibility with the AMBER FF for\nbiomolecules as well as the ability to simulate bilayers in gel phase\nwas demonstrated. Overall, the FF presented here provides the important\nbalance between the hydrophilic and hydrophobic forces present in\nlipid bilayers and therefore can be used for more complicated studies\nof realistic biological membranes with protein insertions.",
@@ -59,7 +58,7 @@
             "end": 784
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "AMBER",
             "start": 1084,
             "end": 1089

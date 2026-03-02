@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Exploring the interaction of a curcumin azobioisostere with Abeta42 dimers using replica exchange molecular dynamics simulations\n\nStructural data and parameters relative to the evaluation of the interaction of an anti aggregating azobioisostere compound with the full-length Aβ42 peptide by replica-exchange molecular dynamics (REMD) simulations. Two different force fields (Amber and CHARMM) were used to simulate the azobioisostere-Abeta42 (AZ-Ab42) complex in a monomeric and dimeric assembly.\nA brief description of the shared output data is reported below:\n1. Amber and CHARMM-adapted parameters for the simulated azobioisostere (AZ) compound.\n2. Modified version of the CHARMM36m FF - (CHARMM36mW)\n3. Starting (equilibrated) structures (first 5 T-replicas) for REMD on each of the following three systems (PDB): \n\nAmber: AZ-Ab42 (monomeric ensemble): Repl.0 (315.0 K), Repl.1 (316.7 K), Repl.2 (318.4 K), Repl.3 (320.1 K), Repl.4 (321.8 K) \nAmber: AZ-Ab42 (dimeric ensemble): Repl.0 (315.0 K), Repl.1 (316.0 K), Repl.2 (317.0 K), Repl.3 (318.0 K), Repl.4 (319.1 K) \nCHARMM: AZ-Ab42 (dimeric ensemble): Repl.0 (315.0 K), Repl.1 (316.0 K), Repl.2 (317.0 K), Repl.3 (318.0 K), Repl.4 (319.1 K)\n\n4. Most populated clusters for the three simulated systems (PDB):\n\nAmber AZ-Ab42 (monomeric ensemble): 7 clusters (Cl.0: 12.4%, Cl.1: 10.1%, Cl.2: 9.8%, Cl.3: 5.4%, Cl.4: 3.7%, Cl.5: 3.6%, Cl.6: 2.0%) \nAmber AZ-Ab42 (dimeric ensemble): 5 clusters (Cl.0: 7.1%, Cl.1: 4.3%, Cl.2: 3.5%, Cl.3: 3.2%, Cl.4: 2.4%) \nCHARMM: AZ-Ab42 (dimeric ensemble): 3 clusters (Cl.0: 4.7%, Cl.1: 4.6%, Cl.2: 2.5%) \n",
@@ -29,13 +28,13 @@
             "end": 54
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Amber",
             "start": 375,
             "end": 380
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM",
             "start": 385,
             "end": 391
@@ -53,13 +52,13 @@
             "end": 450
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Amber",
             "start": 565,
             "end": 570
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM",
             "start": 575,
             "end": 581
@@ -77,19 +76,19 @@
             "end": 637
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM36m",
             "start": 676,
             "end": 685
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM36mW",
             "start": 692,
             "end": 702
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Amber",
             "start": 820,
             "end": 825
@@ -125,7 +124,7 @@
             "end": 944
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Amber",
             "start": 947,
             "end": 952
@@ -149,7 +148,7 @@
             "end": 1069
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM",
             "start": 1072,
             "end": 1078
@@ -173,19 +172,19 @@
             "end": 1195
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Amber",
             "start": 1265,
             "end": 1270
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Amber",
             "start": 1400,
             "end": 1405
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "CHARMM",
             "start": 1507,
             "end": 1513

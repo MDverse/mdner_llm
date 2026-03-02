@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "POPC_Ulmschneider_OPLS_NaCl_1Mol\n\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 1M NaCl. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Ions were described by OPLS-AA force field (Gromacs 5.0.3). Conditions: T=298.15, 128 POPC molecules, 5120 tip3p waters, 77 Na, 77 Cl. 200ns trajectory (preceded by 5ns NPT equillibration).\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi\n[1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5(7), 1803–1813\n[2] http://lipidbook.bioch.ox.ac.uk/package/show/id/52.html",
@@ -17,13 +16,13 @@
             "end": 4
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Ulmschneider",
             "start": 5,
             "end": 17
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "OPLS",
             "start": 18,
             "end": 22
@@ -47,7 +46,7 @@
             "end": 121
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Ulmschneider",
             "start": 127,
             "end": 139
@@ -77,7 +76,7 @@
             "end": 200
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "OPLS-AA",
             "start": 219,
             "end": 226
@@ -107,7 +106,7 @@
             "end": 286
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "tip3p",
             "start": 303,
             "end": 308

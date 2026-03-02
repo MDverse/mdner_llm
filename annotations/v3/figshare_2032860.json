@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers\n\nCholesterol\ntrafficking, which is an essential function in mammalian cells, is\nintimately connected to molecular-scale interactions through cholesterol\nmodulation of membrane structure and dynamics and interaction with\nmembrane receptors. Since these effects of cholesterol occur on micro-\nto millisecond time scales, it is essential to develop accurate coarse-grained\nsimulation models that can reach these time scales. Cholesterol has\nbeen shown experimentally to thicken the membrane and increase phospholipid\ntail order between 0 and 40% cholesterol, above which these effects\nplateau or slightly decrease. Here, we showed that the published MARTINI\ncoarse-grained force-field for phospholipid (POPC) and cholesterol\nfails to capture these effects. Using reference atomistic simulations,\nwe systematically modified POPC and cholesterol bonded parameters\nin MARTINI to improve its performance. We showed that the corrections\nto pseudobond angles between glycerol and the lipid tails and around\nthe oleoyl double bond particle (the “angle-corrected model”)\nslightly improves the agreement of MARTINI with experimentally measured\nthermal, elastic, and dynamic properties of POPC membranes. The angle-corrected\nmodel improves prediction of the thickening and ordering effects up\nto 40% cholesterol but overestimates these effects at higher cholesterol\nconcentration. In accordance with prior work that showed the cholesterol\nrough face methyl groups are important for limiting cholesterol self-association,\nwe revised the coarse-grained representation of these methyl groups\nto better match cholesterol-cholesterol radial distribution functions\nfrom atomistic simulations. In addition, by using a finer-grained\nrepresentation of the branched cholesterol tail than MARTINI, we improved\npredictions of lipid tail order and bilayer thickness across a wide\nrange of concentrations. Finally, transferability testing shows that\na model incorporating our revised parameters into DOPC outperforms\nother CG models in a DOPC/cholesterol simulation series, which further\nargues for its efficacy and generalizability. These results argue\nfor the importance of systematic optimization for coarse-graining\nbiologically important molecules like cholesterol with complicated\nmolecular structure.",
@@ -53,7 +52,7 @@
             "end": 628
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "MARTINI",
             "start": 721,
             "end": 728
@@ -89,7 +88,7 @@
             "end": 914
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "MARTINI",
             "start": 936,
             "end": 943
@@ -107,7 +106,7 @@
             "end": 1082
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "MARTINI",
             "start": 1169,
             "end": 1176
@@ -173,7 +172,7 @@
             "end": 1828
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "MARTINI",
             "start": 1839,
             "end": 1846

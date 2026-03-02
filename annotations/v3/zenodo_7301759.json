@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Data for: Excitatory and inhibitory D-serine binding to the NMDA receptor\n\nN-methyl-D-aspartate receptors (NMDARs) uniquely require binding of two different neurotransmitter agonists for synaptic transmission. D-serine and glycine bind to one subunit, GluN1, while glutamate binds to the other, GluN2. These agonists bind to the receptor's bi-lobed ligand-binding domains (LBDs), which close around the agonist during receptor activation. To better understand the unexplored mechanisms by which D-serine contributes to receptor activation, we performed multi-microsecond molecular dynamics simulations of the GluN1/GluN2A LBD dimer with free D-serine and glutamate agonists. Surprisingly, we observed D-serine binding to both GluN1 and GluN2A LBDs, suggesting that D-serine competes with glutamate for binding to GluN2A. This mechanism is confirmed by our electrophysiology experiments, which show that D-serine is indeed inhibitory at high concentrations. Although free energy calculations indicate that D-serine stabilizes the closed GluN2A LBD, its inhibitory behavior suggests that it either does not remain bound long enough or does not generate sufficient force for ion channel gating. We developed a workflow using pathway similarity analysis to identify groups of residues working together to promote binding. These conformation-dependent pathways were not significantly impacted by the presence of N-linked glycans, which act primarily by interacting with the LBD bottom lobe to stabilize the closed LBD.",
@@ -48,39 +47,9 @@
         },
         {
             "label": "MOL",
-            "text": "GluN1",
-            "start": 252,
-            "end": 257
-        },
-        {
-            "label": "MOL",
             "text": "glutamate",
             "start": 265,
             "end": 274
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2",
-            "start": 295,
-            "end": 300
-        },
-        {
-            "label": "MOL",
-            "text": "bi-lobed ligand-binding domains",
-            "start": 340,
-            "end": 371
-        },
-        {
-            "label": "MOL",
-            "text": "LBDs",
-            "start": 373,
-            "end": 377
-        },
-        {
-            "label": "MOL",
-            "text": "LBD",
-            "start": 373,
-            "end": 376
         },
         {
             "label": "MOL",
@@ -93,30 +62,6 @@
             "text": "multi-microsecond",
             "start": 553,
             "end": 570
-        },
-        {
-            "label": "MOL",
-            "text": "GluN1",
-            "start": 609,
-            "end": 614
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2",
-            "start": 615,
-            "end": 620
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2A",
-            "start": 615,
-            "end": 621
-        },
-        {
-            "label": "MOL",
-            "text": "LBD",
-            "start": 622,
-            "end": 625
         },
         {
             "label": "MOL",
@@ -138,36 +83,6 @@
         },
         {
             "label": "MOL",
-            "text": "GluN1",
-            "start": 726,
-            "end": 731
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2",
-            "start": 736,
-            "end": 741
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2A",
-            "start": 736,
-            "end": 742
-        },
-        {
-            "label": "MOL",
-            "text": "LBDs",
-            "start": 743,
-            "end": 747
-        },
-        {
-            "label": "MOL",
-            "text": "LBD",
-            "start": 743,
-            "end": 746
-        },
-        {
-            "label": "MOL",
             "text": "D-serine",
             "start": 765,
             "end": 773
@@ -177,18 +92,6 @@
             "text": "glutamate",
             "start": 788,
             "end": 797
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2",
-            "start": 813,
-            "end": 818
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2A",
-            "start": 813,
-            "end": 819
         },
         {
             "label": "MOL",
@@ -204,39 +107,9 @@
         },
         {
             "label": "MOL",
-            "text": "GluN2",
-            "start": 1036,
-            "end": 1041
-        },
-        {
-            "label": "MOL",
-            "text": "GluN2A",
-            "start": 1036,
-            "end": 1042
-        },
-        {
-            "label": "MOL",
-            "text": "LBD",
-            "start": 1043,
-            "end": 1046
-        },
-        {
-            "label": "MOL",
             "text": "glycans",
             "start": 1416,
             "end": 1423
-        },
-        {
-            "label": "MOL",
-            "text": "LBD",
-            "start": 1469,
-            "end": 1472
-        },
-        {
-            "label": "MOL",
-            "text": "LBD",
-            "start": 1509,
-            "end": 1512
         }
     ]
 }

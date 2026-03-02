@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Impact of Inert Crowders on Host–Guest Recognition Process\n\nBiological\nenvironments typically contain high concentrations (300–400\nmg/mL) of different macromolecules at volume fractions as large as\n30%–40%. Biomolecular recognition processes, a ubiquitous biological\nphenomena, occurring in such crowded heterogeneous media would differ\nsignificantly compared to the dilute buffer solutions. Here we quantify\nthe potential impact of inert crowders on prototypical host–guest\nrecognition process by explicit-solvent molecular dynamics (MD) simulations\nin atomic resolution. We demonstrate that the crowders, when smaller\nin size, would facilitate the binding process of the guest molecule\nby decreasing the free energy barrier for binding via excluded volume\neffect and desolvation of the host receptor. However, the extent of\ncrowder-induced stabilization of a host–guest complex is found\nto be significantly higher when the guest molecule is sterically constricted\nto approach the host along a centrosymmetric direction, compared to\nits unrestricted, freely diffusive movement. A kinetic analysis of\nthe recognition process reveals that the origin of a relatively stronger\ncrowder impact during constricted movement of guest molecule lies\nin the relatively enhanced residence time of the guest inside the\nhost by crowders. Together, our results suggest that the extent of\nimpact of crowding on recognition processes would be contingent upon\nthe presence or absence of constriction on ligand movement.",

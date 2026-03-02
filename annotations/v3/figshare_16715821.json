@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Diffusion Behavior of Methane in 3D Kerogen Models\n\nAs\nglobal energy demand increases, natural gas recovery from source\nrocks is attracting considerable attention since recent development\nin shale extraction techniques has made the recovery process economically\nviable. Kerogens are thought to play an important role in gas recovery;\nhowever, the interactions between trapped shale gas and kerogens remain\npoorly understood due to the complex, heterogeneous microporous structure\nof kerogens. This study examines the diffusive behavior of methane\nmolecules in kerogen matrices of different types (Type I, II, and\nII) and maturity levels (A to D for Type II kerogens) on a molecular\nscale. Models of each kerogen type were developed using simulated\nannealing. We employed grand canonical Monte Carlo simulations to\npredict the methane loadings of the kerogen models and then used equilibrium\nmolecular dynamics simulations to compute the mean square displacement\nof methane molecules within the kerogen matrices under reservoir-relevant\nconditions, that is, 365 K and 275 bar. Our results show that methane\nself-diffusivity exhibits some degree of anisotropy in all kerogen\ntypes examined here except for Type I-A kerogens, where diffusion\nis the fastest and isotropic diffusion is observed. Self-diffusivity\nappears to correlate positively with pore volume for Type II kerogens,\nwhere an increase in diffusivity is observed with increasing maturity.\nSwelling of the kerogen matrix up to a 3% volume change is also observed\nupon methane adsorption. The findings contribute to a better understanding\nof hydrocarbon transport mechanisms in shale and may lead to further\ndevelopment of extraction techniques, fracturing fluids, and recovery\npredictions.",

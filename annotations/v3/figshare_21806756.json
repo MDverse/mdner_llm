@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "LassoHTP: A High-Throughput Computational Tool for Lasso Peptide Structure Construction and Modeling\n\nLasso peptides are a subclass of ribosomally synthesized\nand post-translationally\nmodified peptides with a slipknot conformation. With superior thermal\nstability, protease resistance, and antimicrobial activity, lasso\npeptides are promising candidates for bioengineering and pharmaceutical\napplications. To enable high-throughput computational prediction and\ndesign of lasso peptides, we developed a software, LassoHTP, for automatic\nlasso peptide structure construction and modeling. LassoHTP consists\nof three modules, including the scaffold constructor, mutant generator,\nand molecular dynamics (MD) simulator. With a user-provided sequence\nand conformational annotation, LassoHTP can either generate the structure\nand conformational ensemble as is or conduct random mutagenesis. We\nused LassoHTP to construct eight known lasso peptide structures de novo and to simulate their conformational ensembles for\n100 ns MD simulations. For benchmarking, we calculated the root mean\nsquare deviation (RMSD) of these ensembles with reference to their\nexperimental crystal or NMR PDB structures; we also compared these\nRMSD values against those of the MD ensembles that are initiated from\nthe PDB structures. Dihedral principal component analysis was also\nconducted. The results show that the LassoHTP-initiated ensembles\nare similar to those of the PDB-initiated ensembles. LassoHTP offers\na computational platform to develop strategies for lasso peptide prediction\nand design.",

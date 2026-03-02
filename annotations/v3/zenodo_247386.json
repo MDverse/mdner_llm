@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "POPC/Cholesterol (50:50) lipid membrane, 303K, Charmm36 force field, simulation files and 100 ns trajectory for GROMACS simulation engine v5\n\nAll runs were performed with GROMACS simulation engine v5 and CHARMM36 additive force field parameters obtained from MacKerell lab website (http://mackerell.umaryland.edu/charmm_ff.shtml, also available at\nhttps://doi.org/10.5281/zenodo.209080). Conditions: T=303, 80 POPC and 80 Cholesterol molecules, 7200 tip3p waters, 100ns trajectory (preceded with equilibration). \nThese data were originally obtained for the nmrlipids.blospot.fi project.\nFind more details at nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
@@ -29,15 +28,9 @@
             "end": 45
         },
         {
-            "label": "FFMNAME",
-            "text": "Charmm",
+            "label": "FFM",
+            "text": "Charmm36",
             "start": 47,
-            "end": 53
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 53,
             "end": 55
         },
         {
@@ -54,8 +47,8 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "v5",
-            "start": 138,
+            "text": "simulation engine v5",
+            "start": 120,
             "end": 140
         },
         {
@@ -65,21 +58,9 @@
             "end": 178
         },
         {
-            "label": "SOFTVERS",
-            "text": "v5",
-            "start": 197,
-            "end": 199
-        },
-        {
-            "label": "FFMNAME",
-            "text": "CHARMM",
+            "label": "FFM",
+            "text": "CHARMM36",
             "start": 204,
-            "end": 210
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 210,
             "end": 212
         },
         {
@@ -101,10 +82,16 @@
             "end": 433
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "tip3p",
             "start": 450,
             "end": 455
+        },
+        {
+            "label": "MOL",
+            "text": "waters",
+            "start": 456,
+            "end": 462
         },
         {
             "label": "STIME",

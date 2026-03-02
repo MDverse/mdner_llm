@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Growth and Characterization of Molecular Crystals of para-Sexiphenyl by All-Atom Computer Simulations\n\nWe present all-atom molecular dynamics\ncomputer simulations of molecular crystals of the conjugated organic\nmolecule para-sexiphenyl (p-6P),\nwhich constitutes a popular basic molecule for optoelectronic applications.\nAfter validating single-molecule properties with ab initio calculations, we demonstrate that gradually performed\nsimulated temperature annealing leads to the spontaneous self-assembly\nof p-6P molecules from the fully isotropic state\ninto the correct room-temperature solid crystal, with only a few percent\ndeviation from the experimental unit-cell structure. A detailed investigation\nof the single crystal in anisotropic Gibbs ensemble simulations yields\nexperimentally consistent structures and solid to liquid-crystal phase\nbehavior over a wide temperature range, providing molecular insight\ninto nanometer-scale structural and dynamic properties of self-assembled p-6P crystals. This study thus paves the way for future\ninvestigations of the computational description of nucleation and\ngrowth mechanisms of novel p-polyphenylene derivatives\nin the bulk as well as at functional interfaces or heterojunctions.",

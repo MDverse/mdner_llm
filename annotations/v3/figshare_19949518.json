@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Understanding the Mannose Transfer Mechanism of Mycobacterial Phosphatidyl-myo-inositol Mannosyltransferase A from Molecular Dynamics Simulations\n\nGlycolipids like\nphosphatidylinositol hexamannosides (PIM6) and lipoglycans,\nsuch as lipomannan (LM) and lipoarabinomannan\n(LAM), play crucial roles in virulence, survival, and antibiotic resistance\nof various mycobacterial species. Phosphatidyl-myo-inositol mannosyltransferase\nA (PimA) catalyzes the transfer of the mannose moiety (M) from GDP-mannose\n(GDPM) to phosphatidyl-myo-inositol (PI) to synthesize GDP and phosphatidyl-myo-inositol\nmonomannoside (PIM). This PIM is mannosylated, acylated, and further\nmodified to give rise to the higher PIMs, LM, and LAM. It is yet to\nbe known how PI, PIM, PI-GDPM, and PIM-GDP interact with PimA. Here,\nwe report the docked structures of PI and PIM to understand how the\nsubstrates and the products interact with PimA. Using molecular dynamics\n(MD) simulations for 300 ns, we have investigated how various ligand-bound\nconformations change the dynamics of PimA. Our studies demonstrated\nthe “open to closed” motions of PimA. We observed that\nPimA is least dynamic when bound to both GDPM and PI. MD simulations\nindicated that the loop residues 59–70 and the α-helical\nresidues 73–86 of PimA play important roles while interacting\nwith both PI and PIM. MD analyses also suggested that the residues\nY9, P59, R68, L69, N97, R196, R201, K202, and R228 of PimA play significant\nroles in the mannose transfer reaction. Overall, docking studies and\nMD simulations provide crucial insights to design future therapeutic\ndrugs against mycobacterial PimA.",

@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "6MSM_CFTR_MD_EQUILIBRATED_MISSING_R_DOMAIN_FRAGMENT_MODELLED\n\nA protein structure based on PDB ID 6MSM with the unidentified fragment filled in based on results from molecular dynamics investigations and comparisons with alphafold.\nIn addition to the molecular dynamics workflow used to simulate it.",

@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Protonation of the Biliverdin IXα Chromophore in the Red and Far-Red Photoactive States of a Bacteriophytochrome\n\nThe\ntetrapyrrole chromophore biliverdin IXα (BV) in the bacteriophytochrome\nfrom Deinococcus radiodurans (DrBphP)\nis usually assumed to be fully protonated, but this assumption has\nnot been systematically validated by experiments or extensive computations.\nHere, we use force field molecular dynamics simulations and quantum\nmechanics/molecular mechanics calculations with density functional\ntheory and XMCQDPT2 methods to investigate the effect of the five\nmost probable protonation forms of BV on structural stability, binding\npocket interactions, and absorption spectra in the two photochromic\nstates of DrBphP. While agreement with X-ray structural data and measured\nUV/vis spectra suggest that in both states the protonated form of\nthe chromophore dominates, we also find that a minor population with\na deprotonated D-ring could contribute to the red-shifted tail in\nthe absorption spectra.",

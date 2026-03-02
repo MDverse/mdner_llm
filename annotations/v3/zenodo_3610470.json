@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "GMX_lipid17.ff: Gromacs Port of the amber LIPID17 force field\n\nThis is a Gromacs port of the amber LIPID17 force field. To use this force field, the user can construct the lipid bilayer using Charmm-GUI and convert the atom names to the amber atom names using charmmlipid2amber.py. This port has also retained the modular feature of the LIPID17 force field, where the user can customise the head group or acryl chain and use pdb2gmx to construct the topology.\nThe coordinate files for the amber lipids can also be obtained from the `gro` folder. The force field `lipid17.ff`, itp file `lipid17.itp` and a custom PI head group are all included in the attached compressed file. For the details of the generation and validation protocol, please consult the relevant Github page.",
@@ -17,7 +16,7 @@
             "end": 23
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "amber LIPID17",
             "start": 36,
             "end": 49
@@ -29,7 +28,7 @@
             "end": 80
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "amber LIPID17",
             "start": 93,
             "end": 106
@@ -41,13 +40,13 @@
             "end": 202
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "amber",
             "start": 237,
             "end": 242
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "LIPID17",
             "start": 42,
             "end": 49
@@ -59,7 +58,7 @@
             "end": 410
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "amber",
             "start": 272,
             "end": 277

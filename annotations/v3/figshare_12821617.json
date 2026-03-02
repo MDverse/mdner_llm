@@ -4,14 +4,13 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "MRP.py: A Parametrizer of Post-Translationally Modified Residues\n\nMRP.py is a Python-based parametrization\nprogram for covalently\nmodified amino acid residues for molecular dynamics simulations. Charge\nderivation is performed via an RESP charge fit, and force constants\nare obtained through rewriting of either protein or GAFF database\nparameters. This allows for the description of interfacial interactions\nbetween the modifed residue and protein. MRP.py is capable of working\nwith a variety of protein databases. MRP.py’s highly general\nand systematic method of obtaining parameters allows the user to circumvent\nthe process of parametrizing the modified residue–protein interface.\nTwo examples, a covalently bound inhibitor and covalent adduct consisting\nof modified residues, are provided in the Supporting Information.",
     "entities": [
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "GAFF",
             "start": 322,
             "end": 326

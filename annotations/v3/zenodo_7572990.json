@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "MD simulation input files and results for ,,Atomistic MD simulations of n-alkanes in a phospholipid bilayer: CHARMM36 versus Slipids\"\n\nInput files and trajectories of n-alkane/lipid systems used in the article: ,,Atomistic MD simulations of n-alkanes in a phospholipid bilayer: CHARMM36 versus Slipids\".\nEquilibrated starting configurations were created using CHARMM36. Otherwise, filenames specifiy the force field used (C36 or SL), Temperature and system composition.\n.xtc trajectories were created using gmx trjconv with options -pbc nojump -dt 10. run2 equals simulations from 100-200ns, run3 equals 200-300ns. The first 100ns were excluded from the analysis and are not included in this dataset.\nExemplary .mdp files have been included for both force-fields. Please refer to the manuscript for the force field sources and additional information.",
@@ -23,19 +22,13 @@
             "end": 99
         },
         {
-            "label": "FFMNAME",
-            "text": "CHARMM",
+            "label": "FFM",
+            "text": "CHARMM36",
             "start": 109,
-            "end": 115
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 115,
             "end": 117
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Slipids",
             "start": 125,
             "end": 132
@@ -59,51 +52,45 @@
             "end": 268
         },
         {
-            "label": "FFMNAME",
-            "text": "CHARMM",
+            "label": "FFM",
+            "text": "CHARMM36",
             "start": 278,
-            "end": 284
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 284,
             "end": 286
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "Slipids",
             "start": 294,
             "end": 301
         },
         {
-            "label": "FFMNAME",
-            "text": "CHARMM",
+            "label": "FFM",
+            "text": "CHARMM36",
             "start": 360,
-            "end": 366
-        },
-        {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 366,
             "end": 368
         },
         {
-            "label": "FFMVERS",
-            "text": "36",
-            "start": 423,
-            "end": 425
+            "label": "STIME",
+            "text": "100",
+            "start": 581,
+            "end": 584
         },
         {
             "label": "STIME",
-            "text": "100-200ns",
-            "start": 581,
+            "text": "200ns",
+            "start": 585,
             "end": 590
         },
         {
             "label": "STIME",
-            "text": "200-300ns",
+            "text": "200",
             "start": 604,
+            "end": 607
+        },
+        {
+            "label": "STIME",
+            "text": "300ns",
+            "start": 608,
             "end": 613
         }
     ]

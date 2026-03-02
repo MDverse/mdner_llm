@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "Insight into the Dual Inhibition Mechanism of Corilagin against MRSA Serine/Threonine Phosphatase (Stp1) by Molecular Modeling\n\nSerine/threonine phosphatase (Stp1)\nis known to be involved in\nthe regulation of cysteine phosphorylation levels in many different\npathways, such as virulence factor regulation in methicillin-resistant Staphylococcus aureus (MRSA). Therefore, Stp1 can\nbe used as a potential target for inhibiting MRSA infection. In this\nstudy, using virtual screening, we found that corilagin, a natural\ncompound, was screened as a potential Stp1 inhibitor. Then, the phosphatase\nassay exhibited high inhibitory activity against Stp1. On the basis\nof the enzyme kinetics experiment, we found that corilagin exhibited\na dual inhibitory mechanism of competitive and allosteric inhibition.\nTo further elucidate the mechanism of interaction between corilagin\nand Stp1, molecular dynamics (MD) simulations were performed on the\nStp1–corilagin complex. Consistent with the mutagenesis assays\nand fluorescence quenching assays results, the competitive and allosteric\nbinding sites of corilagin with Stp1 were identified. In the competitive\nbinding site of Stp1, Asn162, Ile164, Tyr199, and Lys232 were found\nto play a key role in this complex. In the allosteric binding site,\nhydrophobic interaction was the main binding force. The Asn142, Val145,\nLeu146, Pro152, and Phe179 residues of Stp1 were found to play a critical\nrole in the binding of corilagin with Stp1. In this study, we used\nMD simulation to reveal the ligand–protein interactions, providing\na theoretical basis. This research work, thus, lays down the foundation\nfor the development of new Stp1 inhibitors to be utilized in the future.",

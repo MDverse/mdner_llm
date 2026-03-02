@@ -4,8 +4,7 @@
         "SOFTVERS",
         "STIME",
         "MOL",
-        "FFMNAME",
-        "FFMVERS",
+        "FFM",
         "TEMP"
     ],
     "raw_text": "EntF*-L\n\nMolecular dynamics simulation of the EntF* peptide, all residues in L form\n\n-starting coordinates posre.gro\nenergy minimized and water+ions equilibrated around peptide\n-topology topol.top\nforce field AMBER99SB-ILDB, TIP3P water\nprotonation states at pH = 3 (E,K protonated)\n[NaCl] = 25 mM\ndisulfide bond generated between residues 14 and 6\n-md settings md.mdp\ntime step 2 fs, temperature = 298 K, pressure = 1 bar\n\n-1 microsecond trajectory dry.xtc, dry.gro\nframe rate 10 ps, water and ions removed, box centered on peptide\n\n-analysis files\nframe rate 1 ps\nradius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))\n\n",
@@ -35,13 +34,13 @@
             "end": 148
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "AMBER99SB-ILDB",
             "start": 209,
             "end": 223
         },
         {
-            "label": "FFMNAME",
+            "label": "FFM",
             "text": "TIP3P",
             "start": 225,
             "end": 230
