@@ -86,7 +86,32 @@ def visualize_annotations_from_json_file(file_path: Path) -> None:
     print()
 
 
-def visualize_all_annotations_from_dir(annotation_dir: Path | str) -> None:
+def _load_selected_annotation_names(
+    selected_annotations_path: Path,
+) -> set[str]:
+    """
+    Load selected annotation file names from a text file.
+
+    Each line of the file must contain a path to a JSON annotation file.
+    Only the file name (not the full path) is retained for matching.
+
+    Parameters
+    ----------
+    selected_annotations_path : Path
+        Path to the text file containing annotation file paths.
+
+    Returns
+    -------
+    set[str]
+        Set of JSON file names to keep.
+    """
+    with selected_annotations_path.open("r", encoding="utf-8") as file:
+        return {Path(line.strip()).name for line in file if line.strip()}
+
+
+def visualize_all_annotations_from_dir(
+    annotation_dir: Path | str, selected_annotations: Path | str | None = None
+) -> None:
     """
     Visualize all JSON annotation files in a directory.
 
@@ -94,9 +119,13 @@ def visualize_all_annotations_from_dir(annotation_dir: Path | str) -> None:
     ----------
     annotation_dir : Path | str
         Path to the directory containing JSON annotation files.
+    selected_annotations : Path | str | None, optional
+        Path to a text file containing paths to selected JSON annotation
+        files. Matching is performed on file names only.
     """
     # Create logger
     logger = create_logger()
+    # Validate annotation directories
     # Load all JSON annotation files in the specified directory
     annotation_files = list(Path(annotation_dir).glob("*.json"))
     logger.info(
@@ -105,6 +134,27 @@ def visualize_all_annotations_from_dir(annotation_dir: Path | str) -> None:
     if not annotation_files:
         logger.error(f"No JSON annotation files found in {annotation_dir}")
         return
+
+    if selected_annotations is not None:
+        selected_annotations_path = Path(selected_annotations)
+        # Validate that the selected annotations file exists
+        if not selected_annotations_path.exists():
+            logger.error(
+                f"Selected annotations file not found: {selected_annotations_path}"
+            )
+            return
+        # Load selected annotation file names
+        selected_names = _load_selected_annotation_names(
+            selected_annotations_path,
+        )
+        # Filter the list of annotation files
+        annotation_files = [
+            path for path in annotation_files if path.name in selected_names
+        ]
+        logger.info(f"After filtering, {len(annotation_files)} JSON files remain.")
+        if not annotation_files:
+            logger.warning("No matching JSON files found after filtering.")
+            return
 
     for annotation_file_path in annotation_files:
         # Visualize each annotation file
