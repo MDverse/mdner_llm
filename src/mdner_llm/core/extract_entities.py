@@ -67,33 +67,24 @@ model response (`.txt`). The command will retry up to 3 times in case of API
 errors.
 """
 
-# METADATAS
-__authors__ = ("Pierre Poulain", "Essmay Touami")
-__contact__ = "pierre.poulain@u-paris.fr"
-__copyright__ = "AGPL-3.0 license"
-__date__ = "2025"
-__version__ = "1.0.0"
-
-
-# LIBRARY IMPORTS
 import json
 import os
 import re
-import sys
 import time
-from datetime import datetime
+from datetime import UTC, datetime
+from importlib.resources import files
 from pathlib import Path
 from typing import Any
 
 import click
 import instructor
+import loguru
 from dotenv import load_dotenv
 from instructor.core import InstructorRetryException
 from instructor.core.exceptions import ModeError, ProviderError
 from instructor.core.exceptions import ValidationError as InstructorValidationError
 from llama_index.llms.openai import OpenAI as llamaOpenAI
 from llama_index.llms.openrouter import OpenRouter
-from loguru import logger
 from openai.types.chat import ChatCompletion
 from pydantic import ValidationError as PydanticValidationError
 from pydantic_ai import Agent
@@ -102,43 +93,9 @@ from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_core import ValidationError as CoreValidationError
 
-# UTILITY IMPORTS
+from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
-
-
-# FUNCTIONS
-def setup_logger(loguru_logger: Any, log_dir: str | Path = "logs") -> None:
-    """Configure a Loguru logger to write logs into a rotating daily log file.
-
-    Parameters
-    ----------
-    loguru_logger : Any
-        A Loguru logger instance (typically `loguru.logger`).
-    log_dir : str or Path, optional
-        Directory where log files will be stored. Default is "logs".
-    """
-    # Ensure log directory exists
-    log_folder = Path(log_dir)
-    log_folder.mkdir(parents=True, exist_ok=True)
-    # Reset any previous configuration
-    loguru_logger.remove()
-    # Define log format
-    fmt = (
-        "{time:YYYY-MM-DD HH:mm:ss}"
-        "| <level>{level:<8}</level> "
-        "| <level>{message}</level>"
-    )
-    loguru_logger.add(
-        log_folder / "evaluate_json_annotations_{time:YYYY-MM-DD}.log",
-        format=fmt,
-        level="DEBUG",
-    )
-    loguru_logger.add(
-        sys.stdout,
-        format=fmt,
-        level="DEBUG",
-    )
 
 
 def ensure_dir(ctx, param, value: Path) -> Path:
@@ -170,8 +127,7 @@ def ensure_dir(ctx, param, value: Path) -> Path:
 
 
 def load_text_and_groundtruth(
-    path_text: str | Path,
-    tag_prompt: str,
+    path_text: str | Path, tag_prompt: str, logger: "loguru.Logger" = loguru.logger
 ) -> tuple[str, ListOfEntities | ListOfEntitiesPositions]:
     """Load raw text and ground truth annotations from a JSON file.
 
@@ -186,6 +142,8 @@ def load_text_and_groundtruth(
     tag_prompt
         Annotation format selector. If equal to ``"json"``, entity positions
         are removed.
+    logger
+        Logger instance for logging messages.
 
 
     Returns
@@ -234,18 +192,18 @@ def load_text_and_groundtruth(
     return text_to_annotate, groundtruth
 
 
-def load_prompt(
-    path_prompt: Path,
-) -> str:
-    """Load a prompt from a text file.
+def load_prompt(file_prompt: Path, logger: "loguru.Logger" = loguru.logger) -> str:
+    """Load the JSON few-shot prompt from the mdner_llm package.
 
-    The file is read using UTF-8 encoding. A short preview of the prompt
-    content is logged at debug level.
+    The prompt file is read using UTF-8 encoding. A short preview of
+    the prompt content is logged at debug level.
 
     Parameters
     ----------
-    path_prompt
+    file_prompt : Path
         Path to the text file containing the prompt.
+    logger : loguru.Logger
+        Logger instance for logging messages.
 
     Returns
     -------
@@ -255,16 +213,21 @@ def load_prompt(
     Raises
     ------
     FileNotFoundError
-        If the prompt file does not exist.
+        If the prompt file does not exist in the package resources.
     """
+    file_prompt = Path(file_prompt)
     try:
-        prompt = path_prompt.read_text(encoding="utf-8")
+        prompt = (
+            files("mdner_llm.prompt_templates")
+            .joinpath(file_prompt)
+            .read_text(encoding="utf-8")
+        )
     except FileNotFoundError:
-        logger.error(f"File not found: {path_prompt}")
+        logger.error("Prompt file not found in mdner_llm.prompt_templates")
         raise
 
     preview = prompt[:75].replace("\n", " ")
-    logger.debug(f"Loaded prompt ({len(prompt)} chars): {preview}...\n")
+    logger.debug(f"Loaded prompt ({len(prompt)} chars): {preview}...")
 
     return prompt
 
@@ -326,6 +289,7 @@ def annotate_with_instructor(
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[
     ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
 ]:
@@ -402,8 +366,6 @@ def annotate_with_instructor(
             response_model=response_model,
             max_retries=max_retries,
         )
-        elapsed_time: int | float = time.time() - start_time
-        return llm_response, elapsed_time
 
     except InstructorValidationError as exc:
         # Raised when the LLM output does not conform to the expected schema.
@@ -421,6 +383,11 @@ def annotate_with_instructor(
         logger.warning(f"Instructor error: {exc}")
         return None, 0
 
+    else:
+        # Only executes if no exception was raised
+        elapsed_time: int | float = time.time() - start_time
+        return llm_response, elapsed_time
+
 
 def annotate_with_llamaindex(
     text: str,
@@ -428,6 +395,7 @@ def annotate_with_llamaindex(
     api_key: str | None,
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[
     ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
 ]:
@@ -493,13 +461,16 @@ def annotate_with_llamaindex(
             structured_llm = base_llm.as_structured_llm(output_cls=response_model)
             llm_response = structured_llm.complete(f"{prompt}\n{text}").raw
             elapsed_time: int | float = time.time() - start_time
-            return llm_response, elapsed_time
 
         except (ValueError, PydanticValidationError) as exc:
             logger.warning(
                 "Structured parsing failed, falling back "
                 f"to the raw llm response: {exc}"
             )
+        else:
+            # Only executes if no exception was raised
+            elapsed_time: int | float = time.time() - start_time
+            return llm_response, elapsed_time
 
     # Raw LLM response
     start_time = time.time()
@@ -515,6 +486,7 @@ def annotate_with_pydanticai(
     prompt: str,
     response_model: ListOfEntities | ListOfEntitiesPositions | None,
     max_retries: int = 3,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[
     ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
 ]:
@@ -575,7 +547,6 @@ def annotate_with_pydanticai(
         )
         llm_response = agent.run_sync(f"{prompt}\n{text}").output
         elapsed_time: int | float = time.time() - start_time
-        return llm_response, elapsed_time
 
     except PydanticValidationError as e:
         logger.error(f"Pydantic validation error: {e}")
@@ -588,24 +559,29 @@ def annotate_with_pydanticai(
     except UnexpectedModelBehavior as e:
         logger.error(f"Unexpected model behavior: {e}")
         return None, 0
+    else:
+        # Only executes if no exception was raised
+        elapsed_time: int | float = time.time() - start_time
+        return llm_response, elapsed_time
 
 
 def extract_entities(
     tag_prompt: str,
-    path_prompt: Path,
+    file_prompt: Path,
     model: str,
     path_text: Path,
     framework: str,
     output_dir: Path,
     max_retries: int = 3,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """
     Extract structured entities from a text using a specified LLM and framework.
 
     Parameters
     ----------
-    path_prompt : Path
-        Path to the prompt file.
+    file_prompt : Path
+        Path to a text file containing the extraction prompt.
     model : str
         Model name to use for extraction.
     path_text : str
@@ -617,8 +593,9 @@ def extract_entities(
     max_retries : int (Default is 3)
         Maximum number of retries in case of API or validation failure.
         If either the text file or prompt file does not exist.
+    logger : loguru.Logger
+        Logger instance for logging messages.
     """
-    setup_logger(logger, log_dir=output_dir)
     logger.info("Starting the extraction of entities...")
     logger.debug(
         f"===================================================== "
@@ -627,15 +604,17 @@ def extract_entities(
     )
     logger.debug(
         f"🤖 Model: {model} | 🛠️ Framework: {framework} | 🏷️ Tag: {tag_prompt} | "
-        f"💬 Prompt path: {path_prompt} | 📂 Output dir: {output_dir} | "
+        f"💬 Prompt path: {file_prompt} | 📂 Output dir: {output_dir} | "
         f"🔁 Max retries: {max_retries}\n"
     )
 
     # Load text to annotate
-    text_to_annotate, groundtruth = load_text_and_groundtruth(path_text, tag_prompt)
+    text_to_annotate, groundtruth = load_text_and_groundtruth(
+        path_text, tag_prompt, logger
+    )
 
     # Load prompt from txt file
-    prompt = load_prompt(path_prompt)
+    prompt = load_prompt(file_prompt, logger)
 
     # Set response model and retries based on tag and framework
     if framework:
@@ -652,26 +631,34 @@ def extract_entities(
     api_key = os.getenv("OPENROUTER_API_KEY")
 
     # Run annotation and time it
-    if framework == "instructor" or framework == "none":
+    if framework in {"instructor", "none"}:
         if framework == "none":
             response_model = None
             max_retries = 0
         llm_response, inference_time = annotate_with_instructor(
-            text_to_annotate, model, api_key, prompt, response_model, max_retries
-        )
-
-    elif framework == "llamaindex":
-        llm_response, inference_time = annotate_with_llamaindex(
             text_to_annotate,
             model,
             api_key,
             prompt,
             response_model,
+            max_retries,
+            logger,
+        )
+
+    elif framework == "llamaindex":
+        llm_response, inference_time = annotate_with_llamaindex(
+            text_to_annotate, model, api_key, prompt, response_model, logger=logger
         )
 
     elif framework == "pydanticai":
         llm_response, inference_time = annotate_with_pydanticai(
-            text_to_annotate, model, api_key, prompt, response_model, max_retries
+            text_to_annotate,
+            model,
+            api_key,
+            prompt,
+            response_model,
+            max_retries,
+            logger=logger,
         )
 
     if llm_response is None:
@@ -682,7 +669,7 @@ def extract_entities(
         return
 
     # Prepare output paths
-    timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
     model_safe = sanitize_filename(model)
     base_name = f"{path_text.stem}_{model_safe}_{framework}_{timestamp}"
     json_output_path = output_dir / f"{base_name}.json"
@@ -695,8 +682,8 @@ def extract_entities(
         "text_file": str(path_text),
         "framework_name": framework,
         "model_name": model,
-        "prompt_path": str(path_prompt),
-        "tag_prompt": str(tag_prompt),
+        "prompt_path": str(file_prompt),
+        "tag_prompt": tag_prompt,
         "inference_time_sec": inference_time,
         "raw_llm_response": serialize_response(llm_response),
         "groundtruth": serialize_response(groundtruth),
@@ -729,10 +716,10 @@ def extract_entities(
     "(e.g., 'json' or 'json_with_positions').",
 )
 @click.option(
-    "--path-prompt",
-    required=True,
-    type=click.Path(exists=True, path_type=Path),
-    help="Path to the prompt file.",
+    "--file-prompt",
+    default="json_few_shot.txt",
+    type=click.Path(path_type=Path, dir_okay=False),
+    help="Path to a text file containing the extraction prompt.",
 )
 @click.option(
     "--model", required=True, type=str, help="Model name to use for extraction."
@@ -762,9 +749,9 @@ def extract_entities(
     type=int,
     help="Maximum number of retries in case of API or validation failure.",
 )
-def extract_entities_from_cli(
+def main(
     tag_prompt: str,
-    path_prompt: Path,
+    file_prompt: Path,
     model: str,
     path_text: Path,
     framework: str,
@@ -772,17 +759,18 @@ def extract_entities_from_cli(
     max_retries: int = 3,
 ) -> None:
     """CLI entrypoint."""
+    logger = create_logger()
     extract_entities(
         tag_prompt=tag_prompt,
-        path_prompt=path_prompt,
+        file_prompt=file_prompt,
         model=model,
         path_text=path_text,
         framework=framework,
         output_dir=output_dir,
         max_retries=max_retries,
+        logger=logger,
     )
 
 
-# MAIN PROGRAM
 if __name__ == "__main__":
-    extract_entities_from_cli()
+    main()
