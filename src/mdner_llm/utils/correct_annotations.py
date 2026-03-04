@@ -222,7 +222,7 @@ def load_ffm_list(md_path: Path) -> list[str]:
         for line in f:
             line = line.strip()
             # Ignore empty lines and comments (lines starting with # or *)
-            if not line or line.startswith("#") or line.startswith("*"):
+            if not line or line.startswith(("#", "*")):
                 continue
             ffm_names.append(line.split()[0])
 

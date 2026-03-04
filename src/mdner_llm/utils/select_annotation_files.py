@@ -45,18 +45,20 @@ according to entity coverage and recency, and writes their paths to:
 `results/50_selected_files_20260102.txt`
 """
 
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 import click
-from loguru import logger
+import loguru
 
+from mdner_llm.core.logger import create_logger
 from mdner_llm.utils.count_entities import CLASSES, compute_entity_counts_df
 
 
 def select_annotation_files(
     annotations_dir: Path,
     nb_files: int,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> list[Path]:
     """
     Select informative annotation JSON files from a directory.
@@ -177,7 +179,8 @@ def main(
 
     The output is a text file containing one annotation file path per line.
     """
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    logger = create_logger()
+    timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
 
     if res_path is None:
         res_path = Path(
@@ -188,6 +191,7 @@ def main(
     selected_files = select_annotation_files(
         annotations_dir=annotations_dir,
         nb_files=nb_files,
+        logger=logger,
     )
 
     with res_path.open("w", encoding="utf-8") as handle:

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Extract title and description from parquet files.
 
@@ -60,8 +59,7 @@ def sanitize_filename(value: str) -> str:
     str
         A sanitized version of the input string, safe for use as a filename.
     """
-    value = re.sub(r"[^\w\-\.]+", "_", value.strip())
-    return value
+    return re.sub(r"[^\w\-\.]+", "_", value.strip())
 
 
 def iter_parquet_files(directory: Path) -> Iterable[Path]:
