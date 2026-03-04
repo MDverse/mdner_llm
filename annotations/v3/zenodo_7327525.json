@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Raw data for: Cell-free biosynthesis combined with deep learning accelerates de novo-development of antimicrobial peptides\n\nThis repository contains data related to \"Cell-free biosynthesis combined with deep learning accelerates de novo-development of antimicrobial peptides\" by Pandi et al.\nIncluded are molecular dynamics parameter files, initial structures after system equilibration and production trajectories. For simulations of AMPs with membranes, trajectories are subsampled with 1 frame every 5 ns and final structures after 1 μs of production simulation are included.\nContact information:\nName: Stefan L. Schaefer\nInstitution: Department of Theoretical Biophysics, Max Planck Institute of Biophysics\nAddress: Max-von-Laue-Str. 3, 60438 Frankfurt am Main, Germany\nEmail: stefan.schaefer@biophys.mpg.de",
+    "raw_text": "Raw data for: Cell-free biosynthesis combined with deep learning accelerates de novo-development of antimicrobial peptides\nThis repository contains data related to \"Cell-free biosynthesis combined with deep learning accelerates de novo-development of antimicrobial peptides\" by Pandi et al.\nIncluded are molecular dynamics parameter files, initial structures after system equilibration and production trajectories. For simulations of AMPs with membranes, trajectories are subsampled with 1 frame every 5 ns and final structures after 1 μs of production simulation are included.\nContact information:\nName: Stefan L. Schaefer\nInstitution: Department of Theoretical Biophysics, Max Planck Institute of Biophysics\nAddress: Max-von-Laue-Str. 3, 60438 Frankfurt am Main, Germany\nEmail: stefan.schaefer@biophys.mpg.de",
     "entities": [
         {
             "label": "MOL",

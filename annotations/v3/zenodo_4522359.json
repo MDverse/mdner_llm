@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "All-atom Phospholipid membranes of various sizes and compositions\n\nPublication: Ripple-like instability in the simulated gel phase of finite size phosphocholine bilayers\nPublished on: To be published\nJournal: To be submitted\nDescription: Simulation files of different lipid bilayer made either of DPPC, DPPE or DSPC. Different number of lipids per bilayers are provided (given in the name of the file). The average number of water molecules per lipid is circa 160 water molecules per lipid.\nComplete simulations are provided for two of the systems\nSimulation details:\n\nSoftware: Gromacs (v. 2016.4)\nForcefield: Charmm36 (v. June 2015) - Water: TIP3P\nThermostat: Nose-hoover (0.4ps, 2 groups)\nBarostat: Parrinello-Rahman semi-isotropic (2.0ps, 1.0 bar on each axis, 4.5e-5 bar-1)\nDuration: 50 ns\n",
+    "raw_text": "All-atom Phospholipid membranes of various sizes and compositions\nPublication: Ripple-like instability in the simulated gel phase of finite size phosphocholine bilayers\nPublished on: To be published\nJournal: To be submitted\nDescription: Simulation files of different lipid bilayer made either of DPPC, DPPE or DSPC. Different number of lipids per bilayers are provided (given in the name of the file). The average number of water molecules per lipid is circa 160 water molecules per lipid.\nComplete simulations are provided for two of the systems\nSimulation details:\nSoftware: Gromacs (v. 2016.4)\nForcefield: Charmm36 (v. June 2015) - Water: TIP3P\nThermostat: Nose-hoover (0.4ps, 2 groups)\nBarostat: Parrinello-Rahman semi-isotropic (2.0ps, 1.0 bar on each axis, 4.5e-5 bar-1)\nDuration: 50 ns\n",
     "entities": [
         {
             "label": "MOL",

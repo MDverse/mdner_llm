@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations\n\nDataset and supplementary files of the research: Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations (https://doi.org/10.1101/121681)\n- Supporting Information\n- Input: Parameters and initial structures\n- Output: Trajectories, Docking poses\nGromacs (multi-core with CUDA) was used for the simulations.\nAutodock Vina, FlexAid and rDock were used for molecular docking.",
+    "raw_text": "Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations\nDataset and supplementary files of the research: Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations (https://doi.org/10.1101/121681)\n- Supporting Information\n- Input: Parameters and initial structures\n- Output: Trajectories, Docking poses\nGromacs (multi-core with CUDA) was used for the simulations.\nAutodock Vina, FlexAid and rDock were used for molecular docking.",
     "entities": [
         {
             "label": "MOL",

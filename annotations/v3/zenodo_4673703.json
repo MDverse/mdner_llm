@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Data from \"Phase equilibrium of liquid water and hexagonal ice from enhanced sampling molecular dynamics simulations\"\n\nThis repository contains the input files to reproduce the results of the paper mentioned above. Brief summary of the contents of each folder:\n\nEnvironments : This folder has the reference environments that will be used for the definition of the CV\nEquilibration : Input and output files for the equilibration of liquid water and ice Ih. Distributions of the kernel and equilibrium box sizes for production runs.\nBiasedSimulations : Input and output files for the biased simulations (production runs).\n\nMost of the analysis of the simulations is described in a Jupyter Notebook in BiasedSimulations/Analysis.ipynb.",
+    "raw_text": "Data from \"Phase equilibrium of liquid water and hexagonal ice from enhanced sampling molecular dynamics simulations\"\nThis repository contains the input files to reproduce the results of the paper mentioned above. Brief summary of the contents of each folder:\nEnvironments : This folder has the reference environments that will be used for the definition of the CV\nEquilibration : Input and output files for the equilibration of liquid water and ice Ih. Distributions of the kernel and equilibrium box sizes for production runs.\nBiasedSimulations : Input and output files for the biased simulations (production runs).\nMost of the analysis of the simulations is described in a Jupyter Notebook in BiasedSimulations/Analysis.ipynb.",
     "entities": [
         {
             "label": "MOL",
