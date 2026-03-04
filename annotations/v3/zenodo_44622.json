@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of deprotonated pazePC (Berger, Gromacs 4.5.)\nSimulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al., https://doi.org/10.1021/acs.langmuir.6b00788.\n \n90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 120ns.\n \nForce field for POPC is based on Berger model and force field for pazePC is from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96(7), 2734 – 2743, http://dx.doi.org/10.1016/j.bpj.2009.01.007.\n \nIf used, please cite approriate publications.",
+    "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of deprotonated pazePC (Berger, Gromacs 4.5.)\n\nSimulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al., https://doi.org/10.1021/acs.langmuir.6b00788.\n \n90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 120ns.\n \nForce field for POPC is based on Berger model and force field for pazePC is from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96(7), 2734 – 2743, http://dx.doi.org/10.1016/j.bpj.2009.01.007.\n \nIf used, please cite approriate publications.",
     "entities": [
         {
             "label": "MOL",

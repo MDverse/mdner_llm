@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Datasets for \"Resolving the microscopic hydrodynamics at the moving contact line\"\nDatasets for the article:\n\"Resolving the microscopic hydrodynamics at the moving contact line\" \nAmal K. Giri, Paolo Malgaretti, Dirk Peschka, and Marcello Sega\nPhys. Rev. Fluids 7, L102001\nDOI: 10.1103/PhysRevFluids.7.L102001\nIncludes:\nGROMACS input files\nModifications to the GROMACS source code thermostat as described in the article\nInstructions on how to invoke the patched version of GROMACS with decoupled directions\nMatlab datafiles with FE solutions and scripts to analyse and compare them to MD velocity field (also included)\n \nSee also: \nhttps://github.com/Marcello-Sega/pytim\nhttps://github.com/dpeschka/stokes-free-boundary",
+    "raw_text": "Datasets for \"Resolving the microscopic hydrodynamics at the moving contact line\"\n\nDatasets for the article:\n\"Resolving the microscopic hydrodynamics at the moving contact line\" \nAmal K. Giri, Paolo Malgaretti, Dirk Peschka, and Marcello Sega\nPhys. Rev. Fluids 7, L102001\nDOI: 10.1103/PhysRevFluids.7.L102001\nIncludes:\n\nGROMACS input files\nModifications to the GROMACS source code thermostat as described in the article\nInstructions on how to invoke the patched version of GROMACS with decoupled directions\nMatlab datafiles with FE solutions and scripts to analyse and compare them to MD velocity field (also included)\n\n \nSee also: \nhttps://github.com/Marcello-Sega/pytim\nhttps://github.com/dpeschka/stokes-free-boundary",
     "entities": [
         {
             "label": "SOFTNAME",

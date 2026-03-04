@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
+    "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\n\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
     "entities": [
         {
             "label": "MOL",

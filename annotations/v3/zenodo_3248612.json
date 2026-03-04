@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulation CER160_128_POPC_512_NaCl_150mM_310K_rep1 membrane\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation 512 POPCs membrane containing 128 ceramides (CER160)  using charmm36 at 310K.\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 3000 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC        512\nCER160    128\nSOL      32000\nNA             86\nCL              86\nAdditional information:",
+    "raw_text": "Simulation CER160_128_POPC_512_NaCl_150mM_310K_rep1 membrane\n\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation 512 POPCs membrane containing 128 ceramides (CER160)  using charmm36 at 310K.\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 3000 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC        512\nCER160    128\nSOL      32000\nNA             86\nCL              86\nAdditional information:",
     "entities": [
         {
             "label": "MOL",

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "EntF*-D3\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form\n-starting coordinates posre.gro\nenergy minimized and water+ions equilibrated around peptide\n-topology topol.top\nforce field AMBER99SB-ILDB, TIP3P water\nprotonation states at pH = 3 (E,K protonated)\n[NaCl] = 25 mM\ndisulfide bond generated between residues 14 and 6\n-md settings md.mdp\ntime step 2 fs, temperature = 298 K, pressure = 1 bar\n-1 microsecond trajectory dry.xtc, dry.gro\nframe rate 10 ps, water and ions removed, box centered on peptide\n-analysis files\nframe rate 1 ps\nradius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+    "raw_text": "EntF*-D3\n\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form\n\n-starting coordinates posre.gro\nenergy minimized and water+ions equilibrated around peptide\n-topology topol.top\nforce field AMBER99SB-ILDB, TIP3P water\nprotonation states at pH = 3 (E,K protonated)\n[NaCl] = 25 mM\ndisulfide bond generated between residues 14 and 6\n-md settings md.mdp\ntime step 2 fs, temperature = 298 K, pressure = 1 bar\n-1 microsecond trajectory dry.xtc, dry.gro\nframe rate 10 ps, water and ions removed, box centered on peptide\n-analysis files\nframe rate 1 ps\nradius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
     "entities": [
         {
             "label": "MOL",

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Dataset for the Manuscript: Structural and mechanistic insights into the cleavage of clustered O-glycan patches-containing glycoproteins by mucinases of the human gut (in revision)\nThis dataset provides the classical and QM/MM MD simulation trajectory data to the manuscript:\nStructural and mechanistic insights into the cleavage of clustered O-glycan patches-containing glycoproteins by mucinases of the human gut\nThe data set contains classical MD simulations of AM0627 with three substrate peptides P1, P2, P9, and BT4244 with glycopeptides, as well as QM/MM metadynamics simulations for our manuscript. PDB files for Figures 4,5 and Figure S5-8,10 are also included.",
+    "raw_text": "Dataset for the Manuscript: Structural and mechanistic insights into the cleavage of clustered O-glycan patches-containing glycoproteins by mucinases of the human gut (in revision)\n\nThis dataset provides the classical and QM/MM MD simulation trajectory data to the manuscript:\nStructural and mechanistic insights into the cleavage of clustered O-glycan patches-containing glycoproteins by mucinases of the human gut\nThe data set contains classical MD simulations of AM0627 with three substrate peptides P1, P2, P9, and BT4244 with glycopeptides, as well as QM/MM metadynamics simulations for our manuscript. PDB files for Figures 4,5 and Figure S5-8,10 are also included.",
     "entities": [
         {
             "label": "MOL",

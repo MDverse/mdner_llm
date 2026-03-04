@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Pyridinylimidazoles as GSK3β inhibitors: the impact of tautomerism on compound activity via water networks\nData related to publication:\nHeider et al.: Pyridinylimidazoles as GSK3β inhibitors: the impact of tautomerism on compound activity via water networks.\nThe files include:\n1) Output conformations of the QM Tautomer & Conformation Predictor of Maestro (Schrödinger, LLC, New York, NY, 2018) of the compounds 1, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3j, 3k, 3l, 3m, 6f and 6g [.mae and .sdf files].\n2) Movies of the MD simulations of compounds 3a, 3j, 4a, 4b, 6b, 6g (6GN1) and movies (*_2) of 3a, 3j, 6b, 6g (4PTC) [.mpg files] .\n3) Raw Desmond trajectory files of the MD simulations of the compounds 3a, 3j, 4a, 4b, 6b, 6g [out.cms and the full trj files].\n \n ",
+    "raw_text": "Pyridinylimidazoles as GSK3β inhibitors: the impact of tautomerism on compound activity via water networks\n\nData related to publication:\nHeider et al.: Pyridinylimidazoles as GSK3β inhibitors: the impact of tautomerism on compound activity via water networks.\nThe files include:\n1) Output conformations of the QM Tautomer & Conformation Predictor of Maestro (Schrödinger, LLC, New York, NY, 2018) of the compounds 1, 3a, 3b, 3c, 3d, 3e, 3f, 3g, 3h, 3j, 3k, 3l, 3m, 6f and 6g [.mae and .sdf files].\n2) Movies of the MD simulations of compounds 3a, 3j, 4a, 4b, 6b, 6g (6GN1) and movies (*_2) of 3a, 3j, 6b, 6g (4PTC) [.mpg files] .\n3) Raw Desmond trajectory files of the MD simulations of the compounds 3a, 3j, 4a, 4b, 6b, 6g [out.cms and the full trj files].\n \n\n ",
     "entities": [
         {
             "label": "MOL",
