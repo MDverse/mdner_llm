@@ -1,9 +1,70 @@
 """ """
 
+import json
 import operator
+from pathlib import Path
 
 import pandas as pd
+from gliner2.training.data import InputExample
 from loguru import logger
+
+
+def build_train_examples(
+    selected_annotation_paths: list[Path],
+    entity_descriptions: dict[str, str] | None = None,
+) -> list[InputExample]:
+    """
+    Build InputExample objects from annotation JSON files.
+
+    Parameters
+    ----------
+    selected_annotation_paths : list[Path]
+        List of annotation JSON file paths.
+    entity_descriptions : dict[str, str] | None
+        Optional mapping from label to description.
+
+    Returns
+    -------
+    list[InputExample]
+        List of formatted InputExample objects.
+
+    Raises
+    ------
+    FileNotFoundError
+        If any annotation file is not found.
+    """
+    train_examples = []
+    for annotation_path in selected_annotation_paths:
+        if not annotation_path.exists():
+            msg = f"Annotation file not found: {annotation_path}"
+            raise FileNotFoundError(msg)
+
+        with annotation_path.open("r", encoding="utf-8") as f:
+            json_data = json.load(f)
+
+        raw_text = json_data["raw_text"]
+        raw_entities = json_data.get("entities", [])
+
+        formatted_entities = {}
+        for ent in raw_entities:
+            label = ent["label"]
+            value = ent["text"]
+
+            if label not in formatted_entities:
+                formatted_entities[label] = []
+
+            # Remove duplicates while preserving order
+            if value not in formatted_entities[label]:
+                formatted_entities[label].append(value)
+
+        example = InputExample(
+            text=raw_text,
+            entities=formatted_entities,
+            entity_descriptions=entity_descriptions or {},
+        )
+        train_examples.append(example)
+
+    return train_examples
 
 
 def compare_entities(groundtruth: dict, response: dict) -> None:
