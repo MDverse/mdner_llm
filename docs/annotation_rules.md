@@ -49,7 +49,7 @@ This entity refers to any force field or molecular model used to describe the in
 - `the force field` 🚫 → Too generic
 - `TIP3P water` 🚫 → Annotate only `TIP3P` FFM
 
-See also in [`ffm.yaml`](ffm.yaml) of a list of force fields and models.
+See also [`ffm.yaml`](ffm.yaml) for a list of force fields and models.
 
 ## Software name (SOFTNAME) ⚙️
 
@@ -71,7 +71,7 @@ This entity refers to the name of any software used for molecular simulation, vi
 - `the simulation software` 🚫 → No specific name
 - `GROMACS software` 🚫 → Annotate only `GROMACS` ✅
 
-See also in [`softname.yaml`](softname.yaml) of a list of molecular dynamics software.
+See also [`softname.yaml`](softname.yaml) for a list of molecular dynamics software.
 
 ## Software version (SOFTVERS) 🔢
 

@@ -6,10 +6,10 @@ This project explores methods for automatically annotating dataset descriptions 
 
 ## Annotation dataset
 
-A dataset of about 280 annotated texts is avaible in the `annotations` folder.
+A dataset of about 280 annotated texts is available in the `annotations` folder.
 These texts are the title and description of molecular dynamics simulation datasets scraped from Zenodo and Figshare.
 
-These texts had been annotated with [annotation rules](docs/annotation_rules.md).
+These texts have been annotated with [annotation rules](docs/annotation_rules.md).
 
 ## Using large language models
 

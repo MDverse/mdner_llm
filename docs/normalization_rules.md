@@ -6,7 +6,7 @@ See the [annotation rules](annotation_rules.md) document for the definition of e
 
 ## For all entities
 
-- Normalize text to lowercase (e.g., `POPC` → `popc`).
+- Normalize text to lowercase (e.g., `POPC` → `popc`). To be confirmed !!
 
 ## Molecule (MOL)
 
