@@ -109,7 +109,7 @@ This entity refers to the duration for which a production molecular dynamics sim
 ### Examples
 
 - `5 × 200` ✅
-- `50 picoseconds`
+- `50 picoseconds` ✅
 - `100 ns` ✅
 - `three runs of 500 each` ✅
 - `4-8 μs` ✅
