@@ -1,6 +1,6 @@
 # Normalization rules
 
-This document privides the guidelines for automatically normalizing entities retrieved from scientific texts related to molecular simulations.
+This document provides the guidelines for automatically normalizing entities retrieved from scientific texts related to molecular simulations.
 
 See the [annotation rules](annotation_rules.md) document for the definition of entities.
 
