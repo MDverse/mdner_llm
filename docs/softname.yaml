@@ -1,0 +1,20 @@
+---
+title: Software name
+---
+
+SOFTNAME:
+  - amber
+  - autodock
+  - charmm
+  - colvar
+  - desmond
+  - gromacs
+  - lammps
+  - namd
+  - openbabel
+  - orcaflex
+  - plumed
+  - pymol
+  - qchem
+  - schrodinger
+  - vmd
