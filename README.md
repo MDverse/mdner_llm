@@ -11,7 +11,7 @@ These texts are the title and description of molecular dynamics simulation datas
 
 These texts had been annotated with [annotation rules](docs/annotation_rules.md).
 
-## Using large language modesl
+## Using large language models
 
 Because Large Language Models (LLMs) are inherently non-deterministic, we aim to enforce structured and reproducible outputs using a strict [Pydantic](https://docs.pydantic.dev/1.10/) schema. Below is a Mermaid diagram that summarizes the schema used to capture detected entities:
 
