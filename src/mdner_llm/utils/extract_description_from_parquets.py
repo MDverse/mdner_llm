@@ -138,8 +138,8 @@ def process_parquet_file(parquet_path: Path, output_dir: Path) -> int:
 @click.option(
     "--output-dir",
     type=click.Path(file_okay=False, path_type=Path),
-    required=True,
     help="Directory where output text files will be written.",
+    default="annotations/v3",
 )
 def main(input_dir: Path, output_dir: Path) -> None:
     """CLI entry point.
