@@ -8,5 +8,6 @@
         "TEMP"
     ],
     "raw_text": "Adsorption and Diffusion of Oxygen on Pure and Partially Oxidized Metal Surfaces in Ultrahigh Resolution\nThe\ninteraction of gas molecules with metal and oxide surfaces\nplays a critical role in corrosion, catalysis, sensing, and heterogeneous\nmaterials. However, insights into the dynamics of O2 from\npicoseconds to microseconds have remained unavailable to date. We\nobtained 3D potential energy surfaces for adsorption of O2 on 11 common pristine and partially oxidized (hkl) surfaces of Ni\nand Al in picometer resolution and high accuracy of 0.1 kcal/mol,\nidentified binding sites, and surface mobility from 25 to 300 °C.\nWe explain relative oxidation rates and parameters for oxide growth.\nWe employed over 150 000 molecular mechanics and molecular\ndynamics simulations with the interface force field (IFF) using structural\ndata from X-ray diffraction (XRD) and low-energy electron diffraction\n(LEED). The methods reach 10 to 50 times higher accuracy than possible\nbefore and are suited to analyze gas interactions with metals up to\nthe micrometer scale including defects and irregular nanostructures.",
-    "entities": []
+    "entities": [],
+    "url": "https://acs.figshare.com/articles/dataset/Adsorption_and_Diffusion_of_Oxygen_on_Pure_and_Partially_Oxidized_Metal_Surfaces_in_Ultrahigh_Resolution/20118543"
 }

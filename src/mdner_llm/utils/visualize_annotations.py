@@ -11,8 +11,19 @@ from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 
+COLORS = {
+    "TEMP": "#ffb3ba",
+    "SOFTNAME": "#ffffba",
+    "SOFTVERS": "#ffffe4",
+    "STIME": "#baffc9",
+    "MOL": "#bae1ff",
+    "FFM": "#cdb4db",
+}
 
-def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]:
+
+def _convert_annotations_to_displacy(
+    json_data: dict[str, Any],
+) -> list[dict[str, Any]]:
     """
     Convert a custom JSON annotation file to spaCy displaCy format.
 
@@ -22,8 +33,8 @@ def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]
 
     Parameters
     ----------
-    file_path : str | Path
-        Path to the JSON file.
+    json_data : dict[str, Any]
+        The JSON data containing the raw text and entities.
 
     Returns
     -------
@@ -31,11 +42,6 @@ def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]
         A list containing a single dictionary formatted for displaCy
         with keys "text" and "ents".
     """
-    # Load annotation data from JSON file
-    path = Path(file_path)
-    with path.open(encoding="utf-8") as file:
-        data = json.load(file)
-
     # Convert entity spans to displaCy-compatible format
     ents = [
         {
@@ -43,11 +49,11 @@ def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]
             "end": item["end"],
             "label": item["label"],
         }
-        for item in data["entities"]
+        for item in json_data["entities"]
     ]
 
     # Return displaCy input structure
-    return [{"text": data["raw_text"], "ents": ents}]
+    return [{"text": json_data["raw_text"], "ents": ents}]
 
 
 def visualize_annotations_from_json_file(file_path: Path) -> None:
@@ -59,26 +65,21 @@ def visualize_annotations_from_json_file(file_path: Path) -> None:
     file_path : Path
         Path to the JSON annotation file.
     """
-    # Define entity label colors
-    colors = {
-        "TEMP": "#ffb3ba",
-        "SOFTNAME": "#ffffba",
-        "SOFTVERS": "#ffffe4",
-        "STIME": "#baffc9",
-        "MOL": "#bae1ff",
-        "FFM": "#cdb4db",
-    }
-
-    options = {"colors": colors}
+    # Load annotation data from JSON file
+    path = Path(file_path)
+    with path.open(encoding="utf-8") as file:
+        data = json.load(file)
 
     # Print header in console
     print("=" * 80)
-    print(f"VISUALIZATION OF ENTITIES ({file_path.name})")
+    print(f"VISUALIZATION OF ENTITIES ({file_path.name}: {data['url']})")
     print("=" * 80)
 
     # Convert annotations and render with displaCy
-    converted_data = convert_annotations_from_file(str(file_path))
-    displacy.render(converted_data, style="ent", manual=True, options=options)
+    converted_data = _convert_annotations_to_displacy(data)
+    displacy.render(
+        converted_data, style="ent", manual=True, options={"colors": COLORS}
+    )
 
     print()
 
@@ -263,18 +264,11 @@ def visualize_llm_annotation(
     text_to_annotate (str):
         The original text on which entities were predicted.
     """
-    colors = {
-        "TEMP": "#ffb3ba",
-        "SOFTNAME": "#ffffba",
-        "SOFTVERS": "#ffffe4",
-        "STIME": "#baffc9",
-        "MOL": "#bae1ff",
-        "FFM": "#cdb4db",
-    }
-    options = {"colors": colors}
     print("=" * 80)
     print("🧐 VISUALIZATION OF ENTITIES ")
     print("=" * 80)
     converted_data = convert_annotations_from_llm(response, text_to_annotate)
-    displacy.render(converted_data, style="ent", manual=True, options=options)
+    displacy.render(
+        converted_data, style="ent", manual=True, options={"colors": COLORS}
+    )
     print()
