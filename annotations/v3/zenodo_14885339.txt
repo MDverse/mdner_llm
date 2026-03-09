@@ -1,3 +1,0 @@
-OpenFF Pure POPC Water Type and Short Range Interaction Tests
-
-TIP3P, TIP3P-FB, and OPC3 POPC bilayer simulations with vdwtype interactions set to PME or a 0.9 nm cutoff. Both Sage 2.2.0 and 2.2.1 aux refit parameters were simulated (6 sims each).

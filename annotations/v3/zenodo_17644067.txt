@@ -1,3 +1,0 @@
-Simulation input files for "TMEM63 proteins act as mechanically activated cholesterol modulated lipid scramblases contributing to membrane mechano-resilience"
-
-This repository contains input files used for running the coarse-grained molecualr dynamics (CGMD) and all-atom molecualr dynamics (AAMD) simulations described in the paper "TMEM63 proteins act as mechanically activated cholesterol modulated lipid scramblases contributing to membrane mechano-resilience" by Yiechang Lin et al.The data is stored in seperate zip files describing the protein structures, CGMD inputs and AAMD inputs.Deatls of the methods are contained in the manuscript

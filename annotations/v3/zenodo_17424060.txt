@@ -1,4 +1,0 @@
-FXR_CDCA, FXR_GW
-
-description:Mrg_538_1_4 is 7µs simulation for  FXR bound to CDCA,  an endogenous ligand.
-Al_538_1_4 is 4µs simulation for  FXR bound to CDCA,  an endogenous ligand.

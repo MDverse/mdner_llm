@@ -1,4 +1,0 @@
-Translational recoding by chemical modification of non-AUG start codon bases: Simulation dataset
-
-Dataset of molecular dynamics simulations for RNA binding in ribosomal pre-initiation complex.
-NAMD version 2.13 (multi-core) was used for the simulations.

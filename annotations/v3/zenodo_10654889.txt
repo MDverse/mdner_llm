@@ -1,2 +1,0 @@
-Available data for "Generating Concentration Gradients Across Membranes for Molecular Dynamics Simulations of Periodic Systems"
-

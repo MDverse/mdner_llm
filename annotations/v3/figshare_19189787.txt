@@ -1,3 +1,0 @@
-MD trajectories of linear organic dialkylcarbonates
-
-The dataset provides trajectories of pure liquid dialkyl carbonates at 20 Celsius.Updated: added trajectories for the D09C and D84C systems at 20 Celsius.

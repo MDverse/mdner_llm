@@ -1,6 +1,0 @@
-Dataset related to publication: "Bromo-substituted indirubins for inhibition of protein kinase-mediated signalling involved in inflammatory mediator release in human monocytes"
-
-Dataset related to publication: Bachmann et al. "Bromo-substituted indirubins for inhibition of protein kinase-mediated signalling involved in inflammatory mediator release in human monocytes".  Bioorganic Chemistry (2024) https://doi.org/10.1016/j.bioorg.2024.107470 
-
-Full Desmond MD simulation trajectories of the 10 replica simulations of compounds 1 and 2 bound to GSK-3beta (.zip files contain the -out.cms file and the trajectory)
-Maestro Glide XP docking output pose viewer files of compounds 1 and 2 for CDKs (PDB IDs in the filenames)(.maegz -files)

@@ -1,3 +1,0 @@
-Parameter file used for the energy minimization step in GROMACS molecular dynamics simulations.
-
-This file applies the steepest descent algorithm with a maximum of 50,000 steps and a convergence criterion of 1000 kJ/mol/nm, ensuring removal of steric clashes and relaxation of initial structures before equilibration. This file is in plain text format but is intended for use with GROMACS; users should open it with a text editor or within the GROMACS environment. (MDP)

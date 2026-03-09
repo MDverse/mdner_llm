@@ -1,3 +1,0 @@
-Cage-Effect-Induced Intermittent Dynamics Govern Proton Conductivity in Nafion Proton Exchange Membranes
-
-The uploaded file contains the code necessary to compute the caging function used to identify cage-rattling motion and cage jumps, as introduced in our manuscript titled “Cage-Effect-Induced Intermittent Dynamics Govern Proton Conductivity in Nafion Proton Exchange Membranes”. Also included is the trajectory file from a GROMACS simulation of proton transport in Nafion at a hydration level of 15 and under an external electric field of 0.5 V/nm. Furthermore, the raw data generated from the caging function analysis of this trajectory is provided.

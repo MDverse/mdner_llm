@@ -1,4 +1,0 @@
-Large membranes crowded with proteins at different temperatures
-
-Simulation data for crowded coarse-grained (Martini) membranes with 36 proteins per system. Nomenclature follows that in the paper (CITATION TO BE ADDED), where also all simulation details are found. Simulations are performed at 4 temperatures (300, 315, 330, and 345 K), and there are a total of 3600 lipids in the systems. The topology and index files are common for all simulations. The simulation parameters follow DOI:10.5281/zenodo.846428, and the required topologies can also be obtained from that upload. smaller simulations of the same system are uploaded to DOI:10.5281/zenodo.3604282 and DOI:10.5281/zenodo.3604289
-.

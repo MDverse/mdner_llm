@@ -1,3 +1,0 @@
-POPC 120 POPS 24 Na counterions 1000mM CaCl CHARMM NBFIX REMOVED 298K
-
-prosECCo 75 paper related data

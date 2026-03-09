@@ -1,2 +1,0 @@
-Molecular dynamics data supporting Proton transport drives allosteric conformational changes in the MmpL3 transporter
-

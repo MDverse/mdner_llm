@@ -1,3 +1,0 @@
-Interface Adsorption versus Bulk Micellization of Surfactants: Insights from Molecular Simulations
-
-Essential files for Gromacs used in the study "Interface Adsorption versus Bulk Micellization of Surfactants: Insights from Molecular Simulations," JCTC to simulate C12EO6 surfactants in bulk water (as micelles) and at a decane/water interface (monolayer).

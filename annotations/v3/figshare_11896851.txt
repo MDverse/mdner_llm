@@ -1,3 +1,0 @@
-Selected trajectories
-
-Trajectories for the est results obtained from docking pesticides cataloged by the WHO on the beta-lactoglobulin from Bos taurus.Simulations carried out using FF14SB with TIP4P water. The trajectories shared here contain only the protein complexed with is ligand.To use these files a prmtop and a mdcrd are requiered. For example,Paraquat.prmtop and Paraquat.mdcrd

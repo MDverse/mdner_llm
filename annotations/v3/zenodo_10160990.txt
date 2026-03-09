@@ -1,3 +1,0 @@
-Supplementary Data for: "Evolution of phosphorylase activity in an ancestral glycosyltransferase"
-
-This dataset comprises computational data associated with the research article titled "Evolution of Phosphorylase Activity in an Ancestral Glycosyltransferase." Included are trajectory files generated from molecular dynamics simulations, along with all extracted data utilized in the study. Additionally, a separate folder is provided, containing all necessary data for the reproduction of figures 5 and 6 from the main text. This dataset enables the comprehensive exploration and validation of the findings presented in the associated article.

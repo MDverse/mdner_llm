@@ -1,6 +1,0 @@
-MD simulation trajectory of Ternary mixture of POPC/PSM/Chol (35:35:30) at 295 K: Slipids, GROMACS 5.1.4.
-
-MD simulation trajectory files for Ternary mixture of POPC/PSM/Chol [360 POPC, 352 PSM, 304 Chol and 35840 SOL]. The Slipids (2013 version) force field was used with Gromacs 5.1.4. Conditions: T=295K. Data saved every 20 ps. 100 ns trajectory.
- 
-PREEQTIME: 100 ns
-TIMELEFTOUT: 300 ns

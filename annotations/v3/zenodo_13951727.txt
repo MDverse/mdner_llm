@@ -1,3 +1,0 @@
-Molecular Dynamics of Engineered Hen-Egg Lysozymes
-
-This dataset contains Molecular Dynamics (MD) simulation trajectories of engineered hen-egg lysozymes, stored in DCD format. The simulations were conducted in explicit solvent environments, but water molecules have been excluded from the trajectories for storage. Each trajectory captures the dynamic properties of various engineered lysozyme variants, providing valuable insights into structural changes, stability, and function.

@@ -1,3 +1,0 @@
-Effects of different organic solvents on the structure of Aβ1−42 monomer
-
-These molecular dynamics simulation data support the following paper: Effects of different organic solvents on the structure of Aβ1−42 monomer (DOI: 10.1103/6c4s-bgyx)

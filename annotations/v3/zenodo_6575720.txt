@@ -1,6 +1,0 @@
-Amyloid-beta 16-22 peptide monomer simulation (150 mM NaCl) with the CHARMM36m force field and Gromacs (Run 2)
-
-MD simulations of the Amyloid-beta 16-22 monomer at 150 mM NaCl concentration with CHARMM36m force field and Gromacs. This repository contains the first out of three independent runs. 
-Files belong to the publication "https://doi.org/10.1021/acs.jcim.0c01063"
-All the simulation parameters and force field files are uploaded into this repository. Simulations are done with Gromacs 2018.3
-Total simulation time is 500 ns. Frames are saved with 100 ps frequency. 

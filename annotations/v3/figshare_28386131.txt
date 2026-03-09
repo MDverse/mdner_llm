@@ -1,3 +1,0 @@
-The simulation input files
-
-The simulation input files for the molecular dynamic simulations for cMDHs of marine mollusks.

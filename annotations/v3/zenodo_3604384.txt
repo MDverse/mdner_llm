@@ -1,3 +1,0 @@
-Single-protein simulations with a varying lipid-to-protein ratio
-
-Coarse-grained (Martini) simulations of a single protein in membranes with a varying number of DPPC lipids. There are 400, 200, 100, 75, or 50 lipids per leaflet. The simulation parameters follow DOI:10.5281/zenodo.846428, and the required topologies can also be obtained from that upload.  Details on the simulations are given in (ADD CITATION LATER). 

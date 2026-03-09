@@ -1,3 +1,0 @@
-Knowledge-driven design and optimization of potent symmetric anticancer molecules: A case study on PKM2 activators
-
-All the raw data files including 3D structures of all the 200 virtually designed palindromic and non-palindromic activators, 3D structures of top 5 palindromic and non-palindromic activators in complex with PKM2 protein, starting and ending conformations of MD simulation structures with the .tpr files for all six simulations for PDA116 and NPDA4 are available in this dataset.

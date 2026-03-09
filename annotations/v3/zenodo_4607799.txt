@@ -1,3 +1,0 @@
-Linear 5-bead particle in 2D Argon liquid
-
-Simple 2D models of anisotropic diffusion.

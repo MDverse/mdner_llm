@@ -1,3 +1,0 @@
-ice8p350.edr
-
-Energy log of a simulation equilibrated at 8 GPa and 350K

@@ -1,3 +1,0 @@
-Osh4 Membrane Contact Site Model 2024 (Klauda Lab)
-
-This is a set of NAMD trajectory files and associated PSF files (final PDB files) for two membrane contact site models associated with our journal manuscript. 

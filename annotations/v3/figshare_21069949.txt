@@ -1,3 +1,0 @@
-Trajectory files
-
-MD simulation studies of selected hits

@@ -1,4 +1,0 @@
-Molecular dynamics simulation data of designed cyclic peptide (ligand-only)
-
-Trajectories of ligand-only simulation and simulation set-up files of designed cyclic peptide as MDM2 binders. 
-The original paper of these designed cyclic peptide: Danelius, E., Pettersson, M., Bred, M., Min, J., Waddell, M. B., Guy, R. K., et al. (2016). Flexibility is important for inhibition of the MDM2/p53 protein–protein interaction by cyclic β-hairpins. Org. Biomol. Chem., 14(44), 10386–10393. http://doi.org/10.1039/C6OB01510G

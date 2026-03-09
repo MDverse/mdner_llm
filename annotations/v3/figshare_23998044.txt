@@ -1,3 +1,0 @@
-CD97MDfile.zip
-
-Input file and parameter file for CD97 MD simulations

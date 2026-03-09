@@ -1,4 +1,0 @@
-The 400 ns molecular dynamic (MD) trajectories for the wild type and mutant forms of the S. tuberosum eIF4E1 and eIF4E2
-
-Truncated from the N termini models of the wild type and mutant forms of the S. tuberosum eIF4E1 and eIF4E2. 
-The molecular dynamic (MD) trajectories with 400-ns length for each wild type and mutant forms of the eIF4E in the water environment according to the standard MD procedure.

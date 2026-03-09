@@ -1,3 +1,0 @@
-GTT-1-protein-009.dcd
-
-GromacsWW domain trajectoriesTrajectories dataTrajectories of WW domain

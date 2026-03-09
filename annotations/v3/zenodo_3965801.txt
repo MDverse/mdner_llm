@@ -1,3 +1,0 @@
-Simulation of a Lo/Ld phase coexistence in a DPPC/DOPC/Cholesterol mixture, larger membrane
-
-To be added.

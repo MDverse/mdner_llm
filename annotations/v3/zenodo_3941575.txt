@@ -1,4 +1,0 @@
-TS Ensemble for "Evolution of an interaction between disordered proteins resulted in increased heterogeneity of the binding transition state"
-
-These are the input files for a phi-value restrained molecular dynamics associated with this paper "Evolution of an interaction between disordered proteins resulted in increased heterogeneity of the binding transition state"
- 

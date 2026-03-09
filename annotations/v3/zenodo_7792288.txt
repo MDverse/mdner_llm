@@ -1,3 +1,0 @@
-Molecular dynamics-generated ensemble dataset of ubiquitin; for "PROTHON: A Local Order Parameter-Based Method for Efficient Comparison of Protein Ensembles"
-
-The molecular dynamics-generated ensemble dataset (229Mb zip file) for ubiquitin, used in the manuscript "PROTHON: A Local Order Parameter-Based Method for Efficient Comparison of Protein Ensembles", submitted to the Journal of Chemical Information and Modeling (JCIM). The dataset consists of 6 .dcd files, and one .pdb file. 

@@ -1,3 +1,0 @@
-Portable compressed binary MD trajectory file - 3KK8 A dP
-
-XTC trajectory

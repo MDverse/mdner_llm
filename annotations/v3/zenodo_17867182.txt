@@ -1,3 +1,0 @@
-Fully hydrated bilayer of POPC and cholesterol (6.7 mol-%) at 298 K simulated using CHARMM36
-
-All-atom MD simulation trajectory of a POPC:CHOL (15:1) lipid bilayer. 30 POPC (1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine) and 2 cholesterol (CHOL) molecules per leaflet. Simulated with GROMACS 2023.3 using the CHARMM36 force field as obtained from CHARMM-GUI on 08.12.2025. Temperature 298 K. Full hydration: 2832 molecules of CHARMM TIP3P water. The uploaded 200 ns trajectory, saved every 10 ps, was preceded by a 50 ns equilibration (not included in the upload); the included plot shows area-per-lipid over the whole 250 ns.

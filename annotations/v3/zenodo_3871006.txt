@@ -1,5 +1,0 @@
-MD simulations of bilayers containing POPC and Cholesterol: 64POPC_64CHL_31Nwat_neutral (lipid14)
-
-NMRLipids III CholXray project (nmrlipids.blogspot.fi)
-Gromacs 5.0.4, lipid14 FF (Madej et al. JPCB 2015, 119, 12424), 1 atm, 303K, 200ns
-128 lipids (64 POPC, 64 CHL), N_wat/lipid = 31, 25216 Atoms

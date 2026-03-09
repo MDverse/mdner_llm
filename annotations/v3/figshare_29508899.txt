@@ -1,3 +1,0 @@
-LiGaMD3 simulations for antibodies-bound GC-A
-
-Topology file: sys.parm7 (AMBER format)Initial coordinate file without lipid, ions and water: sys-protein.pdbLiGaMD3 equilibration input file: md.inLiGaMD3 production input file: md-restart.inLiGaMD3 representative comformation file: representative_intermediate_conformational_state_of_ANP.pdbFinal snapshot of LiGaMD3 simulations (800ns):run1-LiGaMD3-800ns.pdb (simulation 1)run2-LiGaMD3-800ns.pdb (simulation 2)run3-LiGaMD3-800ns.pdb (simulation 3)MD trajectory of LiGaMD3 simulations (800 ns with stride 1000 ps/frame):run1-LiGaMD3-stride1000ps.nc (simulation 1)run2-LiGaMD3-stride1000ps.nc (simulation 2)run3-LiGaMD3-stride1000ps.nc (simulation 3)

@@ -1,3 +1,0 @@
-Molecular Dynamics trajectory for ADK double mutant (V135G, V142G) - 100,000 frames - chain A in XTC format
-
-Molecular Dynamics trajectory in XTC format. Original wild-type structure from PDBID 4AKE. Mutations were inserted using PyRosetta. Simulation was run using GROMACS 2022.4 with the AMBER ff99SB*-ILDN force field. The file contains 100000 frames recorded every 10 ps.

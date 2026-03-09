@@ -1,4 +1,0 @@
-Conformational changes in the essential E. coli septal cell wall synthesis complex suggest an activation mechanism
-
-Molecular dynamics trajectories and data analysis notebooks to accompany the manuscript "Conformational changes in the essential E. coli septal cell wall synthesis complex suggest an activation mechanism"
-This dataset consists of a single zip archive. The archives contains two folders: one for molecular dynamics trajectories and one for data analysis notebooks. Each folder contains a README file describing files within.

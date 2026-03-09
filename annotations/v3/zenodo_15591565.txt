@@ -1,3 +1,0 @@
-Dataset for molecular dynamics simulations of histamine receptor (H1R, H4R) with G protein
-
-Molecular Dynamics simulations were performed for the H1R-Gq, H1R-Gi, H1R-Gs, H4R-Gi, and H4R-Gq complexes. This dataset contains the initial protein coordinates and the input/output files for each simulation.

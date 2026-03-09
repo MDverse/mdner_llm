@@ -1,4 +1,0 @@
-Simulation of a DMPC/PI bilayer
-
-Input and output files for a simulation of a bilayer containing 70% DMPC and 30% PI. The PI chains chains correspond to those found in the PI lipids in liver.
-Simulated at 303 K with GROMACS using the CHARMM36 force field for 2 µs.

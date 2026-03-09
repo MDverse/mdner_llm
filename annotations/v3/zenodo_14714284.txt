@@ -1,3 +1,0 @@
-OpenFF Sage 2.2.0 lipid bilayer simulations
-
-GROMACS files for OpenFF Sage 2.2.0 prior to parameter refitting. Trajectories have been processed using trjconv -skip 10 and the first 100 ns were removed.

@@ -1,3 +1,0 @@
-a-Synuclein MD simulations:homo-G51D
-
-Molecular dynamics simulations of a-Synuclein amyloids, homo-G51D

@@ -1,3 +1,0 @@
-Coarse grained molecular structure file representing a single S-Protein in close proximity to the membrane with Triton-X100.
-
-(GRO)

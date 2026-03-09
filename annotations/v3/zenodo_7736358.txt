@@ -1,3 +1,0 @@
-Micelle size screening - Gwalp tail anchor simulation - 45 SDS - Na neutralized - CHARMM36m - 310K - OPC water model
-
-Micelle size screening by varying the amount of SDS to investigate the influence on spin relaxation data.

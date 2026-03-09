@@ -1,4 +1,0 @@
-MD simulations of alphasynuclein with ions
-
-
-Gromacs Molecular dynamics trajectory files (.xtc) and molecular structure file (.gro) for alphasynuclein with ions using different initial structures and forcefields. Trajectories contain only protein and ions, no water. Simulations are related to "Conformational Rigidity Classification in Intrinsically Disordered Proteins via Integrated NMR and MD Simulations" https://doi.org/10.26434/chemrxiv-2025-m5m0p

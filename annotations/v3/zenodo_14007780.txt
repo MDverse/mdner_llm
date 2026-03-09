@@ -1,4 +1,0 @@
-Single-molecule imaging and molecular dynamics simulations reveal early activation of the MET receptor in situ
-
-Data and analysis notebooks supporting:
-Yunqing Li, Serena M. Arghittu, Marina S. Dietz, Gabriel J. Hella, Daniel Haße,  Davide M. Ferraris, Petra Freund, Hans-Dieter Barth, Hartmut H. Niemann, Roberto Covino, Mike Heilemann - "Single-molecule imaging and molecular dynamics simulations reveal early activation of the MET receptor in situ" (2024)

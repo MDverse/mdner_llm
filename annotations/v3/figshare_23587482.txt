@@ -1,3 +1,0 @@
-Molecular Dynamics Simulation of Polyacrylamide Adsorption on Calcite
-
-Supplementary material for " Molecular Dynamics Simulation of Polyacrylamide Adsorption on Calcite"

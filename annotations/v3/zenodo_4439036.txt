@@ -1,3 +1,0 @@
-LTF CHARMM Alkanes
-
-CHARMM36-Mar2019 models for 10C to 24C. Built with CHARMM-GUI.

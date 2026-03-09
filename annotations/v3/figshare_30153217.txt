@@ -1,3 +1,0 @@
-Crucial simulation input files
-
-This document contains crucial input files for the simulation in Gromacs, including a modified gromos54a7 force field, topology (.itp) and structure (.gro and .pdb) files for graphenes, hexane and SPC water model. Atom mass, partial charges, and interaction coefficients can be found in these documents.

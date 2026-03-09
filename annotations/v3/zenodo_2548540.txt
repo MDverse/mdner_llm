@@ -1,6 +1,0 @@
-Histone tail dynamics in partially disassembled nucleosomes during chromatin remodeling: Simulation dataset
-
-Dataset of molecular dynamics simulations of partially disassembled nucleosomes.
-- Input: Parameters and initial structures
-- Output: Trajectories
-NAMD 2.12 (multi-core with CUDA) was used for the simulations.

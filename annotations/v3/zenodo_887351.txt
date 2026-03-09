@@ -1,7 +1,0 @@
-MD simulation trajectory of a POPC bilayer with 100mM CaCl2, Berger force field for lipids, scaled charges for Ca2+ and Cl-
-
-MD simulation trajectory of a POPC bilayer with 100 mM CaCl2 (128 POPC, 26 POPS, 4452 WAT, 8 Ca2+, 16 Cl-). Berger force field for lipids, scaled charges employed for calcium and chloride ions. Gromacs 4.5.5, T=310K, 200 ns trajectories were calculated with the last 100 ns stored here).
-Used in (see therein also a detailed description of ion scaling):
-A. Melcrova, S. Pokorna, S. Pullanchery, M. Kohagen, P. Jurkiewicz, M. Hof, P. Jungwirth, P. S. Cremer, L. Cwiklik, The complex nature of calcium cation interactions with phospholipid bilayers
-Scientific Reports 2016, 6, 38035.
-DOI: 10.1038/srep38035

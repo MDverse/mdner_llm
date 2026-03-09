@@ -1,3 +1,0 @@
-150ns trajectory glyke w/ aptamer
-
-Trajectory of 150ns runfirst 100ns at 310Knext 40ns at 360Klast 10ns slow linear temperature quenching to 25Kabout 650 frames spaced at 200ps

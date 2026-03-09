@@ -1,3 +1,0 @@
-Supplemental data for Structural dynamics of therapeutic nucleic acids with phosphorothioate backbone modification, Carlesso et al.
-
-Description of the parameterization strategy for phosphorothioate-modified therapeutic nucleic acids, and files related to the system preparation, MD trajectories and analysis.

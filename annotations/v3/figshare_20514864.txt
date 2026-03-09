@@ -1,3 +1,0 @@
-Vanilla Amber
-
-Data to compare results as a companion to a github repo.

@@ -1,3 +1,0 @@
-Molecular dynamics trajectories of selected protein-glycosaminoglycan systems with ff14SB/GLYCAM06j and CHARMM36m force fields
-
-The following repository contains trajectory data from 1-microsecond MD simulations of the Fibroblast Growth Factor 2-heparin hexamer (PDB ID: 1BFC), Fibroblast Growth Factor 1-heparin hexamer (PDB ID: 2AXM) and Cathepsin K-chondroitin 4-sulfate hexamer (PDB ID: 4N8W) complexes using the ff14SB/GLYCAM06j and CHARMM36m force fields. For each system and each force field, three independend runs are provided. For ff14SB/GLYCAM06j files in AMBER format are provided, while for CHARMM36m in GROMACS format.

@@ -1,3 +1,0 @@
-Simulations For: Biophysical basis of filamentous phage tactoid-mediated antibiotic tolerance in P. aeruginosa
-
-Coordinate, simulation input and simulation output files for atomistic molecular dynamics simulations in Biophysical basis of filamentous phage tactoid-mediated antibiotic tolerance in P. aeruginosa.  

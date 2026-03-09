@@ -1,2 +1,0 @@
-GluA3 E180A NTD+LBD classical all-atom MD run 2
-

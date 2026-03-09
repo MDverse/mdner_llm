@@ -1,3 +1,0 @@
-Improving Plasmodium N-Myristoyltransferase Inhibitors Discovery through Selective Virtual Screening
-
-The docked structure, MD simulation trajectories data of NMT project.

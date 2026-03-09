@@ -1,4 +1,0 @@
-Molecular dynamics simulation data of a toy model (different epsilon values)
-
-Raw data of molecular dynamics simulations of a toy model. More details can be found here:
-https://chemrxiv.org/articles/preprint/Estimation_of_Binding_Rates_and_Affinities_from_Multiensemble_Markov_Models_and_Ligand_Decoupling/14728206/1

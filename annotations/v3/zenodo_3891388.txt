@@ -1,6 +1,0 @@
-PKC Alpha C2 domain interacting with POPC/POPS membranes,
-
-Simulations of a single copy of the PKC alpha C2 domain (PDB:1DSY) with a lipid membrane consisting of 40 POPS and 160 POPC molecules. The system is solvated by 20000 water molecules (100 per lipid), and there is 100 mM CaCl_2. Potassium ions are used as counter-ions for POPS charges.
-The system is simulated for 500 ns using three force fields: Full charge (original) CHARMM36, full charge CHARMM36 with NBFIX corrections, and with scaled CHARMM36 force field based on the electronic continuum correction (ECC) concept.
-The standard CHARMM36 simulation parameters for GROMACS are used. Files required to generate simulation inputs (tpr) are proviedd: initial structures (gro), simulation parameters (md.mdp), topology files (top, itp), and index files (ndx). Output trajectories (xtc) and energy files (edr) are also provided.
-The binding of PKC alpha C2 domain to the bilayers is reported in DOI: [ADDED UPON ACCEPTANCE].

@@ -1,4 +1,0 @@
-Data
-
-data for the paper 
-Prediction of A. thaliana’s MCTP4 Structure using Deep Learning-Based tools and Exploration of Transmembrane domain Dynamics using Coarse-Grained Molecular Dynamics Simulations 

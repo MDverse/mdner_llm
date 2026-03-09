@@ -1,4 +1,0 @@
-Simulations of symmetric Lo and Ld compositions of DPPC/DOPC/Chol
-
-Two all-atom simulation trajectories of symmetric liquid-ordered (Lo) and liquid-disordered (Ld) lipid bilayers composed of 1,2-dipalmitoyl-sn-glycero-3-phosphocholine (DPPC), 1,2-dioleoyl-sn-glycero-3-phosphocholine (DOPC) and cholesterol (Chol). The two mixtures are the tieline endpoints of DPPC/DOPC/Chol 40/40/20 and are as follows: Lo 56/9/35 and Ld 23/67/10. The bilayers were simulated with NAMD and the CHARMM36 force field for a total of 1015 ns (Ld) and 1088 ns (Lo) with a 2 fs time-step at 25C.
-Uploaded files include the last 390 ns (Ld) and 325 ns (Lo) of the equilibrated trajectories centered on the bilayer midplane (.dcd) and the corresponding structure files (.psf). Frame output interval is 40 ps. Also uploaded is a sample file with the NAMD input parameters used for the simulation.

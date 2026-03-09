@@ -1,3 +1,0 @@
-Collective thermodynamic control of amphipathic peptide adsorption on curved biointerfaces
-
-This dataset contains all input files, representative structures, and simulation parameters used in the coarse-grained molecular dynamics study of peptide–membrane interactions reported in the associated manuscript. The systems were modelled using the MARTINI 2 force field with polarizable water and include a mixed DOPC:DOPG (80:20 molar ratio) lipid bilayer and a membrane-active peptide.

@@ -1,3 +1,0 @@
-Ion permeation through a narrow cavity constriction in KCNQ1 channels, scours files of MD simulations and analysis of electrophysiological experiments.
-
-Source files of Molecular Dynamic (MD) simulations and analysis files of electrophysiology data in Igor pro software format. KCNQ1 channel pore region (G245-K354) was embedded in a lipid bilayer consisting of phosphatidylcholine phospholipids (POPC) and ion permission mechanism was analized by MD simulations using the computational electrophysiology (compEL) method implemented in GROMACS v2022.4. Ion imbalance between compartments of double-membrane system created a membrane potential of abour 300 mV which drives ion movment.

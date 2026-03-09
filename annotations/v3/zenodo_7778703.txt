@@ -1,3 +1,0 @@
-Optimized OPEP Force Field for Simulation of Crowded Protein Solutions
-
-Initial structures (in the PDB format) and LBMD trajectories (in the GROMACS XTC format) of crowded protein solutions simulated using the OPEPv7 force field and presented in the article entitled Optimized OPEP Force Field for Simulation of Crowded Protein Solutions (https://doi.org/10.1021/acs.jpcb.3c00253).

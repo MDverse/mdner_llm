@@ -1,5 +1,0 @@
-Molecular dynamic trajectory of magnesium binding T163S mutant for the article "Ca 2+ binding to F-ATP synthase β subunit triggers the mitochondrial permeability transition"
-
-ATP synthase molecular dynamics simulations files for T163S mutants of the beta subunit binding magnesium:
-50ns trajectory (ATPsynth_woh2o_Mg_mut.dcd) and corresponding psf file (ATPsynth_mg_mut.psf)
- 

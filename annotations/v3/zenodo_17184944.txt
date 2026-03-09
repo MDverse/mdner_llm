@@ -1,7 +1,0 @@
-Coarse-grained simulations of poly(lactic acid) chains of various molecular weights in melt
-
-Coarse-grained molecular dynamics simulations of poly(lactic acid) (PLA) and its stereoisomers with 10, 30 and 100 monomers in melt. 
-The interaction potentials were obtained by a systematic coarse-graining of the atomistic model published elsewhere (https://pubs.acs.org/doi/10.1021/acs.macromol.5c00918). The Iterative Boltzmann Inversion method was employed and the atoms in the atomistic model were grouped into ``super-atoms'' or beads. The centre of the bead was then placed in the centre of mass of each monomer. 
-The coarse-grained simulations were performed at constant temperature of 500K and constant pressure of 1 bar. The files are in Gromacs format. 
-The label PLLA denotes a system with only L-type of monomers, the label PDLA denotes a system with only D-type of monomers and the label copo100mer is used for compolymer systems with 100 monomers per chain of both types. The percentage of D monomer in each copolymer is indicated in the label (55% and 16%).   
- 

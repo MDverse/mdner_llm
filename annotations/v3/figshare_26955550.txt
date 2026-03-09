@@ -1,3 +1,0 @@
-Heat6p.edr
-
-Energy data from an annealed simulation with a fixed pressure of 6 GPa and temperatures ranging from 300K to 400K

@@ -1,9 +1,0 @@
-Cryo-EM structure refinement for group II intron ribozyme
-
-This dataset contains the trajectories obtained performing metainference ensemble refinement of the PDB structure 6ME0, a Group II Intron ribozyme. Also restraints on the secondary structure were kept for the first part of the trajectories. 
-The refinement has been done with different replica frameworks: 8, 16, 32 and 64 replicas. All these sets of simulations are independent from each other. Each replica shows only the second part of the trajectory (5 ns), after the removal of the restraints on the secondary structure. 
-In the files NA-ref and desres-ref, are the trajectories for control simulations, performed with 16 replicas, changing ions in solution from K to NA (NA-ref), and changing RNA force field from OL3 to desres (dedres-ref). There are 10 ns per replica, the first 5 ns have restraints on the helices, while the last 5 ns are only with metainference refinement. Also topologies for these two setups are present.
-The trajectories are without solvent/ions and are divided in multiple files. 
-1-plain-md contains a plain MD simulation of 1 microsecond of the same system, without any refinement.
-2-plain-md contains the continuation of this trajectory, for 1 more microsecond.
-Input files can be found at https://github.com/ElisPo/Cryo-EM-refinement/

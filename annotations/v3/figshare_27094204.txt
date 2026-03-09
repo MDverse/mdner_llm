@@ -1,3 +1,0 @@
-G60D
-
-These are the files related to the KRAS G60D mutant protein's simulation.

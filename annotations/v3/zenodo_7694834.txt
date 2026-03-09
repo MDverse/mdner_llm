@@ -1,3 +1,0 @@
-Ago2-RNA complex simulations in AMOEBA force field
-
-10*100ns simulations of Ago2-RNA complex in the AMOEBA force field. The simulations were conducted using OpenMM. 

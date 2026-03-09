@@ -1,3 +1,0 @@
-MD Simulation of Npr1 protein and Indacetarol ligand molecule
-
-Contains data files from and post-processing code for the molecular dynamics simulation of the Nitrogen permease reactivator 1 (Npr1) kinase protein from Candida albicans and Indacetarol ligand molecule.

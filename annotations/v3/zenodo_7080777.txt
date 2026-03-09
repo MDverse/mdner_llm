@@ -1,3 +1,0 @@
-Raw data to: Molecular Interplay of ADAMTS13-MDTCS and von Willebrand Factor-A2: Deepened Insights from Extensive Atomistic Simulations
-
-Structural ensembles of ADAMTS13-MDTCS in isolation and in interaction with the von Willebrand factor A2 domain, as obtained from extensive TIGER2h replica exchange simulations. Scripts to filter for certain binding states by given contacts, extract conformational clusters, a movie illustrating the binding transition between recruitment (Model2) and proteolytic (Model1) states, PDB files of both models for further investigation along with upcoming experimental verification.

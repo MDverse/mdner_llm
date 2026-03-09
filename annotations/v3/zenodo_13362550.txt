@@ -1,4 +1,0 @@
-Investigating the properties of fatty acid-based ionic liquids: Advancement in AMOEBA force field
-
-Input, parameter and initial structure files for All Atom Molecular Dynamics simulations performed to validate the newly developed parameters and predict the properties of FA-IL systems are available in zip file.
- 

@@ -1,3 +1,0 @@
-empty_60SDS_micelle_CHARMM36_OPC_10fsSF_293K_replica1
-
-empty_60SDS_micelle_CHARMM36_OPC_10fsSF_293K_replica1

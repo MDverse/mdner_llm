@@ -1,4 +1,0 @@
-POPC sage2.2.0-rc3 increased vdW cutoffs Run3
-
-prelim run, 
-Sage 2.2.0 with NAGL rc3 charges 

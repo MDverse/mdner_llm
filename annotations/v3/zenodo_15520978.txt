@@ -1,3 +1,0 @@
-MD Data set for the paper "UMD H2ase" - Part 3
-
-This is the Part 3 of the UMD simulation Data of (un)binding pathways of H2 in complex with Df and Mdg H2ase. This part, Part 3, contains Trajectory files of Replica1 to Replica37 of Mdg H2ase.

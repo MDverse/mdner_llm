@@ -1,5 +1,0 @@
-Test_MD_traj_for_MD2NMR
-
-This is a testing data set for MD2NMR:
-https://pypi.org/project/MD2NMR/
-https://github.com/DerienFe/MD2NMR

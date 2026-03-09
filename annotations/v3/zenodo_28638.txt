@@ -1,5 +1,0 @@
-Simulation trajectories for the article "Molecular conformation and bilayer pores in a nonionic surfactant lamellar phase studies with 13C-1H solid-state NMR and molecular dynamics simulations"
-
-Simulation trajectories for the article "Molecular conformation and bilayer pores in a nonionic surfactant lamellar phase studies with 1H-13C solid-state NMR and molecular dynamics simulations" Langmuir 2014, 30 (2), pp 461–469 http://dx.doi.org/10.1021/la404684r
-System: 60 wt% C12E5, T=333K
-Other files available: http://dx.doi.org/10.6084/m9.figshare.861071

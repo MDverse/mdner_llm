@@ -1,3 +1,0 @@
-Bilayer2
-
-Modified LJ parameters on P and O atoms. Base FF is sage 2.2.0

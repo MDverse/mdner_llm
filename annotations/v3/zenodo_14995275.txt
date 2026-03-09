@@ -1,5 +1,0 @@
-Molecular Dynamic Simulation files for 'Src kinase app' paper
-
-This is the 20 nanosecond molecular dynamics simulation file for the paper authored by Mohamed Abdelalim, titled:
-Src kinase app: valid inhibitor generation and prediction with explanation using predictive model and selfies 
-Each file contains 40 trajectories, and each trajectory consists of 0.5 nanoseconds, which can be concatenated into one 20 nanoseconds file. This shows an evidence that the generated compounds fit well inside the protein cavity

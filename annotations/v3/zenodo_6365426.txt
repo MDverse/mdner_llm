@@ -1,7 +1,0 @@
-Identification of a HTT-specific binding motif in DNAJB1 essential for suppression and disaggregation of HTT
-
-Underlying data of the in silico work performed in this study. 
-1. i-Tasser predictions for HTTExon1Q48 
-2. HDOCK results of DNAJB1-HTTExon1Q48 docking
-3. TIGER2h structures and trajectories. The original data and filtered trajectories for the individual clusters
-4. MD Simulation structures and trajectories for DNAJB1 protein variants alone and as complexes with HTTExon1Q48.

@@ -1,4 +1,0 @@
-Benchmark set inputs for absolute binding free energy calculations of fragment optimisations
-
-Supplementary Information: "Evaluating the use of absolute binding free energy in the fragment optimization process"
-Provided here are the various scripts, input files, and results necessary to reproduce the outcomes of the above mentioned publication. Please see the provided README.md files for further information on the contents of this dataset.

@@ -1,3 +1,0 @@
-Effect of the Topology on Wetting and Drying of Hydrophobic Porous Materials
-
-Source files and results of MD simulations published in  ACS Applied Materials & Interfaces. "Effect of the Topology on Wetting and Drying of Hydrophobic Porous Materials".  DOI: 10.1021/acsami.2c06039 Nomenclature of main folders: open, and closed are used for open and totally closed tubes. closed1o and clos4ed2o are used for tubes with 1 and 2 open rows of side holes Nomenclature of internal folders: digits - pressure in MPa, letter "d" is used for extrusion (downward pressure)  CONFIG, CONTROL, FIELD are input DLPOLY files OUTPUT, REVCON, REVIVE, HISTORY, STATIS are output DLPOLY files. *.vmd is the VMD input file

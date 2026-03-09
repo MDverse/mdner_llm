@@ -1,3 +1,0 @@
-Input files and trajectories for MD simulations of Mycobacterium smegmatis type IA topoisomerase
-
-The dataset contains input and parameter files for MD simulations of apo and +ssDNA systems for NAMD. Sample configuration files are also included. The dataset also contains one equilibrium trajectory and one umbrella sampling trajectory file for both apo and +ssDNA systems.

@@ -1,3 +1,0 @@
-A126G_VUS
-
-A total of 213 PTEN missense variants comprising of 147 VUS, 54 ClinVar Pathogenic and 12 Benign variants were slected for classification utilizing the MD simulations study. 

@@ -1,3 +1,0 @@
-Divergent Side-Chain Networks of the Mineralocorticoid Receptor Control Mutation-Altered Drug Response
-
-This dataset contains the MD trajectories for the folowing project: Divergent Side-Chain Networks of the Mineralocorticoid Receptor Control Mutation-Altered Drug Response.The dataset contains the trajectories of simulations of the Mineralocorticoid receptor and its S810L mutation in complex with eplerenon and finerenon.Each complex was simulated in triplicates for 500 ns each and consits of 1.000 frames each.

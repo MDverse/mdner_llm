@@ -1,3 +1,0 @@
-Energy extraction from air: structural basis of atmospheric hydrogen oxidation
-
-MD simulation trajectories of HucSL dimer including wild-type and mutant proteins(E15A+I64A; I64A+L112A; E15A+I64A+L112A) in the presence of excess hydrogen and oxygen molecules. Preprint with details of the simulations and results can be found here: https://doi.org/10.1101/2022.10.09.511488.

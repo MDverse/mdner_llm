@@ -1,5 +1,0 @@
-Computational design of the temperature optimum of an enzyme reaction
-
-This repository accompanies the following publication: (added upon publication)
-EVB.zip contains input files for simulations performed with Q. It contains a topology file, a fep file and a input files used to perform minimization, equilibration and FEP/EVB simulations on a psychrophilic amylase. The version of Q used in this research is also available on Zenodo: 10.5281/zenodo.7940182
-Fig_2.zip contains raw data and python code used to generate the subplots shown in figure 2 in the publication. The python code is in the form of an ipython notebook.

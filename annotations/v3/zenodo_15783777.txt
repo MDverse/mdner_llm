@@ -1,3 +1,0 @@
-MD trajectories for 'Structural basis of modified ligand selectivity from N-terminal PAC1R alternative splicing', PNAS
-
-Each zip file contains a topology file (system stripped of water, POPC, Na+, Cl-) and the related trajectories of classic MD (*classicMD_4_replicasMerged.xtc) and metadynamics (*MetaMD_stride10.xtc). The Plumed input files for metadynamics simulations are also uploaded.

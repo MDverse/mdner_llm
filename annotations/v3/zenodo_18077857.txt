@@ -1,5 +1,0 @@
-Supplementary Data S2: Molecular docking ligand files and molecular dynamics trajectories of iNOS systems
-
-This dataset supports the manuscript “Decoding iNOS Inhibition: A Computational Voyage of Tavaborole Toward Restoring Endothelial Homeostasis in Venous Leg Ulcers”, submitted to the journal Pharmaceuticals (MDPI).
-The dataset includes molecular docking ligand files and molecular dynamics (MD) simulation trajectories for inducible nitric oxide synthase (iNOS) in multiple functional states, including the apo form (iNOS-APO), substrate-bound complex (iNOS-ARG), tavaborole-bound complex (iNOS-TAV), and standard inhibitor-bound complex (iNOS-STD).
-These data support the computational analyses of iNOS inhibition and endothelial homeostasis restoration in venous leg ulcers described in the manuscript.

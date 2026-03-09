@@ -1,4 +1,0 @@
-sage2.2.1-lipids-v1.0-revert-just-phosphates-split
-
-POPC lipid 
-force field development test, focusing on improving phosphate parameters 

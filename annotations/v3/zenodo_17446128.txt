@@ -1,8 +1,0 @@
-Otransfer_PtCeO2
-
-This repository contains scripts for the preparation, simulation, and analysis of O2 uptake on Pt/CeO2-Al2O3 systems.The work employs neural network potential (NNP) models to study oxygen activation and lattice oxygen transfer dynamics across varying ceria domain sizes.
-
-MD trajectories from annealing simulations (Geometry_relax_MD_CeO2_Al2O3.zip)
-O2 uptake simulation trajectories of CeO2_Al2O3 (O2_MD_CeO2_Al2O3.zip)
-O2 uptake simulation trajectories of Pt_CeO2_Al2O3 (O2_MD_Pt_CeO2_Al2O3.zip)
-all python scripts for simulation of geometry optimization and MD simulations (codes.zip)

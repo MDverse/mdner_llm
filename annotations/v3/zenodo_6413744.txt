@@ -1,3 +1,0 @@
-input files for " Martini bead form factors for nucleic-acids and their application in the refinement of protein/nucleic-acid complexes against SAXS data".
-
-input files for " Martini bead form factors for nucleic-acids and their application in the refinement of protein/nucleic-acid complexes against SAXS data", cf plumed-nest

@@ -1,3 +1,0 @@
-Hydrostatic Pressure-Induced Spectral Variation of Reichardt’s Dye: A Polarity/Pressure Dual Indicator
-
-These data contains:1) Ground state optimisation: 					GS-optimisation.out2) Single point calculation at the ground state geometry: 	Absorption-SP.out3) ab initio molecular dynamics input:				AIMD.inp4) ab initio molecular dynamics output:				AIMD.out5) ab initio molecular dynamics trajectory			AIMD.xyz6) Single points for the optimal tuning scheme:			???-?.out7) Single points for each of the 30 snapshots:			1 to 30.out

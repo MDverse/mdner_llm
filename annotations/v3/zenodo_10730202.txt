@@ -1,6 +1,0 @@
-Input files and setup for simulations of Ancestral GH19 chitinases and their mutants
-
-**DESCRIPTION**
-Topologies and molecular dynamics files to run simulations of Ancestral GH19 chitinases and their mutants.
-parameters file: muout.mdpTopologies: topol.topFinal outouts: md_out.tprInitial structures: Protein_name.PDB
-****

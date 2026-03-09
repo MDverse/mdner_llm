@@ -1,3 +1,0 @@
-DFT Geometry Optimizations of Phosphorylated Amino Acid Analogs (p-tolyl phosphate (pt)) with Different Counterions in Water
-
-Phosphorylated amino acid analogs cut off at the C alpha, solved in CHARMM TIP3P and either methylammonium, sodium, or guanidinium, were simulated in CHARMM using the CHARMM36m force field. The phosphate groups bear the charges 0, -1, and -2. From these simulations, 50 conformations were picked using clustering. From each of the 50 conformations, smaller water boxes were sliced which were then used in the geometry optimizaions. The water was restrained during the optimization to preserve force field compatibility. Optmizations were run in cp2k using TZV2P-MOLOPT-PBE-GTH, PBE, and DFTD3. 

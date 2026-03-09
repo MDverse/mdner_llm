@@ -1,3 +1,0 @@
-Molecular Dynamics Protocol with Gromacs 4.0.7
-
-Molecular Dynamics Protocol with Gromacs 4.0.7 This protocol had been used in the paper Modeling and Molecular Dynamics of HPA-1a and -1b Polymorphisms: Effects on the Structure of the β3 Subunit of the αIIbβ3 Integrin (PLoS ONE 7(11): e47304, 2012).

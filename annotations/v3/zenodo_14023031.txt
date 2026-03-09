@@ -1,3 +1,0 @@
-MD source and data of Zebhb-PHZ
-
-Python Codes, shell scripts and GROMACS data files of molecular dynamics simulations of Zebrafish Hemoglobin protein (Zebhb) and Phenylhydrazine (PHZ) Ligand

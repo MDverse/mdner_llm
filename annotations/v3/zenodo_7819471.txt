@@ -1,3 +1,0 @@
-Empty micelle - 60 SDS - Na neutralized - CHARMM36m - 293K - OPC water model - replica 0 - every 100 fs
-
-Empty micelle simulation to investigate the effect of water model and peptide on SRD. Use of a higher saving frequency in order to investigate the existence of faster timescales in the relaxation data. Start frame being the first frame from "Empty micelle - 60 SDS - q0.38 - PBS neutralized - CHARMM36m - 293K - OPC water model - replica 0"

@@ -1,4 +1,0 @@
-Chemical mechanism of allosteric and asymmetric dark reversion uncovered by cryo-EM structures of a bacterial phytochrome.
-
-The following contains the molecular dynamics simulations for the full-length phytochrome PaBphP in the PrPr and PrPfr (hybrid) state. We performed three repetitions of each state. This dataset acommpanies the article submission: Chemical mechanism of allosteric and asymmetric dark reversion uncovered by cryo-EM structures of a bacterial phytochrome. For details of the setup and about the files please refer to the READ.ME and the paper. 
- 

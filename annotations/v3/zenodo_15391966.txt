@@ -1,5 +1,0 @@
-Molecular dynamics trajectories for the prostaglandin D2 receptor 1
-
-Molecular Dynamics Data for "Structural insights into the mechanism of activation and inhibition of the prostaglandin D2 receptor 1" (Nature Communications, 2025)
-Authors: Behnaz Davoudinasab, Aleksey Raskovalov, Woojin Lee, Gye Won Han, Jordy Ho Ming Lam, Vsevolod Katritch, Vadim Cherezov
-Molecular dynamics (MD) simulations were performed on the prostaglandin D2 receptor 1 (DP1) in its active state with protonated D72 (D2.50). Nine independent replicas of 1.0-microsecond MD simulations were carried out. This dataset includes the production trajectories saved in .xtc format, with frames recorded every 50 steps (1 step = 2 fs). The corresponding input and topology files are also included. Periodic boundary conditions can be restored using VMD's standard pbc commands.

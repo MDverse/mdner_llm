@@ -1,3 +1,0 @@
-empty_60SDS_micelle_CHARMM36_TIP3P_10psSF_307K_replica2
-
-empty_60SDS_micelle_CHARMM36_TIP3P_10psSF_307K_replica2

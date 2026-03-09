@@ -1,5 +1,0 @@
-MOS2 Nanosheet and SARS-CoV-2
-
-Contains the following data
-1. Docked complexes
-2. Trajectory of the last 10ns of production run

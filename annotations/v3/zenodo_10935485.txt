@@ -1,3 +1,0 @@
-The proteolytic cleavage of TLR8 Z-loop by furin protease - molecular recognition, reaction mechanism and role of water molecules DATASET_v2
-
-The dataset comprises:i) AlphaFold-Multimer predictions for TLR8LRR-furin complexii) The optimised structures of QM cluster models for reactant (RE), intermediate1-3 (INT1-INT3), and product (PROD)iii) The optimised structures of QM/MM model for RE, INT1-INT3, PRODiv) Input structures used in MD simulations and parameterization files for non-standard residues for RE, INT1-INT3, PRODv) PyMOL sessions from AQUA-DUCT calculations for RE, INT1-INT3, PROD

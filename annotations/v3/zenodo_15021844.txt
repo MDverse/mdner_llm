@@ -1,3 +1,0 @@
-bilayer9
-
-Modifications to the LJ parameters of phospahte bound Oxygen based on Amber optimization paper. Topology modification to original force field

@@ -1,5 +1,0 @@
-CD36 phosphorylation alters the thrombospondin binding site and decreases accessibility to the internal cavity
-
-The data is provided as part of the manuscript "CD36 phosphorylation alters the thrombospondin binding site and decreases accessibility to the internal cavity".
-This repository includes an archive with folders:
-Feature_selection(Contains the MD trajectories of the CD36 receptor used for MSM construction, along with the Jupyter notebook containing the data refinement protocol.) MSM(Contains Jupyter notebooks for MSM construction.)

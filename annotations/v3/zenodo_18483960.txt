@@ -1,3 +1,0 @@
-Dynamic pharmacophores unveil binding mode ensembles for classical partial agonists at the M2 receptor
-
-This dataset contains the MD trajectories for the folowing project: Dynamic pharmacophores unveil binding mode ensembles for classical partial agonists at the M2 receptor.The dataset contains the trajectories of simulations of the M2 receptor in complex with the following ligands: QNB, NMS, iperoxo, acthylcholine, pilocarpine, alvameline, cevimeline, and talsaclidine, as well as simulations of apo-M2 receptor in active and inactive states.Each complex was simulated in triplicates for 1 µs each and consits of 20.000 frames each.

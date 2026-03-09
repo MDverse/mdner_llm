@@ -1,8 +1,0 @@
-Data and Analysis for "Kinetics and Docking Studies Reveal Tyrosinase co-Catalyzes Aldol Condensation Reactions"
-
-This entry contains data, calculations (e.g. molecular dynamics trajectories) and relevant scripts associated with our work in determining that human tyrosinase co-catalyzes aldol condensation reactions. 
-Files in the entry include
-
-TyrosinasePaperData.zip, which includes 1D-1H NMR spectra, the DOSY spectrum used in assigning the 1D spectra as well as MATLAB scripts used to collate and post-process NMR data.
-TyrosinaseDockingKineticsResonances.zip, which includes docked poses for the aldol intermediate as well as associated MD and MM-GBSA calculation results. This file also includes kinetics analysis with DynaFit and the resonance assignments for the 1D-1H spectra found in TyrosinasePaperData.zip.
-plot_DE_dists.m, which is the MATLAB function used to plot histograms and scatter plots from final DE parameter estimator distributions (imported into MATLAB as an array).

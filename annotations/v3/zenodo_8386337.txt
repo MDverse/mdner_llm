@@ -1,3 +1,0 @@
-Ih basal 1bar tip4p/ice
-
-Direct coexistence simulation of ice and water through basal plane at 1 bar. 

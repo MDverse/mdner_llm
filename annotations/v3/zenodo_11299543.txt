@@ -1,5 +1,0 @@
-Alpha1-antitrypsin molecular dynamics simulations
-
-The zip archive contains molecular dynamics trajectories and related files organized into two main directories: ED for essential dynamics and MD for standard molecular dynamics. Each folder contains two simulations (ed1 and ed2 subfolders of ED; md1 and md2 subfolders for MD).
-Reference structures, corresponding to the beginning of each simulation are given both as GROMACS gro files and as pdb files. Trajectories are in the xtc GROMACS format, which can be loaded for visualization both in VMD and in Pymol.
- 

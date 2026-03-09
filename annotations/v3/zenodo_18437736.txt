@@ -1,3 +1,0 @@
-All-atom molecular dynamics (MD) simulation of the interaction between compounds XLZ87, XLZ85 and EGFR protein
-
-This is a molecular dynamics simulation dataset for investigating the interactions between compounds XLZ87, XLZ85 and the EGFR protein. All data were generated using the simulation engine GROMACS 2023.3 with GPU acceleration (NVIDIA A30). The label "4hjo_xlz85" denotes the interaction of compound XLZ85 with the EGFR protein, and "4hjo_xlz87" denotes the interaction of compound XLZ87 with the EGFR protein.

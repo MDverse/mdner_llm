@@ -1,3 +1,0 @@
-CDNF simulation with DESamber (5 replicas)
-
-MD simulations of CDNF with DESamber force field. Five replicas from different starting structures from taken from RCSB PDB: 4BIT (model 1, 2, 4, 6 and 8). Simulations were run wtih 100 mM NaCl at 298 K. The trajectory has a saving frequency of 10 ps. 

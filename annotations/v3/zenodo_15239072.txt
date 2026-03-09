@@ -1,5 +1,0 @@
-2Danalysis-test-set
-
-Data for the tutorials of 2Danalysis, a toobox to analyze simulation trajectories of lipid membranes and biopolymers projected onto a 2D plane. 
-User Guide
-Tutorials

@@ -1,3 +1,0 @@
-GLUT1 & GLUT9 Molecular Dynamics Simulation Data
-
-This dataset contains the molecular dynamics simulation input files of GLUT1 and GLUT9, and the seperated macrostates via non Morkov State Model analysis. 

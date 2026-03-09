@@ -1,3 +1,0 @@
-a-Synuclein short MD simulations:A53T[A-E]
-
-Short molecular dynamics simulations of a-Synuclein amyloids, A53T[A-E]

@@ -1,3 +1,0 @@
-Molecular dynamics simulations reveal the selectivity mechanism of structurally similar agonists to TLR7 and TLR8
-
-Trajectory, topology and index files for TLR7 (apo), TLR7-R, TLR7-H, TLR7-G, TLR8 (apo), TLR8-R, TLR8-H, TLR8-G systems. 

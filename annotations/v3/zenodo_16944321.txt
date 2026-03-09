@@ -1,5 +1,0 @@
-Coarse-grained simulations of poly(caprolactone) chains of various molecular weights in melt
-
-Coarse-grained molecular dynamics simulations of poly(caprolactone) (PCL) chains with 10, 30, 50, 100 and 125 monomers in melt. 
-The interaction potentials were obtained by a systematic coarse-graining of the atomistic model published elsewhere (https://zenodo.org/records/16943800). The Iterative Boltzmann Inversion method was employed and the atoms in the atomistic model were grouped into ``super-atoms'' or beads. The centre of the bead was then placed in the centre of mass of each monomer. 
-The coarse-grained simulations were performed at constant temperature of 500K and constant pressure of 1 bar. The files are in Gromacs format. 

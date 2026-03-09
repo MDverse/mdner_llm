@@ -1,2 +1,0 @@
-GluA3 R163I NTD dimer classical all-atom MD run 1
-

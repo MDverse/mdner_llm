@@ -1,3 +1,0 @@
-Dataset for "A Family of Di-Glutamate Mucin Degrading Enzymes that Bridges Glycan Hydrolases and Peptidases"
-
-This dataset provides the classical and QM/MM MD simulation trajectory data to the manuscript:A Family of Di-Glutamate Mucin Degrading Enzymes that Bridges Glycan Hydrolases and PeptidasesThe data set contains classical MD simulations of  HC7 with substrate peptides, thermodynamics integration (TI) simulations, as well as QM/MM OPES-explore simulations for our manuscript. PDB files for Figure 4f and Figure S21 are also included. A high resolution pdf file of Figure S28 is included, too.

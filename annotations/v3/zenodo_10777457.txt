@@ -1,3 +1,0 @@
-Conformational ensemble of the intrinsically disordered CHCHD4 N-terminal segment (N27)
-
-Concatenated molecular dynamics trajectories generated and readable with GROMACS software

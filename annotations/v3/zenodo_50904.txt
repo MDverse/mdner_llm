@@ -1,3 +1,0 @@
-SDS micelle, MD simulation, Gromacs 5.0, CHARMM36
-
-Molecular dynamics simulation of SDS micelle.  Gromacs 5.0, CHARMM36. Files generated with CHARMM GUI. System contains 60 SDS molecules, 16854 water molecules and 60 sodium ions. Temperature T=293K. Length is 20ns.

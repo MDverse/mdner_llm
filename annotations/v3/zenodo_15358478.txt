@@ -1,2 +1,0 @@
-md_0_10_fit.xtc fortest
-

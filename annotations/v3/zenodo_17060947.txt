@@ -1,3 +1,0 @@
-Trajectory for mTOR simulation
-
-Molecular dynamics trajectory file from  mTOR complex simulation.

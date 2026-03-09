@@ -1,3 +1,0 @@
-M17-ZAFF dataset
-
-Amber prepi format for the molecular dynamics simulation of the M17 aminopeptidase enzyme superfamily.

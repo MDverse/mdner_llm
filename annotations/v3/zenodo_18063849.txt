@@ -1,3 +1,0 @@
-Stereochemistry-Guided Switch From Irreversible to Slow-Binding Cathepsin L Inhibition
-
-Reduced trajectories (5000 snapshots of each 0.5 µs MD data) of the non-covalent complex formed between the inhibitors (D1, D2, D2-flipped and AMK) and cathepsin L (CatL).

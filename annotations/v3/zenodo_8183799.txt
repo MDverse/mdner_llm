@@ -1,3 +1,0 @@
-GWALP_monomer_micelle_80SDS_CHARMM_310K_Na_Neut_OPC_replica1
-
-GWALP_monomer_micelle_80SDS_CHARMM_310K_Na_Neut_OPC_replica1

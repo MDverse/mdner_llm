@@ -1,3 +1,0 @@
-Computational Studies of Substrate Transport and Specificity in a Phospholipid Flippase
-
-MD trajectories of all-atom and CG simulations of PI4P activated E2P state of the Drs2p-Cdc50p complex.

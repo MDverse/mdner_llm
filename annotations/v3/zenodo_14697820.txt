@@ -1,5 +1,0 @@
-Defects induce phase transition from dynamic to static rippling in graphene
-
-Simulation trajectories and scripts related to the article "Defects induce phase transition from dynamic to static rippling in graphene" by Fabian L. Thiemann, Camille Scalliet, Erich A. Müller, and Angelos Michaelides, arXiv.2406.04775 (2024). 
-The files Fig3*.dcd correspond to molecular dynamics trajectories of graphene samples containing (a-d) divacancies (DV) and (e-h) Stone-Wales (SW) defects at increasing concentrations corresponding to Fig. 3 in the article. The configurations within the trajectories are separated by 100 fs. 
-The in.npt file is a LAMMPS input script to run a simulation, starting from the configuration graph_DV8_rep2.in which contains 8 divacancy defects. To run the carbon GAP-20 interaction potential using LAMMPS, please refer to this link.

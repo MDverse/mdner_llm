@@ -1,4 +1,0 @@
-Data from: Evolution of Large Aβ16-22 Aggregates at Atomic Details and Potential of Mean force Associated to Peptide Unbinding and Fragmentation Events
-
-This data accompanies the paper entitled Evolution of Large Aβ16-22 Aggregates at Atomic Details and Potential of Mean force Associated to Peptide Unbinding and Fragmentation Events
-The zip archive contains the results of molecular dynamics simulations of the 2 systems investigated in the paper: the first one with 139 Aβ16-22 peptides, the second one with 106 peptides. Each system has been simulated at 300 K. Starting configurations of the peptides are provided for all the systems in GRO Gromos87 format. Trajectories with the positions of the peptides every 100 ps are provided for all the systems in XTC gromacs format. For system 1 we also provide XTC trajectories for all the replicas of the REST2 simulation.

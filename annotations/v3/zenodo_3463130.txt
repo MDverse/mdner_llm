@@ -1,3 +1,0 @@
-Coarse-grained simulation of a POPC lipid bilayer
-
-A POPC bilayer consisting of 200 lipids and 2250 water beads (10% represented by antifreeze particles) was simulated for 1 microsecond using GROMACS 2019.2. All simulation outputs, as well as topologies (top, itp), index file (ndx) and run input parameters (mdp) are provided.

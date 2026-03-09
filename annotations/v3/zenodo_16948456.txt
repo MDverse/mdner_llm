@@ -1,4 +1,0 @@
-MD simulation and AFM image files
-
-Dataset MD contains MD simulations of the interaction of different combinations of monovalent (Na+, K+) and divalent (Mg2+, Ca2+, Sr2+) cations with the Drew-Dickerson B-DNA dodecamer. The simulations were conducted using the GROMACS 4.7.0 program package.
-Dataset AFM contains in-situ AFM images of DNA origami triangles (6 nM) adsorbed on mica surfaces in the presence of different combinations of monovalent (Na+, K+, 90 mM) and divalent (Mg2+, Ca2+, Sr2+, 10 mM) cations.Imaging was performed using a JPK Nanowizard ULTRA Speed with USC F0.3-k0.3 cantilevers. Images were  were recorded at 15 min intervals at a line rate of 30 Hz and a resolution of 512 x 512 px. 

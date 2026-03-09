@@ -1,9 +1,0 @@
-Supporting files for "Simulation-Guided Conformational Space Exploration to Assess Reactive Conformations of a Ribozyme."
-
-The archived folder contains the trajectory reported in the paper "Simulation-Guided Conformational Space Exploration to Assess Reactive Conformations of a Ribozyme" by S. Forget, E. Duboue-Dijon, G. Stirnemann, J. Chem. Theory Comput. 2024, as well as all the input and force field files necessary to repeat the simulations, using the Gromacs software.
-The Subdirectory "Procedures" contains:
-
-the explicit descriptions of the equilibration procedures with the mdp parameter files of each equilibration steps.
-3 scripts which are run to generate the replicas of REST2 simulations.
-
-For any additional information, the authors can be contacted by email: selene.forget@gmail.com and guillaume.stirnemann@ens.psl.eu

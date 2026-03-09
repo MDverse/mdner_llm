@@ -1,3 +1,0 @@
-p9 peptide simulation data. Dataset includes imaged trajectory files for the five Pep-GaMD simulations runs. We have also provided the topology and the pdb file.
-
-Insights into the structural dynamic mechanism of PC1 activation by TA peptide agonists p9, p17 and p21 to provide an in-depth understanding that will facilitate development of therapeutics targeting PC1 for ADPKD by targeting PC1treatment.

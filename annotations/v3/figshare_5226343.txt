@@ -1,3 +1,0 @@
-Calculations on the effect of sulfur-substitution on guanine on a DNA oligomer - oligomer containing thioguanine.
-
-Results of calculations using molecular dynamics over 15 ns (AMBER) on a DNA oligomer containing thioguanine in explicit water (TIP3P).Output of analysis of these results using AMBER tools and X3DNA to obtain variation of oligomer properties with time.

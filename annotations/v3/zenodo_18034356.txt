@@ -1,3 +1,0 @@
-Dataset of the article "Thermodynamic and Molecular Modeling study of the Veratric Aldehyde/β-cyclodextrin Inclusion Complex and Its Inhibitory Effect on Polyphenoloxidase"
-
-Coordinates and input files needed to perform the MD simulations reported in the article. The pdb files contains the molecular geometries on the inclusion complexes optimized with DFT methods. These coordinates were employed to generate the wavefunction files (.wfn) for QTAIM and DFT calculations

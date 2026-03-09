@@ -1,3 +1,0 @@
-Dataset to reproduce MD simulations described in " Insights on the dynamics of the human zinc transporter ZnT8 by MD simulations"
-
-Second version includes full length 6xpf-based models and corresponding MD simulations.

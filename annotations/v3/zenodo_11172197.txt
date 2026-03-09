@@ -1,3 +1,0 @@
-Structural insights into drug transport by an aquaglyceroporin
-
-Equilibrated system, parameter files for performing umbrella sampling, MD trajectories for the MM/GBSA.

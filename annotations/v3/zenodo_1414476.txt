@@ -1,3 +1,0 @@
-Parameters and simulations for two ruthenium complexes
-
-In this dataset we include the parameters for two ruthenium complexes,  cis-[Ru(II)(dmso)4Cl2] and the hydrolyzed complex trans-[Ru(II)(dmso)2(H2O)3Cl2], called 2 and 1.2, respectively. Each decompressed folder includes the parameters obtained using the MCPB.py program from Ambertools, the scripts used for solvation, as well as a sample simulation. 

@@ -1,4 +1,0 @@
-Molecular dynamics simulation of human high-affinity choline transporter CHT1
-
-Source data for MD simulation analysis from the original research article:
-Transport mechanism of presynaptic high-affinity choline uptake by CHT1. Nature Structural & Molecular Biology, 2024.

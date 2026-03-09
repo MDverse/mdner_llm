@@ -1,2 +1,0 @@
-GluA3 R163I NTD+LBD classical all-atom MD run 3
-

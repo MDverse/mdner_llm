@@ -1,3 +1,0 @@
-Structural basis for the oligomerization-facilitated NLRP3 activation
-
-Raw targeted molecular dynamics simulation data reported in the paper:X. Yu*, R. E. Matico*, R. Miller, B. V. Schoubroeck, K. Grauwen, J. Suarez, B. Pietrak, N. Haloi, Y. Yin, G. Tresadern, L. Perez Benito, E. Lindahl, A. Bottelbergs, D. Oehlrich, N. V. Opdenbosch, S. Sharma "Cryo-EM structures of NLRP3 reveal its self-activation mechanism", Nature Communications, 15, 1164

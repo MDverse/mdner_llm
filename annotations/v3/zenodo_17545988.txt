@@ -1,3 +1,0 @@
-dEAAT2 Molecular Dynamics Data
-
-This repository contains the molecular dynamics input files, including structure andparameter files (.psf, .pdb, par/top), as well as configuration files (.conf) required toreproduce the results of dEAAT2 molecular dynamcis study. Additionally, sample output files and final snapshotsfrom the molecular dynamics trajectories are provided.Each subdirectory is self-explanatory and organized according to the simulation stageor system component.

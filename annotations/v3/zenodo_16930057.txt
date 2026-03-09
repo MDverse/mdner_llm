@@ -1,3 +1,0 @@
-POPC smee-spice2-systematic-torsion-generation
-
-Force field development test. smee-spice2-systematic-torsion-generation with nagl rc.3 charges

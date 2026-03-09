@@ -1,8 +1,0 @@
-Simulations of a POPC lipid bilayer in water solution at various NaCl and CaCl2 concentration with Lipid14, TIP3p and Dang or ECC ions
-
-flat POPC bilayer simulations at various NaCl and CaCl2 concentration
-modelled with Lipid14 force field, TIP3p water model and Dang or ECC ions.
-file names report molar fraction of cations (i.e. not bulk concentrations).
-simulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)
-simulation length 300 ns
-temperature 313 K (otherwise noted)

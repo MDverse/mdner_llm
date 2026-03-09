@@ -1,3 +1,0 @@
-rMD-autoencoder for reinforced molecular dynamics simulations
-
-Reinforced molecular dynamics: Physics-infused generative machine learning model simulates protein motion

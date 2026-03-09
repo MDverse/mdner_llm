@@ -1,3 +1,0 @@
-Dataset for: A marine cryptochrome with an inverse photo-oligomerization mechanism
-
-Raw data for all sequence analysis, SEC runs, MD simulations, and UV/Vis absorbance readings supporting the findings of the study 'A marine cryptochrome with an inverse photo-oligomerization mechanism'

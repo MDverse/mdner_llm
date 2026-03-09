@@ -1,4 +1,0 @@
-Initial and final structures of oligosaccharide-cellulose systems.
-
-The oligosaccharide identifiers in the file names are as follows:
-G = beta 1->4 glucanMBG = mixed-linkage beta-glucanGMeven = glucomannan with even glucose-mannose sequenceGM = glucomanna with unevenly distrbuted glucose and mannose residuesX = xylanBG = beta-galactanHG = homogalacturonanRG = rhamnogalacturonan

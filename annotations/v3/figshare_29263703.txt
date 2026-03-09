@@ -1,3 +1,0 @@
-Structure for HIV - 1 protease - chain A in GRO format
-
-Protein structure in GRO format. Original wild-type structure from PDBID 2PC0.

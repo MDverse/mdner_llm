@@ -1,3 +1,0 @@
-Molecular dynamics of Renilla-type luciferases
-
-Four Renilla-type luciferases (RLuc8, AncFT-L14, AncHLD-RLuc, and DhaA 238Loc) were studied using enhanced molecular dynamics (MD) methods. To simulate substrate binding, we used Adaptive Steered MD to pull the substrate into the enzyme's active site from four different starting conformations. Product release was simulated using adaptive sampling of the product-active site distance, implemented in HTMD (High-Throughput MD).

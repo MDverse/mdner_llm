@@ -1,7 +1,0 @@
-MD simulation trajectories for paper "Binding of regulatory proteins to nucleosomes is modulated by dynamic histone tails"
-
-The dataset includes all the MD simulation trajectories for the paper "Binding of regulatory proteins to nucleosomes is modulated by dynamic histone tails".
-amber_OPC.zip contains the trajectories from simulation runs using AMBER forcefield and OPC water model.
-charmm_TIP3P.zip  contains the trajectories from simulation runs using CHARMM forcefield and TIP3P water model.
- 
- 

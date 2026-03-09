@@ -1,7 +1,0 @@
-The metabolome of an E. coli CRISPRi library identifies benefits of minimal metabolite levels and targets for engineering
-
-Grid employed for Docking
-grid1- bottom where argsuccinate bindsgrid2- up where arginine was bound
-MD simulations ran with Desmond. - see specifics in the publication
-1516- AraTha 9GGJ chainAB1517- Ecoli_1TJ7_alternativedimer_wLig_EM1518- Ecoli_1TJ7_alternativedimer grid1 argininosuccinate1519- Ecoli_1TJ7_alternativedimer grid1 diaminopimelate1520- Ecoli_1TJ7_alternativedimer grid2 argininosuccinate1521- Ecoli_1TJ7_alternativedimer grid2 diaminopimelate1522- Ecoli_1TJ7_alternativedimer grid1 redocking
-cubic 10A3, 150k atoms, 5x200ns, 27-30Na+250ns/day

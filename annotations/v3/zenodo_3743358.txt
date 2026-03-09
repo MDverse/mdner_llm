@@ -1,3 +1,0 @@
-HpTonB(30-285) simulation CHARMM36m
-
-Simulation of periplasmic part of TonB protein from Helicobacter Pylori HpTonB(30-285) with CHARMM36m force field. The last 400ns from 520ns simulation. The conformational ensemble is too collapsed here according to the comparison with experimental spin relaxation data.

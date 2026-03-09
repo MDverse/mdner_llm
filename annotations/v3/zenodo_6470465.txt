@@ -1,3 +1,0 @@
-Insights into the stability of engineered mini-proteins from their dynamic electronic properties
-
-Coordinates and partial charges from GFN2-xTB and wPBEh/cc-pvdz for 20 ps x 20 replicas for two variants of Trp-cage (TC5b and TC10b) as supporting information.

@@ -1,3 +1,0 @@
-us_initial_structures.zip
-
-The initial CHARMM topologies (.psf) and .pdb coordinates used for QM/MM umbrella sampling simulations

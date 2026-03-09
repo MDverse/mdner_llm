@@ -1,3 +1,0 @@
-MD simulation trajectory and related files for POPC bilayer (Berger model delivered by Tieleman, Gromacs 4.5)
-
-Equilibrated POPC lipid bilayer simulation ran with Gromacs 4.5, Berger force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads), this trajectory contains the last 50 ns of a 270 ns simulation, T=298K, 128 POPC molecules, 7290 water molecules. This data is used in http://dx.doi.org/10.1039/C2CP42738A and in the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi. If data is used, please cite [Ferreira et al. Phys. Chem. Chem. Phys., 2013,15, 1976-1989], the nmrlipids.blogspot.fi project and the original publication related to the force field.

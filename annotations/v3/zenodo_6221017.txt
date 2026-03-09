@@ -1,8 +1,0 @@
-Project files provided as supporting information to the manuscript "Coarse-grained Mori-Zwanzig dynamics in a time-non-local stationary-action framework"
-
-Project files provided as supporting information to the manuscript "Coarse-grained Mori-Zwanzig dynamics in a time-non-local stationary-action framework"
-
-GLE Optimization: Optimizator of GLE parameters. Uses Matlab
-MD_GLE:           CG GLE and LE simulator. Uses Matlab
-Water_simulation: Folders for atomistic water system simulation with GROMACS. It requires to be run on Linux with GROMACS 
-                  and VOTCA packages installed.

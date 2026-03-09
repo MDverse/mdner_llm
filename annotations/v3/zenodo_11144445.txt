@@ -1,4 +1,0 @@
-MD Simulation Carcinoma Antigen [Replicates-Data]
-
-MD-simulation data files ACC1: Saquamous cell carcinoma antigen  [replicate 1]ACC2: Saquamous cell carcinoma antigen  [replicate 2]HMGB1: Hemoglobin [replicate 1]HMGB2: Hemoglobin [replicate 2]PSA1: Prostate specific antigen [replicate 1]PSA2: Prostate specific antigen [replicate 2]
-RMSD: Root mean square deviationRMSF: Root mean square fluctuation

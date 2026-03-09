@@ -1,5 +1,0 @@
-Correction to Development and Validation of AMBER-FB15-Compatible Force Field Parameters for Phosphorylated Amino Acids
-
-Correction to Development
-and Validation of AMBER-FB15-Compatible
-Force Field Parameters for Phosphorylated Amino Acids

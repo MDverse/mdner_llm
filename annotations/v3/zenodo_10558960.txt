@@ -1,7 +1,0 @@
-Complete Dataset for: In Silico Study of the Early Stages of Aggregation of β-Sheet Forming Antimicrobial Peptide GL13K
-
-These datasets contain molecular dynamics trajectories, structural files, force field files, and Gromacs production input files of beta-sheet forming antimicrobial peptide/peptides (GL13K) in solution.
-Each zip file contains 5 independent replicas.
-A5, A7, A11, GL13K, GL13K_neutral, GL13KR1, and GL13KR1_neutral (7 systems - 35 replicas) are simulations of a single peptide in solution. Each has 500 ns simulations per replica.
-Charged and Uncharged aggregations (2 systems - 10 replicas) are simulations of 8 peptides in solution. For charged and uncharged systems, each replica has 1000 and 1500 ns simulations per replica.
-The simulations were done in explicit water, but the water has been removed to make the files a reasonable size for upload.

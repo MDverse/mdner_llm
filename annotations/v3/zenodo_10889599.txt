@@ -1,5 +1,0 @@
-Isomerization pathways of a mismatched base pair of A:8OG in free duplex DNA
-
-plumed.dat  --> input file for OPES simulation.
-str0.pdb ~ str19.pdb --> initial structures for OPES simulation.
-traj.xtc --> sample output trajectory of OPES simulation.

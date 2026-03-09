@@ -1,3 +1,0 @@
-Molecular dynamics simulations of BmGtsf1L peptide interacting with eTD1 of BmVreteno
-
-AF-eTD1 of BmVreteno and the ten last residues of BmGtsf1L.GRO file and files for 10 simulations runs. Processed XTC files.  

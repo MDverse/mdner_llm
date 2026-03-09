@@ -1,3 +1,0 @@
-Supplementary data for: "Molecular insights of acarbose metabolization catalyzed by acarbose-preferred glucosidase"
-
-This dataset comprises computational data (MD and QM/MM) associated with the research article titled "Molecular insights of acarbose metabolization catalyzed by acarbose-preferred glucosidase". Included are coordinate files generated from molecular dynamics simulations and QM/MM, along with all extracted data utilized in the study.

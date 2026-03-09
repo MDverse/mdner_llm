@@ -1,8 +1,0 @@
-Exploring structural and dynamic effects of the L72A ICL1 mutation in tB1AR with MD simulations
-
-This dataset consists of six molecular dynamics simulation trajectories, three for the turkey beta1-adrenergic receptor (tB1AR) WT (1 x 200 ns (2000 frames) + 2 x 500 ns (5000 frames)) and three for tB1AR L72A (1 x 200 ns (2000 frames) + 2 x 500 ns (5000 frames)). The repeats are named a, b and c. The WT simulations are run as control simulations, whereas the L72A simulations are run to assess the structural and/or dynamic consequences of this mutation in tB1AR. The 4AMJ pdb file (chain A) is used as input structure with the ligand removed. The simulations were performed using Desmond with the OPLS4 force field in a homogenic membrane model (POPC) with explicit SPC water molecules and 150 mM NaCl. Please see further methodological details as well as interpretations in the associated manuscript. 
-The files in this dataset include: 
-Coordinate files: pdb files of systems used as MD sim input. (4amj_XX_in_Y.pdb)
-Topology files: cms files used for MD sim input. (4amj_XX_Y-in.cms)
-Trajectory files : in xtc format (please wrap and align in preferred software, e.g. using the PBCTools plugin for VMD; “pbc wrap -molid top -compound resid -all -center com -centersel protein”). (4amj_XX_Y_Z00ns_trj.xtc)
-Configuration files used to equilibrate and run the MD simulations (4amj_XX_Y_equil.msj and 4amj_XX_Y_prod_Z00ns.cfg)

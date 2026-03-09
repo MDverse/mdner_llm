@@ -1,6 +1,0 @@
-Molecular dynamics simulation files for NreB_PAS under two conditions (apo and GSH-35)
-
-This Zenodo record contains molecular dynamics (MD) simulation files for the NreB_PAS system under two conditions: apo protein (NreB_PAS_apo_MD) and protein with 35 molecules of glutathione (NreB_PAS_35GSH_MD).
-For each condition (and each replicate, if applicable), the deposit includes:
-(1) initial coordinates (md.gro),(2) simulation inputs (md.tpr, and md.mdp when available),(3) trajectories (md.xtc),(4) final coordinates (final.gro, extracted from the last trajectory frame),and supporting output files such as md.log, md.edr, and index files (*.ndx) where available.
-These files are provided to support transparency and reproducibility of the MD simulations reported in the associated manuscript. Please refer to the README files within each folder for the file organization and brief usage notes.

@@ -1,5 +1,0 @@
-MD simulations of poly(caprolactone) chains of various molecular weights in melt
-
-Molecular Dynamics (MD) Simulations of poly(caprolactone) (PCL) chains with 10, 30, 50, 100 and 125 monomers in melt. The preparation of the systems is described elsewhere (https://github.com/pbacova/PCL_Supplementary_material_systematic_CG).
-The dataset contains the initial squeezing simulation, which is employed to remove the heterogeneities in density, then the equilibration at 600K, the cooling run and the equilibration at 500K. 100mer and 125 mer systems contain also a directory with prerun, for shorter chains the prerun is a part of the production run. The shortrun has identical simulation details as the production run, but the trajectory is much shorter and the coordinates are saved more frequently.
-All files are in Gromacs format. The used force field parameters are summarized in pcl_ff_final.itp file in each directory and were taken mainly from the L-OPLS force field. 

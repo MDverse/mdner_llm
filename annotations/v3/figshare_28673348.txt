@@ -1,3 +1,0 @@
-m5-ach-vu
-
-This folder has the input files, topology file and pdb file for ACh-VU6007678 bound M5 mAChR mini-G complex

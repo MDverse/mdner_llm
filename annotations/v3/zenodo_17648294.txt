@@ -1,7 +1,0 @@
-FlAbDab & TCRDab: Large-Scale MD Simulations of experimentally resolved Antibody and TCR Fv regions (Cagiada M, Spoendlin F.C - 2025)
-
-This repository contains molecular dynamics (MD) simulation data associated with the publication "Uncovering the flexibility of CDR loops in antibodies and TCRs through large-scale molecular dynamics" (Cagiada M, Spoendlin F.C - 2025).
-The data provided here include MD trajectories and topologies files generated using CALVADOS 3 Fv (CV3Fv) for all experimentally resolve structure of antibodies and T-cell receptors (TCRs) present in FlAbDab and FTCRDab.
-For each system we include: coarse grain trajectory (.dcd), all-atom trajectory (.xtc, converted with cg2all), topologies, input files and a set of representative structure for each system. Please refer to the manuscript for additional methodological details.
-Simulations were performed using CALVADOS 3 with a custom set of restraint, in a setup named CV3Fv. Simulation productions were run at 298 K for 100ns in total. Please refer to the manuscript for additional methodological details.
-N.B: All-atom trajectories may include clashes resulting from the conversion process. If you wish to analyse the trajectory, we recommend using the coarse-grain file. 

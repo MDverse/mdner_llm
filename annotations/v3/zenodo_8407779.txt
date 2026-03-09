@@ -1,3 +1,0 @@
-The files for "RlmI-c-di-GMP" molecular dynamics simulation
-
-The crystal structure files (protein RlmI), MD simulation files (input files, parameter files, topology files etc) and structures of c-Di-GMP.

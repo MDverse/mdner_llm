@@ -1,4 +1,0 @@
-DPPC_Berger_OPLS06
-
-MD simulation trajectory and related files for fully hydrated DPPC bilayer. The OPLSAA-compatible Berger-DPPC-06 force field (DOI:10.1088/0953--8984/18/28/S07) was used with Gromacs 5.1-beta. Conditions: T=323K, 72 lipids, 2880 SPC waters. 120 ns trajectory, last 60 ns analyzed.
- 

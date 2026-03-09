@@ -1,3 +1,0 @@
-Coarse-grain MD input files and trajectories, antibody reach
-
-Sample coarse-grain molecular dynamics input and output files for simulating the molecular reach of SARS-CoV-2 RBD binding antibody FD-11A. Simulations are steered molecular dynamics trajectories.

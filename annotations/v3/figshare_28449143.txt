@@ -1,3 +1,0 @@
-Template script and GROMACS command
-
-This collection contains information on the GROMACS command and template scripts for running the extract data in "Assessing the impact of DDR genetic variants on structural stability via molecular dynamics simulations". The table summary contains the generic GROMACS commands to run the extract file in the "Assessing the impact of DDR genetic variants on structural stability via molecular dynamics simulations" collections. The template zip file contains two directories: 1) Chimera, which is for generating variants .pdb file from the gene pdb template. 2) GROMACS, which is for generating basic GROMACS simulation inputs for each variant.

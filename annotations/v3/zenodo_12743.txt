@@ -1,3 +1,0 @@
-DPPC @ 323K, new FF by Tjörnhammar & Edholm
-
-Trajectory of 144 DPPC molecules @ 323K. Force field and initial structure from http://pubs.acs.org/doi/full/10.1021/ct500589z

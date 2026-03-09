@@ -1,3 +1,0 @@
-Sample of seismic waveform data for rfmpy tutorial
-
-Sample of seismic waveform data for rfmpy tutorial (https://github.com/kemichai/rfmpy). Sub-set of seismic data from EASI seismic network that are cut around a number of different teleseismic events. The continuous full waveform data from EASI seismic network are available at: the European Integrated Data Archive EIDA; http://www.orfeus-eu.org/data/eida/ with the network code XT.

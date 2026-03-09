@@ -1,4 +1,0 @@
-MD simulation data for Helicobacter pylori TonB-CTD (residues 194-285) (PDB ID: 5LW8; BMRB entry: 34043), Amber ff99SB-ILDN, tip3p, 310K, Gromacs
-
-MD simulation data for Helicobacter pylori TonB-CTD (residues 194-285) (PDB ID: 5LW8; BMRB entry: 34043). Simulated with Amber ff99SB-ILDN force field, tip3p water model at 310K, Gromacs software package.
-Simulation reported in "Rotational dynamics of proteins from spin relaxation times and molecular dynamics simulations", Ollila et al. Submitted (2017).

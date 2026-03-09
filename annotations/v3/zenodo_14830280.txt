@@ -1,9 +1,0 @@
-Simulation data for "Optimal Rejection-Free Path Sampling". Trajectory files of the chignolin AIMMD run "tps2"
-
-This repository contains the trajectory files for the AIMMD run "tps2" of chignolin. It includes the two-way shooting paths and the free simulations around state A and state B. 
-Due to size constraints, the data has been split into separate repositories. 
-The trajectory files are not required for running the main analysis, as all necessary information for machine learning and path reweighting is contained in the "PatEnsemble" object files stored in the main repository. However, these trajectories are essential for projecting the path ensemble estimate onto an arbitrary set of collective variables.
-To reconstruct the full dataset, please merge the data folder from the main repository with the one you find here.
-Data structure and content
-data|- chignolin   |- tps2 (the AIMMD run, with TPS for the shooting simulations)      |- equilibriumA (the trajectory data for the free simulations around A)         |- traj000001.part0000.xtc         |- traj000001.part0001.xtc         |- ...         |- traj000002.part0000.xtc         |- ...      |- equilibriumB (the trajectory data for the free simulations around B)         |- ...      |- shots0 (the path sampling chain, with the paths in order)         |- path000001.xtc         |- path000002.xtc         |- ...
- 

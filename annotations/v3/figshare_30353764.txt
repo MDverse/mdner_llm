@@ -1,3 +1,0 @@
-Data for Shuanghuanglian Oral Liquid in SALI Mouse Model”
-
-This dataset contains the Molecular docking and molecular dynamics (MD) simulations supporting the findings of our study titled 'Shuanghuanglian Oral Liquid alleviates sepsis-induced acute lung injury: A study of potential mechanisms involving the CXCL8/NF-κB axis based on network pharmacology and experimental validation'. The data corresponds to the experiments described in the manuscript.

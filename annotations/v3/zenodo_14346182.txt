@@ -1,3 +1,0 @@
-Receiver function dataset for tutorial in rfmpy
-
-Sample of receiver functions in SAC format to use for the rfmpy MTZ application tutorial (https://github.com/kemichai/rfmpy) and GMT script to plot cross-section.

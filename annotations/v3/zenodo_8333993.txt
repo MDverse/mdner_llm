@@ -1,3 +1,0 @@
-MD simulation of sphingomyelin (d18:1/18:0) bilayer in water
-
-MD simulations of sphingomyelin (d18:1/18:0) bilayer in water, NPT, 328 K. 128 SM + 5120 TIP3P water molecules, CHARMM36 force field.

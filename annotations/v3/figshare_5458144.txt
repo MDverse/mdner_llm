@@ -1,3 +1,0 @@
-PTEG-1, PP and N-DMBI atomistic force fields
-
-GROMOS 53A6 based atomistic force field for the fullerene derivatives PTEG-1 and PP, and the small organic molecule used as dopant N-DMBI.The provided files are in GROMACS format (see GROMACS manual in case of need).For details on the atomistic force fields, please see the associated publication (and please cite it if you find these files useful for your work):Enhancing doping efficiency by improving host-dopant miscibility for fullerene-based n-type thermoelectrics L. Qiu, J. Liu, R. Alessandri, X. Qiu, M. Koopmans, R.W.A. Havenith, S.J. Marrink, R.C. Chiechi, L.J.A. Koster, J.C. HummelenJournal of Material Chemistry A, 2017, DOI: 10.1039/C7TA06609K

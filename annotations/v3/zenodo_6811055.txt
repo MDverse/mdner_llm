@@ -1,3 +1,0 @@
-Mutation in glutamate transporter homologue GltTk provides insights into pathologic mechanism of episodic ataxia 6
-
-Dataset to reproduce MD simulations described in "New insights into a mutation leading to episodic ataxia 6"

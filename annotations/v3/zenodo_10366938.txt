@@ -1,3 +1,0 @@
-Martini 2 and Martini 3 simulations of DOPE/DOPC mixtures
-
-Martini simulations of DOPE/DOPC lipid mixtures from 0% to 100% in increments of 10%. Performed with GROMACS.

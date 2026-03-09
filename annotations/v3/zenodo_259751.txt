@@ -1,3 +1,0 @@
-Snapshots from MD simulations of human beta3 integrin PSI-domain
-
-MD simulation performed with Gromacs 4.0.7

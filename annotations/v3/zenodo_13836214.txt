@@ -1,3 +1,0 @@
-Molecular dynamics simulation: The process of phosphate transfer from fructose-1,6-bisphosphate to phosphoglycerate mutase 1
-
-Molecular dynamics (MD) simulations were performed to investigate the dynamic process of the binding and phosphorylation of PGAM1 by FBP. 

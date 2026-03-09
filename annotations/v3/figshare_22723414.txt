@@ -1,3 +1,0 @@
-The pre-trained GICnet models from "Four-dimensional-spacetime atomistic artificial intelligence models"
-
-The pre-trained GICnet models from:Fuchun Ge, Lina Zhang, Arif Ullah, Pavlo O. Dral*. Four-dimensional spacetime atomistic artificial intelligence models. J. Phys. Chem. Lett. 2023. DOI: 10.1021/acs.jpclett.3c01592. See also preprint on ChemRxiv.These models can be used to propagate molecular dynamics trajectories with the 4D-spacetime GICnet models. See https://github.com/dralgroup/mlatom/tree/gicnet for the instructions.

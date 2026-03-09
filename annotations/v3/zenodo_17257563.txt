@@ -1,3 +1,0 @@
-MDDTA drug screening MD simulation component.
-
-Top 5 candidate compounds and N3 molecular dynamics simulation files: topology files(com_solvated.prmtop), trajectory files(prod.crd), and final frame complex PDB files(complex.pdb).

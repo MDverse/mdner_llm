@@ -1,3 +1,0 @@
-Simulations of a beta-2 adrenergic receptor dimer on a flat membrane
-
-Two replicas, trajectories without water.

@@ -1,5 +1,0 @@
-Lysozyme-in-water 1us full-atom GROMACS simulation for MDAnalysis parallelization benchmark
-
-I'm using trajectory and topology for an 1us run generated according to lysozyme in water tutorial and used later in this publication (charged HIS trajectory).
-A full-atom xtc trajectory containing 25690 atoms in total (see topology for more detail).
-Associated benchmark and its description can be found here.

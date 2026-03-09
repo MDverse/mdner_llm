@@ -1,3 +1,0 @@
-Dataset of the MD simulations in the Conformational Plasticity of Disordered Regions Enables Sequence-Diverse DNA Recognition by Transcription Factor AflR
-
-The initial coordinate file (pdb and gro), complete topology (.top) and parameter files (.itp), molecular dynamics parameter file (.mdp) containing the simulation settings, and the final output coordinate file (.pdb)

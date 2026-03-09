@@ -1,6 +1,0 @@
-Unraveling the Ligand-binding Sites of CYP3A4 by Molecular Dynamics Simulations with Solvent Probes
-
-This directory contains files for the project:
-Unraveling the Ligand-binding Sites of CYP3A4 by Molecular Dynamics Simulations with Solvent Probes
- 
-All the input files (topologies, parameters, and initial configurations) required to reproduce the results and the output trajectory files are available here. Snapshots were taken at 1 ns intervals from the last 100 ns trajectory from MixMD, as well as the entire 200 ns trajectory from cMD.

@@ -1,3 +1,0 @@
-Simulation input files
-
-Gromacs input files for simulations

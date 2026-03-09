@@ -1,3 +1,0 @@
-C36 POPC simulation with 17 lipids per leaflet, 300K
-
-POPC bilayer with 30 waters per lipid (17+17), at 300K, simulation using gromacs

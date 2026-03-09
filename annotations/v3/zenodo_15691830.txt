@@ -1,4 +1,0 @@
-Palmitoylation at the N-terminal disordered region of PSD95 acts as a conformation switch and facilitates PSD95 cluster formation on synaptic membrane: Molecular insights from multiscale simulations
-
-This dataset contains trajectory and coordinate files used in the molecular dynamics simulations reported in our study on the role of palmitoylation in PSD95 clustering. The simulations, conducted using all-atom and coarse-grained approaches, explore how palmitoylation influences the conformation and membrane association of PSD95, a key postsynaptic scaffolding protein. These data support our findings that palmitoylation promotes extended conformations and domain rearrangements that are critical for PSD95 cluster formation and synaptic organization. 
-We have also included a powerpoint file where all the trajectory movie files (supporting information) are available. 

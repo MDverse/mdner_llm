@@ -1,3 +1,0 @@
-Dataset- Unraveling the Molecular Complexity of N-Terminus Huntingtin Oligomers: Insights into Polymorphic Structures
-
-This dataset contains self-assembly simulations of oligomeric huntingtin with varying polyQ lengths, related to "Unraveling the Molecular Complexity of N-Terminus Huntingtin Oligomers: Insights into Polymorphic Structures". Peptide systems are of N17+ polyQ, with polyQ adopting lengths between 7 to 45 repeats.

@@ -1,3 +1,0 @@
-Frez7p.edr
-
-Energy data from an annealed simulation with a fixed pressure of 7 GPa and temperatures ranging from 420K to 320K

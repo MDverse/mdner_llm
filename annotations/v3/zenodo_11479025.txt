@@ -1,5 +1,0 @@
-Molecular dynamics simulation of SpoIVFB:Pro-SigmaK complex (replicate 1)
-
-Replicate simulation 1/4
-Found here are all files needed to reproduce or visualize the results of molecular dynamics simulation of the SpoIVFB intramembrane protease bound to the transcription factor Pro-sigmaK. The protein complex was embedded in a POPE_POPG_DAG_CL bilayer using CHARMM-GUI and simulated using OpenMM. The README file is a C-shell script that will run equilibration and 250ns of unrestrained simulation. 
-Individual output (.out) and trajectory (.dcd) files are provided for each checkpoint of the simulation. A combined trajectory containing 250 ns of unrestrained simulation is also provided (combined_250ns_traj.dcd). Together with the step5_input.psf file, this combined dcd file can be used with common software such as VMD to visualize the molecular dynamics trajectory.

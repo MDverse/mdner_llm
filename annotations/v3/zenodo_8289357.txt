@@ -1,7 +1,0 @@
-MD simulations of the Sec61/TRAP/ribosome complex and various subcomplexes with CHARMM36 force field
-
-Simulation data for the Sec61/TRAP/ribosome complex and its subcomplexes (TRAP alone, Sec61 alone, as well as Sec61 with TRAP) embedded in an ER membrane mimic. Simulations are performed using GROMACS and with the all-atom CHARMM family of force fields. The uploaded trajectories (xtc) contain the coordinates stored every 2 ns of the 2-µs-long simulations. The output energy files (edr), run input files (tpr), and the continue points (cpt) at 2 µs are provided. 
-This upload also contains data for the Sec61/TRAP/ribosome complex simulated in a POPC bicelle. This simulation is 1 µs long and the coordinates are stored every 1 ns.
-All required input files are also provided to regenerate the run input file: initial structures (gro), index files (ndx), topologies (top and itp), and the simulation parameter file (mdp).  Details of the setup, simulation, and analysis of the systems is available in the preprint:
-https://doi.org/10.1101/2022.09.30.510141
- 

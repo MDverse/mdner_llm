@@ -1,7 +1,0 @@
-Molecular Dynamics of HLA-A 02:01 with neoantigen and wild-type peptides from AKP6 and ASTN1 genes.
-
-Molecular Dynamics simulations of 4 complexes :
-1. Protein HLA-A*02:01 with the wild-type peptide WLIDMESLV from AKP6 gene.
-2. Protein HLA-A*02:01 with the neoantigen peptide WLIDMKSLV from AKP6 gene.
-3. Protein HLA-A*02:01 with the neoantigen peptide KLYGLDWAEL from ASTN1 gene.
-4. Protein HLA-A*02:01 with the wild-type peptide KPYGLDWAEL from ASTN1 gene.

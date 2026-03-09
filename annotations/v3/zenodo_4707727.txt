@@ -1,9 +1,0 @@
-The Substrate Import Mechanism of the Human Serotonin Transporter
-
-Molecular dynamics simulations of the serotonin import process of the human serotonin transporter. Article link: https://doi.org/10.1016/j.bpj.2022.01.024.
-SeTWT-5HT-stripped.pdb - stripped (no lipids or water) topology file for SERT-5HT trajectories. 
-MSM-SeTWT-5HT-500microstates-100samples.zip contains trajectory files of 100 structures of each microstates (500 total) from the SERT-5HT Markov state model in xtc format. 
-SeTWT-Na-stripped.pdb - stripped (no lipids or water) topology file for SERT-Na (no substrate) trajectories. 
-MSM-SeTWT-Na-600microstates-100samples.zip contains trajectory files of 100 structures of each microstates (600 total) from the SERT-Na Markov state model in xtc format. 
-Trajectories may be viewed in molecular graphics software such as VMD. Residue numbering in the trajectories is offset by 75 from the original SERT sequence. 
- 

@@ -1,3 +1,0 @@
-Dataset for the article "Making Puzzle Pieces Fit or Reshaping MiMiC for Multiscale Simulations with CP2K and More"
-
-This dataset contains additional material related to the article "Making Puzzle Pieces Fit or Reshaping MiMiC for Multiscale Simulations with CP2K and More": the source code of the MiMiC framework at the time of data gathering, simulation inputs and outputs, and a Jupyter notebook with the analysis scripts to reproduce the plots in the article.

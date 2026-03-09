@@ -1,3 +1,0 @@
-ADw
-
-Ala-dipeptide in explicit water molecules.AMBER parm99SB for peptide, tip3p for water molecule.10ns simulation (NPT constatnt) after equilibration.Gromacs was used.

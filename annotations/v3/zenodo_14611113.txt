@@ -1,7 +1,0 @@
-AMBER trajectories of dimeric or monomeric BRAF, both in apo and in complex with one of two inhibitors
-
-MD trajectories of V600E BRAF generated with AMBER as described in 
-
-Clayton Joseph, Romany Aarion, Matenoglou Evangelia, Gavathiotis Evripidis, Poulikakos Poulikos I., Shen Jana (2024) Mechanism of Dimer Selectivity and Binding Cooperativity of BRAF Inhibitors eLife 13:RP95334 (https://doi.org/10.7554/eLife.95334.2)
-
-5 microsecond trajectories (provided in the zip archive) and their corresponding topology files have been stripped of water molecules and ions to reduce the file size. Corresponding input files can be found at https://github.com/JanaShenLab/RAF.

@@ -1,3 +1,0 @@
-Supporting molecular simulations data for "A combined molecular dynamics and experimental study of two-step process enabling low-temperature formation of phase-pure α-FAPbI3"
-
-Supplementary data for "A combined molecular dynamics and experimental study of two-step process enabling low-temperature formation of phase-pure α-FAPbI3: 10.1126/sciadv.abe3326"

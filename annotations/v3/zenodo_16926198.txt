@@ -1,3 +1,0 @@
-(GGS)3 disordered linker simulations with AMBER99SBWS
-
-Classical MD simulations of the disordered linker with sequence GGSGGGSGGS ((GGS)3) using AMBER99SBWS force field, run in water. Five replicas (mentioned as model01,02,03,04,05) were run with five different initial structures generated with IDPconfGen (Teixeira et al. (2022)). 

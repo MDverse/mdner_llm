@@ -1,4 +1,0 @@
-Timeseries and trajectories related to the manuscript "Molecular dynamics of the mechanism behind diversity in the effects of serotonin-2A-receptor (5-HT2AR) modulation" by J. Peeters, D. De Bundel and K. Vanommeslaeghe
-
-This zip file containes for each simulation;
-- the coordinate (pdb-format) of the system generated with CHARMM-GUI- the input files the run the system starting from the heating/equilibration steps which were perfomed with NAMD v2.14- the condensed trajectories; each 10 ns a frame was saved- for each trajectory the timeseries of the different degrees of freedom

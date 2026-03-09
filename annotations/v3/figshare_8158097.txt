@@ -1,6 +1,0 @@
-Carbepenem acyl-enzyme parameters (for beta-lactamase simulations): Meropenem
-
-Acyl-enzyme parameters used in the following publication:"QM/MM simulations as an assay for carbapenemase activity in class A β-lactamases"Chudyk EI, Limb MAL,
-Jones C, Spencer J, Van der Kamp MW,
-Mulholland AJ. 2014. Chem Commun 50,
-14736DOI: 10.1039/c4cc06495jAcyl-enzyme of Meropenem (incl. Ser70) Files: MER.off, MER.frcmodResidue name: MERAtom names are labeled in: MER_atom_names.pngParameterisation procedure: Initial Amber ff14SB force field parameters for the acylated Ser-70 residue (with caps on either side) were obtained from the RED Server (partial charges from HF/6-31G(d,p) RESP-fitting and atom types). For missing parameters, chemically equivalent parameters from the GAFF force field were used.
