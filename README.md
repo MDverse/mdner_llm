@@ -2,8 +2,18 @@
 
 ## Introduction
 
+This project explores methods for automatically annotating dataset descriptions and scientific texts related to Molecular Dynamics (MD).
 
-This project explores methods for reliably annotating dataset descriptions and scientific texts related to Molecular Dynamics (MD).  Because Large Language Models (LLMs) are inherently non-deterministic, we aim to enforce structured and reproducible outputs using a strict [Pydantic](https://docs.pydantic.dev/1.10/) schema. Below is a Mermaid diagram that summarizes the schema used to capture detected entities:
+## Annotation dataset
+
+A dataset of about 280 annotated texts is available in the `annotations` folder.
+These texts are the title and description of molecular dynamics simulation datasets scraped from Zenodo and Figshare.
+
+These texts have been annotated with [annotation rules](docs/annotation_rules.md).
+
+## Using large language models
+
+Because Large Language Models (LLMs) are inherently non-deterministic, we aim to enforce structured and reproducible outputs using a strict [Pydantic](https://docs.pydantic.dev/1.10/) schema. Below is a Mermaid diagram that summarizes the schema used to capture detected entities:
 
 ```mermaid
 classDiagram
@@ -60,10 +70,7 @@ classDiagram
     ListOfEntities ..> ForceFieldModelVersion
 ```
 
-
-
 To assess robustness and accuracy, we benchmark several LLMs (GPT-5, Gemini 3 Pro, etc.) together with extraction libraries such as **Instructor**, **LlamaIndex**, and **Pydantic**.   Our goal is to identify the best model–framework combinations for accurate, consistent, and schema-compliant Molecular Dynamics Named Entity Recognition (MDNER).
-
 
 ## Setup environment
 
@@ -83,7 +90,6 @@ Sync dependencies:
 uv sync
 ```
 
----
 ## Add OpenAI and OpenRouter API key
 
 Create an .env file with a valid [OpenAI](https://platform.openai.com/docs/api-reference/authentication) and [OpenRouter](https://openrouter.ai/docs/api/reference/authentication) API key:
@@ -92,14 +98,12 @@ Create an .env file with a valid [OpenAI](https://platform.openai.com/docs/api-r
 OPENAI_API_KEY=<your-openai-api-key>
 OPENROUTER_API_KEY=<your-openrouter-api-key>
 ```
-> Remark: This .env file is ignored by git.
 
----
+> Remark: This .env file is ignored by git.
 
 ## Usage
 
 ### Extract entities of one text 🗎
-
 
 To extract structured entities from a single text using a specified LLM and framework, run :
 
