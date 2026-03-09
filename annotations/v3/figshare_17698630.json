@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Tetracycline Derivatives Inhibit Plasmodial Cysteine Protease Falcipain‑2 through Binding to a Distal Allosteric Site\n\nAllosteric\ninhibitors regulate enzyme activity from remote and\nusually specific pockets. As they promise an avenue for less toxic\nand safer drugs, the identification and characterization of allosteric\ninhibitors has gained great academic and biomedical interest in recent\nyears. Research on falcipain-2 (FP-2), the major papain-like cysteine\nhemoglobinase of Plasmodium falciparum, might benefit from this strategy to overcome the low selectivity\nagainst human cathepsins shown by active site-directed inhibitors.\nEncouraged by our previous finding that methacycline inhibits FP-2\nnoncompetitively, here we assessed other five tetracycline derivatives\nagainst this target and characterized their inhibition mechanism.\nAs previously shown for methacycline, tetracycline derivatives inhibited\nFP-2 in a noncompetitive fashion, with Ki values ranging from 121 to 190 μM. A possible\nbinding to the S′ side of the FP-2 active site, similar to\nthat described by X-ray crystallography (PDB: 6SSZ) for the noncompetitive\ninhibitor E-chalcone 48 (EC48), was experimentally\ndiscarded by kinetic analysis using a large peptidyl substrate spanning\nthe whole active site. By combining lengthy molecular dynamics (MD)\nsimulations that allowed methacycline to diffuse from solution to\ndifferent FP-2 surface regions and free energy calculations, we predicted\nthe most likely binding mode of the ligand. Of note, the proposed\nbinding pose explains the low differences in Ki values observed for the tested tetracycline\nderivatives and the calculated binding free energies match the experimental\nvalues. Overall, this study has implications for the design of novel\nallosteric inhibitors against FP-2 and sets the basis for further\noptimization of the tetracycline scaffold to produce more potent and\nselective inhibitors.",
+    "raw_text": "Tetracycline Derivatives Inhibit Plasmodial Cysteine Protease Falcipain‑2 through Binding to a Distal Allosteric Site\nAllosteric\ninhibitors regulate enzyme activity from remote and\nusually specific pockets. As they promise an avenue for less toxic\nand safer drugs, the identification and characterization of allosteric\ninhibitors has gained great academic and biomedical interest in recent\nyears. Research on falcipain-2 (FP-2), the major papain-like cysteine\nhemoglobinase of Plasmodium falciparum, might benefit from this strategy to overcome the low selectivity\nagainst human cathepsins shown by active site-directed inhibitors.\nEncouraged by our previous finding that methacycline inhibits FP-2\nnoncompetitively, here we assessed other five tetracycline derivatives\nagainst this target and characterized their inhibition mechanism.\nAs previously shown for methacycline, tetracycline derivatives inhibited\nFP-2 in a noncompetitive fashion, with Ki values ranging from 121 to 190 μM. A possible\nbinding to the S′ side of the FP-2 active site, similar to\nthat described by X-ray crystallography (PDB: 6SSZ) for the noncompetitive\ninhibitor E-chalcone 48 (EC48), was experimentally\ndiscarded by kinetic analysis using a large peptidyl substrate spanning\nthe whole active site. By combining lengthy molecular dynamics (MD)\nsimulations that allowed methacycline to diffuse from solution to\ndifferent FP-2 surface regions and free energy calculations, we predicted\nthe most likely binding mode of the ligand. Of note, the proposed\nbinding pose explains the low differences in Ki values observed for the tested tetracycline\nderivatives and the calculated binding free energies match the experimental\nvalues. Overall, this study has implications for the design of novel\nallosteric inhibitors against FP-2 and sets the basis for further\noptimization of the tetracycline scaffold to produce more potent and\nselective inhibitors.",
     "entities": [
         {
             "label": "MOL",
@@ -24,122 +24,122 @@
         {
             "label": "MOL",
             "text": "falcipain-2",
-            "start": 410,
-            "end": 421
+            "start": 409,
+            "end": 420
         },
         {
             "label": "MOL",
             "text": "FP-2",
-            "start": 423,
-            "end": 427
+            "start": 422,
+            "end": 426
         },
         {
             "label": "MOL",
             "text": "papain",
-            "start": 440,
-            "end": 446
+            "start": 439,
+            "end": 445
         },
         {
             "label": "MOL",
             "text": "human cathepsins",
-            "start": 574,
-            "end": 590
+            "start": 573,
+            "end": 589
         },
         {
             "label": "MOL",
             "text": "methacycline",
-            "start": 673,
-            "end": 685
+            "start": 672,
+            "end": 684
         },
         {
             "label": "MOL",
             "text": "FP-2",
-            "start": 695,
-            "end": 699
+            "start": 694,
+            "end": 698
         },
         {
             "label": "MOL",
             "text": "tetracycline",
-            "start": 746,
-            "end": 758
+            "start": 745,
+            "end": 757
         },
         {
             "label": "MOL",
             "text": "methacycline",
-            "start": 861,
-            "end": 873
+            "start": 860,
+            "end": 872
         },
         {
             "label": "MOL",
             "text": "tetracycline",
-            "start": 875,
-            "end": 887
+            "start": 874,
+            "end": 886
         },
         {
             "label": "MOL",
             "text": "FP-2",
-            "start": 910,
-            "end": 914
+            "start": 909,
+            "end": 913
         },
         {
             "label": "MOL",
             "text": "FP-2",
-            "start": 1028,
-            "end": 1032
+            "start": 1027,
+            "end": 1031
         },
         {
             "label": "MOL",
             "text": "6SSZ",
-            "start": 1103,
-            "end": 1107
+            "start": 1102,
+            "end": 1106
         },
         {
             "label": "MOL",
             "text": "E-chalcone 48",
-            "start": 1142,
-            "end": 1155
+            "start": 1141,
+            "end": 1154
         },
         {
             "label": "MOL",
             "text": "EC48",
-            "start": 1157,
-            "end": 1161
+            "start": 1156,
+            "end": 1160
         },
         {
             "label": "MOL",
             "text": "peptidyl",
-            "start": 1227,
-            "end": 1235
+            "start": 1226,
+            "end": 1234
         },
         {
             "label": "MOL",
             "text": "methacycline",
-            "start": 1348,
-            "end": 1360
+            "start": 1347,
+            "end": 1359
         },
         {
             "label": "MOL",
             "text": "FP-2",
-            "start": 1399,
-            "end": 1403
+            "start": 1398,
+            "end": 1402
         },
         {
             "label": "MOL",
             "text": "tetracycline",
-            "start": 1608,
-            "end": 1620
+            "start": 1607,
+            "end": 1619
         },
         {
             "label": "MOL",
             "text": "FP-2",
-            "start": 1796,
-            "end": 1800
+            "start": 1795,
+            "end": 1799
         },
         {
             "label": "MOL",
             "text": "tetracycline",
-            "start": 1852,
-            "end": 1864
+            "start": 1851,
+            "end": 1863
         }
     ]
 }

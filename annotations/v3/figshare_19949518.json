@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Understanding the Mannose Transfer Mechanism of Mycobacterial Phosphatidyl-myo-inositol Mannosyltransferase A from Molecular Dynamics Simulations\n\nGlycolipids like\nphosphatidylinositol hexamannosides (PIM6) and lipoglycans,\nsuch as lipomannan (LM) and lipoarabinomannan\n(LAM), play crucial roles in virulence, survival, and antibiotic resistance\nof various mycobacterial species. Phosphatidyl-myo-inositol mannosyltransferase\nA (PimA) catalyzes the transfer of the mannose moiety (M) from GDP-mannose\n(GDPM) to phosphatidyl-myo-inositol (PI) to synthesize GDP and phosphatidyl-myo-inositol\nmonomannoside (PIM). This PIM is mannosylated, acylated, and further\nmodified to give rise to the higher PIMs, LM, and LAM. It is yet to\nbe known how PI, PIM, PI-GDPM, and PIM-GDP interact with PimA. Here,\nwe report the docked structures of PI and PIM to understand how the\nsubstrates and the products interact with PimA. Using molecular dynamics\n(MD) simulations for 300 ns, we have investigated how various ligand-bound\nconformations change the dynamics of PimA. Our studies demonstrated\nthe “open to closed” motions of PimA. We observed that\nPimA is least dynamic when bound to both GDPM and PI. MD simulations\nindicated that the loop residues 59–70 and the α-helical\nresidues 73–86 of PimA play important roles while interacting\nwith both PI and PIM. MD analyses also suggested that the residues\nY9, P59, R68, L69, N97, R196, R201, K202, and R228 of PimA play significant\nroles in the mannose transfer reaction. Overall, docking studies and\nMD simulations provide crucial insights to design future therapeutic\ndrugs against mycobacterial PimA.",
+    "raw_text": "Understanding the Mannose Transfer Mechanism of Mycobacterial Phosphatidyl-myo-inositol Mannosyltransferase A from Molecular Dynamics Simulations\nGlycolipids like\nphosphatidylinositol hexamannosides (PIM6) and lipoglycans,\nsuch as lipomannan (LM) and lipoarabinomannan\n(LAM), play crucial roles in virulence, survival, and antibiotic resistance\nof various mycobacterial species. Phosphatidyl-myo-inositol mannosyltransferase\nA (PimA) catalyzes the transfer of the mannose moiety (M) from GDP-mannose\n(GDPM) to phosphatidyl-myo-inositol (PI) to synthesize GDP and phosphatidyl-myo-inositol\nmonomannoside (PIM). This PIM is mannosylated, acylated, and further\nmodified to give rise to the higher PIMs, LM, and LAM. It is yet to\nbe known how PI, PIM, PI-GDPM, and PIM-GDP interact with PimA. Here,\nwe report the docked structures of PI and PIM to understand how the\nsubstrates and the products interact with PimA. Using molecular dynamics\n(MD) simulations for 300 ns, we have investigated how various ligand-bound\nconformations change the dynamics of PimA. Our studies demonstrated\nthe “open to closed” motions of PimA. We observed that\nPimA is least dynamic when bound to both GDPM and PI. MD simulations\nindicated that the loop residues 59–70 and the α-helical\nresidues 73–86 of PimA play important roles while interacting\nwith both PI and PIM. MD analyses also suggested that the residues\nY9, P59, R68, L69, N97, R196, R201, K202, and R228 of PimA play significant\nroles in the mannose transfer reaction. Overall, docking studies and\nMD simulations provide crucial insights to design future therapeutic\ndrugs against mycobacterial PimA.",
     "entities": [
         {
             "label": "MOL",
@@ -24,62 +24,62 @@
         {
             "label": "MOL",
             "text": "Glycolipids",
-            "start": 147,
-            "end": 158
+            "start": 146,
+            "end": 157
         },
         {
             "label": "MOL",
             "text": "phosphatidylinositol hexamannosides",
-            "start": 164,
-            "end": 199
+            "start": 163,
+            "end": 198
         },
         {
             "label": "MOL",
             "text": "PIM6",
-            "start": 201,
-            "end": 205
+            "start": 200,
+            "end": 204
         },
         {
             "label": "MOL",
             "text": "lipoglycans",
-            "start": 211,
-            "end": 222
+            "start": 210,
+            "end": 221
         },
         {
             "label": "MOL",
             "text": "lipomannan",
-            "start": 232,
-            "end": 242
+            "start": 231,
+            "end": 241
         },
         {
             "label": "MOL",
             "text": "LM",
-            "start": 244,
-            "end": 246
+            "start": 243,
+            "end": 245
         },
         {
             "label": "MOL",
             "text": "lipoarabinomannan",
-            "start": 252,
-            "end": 269
+            "start": 251,
+            "end": 268
         },
         {
             "label": "MOL",
             "text": "LAM",
-            "start": 271,
-            "end": 274
+            "start": 270,
+            "end": 273
         },
         {
             "label": "MOL",
             "text": "PimA",
-            "start": 429,
-            "end": 433
+            "start": 428,
+            "end": 432
         },
         {
             "label": "MOL",
             "text": "mannose",
-            "start": 465,
-            "end": 472
+            "start": 464,
+            "end": 471
         },
         {
             "label": "MOL",
@@ -90,188 +90,188 @@
         {
             "label": "MOL",
             "text": "GDP-mannose",
-            "start": 489,
-            "end": 500
+            "start": 488,
+            "end": 499
         },
         {
             "label": "MOL",
             "text": "GDPM",
-            "start": 502,
-            "end": 506
+            "start": 501,
+            "end": 505
         },
         {
             "label": "MOL",
             "text": "phosphatidyl-myo-inositol",
-            "start": 511,
-            "end": 536
+            "start": 510,
+            "end": 535
         },
         {
             "label": "MOL",
             "text": "PI",
-            "start": 538,
-            "end": 540
+            "start": 537,
+            "end": 539
         },
         {
             "label": "MOL",
             "text": "GDP",
-            "start": 556,
-            "end": 559
+            "start": 555,
+            "end": 558
         },
         {
             "label": "MOL",
             "text": "PIM",
-            "start": 605,
-            "end": 608
+            "start": 604,
+            "end": 607
         },
         {
             "label": "MOL",
             "text": "PIM",
-            "start": 616,
-            "end": 619
+            "start": 615,
+            "end": 618
         },
         {
             "label": "MOL",
             "text": "PIMs",
-            "start": 695,
-            "end": 699
+            "start": 694,
+            "end": 698
         },
         {
             "label": "MOL",
             "text": "LM",
-            "start": 701,
-            "end": 703
+            "start": 700,
+            "end": 702
         },
         {
             "label": "MOL",
             "text": "LAM",
-            "start": 709,
-            "end": 712
+            "start": 708,
+            "end": 711
         },
         {
             "label": "MOL",
             "text": "PI",
-            "start": 740,
-            "end": 742
+            "start": 739,
+            "end": 741
         },
         {
             "label": "MOL",
             "text": "PIM",
-            "start": 744,
-            "end": 747
+            "start": 743,
+            "end": 746
         },
         {
             "label": "MOL",
             "text": "PI",
-            "start": 749,
-            "end": 751
+            "start": 748,
+            "end": 750
         },
         {
             "label": "MOL",
             "text": "GDPM",
-            "start": 752,
-            "end": 756
+            "start": 751,
+            "end": 755
         },
         {
             "label": "MOL",
             "text": "PIM",
-            "start": 762,
-            "end": 765
+            "start": 761,
+            "end": 764
         },
         {
             "label": "MOL",
             "text": "GDP",
-            "start": 766,
-            "end": 769
+            "start": 765,
+            "end": 768
         },
         {
             "label": "MOL",
             "text": "PimA.",
-            "start": 784,
-            "end": 789
+            "start": 783,
+            "end": 788
         },
         {
             "label": "MOL",
             "text": "PI",
-            "start": 831,
-            "end": 833
+            "start": 830,
+            "end": 832
         },
         {
             "label": "MOL",
             "text": "PIM",
-            "start": 838,
-            "end": 841
+            "start": 837,
+            "end": 840
         },
         {
             "label": "MOL",
             "text": "PimA.",
-            "start": 906,
-            "end": 911
+            "start": 905,
+            "end": 910
         },
         {
             "label": "STIME",
             "text": "300 ns",
-            "start": 958,
-            "end": 964
+            "start": 957,
+            "end": 963
         },
         {
             "label": "MOL",
             "text": "PimA.",
-            "start": 1049,
-            "end": 1054
+            "start": 1048,
+            "end": 1053
         },
         {
             "label": "MOL",
             "text": "PimA.",
-            "start": 1112,
-            "end": 1117
+            "start": 1111,
+            "end": 1116
         },
         {
             "label": "MOL",
             "text": "PimA",
-            "start": 1135,
-            "end": 1139
+            "start": 1134,
+            "end": 1138
         },
         {
             "label": "MOL",
             "text": "GDPM",
-            "start": 1176,
-            "end": 1180
+            "start": 1175,
+            "end": 1179
         },
         {
             "label": "MOL",
             "text": "PI",
-            "start": 1185,
-            "end": 1187
+            "start": 1184,
+            "end": 1186
         },
         {
             "label": "MOL",
             "text": "PimA",
-            "start": 1279,
-            "end": 1283
+            "start": 1278,
+            "end": 1282
         },
         {
             "label": "MOL",
             "text": "PI",
-            "start": 1333,
-            "end": 1335
+            "start": 1332,
+            "end": 1334
         },
         {
             "label": "MOL",
             "text": "PIM",
-            "start": 1340,
-            "end": 1343
+            "start": 1339,
+            "end": 1342
         },
         {
             "label": "MOL",
             "text": "PimA",
-            "start": 1444,
-            "end": 1448
+            "start": 1443,
+            "end": 1447
         },
         {
             "label": "MOL",
             "text": "PimA.",
-            "start": 1632,
-            "end": 1637
+            "start": 1631,
+            "end": 1636
         }
     ]
 }

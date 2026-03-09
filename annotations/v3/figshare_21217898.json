@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Assessing the Activation of Tyrosine Kinase KIT through Free Energy Calculations\n\nKIT is a type 3 receptor\ntyrosine kinase that plays a crucial role in cellular growth and proliferation.\nMutations in KIT can dysregulate its active–inactive equilibrium.\nActivating mutations drive cancer growth, while deactivating mutations\nresult in the loss of skin and hair pigmentation in a disease known\nas piebaldism. Here, we propose a method based on molecular dynamics\nand free energy calculations to predict the functional effect of KIT\nmutations. Our calculations may have important clinical implications\nby defining the functional significance of previously uncharacterized\nKIT mutations and guiding targeted therapy.",
+    "raw_text": "Assessing the Activation of Tyrosine Kinase KIT through Free Energy Calculations\nKIT is a type 3 receptor\ntyrosine kinase that plays a crucial role in cellular growth and proliferation.\nMutations in KIT can dysregulate its active–inactive equilibrium.\nActivating mutations drive cancer growth, while deactivating mutations\nresult in the loss of skin and hair pigmentation in a disease known\nas piebaldism. Here, we propose a method based on molecular dynamics\nand free energy calculations to predict the functional effect of KIT\nmutations. Our calculations may have important clinical implications\nby defining the functional significance of previously uncharacterized\nKIT mutations and guiding targeted therapy.",
     "entities": [
         {
             "label": "MOL",
@@ -24,32 +24,32 @@
         {
             "label": "MOL",
             "text": "KIT",
-            "start": 82,
-            "end": 85
+            "start": 81,
+            "end": 84
         },
         {
             "label": "MOL",
             "text": "tyrosine kinase",
-            "start": 107,
-            "end": 122
+            "start": 106,
+            "end": 121
         },
         {
             "label": "MOL",
             "text": "KIT",
-            "start": 200,
-            "end": 203
+            "start": 199,
+            "end": 202
         },
         {
             "label": "MOL",
             "text": "KIT",
-            "start": 526,
-            "end": 529
+            "start": 525,
+            "end": 528
         },
         {
             "label": "MOL",
             "text": "KIT",
-            "start": 669,
-            "end": 672
+            "start": 668,
+            "end": 671
         }
     ]
 }

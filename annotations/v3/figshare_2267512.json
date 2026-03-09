@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Growth and Characterization of Molecular Crystals of para-Sexiphenyl by All-Atom Computer Simulations\n\nWe present all-atom molecular dynamics\ncomputer simulations of molecular crystals of the conjugated organic\nmolecule para-sexiphenyl (p-6P),\nwhich constitutes a popular basic molecule for optoelectronic applications.\nAfter validating single-molecule properties with ab initio calculations, we demonstrate that gradually performed\nsimulated temperature annealing leads to the spontaneous self-assembly\nof p-6P molecules from the fully isotropic state\ninto the correct room-temperature solid crystal, with only a few percent\ndeviation from the experimental unit-cell structure. A detailed investigation\nof the single crystal in anisotropic Gibbs ensemble simulations yields\nexperimentally consistent structures and solid to liquid-crystal phase\nbehavior over a wide temperature range, providing molecular insight\ninto nanometer-scale structural and dynamic properties of self-assembled p-6P crystals. This study thus paves the way for future\ninvestigations of the computational description of nucleation and\ngrowth mechanisms of novel p-polyphenylene derivatives\nin the bulk as well as at functional interfaces or heterojunctions.",
+    "raw_text": "Growth and Characterization of Molecular Crystals of para-Sexiphenyl by All-Atom Computer Simulations\nWe present all-atom molecular dynamics\ncomputer simulations of molecular crystals of the conjugated organic\nmolecule para-sexiphenyl (p-6P),\nwhich constitutes a popular basic molecule for optoelectronic applications.\nAfter validating single-molecule properties with ab initio calculations, we demonstrate that gradually performed\nsimulated temperature annealing leads to the spontaneous self-assembly\nof p-6P molecules from the fully isotropic state\ninto the correct room-temperature solid crystal, with only a few percent\ndeviation from the experimental unit-cell structure. A detailed investigation\nof the single crystal in anisotropic Gibbs ensemble simulations yields\nexperimentally consistent structures and solid to liquid-crystal phase\nbehavior over a wide temperature range, providing molecular insight\ninto nanometer-scale structural and dynamic properties of self-assembled p-6P crystals. This study thus paves the way for future\ninvestigations of the computational description of nucleation and\ngrowth mechanisms of novel p-polyphenylene derivatives\nin the bulk as well as at functional interfaces or heterojunctions.",
     "entities": [
         {
             "label": "MOL",
@@ -18,38 +18,38 @@
         {
             "label": "MOL",
             "text": "para-sexiphenyl",
-            "start": 220,
-            "end": 235
+            "start": 219,
+            "end": 234
         },
         {
             "label": "MOL",
             "text": "p-6P",
-            "start": 237,
-            "end": 241
+            "start": 236,
+            "end": 240
         },
         {
             "label": "MOL",
             "text": "p-6P",
-            "start": 507,
-            "end": 511
+            "start": 506,
+            "end": 510
         },
         {
             "label": "SOFTNAME",
             "text": "Gibbs",
-            "start": 741,
-            "end": 746
+            "start": 740,
+            "end": 745
         },
         {
             "label": "MOL",
             "text": "p-6P",
-            "start": 987,
-            "end": 991
+            "start": 986,
+            "end": 990
         },
         {
             "label": "MOL",
             "text": "p-polyphenylene",
-            "start": 1136,
-            "end": 1151
+            "start": 1135,
+            "end": 1150
         }
     ]
 }

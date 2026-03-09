@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "A Unified AMBER-Compatible Molecular Mechanics Force Field for Thiolate-Protected Gold Nanoclusters\n\nWe present transferable AMBER-compatible\nforce field parameters\nfor thiolate-protected gold nanoclusters. Five different sized clusters\ncontaining both organo-soluble and water-soluble thiolate ligands\nserved as test systems in MD simulations, and parameters were validated\nagainst DFT and experimental results. The cluster geometries remain\nintact during the MD simulations in various solvents, and structural\nfluctuations and energetics showed agreement with DFT calculations.\nExperimental diffusion coefficients and crystal structures were also\nreproduced with sufficient accuracy. The presented parameter set contains\nthe minimum number of cluster-specific parameters enabling the use\nof these parameters for several different gold nanoclusters. The parameterization\nof ligands can also be extended to different types of ligands.",
+    "raw_text": "A Unified AMBER-Compatible Molecular Mechanics Force Field for Thiolate-Protected Gold Nanoclusters\nWe present transferable AMBER-compatible\nforce field parameters\nfor thiolate-protected gold nanoclusters. Five different sized clusters\ncontaining both organo-soluble and water-soluble thiolate ligands\nserved as test systems in MD simulations, and parameters were validated\nagainst DFT and experimental results. The cluster geometries remain\nintact during the MD simulations in various solvents, and structural\nfluctuations and energetics showed agreement with DFT calculations.\nExperimental diffusion coefficients and crystal structures were also\nreproduced with sufficient accuracy. The presented parameter set contains\nthe minimum number of cluster-specific parameters enabling the use\nof these parameters for several different gold nanoclusters. The parameterization\nof ligands can also be extended to different types of ligands.",
     "entities": [
         {
             "label": "FFM",
@@ -24,26 +24,26 @@
         {
             "label": "FFM",
             "text": "AMBER",
-            "start": 125,
-            "end": 130
+            "start": 124,
+            "end": 129
         },
         {
             "label": "MOL",
             "text": "thiolate",
-            "start": 169,
-            "end": 177
+            "start": 168,
+            "end": 176
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 272,
-            "end": 277
+            "start": 271,
+            "end": 276
         },
         {
             "label": "MOL",
             "text": "thiolate",
-            "start": 286,
-            "end": 294
+            "start": 285,
+            "end": 293
         }
     ]
 }

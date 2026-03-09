@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Effect of Triclosan and Chloroxylenol on Bacterial Membranes\n\nTriclosan and chloroxylenol\nare broad-spectrum biocides used extensively\nin healthcare and consumer products. They have been suggested to perturb\nthe structure of bacterial membranes, but studies so far have not\nconsidered that most bacterial membranes contain large amounts of branched-chain lipids. Here, molecular\ndynamics simulation is used to examine the effect of the two biocides\non membranes consisting of lipids with methyl-branched chains, cyclopropanated\nchains, and nonbranched chains. It is shown that triclosan and chloroxylenol\ninduced a phase transition in membranes from a liquid-crystalline\nto a liquid-ordered phase irrespective of the presence and nature\nof branching groups. At high concentration, chloroxylenol promoted\nchain interdigitation. Our results suggest that triclosan and chloroxylenol\ndecrease the degree of fluidity of membranes and that this effect\nis more pronounced in bacterial membranes. As a result, their biocidal\nactivity could be associated with a change in the function of membrane\nproteins.",
+    "raw_text": "Effect of Triclosan and Chloroxylenol on Bacterial Membranes\nTriclosan and chloroxylenol\nare broad-spectrum biocides used extensively\nin healthcare and consumer products. They have been suggested to perturb\nthe structure of bacterial membranes, but studies so far have not\nconsidered that most bacterial membranes contain large amounts of branched-chain lipids. Here, molecular\ndynamics simulation is used to examine the effect of the two biocides\non membranes consisting of lipids with methyl-branched chains, cyclopropanated\nchains, and nonbranched chains. It is shown that triclosan and chloroxylenol\ninduced a phase transition in membranes from a liquid-crystalline\nto a liquid-ordered phase irrespective of the presence and nature\nof branching groups. At high concentration, chloroxylenol promoted\nchain interdigitation. Our results suggest that triclosan and chloroxylenol\ndecrease the degree of fluidity of membranes and that this effect\nis more pronounced in bacterial membranes. As a result, their biocidal\nactivity could be associated with a change in the function of membrane\nproteins.",
     "entities": [
         {
             "label": "MOL",
@@ -24,62 +24,62 @@
         {
             "label": "MOL",
             "text": "Triclosan",
-            "start": 62,
-            "end": 71
+            "start": 61,
+            "end": 70
         },
         {
             "label": "MOL",
             "text": "chloroxylenol",
-            "start": 76,
-            "end": 89
+            "start": 75,
+            "end": 88
         },
         {
             "label": "MOL",
             "text": "biocides",
-            "start": 109,
-            "end": 117
+            "start": 108,
+            "end": 116
         },
         {
             "label": "MOL",
             "text": "lipids",
-            "start": 355,
-            "end": 361
+            "start": 354,
+            "end": 360
         },
         {
             "label": "MOL",
             "text": "biocides",
-            "start": 440,
-            "end": 448
+            "start": 439,
+            "end": 447
         },
         {
             "label": "MOL",
             "text": "triclosan",
-            "start": 577,
-            "end": 586
+            "start": 576,
+            "end": 585
         },
         {
             "label": "MOL",
             "text": "chloroxylenol",
-            "start": 591,
-            "end": 604
+            "start": 590,
+            "end": 603
         },
         {
             "label": "MOL",
             "text": "chloroxylenol",
-            "start": 781,
-            "end": 794
+            "start": 780,
+            "end": 793
         },
         {
             "label": "MOL",
             "text": "triclosan",
-            "start": 852,
-            "end": 861
+            "start": 851,
+            "end": 860
         },
         {
             "label": "MOL",
             "text": "chloroxylenol",
-            "start": 866,
-            "end": 879
+            "start": 865,
+            "end": 878
         }
     ]
 }

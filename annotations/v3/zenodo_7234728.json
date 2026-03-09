@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Deep potential model and datasets used in the publication \"Plastic Deformation of Superionic Water Ices\"\n\nThe file training_data_for_deepmd.zip contains the training set and deep potential model for superionic ices used in the publication \"Plastic Deformation of Superionic Water Ices\". The deep potential (DP) neural-network model was generated using the DeepMD-kit package. The training set was generated using AIMD/CP2K calculations for both undeformed and deformed states of the fcc superionic phase at temperatures of 2500, 3000, 3500 and 4000 K. \n \nThe file cp2k_shear.zip contains instructions to modify the CP2K code to calculate the shear vs strain deformation in continuous mode.  \n \nThe file lammps_dislocation.zip contains the files needed to run the dislocation mobility calculation. \n ",
+    "raw_text": "Deep potential model and datasets used in the publication \"Plastic Deformation of Superionic Water Ices\"\nThe file training_data_for_deepmd.zip contains the training set and deep potential model for superionic ices used in the publication \"Plastic Deformation of Superionic Water Ices\". The deep potential (DP) neural-network model was generated using the DeepMD-kit package. The training set was generated using AIMD/CP2K calculations for both undeformed and deformed states of the fcc superionic phase at temperatures of 2500, 3000, 3500 and 4000 K. \n \nThe file cp2k_shear.zip contains instructions to modify the CP2K code to calculate the shear vs strain deformation in continuous mode.  \n \nThe file lammps_dislocation.zip contains the files needed to run the dislocation mobility calculation. \n ",
     "entities": [
         {
             "label": "MOL",
@@ -18,68 +18,68 @@
         {
             "label": "MOL",
             "text": "Water",
-            "start": 274,
-            "end": 279
+            "start": 273,
+            "end": 278
         },
         {
             "label": "SOFTNAME",
             "text": "DeepMD-kit",
-            "start": 356,
-            "end": 366
+            "start": 355,
+            "end": 365
         },
         {
             "label": "SOFTNAME",
             "text": "AIMD",
-            "start": 413,
-            "end": 417
+            "start": 412,
+            "end": 416
         },
         {
             "label": "SOFTNAME",
             "text": "CP2K",
-            "start": 418,
-            "end": 422
+            "start": 417,
+            "end": 421
         },
         {
             "label": "TEMP",
             "text": "2500",
-            "start": 523,
-            "end": 527
+            "start": 522,
+            "end": 526
         },
         {
             "label": "TEMP",
             "text": "3000",
-            "start": 529,
-            "end": 533
+            "start": 528,
+            "end": 532
         },
         {
             "label": "TEMP",
             "text": "3500",
-            "start": 535,
-            "end": 539
+            "start": 534,
+            "end": 538
         },
         {
             "label": "TEMP",
             "text": "4000 K",
-            "start": 544,
-            "end": 550
+            "start": 543,
+            "end": 549
         },
         {
             "label": "SOFTNAME",
             "text": "cp2k",
-            "start": 564,
-            "end": 568
+            "start": 563,
+            "end": 567
         },
         {
             "label": "SOFTNAME",
             "text": "CP2K",
-            "start": 615,
-            "end": 619
+            "start": 614,
+            "end": 618
         },
         {
             "label": "SOFTNAME",
             "text": "lammps",
-            "start": 703,
-            "end": 709
+            "start": 702,
+            "end": 708
         }
     ]
 }

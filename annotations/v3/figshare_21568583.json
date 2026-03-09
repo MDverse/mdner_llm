@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Computational Exploration and Characterization of Potential Calcium Sensitizing Mutations in Cardiac Troponin C\n\nCalcium-dependent heart muscle contraction\nis regulated by the\ncardiac troponin protein complex (cTn) and specifically by the N-terminal\ndomain of its calcium binding subunit (cNTnC). cNTnC contains one\ncalcium binding site (site II), and altered calcium binding in this\nsite has been studied for decades. It has been previously shown that\ncNTnC mutants, which increase calcium sensitization may have therapeutic\nbenefits, such as restoring cardiac muscle contractility and functionality\npost-myocardial infarction events. Here, we computationally characterized\neight mutations for their potential effects on calcium binding affinity\nin site II of cNTnC. We utilized two distinct methods to estimate\ncalcium binding: adaptive steered molecular dynamics (ASMD) and thermodynamic\nintegration (TI). We observed a sensitizing trend for all mutations\nbased on the employed ASMD methodology. The TI results showed excellent\nagreement with experimentally known calcium binding affinities in\nwild-type cNTnC. Based on the TI results, five mutants were predicted\nto increase calcium sensitivity in site II. This study presents an\ninteresting comparison of the two computational methods, which have\nboth been shown to be valuable tools in characterizing the impacts\nof calcium sensitivity in mutant cNTnC systems.",
+    "raw_text": "Computational Exploration and Characterization of Potential Calcium Sensitizing Mutations in Cardiac Troponin C\nCalcium-dependent heart muscle contraction\nis regulated by the\ncardiac troponin protein complex (cTn) and specifically by the N-terminal\ndomain of its calcium binding subunit (cNTnC). cNTnC contains one\ncalcium binding site (site II), and altered calcium binding in this\nsite has been studied for decades. It has been previously shown that\ncNTnC mutants, which increase calcium sensitization may have therapeutic\nbenefits, such as restoring cardiac muscle contractility and functionality\npost-myocardial infarction events. Here, we computationally characterized\neight mutations for their potential effects on calcium binding affinity\nin site II of cNTnC. We utilized two distinct methods to estimate\ncalcium binding: adaptive steered molecular dynamics (ASMD) and thermodynamic\nintegration (TI). We observed a sensitizing trend for all mutations\nbased on the employed ASMD methodology. The TI results showed excellent\nagreement with experimentally known calcium binding affinities in\nwild-type cNTnC. Based on the TI results, five mutants were predicted\nto increase calcium sensitivity in site II. This study presents an\ninteresting comparison of the two computational methods, which have\nboth been shown to be valuable tools in characterizing the impacts\nof calcium sensitivity in mutant cNTnC systems.",
     "entities": [
         {
             "label": "MOL",
@@ -24,74 +24,74 @@
         {
             "label": "MOL",
             "text": "Calcium",
-            "start": 113,
-            "end": 120
+            "start": 112,
+            "end": 119
         },
         {
             "label": "MOL",
             "text": "cardiac troponin protein",
-            "start": 176,
-            "end": 200
+            "start": 175,
+            "end": 199
         },
         {
             "label": "MOL",
             "text": "cTn",
-            "start": 210,
-            "end": 213
+            "start": 209,
+            "end": 212
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 264,
-            "end": 271
+            "start": 263,
+            "end": 270
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 316,
-            "end": 323
+            "start": 315,
+            "end": 322
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 360,
-            "end": 367
+            "start": 359,
+            "end": 366
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 483,
-            "end": 490
+            "start": 482,
+            "end": 489
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 722,
-            "end": 729
+            "start": 721,
+            "end": 728
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 813,
-            "end": 820
+            "start": 812,
+            "end": 819
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 1067,
-            "end": 1074
+            "start": 1066,
+            "end": 1073
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 1179,
-            "end": 1186
+            "start": 1178,
+            "end": 1185
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 1372,
-            "end": 1379
+            "start": 1371,
+            "end": 1378
         }
     ]
 }

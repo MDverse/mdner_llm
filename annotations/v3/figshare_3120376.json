@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular Dynamics of a Water-Absorbent Nanoscale Material Based on Chitosan\n\nAlthough\nhydrogels have been widely investigated for their use\nin materials science, nanotechnology, and novel pharmaceuticals, mechanistic\ndetails explaining their water-absorbent features are not well understood.\nWe performed an all-atom molecular dynamics study of the structural\ntransformation of chitosan nanohydrogels due to water absorption.\nWe analyzed the conformation of dry, nanoscaled chitosan, the structural\nmodifications that emerge during the process of water inclusion, and\nthe dynamics of this biopolymer in the presence of nature’s\nsolvent. Two sets of nanoscaled, single-chained chitosan models were\nsimulated: one to study the swelling dependence upon the degree of\nself-cross-linking and other to observe the response with respect\nto the degree of protonation. We verified that nanohydrogels keep\ntheir ability to absorb water and grow, regardless of their degree\nof cross-linking. Noteworthy, we found that the swelling behavior\nof nanoscaled chitosan is pH-dependent, and it is considerably more\nlimited than that of larger scale hydrogels. Thus, our study suggests\nthat properties of nanohydrogels are significantly different from\nthose of larger hydrogels. These findings might be important in the\ndesign of novel controlled-release and targeted drug-delivery systems\nbased on chitosan.",
+    "raw_text": "Molecular Dynamics of a Water-Absorbent Nanoscale Material Based on Chitosan\nAlthough\nhydrogels have been widely investigated for their use\nin materials science, nanotechnology, and novel pharmaceuticals, mechanistic\ndetails explaining their water-absorbent features are not well understood.\nWe performed an all-atom molecular dynamics study of the structural\ntransformation of chitosan nanohydrogels due to water absorption.\nWe analyzed the conformation of dry, nanoscaled chitosan, the structural\nmodifications that emerge during the process of water inclusion, and\nthe dynamics of this biopolymer in the presence of nature’s\nsolvent. Two sets of nanoscaled, single-chained chitosan models were\nsimulated: one to study the swelling dependence upon the degree of\nself-cross-linking and other to observe the response with respect\nto the degree of protonation. We verified that nanohydrogels keep\ntheir ability to absorb water and grow, regardless of their degree\nof cross-linking. Noteworthy, we found that the swelling behavior\nof nanoscaled chitosan is pH-dependent, and it is considerably more\nlimited than that of larger scale hydrogels. Thus, our study suggests\nthat properties of nanohydrogels are significantly different from\nthose of larger hydrogels. These findings might be important in the\ndesign of novel controlled-release and targeted drug-delivery systems\nbased on chitosan.",
     "entities": [
         {
             "label": "MOL",
@@ -24,56 +24,56 @@
         {
             "label": "MOL",
             "text": "water",
-            "start": 243,
-            "end": 248
+            "start": 242,
+            "end": 247
         },
         {
             "label": "MOL",
             "text": "chitosan",
-            "start": 379,
-            "end": 387
+            "start": 378,
+            "end": 386
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 409,
-            "end": 414
+            "start": 408,
+            "end": 413
         },
         {
             "label": "MOL",
             "text": "chitosan",
-            "start": 475,
-            "end": 483
+            "start": 474,
+            "end": 482
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 548,
-            "end": 553
+            "start": 547,
+            "end": 552
         },
         {
             "label": "MOL",
             "text": "chitosan",
-            "start": 677,
-            "end": 685
+            "start": 676,
+            "end": 684
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 921,
-            "end": 926
+            "start": 920,
+            "end": 925
         },
         {
             "label": "MOL",
             "text": "chitosan",
-            "start": 1044,
-            "end": 1052
+            "start": 1043,
+            "end": 1051
         },
         {
             "label": "MOL",
             "text": "chitosan",
-            "start": 1381,
-            "end": 1389
+            "start": 1380,
+            "end": 1388
         }
     ]
 }

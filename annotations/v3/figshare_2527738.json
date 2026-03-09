@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Interaction of Hematoporphyrin with Lipid Membranes\n\nNatural or synthetic porphyrins are being used as photosensitizers\nin photodiagnosis (PD) and photodynamic therapy (PDT) of malignancies\nand some other diseases. Understanding the interactions between porphyrins\nand cell membranes is therefore important to rationalize the uptake\nof photosensitizers and their passive transport through cell membranes.\nIn this study, we consider the properties of hematoporphyrin (Hp),\na well-known photosensitizer for PD and PDT, in the presence of a\n1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine\n(POPC) bilayer that we use as a model system for protein-free cell\nmembranes. For this purpose, we employed 200 ns atomic-scale molecular\ndynamics (MD) simulations for five systems containing the neutral\n(Hp0) or the dianionic form (Hp2–) of\nHp and the POPC bilayer. MD simulations allowed one to estimate the\nposition, orientation, and dynamics of Hp molecules inside the membrane.\nThe dye molecules were found to reside in the phospholipid headgroup\narea close to the carbonyl groups of the POPC acyl chains. Their orientations\nwere dependent on the protonation state of two propionic groups. Hp2– was found to have a lower affinity to enter the membrane\nthan the neutral form. The dianions, being in the aqueous phase, formed\nstable dimers with a strictly determined geometry. Our results fully\nsupported the experimental data and provide a more detailed molecular-level\ndescription of the interactions of photosensitizers with lipid membranes.",
+    "raw_text": "Interaction of Hematoporphyrin with Lipid Membranes\nNatural or synthetic porphyrins are being used as photosensitizers\nin photodiagnosis (PD) and photodynamic therapy (PDT) of malignancies\nand some other diseases. Understanding the interactions between porphyrins\nand cell membranes is therefore important to rationalize the uptake\nof photosensitizers and their passive transport through cell membranes.\nIn this study, we consider the properties of hematoporphyrin (Hp),\na well-known photosensitizer for PD and PDT, in the presence of a\n1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine\n(POPC) bilayer that we use as a model system for protein-free cell\nmembranes. For this purpose, we employed 200 ns atomic-scale molecular\ndynamics (MD) simulations for five systems containing the neutral\n(Hp0) or the dianionic form (Hp2–) of\nHp and the POPC bilayer. MD simulations allowed one to estimate the\nposition, orientation, and dynamics of Hp molecules inside the membrane.\nThe dye molecules were found to reside in the phospholipid headgroup\narea close to the carbonyl groups of the POPC acyl chains. Their orientations\nwere dependent on the protonation state of two propionic groups. Hp2– was found to have a lower affinity to enter the membrane\nthan the neutral form. The dianions, being in the aqueous phase, formed\nstable dimers with a strictly determined geometry. Our results fully\nsupported the experimental data and provide a more detailed molecular-level\ndescription of the interactions of photosensitizers with lipid membranes.",
     "entities": [
         {
             "label": "MOL",
@@ -18,86 +18,86 @@
         {
             "label": "MOL",
             "text": "porphyrins",
-            "start": 74,
-            "end": 84
+            "start": 73,
+            "end": 83
         },
         {
             "label": "MOL",
             "text": "porphyrins",
-            "start": 254,
-            "end": 264
+            "start": 253,
+            "end": 263
         },
         {
             "label": "MOL",
             "text": "hematoporphyrin",
-            "start": 450,
-            "end": 465
+            "start": 449,
+            "end": 464
         },
         {
             "label": "MOL",
             "text": "Hp",
-            "start": 467,
-            "end": 469
+            "start": 466,
+            "end": 468
         },
         {
             "label": "MOL",
             "text": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine",
-            "start": 538,
-            "end": 586
+            "start": 537,
+            "end": 585
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 588,
-            "end": 592
+            "start": 587,
+            "end": 591
         },
         {
             "label": "STIME",
             "text": "200 ns",
-            "start": 695,
-            "end": 701
+            "start": 694,
+            "end": 700
         },
         {
             "label": "MOL",
             "text": "Hp",
-            "start": 792,
-            "end": 794
+            "start": 791,
+            "end": 793
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 840,
-            "end": 844
+            "start": 839,
+            "end": 843
         },
         {
             "label": "MOL",
             "text": "Hp",
-            "start": 820,
-            "end": 822
+            "start": 819,
+            "end": 821
         },
         {
             "label": "MOL",
             "text": "phospholipid",
-            "start": 1016,
-            "end": 1028
+            "start": 1015,
+            "end": 1027
         },
         {
             "label": "MOL",
             "text": "carbonyl",
-            "start": 1057,
-            "end": 1065
+            "start": 1056,
+            "end": 1064
         },
         {
             "label": "MOL",
             "text": "POPC acyl",
-            "start": 1080,
-            "end": 1089
+            "start": 1079,
+            "end": 1088
         },
         {
             "label": "MOL",
             "text": "dianions",
-            "start": 1271,
-            "end": 1279
+            "start": 1270,
+            "end": 1278
         }
     ]
 }

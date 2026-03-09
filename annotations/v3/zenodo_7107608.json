@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Data set containing the energy landscapes for GPO and GPP tropocollagen models under pulling forces\n\nEnergy landscapes (databases of minima and transition states) for GPO and GPP repeat collagen models under constant pulling forces as explored with OPTIM and PATHSAMPLE with an AMBER force field.\nThe systems are seven GPO or GPP per chain capped with ACE and NME.\n The forces applied are 0 pN (F0), 10 pN (F1), 50 pN (F2), 100 pN (F3), 250 pN (F4), 500 pN (F5) and 750 pN (F6).\nThe folders contains numerous analysis scripts and graphs. Most of these assume python with numpy and pandas, as well as cpptraj from AMBERTools.",
+    "raw_text": "Data set containing the energy landscapes for GPO and GPP tropocollagen models under pulling forces\nEnergy landscapes (databases of minima and transition states) for GPO and GPP repeat collagen models under constant pulling forces as explored with OPTIM and PATHSAMPLE with an AMBER force field.\nThe systems are seven GPO or GPP per chain capped with ACE and NME.\n The forces applied are 0 pN (F0), 10 pN (F1), 50 pN (F2), 100 pN (F3), 250 pN (F4), 500 pN (F5) and 750 pN (F6).\nThe folders contains numerous analysis scripts and graphs. Most of these assume python with numpy and pandas, as well as cpptraj from AMBERTools.",
     "entities": [
         {
             "label": "MOL",
@@ -24,26 +24,26 @@
         {
             "label": "SOFTNAME",
             "text": "OPTIM",
-            "start": 249,
-            "end": 254
+            "start": 248,
+            "end": 253
         },
         {
             "label": "SOFTNAME",
             "text": "PATHSAMPLE",
-            "start": 259,
-            "end": 269
+            "start": 258,
+            "end": 268
         },
         {
             "label": "FFM",
             "text": "AMBER",
-            "start": 278,
-            "end": 283
+            "start": 277,
+            "end": 282
         },
         {
             "label": "SOFTNAME",
             "text": "AMBERTools",
-            "start": 613,
-            "end": 623
+            "start": 612,
+            "end": 622
         }
     ]
 }

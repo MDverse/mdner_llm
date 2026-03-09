@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Force Field for Water over Pt(111): Development, Assessment, and Comparison\n\nMetal/water\ninterfaces are key in many natural and industrial processes,\nsuch as corrosion, atmospheric, or environmental chemistry. Even today,\nthe only practical approach to simulate large interfaces between a\nmetal and water is to perform force-field simulations. In this work,\nwe propose a novel force field, GAL17, to describe the interaction\nof water and a Pt(111) surface. GAL17 builds on three terms: (i) a\nstandard Lennard-Jones potential for the bonding interaction between\nthe surface and water, (ii) a Gaussian term to improve the surface\ncorrugation, and (iii) two terms describing the angular dependence\nof the interaction energy. The 12 parameters of this force field are\nfitted against a set of 210 adsorption geometries of water on Pt(111).\nThe performance of GAL17 is compared to several other approaches that\nhave not been validated against extensive first-principles computations\nyet. Their respective accuracy is evaluated on an extended set of\n802 adsorption geometries of H2O on Pt(111), 52 geometries\nderived from icelike layers, and an MD simulation of an interface\nbetween a c(4 × 6) Pt(111) surface and a water layer of 14 Å\nthickness. The newly developed GAL17 force field provides a significant\nimprovement over previously existing force fields for Pt(111)/H2O interactions. Its well-balanced performance suggests that\nit is an ideal candidate to generate relevant geometries for the metal/water\ninterface, paving the way to a representative sampling of the equilibrium\ndistribution at the interface and to predict solvation free energies\nat the solid/liquid interface.",
+    "raw_text": "Force Field for Water over Pt(111): Development, Assessment, and Comparison\nMetal/water\ninterfaces are key in many natural and industrial processes,\nsuch as corrosion, atmospheric, or environmental chemistry. Even today,\nthe only practical approach to simulate large interfaces between a\nmetal and water is to perform force-field simulations. In this work,\nwe propose a novel force field, GAL17, to describe the interaction\nof water and a Pt(111) surface. GAL17 builds on three terms: (i) a\nstandard Lennard-Jones potential for the bonding interaction between\nthe surface and water, (ii) a Gaussian term to improve the surface\ncorrugation, and (iii) two terms describing the angular dependence\nof the interaction energy. The 12 parameters of this force field are\nfitted against a set of 210 adsorption geometries of water on Pt(111).\nThe performance of GAL17 is compared to several other approaches that\nhave not been validated against extensive first-principles computations\nyet. Their respective accuracy is evaluated on an extended set of\n802 adsorption geometries of H2O on Pt(111), 52 geometries\nderived from icelike layers, and an MD simulation of an interface\nbetween a c(4 × 6) Pt(111) surface and a water layer of 14 Å\nthickness. The newly developed GAL17 force field provides a significant\nimprovement over previously existing force fields for Pt(111)/H2O interactions. Its well-balanced performance suggests that\nit is an ideal candidate to generate relevant geometries for the metal/water\ninterface, paving the way to a representative sampling of the equilibrium\ndistribution at the interface and to predict solvation free energies\nat the solid/liquid interface.",
     "entities": [
         {
             "label": "MOL",
@@ -18,98 +18,98 @@
         {
             "label": "MOL",
             "text": "Metal",
-            "start": 77,
-            "end": 82
+            "start": 76,
+            "end": 81
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 83,
-            "end": 88
+            "start": 82,
+            "end": 87
         },
         {
             "label": "MOL",
             "text": "metal",
-            "start": 289,
-            "end": 294
+            "start": 288,
+            "end": 293
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 299,
-            "end": 304
+            "start": 298,
+            "end": 303
         },
         {
             "label": "FFM",
             "text": "GAL17",
-            "start": 390,
-            "end": 395
+            "start": 389,
+            "end": 394
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 428,
-            "end": 433
+            "start": 427,
+            "end": 432
         },
         {
             "label": "FFM",
             "text": "GAL17",
-            "start": 457,
-            "end": 462
+            "start": 456,
+            "end": 461
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 577,
-            "end": 582
+            "start": 576,
+            "end": 581
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 817,
-            "end": 822
+            "start": 816,
+            "end": 821
         },
         {
             "label": "FFM",
             "text": "GAL17",
-            "start": 854,
-            "end": 859
+            "start": 853,
+            "end": 858
         },
         {
             "label": "MOL",
             "text": "H2O",
-            "start": 1072,
-            "end": 1075
+            "start": 1071,
+            "end": 1074
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 1209,
-            "end": 1214
+            "start": 1208,
+            "end": 1213
         },
         {
             "label": "FFM",
             "text": "GAL17",
-            "start": 1260,
-            "end": 1265
+            "start": 1259,
+            "end": 1264
         },
         {
             "label": "MOL",
             "text": "H2O",
-            "start": 1363,
-            "end": 1366
+            "start": 1362,
+            "end": 1365
         },
         {
             "label": "MOL",
             "text": "metal",
-            "start": 1490,
-            "end": 1495
+            "start": 1489,
+            "end": 1494
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 1496,
-            "end": 1501
+            "start": 1495,
+            "end": 1500
         }
     ]
 }

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "A Bottom-Up Coarse-Grained Model for Nucleosome–Nucleosome Interactions with Explicit Ions\n\nThe nucleosome core\nparticle (NCP) is a large complex of 145–147\nbase pairs of DNA and eight histone proteins and is the basic building\nblock of chromatin that forms the chromosomes. Here, we develop a\ncoarse-grained (CG) model of the NCP derived through a systematic\nbottom-up approach based on underlying all-atom MD simulations to\ncompute the necessary CG interactions. The model produces excellent\nagreement with known structural features of the NCP and gives a realistic\ndescription of the nucleosome–nucleosome attraction in the\npresence of multivalent cations (Mg­(H2O)62+ or Co­(NH3)63+) for systems\ncomprising 20 NCPs. The results of the simulations reveal structural\ndetails of the NCP–NCP interactions unavailable from experimental\napproaches, and this model opens the prospect for the rigorous modeling\nof chromatin fibers.",
+    "raw_text": "A Bottom-Up Coarse-Grained Model for Nucleosome–Nucleosome Interactions with Explicit Ions\nThe nucleosome core\nparticle (NCP) is a large complex of 145–147\nbase pairs of DNA and eight histone proteins and is the basic building\nblock of chromatin that forms the chromosomes. Here, we develop a\ncoarse-grained (CG) model of the NCP derived through a systematic\nbottom-up approach based on underlying all-atom MD simulations to\ncompute the necessary CG interactions. The model produces excellent\nagreement with known structural features of the NCP and gives a realistic\ndescription of the nucleosome–nucleosome attraction in the\npresence of multivalent cations (Mg­(H2O)62+ or Co­(NH3)63+) for systems\ncomprising 20 NCPs. The results of the simulations reveal structural\ndetails of the NCP–NCP interactions unavailable from experimental\napproaches, and this model opens the prospect for the rigorous modeling\nof chromatin fibers.",
     "entities": [
         {
             "label": "MOL",
@@ -24,80 +24,80 @@
         {
             "label": "MOL",
             "text": "NCP",
-            "start": 122,
-            "end": 125
+            "start": 121,
+            "end": 124
         },
         {
             "label": "MOL",
             "text": "histone",
-            "start": 185,
-            "end": 192
+            "start": 184,
+            "end": 191
         },
         {
             "label": "MOL",
             "text": "chromatin",
-            "start": 237,
-            "end": 246
+            "start": 236,
+            "end": 245
         },
         {
             "label": "MOL",
             "text": "chromosomes",
-            "start": 262,
-            "end": 273
+            "start": 261,
+            "end": 272
         },
         {
             "label": "MOL",
             "text": "NCP",
-            "start": 327,
-            "end": 330
+            "start": 326,
+            "end": 329
         },
         {
             "label": "MOL",
             "text": "NCP",
-            "start": 542,
-            "end": 545
+            "start": 541,
+            "end": 544
         },
         {
             "label": "MOL",
             "text": "nucleosome",
-            "start": 96,
-            "end": 106
+            "start": 95,
+            "end": 105
         },
         {
             "label": "MOL",
             "text": "nucleosome",
-            "start": 587,
-            "end": 597
+            "start": 586,
+            "end": 596
         },
         {
             "label": "MOL",
             "text": "cations",
-            "start": 651,
-            "end": 658
+            "start": 650,
+            "end": 657
         },
         {
             "label": "MOL",
             "text": "NCPs",
-            "start": 714,
-            "end": 718
+            "start": 713,
+            "end": 717
         },
         {
             "label": "MOL",
             "text": "NCP",
-            "start": 784,
-            "end": 787
+            "start": 783,
+            "end": 786
         },
         {
             "label": "MOL",
             "text": "NCP",
-            "start": 788,
-            "end": 791
+            "start": 787,
+            "end": 790
         },
         {
             "label": "MOL",
             "text": "chromatin",
-            "start": 910,
-            "end": 919
+            "start": 909,
+            "end": 918
         }
     ]
 }

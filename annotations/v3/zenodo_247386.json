@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "POPC/Cholesterol (50:50) lipid membrane, 303K, Charmm36 force field, simulation files and 100 ns trajectory for GROMACS simulation engine v5\n\nAll runs were performed with GROMACS simulation engine v5 and CHARMM36 additive force field parameters obtained from MacKerell lab website (http://mackerell.umaryland.edu/charmm_ff.shtml, also available at\nhttps://doi.org/10.5281/zenodo.209080). Conditions: T=303, 80 POPC and 80 Cholesterol molecules, 7200 tip3p waters, 100ns trajectory (preceded with equilibration). \nThese data were originally obtained for the nmrlipids.blospot.fi project.\nFind more details at nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
+    "raw_text": "POPC/Cholesterol (50:50) lipid membrane, 303K, Charmm36 force field, simulation files and 100 ns trajectory for GROMACS simulation engine v5\nAll runs were performed with GROMACS simulation engine v5 and CHARMM36 additive force field parameters obtained from MacKerell lab website (http://mackerell.umaryland.edu/charmm_ff.shtml, also available at\nhttps://doi.org/10.5281/zenodo.209080). Conditions: T=303, 80 POPC and 80 Cholesterol molecules, 7200 tip3p waters, 100ns trajectory (preceded with equilibration). \nThese data were originally obtained for the nmrlipids.blospot.fi project.\nFind more details at nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
     "entities": [
         {
             "label": "MOL",
@@ -54,50 +54,50 @@
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 171,
-            "end": 178
+            "start": 170,
+            "end": 177
         },
         {
             "label": "SOFTVERS",
             "text": "v5",
-            "start": 197,
-            "end": 199
+            "start": 196,
+            "end": 198
         },
         {
             "label": "FFM",
             "text": "CHARMM36",
-            "start": 204,
-            "end": 212
+            "start": 203,
+            "end": 211
         },
         {
             "label": "TEMP",
             "text": "303",
-            "start": 402,
-            "end": 405
+            "start": 401,
+            "end": 404
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 410,
-            "end": 414
+            "start": 409,
+            "end": 413
         },
         {
             "label": "MOL",
             "text": "Cholesterol",
-            "start": 422,
-            "end": 433
+            "start": 421,
+            "end": 432
         },
         {
             "label": "FFM",
             "text": "tip3p",
-            "start": 450,
-            "end": 455
+            "start": 449,
+            "end": 454
         },
         {
             "label": "STIME",
             "text": "100ns",
-            "start": 464,
-            "end": 469
+            "start": 463,
+            "end": 468
         }
     ]
 }

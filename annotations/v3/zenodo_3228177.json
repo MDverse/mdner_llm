@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulation POPC_512_NaCl_150mM_310K membrane\n\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation POPC membrane using charmm36 at 310K.\nMD engine: 2016.1\n\n \nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 4200 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC      512\nwater     20480\nCl-          55\nNa+        55\nOther information:\n  * Center of mass motion removed independently for bilayer and water+ions\n  * 01-* are the merged files.\n  * 02-* are the original simulation files. So do not concatenate 02 and 01 files.",
+    "raw_text": "Simulation POPC_512_NaCl_150mM_310K membrane\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation POPC membrane using charmm36 at 310K.\nMD engine: 2016.1\n \nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 4200 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC      512\nwater     20480\nCl-          55\nNa+        55\nOther information:\n  * Center of mass motion removed independently for bilayer and water+ions\n  * 01-* are the merged files.\n  * 02-* are the original simulation files. So do not concatenate 02 and 01 files.",
     "entities": [
         {
             "label": "MOL",
@@ -30,92 +30,92 @@
         {
             "label": "MOL",
             "text": "Ceramide",
-            "start": 67,
-            "end": 75
+            "start": 66,
+            "end": 74
         },
         {
             "label": "MOL",
             "text": "Late Endosomal Protein",
-            "start": 101,
-            "end": 123
+            "start": 100,
+            "end": 122
         },
         {
             "label": "MOL",
             "text": "LAPTM4B",
-            "start": 124,
-            "end": 131
+            "start": 123,
+            "end": 130
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 267,
-            "end": 271
+            "start": 266,
+            "end": 270
         },
         {
             "label": "FFM",
             "text": "charmm36",
-            "start": 287,
-            "end": 295
+            "start": 286,
+            "end": 294
         },
         {
             "label": "TEMP",
             "text": "310K",
-            "start": 299,
-            "end": 303
+            "start": 298,
+            "end": 302
         },
         {
             "label": "FFM",
             "text": "charmm36",
-            "start": 339,
-            "end": 347
+            "start": 337,
+            "end": 345
         },
         {
             "label": "TEMP",
             "text": "310 K",
-            "start": 361,
-            "end": 366
+            "start": 359,
+            "end": 364
         },
         {
             "label": "STIME",
             "text": "4200 ns",
-            "start": 400,
-            "end": 407
+            "start": 398,
+            "end": 405
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 452,
-            "end": 456
+            "start": 450,
+            "end": 454
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 466,
-            "end": 471
+            "start": 464,
+            "end": 469
         },
         {
             "label": "MOL",
             "text": "Cl-",
-            "start": 482,
-            "end": 485
+            "start": 480,
+            "end": 483
         },
         {
             "label": "MOL",
             "text": "Na+",
-            "start": 498,
-            "end": 501
+            "start": 496,
+            "end": 499
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 595,
-            "end": 600
+            "start": 593,
+            "end": 598
         },
         {
             "label": "MOL",
             "text": "ions",
-            "start": 601,
-            "end": 605
+            "start": 599,
+            "end": 603
         }
     ]
 }

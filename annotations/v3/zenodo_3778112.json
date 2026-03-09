@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Mutated EN2(143-259) simulation with Amber ff03ws\n\nMD simulation of a mutated protein EN2(143-259)  with Amber ff03ws and 40 mM NaCl as the solvent.\nThe mutated sequence differs from the original sequence by amino acids serine (148, 150, 153, 154, 155, 156) and aspartic acid (152,154) changed to threonine and glutamate respectively.\nThe trajectory files contain the total 1080 ns simulation. The trajectory file without solvent has saving frequency 10 ps. The trajectory files with solvent have a saving frequency 100ps.\nForce field parameters for proteins and counter ions are downloaded from https://github.com/bestlab/force_fields, for NaCl from https://bitbucket.org/hseara/ions\n ",
+    "raw_text": "Mutated EN2(143-259) simulation with Amber ff03ws\nMD simulation of a mutated protein EN2(143-259)  with Amber ff03ws and 40 mM NaCl as the solvent.\nThe mutated sequence differs from the original sequence by amino acids serine (148, 150, 153, 154, 155, 156) and aspartic acid (152,154) changed to threonine and glutamate respectively.\nThe trajectory files contain the total 1080 ns simulation. The trajectory file without solvent has saving frequency 10 ps. The trajectory files with solvent have a saving frequency 100ps.\nForce field parameters for proteins and counter ions are downloaded from https://github.com/bestlab/force_fields, for NaCl from https://bitbucket.org/hseara/ions\n ",
     "entities": [
         {
             "label": "MOL",
@@ -24,62 +24,62 @@
         {
             "label": "MOL",
             "text": "EN2",
-            "start": 86,
-            "end": 89
+            "start": 85,
+            "end": 88
         },
         {
             "label": "FFM",
             "text": "Amber ff03ws",
-            "start": 105,
-            "end": 117
+            "start": 104,
+            "end": 116
         },
         {
             "label": "MOL",
             "text": "NaCl",
-            "start": 128,
-            "end": 132
+            "start": 127,
+            "end": 131
         },
         {
             "label": "MOL",
             "text": "serine",
-            "start": 220,
-            "end": 226
+            "start": 219,
+            "end": 225
         },
         {
             "label": "MOL",
             "text": "aspartic acid",
-            "start": 262,
-            "end": 275
+            "start": 261,
+            "end": 274
         },
         {
             "label": "MOL",
             "text": "threonine",
-            "start": 297,
-            "end": 306
+            "start": 296,
+            "end": 305
         },
         {
             "label": "MOL",
             "text": "glutamate",
-            "start": 311,
-            "end": 320
+            "start": 310,
+            "end": 319
         },
         {
             "label": "STIME",
             "text": "1080 ns",
-            "start": 374,
-            "end": 381
+            "start": 373,
+            "end": 380
         },
         {
             "label": "MOL",
             "text": "counter ions",
-            "start": 563,
-            "end": 575
+            "start": 562,
+            "end": 574
         },
         {
             "label": "MOL",
             "text": "NaCl",
-            "start": 641,
-            "end": 645
+            "start": 640,
+            "end": 644
         }
     ]
 }

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Complex Behavior of Phosphatidylcholine–Phosphatidic Acid Bilayers and Monolayers: Effect of Acyl Chain Unsaturation\n\nPhosphatidic\nacids (PAs) have many biological functions in biomembranes,\ne.g., they are involved in the proliferation, differentiation, and\ntransformation of cells. Despite decades of research, the molecular\nunderstanding of how PAs affect the properties of biomembranes remains\nelusive. In this study, we explored the properties of lipid bilayers\nand monolayers composed of PAs and phosphatidylcholines (PCs) with\nvarious acyl chains. For this purpose, the Langmuir monolayer technique\nand atomistic molecular dynamics (MD) simulations were used to study\nthe miscibility of PA and PC lipids and the molecular organization\nof mixed bilayers. The monolayer experiments demonstrated that the\nmiscibility of membrane components strongly depends on the structure\nof the hydrocarbon chains and thus on the overall lipid shape. Interactions\nbetween PA and PC molecules vary from repulsive, for systems containing\nlipids with saturated and unsaturated acyl tails (strongly positive\nvalues of the excess free energy of mixing), to attractive, for systems\nin which all lipid tails are saturated (negative values of the excess\nfree energy of mixing). The MD simulations provided atomistic insight\ninto polar interactions (formation of hydrogen bonds and charge pairs)\nin PC–PA systems. H-bonding between PA monoanions and PCs in\nmixed bilayers is infrequent, and the lipid molecules interact mainly\nvia electrostatic interactions. However, the number of charge pairs\nsignificantly decreases with the number of unsaturated lipid chains\nin the PA–PC system. The PA dianions weakly interact with the\nzwitterionic lipids, but their headgroups are more hydrated as compared\nto the monoanionic form. The acyl chains in all PC–PA bilayers\nare more ordered compared to single-component PC systems. In addition,\ndepending on the combination of lipids, we observed a deeper location\nof the PA phosphate groups compared to the PC phosphate groups, which\ncan alter the presentation of PAs for the peripheral membrane proteins,\naffecting their accessibility for binding.",
+    "raw_text": "Complex Behavior of Phosphatidylcholine–Phosphatidic Acid Bilayers and Monolayers: Effect of Acyl Chain Unsaturation\nPhosphatidic\nacids (PAs) have many biological functions in biomembranes,\ne.g., they are involved in the proliferation, differentiation, and\ntransformation of cells. Despite decades of research, the molecular\nunderstanding of how PAs affect the properties of biomembranes remains\nelusive. In this study, we explored the properties of lipid bilayers\nand monolayers composed of PAs and phosphatidylcholines (PCs) with\nvarious acyl chains. For this purpose, the Langmuir monolayer technique\nand atomistic molecular dynamics (MD) simulations were used to study\nthe miscibility of PA and PC lipids and the molecular organization\nof mixed bilayers. The monolayer experiments demonstrated that the\nmiscibility of membrane components strongly depends on the structure\nof the hydrocarbon chains and thus on the overall lipid shape. Interactions\nbetween PA and PC molecules vary from repulsive, for systems containing\nlipids with saturated and unsaturated acyl tails (strongly positive\nvalues of the excess free energy of mixing), to attractive, for systems\nin which all lipid tails are saturated (negative values of the excess\nfree energy of mixing). The MD simulations provided atomistic insight\ninto polar interactions (formation of hydrogen bonds and charge pairs)\nin PC–PA systems. H-bonding between PA monoanions and PCs in\nmixed bilayers is infrequent, and the lipid molecules interact mainly\nvia electrostatic interactions. However, the number of charge pairs\nsignificantly decreases with the number of unsaturated lipid chains\nin the PA–PC system. The PA dianions weakly interact with the\nzwitterionic lipids, but their headgroups are more hydrated as compared\nto the monoanionic form. The acyl chains in all PC–PA bilayers\nare more ordered compared to single-component PC systems. In addition,\ndepending on the combination of lipids, we observed a deeper location\nof the PA phosphate groups compared to the PC phosphate groups, which\ncan alter the presentation of PAs for the peripheral membrane proteins,\naffecting their accessibility for binding.",
     "entities": [
         {
             "label": "MOL",
@@ -18,164 +18,164 @@
         {
             "label": "MOL",
             "text": "PAs",
-            "start": 138,
-            "end": 141
+            "start": 137,
+            "end": 140
         },
         {
             "label": "MOL",
             "text": "PAs",
-            "start": 347,
-            "end": 350
+            "start": 346,
+            "end": 349
         },
         {
             "label": "MOL",
             "text": "PAs",
-            "start": 493,
-            "end": 496
+            "start": 492,
+            "end": 495
         },
         {
             "label": "MOL",
             "text": "phosphatidylcholines",
-            "start": 501,
-            "end": 521
+            "start": 500,
+            "end": 520
         },
         {
             "label": "MOL",
             "text": "PCs",
-            "start": 523,
-            "end": 526
+            "start": 522,
+            "end": 525
         },
         {
             "label": "MOL",
             "text": "acyl",
-            "start": 541,
-            "end": 545
+            "start": 540,
+            "end": 544
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 693,
-            "end": 695
+            "start": 692,
+            "end": 694
         },
         {
             "label": "MOL",
             "text": "PC",
-            "start": 700,
-            "end": 702
+            "start": 699,
+            "end": 701
         },
         {
             "label": "MOL",
             "text": "hydrocarbon",
-            "start": 884,
-            "end": 895
+            "start": 883,
+            "end": 894
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 961,
-            "end": 963
+            "start": 960,
+            "end": 962
         },
         {
             "label": "MOL",
             "text": "PC",
-            "start": 968,
-            "end": 970
+            "start": 967,
+            "end": 969
         },
         {
             "label": "MOL",
             "text": "acyl",
-            "start": 1063,
-            "end": 1067
+            "start": 1062,
+            "end": 1066
         },
         {
             "label": "MOL",
             "text": "PC",
-            "start": 1379,
-            "end": 1381
+            "start": 1378,
+            "end": 1380
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 1382,
-            "end": 1384
+            "start": 1381,
+            "end": 1383
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 1412,
-            "end": 1414
+            "start": 1411,
+            "end": 1413
         },
         {
             "label": "MOL",
             "text": "PCs",
-            "start": 1430,
-            "end": 1433
+            "start": 1429,
+            "end": 1432
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 1650,
-            "end": 1652
+            "start": 1649,
+            "end": 1651
         },
         {
             "label": "MOL",
             "text": "PC",
-            "start": 1653,
-            "end": 1655
+            "start": 1652,
+            "end": 1654
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 1668,
-            "end": 1670
+            "start": 1667,
+            "end": 1669
         },
         {
             "label": "MOL",
             "text": "lipids",
-            "start": 703,
-            "end": 709
+            "start": 702,
+            "end": 708
         },
         {
             "label": "MOL",
             "text": "acyl",
-            "start": 1806,
-            "end": 1810
+            "start": 1805,
+            "end": 1809
         },
         {
             "label": "MOL",
             "text": "PC",
-            "start": 1825,
-            "end": 1827
+            "start": 1824,
+            "end": 1826
         },
         {
             "label": "MOL",
             "text": "PA",
-            "start": 1828,
-            "end": 1830
+            "start": 1827,
+            "end": 1829
         },
         {
             "label": "MOL",
             "text": "PC",
-            "start": 1886,
-            "end": 1888
+            "start": 1885,
+            "end": 1887
         },
         {
             "label": "MOL",
             "text": "PA phosphate",
-            "start": 1988,
-            "end": 2000
+            "start": 1987,
+            "end": 1999
         },
         {
             "label": "MOL",
             "text": "PC phosphate",
-            "start": 2024,
-            "end": 2036
+            "start": 2023,
+            "end": 2035
         },
         {
             "label": "MOL",
             "text": "PAs",
-            "start": 2081,
-            "end": 2084
+            "start": 2080,
+            "end": 2083
         }
     ]
 }

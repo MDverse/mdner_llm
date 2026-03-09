@@ -7,25 +7,25 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Morphology of a Bulk Heterojunction Photovoltaic Cell with Low Donor Concentration\n\nAtomistic nonequilibrium molecular\ndynamics simulations have been\nused to model the morphology of small-molecule bulk heterojunction\nfilms formed by vapor deposition as used in organic photovoltaics.\nFilms comprising C60 and 1, 5, 10, and 50 wt % of 1,1-bis­[4-bis­(4-methylphenyl)­aminophenyl]­cyclohexane\n(TAPC) were compared to films of neat C60. The simulations\nsuggest that if holes can hop between donor molecules separated by\nas little as 1.2–1.5 nm, then a TAPC concentration of 5 wt\n% is sufficient to form a percolating donor network and facilitate\ncharge extraction. The results provide an explanation for why low\ndonor content organic photovoltaics can still have high efficiencies.\nIn addition, the roughness, porosity, and crystallinity of the films\nwere found to decrease with increasing TAPC content.",
+    "raw_text": "Morphology of a Bulk Heterojunction Photovoltaic Cell with Low Donor Concentration\nAtomistic nonequilibrium molecular\ndynamics simulations have been\nused to model the morphology of small-molecule bulk heterojunction\nfilms formed by vapor deposition as used in organic photovoltaics.\nFilms comprising C60 and 1, 5, 10, and 50 wt % of 1,1-bis­[4-bis­(4-methylphenyl)­aminophenyl]­cyclohexane\n(TAPC) were compared to films of neat C60. The simulations\nsuggest that if holes can hop between donor molecules separated by\nas little as 1.2–1.5 nm, then a TAPC concentration of 5 wt\n% is sufficient to form a percolating donor network and facilitate\ncharge extraction. The results provide an explanation for why low\ndonor content organic photovoltaics can still have high efficiencies.\nIn addition, the roughness, porosity, and crystallinity of the films\nwere found to decrease with increasing TAPC content.",
     "entities": [
         {
             "label": "MOL",
             "text": "TAPC",
-            "start": 392,
-            "end": 396
+            "start": 391,
+            "end": 395
         },
         {
             "label": "MOL",
             "text": "TAPC",
-            "start": 549,
-            "end": 553
+            "start": 548,
+            "end": 552
         },
         {
             "label": "MOL",
             "text": "TAPC",
-            "start": 887,
-            "end": 891
+            "start": 886,
+            "end": 890
         }
     ]
 }

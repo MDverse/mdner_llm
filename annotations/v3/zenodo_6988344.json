@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Etidocaine binding to POPC membrane, CHARMM36-ParamChem, 34 mM, 298 K\n\nSystem info in README.yaml, including basic analysis - headgroup OP,  averaged APL and repead distance, analysis performed only from eqilibrated part of the simulation, marked as \"BINDINGEQ\",\nhere:\nFILES:\n  xtc:\n    NAME: [name]\n    SIZE: [MB]\n    MODIFIED: [yyyy-mm-dd time]\n    LENGTH: [ps]\n    SAVING_FREQUENCY: [ps]\n    BEGIN: [ps] - how much of the simulation was simulated before and is excluded\nFILES:\n  tpr:\n    GMX_VERSION:  gromacs version used for \"gmx grompp\" creation of *.tpr file at local computer\n  log:\n    GMX_VERSION:  gromacs version used for \"gmx mdrun\" at cluster and read out from *.log file",
+    "raw_text": "Etidocaine binding to POPC membrane, CHARMM36-ParamChem, 34 mM, 298 K\nSystem info in README.yaml, including basic analysis - headgroup OP,  averaged APL and repead distance, analysis performed only from eqilibrated part of the simulation, marked as \"BINDINGEQ\",\nhere:\nFILES:\n  xtc:\n    NAME: [name]\n    SIZE: [MB]\n    MODIFIED: [yyyy-mm-dd time]\n    LENGTH: [ps]\n    SAVING_FREQUENCY: [ps]\n    BEGIN: [ps] - how much of the simulation was simulated before and is excluded\nFILES:\n  tpr:\n    GMX_VERSION:  gromacs version used for \"gmx grompp\" creation of *.tpr file at local computer\n  log:\n    GMX_VERSION:  gromacs version used for \"gmx mdrun\" at cluster and read out from *.log file",
     "entities": [
         {
             "label": "MOL",
@@ -42,14 +42,14 @@
         {
             "label": "SOFTNAME",
             "text": "gromacs",
-            "start": 505,
-            "end": 512
+            "start": 504,
+            "end": 511
         },
         {
             "label": "SOFTNAME",
             "text": "gromacs",
-            "start": 609,
-            "end": 616
+            "start": 608,
+            "end": 615
         }
     ]
 }

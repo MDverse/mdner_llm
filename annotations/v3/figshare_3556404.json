@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular simulation of gas solubility in nitrile butadiene rubber - supporting information\n\nSupporting information for paper published in Journal of Physical Chemistry B (Nov 16), \"Molecular simulation of gas solubility in nitrile butadiene rubber\". Includes- Initial structures generated in Materials Studio, in LAMMPS data file format- LAMMPS scripts used to equilibrate structures, at STP and elevated conditions.- Free volume analysis code. Places probe at points on a cubic grid, looks for closest polymer atom, if atom is more than a critical radius away, then the point is free volume.- Modified 'tpi.c' from gromacs; allows the computation of the solubility using the free volume biased technique detailed in the paper. ",
+    "raw_text": "Molecular simulation of gas solubility in nitrile butadiene rubber - supporting information\nSupporting information for paper published in Journal of Physical Chemistry B (Nov 16), \"Molecular simulation of gas solubility in nitrile butadiene rubber\". Includes- Initial structures generated in Materials Studio, in LAMMPS data file format- LAMMPS scripts used to equilibrate structures, at STP and elevated conditions.- Free volume analysis code. Places probe at points on a cubic grid, looks for closest polymer atom, if atom is more than a critical radius away, then the point is free volume.- Modified 'tpi.c' from gromacs; allows the computation of the solubility using the free volume biased technique detailed in the paper. ",
     "entities": [
         {
             "label": "MOL",
@@ -18,20 +18,20 @@
         {
             "label": "MOL",
             "text": "nitrile butadiene",
-            "start": 224,
-            "end": 241
+            "start": 223,
+            "end": 240
         },
         {
             "label": "SOFTNAME",
             "text": "LAMMPS",
-            "start": 314,
-            "end": 320
+            "start": 313,
+            "end": 319
         },
         {
             "label": "SOFTNAME",
             "text": "LAMMPS",
-            "start": 339,
-            "end": 345
+            "start": 338,
+            "end": 344
         }
     ]
 }

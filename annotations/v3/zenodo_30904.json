@@ -7,79 +7,79 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "POPC_Ulmschneider_OPLS_Verlet_Group\n\nMD simulation trajectory and related files for fully hydrated POPC bilayer run with Verlet and Group schemes. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Conditions: T=298.15, 128 POPC molecules, 5120 tip3p waters. 200ns trajectory (preceded by 5ns NPT equillibration). Starting structure was obtained from CHARMM-GUI [3].\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi\n[1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5(7), 1803–1813\n[2] http://lipidbook.bioch.ox.ac.uk/package/show/id/52.html\n[3] http://www.charmm-gui.org/",
+    "raw_text": "POPC_Ulmschneider_OPLS_Verlet_Group\nMD simulation trajectory and related files for fully hydrated POPC bilayer run with Verlet and Group schemes. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Conditions: T=298.15, 128 POPC molecules, 5120 tip3p waters. 200ns trajectory (preceded by 5ns NPT equillibration). Starting structure was obtained from CHARMM-GUI [3].\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi\n[1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5(7), 1803–1813\n[2] http://lipidbook.bioch.ox.ac.uk/package/show/id/52.html\n[3] http://www.charmm-gui.org/",
     "entities": [
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 99,
-            "end": 103
+            "start": 98,
+            "end": 102
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-            "start": 151,
-            "end": 163
+            "start": 150,
+            "end": 162
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 180,
-            "end": 184
+            "start": 179,
+            "end": 183
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-            "start": 199,
-            "end": 206
+            "start": 198,
+            "end": 205
         },
         {
             "label": "SOFTVERS",
             "text": "5.0.3",
-            "start": 207,
-            "end": 212
+            "start": 206,
+            "end": 211
         },
         {
             "label": "TEMP",
             "text": "298.15",
-            "start": 234,
-            "end": 240
+            "start": 233,
+            "end": 239
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 246,
-            "end": 250
+            "start": 245,
+            "end": 249
         },
         {
             "label": "FFM",
             "text": "tip3p",
-            "start": 267,
-            "end": 272
+            "start": 266,
+            "end": 271
         },
         {
             "label": "STIME",
             "text": "200ns",
-            "start": 281,
-            "end": 286
+            "start": 280,
+            "end": 285
         },
         {
             "label": "SOFTNAME",
             "text": "CHARMM-GUI",
-            "start": 373,
-            "end": 383
+            "start": 372,
+            "end": 382
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-            "start": 547,
-            "end": 559
+            "start": 546,
+            "end": 558
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-            "start": 567,
-            "end": 579
+            "start": 566,
+            "end": 578
         }
     ]
 }

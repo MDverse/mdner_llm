@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Insights into the Atomistic Mechanisms of Phosphorylation in Disrupting Liquid–Liquid Phase Separation and Aggregation of the FUS Low-Complexity Domain\n\nFused in sarcoma (FUS), a nuclear\nRNA binding protein, can not\nonly undergo liquid–liquid phase separation (LLPS) to form\ndynamic biomolecular condensates but also aggregate into solid amyloid\nfibrils which are associated with the pathology of amyotrophic lateral\nsclerosis and frontotemporal lobar degeneration diseases. Phosphorylation\nin the FUS low-complexity domain (FUS-LC) inhibits FUS LLPS and aggregation.\nHowever, it remains largely elusive what are the underlying atomistic\nmechanisms of this inhibitory effect and whether phosphorylation can\ndisrupt preformed FUS fibrils, reversing the FUS gel/solid phase toward\nthe liquid phase. Herein, we systematically investigate the impacts\nof phosphorylation on the conformational ensemble of the FUS37–97 monomer and dimer and the structure of the FUS37–97 fibril by performing extensive all-atom molecular dynamics simulations.\nOur simulations reveal three key findings: (1) phosphorylation shifts\nthe conformations of FUS37–97 from the β-rich,\nfibril-competent state toward a helix-rich, fibril-incompetent state;\n(2) phosphorylation significantly weakens protein–protein interactions\nand enhances protein–water interactions, which disfavor FUS-LC\nLLPS as well as aggregation and facilitate the dissolution of the\npreformed FUS-LC fibril; and (3) the FUS37–97 peptide\ndisplays a high β-strand probability in the region spanning\nresidues 52–67, and phosphorylation at S54 and S61 residues\nlocated in this region is crucial for the disruption of LLPS and aggregation\nof FUS-LC. This study may pave the way for ameliorating phase-separation-related\npathologies via site-specific phosphorylation.",
+    "raw_text": "Insights into the Atomistic Mechanisms of Phosphorylation in Disrupting Liquid–Liquid Phase Separation and Aggregation of the FUS Low-Complexity Domain\nFused in sarcoma (FUS), a nuclear\nRNA binding protein, can not\nonly undergo liquid–liquid phase separation (LLPS) to form\ndynamic biomolecular condensates but also aggregate into solid amyloid\nfibrils which are associated with the pathology of amyotrophic lateral\nsclerosis and frontotemporal lobar degeneration diseases. Phosphorylation\nin the FUS low-complexity domain (FUS-LC) inhibits FUS LLPS and aggregation.\nHowever, it remains largely elusive what are the underlying atomistic\nmechanisms of this inhibitory effect and whether phosphorylation can\ndisrupt preformed FUS fibrils, reversing the FUS gel/solid phase toward\nthe liquid phase. Herein, we systematically investigate the impacts\nof phosphorylation on the conformational ensemble of the FUS37–97 monomer and dimer and the structure of the FUS37–97 fibril by performing extensive all-atom molecular dynamics simulations.\nOur simulations reveal three key findings: (1) phosphorylation shifts\nthe conformations of FUS37–97 from the β-rich,\nfibril-competent state toward a helix-rich, fibril-incompetent state;\n(2) phosphorylation significantly weakens protein–protein interactions\nand enhances protein–water interactions, which disfavor FUS-LC\nLLPS as well as aggregation and facilitate the dissolution of the\npreformed FUS-LC fibril; and (3) the FUS37–97 peptide\ndisplays a high β-strand probability in the region spanning\nresidues 52–67, and phosphorylation at S54 and S61 residues\nlocated in this region is crucial for the disruption of LLPS and aggregation\nof FUS-LC. This study may pave the way for ameliorating phase-separation-related\npathologies via site-specific phosphorylation.",
     "entities": [
         {
             "label": "MOL",
@@ -18,68 +18,68 @@
         {
             "label": "MOL",
             "text": "Fused in sarcoma",
-            "start": 153,
-            "end": 169
+            "start": 152,
+            "end": 168
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 171,
-            "end": 174
+            "start": 170,
+            "end": 173
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 498,
-            "end": 501
+            "start": 497,
+            "end": 500
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 525,
-            "end": 528
+            "start": 524,
+            "end": 527
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 542,
-            "end": 545
+            "start": 541,
+            "end": 544
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 725,
-            "end": 728
+            "start": 724,
+            "end": 727
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 752,
-            "end": 755
+            "start": 751,
+            "end": 754
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 1316,
-            "end": 1321
+            "start": 1315,
+            "end": 1320
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 904,
-            "end": 907
+            "start": 903,
+            "end": 906
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 956,
-            "end": 959
+            "start": 955,
+            "end": 958
         },
         {
             "label": "MOL",
             "text": "FUS",
-            "start": 1128,
-            "end": 1131
+            "start": 1127,
+            "end": 1130
         }
     ]
 }

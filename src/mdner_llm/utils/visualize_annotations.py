@@ -36,9 +36,6 @@ def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]
     with path.open(encoding="utf-8") as file:
         data = json.load(file)
 
-    # Normalize raw text by removing line breaks and extra whitespace
-    formatted_text = data["raw_text"].replace("\n", " ")
-
     # Convert entity spans to displaCy-compatible format
     ents = [
         {
@@ -50,7 +47,7 @@ def convert_annotations_from_file(file_path: Path | str) -> list[dict[str, Any]]
     ]
 
     # Return displaCy input structure
-    return [{"text": formatted_text, "ents": ents}]
+    return [{"text": data["raw_text"], "ents": ents}]
 
 
 def visualize_annotations_from_json_file(file_path: Path) -> None:

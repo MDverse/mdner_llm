@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\n\nWe here provide the structure files, trajectories and topology files for analyzing and reproducing simulations performed in the publication: \"Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\".\nClassical molecular dynamics simulation of rat Mrp1 have been performed in complex with native substrates like GSH and GSSG  or drug molecules like ritonavir, to study binding modes of different combinations. \nStructure and trajectory files (all 1 µs long) as well as recorded movies of the time progression are provided for the following simulation systems:\n1. GSH bound to rat Mrp1\n2. GSSG bound to rat Mrp1\n3. Ritonavir bound to rat Mrp1\n4. GSH + Ritonavir bound to rat Mrp1\n5. GSSG + Ritonavir bound to rat Mrp1\nAdditionally itp files (GROMACS format) containing parameter information about the ligands GSH, GSSG and Ritonavir are provided for the force field CHARMM36m. \nRaw data of the homology modeling of rat Mrp1 by I-Tasser as well as Docking results produced via AutoDock4 are uploaded as zip directories. \n ",
+    "raw_text": "Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\nWe here provide the structure files, trajectories and topology files for analyzing and reproducing simulations performed in the publication: \"Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\".\nClassical molecular dynamics simulation of rat Mrp1 have been performed in complex with native substrates like GSH and GSSG  or drug molecules like ritonavir, to study binding modes of different combinations. \nStructure and trajectory files (all 1 µs long) as well as recorded movies of the time progression are provided for the following simulation systems:\n1. GSH bound to rat Mrp1\n2. GSSG bound to rat Mrp1\n3. Ritonavir bound to rat Mrp1\n4. GSH + Ritonavir bound to rat Mrp1\n5. GSSG + Ritonavir bound to rat Mrp1\nAdditionally itp files (GROMACS format) containing parameter information about the ligands GSH, GSSG and Ritonavir are provided for the force field CHARMM36m. \nRaw data of the homology modeling of rat Mrp1 by I-Tasser as well as Docking results produced via AutoDock4 are uploaded as zip directories. \n ",
     "entities": [
         {
             "label": "MOL",
@@ -18,110 +18,110 @@
         {
             "label": "MOL",
             "text": "ritonavir",
-            "start": 355,
-            "end": 364
+            "start": 354,
+            "end": 363
         },
         {
             "label": "MOL",
             "text": "GSH",
-            "start": 478,
-            "end": 481
+            "start": 477,
+            "end": 480
         },
         {
             "label": "MOL",
             "text": "GSSG",
-            "start": 486,
-            "end": 490
+            "start": 485,
+            "end": 489
         },
         {
             "label": "MOL",
             "text": "ritonavir",
-            "start": 515,
-            "end": 524
+            "start": 514,
+            "end": 523
         },
         {
             "label": "STIME",
             "text": "1 µs",
-            "start": 613,
-            "end": 617
+            "start": 612,
+            "end": 616
         },
         {
             "label": "MOL",
             "text": "GSH",
-            "start": 729,
-            "end": 732
+            "start": 728,
+            "end": 731
         },
         {
             "label": "MOL",
             "text": "GSSG",
-            "start": 754,
-            "end": 758
+            "start": 753,
+            "end": 757
         },
         {
             "label": "MOL",
             "text": "Ritonavir",
-            "start": 780,
-            "end": 789
+            "start": 779,
+            "end": 788
         },
         {
             "label": "MOL",
             "text": "GSH",
-            "start": 811,
-            "end": 814
+            "start": 810,
+            "end": 813
         },
         {
             "label": "MOL",
             "text": "Ritonavir",
-            "start": 817,
-            "end": 826
+            "start": 816,
+            "end": 825
         },
         {
             "label": "MOL",
             "text": "GSSG",
-            "start": 848,
-            "end": 852
+            "start": 847,
+            "end": 851
         },
         {
             "label": "MOL",
             "text": "Ritonavir",
-            "start": 855,
-            "end": 864
+            "start": 854,
+            "end": 863
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 907,
-            "end": 914
+            "start": 906,
+            "end": 913
         },
         {
             "label": "MOL",
             "text": "GSH",
-            "start": 974,
-            "end": 977
+            "start": 973,
+            "end": 976
         },
         {
             "label": "MOL",
             "text": "GSSG",
-            "start": 979,
-            "end": 983
+            "start": 978,
+            "end": 982
         },
         {
             "label": "MOL",
             "text": "Ritonavir",
-            "start": 988,
-            "end": 997
+            "start": 987,
+            "end": 996
         },
         {
             "label": "FFM",
             "text": "CHARMM36m.",
-            "start": 1031,
-            "end": 1041
+            "start": 1030,
+            "end": 1040
         },
         {
             "label": "SOFTNAME",
             "text": "AutoDock4",
-            "start": 1141,
-            "end": 1150
+            "start": 1140,
+            "end": 1149
         }
     ]
 }

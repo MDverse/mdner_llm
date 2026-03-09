@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulation data for CHARMM36 POPC bilayer, 100 lipids/leaflet, 450 mM CaCl2 (\"NB-Fix\" used), 310K, GROMACS 5.1.4\n\nSimulations of a POPC bilayer with 450 mM of CaCl_2. \nThe second from the set of 6 simulations.\nThe goal was to study the effect of scaling the CHARMM FF on the ion binding.\nDone for the NMRlipids project, see \nhttp://nmrlipids.blogspot.fi for more information.\nA POPC bilayer consisting of 200 lipids (100 per leaflet) \nis simulated in the presence of 450 mM CaCl_2. The Charmm36 \nmodel  is employed for lipids, the Charmm compatible variant \nof the tip3p model for water, and the default Charmm\nion parameters (type CAL) for CaCl_2. The new extra nonbonded parameters were used for trating the calcium bonding (NB-Fix)\n \nThe Charmm36 force field parameters were obtained from http://charmm-gui.org/\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\nThe files are in GROMACS format. Trajectory (.xtc) is \n360 ns long with data saved every 100 ps.\nthe initial structure (.gro), topology (.top), index file (.ndx), \nsimulation paremeter file (.mdp), binary run input file \nfor GROMACS v. 5.1–> (.tpr) and the energy output file \n(.edr) are provided. ",
+    "raw_text": "Simulation data for CHARMM36 POPC bilayer, 100 lipids/leaflet, 450 mM CaCl2 (\"NB-Fix\" used), 310K, GROMACS 5.1.4\nSimulations of a POPC bilayer with 450 mM of CaCl_2. \nThe second from the set of 6 simulations.\nThe goal was to study the effect of scaling the CHARMM FF on the ion binding.\nDone for the NMRlipids project, see \nhttp://nmrlipids.blogspot.fi for more information.\nA POPC bilayer consisting of 200 lipids (100 per leaflet) \nis simulated in the presence of 450 mM CaCl_2. The Charmm36 \nmodel  is employed for lipids, the Charmm compatible variant \nof the tip3p model for water, and the default Charmm\nion parameters (type CAL) for CaCl_2. The new extra nonbonded parameters were used for trating the calcium bonding (NB-Fix)\n \nThe Charmm36 force field parameters were obtained from http://charmm-gui.org/\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\nThe files are in GROMACS format. Trajectory (.xtc) is \n360 ns long with data saved every 100 ps.\nthe initial structure (.gro), topology (.top), index file (.ndx), \nsimulation paremeter file (.mdp), binary run input file \nfor GROMACS v. 5.1–> (.tpr) and the energy output file \n(.edr) are provided. ",
     "entities": [
         {
             "label": "FFM",
@@ -48,98 +48,98 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 131,
-            "end": 135
+            "start": 130,
+            "end": 134
         },
         {
             "label": "MOL",
             "text": "CaCl_2",
-            "start": 159,
-            "end": 165
+            "start": 158,
+            "end": 164
         },
         {
             "label": "FFM",
             "text": "CHARMM",
-            "start": 258,
-            "end": 264
+            "start": 257,
+            "end": 263
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 378,
-            "end": 382
+            "start": 377,
+            "end": 381
         },
         {
             "label": "MOL",
             "text": "CaCl_2",
-            "start": 474,
-            "end": 480
+            "start": 473,
+            "end": 479
         },
         {
             "label": "FFM",
             "text": "Charmm36",
-            "start": 486,
-            "end": 494
+            "start": 485,
+            "end": 493
         },
         {
             "label": "FFM",
             "text": "Charmm",
-            "start": 531,
-            "end": 537
+            "start": 530,
+            "end": 536
         },
         {
             "label": "FFM",
             "text": "tip3p",
-            "start": 565,
-            "end": 570
+            "start": 564,
+            "end": 569
         },
         {
             "label": "FFM",
             "text": "Charmm",
-            "start": 604,
-            "end": 610
+            "start": 603,
+            "end": 609
         },
         {
             "label": "MOL",
             "text": "CaCl_2",
-            "start": 641,
-            "end": 647
+            "start": 640,
+            "end": 646
         },
         {
             "label": "MOL",
             "text": "calcium",
-            "start": 710,
-            "end": 717
+            "start": 709,
+            "end": 716
         },
         {
             "label": "FFM",
             "text": "Charmm36",
-            "start": 741,
-            "end": 749
+            "start": 740,
+            "end": 748
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 887,
-            "end": 894
+            "start": 886,
+            "end": 893
         },
         {
             "label": "STIME",
             "text": "360 ns",
-            "start": 925,
-            "end": 931
+            "start": 924,
+            "end": 930
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 1095,
-            "end": 1102
+            "start": 1094,
+            "end": 1101
         },
         {
             "label": "SOFTVERS",
             "text": "v. 5.1",
-            "start": 1103,
-            "end": 1109
+            "start": 1102,
+            "end": 1108
         }
     ]
 }

@@ -7,115 +7,115 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulation CER160_128_POPC_512_NaCl_150mM_310K_rep1 membrane\n\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation 512 POPCs membrane containing 128 ceramides (CER160)  using charmm36 at 310K.\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 3000 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC        512\nCER160    128\nSOL      32000\nNA             86\nCL              86\nAdditional information:",
+    "raw_text": "Simulation CER160_128_POPC_512_NaCl_150mM_310K_rep1 membrane\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation 512 POPCs membrane containing 128 ceramides (CER160)  using charmm36 at 310K.\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 3000 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC        512\nCER160    128\nSOL      32000\nNA             86\nCL              86\nAdditional information:",
     "entities": [
         {
             "label": "MOL",
             "text": "Ceramide",
-            "start": 83,
-            "end": 91
+            "start": 82,
+            "end": 90
         },
         {
             "label": "MOL",
             "text": "LAPTM4B",
-            "start": 140,
-            "end": 147
+            "start": 139,
+            "end": 146
         },
         {
             "label": "MOL",
             "text": "POPCs",
-            "start": 287,
-            "end": 292
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 287,
+            "start": 286,
             "end": 291
         },
         {
             "label": "MOL",
+            "text": "POPC",
+            "start": 286,
+            "end": 290
+        },
+        {
+            "label": "MOL",
             "text": "ceramides",
-            "start": 317,
-            "end": 326
+            "start": 316,
+            "end": 325
         },
         {
             "label": "MOL",
             "text": "CER160",
-            "start": 328,
-            "end": 334
+            "start": 327,
+            "end": 333
         },
         {
             "label": "FFM",
             "text": "charmm36",
-            "start": 343,
-            "end": 351
+            "start": 342,
+            "end": 350
         },
         {
             "label": "TEMP",
             "text": "310K",
-            "start": 355,
-            "end": 359
+            "start": 354,
+            "end": 358
         },
         {
             "label": "SOFTNAME",
             "text": "gromacs",
-            "start": 372,
-            "end": 379
+            "start": 371,
+            "end": 378
         },
         {
             "label": "SOFTVERS",
             "text": "2016.1",
-            "start": 380,
-            "end": 386
+            "start": 379,
+            "end": 385
         },
         {
             "label": "FFM",
             "text": "charmm36",
-            "start": 400,
-            "end": 408
+            "start": 399,
+            "end": 407
         },
         {
             "label": "TEMP",
             "text": "310 K",
-            "start": 422,
-            "end": 427
+            "start": 421,
+            "end": 426
         },
         {
             "label": "STIME",
             "text": "3000 ns",
-            "start": 461,
-            "end": 468
+            "start": 460,
+            "end": 467
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 513,
-            "end": 517
+            "start": 512,
+            "end": 516
         },
         {
             "label": "MOL",
             "text": "CER160",
-            "start": 529,
-            "end": 535
+            "start": 528,
+            "end": 534
         },
         {
             "label": "MOL",
             "text": "SOL",
-            "start": 543,
-            "end": 546
+            "start": 542,
+            "end": 545
         },
         {
             "label": "MOL",
             "text": "NA",
-            "start": 558,
-            "end": 560
+            "start": 557,
+            "end": 559
         },
         {
             "label": "MOL",
             "text": "CL",
-            "start": 576,
-            "end": 578
+            "start": 575,
+            "end": 577
         }
     ]
 }

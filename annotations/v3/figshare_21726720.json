@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Perfluorinated Alcohols at High Pressure: Experimental Liquid Density and Computer Simulations\n\nThe liquid density of five liquid\n1H,1H-perfluorinated alcohols (CF3(CF2)n−1CH2OH n = 2, 3, 4, 5, 6) was measured as a function\nof pressure\n(0.1–70\nMPa) and temperature (293.15–313.15 K). The corresponding isothermal\ncompressibility and isobaric thermal expansivity coefficients were\ncalculated from the experimental data. The results are compared with\ndata from the literature for the equivalent hydrogenated alcohols.\nAtomistic molecular dynamics simulations were also performed, providing\nmolecular-level insight into the experimental results, in particular\nabout the H-bond network of the perfluorinated alcohols and the effect\nof pressure on the organization of the liquid.",
+    "raw_text": "Perfluorinated Alcohols at High Pressure: Experimental Liquid Density and Computer Simulations\nThe liquid density of five liquid\n1H,1H-perfluorinated alcohols (CF3(CF2)n−1CH2OH n = 2, 3, 4, 5, 6) was measured as a function\nof pressure\n(0.1–70\nMPa) and temperature (293.15–313.15 K). The corresponding isothermal\ncompressibility and isobaric thermal expansivity coefficients were\ncalculated from the experimental data. The results are compared with\ndata from the literature for the equivalent hydrogenated alcohols.\nAtomistic molecular dynamics simulations were also performed, providing\nmolecular-level insight into the experimental results, in particular\nabout the H-bond network of the perfluorinated alcohols and the effect\nof pressure on the organization of the liquid.",
     "entities": [
         {
             "label": "MOL",
@@ -18,32 +18,32 @@
         {
             "label": "MOL",
             "text": "perfluorinated alcohols",
-            "start": 136,
-            "end": 159
+            "start": 135,
+            "end": 158
         },
         {
             "label": "TEMP",
             "text": "293.15",
-            "start": 266,
-            "end": 272
+            "start": 265,
+            "end": 271
         },
         {
             "label": "TEMP",
             "text": "313.15 K",
-            "start": 273,
-            "end": 281
+            "start": 272,
+            "end": 280
         },
         {
             "label": "MOL",
             "text": "hydrogenated alcohols",
-            "start": 493,
-            "end": 514
+            "start": 492,
+            "end": 513
         },
         {
             "label": "MOL",
             "text": "perfluorinated alcohols",
-            "start": 689,
-            "end": 712
+            "start": 688,
+            "end": 711
         }
     ]
 }

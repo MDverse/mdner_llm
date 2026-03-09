@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular recognition and dynamics of linear poly-ubiquitins: integrating coarse-grain simulations and experiments\n\nPoly-ubiquitin chains are flexible multidomain proteins, whose conformational dynamics enable their molecular recognition by a large number of partners in multiple biological pathways. By using alternative linkage, it is possible to obtain poly-ubiquitin molecules with different dynamical properties. This flexibility is further increased by the possibility to tune the length of poly-ubiquitin chains. Characterizing the dynamics of poly-ubiquitins as a function of their length is thus relevant to understand their biology. Structural characterization of poly-ubiquitin conformational dynamics is challenging both experimentally and computationally due to increasing system size and conformational variability. Here, by developing highly efficient and accurate small-angle X-ray scattering driven Martini coarse-grain simulations, we characterize the dynamics of linear M1-linked di-, tri- and tetra-ubiquitin chains. Our data show that the behavior of the di-ubiquitin subunits is independent of the presence of additional ubiquitin modules. We propose that the conformational space sampled by linear poly-ubiquitins, in general, may follow a simple self-avoiding polymer model. These results, combined with experimental data from small angle X-ray scattering, biophysical techniques and additional simulations show that binding of NEMO, a central regulator in the NF-κB pathway, to linear poly-ubiquitin obeys a 2:1 (NEMO:poly-ubiquitin) stoichiometry in solution, even in the context of four ubiquitin units. Eventually, we show how the conformational properties of long poly-ubiquitins may modulate the binding with their partners in a length-dependent manner.",
+    "raw_text": "Molecular recognition and dynamics of linear poly-ubiquitins: integrating coarse-grain simulations and experiments\nPoly-ubiquitin chains are flexible multidomain proteins, whose conformational dynamics enable their molecular recognition by a large number of partners in multiple biological pathways. By using alternative linkage, it is possible to obtain poly-ubiquitin molecules with different dynamical properties. This flexibility is further increased by the possibility to tune the length of poly-ubiquitin chains. Characterizing the dynamics of poly-ubiquitins as a function of their length is thus relevant to understand their biology. Structural characterization of poly-ubiquitin conformational dynamics is challenging both experimentally and computationally due to increasing system size and conformational variability. Here, by developing highly efficient and accurate small-angle X-ray scattering driven Martini coarse-grain simulations, we characterize the dynamics of linear M1-linked di-, tri- and tetra-ubiquitin chains. Our data show that the behavior of the di-ubiquitin subunits is independent of the presence of additional ubiquitin modules. We propose that the conformational space sampled by linear poly-ubiquitins, in general, may follow a simple self-avoiding polymer model. These results, combined with experimental data from small angle X-ray scattering, biophysical techniques and additional simulations show that binding of NEMO, a central regulator in the NF-κB pathway, to linear poly-ubiquitin obeys a 2:1 (NEMO:poly-ubiquitin) stoichiometry in solution, even in the context of four ubiquitin units. Eventually, we show how the conformational properties of long poly-ubiquitins may modulate the binding with their partners in a length-dependent manner.",
     "entities": [
         {
             "label": "MOL",
@@ -18,50 +18,50 @@
         {
             "label": "MOL",
             "text": "Poly-ubiquitin",
-            "start": 116,
-            "end": 130
+            "start": 115,
+            "end": 129
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitin",
-            "start": 356,
-            "end": 370
+            "start": 355,
+            "end": 369
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitin",
-            "start": 497,
-            "end": 511
+            "start": 496,
+            "end": 510
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitins",
-            "start": 551,
-            "end": 566
+            "start": 550,
+            "end": 565
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitin",
-            "start": 674,
-            "end": 688
+            "start": 673,
+            "end": 687
         },
         {
             "label": "FFM",
             "text": "Martini",
-            "start": 916,
-            "end": 923
+            "start": 915,
+            "end": 922
         },
         {
             "label": "MOL",
             "text": "di-, tri- and tetra-ubiquitin",
-            "start": 999,
-            "end": 1028
+            "start": 998,
+            "end": 1027
         },
         {
             "label": "MOL",
             "text": "di-ubiquitin",
-            "start": 1076,
-            "end": 1088
+            "start": 1075,
+            "end": 1087
         },
         {
             "label": "MOL",
@@ -72,50 +72,50 @@
         {
             "label": "MOL",
             "text": "poly-ubiquitins",
-            "start": 1221,
-            "end": 1236
+            "start": 1220,
+            "end": 1235
         },
         {
             "label": "SOFTNAME",
             "text": "NEMO",
-            "start": 1452,
-            "end": 1456
+            "start": 1451,
+            "end": 1455
         },
         {
             "label": "MOL",
             "text": "NF-κB",
-            "start": 1485,
-            "end": 1490
+            "start": 1484,
+            "end": 1489
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitin",
-            "start": 1510,
-            "end": 1524
+            "start": 1509,
+            "end": 1523
         },
         {
             "label": "SOFTNAME",
             "text": "NEMO",
-            "start": 1538,
-            "end": 1542
+            "start": 1537,
+            "end": 1541
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitin",
-            "start": 1543,
-            "end": 1557
+            "start": 1542,
+            "end": 1556
         },
         {
             "label": "MOL",
             "text": "ubiquitin",
-            "start": 121,
-            "end": 130
+            "start": 120,
+            "end": 129
         },
         {
             "label": "MOL",
             "text": "poly-ubiquitins",
-            "start": 1693,
-            "end": 1708
+            "start": 1692,
+            "end": 1707
         }
     ]
 }

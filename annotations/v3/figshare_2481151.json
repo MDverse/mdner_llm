@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular Dynamics Simulations of the Interactions of DMSO with DPPC and DOPC Phospholipid Membranes\n\nMolecular dynamics simulations have been used to investigate\nthe\neffect of DMSO on 1,2-dipalmitoyl-sn-glycero-3-phosphatidylcholine\n(DPPC) and 1,2-dioleoyl-sn-glycero-3-phosphocholine\n(DOPC) phospholipid bilayers. The concentration of DMSO was varied\nbetween 0 and 25.0 mol %. For both lipids, DMSO causes the membrane\nto expand in the plane of\nthe membrane while thinning normal to that plane. Above a critical\nconcentration, pores in the membrane form spontaneously, and if the\nconcentration is increased further, then the bilayer structure is\ndestroyed. Even at concentrations below those required to induce pores,\nDMSO readily diffuses across the bilayers. The free-energy profile\nassociated with the diffusion of a DMSO molecules across the membrane\nhas been calculated. The simulations suggest that the DOPC bilayer\nis more resistant to the deleterious effects of DMSO, both increasing\nthe stability of the membranes and decreasing the rate at which DMSO\ndiffuses across the membrane. In this way, the work highlights the\nimportance of investigating the lipid composition of cell membranes\nwhen characterizing the effects of cryosolvents.",
+    "raw_text": "Molecular Dynamics Simulations of the Interactions of DMSO with DPPC and DOPC Phospholipid Membranes\nMolecular dynamics simulations have been used to investigate\nthe\neffect of DMSO on 1,2-dipalmitoyl-sn-glycero-3-phosphatidylcholine\n(DPPC) and 1,2-dioleoyl-sn-glycero-3-phosphocholine\n(DOPC) phospholipid bilayers. The concentration of DMSO was varied\nbetween 0 and 25.0 mol %. For both lipids, DMSO causes the membrane\nto expand in the plane of\nthe membrane while thinning normal to that plane. Above a critical\nconcentration, pores in the membrane form spontaneously, and if the\nconcentration is increased further, then the bilayer structure is\ndestroyed. Even at concentrations below those required to induce pores,\nDMSO readily diffuses across the bilayers. The free-energy profile\nassociated with the diffusion of a DMSO molecules across the membrane\nhas been calculated. The simulations suggest that the DOPC bilayer\nis more resistant to the deleterious effects of DMSO, both increasing\nthe stability of the membranes and decreasing the rate at which DMSO\ndiffuses across the membrane. In this way, the work highlights the\nimportance of investigating the lipid composition of cell membranes\nwhen characterizing the effects of cryosolvents.",
     "entities": [
         {
             "label": "MOL",
@@ -30,74 +30,74 @@
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 177,
-            "end": 181
+            "start": 176,
+            "end": 180
         },
         {
             "label": "MOL",
             "text": "1,2-dipalmitoyl-sn-glycero-3-phosphatidylcholine",
-            "start": 185,
-            "end": 233
+            "start": 184,
+            "end": 232
         },
         {
             "label": "MOL",
             "text": "DPPC",
-            "start": 235,
-            "end": 239
+            "start": 234,
+            "end": 238
         },
         {
             "label": "MOL",
             "text": "1,2-dioleoyl-sn-glycero-3-phosphocholine",
-            "start": 245,
-            "end": 285
+            "start": 244,
+            "end": 284
         },
         {
             "label": "MOL",
             "text": "DOPC",
-            "start": 287,
-            "end": 291
+            "start": 286,
+            "end": 290
         },
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 337,
-            "end": 341
+            "start": 336,
+            "end": 340
         },
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 396,
-            "end": 400
+            "start": 395,
+            "end": 399
         },
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 720,
-            "end": 724
+            "start": 719,
+            "end": 723
         },
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 822,
-            "end": 826
+            "start": 821,
+            "end": 825
         },
         {
             "label": "MOL",
             "text": "DOPC",
-            "start": 911,
-            "end": 915
+            "start": 910,
+            "end": 914
         },
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 972,
-            "end": 976
+            "start": 971,
+            "end": 975
         },
         {
             "label": "MOL",
             "text": "DMSO",
-            "start": 1058,
-            "end": 1062
+            "start": 1057,
+            "end": 1061
         }
     ]
 }

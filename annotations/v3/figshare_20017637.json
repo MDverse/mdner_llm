@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "On the Possibility That Bond Strain Is the Mechanism of RING E3 Activation in the E2-Catalyzed Ubiquitination Reaction\n\nUbiquitination\nis a type of post-translational modification wherein\nthe small protein ubiquitin (Ub) is covalently bound to a lysine on\na target protein. Ubiquitination can signal for several regulatory\npathways including protein degradation. Ubiquitination occurs by a\nseries of reactions catalyzed by three types of enzymes: ubiquitin\nactivating enzymes, E1; ubiquitin conjugating enzymes, E2; and ubiquitin\nligases, E3. E2 enzymes directly catalyze the transfer of Ub to the\ntarget proteinthe RING E3 improves the efficiency. Prior to\nits transfer, Ub is covalently linked to the E2 via a thioester bond\nand the Ub∼E2 conjugate forms a quaternary complex with the\nRING E3. It is hypothesized that the RING E3 improves the catalytic\nefficiency of ubiquitination by placing the E2∼Ub conjugate\nin a “closed” position, which tensions and weakens the\nthioester bond. We interrogate this hypothesis by analyzing the strain\non the thioester during molecular dynamics simulations of both open\nand closed E2∼Ub/E3 complexes. Our data indicate that the thioester\nis strained when the E2∼Ub conjugate is in the closed position.\nWe also show that the amount of strain is consistent with the experimental\nrate enhancement caused by the RING E3. Finally, our simulations show\nthat the closed configuration increases the populations of key hydrogen\nbonds in the E2∼Ub active site. This is consistent with another\nhypothesis stating that the RING E3 enhances reaction rates by preorganizing\nthe substrates.",
+    "raw_text": "On the Possibility That Bond Strain Is the Mechanism of RING E3 Activation in the E2-Catalyzed Ubiquitination Reaction\nUbiquitination\nis a type of post-translational modification wherein\nthe small protein ubiquitin (Ub) is covalently bound to a lysine on\na target protein. Ubiquitination can signal for several regulatory\npathways including protein degradation. Ubiquitination occurs by a\nseries of reactions catalyzed by three types of enzymes: ubiquitin\nactivating enzymes, E1; ubiquitin conjugating enzymes, E2; and ubiquitin\nligases, E3. E2 enzymes directly catalyze the transfer of Ub to the\ntarget proteinthe RING E3 improves the efficiency. Prior to\nits transfer, Ub is covalently linked to the E2 via a thioester bond\nand the Ub∼E2 conjugate forms a quaternary complex with the\nRING E3. It is hypothesized that the RING E3 improves the catalytic\nefficiency of ubiquitination by placing the E2∼Ub conjugate\nin a “closed” position, which tensions and weakens the\nthioester bond. We interrogate this hypothesis by analyzing the strain\non the thioester during molecular dynamics simulations of both open\nand closed E2∼Ub/E3 complexes. Our data indicate that the thioester\nis strained when the E2∼Ub conjugate is in the closed position.\nWe also show that the amount of strain is consistent with the experimental\nrate enhancement caused by the RING E3. Finally, our simulations show\nthat the closed configuration increases the populations of key hydrogen\nbonds in the E2∼Ub active site. This is consistent with another\nhypothesis stating that the RING E3 enhances reaction rates by preorganizing\nthe substrates.",
     "entities": [
         {
             "label": "MOL",
@@ -24,8 +24,8 @@
         {
             "label": "MOL",
             "text": "ubiquitin",
-            "start": 206,
-            "end": 215
+            "start": 205,
+            "end": 214
         },
         {
             "label": "MOL",
@@ -36,146 +36,146 @@
         {
             "label": "MOL",
             "text": "E1",
-            "start": 477,
-            "end": 479
+            "start": 476,
+            "end": 478
         },
         {
             "label": "MOL",
             "text": "ubiquitin conjugating enzymes",
-            "start": 481,
-            "end": 510
+            "start": 480,
+            "end": 509
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 512,
-            "end": 514
+            "start": 511,
+            "end": 513
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 539,
-            "end": 541
+            "start": 538,
+            "end": 540
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 543,
-            "end": 545
+            "start": 542,
+            "end": 544
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 120,
-            "end": 122
+            "start": 119,
+            "end": 121
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 622,
-            "end": 624
+            "start": 621,
+            "end": 623
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 217,
-            "end": 219
+            "start": 216,
+            "end": 218
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 704,
-            "end": 706
+            "start": 703,
+            "end": 705
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 274,
-            "end": 276
+            "start": 273,
+            "end": 275
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 739,
-            "end": 741
+            "start": 738,
+            "end": 740
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 793,
-            "end": 795
+            "start": 792,
+            "end": 794
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 830,
-            "end": 832
+            "start": 829,
+            "end": 831
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 900,
-            "end": 902
+            "start": 899,
+            "end": 901
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 363,
-            "end": 365
+            "start": 362,
+            "end": 364
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 1121,
-            "end": 1123
+            "start": 1120,
+            "end": 1122
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 588,
-            "end": 590
+            "start": 587,
+            "end": 589
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 1127,
-            "end": 1129
+            "start": 1126,
+            "end": 1128
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 1199,
-            "end": 1201
+            "start": 1198,
+            "end": 1200
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 673,
-            "end": 675
+            "start": 672,
+            "end": 674
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 1353,
-            "end": 1355
+            "start": 1352,
+            "end": 1354
         },
         {
             "label": "MOL",
             "text": "E2",
-            "start": 1472,
-            "end": 1474
+            "start": 1471,
+            "end": 1473
         },
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 736,
-            "end": 738
+            "start": 735,
+            "end": 737
         },
         {
             "label": "MOL",
             "text": "E3",
-            "start": 1556,
-            "end": 1558
+            "start": 1555,
+            "end": 1557
         }
     ]
 }

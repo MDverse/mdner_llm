@@ -7,109 +7,109 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Are Protein Force Fields Getting Better? A Systematic Benchmark on 524 Diverse NMR Measurements\n\nRecent hardware and software advances have enabled simulation\nstudies\nof protein systems on biophysically relevant time scales, often revealing\nthe need for improved force fields. Although early force field development\nwas limited by the lack of direct comparisons between simulation and\nexperiment, recent work from several laboratories has demonstrated\ndirect calculation of NMR observables from protein simulations. Here,\nwe quantitatively evaluate 11 recent molecular dynamics force fields\nin combination with 5 solvent models against a suite of 524 chemical\nshift and J coupling (3JHNHα, 3JHNCβ, 3JHαC′, 3JHNC′, and 3JHαN) measurements\non dipeptides, tripeptides, tetra-alanine, and ubiquitin. Of the force\nfields examined (ff96, ff99, ff03, ff03*, ff03w, ff99sb*, ff99sb-ildn,\nff99sb-ildn-phi, ff99sb-ildn-NMR, CHARMM27, and OPLS-AA), two force\nfields (ff99sb-ildn-phi, ff99sb-ildn-NMR) combining recent side chain\nand backbone torsion modifications achieved high accuracy in our benchmark.\nFor the two optimal force fields, the calculation error is comparable\nto the uncertainty in the experimental comparison. This observation\nsuggests that extracting additional force field improvements from\nNMR data may require increased accuracy in J coupling\nand chemical shift prediction. To further investigate the limitations\nof current force fields, we also consider conformational populations\nof dipeptides, which were recently estimated using vibrational spectroscopy.",
+    "raw_text": "Are Protein Force Fields Getting Better? A Systematic Benchmark on 524 Diverse NMR Measurements\nRecent hardware and software advances have enabled simulation\nstudies\nof protein systems on biophysically relevant time scales, often revealing\nthe need for improved force fields. Although early force field development\nwas limited by the lack of direct comparisons between simulation and\nexperiment, recent work from several laboratories has demonstrated\ndirect calculation of NMR observables from protein simulations. Here,\nwe quantitatively evaluate 11 recent molecular dynamics force fields\nin combination with 5 solvent models against a suite of 524 chemical\nshift and J coupling (3JHNHα, 3JHNCβ, 3JHαC′, 3JHNC′, and 3JHαN) measurements\non dipeptides, tripeptides, tetra-alanine, and ubiquitin. Of the force\nfields examined (ff96, ff99, ff03, ff03*, ff03w, ff99sb*, ff99sb-ildn,\nff99sb-ildn-phi, ff99sb-ildn-NMR, CHARMM27, and OPLS-AA), two force\nfields (ff99sb-ildn-phi, ff99sb-ildn-NMR) combining recent side chain\nand backbone torsion modifications achieved high accuracy in our benchmark.\nFor the two optimal force fields, the calculation error is comparable\nto the uncertainty in the experimental comparison. This observation\nsuggests that extracting additional force field improvements from\nNMR data may require increased accuracy in J coupling\nand chemical shift prediction. To further investigate the limitations\nof current force fields, we also consider conformational populations\nof dipeptides, which were recently estimated using vibrational spectroscopy.",
     "entities": [
         {
             "label": "MOL",
             "text": "dipeptides",
-            "start": 741,
-            "end": 751
+            "start": 740,
+            "end": 750
         },
         {
             "label": "MOL",
             "text": "tripeptides",
-            "start": 753,
-            "end": 764
+            "start": 752,
+            "end": 763
         },
         {
             "label": "MOL",
             "text": "tetra-alanine",
-            "start": 766,
-            "end": 779
+            "start": 765,
+            "end": 778
         },
         {
             "label": "MOL",
             "text": "ubiquitin",
-            "start": 785,
-            "end": 794
+            "start": 784,
+            "end": 793
         },
         {
             "label": "FFM",
             "text": "ff96",
-            "start": 826,
-            "end": 830
+            "start": 825,
+            "end": 829
         },
         {
             "label": "FFM",
             "text": "ff99",
-            "start": 832,
-            "end": 836
+            "start": 831,
+            "end": 835
         },
         {
             "label": "FFM",
             "text": "ff03",
-            "start": 838,
-            "end": 842
+            "start": 837,
+            "end": 841
         },
         {
             "label": "FFM",
             "text": "ff03*",
-            "start": 844,
-            "end": 849
+            "start": 843,
+            "end": 848
         },
         {
             "label": "FFM",
             "text": "ff03w",
-            "start": 851,
-            "end": 856
+            "start": 850,
+            "end": 855
         },
         {
             "label": "FFM",
             "text": "ff99sb*",
-            "start": 858,
-            "end": 865
+            "start": 857,
+            "end": 864
         },
         {
             "label": "FFM",
             "text": "ff99sb-ildn",
-            "start": 867,
-            "end": 878
+            "start": 866,
+            "end": 877
         },
         {
             "label": "FFM",
             "text": "ff99sb-ildn-phi",
-            "start": 880,
-            "end": 895
+            "start": 879,
+            "end": 894
         },
         {
             "label": "FFM",
             "text": "ff99sb-ildn-NMR",
-            "start": 897,
-            "end": 912
+            "start": 896,
+            "end": 911
         },
         {
             "label": "FFM",
             "text": "CHARMM27",
-            "start": 914,
-            "end": 922
+            "start": 913,
+            "end": 921
         },
         {
             "label": "FFM",
             "text": "OPLS-AA",
-            "start": 928,
-            "end": 935
+            "start": 927,
+            "end": 934
         },
         {
             "label": "FFM",
             "text": "ff99sb-ildn-phi",
-            "start": 956,
-            "end": 971
+            "start": 955,
+            "end": 970
         },
         {
             "label": "FFM",
             "text": "ff99sb-ildn-NMR",
-            "start": 973,
-            "end": 988
+            "start": 972,
+            "end": 987
         }
     ]
 }

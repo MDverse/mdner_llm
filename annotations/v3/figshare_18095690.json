@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "MD simulation trajectories used in the paper \"ABCA1 is an extracellular phospholipid translocase\"\n\nMD simulation trajectories used in the paper \"ABCA1 is an extracellular phospholipid translocase\"\n\n1. 10 us coarse-grained MD simulation files of ABCA1 (WT, K568A, 11CmutA), (abca1_cgmd.zip)\n\n1-1. wt.gro\n1-2. wt-set1-10us.trr\n1-3. wt-set2-10us.trr\n1-4. wt-set3-10us.trr\n\n1-5. k568A.gro\n1-6. k568A-set1-10us.trr\n1-7. k568A-set2-10us.trr\n1-8. k568A-set3-10us.trr\n\n1-9. 11CmutA.gro\n1-10. 11CmutA_set1_10us.trr\n1-11. 11CmutA_set2_10us.trr\n1-12. 11CmutA_set3_10us.trr\n\n1-13. readme.txt\n\n2. 30 ns steered molecular dynamic simulation file (slow pulling) (abca1_smd.zip)\n\n\n2-1. smd.psf\n2-2. 30ns.dcd\n2-3. readme.txt\n\n\n3. 0.79 ns steered molecular dynamic simulation file (fast pulling) (abca1_smd2.zip)\n\n3-1. smd2.psf\n3-2. 0.79ns.dcd\n3-3. readme.txt\n\n4. custom tcl scripts to analyze the salt bridge formation and to analyze the extraction of POPC in the Gateway (tcl_scripts.zip)\n\n4-1. count_popc.vmd\n4-2. saltbr-cg.vmd\n4-3. readme.txt\n",
+    "raw_text": "MD simulation trajectories used in the paper \"ABCA1 is an extracellular phospholipid translocase\"\nMD simulation trajectories used in the paper \"ABCA1 is an extracellular phospholipid translocase\"\n1. 10 us coarse-grained MD simulation files of ABCA1 (WT, K568A, 11CmutA), (abca1_cgmd.zip)\n1-1. wt.gro\n1-2. wt-set1-10us.trr\n1-3. wt-set2-10us.trr\n1-4. wt-set3-10us.trr\n1-5. k568A.gro\n1-6. k568A-set1-10us.trr\n1-7. k568A-set2-10us.trr\n1-8. k568A-set3-10us.trr\n1-9. 11CmutA.gro\n1-10. 11CmutA_set1_10us.trr\n1-11. 11CmutA_set2_10us.trr\n1-12. 11CmutA_set3_10us.trr\n1-13. readme.txt\n2. 30 ns steered molecular dynamic simulation file (slow pulling) (abca1_smd.zip)\n\n2-1. smd.psf\n2-2. 30ns.dcd\n2-3. readme.txt\n\n3. 0.79 ns steered molecular dynamic simulation file (fast pulling) (abca1_smd2.zip)\n3-1. smd2.psf\n3-2. 0.79ns.dcd\n3-3. readme.txt\n4. custom tcl scripts to analyze the salt bridge formation and to analyze the extraction of POPC in the Gateway (tcl_scripts.zip)\n4-1. count_popc.vmd\n4-2. saltbr-cg.vmd\n4-3. readme.txt\n",
     "entities": [
         {
             "label": "MOL",
@@ -18,26 +18,26 @@
         {
             "label": "MOL",
             "text": "phospholipid translocase",
-            "start": 171,
-            "end": 195
+            "start": 170,
+            "end": 194
         },
         {
             "label": "STIME",
             "text": "30 ns",
-            "start": 584,
-            "end": 589
+            "start": 577,
+            "end": 582
         },
         {
             "label": "STIME",
             "text": "0.79 ns",
-            "start": 713,
-            "end": 720
+            "start": 704,
+            "end": 711
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 935,
-            "end": 939
+            "start": 924,
+            "end": 928
         }
     ]
 }

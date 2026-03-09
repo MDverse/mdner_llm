@@ -7,43 +7,43 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Hierarchical Aggregation in a Complex FluidThe Role of Isomeric Interconversion\n\nThere is an ever-increasing\nbody of evidence that metallic\ncomplexes\ninvolving amphiliphic ligands do not form normal solutions in organic\nsolvents. Instead, they form complex fluids with intricate structures.\nFor example, the metallic complexes may aggregate into clusters, and\nthese clusters themselves may aggregate into superclusters. To gain\na deeper insight into the mechanisms at play, we have used an improved\nforce field to conduct extensive molecular dynamics simulations of\na system composed of zirconium nitrate, water, nitric acid, tri-n-butyl phosphate, and n-octane. The important\nnew finding is that a dynamic equilibrium between the cis and trans\nisomers of the metal complex is likely to play a key role in the aggregation\nbehavior. The isolated cis and trans isomers have similar energies,\nbut simulation indicates that the clusters consist predominantly of\ncis isomers. With increasing metal concentration, we hypothesize that\nmore clustering occurs and the chemical equilibrium shifts toward\nthe cis isomer. It is possible that such isomeric effects play a role\nin the liquid–liquid extraction of other species and the inclusion\nof such effects in flow sheet modeling may lead to a better description\nof the process.",
+    "raw_text": "Hierarchical Aggregation in a Complex FluidThe Role of Isomeric Interconversion\nThere is an ever-increasing\nbody of evidence that metallic\ncomplexes\ninvolving amphiliphic ligands do not form normal solutions in organic\nsolvents. Instead, they form complex fluids with intricate structures.\nFor example, the metallic complexes may aggregate into clusters, and\nthese clusters themselves may aggregate into superclusters. To gain\na deeper insight into the mechanisms at play, we have used an improved\nforce field to conduct extensive molecular dynamics simulations of\na system composed of zirconium nitrate, water, nitric acid, tri-n-butyl phosphate, and n-octane. The important\nnew finding is that a dynamic equilibrium between the cis and trans\nisomers of the metal complex is likely to play a key role in the aggregation\nbehavior. The isolated cis and trans isomers have similar energies,\nbut simulation indicates that the clusters consist predominantly of\ncis isomers. With increasing metal concentration, we hypothesize that\nmore clustering occurs and the chemical equilibrium shifts toward\nthe cis isomer. It is possible that such isomeric effects play a role\nin the liquid–liquid extraction of other species and the inclusion\nof such effects in flow sheet modeling may lead to a better description\nof the process.",
     "entities": [
         {
             "label": "MOL",
             "text": "amphiliphic ligands",
-            "start": 161,
-            "end": 180
+            "start": 160,
+            "end": 179
         },
         {
             "label": "MOL",
             "text": "zirconium nitrate",
-            "start": 588,
-            "end": 605
+            "start": 587,
+            "end": 604
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 607,
-            "end": 612
+            "start": 606,
+            "end": 611
         },
         {
             "label": "MOL",
             "text": "nitric acid",
-            "start": 614,
-            "end": 625
+            "start": 613,
+            "end": 624
         },
         {
             "label": "MOL",
             "text": "tri-n-butyl phosphate",
-            "start": 627,
-            "end": 648
+            "start": 626,
+            "end": 647
         },
         {
             "label": "MOL",
             "text": "n-octane",
-            "start": 654,
-            "end": 662
+            "start": 653,
+            "end": 661
         }
     ]
 }

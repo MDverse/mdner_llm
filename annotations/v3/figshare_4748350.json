@@ -7,25 +7,25 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Extension of the Highly Mobile Membrane Mimetic to Transmembrane Systems through Customized in Silico Solvents\n\nThe\nmechanics of the protein–lipid interactions of transmembrane\nproteins are difficult to capture with conventional atomic molecular\ndynamics, due to the slow lateral diffusion of lipids restricting\nsampling to states near the initial membrane configuration. The highly\nmobile membrane mimetic (HMMM) model accelerates lipid dynamics by\nmodeling the acyl tails nearest to the membrane center as a fluid\norganic solvent while maintaining an atomic description of the lipid\nheadgroups and short acyl tails. The HMMM has been applied to many\nperipheral protein systems; however, the organic solvent used to date\ncaused deformations in transmembrane proteins by intercalating into\nthe protein and disrupting interactions between individual side chains.\nWe ameliorate the effect of the solvent on transmembrane protein structure\nthrough the development of two new in silico Lennard-Jones\nsolvents. The parameters for the new solvents were determined through\nan extensive parameter search in order to match the bulk properties\nof alkanes in a highly simplified model. Using these new solvents,\nwe substantially improve the insertion free energy profiles of 10\nprotein side chain analogues across the entire bilayer. In addition,\nwe reduce the intercalation of solvent into transmembrane systems,\nresulting in native-like transmembrane protein structures from five\ndifferent topological classes within a HMMM bilayer. The parametrization\nof the solvents, in addition to their computed physical properties,\nis discussed. By combining high lipid lateral diffusion with intact\ntransmembrane proteins, we foresee the developed solvents being useful\nto efficiently identify membrane composition inhomogeneities and lipid\nbinding caused by the presence of membrane proteins.",
+    "raw_text": "Extension of the Highly Mobile Membrane Mimetic to Transmembrane Systems through Customized in Silico Solvents\nThe\nmechanics of the protein–lipid interactions of transmembrane\nproteins are difficult to capture with conventional atomic molecular\ndynamics, due to the slow lateral diffusion of lipids restricting\nsampling to states near the initial membrane configuration. The highly\nmobile membrane mimetic (HMMM) model accelerates lipid dynamics by\nmodeling the acyl tails nearest to the membrane center as a fluid\norganic solvent while maintaining an atomic description of the lipid\nheadgroups and short acyl tails. The HMMM has been applied to many\nperipheral protein systems; however, the organic solvent used to date\ncaused deformations in transmembrane proteins by intercalating into\nthe protein and disrupting interactions between individual side chains.\nWe ameliorate the effect of the solvent on transmembrane protein structure\nthrough the development of two new in silico Lennard-Jones\nsolvents. The parameters for the new solvents were determined through\nan extensive parameter search in order to match the bulk properties\nof alkanes in a highly simplified model. Using these new solvents,\nwe substantially improve the insertion free energy profiles of 10\nprotein side chain analogues across the entire bilayer. In addition,\nwe reduce the intercalation of solvent into transmembrane systems,\nresulting in native-like transmembrane protein structures from five\ndifferent topological classes within a HMMM bilayer. The parametrization\nof the solvents, in addition to their computed physical properties,\nis discussed. By combining high lipid lateral diffusion with intact\ntransmembrane proteins, we foresee the developed solvents being useful\nto efficiently identify membrane composition inhomogeneities and lipid\nbinding caused by the presence of membrane proteins.",
     "entities": [
         {
             "label": "MOL",
             "text": "acyl",
-            "start": 463,
-            "end": 467
+            "start": 462,
+            "end": 466
         },
         {
             "label": "MOL",
             "text": "acyl",
-            "start": 606,
-            "end": 610
+            "start": 605,
+            "end": 609
         },
         {
             "label": "MOL",
             "text": "alkanes",
-            "start": 1137,
-            "end": 1144
+            "start": 1136,
+            "end": 1143
         }
     ]
 }

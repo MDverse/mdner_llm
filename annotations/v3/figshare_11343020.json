@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular Dynamic Simulation data of compensatory mutations in Bruton's Tyrosine Kinase\n\nThe research aims to find compensatory mutations that rescue Bruton’s tyrosine kinase (Btk) activity in the presence of severe X-linked agammaglobulinemia (XLA) causing mutation in the kinase domain. The data set includes the molecular dynamic simulation trajectories of native, with R641H deleterious mutation and with the R641H-K420R compensatory mutations structures separately. The trajectories describe the conformational dynamics changes and show that the compensatory mutation site was able to rescue the Btk linker-kinase domain dynamics in the presence of R641H.This MD simulation data set supports the research article: \"Identifying a Compensating Mutation to Rescue Function in Bruton’s Tyrosine Kinase with an XLA Mutant\".The multiple sequence alignment data for calculating high order dependence is also included in the data set (PF07714.fa). The links for all the software and scripts used in the research are available in the README file.",
+    "raw_text": "Molecular Dynamic Simulation data of compensatory mutations in Bruton's Tyrosine Kinase\nThe research aims to find compensatory mutations that rescue Bruton’s tyrosine kinase (Btk) activity in the presence of severe X-linked agammaglobulinemia (XLA) causing mutation in the kinase domain. The data set includes the molecular dynamic simulation trajectories of native, with R641H deleterious mutation and with the R641H-K420R compensatory mutations structures separately. The trajectories describe the conformational dynamics changes and show that the compensatory mutation site was able to rescue the Btk linker-kinase domain dynamics in the presence of R641H.This MD simulation data set supports the research article: \"Identifying a Compensating Mutation to Rescue Function in Bruton’s Tyrosine Kinase with an XLA Mutant\".The multiple sequence alignment data for calculating high order dependence is also included in the data set (PF07714.fa). The links for all the software and scripts used in the research are available in the README file.",
     "entities": [
         {
             "label": "MOL",
@@ -18,44 +18,44 @@
         {
             "label": "MOL",
             "text": "Btk",
-            "start": 176,
-            "end": 179
+            "start": 175,
+            "end": 178
         },
         {
             "label": "MOL",
             "text": "X-linked agammaglobulinemia",
-            "start": 216,
-            "end": 243
+            "start": 215,
+            "end": 242
         },
         {
             "label": "MOL",
             "text": "XLA",
-            "start": 245,
-            "end": 248
+            "start": 244,
+            "end": 247
         },
         {
             "label": "MOL",
             "text": "kinase",
-            "start": 168,
-            "end": 174
+            "start": 167,
+            "end": 173
         },
         {
             "label": "MOL",
             "text": "Btk",
-            "start": 601,
-            "end": 604
+            "start": 600,
+            "end": 603
         },
         {
             "label": "MOL",
             "text": "kinase",
-            "start": 274,
-            "end": 280
+            "start": 273,
+            "end": 279
         },
         {
             "label": "MOL",
             "text": "XLA",
-            "start": 811,
-            "end": 814
+            "start": 810,
+            "end": 813
         }
     ]
 }

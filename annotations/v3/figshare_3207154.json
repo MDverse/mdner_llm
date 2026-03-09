@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Accurate Structure Prediction and Conformational Analysis of Cyclic Peptides with Residue-Specific Force Fields\n\nCyclic peptides (CPs)\nare promising candidates for drugs, chemical\nbiology tools, and self-assembling nanomaterials. However, the development\nof reliable and accurate computational methods for their structure\nprediction has been challenging. Here, 20 all-trans CPs of 5–12\nresidues selected from Cambridge Structure Database have been simulated\nusing replica-exchange molecular dynamics with four different force\nfields. Our recently developed residue-specific force fields RSFF1\nand RSFF2 can correctly identify the crystal-like conformations of\nmore than half CPs as the most populated conformation. The RSFF2 performs\nthe best, which consistently predicts the crystal structures of 17\nout of 20 CPs with rmsd < 1.1 Å. We also compared the backbone\n(ϕ, ψ) sampling of residues in CPs with those in short\nlinear peptides and in globular proteins. In general, unlike\nlinear peptides, CPs have local conformational free energies and entropies\nquite similar to globular proteins.",
+    "raw_text": "Accurate Structure Prediction and Conformational Analysis of Cyclic Peptides with Residue-Specific Force Fields\nCyclic peptides (CPs)\nare promising candidates for drugs, chemical\nbiology tools, and self-assembling nanomaterials. However, the development\nof reliable and accurate computational methods for their structure\nprediction has been challenging. Here, 20 all-trans CPs of 5–12\nresidues selected from Cambridge Structure Database have been simulated\nusing replica-exchange molecular dynamics with four different force\nfields. Our recently developed residue-specific force fields RSFF1\nand RSFF2 can correctly identify the crystal-like conformations of\nmore than half CPs as the most populated conformation. The RSFF2 performs\nthe best, which consistently predicts the crystal structures of 17\nout of 20 CPs with rmsd < 1.1 Å. We also compared the backbone\n(ϕ, ψ) sampling of residues in CPs with those in short\nlinear peptides and in globular proteins. In general, unlike\nlinear peptides, CPs have local conformational free energies and entropies\nquite similar to globular proteins.",
     "entities": [
         {
             "label": "MOL",
@@ -18,62 +18,62 @@
         {
             "label": "MOL",
             "text": "Cyclic peptides",
-            "start": 113,
-            "end": 128
+            "start": 112,
+            "end": 127
         },
         {
             "label": "MOL",
             "text": "CPs",
-            "start": 130,
-            "end": 133
+            "start": 129,
+            "end": 132
         },
         {
             "label": "MOL",
             "text": "CPs",
-            "start": 374,
-            "end": 377
+            "start": 373,
+            "end": 376
         },
         {
             "label": "FFM",
             "text": "RSFF1",
-            "start": 587,
-            "end": 592
+            "start": 586,
+            "end": 591
         },
         {
             "label": "FFM",
             "text": "RSFF2",
-            "start": 597,
-            "end": 602
+            "start": 596,
+            "end": 601
         },
         {
             "label": "MOL",
             "text": "CPs",
-            "start": 675,
-            "end": 678
+            "start": 674,
+            "end": 677
         },
         {
             "label": "FFM",
             "text": "RSFF2",
-            "start": 719,
-            "end": 724
+            "start": 718,
+            "end": 723
         },
         {
             "label": "MOL",
             "text": "CPs",
-            "start": 811,
-            "end": 814
+            "start": 810,
+            "end": 813
         },
         {
             "label": "MOL",
             "text": "CPs",
-            "start": 895,
-            "end": 898
+            "start": 894,
+            "end": 897
         },
         {
             "label": "MOL",
             "text": "CPs",
-            "start": 997,
-            "end": 1000
+            "start": 996,
+            "end": 999
         }
     ]
 }

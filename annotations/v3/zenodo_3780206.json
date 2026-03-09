@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular dynamics simulation data of regulatory ACT domain dimer of human phenylalanine hydroxylase (PAH)\n\nRaw data of molecular dynamics simulations of regulatory ACT domain dimer.\nbinding.zip: simulation starting from 21 dimer conformations with 19 Phe ligand \nbound.zip: simulation starting from dimer with bound Phe ligand\ndimer.zip: simulation starting from 21 dimer conformations simulation\nSimulation setup files are also included in each folder.\nDetails can be found in this paper:\nYunhui Ge, Elias Borne, Shannon Stewart, Michael R. Hansen, Emilia C. Arturo, Eileen K. Jaffe and Vincent A. Voelz. Simulation of the regulatory ACT domain of human PAH unveil the mechanism of phenylalanine binding. J. Biol. Chem., 2018, 293(51), pp 19532-19543",
+    "raw_text": "Molecular dynamics simulation data of regulatory ACT domain dimer of human phenylalanine hydroxylase (PAH)\nRaw data of molecular dynamics simulations of regulatory ACT domain dimer.\nbinding.zip: simulation starting from 21 dimer conformations with 19 Phe ligand \nbound.zip: simulation starting from dimer with bound Phe ligand\ndimer.zip: simulation starting from 21 dimer conformations simulation\nSimulation setup files are also included in each folder.\nDetails can be found in this paper:\nYunhui Ge, Elias Borne, Shannon Stewart, Michael R. Hansen, Emilia C. Arturo, Eileen K. Jaffe and Vincent A. Voelz. Simulation of the regulatory ACT domain of human PAH unveil the mechanism of phenylalanine binding. J. Biol. Chem., 2018, 293(51), pp 19532-19543",
     "entities": [
         {
             "label": "MOL",
@@ -30,38 +30,38 @@
         {
             "label": "MOL",
             "text": "ACT",
-            "start": 165,
-            "end": 168
+            "start": 164,
+            "end": 167
         },
         {
             "label": "MOL",
             "text": "Phe",
-            "start": 252,
-            "end": 255
+            "start": 251,
+            "end": 254
         },
         {
             "label": "MOL",
             "text": "Phe",
-            "start": 317,
-            "end": 320
+            "start": 316,
+            "end": 319
         },
         {
             "label": "MOL",
             "text": "ACT",
-            "start": 636,
-            "end": 639
+            "start": 635,
+            "end": 638
         },
         {
             "label": "MOL",
             "text": "PAH",
-            "start": 656,
-            "end": 659
+            "start": 655,
+            "end": 658
         },
         {
             "label": "MOL",
             "text": "phenylalanine",
-            "start": 684,
-            "end": 697
+            "start": 683,
+            "end": 696
         }
     ]
 }

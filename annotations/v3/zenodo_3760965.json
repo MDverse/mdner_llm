@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Computational insights into voltage dependence of polyamine block in a strong inwardly rectifying K+ channel\n\nSupplemental Material to the study \"Computational insights into voltage dependence of polyamine block in a strong inwardly rectifying K+ channel\", to be published in Frontiers in Pharmacology.\nThe upload contains (1) a representative trajectory (run4), and (2) two frames of the SPM inward-pulling simulations:\n\n(1) Free MD run4 with outward driving force, containing the compressed .xtc, the .tpr, and the final step as .gro file\n(2) steered MD, containing the starting frame (SPM in the central cavity below the Selectivity Filter) and a representative frame of SPM interacting with the CTD-binding site. \n",
+    "raw_text": "Computational insights into voltage dependence of polyamine block in a strong inwardly rectifying K+ channel\nSupplemental Material to the study \"Computational insights into voltage dependence of polyamine block in a strong inwardly rectifying K+ channel\", to be published in Frontiers in Pharmacology.\nThe upload contains (1) a representative trajectory (run4), and (2) two frames of the SPM inward-pulling simulations:\n(1) Free MD run4 with outward driving force, containing the compressed .xtc, the .tpr, and the final step as .gro file\n(2) steered MD, containing the starting frame (SPM in the central cavity below the Selectivity Filter) and a representative frame of SPM interacting with the CTD-binding site. \n",
     "entities": [
         {
             "label": "MOL",
@@ -24,8 +24,8 @@
         {
             "label": "MOL",
             "text": "polyamine",
-            "start": 196,
-            "end": 205
+            "start": 195,
+            "end": 204
         }
     ]
 }

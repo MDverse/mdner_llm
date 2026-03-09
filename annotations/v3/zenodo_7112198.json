@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Water, acetonitrile, and methanol MD simulations driven by many-body ML potentials\n\nInput, output, and trajectories of molecular dynamics (MD) simulations of water, acetonitrile, and methanol. Simulations were driven by many-body machine learning (mbML) potentials including explicit 1-, 2-, and 3-body contributions. GDML, GAP, and SchNet models are provided in a separate repository. All simulations were performed in the atomic simulation environment (ASE). Analyses including radial distribution function (rdf) curves are provided here.\nManifest\nThe following simulations are included in this repository for each solvent.\n\n1 ps hexamer NVE MD simulation driven by MP2/def2-TZVP (in ORCA v4.2.0), mbGDML, mbGAP, mbSchNet, and GFN2-xTB started with the same positions and velocities. Velocities were initialized at 298.15 K with a Maxwell-Boltzmann distribution.\nPeriodic NVT MD simulation at 298.15 K for 10 or 30 ps with a 1 fs time step driven by mbGDML. These simulations contained\n\t\n58 or 137 water molecules,\n67 or 122 acetonitrile molecules,\n61 methanol molecules.\n\n\n\nSystems that are not bolded were used for testing purposes.",
+    "raw_text": "Water, acetonitrile, and methanol MD simulations driven by many-body ML potentials\nInput, output, and trajectories of molecular dynamics (MD) simulations of water, acetonitrile, and methanol. Simulations were driven by many-body machine learning (mbML) potentials including explicit 1-, 2-, and 3-body contributions. GDML, GAP, and SchNet models are provided in a separate repository. All simulations were performed in the atomic simulation environment (ASE). Analyses including radial distribution function (rdf) curves are provided here.\nManifest\nThe following simulations are included in this repository for each solvent.\n1 ps hexamer NVE MD simulation driven by MP2/def2-TZVP (in ORCA v4.2.0), mbGDML, mbGAP, mbSchNet, and GFN2-xTB started with the same positions and velocities. Velocities were initialized at 298.15 K with a Maxwell-Boltzmann distribution.\nPeriodic NVT MD simulation at 298.15 K for 10 or 30 ps with a 1 fs time step driven by mbGDML. These simulations contained\n\t\n58 or 137 water molecules,\n67 or 122 acetonitrile molecules,\n61 methanol molecules.\n\nSystems that are not bolded were used for testing purposes.",
     "entities": [
         {
             "label": "MOL",
@@ -30,68 +30,68 @@
         {
             "label": "MOL",
             "text": "water",
-            "start": 158,
-            "end": 163
+            "start": 157,
+            "end": 162
         },
         {
             "label": "MOL",
             "text": "acetonitrile",
-            "start": 165,
-            "end": 177
+            "start": 164,
+            "end": 176
         },
         {
             "label": "MOL",
             "text": "methanol",
-            "start": 183,
-            "end": 191
+            "start": 182,
+            "end": 190
         },
         {
             "label": "FFM",
             "text": "GDML",
-            "start": 318,
-            "end": 322
+            "start": 317,
+            "end": 321
         },
         {
             "label": "FFM",
             "text": "GAP",
-            "start": 324,
-            "end": 327
+            "start": 323,
+            "end": 326
         },
         {
             "label": "FFM",
             "text": "SchNet",
-            "start": 333,
-            "end": 339
+            "start": 332,
+            "end": 338
         },
         {
             "label": "TEMP",
             "text": "298.15 K",
-            "start": 817,
-            "end": 825
+            "start": 815,
+            "end": 823
         },
         {
             "label": "TEMP",
             "text": "298.15 K",
-            "start": 895,
-            "end": 903
+            "start": 893,
+            "end": 901
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 1000,
-            "end": 1005
+            "start": 998,
+            "end": 1003
         },
         {
             "label": "MOL",
             "text": "acetonitrile",
-            "start": 1027,
-            "end": 1039
+            "start": 1025,
+            "end": 1037
         },
         {
             "label": "MOL",
             "text": "methanol",
-            "start": 1054,
-            "end": 1062
+            "start": 1052,
+            "end": 1060
         }
     ]
 }

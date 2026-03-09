@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Hundred nanosecond molecular dynamics simulation of the G domain of K-Ras4B\n\n(This is a public copy of https://figshare.com/s/453b1b215cf2f9270769)This is a one hundred nanosecond simulation of the G domain of K-Ras4B \n(UNIPROT:P01116-2, residues 1-166). The simulation was generated using \nGROMACS v.4.6.5 with the AMBER99SB-ILDN forcefield (altered following \ndoi:10.1002/jcc.10262, see References), TIP3P water and 0.15 M salt. The\n leap-frog integrator with 2 fs timestep was used. A v-rescale \nthermostat was used at 310 K, with two energy groups (protein+GTP+MG and\n water+salt) and a time constant of 0.1 ps. PME was used with a \ntolerance of 1e-5 for the coulomb interactions and a cutoff was used for\n the VdW interactions, both with a cutoff of 1.1 nm. A Parrinello-rahman\n barostat was applied with a reference pressure of 1 bar and a time \nconstant of 1 ps. For more information take a look at md.mdp. \nCoordinates were saved every 1 nanosecond and waters were stripped, \nresulting in a trajectory of 101 snapshots. The initial model was \nmade using the G-domain of GppNHp bound H-Ras (PDB ID: 4EFL). The \nprotein was converted using MODELLER v9.16(doi:10.1002/cpbi.3 , see \nReferences) and GppNHp was converted to GTP by hand.",
+    "raw_text": "Hundred nanosecond molecular dynamics simulation of the G domain of K-Ras4B\n(This is a public copy of https://figshare.com/s/453b1b215cf2f9270769)This is a one hundred nanosecond simulation of the G domain of K-Ras4B \n(UNIPROT:P01116-2, residues 1-166). The simulation was generated using \nGROMACS v.4.6.5 with the AMBER99SB-ILDN forcefield (altered following \ndoi:10.1002/jcc.10262, see References), TIP3P water and 0.15 M salt. The\n leap-frog integrator with 2 fs timestep was used. A v-rescale \nthermostat was used at 310 K, with two energy groups (protein+GTP+MG and\n water+salt) and a time constant of 0.1 ps. PME was used with a \ntolerance of 1e-5 for the coulomb interactions and a cutoff was used for\n the VdW interactions, both with a cutoff of 1.1 nm. A Parrinello-rahman\n barostat was applied with a reference pressure of 1 bar and a time \nconstant of 1 ps. For more information take a look at md.mdp. \nCoordinates were saved every 1 nanosecond and waters were stripped, \nresulting in a trajectory of 101 snapshots. The initial model was \nmade using the G-domain of GppNHp bound H-Ras (PDB ID: 4EFL). The \nprotein was converted using MODELLER v9.16(doi:10.1002/cpbi.3 , see \nReferences) and GppNHp was converted to GTP by hand.",
     "entities": [
         {
             "label": "MOL",
@@ -18,104 +18,104 @@
         {
             "label": "MOL",
             "text": "K-Ras4B",
-            "start": 210,
-            "end": 217
+            "start": 209,
+            "end": 216
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 291,
-            "end": 298
+            "start": 290,
+            "end": 297
         },
         {
             "label": "SOFTVERS",
             "text": "v.4.6.5",
-            "start": 299,
-            "end": 306
+            "start": 298,
+            "end": 305
         },
         {
             "label": "FFM",
             "text": "AMBER99SB-ILDN",
-            "start": 316,
-            "end": 330
+            "start": 315,
+            "end": 329
         },
         {
             "label": "FFM",
             "text": "TIP3P",
-            "start": 402,
-            "end": 407
+            "start": 401,
+            "end": 406
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 408,
-            "end": 413
+            "start": 407,
+            "end": 412
         },
         {
             "label": "TEMP",
             "text": "310 K",
-            "start": 522,
-            "end": 527
+            "start": 521,
+            "end": 526
         },
         {
             "label": "MOL",
             "text": "GTP",
-            "start": 561,
-            "end": 564
+            "start": 560,
+            "end": 563
         },
         {
             "label": "MOL",
             "text": "MG",
-            "start": 565,
-            "end": 567
+            "start": 564,
+            "end": 566
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 573,
-            "end": 578
+            "start": 572,
+            "end": 577
         },
         {
             "label": "MOL",
             "text": "waters",
-            "start": 961,
-            "end": 967
+            "start": 960,
+            "end": 966
         },
         {
             "label": "MOL",
             "text": "GppNHp",
-            "start": 1078,
-            "end": 1084
+            "start": 1077,
+            "end": 1083
         },
         {
             "label": "MOL",
             "text": "H-Ras",
-            "start": 1091,
-            "end": 1096
+            "start": 1090,
+            "end": 1095
         },
         {
             "label": "SOFTNAME",
             "text": "MODELLER",
-            "start": 1146,
-            "end": 1154
+            "start": 1145,
+            "end": 1153
         },
         {
             "label": "SOFTVERS",
             "text": "v9.16",
-            "start": 1155,
-            "end": 1160
+            "start": 1154,
+            "end": 1159
         },
         {
             "label": "MOL",
             "text": "GppNHp",
-            "start": 1203,
-            "end": 1209
+            "start": 1202,
+            "end": 1208
         },
         {
             "label": "MOL",
             "text": "GTP",
-            "start": 1227,
-            "end": 1230
+            "start": 1226,
+            "end": 1229
         }
     ]
 }

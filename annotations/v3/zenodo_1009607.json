@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Set simulations small pure bilayers (72 lipids) using charmm36 ff in gromacs (DPPC, POPC)\n\nCollection simulations of DPPC and POPC bilayers in gromacs using the charmm36 force field. The list of systems describing their particular simulation conditions can be found below:\n1) DPPC_72_325K (500ns)\n2) DPPC_72_310K_rmcomm_leaflets (500ns)\n3) DPPC_72_310K_rmcomm_leaflets_low_hydration (500ns)\n4) POPC_72_310K (500ns)\n5) POPC_72_310K_rmcomm_leaflets (500ns)\n6) POPC_72_310K_rmcomm_leaflets_low_hydration (550ns)\n7) POPC_72_303K_rmcomm_leaflets_low_hydration (550ns)\nFor further information read the Readme file provided for each simulation.",
+    "raw_text": "Set simulations small pure bilayers (72 lipids) using charmm36 ff in gromacs (DPPC, POPC)\nCollection simulations of DPPC and POPC bilayers in gromacs using the charmm36 force field. The list of systems describing their particular simulation conditions can be found below:\n1) DPPC_72_325K (500ns)\n2) DPPC_72_310K_rmcomm_leaflets (500ns)\n3) DPPC_72_310K_rmcomm_leaflets_low_hydration (500ns)\n4) POPC_72_310K (500ns)\n5) POPC_72_310K_rmcomm_leaflets (500ns)\n6) POPC_72_310K_rmcomm_leaflets_low_hydration (550ns)\n7) POPC_72_303K_rmcomm_leaflets_low_hydration (550ns)\nFor further information read the Readme file provided for each simulation.",
     "entities": [
         {
             "label": "FFM",
@@ -36,146 +36,146 @@
         {
             "label": "MOL",
             "text": "DPPC",
-            "start": 117,
-            "end": 121
+            "start": 116,
+            "end": 120
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 126,
-            "end": 130
+            "start": 125,
+            "end": 129
         },
         {
             "label": "SOFTNAME",
             "text": "gromacs",
-            "start": 143,
-            "end": 150
+            "start": 142,
+            "end": 149
         },
         {
             "label": "FFM",
             "text": "charmm36",
-            "start": 161,
-            "end": 169
+            "start": 160,
+            "end": 168
         },
         {
             "label": "MOL",
             "text": "DPPC",
-            "start": 276,
-            "end": 280
+            "start": 275,
+            "end": 279
         },
         {
             "label": "TEMP",
             "text": "325K",
-            "start": 284,
-            "end": 288
+            "start": 283,
+            "end": 287
         },
         {
             "label": "STIME",
             "text": "500ns",
-            "start": 290,
-            "end": 295
+            "start": 289,
+            "end": 294
         },
         {
             "label": "MOL",
             "text": "DPPC",
-            "start": 300,
-            "end": 304
+            "start": 299,
+            "end": 303
         },
         {
             "label": "STIME",
             "text": "500ns",
-            "start": 330,
-            "end": 335
+            "start": 329,
+            "end": 334
         },
         {
             "label": "MOL",
             "text": "DPPC",
-            "start": 340,
-            "end": 344
+            "start": 339,
+            "end": 343
         },
         {
             "label": "TEMP",
             "text": "310K",
-            "start": 348,
-            "end": 352
+            "start": 347,
+            "end": 351
         },
         {
             "label": "STIME",
             "text": "500ns",
-            "start": 384,
-            "end": 389
+            "start": 383,
+            "end": 388
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 394,
-            "end": 398
+            "start": 393,
+            "end": 397
         },
         {
             "label": "TEMP",
             "text": "310K",
-            "start": 402,
-            "end": 406
+            "start": 401,
+            "end": 405
         },
         {
             "label": "STIME",
             "text": "500ns",
-            "start": 408,
-            "end": 413
+            "start": 407,
+            "end": 412
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 418,
-            "end": 422
+            "start": 417,
+            "end": 421
         },
         {
             "label": "TEMP",
             "text": "310K",
-            "start": 426,
-            "end": 430
+            "start": 425,
+            "end": 429
         },
         {
             "label": "STIME",
             "text": "500ns",
-            "start": 448,
-            "end": 453
+            "start": 447,
+            "end": 452
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 458,
-            "end": 462
+            "start": 457,
+            "end": 461
         },
         {
             "label": "TEMP",
             "text": "310K",
-            "start": 466,
-            "end": 470
+            "start": 465,
+            "end": 469
         },
         {
             "label": "STIME",
             "text": "550ns",
-            "start": 502,
-            "end": 507
+            "start": 501,
+            "end": 506
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 512,
-            "end": 516
+            "start": 511,
+            "end": 515
         },
         {
             "label": "TEMP",
             "text": "303K",
-            "start": 520,
-            "end": 524
+            "start": 519,
+            "end": 523
         },
         {
             "label": "STIME",
             "text": "550ns",
-            "start": 556,
-            "end": 561
+            "start": 555,
+            "end": 560
         }
     ]
 }

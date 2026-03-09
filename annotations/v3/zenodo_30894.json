@@ -7,109 +7,109 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "POPC_Ulmschneider_OPLS_NaCl_1Mol\n\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 1M NaCl. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Ions were described by OPLS-AA force field (Gromacs 5.0.3). Conditions: T=298.15, 128 POPC molecules, 5120 tip3p waters, 77 Na, 77 Cl. 200ns trajectory (preceded by 5ns NPT equillibration).\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi\n[1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5(7), 1803–1813\n[2] http://lipidbook.bioch.ox.ac.uk/package/show/id/52.html",
+    "raw_text": "POPC_Ulmschneider_OPLS_NaCl_1Mol\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 1M NaCl. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Ions were described by OPLS-AA force field (Gromacs 5.0.3). Conditions: T=298.15, 128 POPC molecules, 5120 tip3p waters, 77 Na, 77 Cl. 200ns trajectory (preceded by 5ns NPT equillibration).\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi\n[1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5(7), 1803–1813\n[2] http://lipidbook.bioch.ox.ac.uk/package/show/id/52.html",
     "entities": [
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 96,
-            "end": 100
+            "start": 95,
+            "end": 99
         },
         {
             "label": "MOL",
             "text": "NaCl",
-            "start": 117,
-            "end": 121
+            "start": 116,
+            "end": 120
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-            "start": 127,
-            "end": 139
+            "start": 126,
+            "end": 138
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 156,
-            "end": 160
+            "start": 155,
+            "end": 159
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-            "start": 175,
-            "end": 182
+            "start": 174,
+            "end": 181
         },
         {
             "label": "SOFTVERS",
             "text": "5.0.3",
-            "start": 183,
-            "end": 188
+            "start": 182,
+            "end": 187
         },
         {
             "label": "FFM",
             "text": "OPLS-AA",
-            "start": 219,
-            "end": 226
+            "start": 218,
+            "end": 225
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-            "start": 240,
-            "end": 247
+            "start": 239,
+            "end": 246
         },
         {
             "label": "SOFTVERS",
             "text": "5.0.3",
-            "start": 248,
-            "end": 253
+            "start": 247,
+            "end": 252
         },
         {
             "label": "TEMP",
             "text": "298.15",
-            "start": 270,
-            "end": 276
+            "start": 269,
+            "end": 275
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 282,
-            "end": 286
+            "start": 281,
+            "end": 285
         },
         {
             "label": "FFM",
             "text": "tip3p",
-            "start": 303,
-            "end": 308
+            "start": 302,
+            "end": 307
         },
         {
             "label": "MOL",
             "text": "Na",
-            "start": 320,
-            "end": 322
+            "start": 319,
+            "end": 321
         },
         {
             "label": "MOL",
             "text": "Cl",
-            "start": 327,
-            "end": 329
+            "start": 326,
+            "end": 328
         },
         {
             "label": "STIME",
             "text": "200ns",
-            "start": 331,
-            "end": 336
+            "start": 330,
+            "end": 335
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-            "start": 544,
-            "end": 556
+            "start": 543,
+            "end": 555
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-            "start": 564,
-            "end": 576
+            "start": 563,
+            "end": 575
         }
     ]
 }

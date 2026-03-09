@@ -7,79 +7,79 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "In-Cell Protein–Protein Contacts: Transient Interactions in the Crowd\n\nProteins\nin vivo are immersed in a crowded environment of water,\nions, metabolites, and macromolecules. In-cell experiments highlight\nhow transient weak protein–protein interactions promote (via\nfunctional “quinary structure”) or hinder (via competitive\nbinding or “sticking”) complex formation. Computational\nmodels of the cytoplasm are expensive. We tackle this challenge with\nan all-atom model of a small volume of the E. coli cytoplasm to simulate protein–protein contacts up to the\n5 μs time scale on the special-purpose supercomputer Anton 2.\nWe use three CHARMM-derived force fields: C22*, C36m, and C36mCU (with\nCUFIX corrections). We find that both C36m and C36mCU form smaller\ncontact surfaces than C22*. Although CUFIX was developed to reduce\nprotein–protein sticking, larger contacts are observed with\nC36mCU than C36m. We show that the lifespan Δt of protein–protein contacts obeys a power law distribution\nbetween 0.03 and 3 μs, with ∼90% of all contacts lasting\n<1 μs (similar to the time scale for downhill folding).",
+    "raw_text": "In-Cell Protein–Protein Contacts: Transient Interactions in the Crowd\nProteins\nin vivo are immersed in a crowded environment of water,\nions, metabolites, and macromolecules. In-cell experiments highlight\nhow transient weak protein–protein interactions promote (via\nfunctional “quinary structure”) or hinder (via competitive\nbinding or “sticking”) complex formation. Computational\nmodels of the cytoplasm are expensive. We tackle this challenge with\nan all-atom model of a small volume of the E. coli cytoplasm to simulate protein–protein contacts up to the\n5 μs time scale on the special-purpose supercomputer Anton 2.\nWe use three CHARMM-derived force fields: C22*, C36m, and C36mCU (with\nCUFIX corrections). We find that both C36m and C36mCU form smaller\ncontact surfaces than C22*. Although CUFIX was developed to reduce\nprotein–protein sticking, larger contacts are observed with\nC36mCU than C36m. We show that the lifespan Δt of protein–protein contacts obeys a power law distribution\nbetween 0.03 and 3 μs, with ∼90% of all contacts lasting\n<1 μs (similar to the time scale for downhill folding).",
     "entities": [
         {
             "label": "MOL",
             "text": "water",
-            "start": 129,
-            "end": 134
+            "start": 128,
+            "end": 133
         },
         {
             "label": "MOL",
             "text": "E. coli cytoplasm",
-            "start": 493,
-            "end": 510
+            "start": 492,
+            "end": 509
         },
         {
             "label": "STIME",
             "text": "5 μs",
-            "start": 558,
-            "end": 562
+            "start": 557,
+            "end": 561
         },
         {
             "label": "FFM",
             "text": "CHARMM",
-            "start": 633,
-            "end": 639
+            "start": 632,
+            "end": 638
         },
         {
             "label": "FFM",
             "text": "C22*",
-            "start": 662,
-            "end": 666
+            "start": 661,
+            "end": 665
         },
         {
             "label": "FFM",
             "text": "C36m",
-            "start": 668,
-            "end": 672
+            "start": 667,
+            "end": 671
         },
         {
             "label": "FFM",
             "text": "C36mCU",
-            "start": 678,
-            "end": 684
+            "start": 677,
+            "end": 683
         },
         {
             "label": "FFM",
             "text": "C36m",
-            "start": 729,
-            "end": 733
+            "start": 728,
+            "end": 732
         },
         {
             "label": "FFM",
             "text": "C36mCU",
-            "start": 738,
-            "end": 744
+            "start": 737,
+            "end": 743
         },
         {
             "label": "FFM",
             "text": "C22*",
-            "start": 780,
-            "end": 784
+            "start": 779,
+            "end": 783
         },
         {
             "label": "FFM",
             "text": "C36mCU",
-            "start": 885,
-            "end": 891
+            "start": 884,
+            "end": 890
         },
         {
             "label": "FFM",
             "text": "C36m.",
-            "start": 897,
-            "end": 902
+            "start": 896,
+            "end": 901
         }
     ]
 }

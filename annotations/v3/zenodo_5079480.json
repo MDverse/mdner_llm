@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "The Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\n\nThe Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\nDaniel T. Bregante,1 Matthew Chan,1 Jun Zhi Tan,1 E. Zeynep Ayla,1 Christopher P. Nicholas,2,3 Diwakar Shukla,1 and David W. Flaherty1,*\n1Department of Chemical and Biomolecular Engineering, University of Illinois at Urbana-Champaign, Urbana, IL 61802\n2Exploratory Materials and Catalysis Research, Honeywell UOP, Des Plaines, IL 60016\n3C2P Sciences L3C, Evanston, IL 60202\n*Corresponding Author: dwflhrty@illinois.edu\n \nMolecular dynamics simulations for zeolite framework studied in \"The Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\". \nRepository contains the last 100 nanoseconds of classical molecular dynamics equilibration, ab initio molecular dynamics trajectories, initial and final simulated zeolite structures, and scripts used for analyzing MD trajectories. ",
+    "raw_text": "The Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\nThe Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\nDaniel T. Bregante,1 Matthew Chan,1 Jun Zhi Tan,1 E. Zeynep Ayla,1 Christopher P. Nicholas,2,3 Diwakar Shukla,1 and David W. Flaherty1,*\n1Department of Chemical and Biomolecular Engineering, University of Illinois at Urbana-Champaign, Urbana, IL 61802\n2Exploratory Materials and Catalysis Research, Honeywell UOP, Des Plaines, IL 60016\n3C2P Sciences L3C, Evanston, IL 60202\n*Corresponding Author: dwflhrty@illinois.edu\n \nMolecular dynamics simulations for zeolite framework studied in \"The Shape of Water in Zeolites and its Impact on Epoxidation Catalysis\". \nRepository contains the last 100 nanoseconds of classical molecular dynamics equilibration, ab initio molecular dynamics trajectories, initial and final simulated zeolite structures, and scripts used for analyzing MD trajectories. ",
     "entities": [
         {
             "label": "MOL",
@@ -24,44 +24,44 @@
         {
             "label": "MOL",
             "text": "Water",
-            "start": 85,
-            "end": 90
+            "start": 84,
+            "end": 89
         },
         {
             "label": "MOL",
             "text": "Zeolites",
-            "start": 94,
-            "end": 102
+            "start": 93,
+            "end": 101
         },
         {
             "label": "MOL",
             "text": "zeolite",
-            "start": 599,
-            "end": 606
+            "start": 598,
+            "end": 605
         },
         {
             "label": "MOL",
             "text": "Water",
-            "start": 642,
-            "end": 647
+            "start": 641,
+            "end": 646
         },
         {
             "label": "MOL",
             "text": "Zeolites",
-            "start": 651,
-            "end": 659
+            "start": 650,
+            "end": 658
         },
         {
             "label": "STIME",
             "text": "100 nanoseconds",
-            "start": 732,
-            "end": 747
+            "start": 731,
+            "end": 746
         },
         {
             "label": "MOL",
             "text": "zeolite",
-            "start": 866,
-            "end": 873
+            "start": 865,
+            "end": 872
         }
     ]
 }

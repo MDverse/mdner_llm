@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers\n\nCholesterol\ntrafficking, which is an essential function in mammalian cells, is\nintimately connected to molecular-scale interactions through cholesterol\nmodulation of membrane structure and dynamics and interaction with\nmembrane receptors. Since these effects of cholesterol occur on micro-\nto millisecond time scales, it is essential to develop accurate coarse-grained\nsimulation models that can reach these time scales. Cholesterol has\nbeen shown experimentally to thicken the membrane and increase phospholipid\ntail order between 0 and 40% cholesterol, above which these effects\nplateau or slightly decrease. Here, we showed that the published MARTINI\ncoarse-grained force-field for phospholipid (POPC) and cholesterol\nfails to capture these effects. Using reference atomistic simulations,\nwe systematically modified POPC and cholesterol bonded parameters\nin MARTINI to improve its performance. We showed that the corrections\nto pseudobond angles between glycerol and the lipid tails and around\nthe oleoyl double bond particle (the “angle-corrected model”)\nslightly improves the agreement of MARTINI with experimentally measured\nthermal, elastic, and dynamic properties of POPC membranes. The angle-corrected\nmodel improves prediction of the thickening and ordering effects up\nto 40% cholesterol but overestimates these effects at higher cholesterol\nconcentration. In accordance with prior work that showed the cholesterol\nrough face methyl groups are important for limiting cholesterol self-association,\nwe revised the coarse-grained representation of these methyl groups\nto better match cholesterol-cholesterol radial distribution functions\nfrom atomistic simulations. In addition, by using a finer-grained\nrepresentation of the branched cholesterol tail than MARTINI, we improved\npredictions of lipid tail order and bilayer thickness across a wide\nrange of concentrations. Finally, transferability testing shows that\na model incorporating our revised parameters into DOPC outperforms\nother CG models in a DOPC/cholesterol simulation series, which further\nargues for its efficacy and generalizability. These results argue\nfor the importance of systematic optimization for coarse-graining\nbiologically important molecules like cholesterol with complicated\nmolecular structure.",
+    "raw_text": "Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers\nCholesterol\ntrafficking, which is an essential function in mammalian cells, is\nintimately connected to molecular-scale interactions through cholesterol\nmodulation of membrane structure and dynamics and interaction with\nmembrane receptors. Since these effects of cholesterol occur on micro-\nto millisecond time scales, it is essential to develop accurate coarse-grained\nsimulation models that can reach these time scales. Cholesterol has\nbeen shown experimentally to thicken the membrane and increase phospholipid\ntail order between 0 and 40% cholesterol, above which these effects\nplateau or slightly decrease. Here, we showed that the published MARTINI\ncoarse-grained force-field for phospholipid (POPC) and cholesterol\nfails to capture these effects. Using reference atomistic simulations,\nwe systematically modified POPC and cholesterol bonded parameters\nin MARTINI to improve its performance. We showed that the corrections\nto pseudobond angles between glycerol and the lipid tails and around\nthe oleoyl double bond particle (the “angle-corrected model”)\nslightly improves the agreement of MARTINI with experimentally measured\nthermal, elastic, and dynamic properties of POPC membranes. The angle-corrected\nmodel improves prediction of the thickening and ordering effects up\nto 40% cholesterol but overestimates these effects at higher cholesterol\nconcentration. In accordance with prior work that showed the cholesterol\nrough face methyl groups are important for limiting cholesterol self-association,\nwe revised the coarse-grained representation of these methyl groups\nto better match cholesterol-cholesterol radial distribution functions\nfrom atomistic simulations. In addition, by using a finer-grained\nrepresentation of the branched cholesterol tail than MARTINI, we improved\npredictions of lipid tail order and bilayer thickness across a wide\nrange of concentrations. Finally, transferability testing shows that\na model incorporating our revised parameters into DOPC outperforms\nother CG models in a DOPC/cholesterol simulation series, which further\nargues for its efficacy and generalizability. These results argue\nfor the importance of systematic optimization for coarse-graining\nbiologically important molecules like cholesterol with complicated\nmolecular structure.",
     "entities": [
         {
             "label": "MOL",
@@ -18,188 +18,188 @@
         {
             "label": "MOL",
             "text": "Cholesterol",
-            "start": 75,
-            "end": 86
+            "start": 74,
+            "end": 85
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 215,
-            "end": 226
+            "start": 214,
+            "end": 225
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 337,
-            "end": 348
+            "start": 336,
+            "end": 347
         },
         {
             "label": "MOL",
             "text": "Cholesterol",
-            "start": 496,
-            "end": 507
+            "start": 495,
+            "end": 506
         },
         {
             "label": "MOL",
             "text": "phospholipid",
-            "start": 575,
-            "end": 587
+            "start": 574,
+            "end": 586
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 617,
-            "end": 628
+            "start": 616,
+            "end": 627
         },
         {
             "label": "FFM",
             "text": "MARTINI",
-            "start": 721,
-            "end": 728
+            "start": 720,
+            "end": 727
         },
         {
             "label": "MOL",
             "text": "phospholipid",
-            "start": 760,
-            "end": 772
+            "start": 759,
+            "end": 771
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 774,
-            "end": 778
+            "start": 773,
+            "end": 777
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 784,
-            "end": 795
+            "start": 783,
+            "end": 794
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 894,
-            "end": 898
+            "start": 893,
+            "end": 897
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 903,
-            "end": 914
+            "start": 902,
+            "end": 913
         },
         {
             "label": "FFM",
             "text": "MARTINI",
-            "start": 936,
-            "end": 943
+            "start": 935,
+            "end": 942
         },
         {
             "label": "MOL",
             "text": "glycerol",
-            "start": 1032,
-            "end": 1040
+            "start": 1031,
+            "end": 1039
         },
         {
             "label": "MOL",
             "text": "oleoyl",
-            "start": 1076,
-            "end": 1082
+            "start": 1075,
+            "end": 1081
         },
         {
             "label": "FFM",
             "text": "MARTINI",
-            "start": 1169,
-            "end": 1176
+            "start": 1168,
+            "end": 1175
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 1250,
-            "end": 1254
+            "start": 1249,
+            "end": 1253
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1361,
-            "end": 1372
+            "start": 1360,
+            "end": 1371
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1415,
-            "end": 1426
+            "start": 1414,
+            "end": 1425
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1488,
-            "end": 1499
+            "start": 1487,
+            "end": 1498
         },
         {
             "label": "MOL",
             "text": "methyl",
-            "start": 1511,
-            "end": 1517
+            "start": 1510,
+            "end": 1516
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1552,
-            "end": 1563
+            "start": 1551,
+            "end": 1562
         },
         {
             "label": "MOL",
             "text": "methyl",
-            "start": 1636,
-            "end": 1642
+            "start": 1635,
+            "end": 1641
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1666,
-            "end": 1677
+            "start": 1665,
+            "end": 1676
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1678,
-            "end": 1689
+            "start": 1677,
+            "end": 1688
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 1817,
-            "end": 1828
+            "start": 1816,
+            "end": 1827
         },
         {
             "label": "FFM",
             "text": "MARTINI",
-            "start": 1839,
-            "end": 1846
+            "start": 1838,
+            "end": 1845
         },
         {
             "label": "MOL",
             "text": "DOPC",
-            "start": 2047,
-            "end": 2051
+            "start": 2046,
+            "end": 2050
         },
         {
             "label": "MOL",
             "text": "DOPC",
-            "start": 2085,
-            "end": 2089
+            "start": 2084,
+            "end": 2088
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 2090,
-            "end": 2101
+            "start": 2089,
+            "end": 2100
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 2305,
-            "end": 2316
+            "start": 2304,
+            "end": 2315
         }
     ]
 }

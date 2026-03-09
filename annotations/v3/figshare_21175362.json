@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Scalable Constant pH Molecular Dynamics in GROMACS\n\nMolecular dynamics\n(MD) computer simulations are used routinely\nto compute atomistic trajectories of complex systems. Systems are\nsimulated in various ensembles, depending on the experimental conditions\none aims to mimic. While constant energy, temperature, volume, and\npressure are rather straightforward to model, pH, which is an equally\nimportant parameter in experiments, is more difficult to account for\nin simulations. Although a constant pH algorithm based on the λ-dynamics\napproach by Brooks and co-workers [Kong, X.; Brooks III, C. L. J. Chem. Phys.1996, 105, 2414–2423]\nwas implemented in a fork of the GROMACS molecular dynamics program,\nuptake has been rather limited, presumably due to the poor scaling\nof that code with respect to the number of titratable sites. To overcome\nthis limitation, we implemented an alternative scheme for interpolating\nthe Hamiltonians of the protonation states that makes the constant\npH molecular dynamics simulations almost as fast as a normal MD simulation\nwith GROMACS. In addition, we implemented a simpler scheme, called\nmultisite representation, for modeling side chains with multiple titratable\nsites, such as imidazole rings. This scheme, which is based on constraining\nthe sum of the λ-coordinates, not only reduces the complexity\nassociated with parametrizing the intramolecular interactions between\nthe sites but also is easily extendable to other molecules with multiple\ntitratable sites. With the combination of a more efficient interpolation\nscheme and multisite representation of titratable groups, we anticipate\na rapid uptake of constant pH molecular dynamics simulations within\nthe GROMACS user community.",
+    "raw_text": "Scalable Constant pH Molecular Dynamics in GROMACS\nMolecular dynamics\n(MD) computer simulations are used routinely\nto compute atomistic trajectories of complex systems. Systems are\nsimulated in various ensembles, depending on the experimental conditions\none aims to mimic. While constant energy, temperature, volume, and\npressure are rather straightforward to model, pH, which is an equally\nimportant parameter in experiments, is more difficult to account for\nin simulations. Although a constant pH algorithm based on the λ-dynamics\napproach by Brooks and co-workers [Kong, X.; Brooks III, C. L. J. Chem. Phys.1996, 105, 2414–2423]\nwas implemented in a fork of the GROMACS molecular dynamics program,\nuptake has been rather limited, presumably due to the poor scaling\nof that code with respect to the number of titratable sites. To overcome\nthis limitation, we implemented an alternative scheme for interpolating\nthe Hamiltonians of the protonation states that makes the constant\npH molecular dynamics simulations almost as fast as a normal MD simulation\nwith GROMACS. In addition, we implemented a simpler scheme, called\nmultisite representation, for modeling side chains with multiple titratable\nsites, such as imidazole rings. This scheme, which is based on constraining\nthe sum of the λ-coordinates, not only reduces the complexity\nassociated with parametrizing the intramolecular interactions between\nthe sites but also is easily extendable to other molecules with multiple\ntitratable sites. With the combination of a more efficient interpolation\nscheme and multisite representation of titratable groups, we anticipate\na rapid uptake of constant pH molecular dynamics simulations within\nthe GROMACS user community.",
     "entities": [
         {
             "label": "SOFTNAME",
@@ -18,26 +18,26 @@
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 666,
-            "end": 673
+            "start": 665,
+            "end": 672
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 1061,
-            "end": 1068
+            "start": 1060,
+            "end": 1067
         },
         {
             "label": "MOL",
             "text": "imidazole",
-            "start": 1214,
-            "end": 1223
+            "start": 1213,
+            "end": 1222
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 1697,
-            "end": 1704
+            "start": 1696,
+            "end": 1703
         }
     ]
 }

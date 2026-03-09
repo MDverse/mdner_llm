@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Datasets and input for \"Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations\"\n\nThis dataset contains data as well as sample input files associated with the study Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations.The following files are included in the dataset:CP2K_inputs.zip: Sample CP2K input files AlPO-11_structures_CIF.zip: DFT-optimised structures (CIF format)AlPO-11_calcined_MD_avpos.zip: AIMD average structures of calcined AlPO-11 (CIF format)AlPO-11_calcined_MD_trajectories.zip: Production part of AIMD trajectories, calcined AlPO-11 (PDB format)AlPO-11_8H2O_MD_avpos.zip: AIMD average structures of hydrated AlPO-11 (CIF format)AlPO-11_8H2O_MD_trajectories.zip: Production part of AIMD trajectories, hydrated AlPO-11 (PDB format)",
+    "raw_text": "Datasets and input for \"Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations\"\nThis dataset contains data as well as sample input files associated with the study Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations.The following files are included in the dataset:CP2K_inputs.zip: Sample CP2K input files AlPO-11_structures_CIF.zip: DFT-optimised structures (CIF format)AlPO-11_calcined_MD_avpos.zip: AIMD average structures of calcined AlPO-11 (CIF format)AlPO-11_calcined_MD_trajectories.zip: Production part of AIMD trajectories, calcined AlPO-11 (PDB format)AlPO-11_8H2O_MD_avpos.zip: AIMD average structures of hydrated AlPO-11 (CIF format)AlPO-11_8H2O_MD_trajectories.zip: Production part of AIMD trajectories, hydrated AlPO-11 (PDB format)",
     "entities": [
         {
             "label": "MOL",
@@ -18,8 +18,8 @@
         {
             "label": "MOL",
             "text": "AlPO-11",
-            "start": 264,
-            "end": 271
+            "start": 263,
+            "end": 270
         },
         {
             "label": "MOL",
@@ -30,14 +30,14 @@
         {
             "label": "MOL",
             "text": " AlPO-1",
-            "start": 263,
-            "end": 270
+            "start": 262,
+            "end": 269
         },
         {
             "label": "MOL",
             "text": " AlPO-1",
-            "start": 407,
-            "end": 414
+            "start": 406,
+            "end": 413
         },
         {
             "label": "MOL",

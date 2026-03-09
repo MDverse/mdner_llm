@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Experimental and Computational Studies Reveal an Alternative Supramolecular Structure for Fmoc-Dipeptide Self-Assembly\n\nWe have investigated the self-assembly of fluorenylmethoxycarbonyl-conjugated\ndialanine (Fmoc-AA) molecules using combined computational and experimental\napproaches. Fmoc-AA gels were characterized using transmission electron\nmicroscopy (TEM), circular dichroism (CD), Fourier transform infrared\n(FTIR), and wide-angle X-ray scattering (WAXS). Computationally, we\nsimulated the assembly of Fmoc-AA using molecular dynamics techniques.\nAll simulations converged to a condensed fibril structure in which\nthe Fmoc groups stack mostly within in the center of the fibril. However,\nthe Fmoc groups are partially exposed to water, creating an amphiphilic\nsurface, which may be responsible for the aggregation of fibrils into\nnanoscale fibers observed in TEM. From the fibril models, radial distribution\ncalculations agree with d-spacings observed in WAXS\nfor the fibril diameter and π-stacking interactions. Our analyses\nshow that dialanine, despite its short length, adopts a mainly extended\npolyproline II conformation. In contrast to previous hypotheses, these\nresults indicate that β-sheet-like hydrogen bonding is not prevalent.\nRather, stacking of Fmoc groups, inter-residue hydrogen bonding, and\nhydrogen bonding with water play the important roles in stabilizing\nthe fibril structure of supramolecular assemblies of short conjugated\npeptides.",
+    "raw_text": "Experimental and Computational Studies Reveal an Alternative Supramolecular Structure for Fmoc-Dipeptide Self-Assembly\nWe have investigated the self-assembly of fluorenylmethoxycarbonyl-conjugated\ndialanine (Fmoc-AA) molecules using combined computational and experimental\napproaches. Fmoc-AA gels were characterized using transmission electron\nmicroscopy (TEM), circular dichroism (CD), Fourier transform infrared\n(FTIR), and wide-angle X-ray scattering (WAXS). Computationally, we\nsimulated the assembly of Fmoc-AA using molecular dynamics techniques.\nAll simulations converged to a condensed fibril structure in which\nthe Fmoc groups stack mostly within in the center of the fibril. However,\nthe Fmoc groups are partially exposed to water, creating an amphiphilic\nsurface, which may be responsible for the aggregation of fibrils into\nnanoscale fibers observed in TEM. From the fibril models, radial distribution\ncalculations agree with d-spacings observed in WAXS\nfor the fibril diameter and π-stacking interactions. Our analyses\nshow that dialanine, despite its short length, adopts a mainly extended\npolyproline II conformation. In contrast to previous hypotheses, these\nresults indicate that β-sheet-like hydrogen bonding is not prevalent.\nRather, stacking of Fmoc groups, inter-residue hydrogen bonding, and\nhydrogen bonding with water play the important roles in stabilizing\nthe fibril structure of supramolecular assemblies of short conjugated\npeptides.",
     "entities": [
         {
             "label": "MOL",
@@ -18,74 +18,74 @@
         {
             "label": "MOL",
             "text": "fluorenylmethoxycarbonyl",
-            "start": 162,
-            "end": 186
+            "start": 161,
+            "end": 185
         },
         {
             "label": "MOL",
             "text": "dialanine",
-            "start": 198,
-            "end": 207
+            "start": 197,
+            "end": 206
         },
         {
             "label": "MOL",
             "text": "Fmoc-AA",
-            "start": 209,
-            "end": 216
+            "start": 208,
+            "end": 215
         },
         {
             "label": "MOL",
             "text": "Fmoc-AA",
-            "start": 286,
-            "end": 293
+            "start": 285,
+            "end": 292
         },
         {
             "label": "MOL",
             "text": "Fmoc-AA",
-            "start": 510,
-            "end": 517
+            "start": 509,
+            "end": 516
         },
         {
             "label": "MOL",
             "text": "Fmoc",
-            "start": 626,
-            "end": 630
+            "start": 625,
+            "end": 629
         },
         {
             "label": "MOL",
             "text": "Fmoc",
-            "start": 700,
-            "end": 704
+            "start": 699,
+            "end": 703
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 737,
-            "end": 742
+            "start": 736,
+            "end": 741
         },
         {
             "label": "MOL",
             "text": "dialanine",
-            "start": 1044,
-            "end": 1053
+            "start": 1043,
+            "end": 1052
         },
         {
             "label": "MOL",
             "text": "polyproline II",
-            "start": 1106,
-            "end": 1120
+            "start": 1105,
+            "end": 1119
         },
         {
             "label": "MOL",
             "text": "Fmoc",
-            "start": 1267,
-            "end": 1271
+            "start": 1266,
+            "end": 1270
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 1338,
-            "end": 1343
+            "start": 1337,
+            "end": 1342
         }
     ]
 }

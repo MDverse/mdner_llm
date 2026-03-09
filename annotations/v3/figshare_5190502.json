@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Organic and Third Phase in HNO3/TBP/n-Dodecane System: No Reverse Micelles\n\nThe composition and speciation of the organic and third phases in the system HNO3/TBP (tri-n-butyl phosphate)/n-dodecane have been examined by a combination of gravimetric, Karl Fischer analysis, chemical analysis, FTIR, and 31P NMR spectroscopy, with particular emphasis on the transition from the two-phase to the three-phase region. Phase densities indicate that third-phase formation takes place for initial aqueous HNO3 concentrations above 15 M, while the results from the stoichiometric analysis imply that the organic and third phases are characterized by two distinct species, namely the mono-solvate TBP⋅HNO3 and the hemi-solvate TBP⋅2HNO3, respectively. Furthermore, the 31P NMR spectra of organic and third phase show no significant chemical differences at the phosphorus centers, suggesting that the second HNO3 molecule in the third phase is bound to HNO3 rather than TBP. The third-phase FTIR spectra reveal stronger vibrational absorption bands at 1028, 1310, 1653, and 3200–3500 cm−1, reflecting higher concentrations of H2O, HNO3, and TBP. The molecular dynamics simulation data predict structures in accord with the spectroscopically identified speciation, indicating inequivalent HNO3 molecules in the third phase. The predicted structures of the organic and third phases are more akin to microemulsion networks rather than the distinct, reverse micelles assumed in previous studies. H2O appears to be present as a disordered hydrogen-bonded solvate stabilizing the polar TBP/HNO3 aggregates in the organic matrix, and not as a strongly bound hydrate species in aggregates with defined stoichiometry.",
+    "raw_text": "Organic and Third Phase in HNO3/TBP/n-Dodecane System: No Reverse Micelles\nThe composition and speciation of the organic and third phases in the system HNO3/TBP (tri-n-butyl phosphate)/n-dodecane have been examined by a combination of gravimetric, Karl Fischer analysis, chemical analysis, FTIR, and 31P NMR spectroscopy, with particular emphasis on the transition from the two-phase to the three-phase region. Phase densities indicate that third-phase formation takes place for initial aqueous HNO3 concentrations above 15 M, while the results from the stoichiometric analysis imply that the organic and third phases are characterized by two distinct species, namely the mono-solvate TBP⋅HNO3 and the hemi-solvate TBP⋅2HNO3, respectively. Furthermore, the 31P NMR spectra of organic and third phase show no significant chemical differences at the phosphorus centers, suggesting that the second HNO3 molecule in the third phase is bound to HNO3 rather than TBP. The third-phase FTIR spectra reveal stronger vibrational absorption bands at 1028, 1310, 1653, and 3200–3500 cm−1, reflecting higher concentrations of H2O, HNO3, and TBP. The molecular dynamics simulation data predict structures in accord with the spectroscopically identified speciation, indicating inequivalent HNO3 molecules in the third phase. The predicted structures of the organic and third phases are more akin to microemulsion networks rather than the distinct, reverse micelles assumed in previous studies. H2O appears to be present as a disordered hydrogen-bonded solvate stabilizing the polar TBP/HNO3 aggregates in the organic matrix, and not as a strongly bound hydrate species in aggregates with defined stoichiometry.",
     "entities": [
         {
             "label": "MOL",
@@ -30,116 +30,116 @@
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 153,
-            "end": 157
+            "start": 152,
+            "end": 156
         },
         {
             "label": "MOL",
             "text": "TBP",
-            "start": 158,
-            "end": 161
+            "start": 157,
+            "end": 160
         },
         {
             "label": "MOL",
             "text": "tri-n-butyl phosphate",
-            "start": 163,
-            "end": 184
+            "start": 162,
+            "end": 183
         },
         {
             "label": "MOL",
             "text": "n-dodecane",
-            "start": 186,
-            "end": 196
+            "start": 185,
+            "end": 195
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 496,
-            "end": 500
+            "start": 495,
+            "end": 499
         },
         {
             "label": "MOL",
             "text": "TBP",
-            "start": 686,
-            "end": 689
+            "start": 685,
+            "end": 688
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 690,
-            "end": 694
+            "start": 689,
+            "end": 693
         },
         {
             "label": "MOL",
             "text": "TBP",
-            "start": 716,
-            "end": 719
+            "start": 715,
+            "end": 718
         },
         {
             "label": "MOL",
             "text": "2HNO3",
+            "start": 719,
+            "end": 724
+        },
+        {
+            "label": "MOL",
+            "text": "HNO3",
             "start": 720,
-            "end": 725
+            "end": 724
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 721,
-            "end": 725
-        },
-        {
-            "label": "MOL",
-            "text": "HNO3",
-            "start": 896,
-            "end": 900
+            "start": 895,
+            "end": 899
         },
         {
             "label": "MOL",
             "text": "TBP",
-            "start": 958,
-            "end": 961
+            "start": 957,
+            "end": 960
         },
         {
             "label": "MOL",
             "text": "H2O",
-            "start": 1114,
-            "end": 1117
+            "start": 1113,
+            "end": 1116
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 941,
-            "end": 945
+            "start": 940,
+            "end": 944
         },
         {
             "label": "MOL",
             "text": "TBP",
-            "start": 1129,
-            "end": 1132
+            "start": 1128,
+            "end": 1131
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 1119,
-            "end": 1123
+            "start": 1118,
+            "end": 1122
         },
         {
             "label": "MOL",
             "text": "H2O",
-            "start": 1480,
-            "end": 1483
+            "start": 1479,
+            "end": 1482
         },
         {
             "label": "MOL",
             "text": "TBP",
-            "start": 1568,
-            "end": 1571
+            "start": 1567,
+            "end": 1570
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 1276,
-            "end": 1280
+            "start": 1275,
+            "end": 1279
         }
     ]
 }

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "ProBiS-CHARMMing: Web Interface for Prediction and Optimization of Ligands in Protein Binding Sites\n\nProteins\noften exist only as apo structures (unligated) in the\nProtein Data Bank, with their corresponding holo structures (with\nligands) unavailable. However, apoproteins may not represent the amino-acid\nresidue arrangement upon ligand binding well, which is especially\nproblematic for molecular docking. We developed the ProBiS-CHARMMing\nweb interface by connecting the ProBiS (http://probis.cmm.ki.si) and CHARMMing (http://www.charmming.org) web servers\ninto one functional unit that enables prediction of protein–ligand\ncomplexes and allows for their geometry optimization and interaction\nenergy calculation. The ProBiS web server predicts ligands (small\ncompounds, proteins, nucleic acids, and single-atom ligands) that\nmay bind to a query protein. This is achieved by comparing its surface\nstructure against a nonredundant database of protein structures and\nfinding those that have binding sites similar to that of the query\nprotein. Existing ligands found in the similar binding sites are then\ntransposed to the query according to predictions from ProBiS. The\nCHARMMing web server enables, among other things, minimization and\npotential energy calculation for a wide variety of biomolecular systems,\nand it is used here to optimize the geometry of the predicted protein–ligand\ncomplex structures using the CHARMM force field and to calculate their\ninteraction energies with the corresponding query proteins. We show\nhow ProBiS-CHARMMing can be used to predict ligands and their poses\nfor a particular binding site, and minimize the predicted protein–ligand\ncomplexes to obtain representations of holoproteins. The ProBiS-CHARMMing\nweb interface is freely available for academic users at http://probis.nih.gov.",
+    "raw_text": "ProBiS-CHARMMing: Web Interface for Prediction and Optimization of Ligands in Protein Binding Sites\nProteins\noften exist only as apo structures (unligated) in the\nProtein Data Bank, with their corresponding holo structures (with\nligands) unavailable. However, apoproteins may not represent the amino-acid\nresidue arrangement upon ligand binding well, which is especially\nproblematic for molecular docking. We developed the ProBiS-CHARMMing\nweb interface by connecting the ProBiS (http://probis.cmm.ki.si) and CHARMMing (http://www.charmming.org) web servers\ninto one functional unit that enables prediction of protein–ligand\ncomplexes and allows for their geometry optimization and interaction\nenergy calculation. The ProBiS web server predicts ligands (small\ncompounds, proteins, nucleic acids, and single-atom ligands) that\nmay bind to a query protein. This is achieved by comparing its surface\nstructure against a nonredundant database of protein structures and\nfinding those that have binding sites similar to that of the query\nprotein. Existing ligands found in the similar binding sites are then\ntransposed to the query according to predictions from ProBiS. The\nCHARMMing web server enables, among other things, minimization and\npotential energy calculation for a wide variety of biomolecular systems,\nand it is used here to optimize the geometry of the predicted protein–ligand\ncomplex structures using the CHARMM force field and to calculate their\ninteraction energies with the corresponding query proteins. We show\nhow ProBiS-CHARMMing can be used to predict ligands and their poses\nfor a particular binding site, and minimize the predicted protein–ligand\ncomplexes to obtain representations of holoproteins. The ProBiS-CHARMMing\nweb interface is freely available for academic users at http://probis.nih.gov.",
     "entities": [
         {
             "label": "SOFTNAME",
@@ -36,164 +36,164 @@
         {
             "label": "MOL",
             "text": "Proteins",
-            "start": 101,
-            "end": 109
+            "start": 100,
+            "end": 108
         },
         {
             "label": "MOL",
             "text": "ligands",
-            "start": 230,
-            "end": 237
+            "start": 229,
+            "end": 236
         },
         {
             "label": "MOL",
             "text": "ligand",
-            "start": 331,
-            "end": 337
+            "start": 330,
+            "end": 336
         },
         {
             "label": "SOFTNAME",
             "text": "ProBiS",
-            "start": 424,
-            "end": 430
+            "start": 423,
+            "end": 429
         },
         {
             "label": "SOFTNAME",
             "text": "CHARMMing",
-            "start": 431,
-            "end": 440
+            "start": 430,
+            "end": 439
         },
         {
             "label": "SOFTNAME",
             "text": "ProBiS",
-            "start": 473,
-            "end": 479
+            "start": 472,
+            "end": 478
         },
         {
             "label": "SOFTNAME",
             "text": "CHARMMing",
-            "start": 510,
-            "end": 519
+            "start": 509,
+            "end": 518
         },
         {
             "label": "MOL",
             "text": "protein",
-            "start": 264,
-            "end": 271
+            "start": 263,
+            "end": 270
         },
         {
             "label": "MOL",
             "text": "ligand",
-            "start": 619,
-            "end": 625
+            "start": 618,
+            "end": 624
         },
         {
             "label": "SOFTNAME",
             "text": "ProBiS",
-            "start": 719,
-            "end": 725
+            "start": 718,
+            "end": 724
         },
         {
             "label": "MOL",
             "text": "ligands",
-            "start": 746,
-            "end": 753
+            "start": 745,
+            "end": 752
         },
         {
             "label": "MOL",
             "text": "proteins",
-            "start": 772,
-            "end": 780
+            "start": 771,
+            "end": 779
         },
         {
             "label": "MOL",
             "text": "ligands",
-            "start": 813,
-            "end": 820
+            "start": 812,
+            "end": 819
         },
         {
             "label": "MOL",
             "text": "protein",
-            "start": 611,
-            "end": 618
+            "start": 610,
+            "end": 617
         },
         {
             "label": "MOL",
             "text": "protein",
-            "start": 847,
-            "end": 854
+            "start": 846,
+            "end": 853
         },
         {
             "label": "MOL",
             "text": "protein",
-            "start": 943,
-            "end": 950
+            "start": 942,
+            "end": 949
         },
         {
             "label": "MOL",
             "text": "ligands",
-            "start": 1051,
-            "end": 1058
+            "start": 1050,
+            "end": 1057
         },
         {
             "label": "SOFTNAME",
             "text": "ProBiS",
-            "start": 1157,
-            "end": 1163
+            "start": 1156,
+            "end": 1162
         },
         {
             "label": "SOFTNAME",
             "text": "CHARMMing",
-            "start": 1169,
-            "end": 1178
+            "start": 1168,
+            "end": 1177
         },
         {
             "label": "MOL",
             "text": "protein",
-            "start": 1033,
-            "end": 1040
+            "start": 1032,
+            "end": 1039
         },
         {
             "label": "MOL",
             "text": "ligand",
-            "start": 1379,
-            "end": 1385
+            "start": 1378,
+            "end": 1384
         },
         {
             "label": "SOFTNAME",
             "text": "ProBiS",
-            "start": 1529,
-            "end": 1535
+            "start": 1528,
+            "end": 1534
         },
         {
             "label": "SOFTNAME",
             "text": "CHARMMing",
-            "start": 1536,
-            "end": 1545
+            "start": 1535,
+            "end": 1544
         },
         {
             "label": "MOL",
             "text": "protein",
-            "start": 1371,
-            "end": 1378
+            "start": 1370,
+            "end": 1377
         },
         {
             "label": "MOL",
             "text": "ligand",
-            "start": 1569,
-            "end": 1575
+            "start": 1568,
+            "end": 1574
         },
         {
             "label": "SOFTNAME",
             "text": "ProBiS",
-            "start": 1723,
-            "end": 1729
+            "start": 1722,
+            "end": 1728
         },
         {
             "label": "SOFTNAME",
             "text": "CHARMMing",
-            "start": 1730,
-            "end": 1739
+            "start": 1729,
+            "end": 1738
         }
     ]
 }

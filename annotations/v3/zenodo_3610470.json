@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "GMX_lipid17.ff: Gromacs Port of the amber LIPID17 force field\n\nThis is a Gromacs port of the amber LIPID17 force field. To use this force field, the user can construct the lipid bilayer using Charmm-GUI and convert the atom names to the amber atom names using charmmlipid2amber.py. This port has also retained the modular feature of the LIPID17 force field, where the user can customise the head group or acryl chain and use pdb2gmx to construct the topology.\nThe coordinate files for the amber lipids can also be obtained from the `gro` folder. The force field `lipid17.ff`, itp file `lipid17.itp` and a custom PI head group are all included in the attached compressed file. For the details of the generation and validation protocol, please consult the relevant Github page.",
+    "raw_text": "GMX_lipid17.ff: Gromacs Port of the amber LIPID17 force field\nThis is a Gromacs port of the amber LIPID17 force field. To use this force field, the user can construct the lipid bilayer using Charmm-GUI and convert the atom names to the amber atom names using charmmlipid2amber.py. This port has also retained the modular feature of the LIPID17 force field, where the user can customise the head group or acryl chain and use pdb2gmx to construct the topology.\nThe coordinate files for the amber lipids can also be obtained from the `gro` folder. The force field `lipid17.ff`, itp file `lipid17.itp` and a custom PI head group are all included in the attached compressed file. For the details of the generation and validation protocol, please consult the relevant Github page.",
     "entities": [
         {
             "label": "SOFTNAME",
@@ -24,26 +24,26 @@
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-            "start": 73,
-            "end": 80
+            "start": 72,
+            "end": 79
         },
         {
             "label": "FFM",
             "text": "amber LIPID17",
-            "start": 93,
-            "end": 106
+            "start": 92,
+            "end": 105
         },
         {
             "label": "SOFTNAME",
             "text": "Charmm-GUI",
-            "start": 192,
-            "end": 202
+            "start": 191,
+            "end": 201
         },
         {
             "label": "FFM",
             "text": "amber",
-            "start": 237,
-            "end": 242
+            "start": 236,
+            "end": 241
         },
         {
             "label": "FFM",
@@ -54,20 +54,20 @@
         {
             "label": "MOL",
             "text": "acryl",
-            "start": 405,
-            "end": 410
+            "start": 404,
+            "end": 409
         },
         {
             "label": "FFM",
             "text": "amber",
-            "start": 272,
-            "end": 277
+            "start": 271,
+            "end": 276
         },
         {
             "label": "SOFTNAME",
             "text": "Github",
-            "start": 763,
-            "end": 769
+            "start": 762,
+            "end": 768
         }
     ]
 }

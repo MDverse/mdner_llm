@@ -7,43 +7,43 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Relevant Interactions of Antimicrobial Iron Chelators and Membrane Models Revealed by Nuclear Magnetic Resonance and Molecular Dynamics Simulations\n\nThe\ndynamics and interaction of 3-hydroxy-4-pyridinone fluorescent\niron chelators, exhibiting antimicrobial properties, with biological\nmembranes were evaluated through NMR and molecular dynamics simulations.\nBoth NMR and MD simulation results support a strong interaction of\nthe chelators with the lipid bilayers that seems to be strengthened\nfor the rhodamine containing compounds, in particular for compounds\nthat include ethyl groups and a thiourea link. For the latter type\nof compounds the interaction reaches the hydrophobic core of the lipid\nbilayer. The molecular docking and MD simulations performed for the\npotential interaction of the chelators with DC-SIGN receptors provide\nvaluable information regarding the cellular uptake of these compounds\nsince the results show that the fluorophore fragment of the molecular\nframework is essential for an efficient binding. Putting together\nour previous and present results, we put forward the hypothesis that\nall the studied fluorescent chelators have access to the cell, their\nuptake occurs through different pathways and their permeation properties\ncorrelate with a better access to the cell and its compartments and,\nconsequently, with the chelators antimicrobial properties.",
+    "raw_text": "Relevant Interactions of Antimicrobial Iron Chelators and Membrane Models Revealed by Nuclear Magnetic Resonance and Molecular Dynamics Simulations\nThe\ndynamics and interaction of 3-hydroxy-4-pyridinone fluorescent\niron chelators, exhibiting antimicrobial properties, with biological\nmembranes were evaluated through NMR and molecular dynamics simulations.\nBoth NMR and MD simulation results support a strong interaction of\nthe chelators with the lipid bilayers that seems to be strengthened\nfor the rhodamine containing compounds, in particular for compounds\nthat include ethyl groups and a thiourea link. For the latter type\nof compounds the interaction reaches the hydrophobic core of the lipid\nbilayer. The molecular docking and MD simulations performed for the\npotential interaction of the chelators with DC-SIGN receptors provide\nvaluable information regarding the cellular uptake of these compounds\nsince the results show that the fluorophore fragment of the molecular\nframework is essential for an efficient binding. Putting together\nour previous and present results, we put forward the hypothesis that\nall the studied fluorescent chelators have access to the cell, their\nuptake occurs through different pathways and their permeation properties\ncorrelate with a better access to the cell and its compartments and,\nconsequently, with the chelators antimicrobial properties.",
     "entities": [
         {
             "label": "MOL",
             "text": "3-hydroxy-4-pyridinone",
-            "start": 181,
-            "end": 203
+            "start": 180,
+            "end": 202
         },
         {
             "label": "MOL",
             "text": "lipid",
-            "start": 448,
-            "end": 453
+            "start": 447,
+            "end": 452
         },
         {
             "label": "MOL",
             "text": "ethyl",
-            "start": 574,
-            "end": 579
+            "start": 573,
+            "end": 578
         },
         {
             "label": "MOL",
             "text": "lipid",
-            "start": 693,
-            "end": 698
+            "start": 692,
+            "end": 697
         },
         {
             "label": "MOL",
             "text": "DC-SIGN",
-            "start": 811,
-            "end": 818
+            "start": 810,
+            "end": 817
         },
         {
             "label": "MOL",
             "text": "fluorophore",
-            "start": 939,
-            "end": 950
+            "start": 938,
+            "end": 949
         }
     ]
 }

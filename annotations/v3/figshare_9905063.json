@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Acceptance and Kinetic Resolution of α-Methyl-Substituted Aldehydes by Norcoclaurine Synthases\n\nNorcoclaurine\nsynthase (NCS) catalyzes a stereoselective Pictet–Spengler\nreaction to give the key intermediate, (S)-norcoclaurine\nin benzylisoquinoline alkaloid biosynthesis. This family of alkaloids\ncontains many bioactive molecules including morphine and berberine.\nRecently, NCS has been demonstrated to accept a variety of aldehydes\nand some ketones as substrates, leading to a range of chiral tetrahydroisoquinoline\n(THIQ) products. Here, we report the unusual acceptance of α-substituted\naldehydes, in particular α-methyl-substituted aldehydes, by\nwild-type Thalictrum flavum NCS (Δ33TfNCS) to give THIQ products. Moreover, the kinetic resolution\nof several α-substituted aldehydes to give THIQs with two defined\nchiral centers in a single step with high conversions was achieved.\nSeveral dopamine analogues were also accepted as substrates, and reactions\nwere amenable to scale up. Active site mutants of TfNCS were then used, which demonstrated the potential to enhance the\nstereoselectivities in the reaction and improve yields. The rationale\nfor the acceptance of these substrates and improved activity with\ndifferent mutants has been gained from a co-crystallized structure\nof Δ33TfNCS with a nonproductive mimic of a\nreaction intermediate bound in the active site. Finally, molecular\ndynamics simulations were performed to study the binding of dopamine\nand an α-substituted aldehyde and provided further insight into\nthe reaction with these substrates.",
+    "raw_text": "Acceptance and Kinetic Resolution of α-Methyl-Substituted Aldehydes by Norcoclaurine Synthases\nNorcoclaurine\nsynthase (NCS) catalyzes a stereoselective Pictet–Spengler\nreaction to give the key intermediate, (S)-norcoclaurine\nin benzylisoquinoline alkaloid biosynthesis. This family of alkaloids\ncontains many bioactive molecules including morphine and berberine.\nRecently, NCS has been demonstrated to accept a variety of aldehydes\nand some ketones as substrates, leading to a range of chiral tetrahydroisoquinoline\n(THIQ) products. Here, we report the unusual acceptance of α-substituted\naldehydes, in particular α-methyl-substituted aldehydes, by\nwild-type Thalictrum flavum NCS (Δ33TfNCS) to give THIQ products. Moreover, the kinetic resolution\nof several α-substituted aldehydes to give THIQs with two defined\nchiral centers in a single step with high conversions was achieved.\nSeveral dopamine analogues were also accepted as substrates, and reactions\nwere amenable to scale up. Active site mutants of TfNCS were then used, which demonstrated the potential to enhance the\nstereoselectivities in the reaction and improve yields. The rationale\nfor the acceptance of these substrates and improved activity with\ndifferent mutants has been gained from a co-crystallized structure\nof Δ33TfNCS with a nonproductive mimic of a\nreaction intermediate bound in the active site. Finally, molecular\ndynamics simulations were performed to study the binding of dopamine\nand an α-substituted aldehyde and provided further insight into\nthe reaction with these substrates.",
     "entities": [
         {
             "label": "MOL",
@@ -30,140 +30,140 @@
         {
             "label": "MOL",
             "text": "NCS",
-            "start": 120,
-            "end": 123
+            "start": 119,
+            "end": 122
         },
         {
             "label": "MOL",
             "text": "(S)-norcoclaurine",
-            "start": 208,
-            "end": 225
+            "start": 207,
+            "end": 224
         },
         {
             "label": "MOL",
             "text": "benzylisoquinoline",
-            "start": 229,
-            "end": 247
+            "start": 228,
+            "end": 246
         },
         {
             "label": "MOL",
             "text": "alkaloid",
-            "start": 248,
-            "end": 256
+            "start": 247,
+            "end": 255
         },
         {
             "label": "MOL",
             "text": "alkaloids",
-            "start": 286,
-            "end": 295
+            "start": 285,
+            "end": 294
         },
         {
             "label": "MOL",
             "text": "morphine",
-            "start": 340,
-            "end": 348
+            "start": 339,
+            "end": 347
         },
         {
             "label": "MOL",
             "text": "berberine",
-            "start": 353,
-            "end": 362
+            "start": 352,
+            "end": 361
         },
         {
             "label": "MOL",
             "text": "NCS",
-            "start": 374,
-            "end": 377
+            "start": 373,
+            "end": 376
         },
         {
             "label": "MOL",
             "text": "aldehydes",
-            "start": 423,
-            "end": 432
+            "start": 422,
+            "end": 431
         },
         {
             "label": "MOL",
             "text": "ketones",
-            "start": 442,
-            "end": 449
+            "start": 441,
+            "end": 448
         },
         {
             "label": "MOL",
             "text": "tetrahydroisoquinoline",
-            "start": 494,
-            "end": 516
+            "start": 493,
+            "end": 515
         },
         {
             "label": "MOL",
             "text": "THIQ",
-            "start": 518,
-            "end": 522
+            "start": 517,
+            "end": 521
         },
         {
             "label": "MOL",
             "text": "aldehydes",
-            "start": 590,
-            "end": 599
+            "start": 589,
+            "end": 598
         },
         {
             "label": "MOL",
             "text": "methyl",
-            "start": 617,
-            "end": 623
+            "start": 616,
+            "end": 622
         },
         {
             "label": "MOL",
             "text": "Thalictrum flavum NCS",
-            "start": 660,
-            "end": 681
+            "start": 659,
+            "end": 680
         },
         {
             "label": "MOL",
             "text": "33TfNCS",
-            "start": 684,
-            "end": 691
+            "start": 683,
+            "end": 690
         },
         {
             "label": "MOL",
             "text": "THIQ",
-            "start": 701,
-            "end": 705
+            "start": 700,
+            "end": 704
         },
         {
             "label": "MOL",
             "text": "THIQs",
-            "start": 792,
-            "end": 797
+            "start": 791,
+            "end": 796
         },
         {
             "label": "MOL",
             "text": "dopamine",
-            "start": 891,
-            "end": 899
+            "start": 890,
+            "end": 898
         },
         {
             "label": "MOL",
             "text": "TfNCS",
-            "start": 686,
-            "end": 691
+            "start": 685,
+            "end": 690
         },
         {
             "label": "MOL",
             "text": "33TfNCS",
-            "start": 1285,
-            "end": 1292
+            "start": 1284,
+            "end": 1291
         },
         {
             "label": "MOL",
             "text": "dopamine",
-            "start": 1452,
-            "end": 1460
+            "start": 1451,
+            "end": 1459
         },
         {
             "label": "MOL",
             "text": "aldehyde",
-            "start": 636,
-            "end": 644
+            "start": 635,
+            "end": 643
         }
     ]
 }

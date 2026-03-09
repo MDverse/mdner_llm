@@ -7,85 +7,85 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Free Energy Calculation of Nanodiamond-Membrane AssociationThe Effect of Shape and Surface Functionalization\n\nNanodiamonds (NDs) are nanoscale\ndiamond particles with broad applications\nin biosensing, drug delivery, and long-term tracking. Their interactions\nwith a membrane dictate both the endocytosis process and subsequent\nintracellular fate of the nanoparticles. However, details of ND-membrane\nassociation and the energetics of this process remain largely unknown.\nIn this work, we use all-atom molecular dynamics (MD) simulations\nto determine the free energy profile and molecular details of ND-membrane\nassociation, with a focus on the impact of shape and surface functionalization.\nThrough altogether 6.5 μs umbrella sampling on six atomistic\nND models of different shapes (spherical or pyramidal) and surface\nfunctionalization (5%, 35%, and 55%), we show that nanodiamonds associate\nfavorably with the membrane, which is largely driven by ND–lipid\ninteractions. During its membrane association, the shape of a nanodiamond\nplays a key role in determining the location of the free energy minimum,\nwhile its surface functionalization modulates the depth of the minimum.\nOf the six models studied here, all spherical NDs adhere to the bilayer\nsurface, whereas pyramidal NDs, with the exception of the most functionalized\nP55, anchor inside the membrane. Shape also dominates the height of\nthe free energy barrier: the sharp pyramidal NDs have much lower barriers\nagainst penetrating a POPC bilayer than spherical ones. Our all-atom\nND models and their bilayer association strength determined here can\nbe combined with future coarse-grained or continuum models to further\nexplore ND–membrane interactions on larger length scales.",
+    "raw_text": "Free Energy Calculation of Nanodiamond-Membrane AssociationThe Effect of Shape and Surface Functionalization\nNanodiamonds (NDs) are nanoscale\ndiamond particles with broad applications\nin biosensing, drug delivery, and long-term tracking. Their interactions\nwith a membrane dictate both the endocytosis process and subsequent\nintracellular fate of the nanoparticles. However, details of ND-membrane\nassociation and the energetics of this process remain largely unknown.\nIn this work, we use all-atom molecular dynamics (MD) simulations\nto determine the free energy profile and molecular details of ND-membrane\nassociation, with a focus on the impact of shape and surface functionalization.\nThrough altogether 6.5 μs umbrella sampling on six atomistic\nND models of different shapes (spherical or pyramidal) and surface\nfunctionalization (5%, 35%, and 55%), we show that nanodiamonds associate\nfavorably with the membrane, which is largely driven by ND–lipid\ninteractions. During its membrane association, the shape of a nanodiamond\nplays a key role in determining the location of the free energy minimum,\nwhile its surface functionalization modulates the depth of the minimum.\nOf the six models studied here, all spherical NDs adhere to the bilayer\nsurface, whereas pyramidal NDs, with the exception of the most functionalized\nP55, anchor inside the membrane. Shape also dominates the height of\nthe free energy barrier: the sharp pyramidal NDs have much lower barriers\nagainst penetrating a POPC bilayer than spherical ones. Our all-atom\nND models and their bilayer association strength determined here can\nbe combined with future coarse-grained or continuum models to further\nexplore ND–membrane interactions on larger length scales.",
     "entities": [
         {
             "label": "MOL",
             "text": "Nanodiamonds",
-            "start": 111,
-            "end": 123
+            "start": 110,
+            "end": 122
         },
         {
             "label": "MOL",
             "text": "NDs",
-            "start": 125,
-            "end": 128
+            "start": 124,
+            "end": 127
         },
         {
             "label": "MOL",
             "text": "ND",
-            "start": 388,
-            "end": 390
+            "start": 387,
+            "end": 389
         },
         {
             "label": "MOL",
             "text": "ND",
-            "start": 599,
-            "end": 601
+            "start": 598,
+            "end": 600
         },
         {
             "label": "MOL",
             "text": "ND",
-            "start": 752,
-            "end": 754
+            "start": 751,
+            "end": 753
         },
         {
             "label": "MOL",
             "text": "nanodiamonds",
-            "start": 870,
-            "end": 882
+            "start": 869,
+            "end": 881
         },
         {
             "label": "MOL",
             "text": "ND",
-            "start": 949,
-            "end": 951
+            "start": 948,
+            "end": 950
         },
         {
             "label": "MOL",
             "text": "NDs",
-            "start": 1223,
-            "end": 1226
+            "start": 1222,
+            "end": 1225
         },
         {
             "label": "MOL",
             "text": "NDs",
-            "start": 1276,
-            "end": 1279
+            "start": 1275,
+            "end": 1278
         },
         {
             "label": "MOL",
             "text": "NDs",
-            "start": 1440,
-            "end": 1443
+            "start": 1439,
+            "end": 1442
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 1491,
-            "end": 1495
+            "start": 1490,
+            "end": 1494
         },
         {
             "label": "MOL",
             "text": "ND",
-            "start": 1538,
-            "end": 1540
+            "start": 1537,
+            "end": 1539
         },
         {
             "label": "MOL",
             "text": "ND",
-            "start": 1685,
-            "end": 1687
+            "start": 1684,
+            "end": 1686
         }
     ]
 }

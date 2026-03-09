@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular Dynamics Dataset - Dynamics of GLP-1R peptide agonist engagement are correlated with kinetics of G protein activation\n\nMolecular dynamics simulations of the glucagon-like peptide receptor (GLP-1R) in complex with Gs protein and four different agonist peptides: GLP-1, exendin-4, oxyntomodulin, and exendin-P5. \nFor each system, the .xtc file is the result of the merging of 4 replicas of 500 ns for a total of 2 microseconds (8 microseconds considering all four GLP-1R complexes). The original MD trajectories have been stripped of water, ions and phosphatidylcholine atoms before the upload. The CHARMM36 force field was used.",
+    "raw_text": "Molecular Dynamics Dataset - Dynamics of GLP-1R peptide agonist engagement are correlated with kinetics of G protein activation\nMolecular dynamics simulations of the glucagon-like peptide receptor (GLP-1R) in complex with Gs protein and four different agonist peptides: GLP-1, exendin-4, oxyntomodulin, and exendin-P5. \nFor each system, the .xtc file is the result of the merging of 4 replicas of 500 ns for a total of 2 microseconds (8 microseconds considering all four GLP-1R complexes). The original MD trajectories have been stripped of water, ions and phosphatidylcholine atoms before the upload. The CHARMM36 force field was used.",
     "entities": [
         {
             "label": "MOL",
@@ -24,92 +24,92 @@
         {
             "label": "MOL",
             "text": "glucagon-like peptide receptor",
-            "start": 167,
-            "end": 197
+            "start": 166,
+            "end": 196
         },
         {
             "label": "MOL",
             "text": "GLP-1R",
-            "start": 199,
-            "end": 205
+            "start": 198,
+            "end": 204
         },
         {
             "label": "MOL",
             "text": "Gs protein",
-            "start": 223,
-            "end": 233
+            "start": 222,
+            "end": 232
         },
         {
             "label": "MOL",
             "text": "GLP-1",
-            "start": 271,
-            "end": 276
+            "start": 270,
+            "end": 275
         },
         {
             "label": "MOL",
             "text": "exendin-4",
-            "start": 278,
-            "end": 287
+            "start": 277,
+            "end": 286
         },
         {
             "label": "MOL",
             "text": "oxyntomodulin",
-            "start": 289,
-            "end": 302
+            "start": 288,
+            "end": 301
         },
         {
             "label": "MOL",
             "text": "exendin-P5",
-            "start": 308,
-            "end": 318
+            "start": 307,
+            "end": 317
         },
         {
             "label": "STIME",
             "text": "500 ns",
-            "start": 398,
-            "end": 404
+            "start": 397,
+            "end": 403
         },
         {
             "label": "STIME",
             "text": "2 microseconds",
-            "start": 420,
-            "end": 434
+            "start": 419,
+            "end": 433
         },
         {
             "label": "STIME",
             "text": "8 microseconds",
-            "start": 436,
-            "end": 450
+            "start": 435,
+            "end": 449
         },
         {
             "label": "MOL",
             "text": "GLP-1R",
-            "start": 472,
-            "end": 478
+            "start": 471,
+            "end": 477
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 542,
-            "end": 547
+            "start": 541,
+            "end": 546
         },
         {
             "label": "MOL",
             "text": "ions",
-            "start": 155,
-            "end": 159
+            "start": 154,
+            "end": 158
         },
         {
             "label": "MOL",
             "text": "phosphatidylcholine",
-            "start": 558,
-            "end": 577
+            "start": 557,
+            "end": 576
         },
         {
             "label": "FFM",
             "text": "CHARMM36",
-            "start": 607,
-            "end": 615
+            "start": 606,
+            "end": 614
         }
     ]
 }

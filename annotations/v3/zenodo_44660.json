@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of protonated pazePC (Berger, Gromacs 4.5.)\n\nSimulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al. https://doi.org/10.1021/acs.langmuir.6b00788\n\nThe simulation with deprotonated pazePC from the same publication available at http://dx.doi.org/10.5281/zenodo.44622\n90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 167ns.\n \nForce field for POPC is based on Berger model and force field for pazePC is modified from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96(7), 2734 – 2743, http://dx.doi.org/10.1016/j.bpj.2009.01.007.",
+    "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of protonated pazePC (Berger, Gromacs 4.5.)\nSimulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al. https://doi.org/10.1021/acs.langmuir.6b00788\nThe simulation with deprotonated pazePC from the same publication available at http://dx.doi.org/10.5281/zenodo.44622\n90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 167ns.\n \nForce field for POPC is based on Berger model and force field for pazePC is modified from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96(7), 2734 – 2743, http://dx.doi.org/10.1016/j.bpj.2009.01.007.",
     "entities": [
         {
             "label": "MOL",
@@ -42,80 +42,80 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 162,
-            "end": 166
+            "start": 161,
+            "end": 165
         },
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 190,
-            "end": 196
+            "start": 189,
+            "end": 195
         },
         {
             "label": "MOL",
             "text": "Acyl",
-            "start": 227,
-            "end": 231
+            "start": 226,
+            "end": 230
         },
         {
             "label": "MOL",
             "text": "azelaoyl",
-            "start": 251,
-            "end": 259
+            "start": 250,
+            "end": 258
         },
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 424,
-            "end": 430
+            "start": 422,
+            "end": 428
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 512,
-            "end": 516
+            "start": 510,
+            "end": 514
         },
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 521,
-            "end": 527
+            "start": 519,
+            "end": 525
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 534,
-            "end": 539
+            "start": 532,
+            "end": 537
         },
         {
             "label": "MOL",
             "text": "potassium",
-            "start": 547,
-            "end": 556
+            "start": 545,
+            "end": 554
         },
         {
             "label": "STIME",
             "text": "167ns",
-            "start": 584,
-            "end": 589
+            "start": 582,
+            "end": 587
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 609,
-            "end": 613
+            "start": 607,
+            "end": 611
         },
         {
             "label": "FFM",
             "text": "Berger",
-            "start": 626,
-            "end": 632
+            "start": 624,
+            "end": 630
         },
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 659,
-            "end": 665
+            "start": 657,
+            "end": 663
         }
     ]
 }

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "GerAB\n\nBacillus subtilis forms dormant spores upon nutrient depletion. Germinant receptors (GRs) in spore’s inner membrane respond to ligands such as L-alanine, and trigger spore germination. In B. subtilis spores, GerA is the major GR, and has three subunits, GerAA, GerAB, and GerAC. L-Alanine activation of GerA requires all three subunits, but which binds L-alanine is unknown. To date, how GRs trigger germination is unknown, in particular due to lack of detailed structural information about B subunits. Using homology modelling with molecular dynamics (MD) simulations, we present structural predictions for the integral membrane protein GerAB. These predictions indicate that GerAB is an alpha-helical transmembrane protein containing a water channel. The MD simulations with free L-alanine show that alanine binds transiently to specific sites on GerAB. These results provide a starting point for unraveling the mechanism of L-alanine mediated signaling by GerAB, which may facilitate early events in spore germination.",
+    "raw_text": "GerAB\nBacillus subtilis forms dormant spores upon nutrient depletion. Germinant receptors (GRs) in spore’s inner membrane respond to ligands such as L-alanine, and trigger spore germination. In B. subtilis spores, GerA is the major GR, and has three subunits, GerAA, GerAB, and GerAC. L-Alanine activation of GerA requires all three subunits, but which binds L-alanine is unknown. To date, how GRs trigger germination is unknown, in particular due to lack of detailed structural information about B subunits. Using homology modelling with molecular dynamics (MD) simulations, we present structural predictions for the integral membrane protein GerAB. These predictions indicate that GerAB is an alpha-helical transmembrane protein containing a water channel. The MD simulations with free L-alanine show that alanine binds transiently to specific sites on GerAB. These results provide a starting point for unraveling the mechanism of L-alanine mediated signaling by GerAB, which may facilitate early events in spore germination.",
     "entities": [
         {
             "label": "MOL",
@@ -18,110 +18,110 @@
         {
             "label": "MOL",
             "text": "Germinant receptors",
-            "start": 71,
-            "end": 90
+            "start": 70,
+            "end": 89
         },
         {
             "label": "MOL",
             "text": "GRs",
-            "start": 92,
-            "end": 95
+            "start": 91,
+            "end": 94
         },
         {
             "label": "MOL",
             "text": "L-alanine",
-            "start": 150,
-            "end": 159
+            "start": 149,
+            "end": 158
         },
         {
             "label": "MOL",
             "text": "GerA",
-            "start": 215,
-            "end": 219
+            "start": 214,
+            "end": 218
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 233,
-            "end": 235
+            "start": 232,
+            "end": 234
         },
         {
             "label": "MOL",
             "text": "GerAA",
-            "start": 261,
-            "end": 266
+            "start": 260,
+            "end": 265
         },
         {
             "label": "MOL",
             "text": "GerAB",
-            "start": 268,
-            "end": 273
+            "start": 267,
+            "end": 272
         },
         {
             "label": "MOL",
             "text": "GerAC",
-            "start": 279,
-            "end": 284
+            "start": 278,
+            "end": 283
         },
         {
             "label": "MOL",
             "text": "L-Alanine",
-            "start": 286,
-            "end": 295
+            "start": 285,
+            "end": 294
         },
         {
             "label": "MOL",
             "text": "GerA",
-            "start": 310,
-            "end": 314
+            "start": 309,
+            "end": 313
         },
         {
             "label": "MOL",
             "text": "L-alanine",
-            "start": 360,
-            "end": 369
+            "start": 359,
+            "end": 368
         },
         {
             "label": "MOL",
             "text": "GRs",
-            "start": 395,
-            "end": 398
+            "start": 394,
+            "end": 397
         },
         {
             "label": "MOL",
             "text": "GerAB",
-            "start": 645,
-            "end": 650
+            "start": 644,
+            "end": 649
         },
         {
             "label": "MOL",
             "text": "GerAB",
-            "start": 684,
-            "end": 689
+            "start": 683,
+            "end": 688
         },
         {
             "label": "MOL",
             "text": "L-alanine",
-            "start": 789,
-            "end": 798
+            "start": 788,
+            "end": 797
         },
         {
             "label": "MOL",
             "text": "GerAB",
-            "start": 856,
-            "end": 861
+            "start": 855,
+            "end": 860
         },
         {
             "label": "MOL",
             "text": "L-alanine",
-            "start": 934,
-            "end": 943
+            "start": 933,
+            "end": 942
         },
         {
             "label": "MOL",
             "text": "GerAB",
-            "start": 966,
-            "end": 971
+            "start": 965,
+            "end": 970
         }
     ]
 }

@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\n\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
+    "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
     "entities": [
         {
             "label": "MOL",
@@ -30,62 +30,62 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 198,
-            "end": 202
+            "start": 197,
+            "end": 201
         },
         {
             "label": "MOL",
             "text": "dihexadecylammonium",
-            "start": 287,
-            "end": 306
+            "start": 286,
+            "end": 305
         },
         {
             "label": "FFM",
             "text": "ECC-POPC",
-            "start": 313,
-            "end": 321
+            "start": 312,
+            "end": 320
         },
         {
             "label": "FFM",
             "text": "SPC/E",
-            "start": 346,
-            "end": 351
+            "start": 345,
+            "end": 350
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-            "start": 576,
-            "end": 583
+            "start": 575,
+            "end": 582
         },
         {
             "label": "SOFTVERS",
             "text": "5.1.4",
-            "start": 584,
-            "end": 589
+            "start": 583,
+            "end": 588
         },
         {
             "label": "SOFTNAME",
             "text": "openMM",
-            "start": 608,
-            "end": 614
+            "start": 607,
+            "end": 613
         },
         {
             "label": "SOFTVERS",
             "text": "7",
-            "start": 615,
-            "end": 616
+            "start": 614,
+            "end": 615
         },
         {
             "label": "STIME",
             "text": "200 ns",
-            "start": 649,
-            "end": 655
+            "start": 648,
+            "end": 654
         },
         {
             "label": "TEMP",
             "text": "313 K",
-            "start": 668,
-            "end": 673
+            "start": 667,
+            "end": 672
         }
     ]
 }

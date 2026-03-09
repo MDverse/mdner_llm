@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Small Changes in Hydration Determine Cephalosporinase Activity of OXA-48 β‑Lactamases\n\nβ-Lactamase\nmediated antibiotic resistance threatens treatment\nof bacterial infections. OXA-48 enzymes are clinically important class\nD serine β-lactamases (SBLs) that confer resistance to most\nβ-lactam antibiotics, including carbapenems. However, OXA-48\nand related enzymes vary widely in their activity toward different\nsubstrates: OXA-48 primarily hydrolyzes carbapenems, whereas the OXA-163\nvariant is a cephalosporinase with minimal carbapenemase activity.\nThe basis of cephalosporinase activity in OXA-163 remains elusive.\nHere we use QM/MM reaction simulations (umbrella sampling molecular\ndynamics) to study the breakdown of the cephalosporin antibiotic ceftazidime,\na key antibiotic for healthcare-associated infections, by selected\nOXA-48 variants. Calculated free energy barriers for ceftazidime deacylation\ncorrectly capture the differing catalytic efficiencies of the studied\nenzymes and identify the catalytically competent orientation for bound\nceftazidime. Additionally, we show that high flexibility of the Ω\nloop bordering the active site, a determinant of specificity in many\nSBLs, is not required for efficient deacylation. Based on our simulations,\ncephalosporin breakdown in OXA-163 is efficient due to subtle control\nof active site solvation, which requires a particular orientation\nof Leu158 in the Ω loop. Our simulations further predict that\na single mutation in the OXA-48 β5-β6 loop (Arg214Ser)\nwill increase the efficiency of ceftazidime deacylation to that of\nOXA-163. The finding that the hydration of the general base in the\nactive site determines deacylation efficiency is possibly important\nin other class D β-lactamases.",
+    "raw_text": "Small Changes in Hydration Determine Cephalosporinase Activity of OXA-48 β‑Lactamases\nβ-Lactamase\nmediated antibiotic resistance threatens treatment\nof bacterial infections. OXA-48 enzymes are clinically important class\nD serine β-lactamases (SBLs) that confer resistance to most\nβ-lactam antibiotics, including carbapenems. However, OXA-48\nand related enzymes vary widely in their activity toward different\nsubstrates: OXA-48 primarily hydrolyzes carbapenems, whereas the OXA-163\nvariant is a cephalosporinase with minimal carbapenemase activity.\nThe basis of cephalosporinase activity in OXA-163 remains elusive.\nHere we use QM/MM reaction simulations (umbrella sampling molecular\ndynamics) to study the breakdown of the cephalosporin antibiotic ceftazidime,\na key antibiotic for healthcare-associated infections, by selected\nOXA-48 variants. Calculated free energy barriers for ceftazidime deacylation\ncorrectly capture the differing catalytic efficiencies of the studied\nenzymes and identify the catalytically competent orientation for bound\nceftazidime. Additionally, we show that high flexibility of the Ω\nloop bordering the active site, a determinant of specificity in many\nSBLs, is not required for efficient deacylation. Based on our simulations,\ncephalosporin breakdown in OXA-163 is efficient due to subtle control\nof active site solvation, which requires a particular orientation\nof Leu158 in the Ω loop. Our simulations further predict that\na single mutation in the OXA-48 β5-β6 loop (Arg214Ser)\nwill increase the efficiency of ceftazidime deacylation to that of\nOXA-163. The finding that the hydration of the general base in the\nactive site determines deacylation efficiency is possibly important\nin other class D β-lactamases.",
     "entities": [
         {
             "label": "MOL",
@@ -24,98 +24,98 @@
         {
             "label": "MOL",
             "text": "β-Lactamase",
-            "start": 87,
-            "end": 98
+            "start": 86,
+            "end": 97
         },
         {
             "label": "MOL",
             "text": "serine β-lactamases",
-            "start": 223,
-            "end": 242
+            "start": 222,
+            "end": 241
         },
         {
             "label": "MOL",
             "text": "SBLs",
-            "start": 244,
-            "end": 248
+            "start": 243,
+            "end": 247
         },
         {
             "label": "MOL",
             "text": "β-lactam",
-            "start": 230,
-            "end": 238
+            "start": 229,
+            "end": 237
         },
         {
             "label": "MOL",
             "text": "carbapenems",
-            "start": 313,
-            "end": 324
+            "start": 312,
+            "end": 323
         },
         {
             "label": "MOL",
             "text": "carbapenems",
-            "start": 449,
-            "end": 460
+            "start": 448,
+            "end": 459
         },
         {
             "label": "MOL",
             "text": "cephalosporinase",
-            "start": 495,
-            "end": 511
+            "start": 494,
+            "end": 510
         },
         {
             "label": "MOL",
             "text": "carbapenemase",
-            "start": 525,
-            "end": 538
+            "start": 524,
+            "end": 537
         },
         {
             "label": "MOL",
             "text": "cephalosporinase",
-            "start": 562,
-            "end": 578
+            "start": 561,
+            "end": 577
         },
         {
             "label": "MOL",
             "text": "cephalosporin",
-            "start": 724,
-            "end": 737
+            "start": 723,
+            "end": 736
         },
         {
             "label": "MOL",
             "text": "ceftazidime",
-            "start": 749,
-            "end": 760
+            "start": 748,
+            "end": 759
         },
         {
             "label": "MOL",
             "text": "ceftazidime",
-            "start": 882,
-            "end": 893
+            "start": 881,
+            "end": 892
         },
         {
             "label": "MOL",
             "text": "ceftazidime",
-            "start": 1047,
-            "end": 1058
+            "start": 1046,
+            "end": 1057
         },
         {
             "label": "MOL",
             "text": "SBLs",
-            "start": 1182,
-            "end": 1186
+            "start": 1181,
+            "end": 1185
         },
         {
             "label": "MOL",
             "text": "ceftazidime",
-            "start": 1542,
-            "end": 1553
+            "start": 1541,
+            "end": 1552
         },
         {
             "label": "MOL",
             "text": "β-lactamases",
-            "start": 1729,
-            "end": 1741
+            "start": 1728,
+            "end": 1740
         }
     ]
 }

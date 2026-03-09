@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Recognition and Binding of RsmE to an AGGAC Motif of RsmZ: Insights from Molecular Dynamics Simulations\n\nCsrA/RsmE is a post-transcriptional\nregulator protein widely distributed\nin bacteria. It impedes the expression of target mRNAs by attaching\ntheir 5′ untranslated region. The translation is restored by\nsmall, noncoding RNAs that sequester CsrA/RsmE acting as sponges.\nIn both cases, the protein recognizes and attaches to specific AGGAX\nand AXGGAX motifs, where X refers to any nucleotide. RsmZ of Pseudomonas protegens is one of these small RNAs. The structures\nof some of its complexes with RsmE were disclosed a few years ago.\nWe have used umbrella sampling simulations to force the unbinding\nof RsmE from the AGGAC motif located in the single-stranded region\nsited between stem loops 2 and 3 of RsmZ. The calculations unveiled\nthe identity of the main residues and nucleotides involved in the\nprocess. They also showed that the region adopts a hairpin-like conformation\nduring the initial stages of the binding. The ability to acquire this\nconformation requires that the region has a length of at least nine\nnucleotides. Besides, we performed standard molecular dynamics simulations\nof the isolated fragments, analyzed their typical conformations, and\ncharacterized their movements. This analysis revealed that the free\nmolecules oscillate along specific collective coordinates that facilitate\nthe initial stages of the binding. The results strongly suggest that\nthe flexibility of the single-stranded region of RsmZ crucially affects\nthe ability of its binding motif to catch RsmE.",
+    "raw_text": "Recognition and Binding of RsmE to an AGGAC Motif of RsmZ: Insights from Molecular Dynamics Simulations\nCsrA/RsmE is a post-transcriptional\nregulator protein widely distributed\nin bacteria. It impedes the expression of target mRNAs by attaching\ntheir 5′ untranslated region. The translation is restored by\nsmall, noncoding RNAs that sequester CsrA/RsmE acting as sponges.\nIn both cases, the protein recognizes and attaches to specific AGGAX\nand AXGGAX motifs, where X refers to any nucleotide. RsmZ of Pseudomonas protegens is one of these small RNAs. The structures\nof some of its complexes with RsmE were disclosed a few years ago.\nWe have used umbrella sampling simulations to force the unbinding\nof RsmE from the AGGAC motif located in the single-stranded region\nsited between stem loops 2 and 3 of RsmZ. The calculations unveiled\nthe identity of the main residues and nucleotides involved in the\nprocess. They also showed that the region adopts a hairpin-like conformation\nduring the initial stages of the binding. The ability to acquire this\nconformation requires that the region has a length of at least nine\nnucleotides. Besides, we performed standard molecular dynamics simulations\nof the isolated fragments, analyzed their typical conformations, and\ncharacterized their movements. This analysis revealed that the free\nmolecules oscillate along specific collective coordinates that facilitate\nthe initial stages of the binding. The results strongly suggest that\nthe flexibility of the single-stranded region of RsmZ crucially affects\nthe ability of its binding motif to catch RsmE.",
     "entities": [
         {
             "label": "MOL",
@@ -30,104 +30,104 @@
         {
             "label": "MOL",
             "text": "CsrA",
-            "start": 105,
-            "end": 109
+            "start": 104,
+            "end": 108
         },
         {
             "label": "MOL",
             "text": "RsmE",
-            "start": 110,
-            "end": 114
+            "start": 109,
+            "end": 113
         },
         {
             "label": "MOL",
             "text": "mRNAs",
-            "start": 227,
-            "end": 232
+            "start": 226,
+            "end": 231
         },
         {
             "label": "MOL",
             "text": "RNAs",
-            "start": 228,
-            "end": 232
+            "start": 227,
+            "end": 231
         },
         {
             "label": "MOL",
             "text": "CsrA",
-            "start": 344,
-            "end": 348
+            "start": 343,
+            "end": 347
         },
         {
             "label": "MOL",
             "text": "RsmE",
-            "start": 349,
-            "end": 353
+            "start": 348,
+            "end": 352
         },
         {
             "label": "MOL",
             "text": "AGGAX",
-            "start": 436,
-            "end": 441
+            "start": 435,
+            "end": 440
         },
         {
             "label": "MOL",
             "text": "AXGGAX",
-            "start": 446,
-            "end": 452
+            "start": 445,
+            "end": 451
         },
         {
             "label": "MOL",
             "text": "RsmZ",
-            "start": 495,
-            "end": 499
+            "start": 494,
+            "end": 498
         },
         {
             "label": "MOL",
             "text": "protegens",
-            "start": 515,
-            "end": 524
+            "start": 514,
+            "end": 523
         },
         {
             "label": "MOL",
             "text": "RNAs",
-            "start": 324,
-            "end": 328
+            "start": 323,
+            "end": 327
         },
         {
             "label": "MOL",
             "text": "RsmE",
-            "start": 598,
-            "end": 602
+            "start": 597,
+            "end": 601
         },
         {
             "label": "MOL",
             "text": "RsmE",
-            "start": 704,
-            "end": 708
+            "start": 703,
+            "end": 707
         },
         {
             "label": "MOL",
             "text": "AGGAC",
-            "start": 718,
-            "end": 723
+            "start": 717,
+            "end": 722
         },
         {
             "label": "MOL",
             "text": "RsmZ",
-            "start": 804,
-            "end": 808
+            "start": 803,
+            "end": 807
         },
         {
             "label": "MOL",
             "text": "RsmZ",
-            "start": 1521,
-            "end": 1525
+            "start": 1520,
+            "end": 1524
         },
         {
             "label": "MOL",
             "text": "RsmE",
-            "start": 1586,
-            "end": 1590
+            "start": 1585,
+            "end": 1589
         }
     ]
 }

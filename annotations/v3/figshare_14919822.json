@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Electrostatic Interactions Explain the Higher Binding Affinity of the CR3022 Antibody for SARS-CoV‑2 than the 4A8 Antibody\n\nA structural understanding\nof the mechanism by which antibodies\nbind SARS-CoV-2 at the atomic level is highly desirable as it can\ntell the development of more effective antibodies to treat Covid-19.\nHere, we use steered molecular dynamics (SMD) and coarse-grained simulations\nto estimate the binding affinity of the monoclonal antibodies CR3022\nand 4A8 to the SARS-CoV-2 receptor-binding domain (RBD) and SARS-CoV-2\nN-terminal domain (NTD). Consistent with experiments, our SMD and\ncoarse-grained simulations both indicate that CR3022 has a higher\naffinity for SARS-CoV-2 RBD than 4A8 for the NTD, and the coarse-grained\nsimulations indicate the former binds three times stronger to its\nrespective epitope. This finding shows that CR3022 is a candidate\nfor Covid-19 therapy and is likely a better choice than 4A8. Energetic\ndecomposition of the interaction energies between these two complexes\nreveals that electrostatic interactions explain the difference in\nthe observed binding affinity between the two complexes. This result\ncould lead to a new approach for developing anti-Covid-19 antibodies\nin which good candidates must contain charged amino acids in the area\nof contact with the virus.",
+    "raw_text": "Electrostatic Interactions Explain the Higher Binding Affinity of the CR3022 Antibody for SARS-CoV‑2 than the 4A8 Antibody\nA structural understanding\nof the mechanism by which antibodies\nbind SARS-CoV-2 at the atomic level is highly desirable as it can\ntell the development of more effective antibodies to treat Covid-19.\nHere, we use steered molecular dynamics (SMD) and coarse-grained simulations\nto estimate the binding affinity of the monoclonal antibodies CR3022\nand 4A8 to the SARS-CoV-2 receptor-binding domain (RBD) and SARS-CoV-2\nN-terminal domain (NTD). Consistent with experiments, our SMD and\ncoarse-grained simulations both indicate that CR3022 has a higher\naffinity for SARS-CoV-2 RBD than 4A8 for the NTD, and the coarse-grained\nsimulations indicate the former binds three times stronger to its\nrespective epitope. This finding shows that CR3022 is a candidate\nfor Covid-19 therapy and is likely a better choice than 4A8. Energetic\ndecomposition of the interaction energies between these two complexes\nreveals that electrostatic interactions explain the difference in\nthe observed binding affinity between the two complexes. This result\ncould lead to a new approach for developing anti-Covid-19 antibodies\nin which good candidates must contain charged amino acids in the area\nof contact with the virus.",
     "entities": [
         {
             "label": "MOL",
@@ -24,68 +24,68 @@
         {
             "label": "MOL",
             "text": "CR3022",
-            "start": 462,
-            "end": 468
+            "start": 461,
+            "end": 467
         },
         {
             "label": "MOL",
             "text": "4A8",
-            "start": 473,
-            "end": 476
+            "start": 472,
+            "end": 475
         },
         {
             "label": "MOL",
             "text": "SARS-CoV-2 receptor-binding domain",
-            "start": 484,
-            "end": 518
+            "start": 483,
+            "end": 517
         },
         {
             "label": "MOL",
             "text": "RBD",
-            "start": 520,
-            "end": 523
+            "start": 519,
+            "end": 522
         },
         {
             "label": "MOL",
             "text": "NTD",
-            "start": 559,
-            "end": 562
+            "start": 558,
+            "end": 561
         },
         {
             "label": "MOL",
             "text": "CR3022",
-            "start": 652,
-            "end": 658
+            "start": 651,
+            "end": 657
         },
         {
             "label": "MOL",
             "text": "SARS-CoV-2 RBD",
-            "start": 685,
-            "end": 699
+            "start": 684,
+            "end": 698
         },
         {
             "label": "MOL",
             "text": "4A8",
-            "start": 705,
-            "end": 708
+            "start": 704,
+            "end": 707
         },
         {
             "label": "MOL",
             "text": "NTD",
-            "start": 717,
-            "end": 720
+            "start": 716,
+            "end": 719
         },
         {
             "label": "MOL",
             "text": "CR3022",
-            "start": 855,
-            "end": 861
+            "start": 854,
+            "end": 860
         },
         {
             "label": "MOL",
             "text": "4A8",
-            "start": 933,
-            "end": 936
+            "start": 932,
+            "end": 935
         }
     ]
 }

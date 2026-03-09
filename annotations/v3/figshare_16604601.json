@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Molecular View on the Dissociation Pathways and Transactivation Regulation Mechanism of Nonsteroidal GR Ligands\n\nAs a major drug target for anti-inflammatory\ntherapy, the glucocorticoid\nreceptor (GR) regulates a wide range of physiological processes through\ntransactivation (TA) or transrepression. GR TA is involved in many\nadverse effects of GR-targeting drugs, and therefore, the discovery\nof novel GR ligands with lower TA activity and longer residence time\nis quite urgent. Undoubtedly, understanding the ligand dissociation\nmechanisms and the structural basis of the TA regulation is crucial\nfor the development of novel GR-targeting drugs. Here, we used random\naccelerated molecular dynamics (RAMD) and funnel metadynamics (FM)\nsimulations to explore the dissociation mechanisms of 5 classic glucocorticoids\nand 6 nonsteroidal GR ligands. Multiple ligand dissociation pathways\nwere discovered. The classic glucocorticoids exhibit a strong preference\nfor Path I, and most nonsteroidal ligands tend to dissociate along\nmixed pathways. We also find that the distinct unbinding preferences\nfor AZD2906 and AZD9567, two representative nonsteroidal ligands with\nsimilar scaffolds but different TA activities, are primarily determined\nby their different polar interactions with the surrounding residues.\nNotably, the binding of AZD9567 poses a substantial impact on the\nconformation of the GR homodimer interface, which provides a valuable\nclue to understand the mechanisms of the TA-related side effects induced\nby the adjustments of the homodimerization process. These findings\nare critical for the structure-based rational design of novel GR ligands\nwith more potent anti-inflammatory potency and reduced side effects.",
+    "raw_text": "Molecular View on the Dissociation Pathways and Transactivation Regulation Mechanism of Nonsteroidal GR Ligands\nAs a major drug target for anti-inflammatory\ntherapy, the glucocorticoid\nreceptor (GR) regulates a wide range of physiological processes through\ntransactivation (TA) or transrepression. GR TA is involved in many\nadverse effects of GR-targeting drugs, and therefore, the discovery\nof novel GR ligands with lower TA activity and longer residence time\nis quite urgent. Undoubtedly, understanding the ligand dissociation\nmechanisms and the structural basis of the TA regulation is crucial\nfor the development of novel GR-targeting drugs. Here, we used random\naccelerated molecular dynamics (RAMD) and funnel metadynamics (FM)\nsimulations to explore the dissociation mechanisms of 5 classic glucocorticoids\nand 6 nonsteroidal GR ligands. Multiple ligand dissociation pathways\nwere discovered. The classic glucocorticoids exhibit a strong preference\nfor Path I, and most nonsteroidal ligands tend to dissociate along\nmixed pathways. We also find that the distinct unbinding preferences\nfor AZD2906 and AZD9567, two representative nonsteroidal ligands with\nsimilar scaffolds but different TA activities, are primarily determined\nby their different polar interactions with the surrounding residues.\nNotably, the binding of AZD9567 poses a substantial impact on the\nconformation of the GR homodimer interface, which provides a valuable\nclue to understand the mechanisms of the TA-related side effects induced\nby the adjustments of the homodimerization process. These findings\nare critical for the structure-based rational design of novel GR ligands\nwith more potent anti-inflammatory potency and reduced side effects.",
     "entities": [
         {
             "label": "MOL",
@@ -18,56 +18,56 @@
         {
             "label": "MOL",
             "text": "GR",
-            "start": 196,
-            "end": 198
+            "start": 195,
+            "end": 197
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 299,
-            "end": 301
+            "start": 298,
+            "end": 300
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 344,
-            "end": 346
+            "start": 343,
+            "end": 345
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 402,
-            "end": 404
+            "start": 401,
+            "end": 403
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 627,
-            "end": 629
+            "start": 626,
+            "end": 628
         },
         {
             "label": "MOL",
             "text": "glucocorticoids",
-            "start": 799,
-            "end": 814
+            "start": 798,
+            "end": 813
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 834,
-            "end": 836
+            "start": 833,
+            "end": 835
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 1390,
-            "end": 1392
+            "start": 1389,
+            "end": 1391
         },
         {
             "label": "MOL",
             "text": "GR",
-            "start": 1642,
-            "end": 1644
+            "start": 1641,
+            "end": 1643
         }
     ]
 }

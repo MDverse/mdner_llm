@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Slipids POPE Simulations (versions 1 and 2) 310 K (NOTE: hexagonal membrane)\n\nTwo Slipids POPE bilayer simulations performed using GROMACS 5.0.6 for 200 ns with different starting velocities. Simulations were performed with a 1.0 nm cut-off with PME for the Coulombic and a 1.0 nm cut-off for the van der Waals interactions interactions. These simulations were performed at 310 K with a 336 hexagonal lipid bilayer. The full trajectories are provided bar the initial 100 ns. The starting structure of the membrane was made by reverse mapping an equilibrated MARTINI POPE bilayer (constructed with the INSANE script).",
+    "raw_text": "Slipids POPE Simulations (versions 1 and 2) 310 K (NOTE: hexagonal membrane)\nTwo Slipids POPE bilayer simulations performed using GROMACS 5.0.6 for 200 ns with different starting velocities. Simulations were performed with a 1.0 nm cut-off with PME for the Coulombic and a 1.0 nm cut-off for the van der Waals interactions interactions. These simulations were performed at 310 K with a 336 hexagonal lipid bilayer. The full trajectories are provided bar the initial 100 ns. The starting structure of the membrane was made by reverse mapping an equilibrated MARTINI POPE bilayer (constructed with the INSANE script).",
     "entities": [
         {
             "label": "FFM",
@@ -30,50 +30,50 @@
         {
             "label": "FFM",
             "text": "Slipids",
-            "start": 82,
-            "end": 89
+            "start": 81,
+            "end": 88
         },
         {
             "label": "MOL",
             "text": "POPE",
-            "start": 90,
-            "end": 94
+            "start": 89,
+            "end": 93
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-            "start": 131,
-            "end": 138
+            "start": 130,
+            "end": 137
         },
         {
             "label": "SOFTVERS",
             "text": "5.0.6",
-            "start": 139,
-            "end": 144
+            "start": 138,
+            "end": 143
         },
         {
             "label": "STIME",
             "text": "200 ns",
-            "start": 149,
-            "end": 155
+            "start": 148,
+            "end": 154
         },
         {
             "label": "TEMP",
             "text": "310 K",
-            "start": 374,
-            "end": 379
+            "start": 373,
+            "end": 378
         },
         {
             "label": "FFM",
             "text": "MARTINI",
-            "start": 558,
-            "end": 565
+            "start": 557,
+            "end": 564
         },
         {
             "label": "MOL",
             "text": "POPE",
-            "start": 566,
-            "end": 570
+            "start": 565,
+            "end": 569
         }
     ]
 }

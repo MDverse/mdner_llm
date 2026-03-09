@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Simulations of POPC:POPG 1:1 membranes with varying levels of CaCl_2 using the Slipids force field\n\nSimulations of POPC/POPG lipid bilayers consisting of a total of 256 lipids (128 POPC + 128 POPG) spread equally between the two leaflets. The initial CaCl_2 concentration in the water phase was either 0, 100, 200, 500, or 1000 mM. Na+ was used as the counterion for the POPG charges. The simuatlions were performed using the Slipids model, available at http://www.fos.su.se/~sasha/SLipids/ . The Dang ion parameters were used, and they were obtained from https://bitbucket.org/hseara/ions/ . The common simulation parameters are given in the md.mdp file. The simulations are 1500 ns long (except CA0, which is 500 ns long), and the \"extend\" files contain the last 1000 ns of the outputs. The \"extend\" continue points should also be used to extend the simulations beyond 1500 ns. All relevant input and output files are provided to repeat or extend the simulations.",
+    "raw_text": "Simulations of POPC:POPG 1:1 membranes with varying levels of CaCl_2 using the Slipids force field\nSimulations of POPC/POPG lipid bilayers consisting of a total of 256 lipids (128 POPC + 128 POPG) spread equally between the two leaflets. The initial CaCl_2 concentration in the water phase was either 0, 100, 200, 500, or 1000 mM. Na+ was used as the counterion for the POPG charges. The simuatlions were performed using the Slipids model, available at http://www.fos.su.se/~sasha/SLipids/ . The Dang ion parameters were used, and they were obtained from https://bitbucket.org/hseara/ions/ . The common simulation parameters are given in the md.mdp file. The simulations are 1500 ns long (except CA0, which is 500 ns long), and the \"extend\" files contain the last 1000 ns of the outputs. The \"extend\" continue points should also be used to extend the simulations beyond 1500 ns. All relevant input and output files are provided to repeat or extend the simulations.",
     "entities": [
         {
             "label": "MOL",
@@ -30,74 +30,74 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 115,
-            "end": 119
+            "start": 114,
+            "end": 118
         },
         {
             "label": "MOL",
             "text": "POPG",
-            "start": 120,
-            "end": 124
+            "start": 119,
+            "end": 123
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 181,
-            "end": 185
+            "start": 180,
+            "end": 184
         },
         {
             "label": "MOL",
             "text": "POPG",
-            "start": 192,
-            "end": 196
+            "start": 191,
+            "end": 195
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 279,
-            "end": 284
+            "start": 278,
+            "end": 283
         },
         {
             "label": "MOL",
             "text": "Na+",
-            "start": 332,
-            "end": 335
+            "start": 331,
+            "end": 334
         },
         {
             "label": "MOL",
             "text": "POPG",
-            "start": 371,
-            "end": 375
+            "start": 370,
+            "end": 374
         },
         {
             "label": "FFM",
             "text": "Slipids",
-            "start": 426,
-            "end": 433
+            "start": 425,
+            "end": 432
         },
         {
             "label": "STIME",
             "text": "1500 ns",
-            "start": 676,
-            "end": 683
+            "start": 675,
+            "end": 682
         },
         {
             "label": "STIME",
             "text": "500 ns",
-            "start": 677,
-            "end": 683
+            "start": 676,
+            "end": 682
         },
         {
             "label": "STIME",
             "text": "1000 ns",
-            "start": 765,
-            "end": 772
+            "start": 764,
+            "end": 771
         },
         {
             "label": "STIME",
             "text": "1500 ns",
-            "start": 871,
-            "end": 878
+            "start": 870,
+            "end": 877
         }
     ]
 }

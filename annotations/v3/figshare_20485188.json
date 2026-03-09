@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "EntF*-D5\n\nMolecular dynamics simulation of the EntF* peptide, residue 5 in D form\n\n-starting coordinates posre.gro\nenergy minimized and water+ions equilibrated around peptide\n-topology topol.top\nforce field AMBER99SB-ILDB, TIP3P water\nprotonation states at pH = 3 (E,K protonated)\n[NaCl] = 25 mM\ndisulfide bond generated between residues 14 and 6\n-md settings md.mdp\ntime step 2 fs, temperature = 298 K, pressure = 1 bar\n-1 microsecond trajectory dry.xtc, dry.gro\nframe rate 10 ps, water and ions removed, box centered on peptide\n-analysis files\nframe rate 1 ps\nradius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+    "raw_text": "EntF*-D5\nMolecular dynamics simulation of the EntF* peptide, residue 5 in D form\n-starting coordinates posre.gro\nenergy minimized and water+ions equilibrated around peptide\n-topology topol.top\nforce field AMBER99SB-ILDB, TIP3P water\nprotonation states at pH = 3 (E,K protonated)\n[NaCl] = 25 mM\ndisulfide bond generated between residues 14 and 6\n-md settings md.mdp\ntime step 2 fs, temperature = 298 K, pressure = 1 bar\n-1 microsecond trajectory dry.xtc, dry.gro\nframe rate 10 ps, water and ions removed, box centered on peptide\n-analysis files\nframe rate 1 ps\nradius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
     "entities": [
         {
             "label": "MOL",
@@ -18,74 +18,74 @@
         {
             "label": "MOL",
             "text": "EntF*",
-            "start": 47,
-            "end": 52
+            "start": 46,
+            "end": 51
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 136,
-            "end": 141
+            "start": 134,
+            "end": 139
         },
         {
             "label": "MOL",
             "text": "ions",
-            "start": 142,
-            "end": 146
+            "start": 140,
+            "end": 144
         },
         {
             "label": "FFM",
             "text": "AMBER99SB-ILDB",
-            "start": 207,
-            "end": 221
+            "start": 205,
+            "end": 219
         },
         {
             "label": "FFM",
             "text": "TIP3P",
-            "start": 223,
-            "end": 228
+            "start": 221,
+            "end": 226
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 229,
-            "end": 234
+            "start": 227,
+            "end": 232
         },
         {
             "label": "MOL",
             "text": "NaCl",
-            "start": 282,
-            "end": 286
+            "start": 280,
+            "end": 284
         },
         {
             "label": "MOL",
             "text": "disulfide",
-            "start": 296,
-            "end": 305
+            "start": 294,
+            "end": 303
         },
         {
             "label": "TEMP",
             "text": "298 K",
-            "start": 397,
-            "end": 402
+            "start": 395,
+            "end": 400
         },
         {
             "label": "STIME",
             "text": "1 microsecond",
-            "start": 422,
-            "end": 435
+            "start": 420,
+            "end": 433
         },
         {
             "label": "MOL",
             "text": "water",
-            "start": 482,
-            "end": 487
+            "start": 480,
+            "end": 485
         },
         {
             "label": "MOL",
             "text": "ions",
-            "start": 492,
-            "end": 496
+            "start": 490,
+            "end": 494
         }
     ]
 }

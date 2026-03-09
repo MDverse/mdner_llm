@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Novel US-CpHMD Protocol to Study the Protonation-Dependent Mechanism of the ATP/ADP Carrier\n\nWe have designed a protocol combining\nconstant-pH molecular dynamics\n(CpHMD) simulations with an umbrella sampling (US) scheme (US-CpHMD)\nto study the mechanism of ADP/ATP transport (import and export) by\ntheir inner mitochondrial membrane carrier protein [ADP/ATP carrier\n(AAC)]. The US scheme helped overcome the limitations of sampling\nthe slow kinetics involved in these substrates’ transport,\nwhile CpHMD simulations provided an unprecedented realism by correctly\ncapturing the associated protonation changes. The import of anionic\nsubstrates along the mitochondrial membrane has a strong energetic\ndisadvantage due to a smaller substrate concentration and an unfavorable\nmembrane potential. These limitations may have created an evolutionary\npressure on AAC to develop specific features benefiting the import\nof ADP. In our work, the potential of mean force profiles showed a\nclear selectivity in the import of ADP compared to ATP, while in the\nexport, no selectivity was observed. We also observed that AAC sequestered\nboth substrates at longer distances in the import compared to the\nexport process. Furthermore, only in the import process do we observe\ntransient protonation of both substrates when going through the AAC\ncavity, which is an important advantage to counteract the unfavorable\nmitochondrial membrane potential. Finally, we observed a substrate-induced\ndisruption of the matrix salt-bridge network, which can promote the\nconformational transition (from the C- to M-state) required to complete\nthe import process. This work unraveled several important structural\nfeatures where the complex electrostatic interactions were pivotal\nto interpreting the protein function and illustrated the potential\nof applying the US-CpHMD protocol to other transport processes involving\nmembrane proteins.",
+    "raw_text": "Novel US-CpHMD Protocol to Study the Protonation-Dependent Mechanism of the ATP/ADP Carrier\nWe have designed a protocol combining\nconstant-pH molecular dynamics\n(CpHMD) simulations with an umbrella sampling (US) scheme (US-CpHMD)\nto study the mechanism of ADP/ATP transport (import and export) by\ntheir inner mitochondrial membrane carrier protein [ADP/ATP carrier\n(AAC)]. The US scheme helped overcome the limitations of sampling\nthe slow kinetics involved in these substrates’ transport,\nwhile CpHMD simulations provided an unprecedented realism by correctly\ncapturing the associated protonation changes. The import of anionic\nsubstrates along the mitochondrial membrane has a strong energetic\ndisadvantage due to a smaller substrate concentration and an unfavorable\nmembrane potential. These limitations may have created an evolutionary\npressure on AAC to develop specific features benefiting the import\nof ADP. In our work, the potential of mean force profiles showed a\nclear selectivity in the import of ADP compared to ATP, while in the\nexport, no selectivity was observed. We also observed that AAC sequestered\nboth substrates at longer distances in the import compared to the\nexport process. Furthermore, only in the import process do we observe\ntransient protonation of both substrates when going through the AAC\ncavity, which is an important advantage to counteract the unfavorable\nmitochondrial membrane potential. Finally, we observed a substrate-induced\ndisruption of the matrix salt-bridge network, which can promote the\nconformational transition (from the C- to M-state) required to complete\nthe import process. This work unraveled several important structural\nfeatures where the complex electrostatic interactions were pivotal\nto interpreting the protein function and illustrated the potential\nof applying the US-CpHMD protocol to other transport processes involving\nmembrane proteins.",
     "entities": [
         {
             "label": "MOL",
@@ -24,68 +24,68 @@
         {
             "label": "MOL",
             "text": "ADP",
-            "start": 257,
-            "end": 260
+            "start": 256,
+            "end": 259
         },
         {
             "label": "MOL",
             "text": "ATP",
-            "start": 261,
-            "end": 264
+            "start": 260,
+            "end": 263
         },
         {
             "label": "MOL",
             "text": "ADP",
-            "start": 350,
-            "end": 353
+            "start": 349,
+            "end": 352
         },
         {
             "label": "MOL",
             "text": "ATP",
-            "start": 354,
-            "end": 357
+            "start": 353,
+            "end": 356
         },
         {
             "label": "MOL",
             "text": "AAC",
-            "start": 367,
-            "end": 370
+            "start": 366,
+            "end": 369
         },
         {
             "label": "MOL",
             "text": "AAC",
-            "start": 853,
-            "end": 856
+            "start": 852,
+            "end": 855
         },
         {
             "label": "MOL",
             "text": "ADP",
-            "start": 911,
-            "end": 914
+            "start": 910,
+            "end": 913
         },
         {
             "label": "MOL",
             "text": "ADP",
-            "start": 1010,
-            "end": 1013
+            "start": 1009,
+            "end": 1012
         },
         {
             "label": "MOL",
             "text": "ATP",
-            "start": 1026,
-            "end": 1029
+            "start": 1025,
+            "end": 1028
         },
         {
             "label": "MOL",
             "text": "AAC",
-            "start": 1103,
-            "end": 1106
+            "start": 1102,
+            "end": 1105
         },
         {
             "label": "MOL",
             "text": "AAC",
-            "start": 1319,
-            "end": 1322
+            "start": 1318,
+            "end": 1321
         }
     ]
 }

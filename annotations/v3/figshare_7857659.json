@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Determinants of Orexin Receptor Binding and ActivationA Molecular Dynamics Study\n\nWe\nassess the stability of two previously suggested binding modes\nfor the neuropeptide orexin-A in the OX2 receptor through\nextensive molecular dynamics simulations. As the activation determinants\nof the receptor remain unknown, we simulated an unliganded receptor\nand two small-molecular ligands, the antagonist suvorexant and the\nagonist Nag26 for comparison. Each system was simulated in pure POPC\nmembrane as well as in the 25% cholesterol–POPC membrane. In\ntotal, we carried out 36 μs of simulations. Through this set\nof simulations, we report a stable binding mode for the C-terminus\nof orexin-A. In addition, we suggest interactions that would promote\norexin receptor activation, as well as others that would stabilize\nthe inactive state.",
+    "raw_text": "Determinants of Orexin Receptor Binding and ActivationA Molecular Dynamics Study\nWe\nassess the stability of two previously suggested binding modes\nfor the neuropeptide orexin-A in the OX2 receptor through\nextensive molecular dynamics simulations. As the activation determinants\nof the receptor remain unknown, we simulated an unliganded receptor\nand two small-molecular ligands, the antagonist suvorexant and the\nagonist Nag26 for comparison. Each system was simulated in pure POPC\nmembrane as well as in the 25% cholesterol–POPC membrane. In\ntotal, we carried out 36 μs of simulations. Through this set\nof simulations, we report a stable binding mode for the C-terminus\nof orexin-A. In addition, we suggest interactions that would promote\norexin receptor activation, as well as others that would stabilize\nthe inactive state.",
     "entities": [
         {
             "label": "MOL",
@@ -18,56 +18,56 @@
         {
             "label": "MOL",
             "text": "orexin-A",
-            "start": 170,
-            "end": 178
+            "start": 169,
+            "end": 177
         },
         {
             "label": "MOL",
             "text": "OX2 receptor",
-            "start": 186,
-            "end": 198
+            "start": 185,
+            "end": 197
         },
         {
             "label": "MOL",
             "text": "Nag26",
-            "start": 423,
-            "end": 428
+            "start": 422,
+            "end": 427
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 479,
-            "end": 483
+            "start": 478,
+            "end": 482
         },
         {
             "label": "MOL",
             "text": "cholesterol",
-            "start": 515,
-            "end": 526
+            "start": 514,
+            "end": 525
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 527,
-            "end": 531
+            "start": 526,
+            "end": 530
         },
         {
             "label": "STIME",
             "text": "36 μs",
-            "start": 567,
-            "end": 572
+            "start": 566,
+            "end": 571
         },
         {
             "label": "MOL",
             "text": "orexin-A",
-            "start": 676,
-            "end": 684
+            "start": 675,
+            "end": 683
         },
         {
             "label": "MOL",
             "text": "orexin receptor",
-            "start": 742,
-            "end": 757
+            "start": 741,
+            "end": 756
         }
     ]
 }

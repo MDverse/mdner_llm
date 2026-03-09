@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Reactive Oxygen and Nitrogen Species at Phospholipid Bilayers: Peroxynitrous Acid and Its Homolysis Products\n\nPeroxynitrite is\na powerful and long-lived oxidant generated in\nvivo. Peroxynitrous acid (ONOOH), its protonated form, may penetrate\ninto phospholipid bilayers and undergo homolytic cleavage to nitrogen\ndioxide (·NO2) and hydroxyl radicals (·OH), causing\nsevere nitro-oxidative damage. The membrane environment is thought\nto influence ONOOH reactions, but the mechanisms remain speculative.\nMost experimental techniques lack the level of resolution required\nto keep track of the motion of very reactive species and their interactions\nwith the membrane. Here, we performed molecular dynamics simulations\nof the permeation, interactions, and dynamics of ONOOH and its homolysis\nproducts in the phospholipid membrane environment. We started by developing\nan ONOOH model that successfully accounted for its conformational\nequilibria and solvation energies. Membrane permeation of ONOOH was\naccompanied by conformational changes. ONOOH exhibited a strong tendency\nto bind to and accumulate at the membrane headgroup region. There,\nONOOH homolysis led to ·NO2 radicals, which in turn\npartitioned to the membrane interior. About one-third of the ·OH\nradicals readily escaped to the aqueous phase within 1 ns. However,\na significant number of ·OH radicals became trapped at the lipid\nheadgroup region for a longer period. The possible implications for\nmembrane-based nitration and oxidation processes were discussed.",
+    "raw_text": "Reactive Oxygen and Nitrogen Species at Phospholipid Bilayers: Peroxynitrous Acid and Its Homolysis Products\nPeroxynitrite is\na powerful and long-lived oxidant generated in\nvivo. Peroxynitrous acid (ONOOH), its protonated form, may penetrate\ninto phospholipid bilayers and undergo homolytic cleavage to nitrogen\ndioxide (·NO2) and hydroxyl radicals (·OH), causing\nsevere nitro-oxidative damage. The membrane environment is thought\nto influence ONOOH reactions, but the mechanisms remain speculative.\nMost experimental techniques lack the level of resolution required\nto keep track of the motion of very reactive species and their interactions\nwith the membrane. Here, we performed molecular dynamics simulations\nof the permeation, interactions, and dynamics of ONOOH and its homolysis\nproducts in the phospholipid membrane environment. We started by developing\nan ONOOH model that successfully accounted for its conformational\nequilibria and solvation energies. Membrane permeation of ONOOH was\naccompanied by conformational changes. ONOOH exhibited a strong tendency\nto bind to and accumulate at the membrane headgroup region. There,\nONOOH homolysis led to ·NO2 radicals, which in turn\npartitioned to the membrane interior. About one-third of the ·OH\nradicals readily escaped to the aqueous phase within 1 ns. However,\na significant number of ·OH radicals became trapped at the lipid\nheadgroup region for a longer period. The possible implications for\nmembrane-based nitration and oxidation processes were discussed.",
     "entities": [
         {
             "label": "MOL",
@@ -36,104 +36,104 @@
         {
             "label": "MOL",
             "text": "Peroxynitrite",
-            "start": 110,
-            "end": 123
+            "start": 109,
+            "end": 122
         },
         {
             "label": "MOL",
             "text": "Peroxynitrous acid",
-            "start": 180,
-            "end": 198
+            "start": 179,
+            "end": 197
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 200,
-            "end": 205
+            "start": 199,
+            "end": 204
         },
         {
             "label": "MOL",
             "text": "phospholipid",
-            "start": 248,
-            "end": 260
+            "start": 247,
+            "end": 259
         },
         {
             "label": "MOL",
             "text": "NO2",
-            "start": 323,
-            "end": 326
+            "start": 322,
+            "end": 325
         },
         {
             "label": "MOL",
             "text": "hydroxyl",
-            "start": 332,
-            "end": 340
+            "start": 331,
+            "end": 339
         },
         {
             "label": "MOL",
             "text": "OH",
-            "start": 203,
-            "end": 205
+            "start": 202,
+            "end": 204
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 445,
-            "end": 450
+            "start": 444,
+            "end": 449
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 762,
-            "end": 767
+            "start": 761,
+            "end": 766
         },
         {
             "label": "MOL",
             "text": "phospholipid",
-            "start": 802,
-            "end": 814
+            "start": 801,
+            "end": 813
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 865,
-            "end": 870
+            "start": 864,
+            "end": 869
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 986,
-            "end": 991
+            "start": 985,
+            "end": 990
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 1035,
-            "end": 1040
+            "start": 1034,
+            "end": 1039
         },
         {
             "label": "MOL",
             "text": "ONOOH",
-            "start": 1136,
-            "end": 1141
+            "start": 1135,
+            "end": 1140
         },
         {
             "label": "MOL",
             "text": "NO2",
-            "start": 1160,
-            "end": 1163
+            "start": 1159,
+            "end": 1162
         },
         {
             "label": "MOL",
             "text": "OH",
-            "start": 352,
-            "end": 354
+            "start": 351,
+            "end": 353
         },
         {
             "label": "MOL",
             "text": "OH",
-            "start": 448,
-            "end": 450
+            "start": 447,
+            "end": 449
         }
     ]
 }

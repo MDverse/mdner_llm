@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations\n\nDataset and supplementary files of the research: Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations (https://doi.org/10.1101/121681)\n- Supporting Information\n- Input: Parameters and initial structures\n- Output: Trajectories, Docking poses\nGromacs (multi-core with CUDA) was used for the simulations.\nAutodock Vina, FlexAid and rDock were used for molecular docking.",
+    "raw_text": "Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations\nDataset and supplementary files of the research: Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations (https://doi.org/10.1101/121681)\n- Supporting Information\n- Input: Parameters and initial structures\n- Output: Trajectories, Docking poses\nGromacs (multi-core with CUDA) was used for the simulations.\nAutodock Vina, FlexAid and rDock were used for molecular docking.",
     "entities": [
         {
             "label": "MOL",
@@ -30,50 +30,50 @@
         {
             "label": "MOL",
             "text": "N-3-oxododecanoyl homoserine lactone",
-            "start": 237,
-            "end": 273
+            "start": 236,
+            "end": 272
         },
         {
             "label": "MOL",
             "text": "transcriptional regulator",
-            "start": 279,
-            "end": 304
+            "start": 278,
+            "end": 303
         },
         {
             "label": "MOL",
             "text": "LasR",
-            "start": 305,
-            "end": 309
+            "start": 304,
+            "end": 308
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-            "start": 533,
-            "end": 540
+            "start": 532,
+            "end": 539
         },
         {
             "label": "SOFTNAME",
             "text": "Autodock",
-            "start": 594,
-            "end": 602
+            "start": 593,
+            "end": 601
         },
         {
             "label": "SOFTVERS",
             "text": "Vina",
-            "start": 603,
-            "end": 607
+            "start": 602,
+            "end": 606
         },
         {
             "label": "SOFTNAME",
             "text": "FlexAid",
-            "start": 609,
-            "end": 616
+            "start": 608,
+            "end": 615
         },
         {
             "label": "SOFTNAME",
             "text": "rDock",
-            "start": 621,
-            "end": 626
+            "start": 620,
+            "end": 625
         }
     ]
 }

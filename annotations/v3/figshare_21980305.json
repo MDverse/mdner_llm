@@ -7,7 +7,7 @@
         "FFM",
         "TEMP"
     ],
-    "raw_text": "Plant Terpenoid Permeability through Biological Membranes Explored via Molecular Simulations\n\nPlants synthesize small molecule diterpenes composed\nof 20 carbons\nfrom precursor isopentenyl diphosphate and dimethylallyl disphosphate,\nmanufacturing diverse compounds used for defense, signaling, and other\nfunctions. Industrially, diterpenes are used as natural aromas and\nflavoring, as pharmaceuticals, and as natural insecticides or repellents.\nDespite diterpene ubiquity in plant systems, it remains unknown how\nplants control diterpene localization and transport. For many other\nsmall molecules, plant cells maintain transport proteins that control\ncompound compartmentalization. However, for most diterpene compounds,\nspecific transport proteins have not been identified, and so it has\nbeen hypothesized that diterpenes may cross biological membranes passively.\nThrough molecular simulation, we study membrane transport for three\ncomplex diterpenes from among the many made by members of the Lamiaceae family to determine their permeability coefficient\nacross plasma membrane models. To facilitate accurate simulation,\nthe intermolecular interactions for leubethanol, abietic acid, and\nsclareol were parametrized through the standard CHARMM methodology\nfor incorporation into molecular simulations. To evaluate the effect\nof membrane composition on permeability, we simulate the three diterpenes\nin two membrane models derived from sorghum and yeast lipidomics data.\nWe track permeation events within our unbiased simulations, and compare\nimplied permeation coefficients with those calculated from Replica\nExchange Umbrella Sampling calculations using the inhomogeneous solubility\ndiffusion model. The diterpenes are observed to permeate freely through\nthese membranes, indicating that a transport protein may not be needed\nto export these small molecules from plant cells. Moreover, the permeability\nis observed to be greater for plant-like membrane compositions when\ncompared against animal-like membrane models. Increased permeability\nfor diterpene molecules in plant membranes suggest that plants have\ntailored their membranes to facilitate low-energy transport processes\nfor signaling molecules.",
+    "raw_text": "Plant Terpenoid Permeability through Biological Membranes Explored via Molecular Simulations\nPlants synthesize small molecule diterpenes composed\nof 20 carbons\nfrom precursor isopentenyl diphosphate and dimethylallyl disphosphate,\nmanufacturing diverse compounds used for defense, signaling, and other\nfunctions. Industrially, diterpenes are used as natural aromas and\nflavoring, as pharmaceuticals, and as natural insecticides or repellents.\nDespite diterpene ubiquity in plant systems, it remains unknown how\nplants control diterpene localization and transport. For many other\nsmall molecules, plant cells maintain transport proteins that control\ncompound compartmentalization. However, for most diterpene compounds,\nspecific transport proteins have not been identified, and so it has\nbeen hypothesized that diterpenes may cross biological membranes passively.\nThrough molecular simulation, we study membrane transport for three\ncomplex diterpenes from among the many made by members of the Lamiaceae family to determine their permeability coefficient\nacross plasma membrane models. To facilitate accurate simulation,\nthe intermolecular interactions for leubethanol, abietic acid, and\nsclareol were parametrized through the standard CHARMM methodology\nfor incorporation into molecular simulations. To evaluate the effect\nof membrane composition on permeability, we simulate the three diterpenes\nin two membrane models derived from sorghum and yeast lipidomics data.\nWe track permeation events within our unbiased simulations, and compare\nimplied permeation coefficients with those calculated from Replica\nExchange Umbrella Sampling calculations using the inhomogeneous solubility\ndiffusion model. The diterpenes are observed to permeate freely through\nthese membranes, indicating that a transport protein may not be needed\nto export these small molecules from plant cells. Moreover, the permeability\nis observed to be greater for plant-like membrane compositions when\ncompared against animal-like membrane models. Increased permeability\nfor diterpene molecules in plant membranes suggest that plants have\ntailored their membranes to facilitate low-energy transport processes\nfor signaling molecules.",
     "entities": [
         {
             "label": "MOL",
@@ -18,98 +18,98 @@
         {
             "label": "MOL",
             "text": "diterpenes",
-            "start": 127,
-            "end": 137
+            "start": 126,
+            "end": 136
         },
         {
             "label": "MOL",
             "text": "isopentenyl diphosphate",
-            "start": 176,
-            "end": 199
+            "start": 175,
+            "end": 198
         },
         {
             "label": "MOL",
             "text": "dimethylallyl disphosphate",
-            "start": 204,
-            "end": 230
+            "start": 203,
+            "end": 229
         },
         {
             "label": "MOL",
             "text": "diterpenes",
-            "start": 328,
-            "end": 338
+            "start": 327,
+            "end": 337
         },
         {
             "label": "MOL",
             "text": "diterpene",
-            "start": 452,
-            "end": 461
+            "start": 451,
+            "end": 460
         },
         {
             "label": "MOL",
             "text": "diterpene",
-            "start": 527,
-            "end": 536
+            "start": 526,
+            "end": 535
         },
         {
             "label": "MOL",
             "text": "diterpene",
-            "start": 699,
-            "end": 708
+            "start": 698,
+            "end": 707
         },
         {
             "label": "MOL",
             "text": "diterpenes",
-            "start": 811,
-            "end": 821
+            "start": 810,
+            "end": 820
         },
         {
             "label": "MOL",
             "text": "diterpenes",
-            "start": 940,
-            "end": 950
+            "start": 939,
+            "end": 949
         },
         {
             "label": "MOL",
             "text": "leubethanol",
-            "start": 1157,
-            "end": 1168
+            "start": 1156,
+            "end": 1167
         },
         {
             "label": "MOL",
             "text": "abietic acid",
-            "start": 1170,
-            "end": 1182
+            "start": 1169,
+            "end": 1181
         },
         {
             "label": "MOL",
             "text": "sclareol",
-            "start": 1188,
-            "end": 1196
+            "start": 1187,
+            "end": 1195
         },
         {
             "label": "FFM",
             "text": "CHARMM",
-            "start": 1236,
-            "end": 1242
+            "start": 1235,
+            "end": 1241
         },
         {
             "label": "MOL",
             "text": "diterpenes",
-            "start": 1387,
-            "end": 1397
+            "start": 1386,
+            "end": 1396
         },
         {
             "label": "MOL",
             "text": "diterpenes",
-            "start": 1704,
-            "end": 1714
+            "start": 1703,
+            "end": 1713
         },
         {
             "label": "MOL",
             "text": "diterpene",
-            "start": 2044,
-            "end": 2053
+            "start": 2043,
+            "end": 2052
         }
     ]
 }
