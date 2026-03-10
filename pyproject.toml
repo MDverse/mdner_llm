@@ -70,8 +70,11 @@ requires = ["uv_build>=0.9.22,<0.10.0"]
 build-backend = "uv_build"
 
 [project.scripts]
+count-entities = "mdner_llm.utils.count_entities:run_main_from_cli"
 select-annotations = "mdner_llm.utils.select_annotation_files:main"
 transfer-annotations = "mdner_llm.utils.transfer_annotations:main"
 qc-annotations = "mdner_llm.utils.qc_annotations:run_main_from_cli"
 extract-description = "mdner_llm.utils.extract_description_from_parquets:main"
 extract-entities = "mdner_llm.core.extract_entities:main"
+extract-entities-all-texts = "mdner_llm.core.extract_entities_all_texts:main"
+evaluate-annotations = "mdner_llm.core.evaluate_annotations:main"
