@@ -204,3 +204,6 @@ data/*
 *.csv
 *.tsv
 *.txt
+
+# exclude specific files
+!results/100_selected_md_dataset_description_paths.txt
