@@ -8,41 +8,6 @@ Selection priorities:
 1. Files containing all entity types at least once.
 2. Files with a moderate number of molecules (2 to 5).
 3. Most recent files.
-
-
-Usage:
-======
-uv run src/select_annotation_files.py --annotations-dir PATH --nb-files INT
-                             [--res-path PATH]
-
-
-Arguments:
-==========
---annotations-dir: Path
-    Directory containing annotation JSON files.
-    Default: "annotations/v2"
-
---nb-files: int
-    Maximum number of annotation files to select.
-    Default: 50
-
---res-path: Path (Optional)
-    Output directory where the result text file will be written.
-    If not provided, a timestamped directory is created under "results/".
-    Default:
-        results/{nb_files}_selected_files_YYYYMMDD_HHMMSS
-
-
-Example:
-========
-uv run src/select_annotation_files.py \
-        --annotations-dir annotations/v2 \
-        --nb-files 50 \
-        --res-path results/50_selected_files_20260102
-
-This command selects up to 50 annotation JSON files from `annotations/v2`
-according to entity coverage and recency, and writes their paths to:
-`results/50_selected_files_20260102.txt`
 """
 
 from datetime import UTC, datetime

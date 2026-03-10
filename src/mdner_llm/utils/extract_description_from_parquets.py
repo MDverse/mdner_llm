@@ -10,21 +10,7 @@ Each output file is named:
 
 The file content format is:
     title
-
     description
-
-Usage:
-    python src/extract_description_from_parquets.py --input-dir data/ \
-                                                    --output-dir annotations/v3
-
-Arguments:
-    --input-dir   Path to directory containing parquet files.
-    --output-dir  Path to directory where text files will be written.
-
-Example:
-    uv run src/extract_description_from_parquets.py \
-        --input-dir data/ \
-        --output-dir annotations/v3
 """
 
 import re

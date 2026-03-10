@@ -34,130 +34,27 @@ Requirements:
 -------------
 - Annotation files must exist in `--annotations-dir`. These are typically generated
 by running `extract_entities_all_texts.py` for several models/frameworks.
-
-
-Usage:
-=======
-    uv run src/evaluate_json_annotations.py [--annotations-dir PATH]
-                                            [--results-dir PATH]
-
-Arguments:
-==========
-    --annotations-dir: PATH
-        Directory containing the annotation JSON files to evaluate.
-        Default: "results/llm_annotations"
-
-    --results-dir: PATH
-        Directory where all evaluation outputs (Parquet files+summary Excel) are saved.
-        Default: "results/json_evaluation_stats/"
-
-Example:
-========
-    uv run src/evaluate_json_annotations.py
-
-This command evaluates all LLM-generated JSON annotations in `results/llm_annotations`,
-computes per-annotation metrics, and saves results into a Parquet file,
-e.g.,`results/json_evaluation_stats/per_text_metrics_2026-01-12T15-30-00.parquet`.
-It then aggregates statistics by framework and model into a single Excel summary file,
-e.g.,`results/json_evaluation_stats/evaluation_summary_2026-01-12T15-30-00.xlsx`.
 """
 
-# METADATAS
-__authors__ = ("Pierre Poulain", "Essmay Touami")
-__contact__ = "pierre.poulain@u-paris.fr"
-__copyright__ = "AGPL-3.0 license"
-__date__ = "2025"
-__version__ = "1.0.0"
-
-
-# LIBRARY IMPORTS
 import json
 import re
-import sys
 import time
 import unicodedata
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-import numpy as np
-
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-
 import click
+import numpy as np
 import pandas as pd
 from loguru import logger
 from openai.types.chat import ChatCompletion
 from pydantic import ValidationError as PydanticValidationError
 
-# UTILITY IMPORTS
-from models.pydantic_output_models import ListOfEntities, ListOfEntitiesPositions
-
-
-# FUNCTIONS
-def setup_logger(loguru_logger: Any, log_dir: str | Path = "logs") -> None:
-    """Configure a Loguru logger to write logs into a rotating daily log file.
-
-    Parameters
-    ----------
-    loguru_logger : Any
-        A Loguru logger instance (typically `loguru.logger`).
-    log_dir : str or Path, optional
-        Directory where log files will be stored. Default is "logs".
-    """
-    # Ensure log directory exists
-    log_folder = Path(log_dir)
-    log_folder.mkdir(parents=True, exist_ok=True)
-    # Reset any previous configuration
-    loguru_logger.remove()
-    log_file = (log_folder /
-                f"evaluate_json_annotations_{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log")
-
-    # Define log format
-    fmt = (
-        "{time:YYYY-MM-DD HH:mm:ss}"
-        "| <level>{level:<8}</level> "
-        "| <level>{message}</level>"
-    )
-    loguru_logger.add(
-        log_file,
-        format=fmt,
-        level="DEBUG",
-        mode="w",
-    )
-    loguru_logger.add(
-        sys.stdout,
-        format=fmt,
-        level="DEBUG",
-    )
-
-
-def ensure_dir(ctx, param, value: Path) -> Path:
-    """
-    Create the directory if it does not already exist.
-
-    Callback for Click options to ensure the provided path
-    is a valid directory. Behaves like `mkdir -p`.
-
-    Parameters
-    ----------
-    ctx : click.Context
-        The Click context for the current command invocation.
-        (Required by Click callbacks but unused in this function.)
-    param : click.Parameter
-        The Click parameter associated with this callback.
-        (Required by Click callbacks but unused in this function.)
-    value : Path
-        The directory path provided by the user, already converted
-        into a `pathlib.Path` object by Click.
-
-    Returns
-    -------
-    Path
-        The same path, after ensuring the directory exists.
-    """
-    value.mkdir(parents=True, exist_ok=True)
-    return value
+from mdner_llm.core.extract_entities import (ListOfEntities,
+                                             ListOfEntitiesPositions)
+from mdner_llm.core.logger import create_logger
+from mdner_llm.utils.common import ensure_dir
 
 
 def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
@@ -878,7 +775,7 @@ def evaluate_json_annotations(
         Directory where evaluation results, logs, and reports will be written.
     """
     # Configure logging
-    setup_logger(logger, results_dir)
+    logger = create_logger(f"logs/evaluate_annotations_{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log")
     logger.info("Starting evaluation of JSON annotation outputs...")
     logger.info(f"Annotations directory: {annotations_dir}")
     logger.info(f"Results directory: {results_dir} \n")
@@ -907,3 +804,4 @@ def evaluate_json_annotations(
 if __name__ == "__main__":
     # Evaluate json annotations through all models
     evaluate_json_annotations()
+

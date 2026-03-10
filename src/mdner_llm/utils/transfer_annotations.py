@@ -4,21 +4,6 @@ Transfer annotations to cleaned descriptions.
 This script updates annotation JSON files by replacing the `raw_text`
 field with cleaned descriptions from another directory and
 recomputing entity character offsets.
-
-
-Usage:
-    python src/transfer_annotations.py \
-        --old-annotations-path annotations/v2 \
-        --clean-descriptions-path annotations/v3 \
-
-Arguments:
-    --old-annotations-path     Directory containing original JSON annotation files.
-    --clean-descriptions-path  Directory containing cleaned text files.
-
-Example:
-    uv run src/transfer_annotations.py \
-        --old-annotations-path annotations/v2 \
-        --clean-descriptions-path annotations/v3
 """
 
 import json
@@ -26,15 +11,6 @@ from pathlib import Path
 
 import click
 from loguru import logger
-
-NEW_CLASSES = [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP",
-]
 
 
 def find_all_occurrences(text: str, entity: str) -> list[int]:
@@ -131,8 +107,6 @@ def process_file(
 
     # Update the raw_text field with the cleaned text
     data["raw_text"] = clean_text
-    # Update the classes to the new schema
-    data["classes"] = NEW_CLASSES
     # Recompute entity positions based on the cleaned text
     data["entities"] = recompute_entities(
         clean_text,

@@ -396,7 +396,7 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
     show_default=True,
     help="Directory to save results",
 )
-def run_from_cli(annotations_dir: Path, results_dir: Path) -> None:
+def run_main_from_cli(annotations_dir: Path, results_dir: Path) -> None:
     """Command line interface to count entities per class in JSON annotations.
 
     Parameters
@@ -410,4 +410,4 @@ def run_from_cli(annotations_dir: Path, results_dir: Path) -> None:
 
 
 if __name__ == "__main__":
-    run_from_cli()
+    run_main_from_cli()

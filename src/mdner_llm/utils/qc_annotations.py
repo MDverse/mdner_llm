@@ -8,23 +8,6 @@ per entity class.
 Each output file contains:
 - A header reporting the number of unique entities for the class
 - One normalized entity per line with its total occurrence count
-
-Usage
------
-uv run src/qc_entity_inventory.py --annot-folder PATH --out-folder PATH
-
-Arguments
----------
---annot-folder : str
-    Directory containing JSON annotation files.
---out-folder : str
-    Output directory where QC inventory files will be written.
-
-Examples
---------
-uv run src/qc_entity_inventory.py \
-    --annot-folder annotations/v3 \
-    --out-folder results/qc_annotations
 """
 
 import json
