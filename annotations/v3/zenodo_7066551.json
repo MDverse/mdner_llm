@@ -12,35 +12,20 @@
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-<<<<<<< HEAD
             "start": 318,
             "end": 325
-=======
-            "start": 319,
-            "end": 326
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-<<<<<<< HEAD
             "start": 359,
             "end": 366
-=======
-            "start": 360,
-            "end": 367
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "GROMACS",
-<<<<<<< HEAD
             "start": 471,
             "end": 478
-=======
-            "start": 472,
-            "end": 479
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/7066551"

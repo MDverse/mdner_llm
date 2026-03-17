@@ -12,35 +12,20 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 94,
             "end": 98
-=======
-            "start": 0,
-            "end": 4
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "CaCl2",
-<<<<<<< HEAD
             "start": 118,
             "end": 123
-=======
-            "start": 19,
-            "end": 24
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "LIPID14",
-<<<<<<< HEAD
             "start": 129,
             "end": 136
-=======
-            "start": 11,
-            "end": 18
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
@@ -69,13 +54,8 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 255,
             "end": 259
-=======
-            "start": 94,
-            "end": 98
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
@@ -86,24 +66,14 @@
         {
             "label": "MOL",
             "text": "Ca",
-<<<<<<< HEAD
             "start": 312,
             "end": 314
-=======
-            "start": 118,
-            "end": 120
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Cl",
-<<<<<<< HEAD
             "start": 319,
             "end": 321
-=======
-            "start": 21,
-            "end": 23
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",

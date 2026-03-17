@@ -7,11 +7,7 @@
         "FFM",
         "TEMP"
     ],
-<<<<<<< HEAD
-    "raw_text": "Effect of Triclosan and Chloroxylenol on Bacterial Membranes\nTriclosan and chloroxylenol\nare broad-spectrum biocides used extensively\nin healthcare and consumer products. They have been suggested to perturb\nthe structure of bacterial membranes, but studies so far have not\nconsidered that most bacterial membranes contain large amounts of branched-chain lipids. Here, molecular\ndynamics simulation is used to examine the effect of the two biocides\non membranes consisting of lipids with methyl-branched chains, cyclopropanated\nchains, and nonbranched chains. It is shown that triclosan and chloroxylenol\ninduced a phase transition in membranes from a liquid-crystalline\nto a liquid-ordered phase irrespective of the presence and nature\nof branching groups. At high concentration, chloroxylenol promoted\nchain interdigitation. Our results suggest that triclosan and chloroxylenol\ndecrease the degree of fluidity of membranes and that this effect\nis more pronounced in bacterial membranes. As a result, their biocidal\nactivity could be associated with a change in the function of membrane\nproteins.",
-=======
     "raw_text": "Effect of Triclosan and Chloroxylenol on Bacterial Membranes\nTriclosan and chloroxylenol are broad-spectrum biocides used extensively in healthcare and consumer products. They have been suggested to perturb the structure of bacterial membranes, but studies so far have not considered that most bacterial membranes contain large amounts of branched-chain lipids. Here, molecular dynamics simulation is used to examine the effect of the two biocides on membranes consisting of lipids with methyl-branched chains, cyclopropanated chains, and nonbranched chains. It is shown that triclosan and chloroxylenol induced a phase transition in membranes from a liquid-crystalline to a liquid-ordered phase irrespective of the presence and nature of branching groups. At high concentration, chloroxylenol promoted chain interdigitation. Our results suggest that triclosan and chloroxylenol decrease the degree of fluidity of membranes and that this effect is more pronounced in bacterial membranes. As a result, their biocidal activity could be associated with a change in the function of membrane proteins.",
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",
@@ -42,12 +38,6 @@
             "text": "biocides",
             "start": 108,
             "end": 116
-        },
-        {
-            "label": "MOL",
-            "text": "lipids",
-            "start": 354,
-            "end": 360
         },
         {
             "label": "MOL",

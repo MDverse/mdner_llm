@@ -7,11 +7,7 @@
         "FFM",
         "TEMP"
     ],
-<<<<<<< HEAD
-    "raw_text": "Assessing the Activation of Tyrosine Kinase KIT through Free Energy Calculations\nKIT is a type 3 receptor\ntyrosine kinase that plays a crucial role in cellular growth and proliferation.\nMutations in KIT can dysregulate its active–inactive equilibrium.\nActivating mutations drive cancer growth, while deactivating mutations\nresult in the loss of skin and hair pigmentation in a disease known\nas piebaldism. Here, we propose a method based on molecular dynamics\nand free energy calculations to predict the functional effect of KIT\nmutations. Our calculations may have important clinical implications\nby defining the functional significance of previously uncharacterized\nKIT mutations and guiding targeted therapy.",
-=======
     "raw_text": "Assessing the Activation of Tyrosine Kinase KIT through Free Energy Calculations\nKIT is a type 3 receptor tyrosine kinase that plays a crucial role in cellular growth and proliferation. Mutations in KIT can dysregulate its active–inactive equilibrium. Activating mutations drive cancer growth, while deactivating mutations result in the loss of skin and hair pigmentation in a disease known as piebaldism. Here, we propose a method based on molecular dynamics and free energy calculations to predict the functional effect of KIT mutations. Our calculations may have important clinical implications by defining the functional significance of previously uncharacterized KIT mutations and guiding targeted therapy.",
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",

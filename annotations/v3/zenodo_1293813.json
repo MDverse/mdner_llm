@@ -74,6 +74,12 @@
             "text": "POPE",
             "start": 565,
             "end": 569
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "INSANE",
+            "start": 600,
+            "end": 606
         }
     ],
     "url": "https://zenodo.org/records/1293813"

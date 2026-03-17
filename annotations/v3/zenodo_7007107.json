@@ -64,6 +64,24 @@
             "end": 1725
         },
         {
+            "label": "MOL",
+            "text": "Cys42",
+            "start": 2012,
+            "end": 2017
+        },
+        {
+            "label": "MOL",
+            "text": "Cys189",
+            "start": 2018,
+            "end": 2024
+        },
+        {
+            "label": "MOL",
+            "text": "Thr440",
+            "start": 2055,
+            "end": 2061
+        },
+        {
             "label": "SOFTNAME",
             "text": "GROMACS",
             "start": 2247,
@@ -74,6 +92,12 @@
             "text": "2020.4",
             "start": 2255,
             "end": 2261
+        },
+        {
+            "label": "FFM",
+            "text": "WT4",
+            "start": 2455,
+            "end": 2458
         },
         {
             "label": "MOL",
@@ -94,6 +118,12 @@
             "end": 2629
         },
         {
+            "label": "FFM",
+            "text": "WT4",
+            "start": 2749,
+            "end": 2752
+        },
+        {
             "label": "MOL",
             "text": "Na+",
             "start": 2799,
@@ -104,6 +134,30 @@
             "text": "Cl-",
             "start": 2818,
             "end": 2821
+        },
+        {
+            "label": "FFM",
+            "text": "WT4",
+            "start": 2958,
+            "end": 2961
+        },
+        {
+            "label": "MOL",
+            "text": "CD-NBD",
+            "start": 3210,
+            "end": 3216
+        },
+        {
+            "label": "MOL",
+            "text": "CD",
+            "start": 3210,
+            "end": 3212
+        },
+        {
+            "label": "MOL",
+            "text": "NBD",
+            "start": 3213,
+            "end": 3216
         },
         {
             "label": "MOL",
@@ -136,6 +190,12 @@
             "end": 4097
         },
         {
+            "label": "STIME",
+            "text": "80 ns",
+            "start": 4435,
+            "end": 4440
+        },
+        {
             "label": "TEMP",
             "text": "363 K",
             "start": 4460,
@@ -146,6 +206,12 @@
             "text": "363 K",
             "start": 4987,
             "end": 4992
+        },
+        {
+            "label": "TEMP",
+            "text": "90 ˚C",
+            "start": 4994,
+            "end": 4999
         },
         {
             "label": "MOL",
@@ -209,6 +275,12 @@
         },
         {
             "label": "MOL",
+            "text": "NBD",
+            "start": 6616,
+            "end": 6619
+        },
+        {
+            "label": "MOL",
             "text": "PPSA",
             "start": 6731,
             "end": 6735
@@ -224,6 +296,24 @@
             "text": "3 μs",
             "start": 6846,
             "end": 6850
+        },
+        {
+            "label": "STIME",
+            "text": "[250ns*6]*2",
+            "start": 6852,
+            "end": 6863
+        },
+        {
+            "label": "MOL",
+            "text": "CD",
+            "start": 7057,
+            "end": 7059
+        },
+        {
+            "label": "MOL",
+            "text": "CD",
+            "start": 7143,
+            "end": 7145
         },
         {
             "label": "MOL",
@@ -248,6 +338,12 @@
             "text": "12 μs",
             "start": 7322,
             "end": 7327
+        },
+        {
+            "label": "STIME",
+            "text": "[250ns*24]*2",
+            "start": 7329,
+            "end": 7341
         },
         {
             "label": "MOL",

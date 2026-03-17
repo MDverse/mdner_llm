@@ -36,35 +36,20 @@
         {
             "label": "MOL",
             "text": "hBGT1",
-<<<<<<< HEAD
             "start": 523,
             "end": 528
-=======
-            "start": 524,
-            "end": 529
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "GABA",
-<<<<<<< HEAD
             "start": 591,
             "end": 595
-=======
-            "start": 592,
-            "end": 596
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "100ns",
-<<<<<<< HEAD
             "start": 612,
             "end": 617
-=======
-            "start": 613,
-            "end": 618
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/5357152"

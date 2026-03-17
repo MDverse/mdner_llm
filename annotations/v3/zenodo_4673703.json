@@ -18,13 +18,8 @@
         {
             "label": "MOL",
             "text": "water",
-<<<<<<< HEAD
             "start": 436,
             "end": 441
-=======
-            "start": 437,
-            "end": 442
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/4673703"

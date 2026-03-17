@@ -7,12 +7,6 @@
         "FFM",
         "TEMP"
     ],
-<<<<<<< HEAD
-    "raw_text": "Using Intrinsic Surfaces To Calculate the Free-Energy Change When Nanoparticles Adsorb on Membranes\nA reaction coordinate\nthat can be used when investigating binding\nto dynamical surfaces with molecular dynamics is introduced. This\ncoordinate measures the distance between the adsorbate and an isocontour\nin a density field. Furthermore, the coordinate is continuous so simulation\nbiases that are a function of this coordinate can be added to the\nHamiltonian to increase the rate of adsorption/desorption. The efficacy\nof this new coordinates is demonstrated by performing metadynamics\nsimulations to measure the strength with which a hydrophilic nanoparticle\nbinds to a lipid bilayer. An investigation of the binding mechanism\nthat is performed using the coordinate demonstrates that the lipid\nbilayer undergoes a series of concerted changes in structure as the\nnanoparticle binds.",
-    "entities": [],
-    "url": "https://acs.figshare.com/articles/dataset/Using_Intrinsic_Surfaces_To_Calculate_the_Free-Energy_Change_When_Nanoparticles_Adsorb_on_Membranes/6494975"
-=======
     "raw_text": "Using Intrinsic Surfaces To Calculate the Free-Energy Change When Nanoparticles Adsorb on Membranes\nA reaction coordinate that can be used when investigating binding to dynamical surfaces with molecular dynamics is introduced. This coordinate measures the distance between the adsorbate and an isocontour in a density field. Furthermore, the coordinate is continuous so simulation biases that are a function of this coordinate can be added to the Hamiltonian to increase the rate of adsorption/desorption. The efficacy of this new coordinates is demonstrated by performing metadynamics simulations to measure the strength with which a hydrophilic nanoparticle binds to a lipid bilayer. An investigation of the binding mechanism that is performed using the coordinate demonstrates that the lipid bilayer undergoes a series of concerted changes in structure as the nanoparticle binds.",
     "entities": []
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
 }

@@ -12,46 +12,26 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 95,
             "end": 99
-=======
-            "start": 0,
-            "end": 4
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "NaCl",
-<<<<<<< HEAD
             "start": 116,
             "end": 120
-=======
-            "start": 23,
-            "end": 27
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-<<<<<<< HEAD
             "start": 126,
             "end": 138
-=======
-            "start": 5,
-            "end": 17
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 155,
             "end": 159
-=======
-            "start": 95,
-            "end": 99
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
@@ -92,13 +72,8 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 281,
             "end": 285
-=======
-            "start": 155,
-            "end": 159
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
@@ -109,52 +84,20 @@
         {
             "label": "MOL",
             "text": "Na",
-<<<<<<< HEAD
             "start": 319,
             "end": 321
-=======
-            "start": 116,
-            "end": 118
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Cl",
-<<<<<<< HEAD
             "start": 326,
             "end": 328
-=======
-            "start": 25,
-            "end": 27
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "200ns",
             "start": 330,
             "end": 335
-        },
-        {
-            "label": "FFM",
-            "text": "Ulmschneider",
-<<<<<<< HEAD
-            "start": 543,
-            "end": 555
-=======
-            "start": 126,
-            "end": 138
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
-        },
-        {
-            "label": "FFM",
-            "text": "Ulmschneider",
-<<<<<<< HEAD
-            "start": 563,
-            "end": 575
-=======
-            "start": 543,
-            "end": 555
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/30894"

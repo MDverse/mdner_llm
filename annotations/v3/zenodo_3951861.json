@@ -108,13 +108,8 @@
         {
             "label": "STIME",
             "text": "100ns",
-<<<<<<< HEAD
             "start": 1182,
             "end": 1187
-=======
-            "start": 1185,
-            "end": 1190
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/3951861"

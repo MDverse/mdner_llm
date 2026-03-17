@@ -7,11 +7,7 @@
         "FFM",
         "TEMP"
     ],
-<<<<<<< HEAD
-    "raw_text": "Predicting the mechanism and rate of H-NS binding to AT-rich DNA\n\n\n\nBacteria contain several nucleoid-associated proteins that organize their genomic DNA\ninto the nucleoid by bending, wrapping or bridging DNA. The Histone-like Nucleoid\nStructuring protein H-NS is a DNA bridging protein and can structure DNA by binding\nto two separate DNA duplexes or to adjacent sites on the same duplex, depending on\nexternal conditions. H-NS occurs in enterobacteria and influences the expression of\ngenes. Several nucleotide sequences have been identified to which H-NS binds with high\naffinity, indicating H-NS prefers AT-rich DNA. To date, highly detailed structural\ninformation of the H-NS DNA complex remains elusive. Molecular simulation can\ncomplement experiments by modelling structures and their time evolution in atomistic\ndetail. In this paper we report an exploration of the different binding modes of H-NS to\na high affinity nucleotide sequence and an estimate of the associated rate constant. By\nmeans of molecular dynamics simulations, we identified three types of binding for H-NS\nto AT-rich DNA. To further sample the transitions between these binding modes, we\nperformed Replica Exchange Transition Interface Sampling, providing predictions of the\nmechanism and rate constant of H-NS binding to DNA. H-NS interacts with the DNA\nthrough a conserved QGR motif, aided by a conserved arginine at position 93. The\nQGR motif interacts first with phosphate groups, followed by the formation of hydrogen\nbonds between acceptors in the DNA minor groove and the sidechains of either Q112 or\nR114. After R114 inserts into the minor groove, the rest of the QGR motif follows. Full\ninsertion of the QGR motif in the minor groove is stable over several tens of\nnanoseconds, and involves hydrogen bonds between the bases and both backbone and\nsidechains of the QGR motif. The rate constant for the process of H-NS binding to\nAT-rich DNA resulting in full insertion of the QGR motif is in the order of 106 M−1s−1,\nwhich is rate limiting compared to the non-specific association of H-NS to the DNA\nbackbone.\n\n\n\n",
-=======
     "raw_text": "Predicting the mechanism and rate of H-NS binding to AT-rich DNA\nBacteria contain several nucleoid-associated proteins that organize their genomic DNA into the nucleoid by bending, wrapping or bridging DNA. The Histone-like Nucleoid Structuring protein H-NS is a DNA bridging protein and can structure DNA by binding to two separate DNA duplexes or to adjacent sites on the same duplex, depending on external conditions. H-NS occurs in enterobacteria and influences the expression of genes. Several nucleotide sequences have been identified to which H-NS binds with high affinity, indicating H-NS prefers AT-rich DNA. To date, highly detailed structural information of the H-NS DNA complex remains elusive. Molecular simulation can complement experiments by modelling structures and their time evolution in atomistic detail. In this paper we report an exploration of the different binding modes of H-NS to a high affinity nucleotide sequence and an estimate of the associated rate constant. By means of molecular dynamics simulations, we identified three types of binding for H-NS to AT-rich DNA. To further sample the transitions between these binding modes, we performed Replica Exchange Transition Interface Sampling, providing predictions of the mechanism and rate constant of H-NS binding to DNA. H-NS interacts with the DNA through a conserved QGR motif, aided by a conserved arginine at position 93. The QGR motif interacts first with phosphate groups, followed by the formation of hydrogen bonds between acceptors in the DNA minor groove and the sidechains of either Q112 or R114. After R114 inserts into the minor groove, the rest of the QGR motif follows. Full insertion of the QGR motif in the minor groove is stable over several tens of nanoseconds, and involves hydrogen bonds between the bases and both backbone and sidechains of the QGR motif. The rate constant for the process of H-NS binding to AT-rich DNA resulting in full insertion of the QGR motif is in the order of 106 M−1s−1, which is rate limiting compared to the non-specific association of H-NS to the DNA backbone.",
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",
@@ -34,174 +30,66 @@
         {
             "label": "MOL",
             "text": "DNA",
-<<<<<<< HEAD
-            "start": 149,
-            "end": 152
-=======
             "start": 147,
             "end": 150
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 255,
-            "end": 259
-=======
             "start": 253,
             "end": 257
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "DNA",
-<<<<<<< HEAD
-            "start": 204,
-            "end": 207
-=======
             "start": 202,
             "end": 205
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "protein",
-<<<<<<< HEAD
-            "start": 112,
-            "end": 119
-=======
             "start": 110,
             "end": 117
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "DNA",
-<<<<<<< HEAD
-            "start": 265,
-            "end": 268
-=======
             "start": 263,
             "end": 266
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "DNA",
-<<<<<<< HEAD
-            "start": 304,
-            "end": 307
-=======
             "start": 302,
             "end": 305
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 423,
-            "end": 427
-=======
             "start": 421,
             "end": 425
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 552,
-            "end": 556
-=======
             "start": 550,
             "end": 554
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 594,
-            "end": 598
-=======
             "start": 592,
             "end": 596
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "AT-rich DNA",
-<<<<<<< HEAD
-            "start": 607,
-            "end": 618
-=======
             "start": 605,
             "end": 616
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 675,
-            "end": 679
-        },
-        {
-            "label": "MOL",
-            "text": "DNA",
-            "start": 335,
-            "end": 338
-        },
-        {
-            "label": "MOL",
-            "text": "H-NS",
-            "start": 900,
-            "end": 904
-        },
-        {
-            "label": "MOL",
-            "text": "H-NS",
-            "start": 1078,
-            "end": 1082
-        },
-        {
-            "label": "MOL",
-            "text": "AT-rich DNA",
-            "start": 1086,
-            "end": 1097
-        },
-        {
-            "label": "MOL",
-            "text": "H-NS",
-            "start": 1283,
-            "end": 1287
-        },
-        {
-            "label": "MOL",
-            "text": "DNA",
-            "start": 615,
-            "end": 618
-        },
-        {
-            "label": "MOL",
-            "text": "H-NS",
-            "start": 1304,
-            "end": 1308
-        },
-        {
-            "label": "MOL",
-            "text": "DNA",
-            "start": 680,
-            "end": 683
-        },
-        {
-            "label": "MOL",
-            "text": "phosphate",
-            "start": 1444,
-            "end": 1453
-=======
             "start": 673,
             "end": 677
         },
@@ -258,62 +146,36 @@
             "text": "phosphate",
             "start": 1442,
             "end": 1451
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "DNA",
-<<<<<<< HEAD
-            "start": 1094,
-            "end": 1097
-=======
             "start": 1092,
             "end": 1095
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 1898,
-            "end": 1902
-=======
             "start": 1896,
             "end": 1900
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "AT-rich",
-<<<<<<< HEAD
-            "start": 1914,
-            "end": 1921
-=======
             "start": 1912,
             "end": 1919
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "H-NS",
-<<<<<<< HEAD
-            "start": 2069,
-            "end": 2073
-=======
             "start": 2067,
             "end": 2071
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "DNA",
-<<<<<<< HEAD
-            "start": 1299,
-            "end": 1302
-=======
             "start": 1297,
             "end": 1300
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://uvaauas.figshare.com/articles/dataset/Predicting_the_mechanism_and_rate_of_H-NS_binding_to_AT-rich_DNA/6960098"

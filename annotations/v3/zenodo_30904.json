@@ -12,35 +12,20 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 98,
             "end": 102
-=======
-            "start": 0,
-            "end": 4
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Ulmschneider",
-<<<<<<< HEAD
             "start": 150,
             "end": 162
-=======
-            "start": 5,
-            "end": 17
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 179,
             "end": 183
-=======
-            "start": 98,
-            "end": 102
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
@@ -63,13 +48,8 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 245,
             "end": 249
-=======
-            "start": 179,
-            "end": 183
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
@@ -88,28 +68,6 @@
             "text": "CHARMM-GUI",
             "start": 372,
             "end": 382
-        },
-        {
-            "label": "FFM",
-            "text": "Ulmschneider",
-<<<<<<< HEAD
-            "start": 546,
-            "end": 558
-=======
-            "start": 150,
-            "end": 162
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
-        },
-        {
-            "label": "FFM",
-            "text": "Ulmschneider",
-<<<<<<< HEAD
-            "start": 566,
-            "end": 578
-=======
-            "start": 546,
-            "end": 558
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/30904"

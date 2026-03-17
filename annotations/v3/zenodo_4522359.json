@@ -54,68 +54,38 @@
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-<<<<<<< HEAD
             "start": 577,
             "end": 584
-=======
-            "start": 578,
-            "end": 585
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTVERS",
             "text": "(v. 2016.4)",
-<<<<<<< HEAD
             "start": 585,
             "end": 596
-=======
-            "start": 586,
-            "end": 597
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Charmm36 (v. June 2015)",
-<<<<<<< HEAD
             "start": 609,
             "end": 632
-=======
-            "start": 610,
-            "end": 633
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Water",
-<<<<<<< HEAD
             "start": 635,
             "end": 640
-=======
-            "start": 636,
-            "end": 641
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "TIP3P",
-<<<<<<< HEAD
             "start": 642,
             "end": 647
-=======
-            "start": 643,
-            "end": 648
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "50 ns",
-<<<<<<< HEAD
             "start": 787,
             "end": 792
-=======
-            "start": 788,
-            "end": 793
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/4522359"

@@ -30,13 +30,8 @@
         {
             "label": "MOL",
             "text": "POPC",
-<<<<<<< HEAD
             "start": 197,
             "end": 201
-=======
-            "start": 134,
-            "end": 138
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
@@ -55,6 +50,12 @@
             "text": "SPC/E",
             "start": 345,
             "end": 350
+        },
+        {
+            "label": "FFM",
+            "text": "ECC-ions",
+            "start": 367,
+            "end": 375
         },
         {
             "label": "SOFTNAME",

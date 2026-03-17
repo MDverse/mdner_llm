@@ -7,11 +7,7 @@
         "FFM",
         "TEMP"
     ],
-<<<<<<< HEAD
-    "raw_text": "AIM: A Mapping Program for Infrared Spectroscopy of Proteins\nHere, we present\na new analysis program, AIM, that allows extracting\nthe vibrational amide-I Hamiltonian using molecular dynamics trajectories\nfor protein infrared spectroscopy modeling. The constructed Hamiltonians\ncan be used as input for spectral calculations allowing the calculation\nof infrared absorption spectra, vibrational circular dichroism, and\ntwo-dimensional infrared spectra. These spectroscopies allow the study\nof the structure and dynamics of proteins. We will explain the essence\nof how AIM works and give examples of the information and spectra\nthat can be obtained with the program using the Trypsin Inhibitor\nas an example. AIM is freely available from GitHub, and the package\ncontains a demonstration allowing easy introduction to the use of\nthe program.",
-=======
     "raw_text": "AIM: A Mapping Program for Infrared Spectroscopy of Proteins\nHere, we present a new analysis program, AIM, that allows extracting the vibrational amide-I Hamiltonian using molecular dynamics trajectories for protein infrared spectroscopy modeling. The constructed Hamiltonians can be used as input for spectral calculations allowing the calculation of infrared absorption spectra, vibrational circular dichroism, and two-dimensional infrared spectra. These spectroscopies allow the study of the structure and dynamics of proteins. We will explain the essence of how AIM works and give examples of the information and spectra that can be obtained with the program using the Trypsin Inhibitor as an example. AIM is freely available from GitHub, and the package contains a demonstration allowing easy introduction to the use of the program.",
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",

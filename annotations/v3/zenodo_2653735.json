@@ -107,25 +107,9 @@
         },
         {
             "label": "MOL",
-            "text": "phospholipid",
-<<<<<<< HEAD
-            "start": 1145,
-            "end": 1157
-=======
-            "start": 1148,
-            "end": 1160
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
-        },
-        {
-            "label": "MOL",
             "text": "cholesterol",
-<<<<<<< HEAD
-            "start": 1246,
-            "end": 1257
-=======
             "start": 1249,
             "end": 1260
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/2653735"

@@ -18,134 +18,74 @@
         {
             "label": "MOL",
             "text": "epoxy resins",
-<<<<<<< HEAD
             "start": 166,
             "end": 178
-=======
-            "start": 167,
-            "end": 179
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "epoxy resins",
-<<<<<<< HEAD
             "start": 463,
             "end": 475
-=======
-            "start": 464,
-            "end": 476
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "AMBER",
-<<<<<<< HEAD
             "start": 499,
             "end": 504
-=======
-            "start": 500,
-            "end": 505
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "epoxy resin",
-<<<<<<< HEAD
             "start": 1432,
             "end": 1443
-=======
-            "start": 1433,
-            "end": 1444
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "Packmol",
-<<<<<<< HEAD
             "start": 2293,
             "end": 2300
-=======
-            "start": 2297,
-            "end": 2304
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "Lammps",
-<<<<<<< HEAD
             "start": 2210,
             "end": 2216
-=======
-            "start": 2214,
-            "end": 2220
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTVERS",
             "text": "Stable Dec. 2018",
-<<<<<<< HEAD
             "start": 2473,
             "end": 2489
-=======
-            "start": 2478,
-            "end": 2494
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "alcohol",
-<<<<<<< HEAD
             "start": 3521,
             "end": 3528
-=======
-            "start": 3538,
-            "end": 3545
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "Gaussian",
-<<<<<<< HEAD
             "start": 3628,
             "end": 3636
-=======
-            "start": 3648,
-            "end": 3656
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTVERS",
             "text": "16 Rev B01",
-<<<<<<< HEAD
             "start": 3637,
             "end": 3647
-=======
-            "start": 3657,
-            "end": 3667
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "LAMMPS",
-<<<<<<< HEAD
             "start": 3665,
             "end": 3671
-=======
-            "start": 3685,
-            "end": 3691
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTVERS",
             "text": "(Dec 2018, stable)",
-<<<<<<< HEAD
             "start": 3672,
             "end": 3690
-=======
-            "start": 3692,
-            "end": 3710
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/7273800"

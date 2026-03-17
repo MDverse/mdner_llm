@@ -60,13 +60,8 @@
         {
             "label": "MOL",
             "text": "DMPC",
-<<<<<<< HEAD
             "start": 304,
             "end": 308
-=======
-            "start": 215,
-            "end": 219
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",

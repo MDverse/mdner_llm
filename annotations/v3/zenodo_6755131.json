@@ -23,6 +23,18 @@
         },
         {
             "label": "MOL",
+            "text": "Y198N",
+            "start": 151,
+            "end": 156
+        },
+        {
+            "label": "MOL",
+            "text": "Y204F",
+            "start": 163,
+            "end": 168
+        },
+        {
+            "label": "MOL",
             "text": "Phenylalanine-4-hydroxylase",
             "start": 218,
             "end": 245
@@ -46,6 +58,12 @@
             "end": 362
         },
         {
+            "label": "MOL",
+            "text": "Fe(II)",
+            "start": 416,
+            "end": 422
+        },
+        {
             "label": "FFM",
             "text": "TIP3P",
             "start": 439,
@@ -56,6 +74,36 @@
             "text": "KCl",
             "start": 475,
             "end": 478
+        },
+        {
+            "label": "MOL",
+            "text": "Y198N",
+            "start": 543,
+            "end": 548
+        },
+        {
+            "label": "MOL",
+            "text": "Y204F",
+            "start": 580,
+            "end": 585
+        },
+        {
+            "label": "MOL",
+            "text": "E353",
+            "start": 626,
+            "end": 630
+        },
+        {
+            "label": "MOL",
+            "text": "E422",
+            "start": 635,
+            "end": 639
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PROPKA",
+            "start": 671,
+            "end": 677
         },
         {
             "label": "MOL",
@@ -98,6 +146,18 @@
             "text": "310 K",
             "start": 1147,
             "end": 1152
+        },
+        {
+            "label": "MOL",
+            "text": "Y198N",
+            "start": 1522,
+            "end": 1527
+        },
+        {
+            "label": "MOL",
+            "text": "Y204F",
+            "start": 1532,
+            "end": 1537
         },
         {
             "label": "MOL",

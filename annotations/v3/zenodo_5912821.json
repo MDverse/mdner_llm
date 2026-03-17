@@ -108,68 +108,38 @@
         {
             "label": "MOL",
             "text": "ChAT",
-<<<<<<< HEAD
             "start": 842,
             "end": 846
-=======
-            "start": 843,
-            "end": 847
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ChAT",
-<<<<<<< HEAD
             "start": 942,
             "end": 946
-=======
-            "start": 943,
-            "end": 947
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ChAT",
-<<<<<<< HEAD
             "start": 1042,
             "end": 1046
-=======
-            "start": 1043,
-            "end": 1047
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ChAT",
-<<<<<<< HEAD
             "start": 1142,
             "end": 1146
-=======
-            "start": 1143,
-            "end": 1147
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ChAT",
-<<<<<<< HEAD
             "start": 1242,
             "end": 1246
-=======
-            "start": 1243,
-            "end": 1247
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ChAT",
-<<<<<<< HEAD
             "start": 1342,
             "end": 1346
-=======
-            "start": 1343,
-            "end": 1347
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/5912821"

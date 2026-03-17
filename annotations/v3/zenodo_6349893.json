@@ -12,112 +12,62 @@
         {
             "label": "MOL",
             "text": "Chignolin",
-<<<<<<< HEAD
-            "start": 195,
-            "end": 204
-=======
             "start": 196,
             "end": 205
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "1.5 micro-sec",
-<<<<<<< HEAD
-            "start": 245,
-            "end": 258
-=======
             "start": 246,
             "end": 259
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "PyMOL",
-<<<<<<< HEAD
-            "start": 280,
-            "end": 285
-=======
             "start": 281,
             "end": 286
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
-<<<<<<< HEAD
-            "start": 413,
-            "end": 420
-=======
             "start": 414,
             "end": 421
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Amber ff99SB-ILDN",
-<<<<<<< HEAD
-            "start": 522,
-            "end": 539
-=======
-            "start": 526,
+            "start": 523,
             "end": 543
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Amber ff99SB",
-<<<<<<< HEAD
-            "start": 627,
-            "end": 639
-=======
-            "start": 631,
+            "start": 630,
             "end": 643
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "TIP3P",
-<<<<<<< HEAD
-            "start": 692,
-            "end": 697
-=======
             "start": 696,
             "end": 701
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "TEMP",
             "text": "300 K",
-<<<<<<< HEAD
-            "start": 752,
-            "end": 757
-=======
             "start": 756,
             "end": 761
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "gromacs",
-<<<<<<< HEAD
-            "start": 924,
-            "end": 931
-=======
             "start": 928,
             "end": 935
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTVERS",
             "text": "2020.6",
-<<<<<<< HEAD
-            "start": 932,
-            "end": 938
-=======
             "start": 936,
             "end": 942
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/6349893"

@@ -30,24 +30,14 @@
         {
             "label": "MOL",
             "text": "Pyrimidoindole",
-<<<<<<< HEAD
             "start": 315,
             "end": 329
-=======
-            "start": 316,
-            "end": 330
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "Desmond",
-<<<<<<< HEAD
             "start": 518,
             "end": 525
-=======
-            "start": 520,
-            "end": 527
->>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/4646862"
