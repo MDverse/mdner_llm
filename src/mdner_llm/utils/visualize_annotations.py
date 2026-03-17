@@ -72,7 +72,7 @@ def visualize_annotations_from_json_file(file_path: Path) -> None:
 
     # Print header in console
     print("=" * 80)
-    print(f"VISUALIZATION OF ENTITIES ({file_path.name}: {data['url']})")
+    print(f"VISUALIZATION OF ENTITIES ({file_path.name}: {data.get('url', 'no URL')})")
     print("=" * 80)
 
     # Convert annotations and render with displaCy
