@@ -203,7 +203,4 @@ data/*
 *.xtcx
 *.csv
 *.tsv
-*.txt
-
-# exclude specific files
-!results/100_selected_md_dataset_description_paths.txt
+annotations/v3/*.txt
