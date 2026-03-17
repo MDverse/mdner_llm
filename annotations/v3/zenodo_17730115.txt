@@ -1,0 +1,5 @@
+MD simulation trajectory of Ternary mixture of POPC/PSM/Ergo (2:2:1) at 295 K: Slipids, GROMACS 2019.6
+
+MD simulation trajectory files for Ternary mixture of POPC/PSM/Ergo [408 POPC, 408 SM16, 208 Ergo and 35840 SOL]. The Slipids (2013 version) force field was used with Gromacs 2019.6. Ergosterol parameters from https://doi.org/10.1002/bit.25845 . Conditions: T=295K. Data saved every 20 ps. 100 ns trajectory.
+ 
+PREEQTIME: 100 nsTIMELEFTOUT: 6.4 μs

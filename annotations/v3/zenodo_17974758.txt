@@ -1,0 +1,4 @@
+Structures and files for MD simulations of ternary complexes FKBP12-FRAP-rapamycin and FKBP12-CEP250-WDB002
+The directory contains the structures and files used to start molecular dynamics simulations of apo and holo forms of the ternary complexes FKBP12-FRAP-rapamycin and FKBP12-CEP250-WDB002 as well as the binary complexes: FKBP12-rapamycin, FRAP-rapamycin, FKBP12-WDB002 and CEP250-WDB002. The files required to calculate the MM/GBSA binding free energies and frequency of occurrence of water-mediated hydrogen bonds between protein chains are also included.
+ Details about the modeling and simulations can be found in the paper: 
+Molecular glues stabilize water-mediated hydrogen bonds in ternary complexes-Apoorva Mathur, Mariona Alegre Canela, Max von Graevenitz, Chiara Gerstner, Ariane Nunes-Alves*

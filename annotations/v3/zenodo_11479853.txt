@@ -1,0 +1,26 @@
+Molecular dynamics trajectories and portable binary run files for the self-assembly of heparin and amyloid-β(16-22) with the ProMPT forcefield
+About this repository
+Self-assembly simulations of heparin and amyloid-β(16-22) were performed at various numbers of peptides (N_pep), number of heparin molecules (N_hep), degrees of polymerization of heparin (hep_dp) and rigidity factors (rig_f) for heparin. This repository contains one folder per system, characterized by a combination of four system variables: N_pep, N_hep, hep_dp and rig_f. 
+The simulations were performed on the GROMACS 2019.4 molecular dynamics engine, with the ProMPT forcefield for coarse-grained molecular dynamics. Four independent trials: trial_A, trial_B, trial_C and trial_D were performed per system, each with different starting velocities. Each trial was run for 3000 ns.
+Contents
+> heparin_abeta_trajectories.zip
+The repository contains the zip file heparin_abeta_trajectories.zip with 13 folders named according to the convention, "{N_pep}pep_{N_hep}hep_dp{hep_dp}_{rig_f}xRigid". For example, data for the system consisting of 16 peptides (N_pep), 1 heparin (N_hep), 18 monosaccharides in length (hep_dp) with a rigidity factor of 100 (rig_f) would be stored in the directory 16pep_1hep_dp18_100xRigid/.
+If the system did not contain heparin, N_hep, hep_dp and rig_f  were set to 0 by default. For example, data for the system consisting of 16 peptides (N_pep) and no heparin would be stored in the directory 16pep_0hep_dp0_0xRigid/.
+A directory such as 16pep_1hep_dp18_100xRigid/ will have the following contents:
+
+solute_only.ndxContains an index group for solute molecules (peptides and/or heparin) only.
+trial_A/
+
+md.tpr Portable run file with which the current trajectory was generated. This file may be used to reproduce the trajectory as well.
+solute_only.cluster_center.xtc A gromacs trajectory containing only the solute molecules (peptides and/or heparin), centered with the gromacs tool gmx trjconv
+solute_only.tpr A gromacs portable binary input file containing data for the solute molecules (peptides and/or heparin) only, generated with the gmx convert-tpr tool.This file may be used during analysis of the solute_only.cluster_center.xtc trajectory.
+
+
+trial_B/contents same as trial_A/
+trial_C/contents same as trial_A/
+trial_D/contents same as trial_A/
+
+> psf_files_for_VMD_visualization.zip
+This zip file contains thirteen .psf files, one per system, that can be used in accord with solute_only.cluster_center.xtc files to visualize trajectories on the Visual Molecular Dynamics (VMD) software.
+Please seek out the associated publication for essential context on these trajectories. 
+To access the source files with which these simulations were set-up, and a brief tutorial, see: https://github.com/suhasgotla/heparin_amyloid_self-assembly

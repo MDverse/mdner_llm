@@ -1,0 +1,8 @@
+Coevolution-driven constant pH MD Simulations of GPR68
+Contains all files necessary to reproduce the MD simulations and analysis, along with the CV generation pipeline for the paper "Molecular basis of proton-sensing by G protein-coupled receptors"
+The folder named "equilibration" contains all inputs and outputs generated during the equilibration phases, both with and without the cpH algorithm turned on.
+The folder named "AWH_inputs" contains all inputs necessary to replicate the work for pH6 and pH7 conditions, including parameters and the output pullx.xvg files plotted in SI fig 14.
+The folder named "CV_generation" contains all inputs and outputs generated during the CV generation procedure
+The "Titration_results" folder contains the output lambda coordinates for both pH6 and pH7, along with a decision plot showing why we honed in on a specific subset of titratable residues. 
+Finally, the source code for GROMACS containing the merged versions of cpH and modern transformation pull coordinate and AWH code is contained in the "cpH_transformation_GROMACS" folder.
+ 

@@ -1,0 +1,2 @@
+Supplementary files for publication: Computational investigation of cis-1,4-polyisoprene binding to the latex clearing protein LcpK30
+Input and output information from the computational analysis, including Caver and fpocket setups; GOLD docking protocols; additional analysis from MD simulations and full MD inputs; and details on protein-ligand docking results

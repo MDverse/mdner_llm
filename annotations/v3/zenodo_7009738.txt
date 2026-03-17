@@ -1,0 +1,2 @@
+Data-MC/MD/BOMD-ZIF8
+Input files, topologies, atomic parameters and initial coordinates for Monte Carlo (MC), Molecular Dynamics (MD), Born-Oppenheimer Molecular Dynamics (BOMD) of ZIF-8 accounting for different chemical composition of the nanoparticle surface and unit cells. On August 19th, 2022, the previous data deposited on Zenodo (https://doi.org/10.5281/zenodo.6527694) was modified to include Cartesian coordinates for QM-optimized clusters of ZIF-8 surface sites.

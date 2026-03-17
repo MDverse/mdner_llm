@@ -1,0 +1,2 @@
+mdout.mdp
+mdp options NVE simulations with Gromacs 4.6.3

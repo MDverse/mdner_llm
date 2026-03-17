@@ -1,0 +1,2 @@
+Strengthening E-cadherin adhesion via antibody mediated binding stabilization
+Simulation files for the publication: "Strengthening E-cadherin adhesion via antibody mediated binding stabilization". This includes starting structure files, GROMACS parameters files, GROMACS run input files and sample protein trajectory files for all conditions: +ab strong (set 1), +ab weak (set 5), -ab (set 1), K14E +ab (set 1), and 1ab (set 1) conditions. Due to the limitation of the maximum upload size (50GB), only protein trajectories were uploaded without solvent.  

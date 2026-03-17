@@ -1,0 +1,2 @@
+The nature of extraframework aluminum species and Brønsted acid site interactions under catalytic operating conditions
+This dataset contains example VASP and CP2K input files with VASP optimized strucure files in cif format and xyz trajectories for ab-initio molecular dynamics simulations performed on extraframework aluminum species in H-ZSM-5 unit cells.

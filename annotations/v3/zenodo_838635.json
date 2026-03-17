@@ -108,8 +108,13 @@
         {
             "label": "FFM",
             "text": "OPC",
+<<<<<<< HEAD
             "start": 1228,
             "end": 1231
+=======
+            "start": 497,
+            "end": 500
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/838635"

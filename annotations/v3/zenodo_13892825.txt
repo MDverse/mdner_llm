@@ -1,0 +1,56 @@
+Molecular Dynamics Trajectories Exploring the Impact of Phosphorylation on the Physiological Form of Human alpha-Synuclein in Aqueous Solution
+Primary data for the publication "Impact of Phosphorylation on the Physiological Form of Human alpha-Synuclein in Aqueous Solution" by de Bruyn, Dorn, Rossetti, Fernandez, Outeiro, Schulz and Carloni. Submitted to the Journal of Chemical Information and Modeling.
+Included are all GROMACS input files, parameterised topologies, starting and final configurations, and trajectories for the lowest temperature replica (at 300 K, lowest of 32 replicas between 300-500 K exchanging according to the REST2 algorithm (Wang et al. 2011)). The data is split into three archives:
+
+all_atom_trajectories.zip
+
+contains all input files and all atom trajectories including solvent
+trajectories written at 100 ps intervals
+
+
+protein+ion_trajectories.zip
+
+contains configuration/non-parameterised topologies and trajectories excluding solvent, but including ions
+trajectories written at 10 ps intervals
+
+
+additional_simulations.zip
+
+contains the all atom trajectories and input files, and
+solvent-free trajectories above,
+for the additional simulations in the Supplemental Information of the article:
+
+includes the DES-Amber-based simulations with 64 replicas between 300-600 K, and
+a99SB-disp-based simulations
+
+
+
+
+
+ 
+Folders are named according to the following top level scheme:
+
+DES-Amber simulations/ Simulations created using the DES-Amber force field (Tucker et al. 2022)
+a99SB-disp simulations/ SImulations created using the a99SB-disp force field for Intrinsically Disordered Proteins (IDPs) (Robustelli et al. 2018)
+
+Sub-folders follow the following scheme:
+
+AS/ Simulations of the physiological form of wild-type Human α-Synuclein
+
+unphosphorylated
+
+
+pAS/ Simulations of the physiological form of wild-type Human α-Synuclein
+
+phosphorylated at S129
+with double negative charge
+
+
+pASH/ Simulations of the physiological form of wild-type Human α-Synuclein (a99SB-disp simulations only)
+
+phosphorylated at S129
+with a single negative charge (monoprotonated)
+
+
+
+ 

@@ -1,0 +1,2 @@
+Peptidoglycan biosynthesis is driven by lipid transfer along enzyme-substrate affinity gradients
+Raw Mass Spectrometry data and MD parameters for main figures and supplementary figures  for the journal article "Peptidoglycan biosynthesis is driven by lipid transfer along enzyme-substrate affinity gradients"

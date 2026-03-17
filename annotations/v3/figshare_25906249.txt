@@ -1,0 +1,2 @@
+Simulation data for compact ion-pair aggregate electrolyte
+- AIMDThe AIMD snapshot (in VASP format) for Fig. 5 and Supplementary Fig. 49- cmdThe classical molecular dynamic (cMD) simulation input files (in Gromacs formation for) Fig. 4a-d, Supplementary Fig.33，Fig.34，Fig.36，Fig.41, Fig.45, Fig.46, Supplementary Table 4Fig. 47- pDOSThe snapshot of density functional theory (DFT) pDOS analysis for Supplementary Fig. 47, Supplementary Fig.48The DFT calculations are carried out using VASP 5.4.4.The cMD simulations are carried out using Gromacs 2020.3.

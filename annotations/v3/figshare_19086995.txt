@@ -1,0 +1,2 @@
+Supporting MD material for manuscript "Dynamic Covalent Self-Assembly of Chloride- and Ion Pair-Templated Cryptates"
+Supporting MD material for manuscrit "Dynamic Covalent Self-Assembly of Chloride- and Ion Pair-Templated Cryptates" by  Selina Hollstein, Oleksandr Shyshov, Marko Hanževački, Jie Zhao, Tamara Rudolf, Christof M. Jäger and Max von DeliusFiles contain molecular-dynamics force field parameters, input, topology, and simulation run files

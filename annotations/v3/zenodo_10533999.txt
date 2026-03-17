@@ -1,0 +1,11 @@
+Molecular simulations of nanoscale two-phase Couette flow of a water-hexane system on a hydrophilic substrate
+This dataset contains the output of Molecular Dynamics simulations (MD) of two-phase Couette flow of water/hexane biphasic systems, in terms of density, velocity and temperature fields. Instructions on how to read and analyze the output files in the .tar.gz archives can be found in these previously-published datasets: https://doi.org/10.5281/zenodo.8077915, https://doi.org/10.5281/zenodo.6541983
+The run output files are labeled using the following pattern: hex-ca<capillary-number>-q<partial-charge>.tar.gz. It is possible to obtain the wall speed/contact line speed from the capillary number using the following formula: u_w = U_0*<capillary-number>, with U_0 = 37.246 m/s.
+To reproduce the runs it is necessary to use a specific version of Gromacs that allows for a special algorithm of pressure scaling with position restraints. The code can be obtained by cloning https://github.com/MicPellegrino/gromacs-flow-field.git, and switching to the flow-field-grid-visco-coms-deform branch.
+The folder conf-wat-hex.zip contains the configuration files to reproduce MD simulations. To prepare the equilibration runs at constant pressure, run after having installed Gromacs:
+gmx grompp -f npt.mdp -p topology.top -c before-npt.gro -r before-npt.gro -o system-npt.tpr
+while to prepare the shear runs:
+gmx grompp -f shear.mdp -p topology.top -c after-npt.gro -r lambda0.gro -rb lambda1.gro -o system-shear.tpr
+Simulations are launched by running:
+gmx mdrun -v -s <tpr-file-name>.tpr <possibly-other-mdrun-flags>
+Have fun simulating!

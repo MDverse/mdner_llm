@@ -1,0 +1,5 @@
+Molecular Dynamics data: Dual inhibitory activity of bioactive compounds from Chlorella vulgaris against COX-1 and NIK
+File specification
+COX-1.zip: MD data of 3 complexes (MXM, C8, and C4)NIK.zip: MD data of 3 complexes (OWC, C8, and C4)
+How to use a trajectory
+This data can be used using GROMACS 2022 or a higher version. The conformational changes can be visualized using PyMOL.If you have any questions, please feel free to contact the authors.

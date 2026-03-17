@@ -1,0 +1,14 @@
+3x 5 µs all-atom MD trajectories; AMBER ff99SB*-ILDN & TIP4P/2005; T4 Lysozyme; 'Fitting side-chain NMR relaxation data using molecular simulations'
+Simulation data for "Fitting side-chain NMR relaxation data using molecular simulations" (https://doi.org/10.1101/2020.08.18.256024).
+
+3 x 5 µs all-atom MD simulations of T4 Lysozyme
+Force field: AMBER ff99SB*-ILDN with modified methyl rotation barriers1
+Water model: TIP4P/2005
+Compressed protein coordinates saved every 1 ps to enable calculation of side-chain NMR relaxation parameters
+
+Contains:
+
+3 x GROMACS .xtc trajectory files for 3 independent simulations
+3 x corresponding GROMACS .tpr topology files
+
+1 Hoffmann, F., Mulder, F. A. A., & Schäfer, L. V. (2018). Accurate Methyl Group Dynamics in Protein Simulations with AMBER Force Fields. The Journal of Physical Chemistry B, 122(19), 5038–5048. https://doi.org/10.1021/acs.jpcb.8b02769

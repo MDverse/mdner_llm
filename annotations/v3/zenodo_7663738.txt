@@ -1,0 +1,11 @@
+Simulation data for "Chain Sliding versus β-Sheet Formation upon Shearing Single α-Helical Coiled Coils"
+Content
+- Input and output files of the steered molecular dynamics simulations; python, VMD/Tcl scripts to produce the figures containing simulation data presented in the main text and in the SI of the associated publication.
+Movies  of two simulation runs of the A5N3B5N3 coiled coil at vpull=0.01 nm/ns: two movies of different durations of a simulation run where the alpha-to-beta transition occurs (A5B5_BetaSheet-1min30sec.gif and A5B5_BetaSheet-30sec.gif); one movie of a simulation run where the alpha-to-beta transition does not occur (A5B5_noBetaSheet-23sec.gif).   The movies can be played by dragging-and-dropping into a web browser (e.g., Firefox).
+Instructions
+Usage of this dataset necessitates basic knowledge of python, LaTex, VMD/Tcl and Gromacs.
+Unzip all files in  the same directory. 
+- analysis05/dataverse-simulation-figures.pdf contains all figures with simulation data shown in the main text and in the SI of the associated publication.  
+-  analysis05/dataverse-simulation-figures.tex can be consulted to determine the names of each figure.   With a few exceptions,  any output files produced by a script share the same prefix as the script name.  E.g., figure s027_v04_A4B4_vE-2_ForceTrace_vs_z-L0.pdf was produced by script s027_v04*py;  vmd04_v01*.dat was produced by vmd04_v01*.tcl.    The exceptions are the few figures that were produced interactively, and the output files of scripts vmd001_interchainHBs_*.tcl (because sometimes bad days happen, and imperfectly-named progress is better than no progress at all).
+- The simulation trajectories that gave origin to the simulation data presented in each figure can be identified from the input files listed within each script.
+ 

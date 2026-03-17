@@ -1,0 +1,4 @@
+Simulation files for DPPC lipid membrane with Slipids force field for Gromacs MD simulation engine
+the files denoted with 350 resp 700 resp 1000 have NaCl concentrations of 850 resp 1750 resp 2570 mM.
+ 
+The goal was to study the effect of salt on the order parameters of the lipid head group and the glycerol backbone for the NMRlipids project, see http://nmrlipids.blogspot.fi for more information.

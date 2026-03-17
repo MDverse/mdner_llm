@@ -1,0 +1,4 @@
+Simulations of crowded membranes
+Nine simulations, each with nine copies of a single protein (1–7,A,B) and 50 DPPC lipids per protein per leaflet. The simulations are performed using the coarse-grained Martini model with scaled-down protein–protein interactions. These systems are described carefully in:
+M. Javanainen, H. Martinez-Seara, R. Metzler, and I. Vattulainen; Diffusion of Integral Membrane Proteins in Protein-Rich Membranes. J. Phys. Chem. Lett., 2017, 8 (17), pp 4308–4313, DOI: 10.1021/acs.jpclett.7b01758
+The topologies for proteins A&B are included in this upload, whereas other ones can be obtained from: https://doi.org/10.5281/zenodo.846428

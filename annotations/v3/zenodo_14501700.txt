@@ -1,0 +1,5 @@
+Molecular Dynamics Simulations of 12 Microcystin congeners in solvent and complex with PPP1
+This data sets contains Molecular Dynamics (MD) Simulation files and structural files of principal component analysis (PCA). MC congeners were simulated in solvent (water) and in complex with protein phosphatase 1 (PPP1). PCA was used to analyse MC congener backbone and PPP1 backbone movement and conformations.
+The following MC congeners were simulated: MC-LR, MC-LF, [enantio-Adda5]MC-LF, [β-D-Asp3,(E)-Dhb7]MC-RR, MC-RR, MC-LY, MC-YR, MC-LY(Prg), [Anda5]MC-LY(Prg), [Amba5]MC-LY(Prg), [Apha5]MC-LF and [Apda5]MC-LF.
+The data uploaded here is part of the following manuscript:
+S. Jaeger-Honz, R. Hackett, R. Fotler, D. R. Dietrich, Falk Schreiber: Conformation and binding of 12 Microcystin (MC) congeners to PPP1 using molecular dynamics simulations: a potential approach in support of an improved MC risk assessment.  Chemico-Biological Interactions 407: 15 pages, 2025. doi: 10.1016/j.cbi.2025.111372

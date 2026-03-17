@@ -1,0 +1,2 @@
+ChiZ1-64
+Gromacs Molecular dynamics trajectory files (.xtc) and molecular structure file (.gro) for ChiZ1-64 containing only protein generated with different initial structures and forcefields, related to article "Conformational Rigidity Classification in Intrinsically Disordered Proteins via Integrated NMR and MD Simulations" https://doi.org/10.26434/chemrxiv-2025-m5m0p

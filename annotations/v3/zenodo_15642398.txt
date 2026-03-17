@@ -1,0 +1,4 @@
+AE1 MD simulation data
+MD simulation setups and results for the AE1 system, including the configuration files and corresponding input files (pdb/psf/...) for the equlibration systems (IF1/OF and IF2/IF2), SMD simulations, SMwST simulations and BEUS simulations .
+Trajectories for the two equilibrium simulations and biased conformational change are also included. Water is removed from the trajectories. 
+Source data for the figures.

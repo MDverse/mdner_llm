@@ -1,0 +1,5 @@
+Molecular dynamics of free HMO1 model and HMO1 bound to the DNA
+Files:
+1. Initial models of free HMO1 and HMO1 bound to DNA.
+2. 1 µs MD trajectories of free HMO1 and HMO1 bound to DNA.
+3. MD protocol for GROMACS

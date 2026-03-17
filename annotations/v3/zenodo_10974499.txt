@@ -1,0 +1,3 @@
+Molecular principles of redox-coupled sodium pumping of the ancient Rnf machinery
+Contains MD simulation snapshots, toplogy and parameters, COPASI input parameters, and psfgen script to build a system.
+ 

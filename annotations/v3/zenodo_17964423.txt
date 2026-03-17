@@ -1,0 +1,2 @@
+Data: Implementation of Girsanov Reweighting in CP2K
+This data supplements our article "Implementation of Girsanov Reweighting in CP2K"

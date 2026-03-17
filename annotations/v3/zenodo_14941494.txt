@@ -1,0 +1,6 @@
+Spike-MD Data for "CryoBench: Diverse and challenging datasets for the heterogeneity problem in cryo-EM"
+A synthetic cryo-EM dataset with heterogeneity from a molecular dynamics simulation and ground truth atomic models, poses, labels, mask, and consensus volume:
+
+Spike-MD: 100k particle images (256x256, 1.5A/pix) of SARS-CoV-2 spike protein with conformations sampled from a molecular dynamics simulation from Wieczór et al. (2023)
+sampled_pdbs.xtc: atomic models stitched into a trajectory
+seed_structure.pdb: initial seed structure for .xtc trajectory

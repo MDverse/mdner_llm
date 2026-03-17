@@ -1,0 +1,25 @@
+Molecular dynamics simulations of CD59 and CD59-inhibited Membrane Attack Complex
+Coarse-grain (CG) trajectories of CD59-C5b8 (last 1,500 ns):
+
+cd59-c5b8_1500ns_rep1.xtc
+cd59-c5b8_1500ns_rep2.xtc
+cd59-c5b8_1500ns_rep3.xtc
+
+PyLipID analysis results from CG CD59-C5b8 simulations:
+
+Interactions_CHOL.csv
+Interactions_DOPC.csv
+
+Atomistic CD59 simulations in DOPC membrane:
+
+cd59_at_rep1_light.trr
+cd59_at_rep2_light.trr
+cd59_at_rep3_light.trr
+
+CD59 Euler angles relative to the membrane: 
+
+rep1.csv
+rep2.csv
+rep3.csv
+
+All xtc and trr files were down-sampled (frames removed) to decrease file size.

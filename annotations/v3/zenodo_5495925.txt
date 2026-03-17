@@ -1,0 +1,2 @@
+Molecular dynamic simulation data of liquid Al-Cu alloys
+This dataset contains all obtained data for molecular dynamics investigation of Al-Cu melts.

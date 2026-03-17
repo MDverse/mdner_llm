@@ -1,0 +1,4 @@
+Molecular Simulation Data for "In Situ structure of a gap junction- stomatin complex"
+This repository contains raw data related to "Molecular Simulation Data for "In Situ structure of a gap junction- stomatatin complex"" by Rosenkranz et al.
+
+Included are molecular dynamics parameter files, initial structures after system equilibration and production trajectories. Trajectories are subsampled with one frame every 1 ns. 

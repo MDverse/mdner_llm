@@ -1,0 +1,3 @@
+Nucleosome core particle MD simulations
+Gromacs topology files and xtc trajectory files of nucleosome core particule containing the alpha-palindromic sequence based on the 1KX5 PDB structure with 0.15 M of NaCl salt. Each trajectory is of 1 µs. Force field used: Amber14ff with IDP correction for the histone tails, parmbsc1, TIP3P water model.
+The letter in the name of the file are associated to a given simulation (1kx5-a_sol.top is related to 1kx5_sol-a.xtc).

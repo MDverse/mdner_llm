@@ -1,0 +1,2 @@
+Extreme dynamics in a biomolecular condensate
+Simulation inputs, subsampled trajectory, and outputs of lifetime calculation from paper "Extreme dynamics in a biomolecular condensate". Lifetime outputs are provided because these cannot be correctly calculated from the subsampled trajectory made available here.

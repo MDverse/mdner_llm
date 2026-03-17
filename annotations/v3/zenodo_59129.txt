@@ -1,0 +1,3 @@
+Martini water froze at 303 K
+While doing some testing with Gromacs 2016 rc1, I managed to freeze Martini water boxes of 400 beads at 303.15 K; this happened with two independent initial configurations.
+I used the Martini Straight parameters. The simulation files, including trajectories (freezing occurs at 400 ns in system 1, at 325 ns in system 2), are available in this repository.

@@ -1,0 +1,6 @@
+Structural dynamics of DNA depending on methylation pattern: Simulation dataset
+Dataset of molecular dynamics simulations of double-stranded DNA
+(repeats of CpG dinucleotides with regular patterns of methylation).
+- Input: Parameters and initial structures
+- Output: Trajectories
+NAMD 2.13 (multi-core with CUDA) was used for the simulations.

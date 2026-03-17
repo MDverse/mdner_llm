@@ -1,0 +1,2 @@
+MUT-16 FFR atomistic simulations
+This dataset comprises ten atomistic simulation trajectories of the MUT-16 FFR condensate, together with the corresponding topology file and the initial and final structural coordinates.

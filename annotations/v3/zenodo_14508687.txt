@@ -1,0 +1,7 @@
+Source Data for ''Atomistic mechanism of non-selective cation permeation in cyclic nucleotide-gated CNGA1 ion channel by molecular dynamics simulations''
+This dataset is the source data for the research paper ''Atomistic mechanism of non-selective cation permeation in cyclic nucleotide-gated CNGA1 ion channel by molecular dynamics simulations''. It includes the following parts:
+
+Figures.zip. This file provides all the figures in the paper, including main figures and supplementary figures.
+Figure_source_data.zip. This is the source data for the figures in the paper.
+MD_input.zip. This is the MD setup input data. It includes starting structure, topology file, .mdp file and force field file.
+Supplementary movies S1 and S2 of K+ and Na+ permeations in CNGA1 channel respectively.

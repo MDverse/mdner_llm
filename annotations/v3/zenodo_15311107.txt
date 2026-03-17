@@ -1,0 +1,1 @@
+MD trajectory of the POPC/POPS/Gd-DTPA-BSA Bilayer in the article "An Integrative Framework for Mapping Orientational Landscapes of Peripheral Membrane Proteins by Paramagnetic NMR and Atomistic Simulation."

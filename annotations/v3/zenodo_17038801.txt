@@ -1,0 +1,33 @@
+Structure and Molecular Dynamics Simulations of an In Silico Model of the α4β2-Nicotinic Acetylcholine Receptor in Complex with PSCA
+This repository contains a complete set of input files and the resulting trajectory for the Molecular Dynamics (MD) simulation of the α4β2 nicotinic acetylcholine receptor (nAChR) in complex with the prostate stem cell antigen (PSCA), modelled by ensemble docking, as presented in the associated publication “Human Ly6/uPAR protein PSCA correlated with neurological diseases induces pro-inflammatory responses in neurons and astrocytes and targets nAChRs containing β2-subunit”.
+The dataset includes all necessary files to run and analyze the simulation performed with GROMACS 2024.4 using the CHARMM36m force field. The simulated system consists of the protein complex embedded in a lipid bilayer.
+Contents:
+
+
+MD_input_files.zip: input files for GROMACS 2024.4, prepared using CHARMM-GUI (CHARMM36m force field):
+
+
+
+Full set of parameter files (.mdp) for minimization, equilibration, and production MD
+
+
+Topology files (.top,  toppar/ directory)
+
+
+Initial structure files (.gro, .pdb)
+
+
+
+Simulation output:
+
+
+
+nAChR-PSCA.xtc: 500 ns production trajectory (water removed, 1 frame per ns)
+
+
+nAChR-PSCA.gro: System after equilibration and before production
+
+
+nAChR-PSCA.pse: PyMOL session with visualization matching publication Figure 6
+
+

@@ -1,0 +1,2 @@
+PEG_single_chain
+Molecular Dynamics trajectory of a polyethylenglycol (PEG) chain in TIP3P water. The Amber program and the General Amber Force Field were used. The simulation was performed in the NPT ensemble at 298.15 K. The total simulation time is 10 ns, with a timestep of 2 fs. The trajectory is saved at 200 ps intervals for a total of 50 frames.

@@ -1,0 +1,5 @@
+Amyloid-beta 16-22 peptide monomer simulation (without salt) with the CHARMM-Drude force field and OpenMM (Run 2)
+Amyloid-beta 16-22 peptide (monomer) simulations with the CHARMM-Drude force field and OpenMM. Initial structures are obtained from CHARMM-GUI. This is the second independent simulation run out of three. The system does not contain any ions.
+Total trajectory length is 1 microseconds. Frame saving frequency is 10 ps.
+All the simulation parameters and force field files are uploaded into this repository. Simulations are done with OpenMM v. 7.5.1.
+ 

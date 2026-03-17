@@ -1,0 +1,2 @@
+Disordered region of human eIF4B orchestrates a dynamic balance across self-association landscape
+Trajectory files to visualize the simulations of coarse-grained eIF4B. 

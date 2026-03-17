@@ -1,0 +1,4 @@
+An Integrated Machine Learning Approach Delineates an Entropic Expansion Mechanism for the Binding of a Small Molecule to α-Synuclein
+The TRAJECTORY.zip contains two trajectories. One for the apo simulation (traj_mw_c4.xtc) and the other for the water simulation in .gro format (traj.gro). The  run1.tpr is the binary file for running the apo simulation in gromacs. For water simulation, the raw DOSPT files are also included to calculate the entropy.
+The figure_raw_data.zip file contains the raw data that was used for plotting the figures in the main text and in the supplementary material.
+For any further inquiries or requests for additional data, please contact jmondal@tifrh.res.in.

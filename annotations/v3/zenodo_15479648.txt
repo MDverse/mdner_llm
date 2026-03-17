@@ -1,0 +1,7 @@
+Nucleotide asymmetry and flexible linker dynamics orchestrate drug efflux cycle of P-glycoprotein; a computational study
+This dataset contains coordinate files and input parameters to run and analyse molecular dynamics simulations of membrane bound P-glycoprotein.
+ 
+The associated study is described in: 
+input_MD_{system}.zip - containes input data for all of the described MD simulations 
+CAVER.zip - contains output data from CAVER analysis described in the manuscript
+output_MD_{system}.zip - contains .pdb files of all last frame coordinates of MD simulations described in the manuscript

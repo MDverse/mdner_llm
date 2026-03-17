@@ -1,0 +1,2 @@
+DPPC_Slipids
+MD simulation trajectory and related files for fully hydrated DPPC bilayer. Slipids force field (doi:10.1021/jp212503e) was used with Gromacs 4.6.6. Conditions: T=323K, 128 lipids, 3840 tip3p waters.

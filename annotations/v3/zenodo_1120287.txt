@@ -1,0 +1,8 @@
+Simulation of a POPS bilayer
+Simulation of a POPS lipid bilayer. The system contains 128 POPS lipids, 40 waters per lipid, and 128 sodium counter ions for the anionic PS. The lipid model by Maciejewski and Rog [1,2,3] was used. Topologies (.itp) were obtained from [3]. TIP3P water was used, and the sodium was modelled using default OPLS ion parameters. The simulation is 200 ns long. Simulation parameters are given in the .mdp file. Simulations were performed using Gromacs 5.1.4 [4]
+The trajectory (.xtc), energy file (.edr), checkpoint file (.cpt), run input file (.tpr), index file (.ndx), topology file (.top), and the final structure (.gro) are provided. 
+[1] Maciejewski et al., J. Phys Chem. B 118, 2014, pp. 4571–4581, DOI: 10.1021/jp5016627 
+[2] Kulig et al., Data in Brief 5, 2015, pp. 333–336, DOI: 10.1016/j.dib.2015.09.013
+[3] Rog et al., Data in Brief 7, 2016, pp. 1171–1174, DOI: 10.1016/j.dib.2016.03.067
+[4] Abraham et al., SoftwareX 1–2, 2015, pp. 19–25, DOI: 10.1016/j.softx.2015.06.001
+ 

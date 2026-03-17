@@ -1,0 +1,3 @@
+trajectory 72 ice nucleus in supercooled water tip4p/ice
+Gromacs MD trajectories of the evolution of ice nuclei in supercooled water with the tip4p/ice model. Also included center of mass of the nucleus (length units in nm) in long range corrections to the pressure (in bar). 
+ 

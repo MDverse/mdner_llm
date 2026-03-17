@@ -1,0 +1,4 @@
+Simulations of DPPC/DOPC/CHOL 2/1/1 mixture using the model by Carpenter et al., Part 1
+Simulations of 2/1/1 mixture of DPPC/DOPC/CHOL with the refined Martini model by Carpenter et al. 
+Simulations are performed using time steps ranging from 10 to 40 fs for 15 µs (30 µs for 35 fs time step). Additional 100 ns-long simulations, during which velocities are stored in the trr trajectory are available in XXX. The files are named 332_XX.YYY, where XX is the time step in fs and YYY are GROMACS-compatible file formats: xtc for trajectory, edr for energy outputs, tpr for run input file, and gro for final structure at the end of simulation.
+The topology (topol.top) and index file (index.ndx) are common for all simulations, and the TOP.tar contains all the force field parameters (itp). The run input parameters (mdp) are provided for each system as mdXXfs.mdp, where XX is the time step.

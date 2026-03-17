@@ -1,0 +1,9 @@
+DPPC monolayer simulations with Charmm36+OPC @ 310 K
+POPC monolayers simulated at a varying area per lipid in the NVT ensemble. The Charmm36 lipid model [1] is employed together with the 4-point OPC water model [2].
+Each system contains two monolayers with 64 lipids each. These monolayers are separated by a water slab, and surrounded by vacuum. 
+The number in the filename corresponds to the area per lipid in Ångströms. The starting structures were taken from [3], which also provides detailed information on system setup. The simulations in [3] used TIP3P water and Slipids lipids, which were replaced by OPC water and Charmm36 lipids, followed by energy minimization and production runs.
+All trajectories, 100 ns long, are simulated with Gromacs 5.0.x [4] using the parameters given in the mdp file. The topologies for the lipids can be obtained from Charmm-GUI and for the OPC water model from https://bioinformatics.cs.vt.edu/~izadi/ 
+[1] DOI: 10.1021/jp101759q
+[2] DOI: 10.1021/jz501780a
+[3] DOI: 10.1016/j.bbamem.2016.09.015
+[4] DOI: 10.1016/j.softx.2015.06.001

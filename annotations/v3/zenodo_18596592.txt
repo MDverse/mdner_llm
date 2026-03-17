@@ -1,0 +1,33 @@
+Ensemble dataset for "Unconventional DNA architecture in a dopamine–bound aptamer complex"
+This dataset contains input and output files for the Amber system preparation and ensemble production for the publication "Unconventional DNA architecture in a dopamine–bound aptamer complex".
+It contains 6 zip files:
+system_prep.zip
+
+input:
+
+coordinates: input coordinates produced with Leap
+topologies: input topologies produced with Leap
+restraints: NMR-derived restraint file 
+parameters: Amber input parameter files for all simulation steps
+
+
+1_min: initial minimization step
+2_heat: heating step
+3_eq: equilibration steps
+
+ensemble.zip
+
+4_prod_ensemble: production step for ensemble production
+
+out: output files
+trajectories
+restart files
+
+
+5_min: final minimization step for ensemble production
+
+rmsd.zip. Pairwise RMSD values for the ensemble, replicated microsecond MD experiments, and unconstrained control for plotting.
+pca.zip. Scree plot and pca_values for plotting the comparative analysis of the 15 models in the ensemble.
+dssr.zip. DSSR analysis results for the ensemble
+hbonds.zip. Hbond data (distances and angles) and formation frequency for for plotting the formation of H-bonds over the course of the four restrained MD microsecond simulations, and the unrestrainted and no-dopamine controls.
+Microsecond MD experiment files are deposited at https://doi.org/10.5281/zenodo.18598398 

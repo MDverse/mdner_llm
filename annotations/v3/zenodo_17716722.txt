@@ -1,0 +1,7 @@
+Thierodoxin simulations and clustered structures from beta-lactamase simulations
+This Dataset contains the following files: 
+1. blac_sim_clusters.zip
+This file contains the clustered strucures from an MD simulation run for beta-lactamase simulations of the extant (tem1) and its ancestors  ENCA, GNCA and PNCA. Simulations and clustering were performed by I. Can Kazan : https://doi.org/10.3390/ijms22062895
+ 
+2. Thierodoxin ancestral simulation data
+Files ectrx.mdcrd, hutrx.mdcrd, lbca.mdcrd and aeca.mdcrd are simulations of the thierodoxin found in E Coli and its ancestral variant LBCA along with the human variant of thierodoxin and its ancestral variant AECA. The simulations were performed by Johnathan Hui Hui as a part of the following work : 10.1098/rstb.2017.0184

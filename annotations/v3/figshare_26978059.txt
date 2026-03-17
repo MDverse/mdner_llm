@@ -1,0 +1,2 @@
+PBC8p800.xtc
+Trajectory of a simulation equilibrated at 8 GPa and 800K

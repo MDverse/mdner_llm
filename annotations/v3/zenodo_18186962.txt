@@ -1,0 +1,7 @@
+CpHMD simulations and electrophysiology of sTeLIC
+# Trajectories* 3 replicate 2-microsecond trajectories (1 ns/frame) for each of 2 systems under each of 2 pH conditions (12 total), with file names: ['open' (PDB ID: 9F5N) or 'closed' (PDB ID: 9EX6) starting structure]_['6.5' (resting) or '10' (activating) system pH]_[replicate ID '1', '2' or '3'].xtc
+# 'preparation.zip'* Topology, force field and GROMACS parameter files for preparing the simulations, as well as a script for updating lambda coordinates between equilibration steps
+# 'startingmodels.zip'* Starting models for each simulation system, with file names: ['open' (PDB ID: 9F5N) or 'closed' (PDB ID: 9EX6) starting structure]_['6.5' (resting) or '10' (activating) system pH].pdb
+# 'lambdavalues.zip'* Values of each of 496 lambda coordinates during each simulation of each system, with directory names: ['open' (PDB ID: 9F5N) or 'closed' (PDB ID: 9EX6) starting structure]_['6.5' (resting) or '10' (activating) system pH]_[replicate ID '1', '2' or '3']_lambdavalues
+# 'analysis.zip'* Data and relevant scripts for the analyses done in the paper * 'rmsd_data' contains rmsd values for C-alpha atoms in the ECD* 'interaction_data' contains interactions made by titratable residues in the system* 'domain_data' contains time-dependent geometric properties for each subunit across a given trajectory 
+# 'sTeLIC_ephys.xlsx'* Individual peak current values with mean and standard-error calculations for electrophysiology data presented in the accompanying manuscript

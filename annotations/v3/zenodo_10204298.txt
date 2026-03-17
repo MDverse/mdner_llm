@@ -1,0 +1,2 @@
+Supporting data files for "Binding Sites of Bicarbonate in PEP Carboxylase"
+The files in this archive are the supporting data for the article "Binding Sites of Bicarbonate in PEP Carboxylase". The article contains all scripts and input files used to perform and analyse the simulations.

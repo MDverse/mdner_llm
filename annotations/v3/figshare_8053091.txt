@@ -1,0 +1,2 @@
+Portable compressed binary tCONCOORD trajectory file - 2VN9 A
+tCONCOORD trajectory

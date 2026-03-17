@@ -1,0 +1,2 @@
+Investigation of the behavior of dioxadet molecules in water by molecular dynamics
+A set of files for all-atom molecular dynamic simulations of a dioxadet molecule in water for four parametrizations obtained with a number of tools: ATBuilder, Amber tools, and Swiss Parameters.

@@ -1,0 +1,6 @@
+POPC Openff-2.2.1 run1
+
+POPC simuated at 298.15K
+Charges assigned with openff-gnn-am1bcc-1.0.0.pt
+sage-2.2.1.offxml
+Run1

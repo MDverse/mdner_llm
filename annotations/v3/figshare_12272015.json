@@ -7,7 +7,11 @@
         "FFM",
         "TEMP"
     ],
+<<<<<<< HEAD
     "raw_text": "Glycosylated Swiss-model molecular dynamics trajectory of SARS-CoV-2 spike glycoprotein\nMolecular dynamics simulation trajectory. The system is the SARS-CoV-2 spike glycoprotein with glycans modeled on using GLYCAM-Web. SARS-CoV2 spike (S) protein structure – A 3D structure of the prefusion \nform of the S protein (RefSeq: YP_009724390.1, UniProt: P0DTC2 \nSPIKE_SARS2), based on a Cryo-EM structure (PDB code 6VSB), was obtained\n from the SWISS-MODEL server (swissmodel.expasy.org). The model has 95% \ncoverage (residues 27 to 1146) of the S protein. The site specific glycans used to model a glycoform representative of \nthe data obtained from the S glycoprotein expressed in HEK293 cells, are\n presented below:\n\nHybrid:\nDManpα1-6[DManpα1-3]DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 657\n\nFA2:\nDGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH\nGlycosites: 149, 165, 331, 343, 616, 1134\n\nA2:\nDGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 1098\n\nFA2B:\nDGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-4][DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH\nGlycosites: 74, 282\n\nM5:\nDManpα1-6[DManpα1-3]DManpα1-6[DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 61, 122, 603, 709, 717, 801, 1074\n\nM8:\nDManpα1-2DManpα1-6[DManpα1-2DManpα1-3]DManpα1-6[DManpα1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH\nGlycosites: 234\n\nGlycan naming system. In cases where the mass spectrometry data allows \nfor multiple structures, such as FA2/FA1B, the glycan with the least \nambiguity was selected. For example, FA2 was selected over FA1B, as the \nposition of the single antennae is ambiguous.Dataset supports the following preprint: 3D Models of glycosylated SARS-CoV-2 spike protein suggest challenges and opportunities for vaccine development. Oliver C. Grant, David Montgomery, Keigo Ito, Robert J. Woods; bioRxiv 2020.04.07.030445; doi: https://doi.org/10.1101/2020.04.07.030445",
+=======
+    "raw_text": "Glycosylated Swiss-model molecular dynamics trajectory of SARS-CoV-2 spike glycoprotein\nMolecular dynamics simulation trajectory. The system is the SARS-CoV-2 spike glycoprotein with glycans modeled on using GLYCAM-Web. SARS-CoV2 spike (S) protein structure – A 3D structure of the prefusion  form of the S protein (RefSeq: YP_009724390.1, UniProt: P0DTC2  SPIKE_SARS2), based on a Cryo-EM structure (PDB code 6VSB), was obtained  from the SWISS-MODEL server (swissmodel.expasy.org). The model has 95%  coverage (residues 27 to 1146) of the S protein. The site specific glycans used to model a glycoform representative of  the data obtained from the S glycoprotein expressed in HEK293 cells, are  presented below:  Hybrid: DManpα1-6[DManpα1-3]DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 657  FA2: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH Glycosites: 149, 165, 331, 343, 616, 1134  A2: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 1098  FA2B: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-4][DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH Glycosites: 74, 282  M5: DManpα1-6[DManpα1-3]DManpα1-6[DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 61, 122, 603, 709, 717, 801, 1074  M8: DManpα1-2DManpα1-6[DManpα1-2DManpα1-3]DManpα1-6[DManpα1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 234  Glycan naming system. In cases where the mass spectrometry data allows  for multiple structures, such as FA2/FA1B, the glycan with the least  ambiguity was selected. For example, FA2 was selected over FA1B, as the  position of the single antennae is ambiguous.Dataset supports the following preprint: 3D Models of glycosylated SARS-CoV-2 spike protein suggest challenges and opportunities for vaccine development. Oliver C. Grant, David Montgomery, Keigo Ito, Robert J. Woods; bioRxiv 2020.04.07.030445; doi: https://doi.org/10.1101/2020.04.07.030445",
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "SOFTNAME",
@@ -114,56 +118,101 @@
         {
             "label": "MOL",
             "text": "FA2",
+<<<<<<< HEAD
             "start": 825,
             "end": 828
+=======
+            "start": 827,
+            "end": 830
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "FA2B",
+<<<<<<< HEAD
             "start": 1062,
             "end": 1066
+=======
+            "start": 1066,
+            "end": 1070
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Glycan",
+<<<<<<< HEAD
             "start": 1439,
             "end": 1445
+=======
+            "start": 1446,
+            "end": 1452
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "FA2",
+<<<<<<< HEAD
             "start": 1544,
             "end": 1547
+=======
+            "start": 1551,
+            "end": 1554
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "FA1B",
+<<<<<<< HEAD
             "start": 1548,
             "end": 1552
+=======
+            "start": 1555,
+            "end": 1559
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "glycan",
+<<<<<<< HEAD
             "start": 1558,
             "end": 1564
+=======
+            "start": 1565,
+            "end": 1571
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "FA2",
+<<<<<<< HEAD
             "start": 1618,
             "end": 1621
+=======
+            "start": 1625,
+            "end": 1628
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "FA1B",
+<<<<<<< HEAD
             "start": 1640,
             "end": 1644
+=======
+            "start": 1647,
+            "end": 1651
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "SARS-CoV-2 spike",
+<<<<<<< HEAD
             "start": 1766,
             "end": 1782
+=======
+            "start": 1773,
+            "end": 1789
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",

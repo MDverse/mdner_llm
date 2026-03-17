@@ -1,0 +1,2 @@
+Tri-nuc project MD simulation trajectories
+The dataset includes MD simulation trajectories for Tri-nuc project.

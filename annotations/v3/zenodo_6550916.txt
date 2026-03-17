@@ -1,0 +1,2 @@
+An accurate binding free energy method from end-state MD simulations (ANI_LIE test files)
+Required files are added.

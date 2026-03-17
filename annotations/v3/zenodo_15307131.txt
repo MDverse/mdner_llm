@@ -1,0 +1,1 @@
+Molecular dynamics simulation data accompanying the journal article entitled "De novo design of protein condensation inhibitors by targeting an allosteric site of cGAS"

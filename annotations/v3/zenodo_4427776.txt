@@ -1,0 +1,7 @@
+Nanoscale Phase Segregation in Supramolecular π‑Templating for Hybrid Perovskite Photovoltaics from NMR Crystallography
+Raw and processed NMR data, molecular dynamics data, structure files, photovoltaic data, and additional characterisation data for Nanoscale Phase Segregation in Supramolecular π‑Templating for Hybrid Perovskite Photovoltaics from NMR Crystallography, DOI: 10.1021/jacs.0c11563. For more details see README file. 
+NMR_data.zip: Raw and processed NMR data in the file structure of the TopSpin software, which is available from Bruker. 
+NMR_calculations.zip: The input and output Quantum Espresso files are given for both the single point (*.scf.in and *.scf.out) and NMR calculations (*.nmr.in and *.nmr.out).
+cif_files_all_structures.zip: All structures in cif format. 
+MD_*.zip: MD trajectories of (PEA)2PbI4, (FEA)2PbI4 and configuration 1 of (PF)2PbI4. The full trajectories are given in dcd format which can be opened using the VMD software. The trajectories are also shown as movies. 
+PV+characterisation.zip: The data for the photovoltaic analysis, XPS spectra and XRD patterns in Excel format. 

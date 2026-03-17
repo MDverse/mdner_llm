@@ -1,0 +1,8 @@
+Molecular Dynamics Simulation Dataset: Bovine Pancreatic Trypsin Inhibitor (PDB: 6PTI)
+This repository contains a 100 ns molecular dynamics trajectory of Bovine Pancreatic Trypsin Inhibitor (BPTI), a canonical model system for protein folding and dynamics studies. The dataset includes the protein-only trajectory extracted from a full solvated simulation, providing a standardized benchmark for methodological development in structural bioinformatics.
+Intended UseThis curated protein trajectory is optimized for:
+
+Method development in trajectory analysis and visualization
+Benchmarking conformational sampling algorithms
+Educational purposes in computational biophysics
+Validation of analysis pipelines

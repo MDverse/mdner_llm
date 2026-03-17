@@ -1,0 +1,2 @@
+Prediction of ternary complex structures using molecular dynamics and proteomics
+Source code and structural PDBs that went into the Prediction of ternary complex structures using molecular dynamics and proteomics paper.

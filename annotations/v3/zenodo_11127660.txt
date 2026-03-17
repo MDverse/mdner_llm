@@ -1,0 +1,1 @@
+Molecular Dynamics Simulation of mGluR3 TM7-CTD in 1:1 DOPC:DOPS membrane

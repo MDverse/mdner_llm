@@ -1,0 +1,4 @@
+Supplementary Information for "Biocatalytic Ether Lipid Synthesis by an Archaeal Glycerolprenylase" - Computational Data
+This is part of the external Supplementary Information covering the molecular dynamics simulations section for our publication "Biocatalytic Ether Lipid Synthesis by an Archaeal Glycerolprenylase" by Felix Kaspar et al., freely available as a preprint from ChemRxiv ( ).
+The .zip file contains raw data, processed data and metadata for the computational results. This includes files for the MD simulations and the preparations of the structures.  
+Raw data regarding the experimental results are stored in a separate zenodo entry (https://zenodo.org/doi/10.5281/zenodo.10559443) by Felix Kaspar. This includes UV, flourescence, NMR data, as well as data results of crystallization screens and reports on MPLC runs.  

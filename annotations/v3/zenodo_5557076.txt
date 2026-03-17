@@ -1,0 +1,157 @@
+Characterization of the material behavior and identification of effective elastic moduli based on molecular dynamics simulations of coarse-grained silica: dataset
+Abstract:
+(from [1])
+
+The addition of fillers can significantly improve the mechanical behavior of polymers. The responsible mechanisms at the molecular level can be well assessed
+by particle-based simulation techniques, such as molecular dynamics. However, the high computational cost of these simulations prevents the study of macroscopic
+samples. Continuum-based approaches, particularly micromechanics, offer a more efficient alternative but require precise constitutive models for all
+constituents, which are usually unavailable at these small length scales. In this contribution, we derive a molecular-dynamics-informed constitutive law by
+employing a characterization strategy introduced in a previous publication. We choose silicon dioxide (silica) as an exemplary filler material used in polymer
+composites and perform uniaxial and shear deformation tests with molecular dynamics. The material exhibits elastoplastic behavior with a pronounced anisotropy.
+Based on the pseudo-experimental data, we calibrate an anisotropic elastic constitutive law and reproduce the material response for small strains accurately.  
+The study validates the characterization strategy that facilitates the calibration of constitutive laws from molecular dynamics simulations. Furthermore, the
+obtained material model for coarse-grained silica forms the basis for future continuum-based investigations of polymer nanocomposites. In general, the presented
+transition from a fine-scale particle model to a coarse and  computationally efficient continuum description adds to the body of knowledge of molecular science
+as well as the engineering community.
+ 
+
+
+Contact:
+Maximilian Ries
+Institute of Applied Mechanics
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+Egerlandstr. 5
+91058 Erlangen
+
+Software:
+All simulations were performed with LAMMPS [3], version: 29 Oct 2020 / 20201029
+Compiled with
+Compiler: GNU C++ 4.8.5 20150623 (Red Hat 4.8.5-39) with OpenMP not enabled
+C++ standard: C++11
+Active compile time flags:
+-DLAMMPS_GZIP
+-DLAMMPS_SMALLBIG
+Installed packages:
+CLASS2, KSPACE, MANYBODY, MC, MOLECULE, MPIIO, OPT, VORONOI, USER-INTEL, USER-MISC, USER-MOLFILE, USER-NETCD
+
+License:
+Creative Commons Attribution 4.0 International
+ 
+Context:
+Data set supplementing  journal paper:
+[1] Ries, M.; Bauer, C.; Weber, F.; Steinmann, P. & Pfaller, S., "Characterization of the material behavior and identification of effective elastic moduli based on molecular dynamics simulations of coarse-grained silica", Mathematics and Mechanics of Solids, 2022, 108128652211080.
+
+This dataset contains the results presented in [1] and the necessary data to obtain those.
+
+Content:
+The files to reproduce our simulations and their results are structured as follows:
+
+01_potentials
+	tabulated potentials calibrated via iterative Boltzmann inversion in [2] kindly provided by the Müller-Plathe group at Technische Universität Darmstadt
+	
+Angle_table
+		angular interactions
+Bond_table
+		bond interactions
+Nonbond_table
+		pair interactions
+
+
+02_sample
+	Lammps data file (molecular style) of the investigated silica sample
+03_simulations
+	The condensed simulation directories with the naming convention given below are organized in the following subfolders:
+	
+01_time-proportional
+		time-proportional simulation data
+02_time-periodic
+		time-periodic simulation data
+
+
+
+Each simulation directory contains:
+
+lammps input file (*.in) of the specific simulation
+input.prm: input parameters of the specific simulation (read by the input file)
+meta.info: meta data of the specific simulation run
+LAMMPS_out:
+	simulation results (lammps thermo_out) in tabulated form, an overview of columns is given below
+	
+thermo_out.Dat: raw output
+thermo_out_SG.Dat: smoothed output (Savitzky-Golay filter)
+thermo_out_STD.Dat: standard deviation of raw output
+
+
+
+
+Naming convention:
+Silica-[deformation]-[direction]_[deformation function]-[deformation magnitude]_[deformation rate]
+●    [deformation]: uniaxial tension (UT), simple shear (SS)
+●    [direction]: deformation carried out in X/Y/Z (UT) or XY/XZ/YZ (SS)
+●    [deformation function]: time-proportional (strain), time-periodic (strain_ampl)
+●    [deformation magnitude]: maximum strain (time-proportional), strain amplitude (time-periodic); unitless
+●    [deformation rate]: rate-[strain rate] (only time-proportional): 0.001/ns-0.1/ns
+
+Output quantities (columns of *.Dat files):
+●    Step: time step
+●    Time: time in fs
+●    TotEng: total energy in kcal/mol
+●    PotEng: potential energy in kcal/mol
+●    KinEng: kinetic energy in kcal/mol
+●    E_pair: pair energy in kcal/mol
+●    E_bond: bond energy in kcal/mol
+●    E_angle: angle energy in kcal/mol
+●    E_dihed: dihedral energy in kcal/mol
+●    Temp: temperature in K
+●    Press: hydrostatic pressure in atm
+●    Pxx: xx component of pressure tensor in atm
+●    Pyy: yy component of pressure tensor in atm
+●    Pzz: zz component of pressure tensor in atm
+●    Pxy: xy component of pressure tensor in atm
+●    Pxz: xz component of pressure tensor in atm
+●    Pyz: yz component of pressure tensor in atm
+●    Volume: volume of simulation box in (Angstroms)^3
+●    Lx: box length in x direction in Angstroms
+●    Ly: box length in y direction in Angstroms
+●    Lz: box length in z direction in Angstroms
+●    Density: density in g/(cm^3)
+●    c_RG: radius of gyration in Angstroms
+●    c_RG[1]: squared radius of gyration tensor (xx component) in (Angstroms)^2
+●    c_RG[2]: squared radius of gyration tensor (yy component) in (Angstroms)^2
+●    c_RG[3]: squared radius of gyration tensor (zz component) in (Angstroms)^2
+●    c_RG[4]: squared radius of gyration tensor (xy component) in (Angstroms)^2
+●    c_RG[5]: squared radius of gyration tensor (xz component) in (Angstroms)^2
+●    c_RG[6]: squared radius of gyration tensor (yz component) in (Angstroms)^2
+●    c_bondave[1]: bond energy averaged over all atoms in kcal/mol
+●    c_bondave[2]: bond distance averaged over all atoms in  Angstroms
+●    c_bondave[3]: squared bond distance averaged over all atoms in (Angstroms)^2
+●    c_angleave[1]: angle energy averaged over all atoms in kcal/mol
+●    c_angleave[2]: angle averaged over all atoms degree
+●    c_angleave[3]: cosine of angle (unitless)
+●    c_angleave[4]: squared cosine of angle (unitless)
+●    c_MSD[1]: mean squared displacement x-direction in (Angstroms)^2
+●    c_MSD[2]: mean squared displacement y-direction in (Angstroms)^2
+●    c_MSD[3]: mean squared displacement z-direction in (Angstroms)^2
+●    c_MSD[4]: total mean squared displacement in (Angstroms)^2
+●    c_COM[1]: x coordinate of center of mass in Angstroms
+●    c_COM[2]: y coordinate of center of mass in Angstroms
+●    c_COM[3]: z coordinate of center of mass in Angstroms
+●    v_strain_xx: xx component of engineering strain tensor (unitless)  
+●    v_strain_yy: yy component of engineering strain tensor (unitless)   
+●    v_strain_zz: zz component of engineering strain tensor (unitless)   
+●    v_vMisesequivstress: von Mises equivalent stress in MPa
+●    v_Cauchy_xx: xx component of stress tensor in MPa  
+●    v_Cauchy_yy: yy component of stress tensor in MPa
+●    v_Cauchy_zz: zz component of stress tensor in MPa
+●    v_Cauchy_xy: xy component of stress tensor in MPa
+●    v_Cauchy_xz: xz component of stress tensor in MPa
+●    v_Cauchy_yz: yz component of stress tensor in MPa
+●    v_strain_xy: xy component of engineering strain tensor (unitless)  
+●    v_strain_xz: xz component of engineering strain tensor (unitless)  
+●    v_strain_yz: yz component of engineering strain tensor (unitless)  
+References:
+[1] Ries, M.; Bauer, C.; Weber, F.; Steinmann, P. & Pfaller, S., "Characterization of the material behavior and identification of effective elastic moduli based on molecular dynamics simulations of coarse-grained silica", Mathematics and Mechanics of Solids, 2022, 108128652211080.
+[2] Ghanbari, A.; Ndoro, T. V. M.; Leroy, F.; Rahimi, M.; Böhm, M. C. & Müller-Plathe, F., “Interphase Structure in Silica-Polystyrene
+Nanocomposites: A Coarse-Grained Molecular Dynamics Study”, Macromolecules, 2012, 45, 572-584.
+[3] Plimpton, S., “Fast parallel algorithms for short-range molecular dynamics,” Journal of computational physics, 1995, 117, 1-19.
+ 

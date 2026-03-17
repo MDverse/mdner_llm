@@ -1,0 +1,14 @@
+Shear viscosity coefficient of acqueous glycerol from equilibrium Molecular Dynamics simulations
+This dataset contains the results of equilibrium atomistic Molecular Dynamics simulations of water-glycerol liquid mixtures, at various relative concentrations. The goal of the simulations is to quantify the shear viscosity coefficient of said mixtures using linear response theory (Einstein relations) [1]. The post-processing of simulation results is inspired by the method of Zhang et al. [2].
+The pattern "Glycerol***" refers to the mass fraction of glycerol, being "000" pure water (0%) and "100" pure glycerol (100%). Zip folders contain
+
+Expected value and integral of the square of the off-diagonal components of the pressure gradient ("EnergyOutputs")
+Initial configurations used to start the ensemble of replicas from which viscosity is computed ("InitConfReplicas")
+Output, state and topology of replica simulations ("MdrunOutputs")
+
+A self-contained Python script (compute-visco.py) for the computation of viscosity from the output of an ensemble of simulations is provided. Integrals used to quantify viscosity via Einstein's relation can be obtained from energy output files (.edr) by running:
+gmx energy -f ener.edr -evisco -eviscoi -vis
+Simulations are performed with Gromacs. We refer to the code documentation for further information (https://manual.gromacs.org/).
+References:
+[1] B. Hess, Determining the shear viscosity of model liquids from molecular dynamics simulations, J. Chem. Phys. 116, 209–217 (2002) https://doi.org/10.1063/1.1421362
+[2] Y. Zhang et al., Reliable Viscosity Calculation from Equilibrium Molecular Dynamics Simulations: A Time Decomposition Method, J. Chem. Theory Comput. 2015, 11, 3537−3546, https://doi.org/10.1021/acs.jctc.5b00351

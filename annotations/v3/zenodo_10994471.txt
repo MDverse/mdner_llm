@@ -1,0 +1,8 @@
+Simulation of DMPS monolayer (CHARMM36, apl 70/80 A2, 50 mM)
+FF: CHARMM36Engine: GROMACS 5.1.4
+70A^2
+Preequilibration: 0 ns.Trajectory length: 400+ ns
+System: 100 DMPS + 10,000 SOL + 10KCl
+80A^2
+Preequilibration: 0 ns.Trajectory length: 400+ ns.
+System: 100 DMPS + 10,000 SOL + 10KCl

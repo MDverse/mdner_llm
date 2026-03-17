@@ -1,0 +1,4 @@
+DOPE in water (500 ns) run7
+DOPE (128 lipids) in water (TIP3P, 4608).
+500 ns, output every 50 ps.
+Run with gromacs/5.1.2

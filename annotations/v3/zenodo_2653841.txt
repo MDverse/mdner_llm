@@ -1,0 +1,28 @@
+Coarse-grained simulations of cholesterol in symmetric lipid bilayers with restraints on cholesterol positions
+Membranes consisting of 520 phospholipids varying levels of chain unsaturation together with 56 (10 mol%) cholesterol molecules were simulated at 298 K. The phospholipids had either 2 (DLiPC) or 4 (DAPC) double bonds in both of their chains. The Martini force field [1] was used and the membranes were generated using insane [2]. In the simulations, a flat-bottom potential was applied to the cholesterol molecules to either prevent them from partitioning to the membrane core, or from performing complete flip–flops.
+The simulations were run for 10 microsecond using the GROMACS simulation suite [3]. Simulation parameters are found in the common mdp file (note that the temperature varies between simulations).
+The upload contains simulation inputs and outputs that allows the replication, extension, or analysis of the simulation data:
+
+Topology files (top) and molecular definitions (itp)
+Index files (ndx)
+Run parameter files (mdp)
+A run input file (tpr)
+Trajectory file (xtc) written every 1 ns
+Energy file (edr) written every 100 ps
+Log file (log)
+Final structure file (gro)
+Continue point file (cpt)
+
+The files are named LLLL_CG_CHOLXX_RR_TTT.FFF, where
+
+LLLL is the type of phospholipid
+CG stands for coarse-grained (All atom data in a separate upload)
+CHOLXX stands for the cholesterol concentration (CHOL10 for 10 mol%)
+TTT is the temperature
+RR is the width of the flat-bottom potential
+FFF is the tile type (see above)
+
+Note that topologies/index files are the same regardless of temperature, and hence their file names do not have the TTT section. Moreover, md_RR.mdp is common for both lipid types yet activates a different flat-bottom potential based on RR.
+[1] DOI: 10.1021/jp071097f
+[2] DOI: 10.1021/acs.jctc.5b00209
+[3] DOI: 10.1016/j.softx.2015.06.001

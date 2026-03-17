@@ -66,56 +66,101 @@
         {
             "label": "FFM",
             "text": "charmm36",
+<<<<<<< HEAD
             "start": 337,
             "end": 345
+=======
+            "start": 338,
+            "end": 346
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "TEMP",
             "text": "310 K",
+<<<<<<< HEAD
             "start": 359,
             "end": 364
+=======
+            "start": 360,
+            "end": 365
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "4200 ns",
+<<<<<<< HEAD
             "start": 398,
             "end": 405
+=======
+            "start": 399,
+            "end": 406
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 450,
             "end": 454
+=======
+            "start": 451,
+            "end": 455
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 464,
             "end": 469
+=======
+            "start": 465,
+            "end": 470
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Cl-",
+<<<<<<< HEAD
             "start": 480,
             "end": 483
+=======
+            "start": 481,
+            "end": 484
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Na+",
+<<<<<<< HEAD
             "start": 496,
             "end": 499
+=======
+            "start": 497,
+            "end": 500
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 593,
             "end": 598
+=======
+            "start": 594,
+            "end": 599
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ions",
+<<<<<<< HEAD
             "start": 599,
             "end": 603
+=======
+            "start": 600,
+            "end": 604
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/3228177"

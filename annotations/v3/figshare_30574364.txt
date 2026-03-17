@@ -1,0 +1,2 @@
+Non-traditional Fluorescence in Quadruple Hydrogen Bonded Supramolecular Polymers
+This dataset contains the source data supporting all key findings reported in the manuscript. The data underpins the figures and analysis presented in the main text and supplementary information, focusing on the photophysical properties, structural characterization, and mechanistic studies,  of the novel supramolecular polymer (PU-UPy) and its model compounds.

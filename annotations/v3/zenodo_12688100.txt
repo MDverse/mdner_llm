@@ -1,0 +1,8 @@
+Data for: Bimolecular Sandwich Aggregates of Porphyrin Nanorings
+Supporting data files for "Bimolecular Sandwich Aggregates of Porphyrin Nanorings”
+(a) PALES_structures. Files for analyzing RDCs: input text file (1 txt file), input geometries (61 pdb files) and output (61 txt files).
+(b) XTB_optimized_structures. Geometries of bimolecular aggregates of c-P8 and c-P12 with different substituents (4 xyz files).
+(c) TS_trajectory_structures. Calculated geometries along the transition state trajectory for intramolecular rotation of the (c-P12_t-Bu)2 aggregate (9 xyz files).
+(d) Planarization_calculations. DFT calculated geometries of c-P6, c-P8, c-P10, c-P12 and c-P14 when 2D planar (optimized in xy-plane) or 3D cylindrical (10 xyz files).
+(e) Molecular_Dynamics_GROMACS_input_files. Molecular dynamics input files for (c-P8_OOct)2 and (c-P12_tBu)2 (2x gro+top+itp+4xmdp).
+(f) cP12_tBu_2_structure. Idealized structure for the (c-P12_t-Bu)2 aggregate as shown in Figure 3 of the manuscript (1 xyz file).

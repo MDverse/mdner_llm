@@ -1,0 +1,2 @@
+Simulation dataset for: "The Leu/Val6.51 side chain of cannabinoid receptors regulates the binding mode of the alkyl chain of ∆9-tetrahydrocannabinol"
+This dataset contains the prepared systems and the input parameters necessary to guarantee reproducibility of the molecular dynamics simulations of "The Leu/Val6.51 side chain of cannabinoid receptors regulates the binding mode of the alkyl chain of ∆9-tetrahydrocannabinol" work.

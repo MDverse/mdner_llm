@@ -1,0 +1,2 @@
+Microbe-Vinculin cross reactivity provides a molecular basis for the HLA-RA connection
+Molecular modelling of DERAA peptides in complex with HLA-DQ molecules as determined by energy minimization or molecular dynamics.   See Supplementary Notes for additonal information.

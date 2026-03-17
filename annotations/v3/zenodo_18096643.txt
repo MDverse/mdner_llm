@@ -1,0 +1,2 @@
+Membrane insertion and dimerisation of Glycophorin-A mutations studied by free energy simulations
+This repository contains the simulation input files and analysis scripts used to perform and analyze the alchemical free energy calculations reported in the associated Biophysical Journal article. The files enable reproduction of the reported free energy results and figures. Due to their size, full raw molecular dynamics trajectories are not included; however, they are available from the corresponding author upon reasonable request.

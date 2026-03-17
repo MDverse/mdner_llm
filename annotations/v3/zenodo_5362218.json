@@ -72,26 +72,46 @@
         {
             "label": "MOL",
             "text": "FYVE",
+<<<<<<< HEAD
             "start": 854,
             "end": 858
+=======
+            "start": 855,
+            "end": 859
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "EEA1",
+<<<<<<< HEAD
             "start": 871,
             "end": 875
+=======
+            "start": 872,
+            "end": 876
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 887,
             "end": 891
+=======
+            "start": 888,
+            "end": 892
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POP1",
+<<<<<<< HEAD
             "start": 892,
             "end": 896
+=======
+            "start": 893,
+            "end": 897
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/5362218"

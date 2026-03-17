@@ -1,0 +1,2 @@
+Cryo-EM Structure of Pentameric C-Reactive Protein in Complex with Monoclonal IgG Antibodies
+The molecular dynamics simulation trajectory of the ternary complex of C-Reactive Protein with IgG.

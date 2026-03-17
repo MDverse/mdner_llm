@@ -1,0 +1,2 @@
+Transient Na+-binding site is essential for transport mechanism in the glutamate transporter homologue GltTk
+Dataset to reproduce MD simulations described in "Transient Na+-binding site is essential for transport mechanism in the glutamate transporter homologue GltTk".

@@ -1,0 +1,2 @@
+Spidroin Martini Coarse grain and atomistic simulation results
+The pdb files contained in this zip archive are the outputs of our simulations of the pre-spun silk proteins (MaSp1 and MaSp2) found in Black Widow silk dope. We used a combination of Martini V2.6 Martini 3.0 coarse grain, Alphafold, and Charmm36 atomistic simulations. 

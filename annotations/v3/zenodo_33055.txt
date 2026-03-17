@@ -1,0 +1,2 @@
+DOPC lipid bilayer simulation trajectory and files from Franova et al. BBA 1838 (2014) 1406–1411
+Simulation files for pure DOPC (no pyrene present) simulation from "Can pyrene probes be used to measure lateral pressure profiles of lipid membranes? Perspective through atomistic simulations" Franova et al. Biochimica et Biophysica Acta 1838 (2014) 1406–1411

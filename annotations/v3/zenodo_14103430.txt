@@ -1,0 +1,2 @@
+_2024_due_ANAC
+Simulation data and SAXS data for ANAC046 from Due et al. 2024

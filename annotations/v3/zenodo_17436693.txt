@@ -1,0 +1,24 @@
+Molecular dynamics simulation of PANX1 channel with/without mefloquine
+Molecular dynamics simulation of PANX1 channel with/without mefloquine
+
+MD trajectories with mefloquine
+
+MD_200ns_withMFQ_repeat1.xtc (md5:f64ae08572c3e68fe8f97fb1d318094a)
+MD_200ns_withMFQ_repeat2.xtc (md5:166e769065cca4030360d904454c3049)
+MD_200ns_withMFQ_repeat3.xtc (md5:de26410e7266a40da7d0f4ea711bd720)
+Portable binary run input file: MD_200ns_withMFQ.tpr (md5:f4b4729bec0c9ed761194b8045e8f176)
+Topology file: MD_200ns_withMFQ.gro (md5:28c99b4b6918ed590127f7e1ae7a4ba7)
+Index file: MD_200ns_withMFQ.ndx (md5:522de983c680aa56288c59e1fbb614e9)
+
+
+MD trajectories with mefloquine
+
+
+MD_200ns_noMFQ_repeat2.xtc (md5:2de02fba6ac20e8f68c61bf54643797f)
+MD_200ns_noMFQ_repeat1.xtc (md5:819ea1432a043197edee66e9f74ee038)
+MD_200ns_noMFQ_repeat3.xtc (md5:c5445e1a65fed21005b13a81ada9f41f)
+Portable binary run input file: MD_200ns_noMFQ.tpr (md5:d242d3fed2ae08f34a48403e68c29f5a)
+Topology file: MD_200ns_noMFQ.gro (md5:388f12514de796b8b9993adbb9b57311)
+Index file: MD_200ns_noMFQ.ndx (md5:5ab9aa5a56e473ea6347d7d47e17a9f6)
+
+

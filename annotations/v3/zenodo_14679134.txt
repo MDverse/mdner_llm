@@ -1,0 +1,10 @@
+Model Comparison Benchmark Datasets, Results, and Peptide MD Trajectory
+Contents of this database include:
+
+aib9.out.zip: zipped file containing raw output of the Aib9 OpenMM MD simulation
+aib9_openmm.zip: zipped folder containing all input files for the Aib9 OpenMM MD simulation, as well as the generated trajectory
+data_input.zip: zipped folder containing input datasets for the GMM and Aib9 numerical experiments
+data_output.zip: zipped folder containing output data and experimental results for three generative models (NS, CFM, DDPM) on the input datasets, included for posterity (file names do not synchronize with most recent repository naming conventions)
+
+The files are automatically retrieved and unzipped via the data_accessor notebook in the GitHub repository.
+ 

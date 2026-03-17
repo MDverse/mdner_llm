@@ -1,0 +1,2 @@
+Deep learning path-like collective variable for enhanced sampling molecular dynamics
+Supporting data related to manuscript 'Deep learning path-like collective variable for enhanced sampling molecular dynamics'

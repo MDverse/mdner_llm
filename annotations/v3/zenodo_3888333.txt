@@ -1,0 +1,2 @@
+Simulation of Calmodulin in water with large calcium chloride concentration
+Simulation data for Calmodulin in solution with 50mM of CaCl2 using standard Charmm36 forcefield and ECC Charmm36.

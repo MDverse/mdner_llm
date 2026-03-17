@@ -1,0 +1,9 @@
+Data Set For Revels-MD tutorials
+This small data set contains the trajectory files necessary to run the tutorials for the revelsmd (https://github.com/user200000/revelsmd) the trajectories were generated using lammps (https://www.lammps.org/#gsc.tab=0) and gromacs (https://www.gromacs.org/). 
+
+Lennard jones sphere radial distribution functions (as in https://doi.org/10.1063/5.0053737) (number 1)
+Solvation of an immobilised Lennard jones sphere in a solvent of identicle Lennard Jones spheres.(number 2)
+Solvation of a static water molecule (as in https://aip.scitation.org/doi/abs/10.1063/1.5111697) (number 4)
+
+
+A fourth tutorial is in development

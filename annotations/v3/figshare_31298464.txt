@@ -1,0 +1,2 @@
+FBXO22+BACH
+The FBXO22+BACH folder contains input parameters, topology and coordinate files along with output trajectories of five replicas.

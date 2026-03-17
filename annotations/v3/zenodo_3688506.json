@@ -36,50 +36,90 @@
         {
             "label": "MOL",
             "text": "3bei",
+<<<<<<< HEAD
             "start": 731,
             "end": 735
+=======
+            "start": 732,
+            "end": 736
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "3lu9",
+<<<<<<< HEAD
             "start": 737,
             "end": 741
+=======
+            "start": 738,
+            "end": 742
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Na+",
+<<<<<<< HEAD
             "start": 749,
             "end": 752
+=======
+            "start": 750,
+            "end": 753
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Na+",
+<<<<<<< HEAD
             "start": 770,
             "end": 773
+=======
+            "start": 771,
+            "end": 774
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "200 ns",
+<<<<<<< HEAD
             "start": 1278,
             "end": 1284
+=======
+            "start": 1279,
+            "end": 1285
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Na+",
+<<<<<<< HEAD
             "start": 1319,
             "end": 1322
+=======
+            "start": 1320,
+            "end": 1323
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Na+",
+<<<<<<< HEAD
             "start": 1335,
             "end": 1338
+=======
+            "start": 1336,
+            "end": 1339
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "Na+",
+<<<<<<< HEAD
             "start": 1451,
             "end": 1454
+=======
+            "start": 1452,
+            "end": 1455
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/3688506"

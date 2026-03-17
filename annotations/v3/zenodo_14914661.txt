@@ -1,0 +1,4 @@
+Molecular dynamics simulations of Cruzipain subtypes 1, 2, 3.7, 3.9, and 4
+This dataset contains the the input files and processed trajectories of three independent production simulations of 300 ns, each performed in the NPT ensemble, for cruzipain's 1, 2, 3.7, 3.9, and 4.
+ 
+For further details, please contact Lucianna S. Santos (lsilva@pasteur.edu.uy) or Rafaela Ferreira (rafaelasf@icb.ufmg.br).

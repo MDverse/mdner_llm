@@ -1,0 +1,9 @@
+AlphaFold Multimer results and Molecular Dynamics on the refined model of the LAG-2 / LAT-1 complex
+Notch activity is modulated by the Adhesion GPCR Latrophilin binding to the DSL ligand in the germline stem cell niche in C. elegans
+Molecular Dynamics data on the modelled lag-2 lat-1 complex including the GAIN and RBL domain.
+lag-lat : Full complex of lag-2 with GAIN and RBL of lat-1
+Molecular Dynamics Data is provided as XTC file without water molecules and salt; 3 x 1,000 ns trajectories in 50 ps time-step. Topology is provided as respective GRO / PDB file. 
+MD inputs for GROMACS created with CHARMM-GUI are provided in lag-lat-md-setup.zip
+ 
+Selected AlphaFold Multimer structure in pdb format and the final energetically minimized Rosetta structure in pdb format
+Ranking files from AlphaFold Multimer runs

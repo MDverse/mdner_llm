@@ -1,0 +1,7 @@
+MMPB/GBSA Calculations For TCR-pHLA
+Starting structures, input files and some analysis scripts for the MD simulations and subsequent MMPB/GBSA calculations performed on TCR-pHLA complexes.
+0_Protein_Preperation.zip - Starting protein structures for both wild-type proteins and all variants simulated. 
+1_MD_Simulation_Input_Files.zip - Amber MD simulation input files used for both equilibration and production MD with a readme file informing on the order of operations.
+2_MMPB_GBSA_Calculations.zip - Example MMPB/GBSA calculation inputs alongside two helper scripts to prepare for these calculations after having run the MD simulations (one to retain only local waters and another to generate the topology files needed). 
+3_nmode_amber14_modified.tar - Modified version of normal mode analysis that enables the use of the ibelly algorithm.
+4_Bootstrapping.zip - Example Bootstrapping calculation script for R. Also provided are exemplar .csv files to show how to arrange your data so R can read these in correctly. 

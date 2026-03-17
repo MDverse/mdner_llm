@@ -1,0 +1,2 @@
+COX-sackie_novel_pocket
+Data includes initial files, last 10ns trajectory and xtc files

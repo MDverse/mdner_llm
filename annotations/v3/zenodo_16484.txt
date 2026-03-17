@@ -1,0 +1,2 @@
+DPPC_Berger_OPLS06_NaCl
+MD simulation trajectory and related files for fully hydrated DPPC bilayer with 150 mM NaCl. The OPLSAA-compatible Berger-DPPC-06 force field (DOI:10.1088/0953--8984/18/28/S07) was used with Gromacs 4.6.7. Ions were described by the Åqvist parameters. Conditions: T=323K, 72 lipids, 2880 SPC waters, 8 Na, 8 Cl. 120 ns trajectory, last 60 ns analyzed.

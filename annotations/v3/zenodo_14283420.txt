@@ -1,0 +1,2 @@
+Structural insight into the inactive/active states of 5-HT1AR and molecular mechanism of electric fields in modulating 5-HT1AR
+The input files and parameter files of the MD simulations in the APO, SRO, EF0.01, and EF0.03 systems are included in the upload data.

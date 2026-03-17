@@ -1,0 +1,2 @@
+A FtsZ cis disassembly element acts in Z-ring assembly during bacterial cell division: Molecular Dynamics Simulation Data
+The ZIP file contains all necessary coordinates files, input files, trajectories, and final simulation data for the molecular dynamics (MD) simulations described in the manuscript 'A FtsZ cis disassembly element acts in Z-ring assembly during bacterial cell division'.

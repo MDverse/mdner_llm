@@ -1,0 +1,2 @@
+Topology files used in simulations
+Here are the two force filed files used during MD simulations.Both molecules (progesterone and asoprinsnil) were calculated using Gaussian09 with HF/6-31G*. After that, RESP was performed to obtain atomic charges. And the bonded and non-bonded parameters were derived from AMBER Gaff force field.Please cite: Zheng L, Lin VC, Mu Y (2016) Exploring Flexibility of Progesterone Receptor Ligand Binding Domain Using Molecular Dynamics. PLoS ONE 11(11): e0165824. doi:10.1371/journal.pone.0165824

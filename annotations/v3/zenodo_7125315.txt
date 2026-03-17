@@ -1,0 +1,4 @@
+MD setup data for ansamer amanitin derivatives and precursors for atroposelective synthesis
+Setup files to reproduce the MD simulations for the amanitin derivatives 4a and 4b as well as the precursors 3b and 3c. The MD simulations were part of the study:
+G. Yao, S. Kosol, M. T. Wenz, E. Irran, B. G. Keller, O. Trapp, R. D. Süssmuth, ChemRxiv 2022, DOI 10.26434/chemrxiv-2022-ll8lq.
+For further instructions on the files, please refer to '0_README'.

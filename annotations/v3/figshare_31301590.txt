@@ -1,0 +1,2 @@
+FBXO22 ONLY
+The FBXO22 ONLY folder contains input parameters, topology and coordinate files along with output trajectories of five replicas.

@@ -1,0 +1,8 @@
+MD Simulation Data Upload – LC8/Swallow
+Naming convention:
+
+{PDB ID}{bound state abbr.}{peptide length}_{LC8 species}{number of residues per monomer}_{MD simulation time}_md{replicate}_dt{time step between frames in ps}
+
+For example, "3E2Bs8_dros89_1us_md1_dt200" is a single replicate (out of three)
+178-residue LC8 homodimer singly bound to an 8-residue peptide for a 1µs
+trajectory strided at 200ps.

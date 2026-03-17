@@ -1,0 +1,9 @@
+Atomistic simulations of the adenosine A2 receptor in membranes with varying levels of SDPE
+An adenosine A2 receptor was simulated in membranes consisting of DSPC, cholesterol (20 mol%), and varying levels (0, 4, or 8 mol%) of SDPE with a polyunsaturated chain. Upon increasing SDPE concentration, the concentration of DSPC was correspondingly decreased. The initial structures for these simulations were obtained from the final structures of corresponding coarse-grained simulations, where an SDPE-rich corona formed around the receptor. After fine-graining, the systems were simulated using the CHARMM36 [1] force field for 200 ns using the GROMACS package [2].
+These simulations were also repeated in the absence of protein. These systems were set up using the CHARMM-GUI web portal [3]. The corresponding files have the 'NOPROT' suffix, and the simulation parameter file is called md_noprot.mdp.
+For details on the fine-graining and the simulation protocol, please see the related paper at DOI: 10.1371/journal.pcbi.1007033.
+The files named PUFA_X.* correspond to simulations with X mol% of SDPE with the protein, whereas the files names PUFA_X_NOPROT.* are the corresponding files in the absence of the protein. For each concentration, a run input file (tpr) and the simulation outputs (xtc, edr, log, gro) are provided. Moreover, the simulations can be extended using the provided cpt files.
+Moreover, the files required to generate the run input file are also provided. For each system, a topology file (top) and an index file (ndx) are provided. The CHARMM36 force field and the molecule definitions (itp) referenced by the topology are also provided. The used simulation parameters are provided in the md.mdp file. For the fine-graining of SDPE, the mapping file is also provided (sdpe.charmm36.map).
+[1] DOI: 10.1021/jp101759q
+[2] DOI: 10.1016/j.softx.2015.06.001
+[3] DOI: 10.1021/acs.jctc.5b00935

@@ -1,0 +1,20 @@
+Mechanism of the dibutyl 4-nitrophenyl phosphate hydrolysis by Pd-PTE phosphotriesterase revealed by QM/MM MD simulations
+1. Topology psf file of the model system comprosing Pd-PTE phosphotriesterase and dibutyl 4-nitrophenyl phosphate solvated in the rectangular water box and neutralized. PDB files obtained from QM/MM MD rajectories of correspondig regions: ES – enzyme-substrate complex; TS1 and TS2 – transition states; INT – intermediate; EP – enzyme product.
+2. A complete set of classical MD, QM/MM and QM/MM MD files.
+Notation:
+Substrates: S10 - substrate (1), S01 - substrate (2), S11 - substrate (3), S08 - substrate (4).
+Stationary points: ES – reactants (enzyme-substrate complex), TS1 and TS2 – transition states of the first and second steps, respectively, INT – reaction intermediate, EP – enzyme-product complex.
+Files:
+par_* - parameter files.
+*.psf - topology files.
+md.conf - example config file for classical MD run.
+Pd-PTE_ES_S10.pdb, Pd-PTE_ES_S01.pdb, Pd-PTE_ES_S11.pdb, Pd-PTE_ES_S08.pdb - structures selected from classical molecular dynamics trajectories for further calculations QM/MM calculations.
+qmmm_md.conf - example config file for QM/MM MD run.
+run_terachem.py - script for terachem operation, contains a description of the quantum part.
+QMpart_S* - file containing the quantum part (beta 1 - atoms in the quantum part, occupancy 1 - atoms on the border of QM and MM regions).
+*_INT_QMMM_MD_pbe0.dcd -  QM/MM MD trajectories of the INT states.
+opt.chm - example config for optimization in chemshell.
+ES_mult*.molden, INT_mult*.molden, EP_mult*.molden - optimized stationary points with different multiplicities.
+US.7z – files containing reaction coordinate values at each QM/MM MD step and corresponding parameters of biasing potential, k and x0.
+PES.7z - stationary points on potential energy surface for S10.
+mechanism.7z - representative frames from QM/MM MD with the addition of a biasing potential in the stationary point regions on the Gibbs energy profiles for substrate (1) containing system.

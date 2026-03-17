@@ -1,0 +1,11 @@
+Molecular dynamics simulations of the interaction of mutant human CYP2J2 (R117A) with arachidonic acid (POSES 1-4)
+Description of files in this dataset:
+MD_mutR117A_CYP2J2_AA_StateX_repeatY.zip : Series of zipped directories for molecular dynamics simulations of arachidonic acid in the active site of the R117A mutant CYP2J2. X is the docking pose number that constitutes the starting point of the simulation (the 6 lowest-energy poses from docking were selected as the starting points of the simulations - this dataset is State(pose) 1). Y is the repeat (each simulation was repeated 3 times, hence there are 3 repeats per pose).  
+Each directory contains the following sub-directories:
+001.leap : Amber parameter and coordinate files; PDBs; ligands; leap commands
+002.min : Minimisation stage
+003.heat : Heating stage
+004.equil: Equilibration stage
+005.md : Production stage
+006.analysis : Basic energy graphs
+007.cpptraj: Contains only the file strip.md.nc (Amber trajectories stripped of water in netCDF format)

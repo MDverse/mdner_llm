@@ -1,0 +1,2 @@
+ox.ndx
+Oxygen index in a simulation box with 8192 water molecules

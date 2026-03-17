@@ -1,0 +1,2 @@
+Identification of an Allosteric binding Site in MetAP-II using Adaptive Bandit Molecular Dynamics Simulations and Markov State Models
+These are the trajectories and PDB files for APO and Ligand-bound MetAP-II along with the metastable states of APO, Ligand-bound, and combined trajectories for both systems in PDB format.

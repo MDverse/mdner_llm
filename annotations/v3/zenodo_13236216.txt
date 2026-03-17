@@ -1,0 +1,2 @@
+MANF simulation with amberff03ws (5 replicas)
+MD simulations of MANF with amberff03ws force field. Five replicas from different starting structures from taken from RCSB PDB: 2RQY (model 1, 2, 4, 6 and 8). Simulations were run wtih 20 mM NaCl at 310 K. The trajectory has a saving frequency of 10 ps. 

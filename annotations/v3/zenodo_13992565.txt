@@ -1,0 +1,3 @@
+Supporting data for "The Operando Nature of Isobutene in H–SSZ–13 Unraveled by Machine Learning Potentials Beyond DFT Accuracy"
+Supporting data for "The Operando Nature of Isobutene in H–SSZ–13 Unraveled by Machine Learning Potentials Beyond DFT Accuracy" by M. Bocus, S. Vandenhaute and V. Van Speybroeck.
+This dataset contains examples of input files, submission and analysis scripts, in addition to the molecular dynamics trajectories used to obtain the results reported in the main manuscript. A more detailed description of the dataset content is provided in the README files therein.

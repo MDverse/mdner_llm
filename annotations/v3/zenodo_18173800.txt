@@ -1,0 +1,7 @@
+Dataset for "FANAzyme catalysed RNA cleavage is based on a two-state transition"
+Data set for publication on simulation of small FANAzyme:RNA cleavage
+01_Setup: setup with LEAP and AMBER ff library files
+02_MDtrajectories: MD trajectories for complex
+03_ELdatabase: Files composing the energy landscape database created with discrete pathsampling
+04_Analysis: Analysis scripts used for the computational data analysis
+05_SAXS: SAXS data and comparison with simulated SAXS curves

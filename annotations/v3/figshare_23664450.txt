@@ -1,0 +1,2 @@
+GaMD files for a1AR-epinephrine-Gq
+complex.inpcrd: the initial coordinate file for MD simulation (AMBER format) complex.pdb: the initial coordinate file (PDB format) complex.prmtop: the topology file for MD simulation (AMBER format) gamd-replica[1-3]-final.pdb: the final coordinate file from GaMD production simulations (PDB format) md.in: the input file for GaMD equilibration gamd-restart.in: the input file for the first run of GaMD production md-restart.in: the input file for the restart of GaMD production

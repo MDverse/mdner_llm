@@ -1,0 +1,2 @@
+Models of proteins from the human malaria parasite Plasmodium falciparum
+The directory contains models of different proteins (fumarase, isocitrate dehydrogenase and PfATP6) from the human malaria parasite Plasmodium falciparum, structures of the inhibitor SC83288 docked to different proteins from Plasmodium falciparum (SERA5, SAHH, fumarase, isocitrate dehydrogenase and PfATP6) and files used to perform molecular dynamics simulations.

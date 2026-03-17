@@ -1,0 +1,2 @@
+Simulations of Sec61 with a substrate-selective inhibitor, conformation 1
+Simulations for an alternative conformation of KZR-8445 bound to Sec61. Data for the conformation used in Rehan et al., Nature Chemical Biology 19, pages 1054–1062 (2023) are available at https://zenodo.org/record/7303653

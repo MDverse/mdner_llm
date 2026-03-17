@@ -1,0 +1,4 @@
+MD simulation trajectory data for "An Evaluation of Force Field Accuracy for the Mini-Protein Chignolin using Markov State Models"
+Molecular simulation trajectory data of the mini-protein chignolin, as described in the manuscript:
+
+An Evaluation of Force Field Accuracy for the Mini-Protein Chignolin using Markov State Models. Tim Marshall, Robert M. Raddi, and Vincent A. Voelz

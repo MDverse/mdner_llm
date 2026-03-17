@@ -1,0 +1,10 @@
+Coarse-grained simulations of lipid membranes with various concentrations of embedded proteins
+Membranes with a polydisperse set of proteins with lipid/protein ratios of 50 (lp50), 75 (lp75), 100 (lp100), 200 (lp200), and 400 (lp400) are simulated for 100 µs. The protein–protein interactions are scaled down to prevent excessive aggregation. 
+For all simulated lipid/protein ratio, a trajectory (.xtc) file is stored every 10 ns. Note that water beads and ions have been removed for a smaller file size. All beads, including solvent ones, are present in initial and final structures (.gro). Energy terms are stored every 1 ns (.edr). Simulation run input files (.tpr) and checkpoint files (.cpt) enable the rerunning or continuation of the simulations. Topology (.top) and index (.ndx) files for each system are also provided.
+The topology files for scaled protein–protein interactions work as follows: The bead types of the proteins in their topology files (.itp) are changed to those with a 'p', for example P4–>P4p. The interactions between normal beads are listed in martini_v2.2_standard.itp, while the interactions among 'p' beads as well as the cross terms between 'p' beads and normal beads are given in martini_v2.2_scaled_80.itp. The force constant of the elastic network was increased to enable an integration time step of 20 fs.
+The lipid head groups are gently restrained in the direction normal to the membrane to prevent excessive fluctuations and they hence simulate the presence of an actin cytoskeleton.
+The simulation parameters, common for all systems, are listed in the file md.mdp. 
+All files are compatible with Gromacs 5.0.
+The results extracted from these simulations are presented in the paper
+M. Javanainen, H. Martinez-Seara, R. Metzler, and I. Vattulainen; Diffusion of Integral Membrane Proteins in Protein-Rich Membranes. J. Phys. Chem. Lett., 2017, 8 (17), pp 4308–4313, DOI: 10.1021/acs.jpclett.7b01758
+The Martini topologies are obtained form http://cgmartini.nl

@@ -1,0 +1,2 @@
+Research data supporting: "A millisecond coarse-grained simulation approach to decipher allosteric cannabinoid binding at the glycine receptor α1"
+This repository contains the set of coarse-grained (CG) molecular snapshots representative of the most populated binding modes for glycine receptor (GlyR) in complex with the ligands, along with atomistic backmapped representations. In addition, it contains also CG Martini 3 parameters, charmm36-FF backmapping library file and GROMACS files (itp and gro files) for both ligands.

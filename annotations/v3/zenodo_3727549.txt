@@ -1,0 +1,14 @@
+NAMD Simulation of Pure POPC Membranes with CHARMM36 Force Field
+System: POPC membrane with 72 (36 x 36) lipids
+Number of POPC: 72
+Number of Waters: 2520
+Water model: TIP3P [WL Jorgensen, J Chandrasekhar, JD Madura, RW Impey, ML Klein J. Chem. Phys. 79 926 (1983)].
+Force Field: CHARMM36
+Simulation engine: NAMD Git-2020-02-27 for Linux-x86_64-multicore-CUDA [Phillips et al., J. Comp. Chem. 26:1781-1802 (2005)]
+Number of independent repeats per setup: 1.
+Trajectory lengths per repeat: 100 ns.
+Previously equilibrated for: 0 ns.
+Sampling rate: every 100 ps.
+Time integration step: 2 fs. (For further info, please see the .inp file)
+ 
+ 

@@ -1,0 +1,2 @@
+Data for "C60 fullerene promotes monolayer collapse"
+This archive contains the starting structures (gro), topology files (top, itp), and simulation parameter files (mdp) for the simulations reported in the article entitled "C60 fullerene promotes monolayer collapse" by Jonathan Barnoud, Laura Urbini, and Luca Monticelli.

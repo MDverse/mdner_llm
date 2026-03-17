@@ -1,0 +1,2 @@
+Input files and scripts for Hamiltonian replica-exchange molecular dynamics simulations of intrinsically disordered proteins using a software GROMACS patched with PLUMED
+Here we share the necessary files and scripts to run Hamiltonian replica-exchange molecular dynamics simulations of intrinsically disordered protein studied in the preprint uploaded to bioRxiv (doi: https://doi.org/10.1101/2020.06.16.155374). It requires software GROMACS patched with PLUMED.

@@ -1,0 +1,1 @@
+MD simulation of DMPC bilayer with OPLS4 force field. Full hydration.

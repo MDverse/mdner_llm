@@ -1,0 +1,4 @@
+MD simulations of bilayers containing PC/PS mixtures and CaCl_2: 150POPC_150POPS_neutral
+NMRLipids IV project (nmrlipids.blogspot.fi)
+Gromacs, CHARMM36 FF, 1 atm, 298K, 200ns (no pre-equilibration)
+150 POPC lipids, 150 POPS lipids, 71655 Atoms

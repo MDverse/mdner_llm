@@ -1,0 +1,2 @@
+Insights into the Catalytic Activity of a Metagenome-Derived Urethanase
+Reduced molecular dynamics (MD) trajectories (5,000 snapshots each, representing 1 μs of simulation) for both amidase and esterase activities of the AlphaFold model of UMG-SP2 are provided, along with the corresponding starting geometries in PDB format. The simulations were performed for the UMG-SP2 complex with the 4-nitrophenyl benzylcarbamate (pNC) substrate, using the MM level of theory, the AMBER force field, and the NAMD software package.

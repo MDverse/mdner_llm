@@ -1,0 +1,2 @@
+Dataset for Multiscale in silico study of mechanism of activation of RtcB ligase by PTP1B phosphatase.
+The pdb structures of the RtcB_PTP1B complex after protein-protein docking and after 1000ns MD simulation, 1000ns MD trajectory, and a video captured from the QM/MM WT-MetaD simulation trajectory showing the reaction mechanism

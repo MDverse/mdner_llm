@@ -1,0 +1,3 @@
+The Functional Dynamics of FicD's TPR domain are modulated by the Interaction with ATP and BiP
+MD input, topologies, ligand parameters for MD simulations in 
+The Functional Dynamics of FicD’s TPR domain are modulated by the Interaction with ATP and BiP

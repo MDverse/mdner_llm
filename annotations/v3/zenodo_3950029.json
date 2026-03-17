@@ -42,38 +42,68 @@
         {
             "label": "MOL",
             "text": "DPPC",
+<<<<<<< HEAD
             "start": 804,
             "end": 808
+=======
+            "start": 805,
+            "end": 809
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
             "text": "Gromacs",
+<<<<<<< HEAD
             "start": 969,
             "end": 976
+=======
+            "start": 972,
+            "end": 979
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTVERS",
             "text": "v. 2016.4",
+<<<<<<< HEAD
             "start": 978,
             "end": 987
+=======
+            "start": 981,
+            "end": 990
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Charmm36 (v. June 2015)",
+<<<<<<< HEAD
             "start": 1001,
             "end": 1024
+=======
+            "start": 1004,
+            "end": 1027
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "TIP3P",
+<<<<<<< HEAD
             "start": 1034,
             "end": 1039
+=======
+            "start": 1037,
+            "end": 1042
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "50 ns",
+<<<<<<< HEAD
             "start": 1179,
             "end": 1184
+=======
+            "start": 1182,
+            "end": 1187
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/3950029"

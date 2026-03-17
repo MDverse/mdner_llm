@@ -24,26 +24,46 @@
         {
             "label": "MOL",
             "text": "protein",
+<<<<<<< HEAD
             "start": 359,
             "end": 366
+=======
+            "start": 360,
+            "end": 367
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "bptf",
+<<<<<<< HEAD
             "start": 699,
             "end": 703
+=======
+            "start": 700,
+            "end": 704
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "BPTF",
+<<<<<<< HEAD
             "start": 739,
             "end": 743
+=======
+            "start": 740,
+            "end": 744
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "AU1",
+<<<<<<< HEAD
             "start": 760,
             "end": 763
+=======
+            "start": 761,
+            "end": 764
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/2542912"

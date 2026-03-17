@@ -1,0 +1,2 @@
+Supplementary Simulation Data for "Conformational Selection of a Tryptophan Side Chain Drives the Generalized Increase in Activity of PET Hydrolases Through a Ser/Ile Double Mutation"
+Additional simulation data for "Conformational Selection of a Tryptophan Side Chain Drives the Generalized Increase in Activity of PET Hydrolases Through a Ser/Ile Double Mutation", which has been submitted as a preprint to ChemRxiv.

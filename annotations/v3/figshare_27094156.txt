@@ -1,0 +1,2 @@
+G60C
+These are the files related to the KRAS G60C mutant protein's simulation.

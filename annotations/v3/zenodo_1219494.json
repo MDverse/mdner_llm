@@ -30,8 +30,13 @@
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 274,
             "end": 278
+=======
+            "start": 21,
+            "end": 25
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
@@ -42,8 +47,13 @@
         {
             "label": "MOL",
             "text": "CER160",
+<<<<<<< HEAD
             "start": 313,
             "end": 319
+=======
+            "start": 11,
+            "end": 17
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
@@ -54,8 +64,13 @@
         {
             "label": "TEMP",
             "text": "310K",
+<<<<<<< HEAD
             "start": 339,
             "end": 343
+=======
+            "start": 41,
+            "end": 45
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
@@ -90,32 +105,57 @@
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 667,
             "end": 671
+=======
+            "start": 274,
+            "end": 278
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "CER160",
+<<<<<<< HEAD
             "start": 683,
             "end": 689
+=======
+            "start": 313,
+            "end": 319
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "SOL",
+<<<<<<< HEAD
             "start": 698,
             "end": 701
+=======
+            "start": 700,
+            "end": 703
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "NA",
+<<<<<<< HEAD
             "start": 713,
             "end": 715
+=======
+            "start": 715,
+            "end": 717
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "CL",
+<<<<<<< HEAD
             "start": 732,
             "end": 734
+=======
+            "start": 734,
+            "end": 736
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/1219494"

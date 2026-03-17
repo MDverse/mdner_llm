@@ -1,0 +1,3 @@
+Structural basis of the obligatory exchange mode of human neutral amino acid transporter ASCT2
+Data for molecular dynamics simulations (PDB snapshots, cleaned trajectories, starting structure, simulation parameters) described in "Structural basis of the obligatory exchange mode of human neutral amino acid transporter ASCT2".
+ 

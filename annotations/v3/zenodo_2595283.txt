@@ -1,0 +1,26 @@
+Configurations and parameters for DMPC and DMTAP lipids and their mixtures
+Configurations containing cationic (charge: +1) DMTAP and DMPC lipids, water and neutralizing ions (when necessary) at 50 C for the following systems:
+
+Pure DMPC: 128 lipids (all DMPC, 0 Cl ions) and 3655 waters. File: dmpc128_20ns.pdb
+6% DMTAP: 128 lipids (120 DMPC, 8 DMTAP, 8 Cl ions) and 3647 waters. File: tap06_20ns.pdb
+16% DMTAP: 128 lipids (108 DMPC, 20 DMTAP, 20 Cl ions) and 3635 waters
+25% DMTAP: 128 lipids (96 DMPC, 32 DMTAP, 32 Cl ions) and 3623 waters
+31% DMTAP: 128 lipids (88 DMPC, 40 DMTAP, 40 Cl ions) and 3615 waters
+39% DMTAP: 128 lipids (78 DMPC, 50 DMTAP, 50 Cl ions) and 3605 waters
+50% DMTAP: 128 lipids (64 DMPC, 64 DMTAP, 64 Cl ions) and 3591 waters
+63% DMTAP: 128 lipids (48 DMPC, 80 DMTAP, 80 Cl ions) and 3575 waters
+75% DMTAP: 128 lipids (32 DMPC, 96 DMTAP, 96 Cl ions) and 3559 waters
+89% DMTAP: 128 lipids (14 DMPC, 114 DMTAP, 114 Cl ions) and 3541 waters
+Pure DMTAP: 128 lipids (all DMTAP, 128 Cl ions) and 3527 waters: File: dmtap128_24ns.pdb
+
+Simulation time for each system is shown in the file name.
+Parameter files are: dmpc.itp and dmtap.itp. The file lipid.itp is also needed (these are Berger lipids). Download lipid.itp from http://wcm.ucalgary.ca/tieleman/downloads
+The PDF file (TablePDB.pdf ) contains a summary of the systems with area per lipid and error.
+References:
+
+Cationic DMPC/DMTAP Lipid Bilayers: Molecular Dynamics Study, Gurtovenko, Patra, Karttunen, Vattulainen, Biophys. J. 86, 3461-3472 (2004).
+Effect of Monovalent Salt on Cationic Lipid Membranes As Revealed by Molecular Dynamics Simulations, A. A. Gurtovenko, M. Miettinen, M. Karttunen, and I. Vattulainen J. Phys. Chem. B 109, 21126-21134 (2005).
+Ion Dynamics in Cationic Lipid Bilayer Systems in Saline Solutions, M.S. Miettinen, A.A. Gurtovenko, I. Vattulainen, and M. Karttunen, J. Phys. Chem. B 113, 9226-9234 (2009).
+
+ 
+ 

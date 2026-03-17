@@ -66,56 +66,101 @@
         {
             "label": "MOL",
             "text": "pazePC",
+<<<<<<< HEAD
             "start": 422,
             "end": 428
+=======
+            "start": 423,
+            "end": 429
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 510,
             "end": 514
+=======
+            "start": 511,
+            "end": 515
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "pazePC",
+<<<<<<< HEAD
             "start": 519,
             "end": 525
+=======
+            "start": 520,
+            "end": 526
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 532,
             "end": 537
+=======
+            "start": 533,
+            "end": 538
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "potassium",
+<<<<<<< HEAD
             "start": 545,
             "end": 554
+=======
+            "start": 546,
+            "end": 555
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "167ns",
+<<<<<<< HEAD
             "start": 582,
             "end": 587
+=======
+            "start": 583,
+            "end": 588
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 607,
             "end": 611
+=======
+            "start": 608,
+            "end": 612
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Berger",
+<<<<<<< HEAD
             "start": 624,
             "end": 630
+=======
+            "start": 625,
+            "end": 631
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "pazePC",
+<<<<<<< HEAD
             "start": 657,
             "end": 663
+=======
+            "start": 658,
+            "end": 664
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/44660"

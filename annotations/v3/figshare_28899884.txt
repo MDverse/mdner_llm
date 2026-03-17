@@ -1,0 +1,2 @@
+All the relevant structure, topology, and trajectory files used in your simulations; the simulation results for all replicates; and the initial and final structures in PDB format.
+All the relevant structure, topology, and trajectory files used in your simulations; the simulation results for all replicates; and the initial and final structures in PDB format.

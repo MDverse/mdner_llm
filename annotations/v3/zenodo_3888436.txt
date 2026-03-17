@@ -1,0 +1,5 @@
+Simulations of the air-water interface at the presence of salt, Dang ions + SPCE water model
+Simulations of a water–air interface. There are ~20000 water molecules with various concentrations of NaCl or CaCl_2 in a simulation box of 12*12*22 nm^3. The SPCE water and the ions by Dang et al. are used. The numbering in file names corresponds to the different concentrations, and data for a pure water–air interface "NOION" is also provided. GROMACS-compatible inputs are provided: simulation parameters (md.mdp), topologies (top), and index (ndx) files. Initial structure can be extracted from the tpr file using gmx editconf. The run input (tpr) is provided, as are the outputs: energy file (edr), trajectory (xtc), and final structure (gro). Surface tensions can be extracted by gmx energy.
+These values are reported in DOI: [ADD].
+Data for scaled ions based on the electronic continuum correction (ECC) with two different water models are provided in DOI: 10.5281/zenodo.3888383 (SPCE) and DOI: 10.5281/zenodo.3888369 (OPC).
+ 

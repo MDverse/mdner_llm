@@ -1,0 +1,2 @@
+Multiscale molecular dynamics simulations of human P-glycoprotein in complex lipid bilayer
+The topology (gro) and trajectory (xtc)  files for multiscale - coarse-grained (CG) and atomistic (AT)  molecular dynamics simulations of human P-glycoprotein in complex lipid bilayer. The coarse grained simulations are 10 microseconds long and the trajectories have 1 frame saved at every 10 ns, while the atomistic simulations are 100 ns long and have 2 frames saved at every nanosecond. 

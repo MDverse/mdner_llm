@@ -1,0 +1,5 @@
+Molecular Dynamics Trajectories for GPR6 without Ligand (ApoNoLig)
+Molecular Dynamics Data for 10.1126/scisignal.ado8741 for publication at Science Signalling
+Barekatain M., Johansson L.C., Lam J.H. et al Structural Insights into the High Basal Activity and Inverse Agonism of the Orphan Receptor GPR6 Implicated in Parkinson's Disease, Sci Signal. 2024 Dec 3;17(865):eado8741. doi: 10.1126/scisignal.ado8741. Epub 2024 Dec 3.
+This folder contains the PDB format file ("Topology") and the XTC format file (Trajectories). The timestep in this strided trajectory is 0.1 ns per frame. Periodic boundary condition (pbc) can be restored using VMD's standard pbc commands.
+Please cite us if you find this data useful!

@@ -1,0 +1,2 @@
+Input Files for Peptide Translocation Across Phospholipid Membranes Using Various Collective Variables and Martini Coarse-Grained Simulations
+Input files for publication: Ivo Kabelka, Radim Brožek, and Robert Vácha: Selecting Collective Variables and Free Energy Methods for Peptide Translocation Across Membranes, Journal of Chemical Information and Modeling, submitted

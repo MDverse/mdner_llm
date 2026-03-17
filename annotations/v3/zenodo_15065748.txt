@@ -1,0 +1,2 @@
+POPC Sage 2.2.1-core-priors
+500 ns simulation, charges assigned with NAGL openff-gnn-am1bcc-0.1.0-rc.3.pt

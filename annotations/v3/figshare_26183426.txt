@@ -1,0 +1,2 @@
+Deciphering the conformational changes induced by high-risk nsSNPs in β-lactoglobulin.
+Molecular simulation (MD) data of WT and all the selected variants of beta-lactoglobulin.Trajectory files (.xtc) generated using gromacs and 100ps coordinates were saved after removing PBC for 500ns simulations.

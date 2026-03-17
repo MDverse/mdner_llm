@@ -1,0 +1,2 @@
+Binding affinity of the odorant-binding protein 7 with plant volatiles in a parasitoid wasp Aulacocentrum confusum (Hymenoptera: Braconidae)
+ the theoretical binding free energy (ΔGbind) of the AconOBP7-plant volatiles complex was calculated via the MM/PBSA method based on 50-100 ns equilibrium MD trajectories. 

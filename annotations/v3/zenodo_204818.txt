@@ -1,0 +1,5 @@
+Tutorial Dataset of MDANSE 2016 Workshop
+This dataset was distributed to delegates attending MDANSE (Molecular (and Lattice) Dynamics to Analyse Neutron Scattering Experiments) 2016 workshop, held at Abingdon, Oxfordshire, United Kingdom during 10-12 November, 2016.
+More information of this workshop will be found here: http://www.isis.stfc.ac.uk/news-and-events/events/2016/mdanse-201615848.html
+The tutorial document will be published here: https://epubs.stfc.ac.uk/index
+ 

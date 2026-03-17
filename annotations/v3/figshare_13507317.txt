@@ -1,0 +1,2 @@
+Atomistic IDTBR force fields
+Models for the O-IDTBR and EH-IDTBR small-molecule acceptors for organic solar cells and organic transistors based on the OPLS-AA force field. Includes force field files (.itp) and structure files (.gro) for the GROMACS molecular dynamics software. These are part of the collection found at https://doi.org/10.11583/DTU.c.5254236.

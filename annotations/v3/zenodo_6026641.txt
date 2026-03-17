@@ -1,0 +1,14 @@
+Impact of New Variants on SARS-CoV-2 Infectivity and Neutralization: A Molecular Assessment of the Alterations in the Spike-Host Protein Interactions
+MD simulation trajectories and structural models from the work which first appeared on bioRxiv (https://doi.org/10.1101/2021.01.10.426143), later ssrn (http://dx.doi.org/10.2139/ssrn.3907841), and finally accepted for publication by Iscience.
+File Name: Run1_WT_RBD_ACE2.zip
+Description: A compressed (zipped) folder contains three independent MD trajectories of WT RBD-ACE2 complex.
+File Name: Run2_N501Y_RBD_ACE2.zip
+Description: A compressed folder contains three independent MD trajectories of Alpha RBD-ACE2 complex.
+File Name: Run3_Beta_RBD_ACE2.zip
+Description: A compressed folder contains three independent MD trajectories of Beta RBD-ACE2 complex.
+File Name: Run4_Delta_RBD_ACE2.zip
+Description: A compressed folder contains three independent MD trajectories of Delta RBD-ACE2 complex
+File Name:  Run5_UK2_E484K_N501Y_ACE2.zip
+Description: A compressed folder contains three independent MD trajectories of UK2 RBD-ACE2 complex
+File Name: Structural_model_PDBs.zip
+Description: A compressed folder contains eight pdb files of those structural models plotted in Figs 1, 3, 5, 6, 7 and S1.

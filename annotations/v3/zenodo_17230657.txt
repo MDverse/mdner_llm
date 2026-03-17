@@ -1,0 +1,3 @@
+Statistical thermodynamics based design principles into the temperature induced fold switching of a metamorphic protein
+This dataset contains trajectory and coordinate files used in the molecular dynamics simulations reported in our study on the statistical thermodynamics based design principles into the temperature induced fold switching of a metamorphic protein. 
+ 

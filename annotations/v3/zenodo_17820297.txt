@@ -1,0 +1,3 @@
+Why PAR is not RNA: ion atmospheres, bridging interactions, and ion-induced structural collapse
+This folder contains the molecular dynamics trajectories for Poly(ADP-ribose) (PAR) generated using the FIS-PAR model, provided in .dcd format. Data are available for five PAR lengths—10, 20, 27, 40, and 60 units—each simulated in the presence of NaCl, Mg²⁺, and Ca²⁺ ions. Every zipped folder includes trajectories across a range of salt concentrations. Folder names follow the convention PAR_Length_salt.zip (e.g., PAR10_NaCl.zip).
+These data accompany the preprint “Why PAR is not RNA: ion atmospheres, bridging interactions, and ion-induced structural collapse” by Lipika Baidya, Peter Zhang, and Hung T. Nguyen (https://doi.org/10.1101/2025.11.29.691228).

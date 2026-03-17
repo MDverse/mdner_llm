@@ -1,0 +1,2 @@
+Coarse-grained MARTINI force fields
+Models for the P3HT and PffBT4T-2OD polymer donors and the O-IDTBR small-molecule acceptor for organic solar cells based on the coarse-grained MARTINI force field. Includes stand-alone force field files (.itp) and structure files (.gro) for the GROMACS molecular dynamics software. These are part of the collection found at https://doi.org/10.11583/DTU.c.5254236.

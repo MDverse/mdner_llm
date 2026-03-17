@@ -1,0 +1,3 @@
+MD simulation data for Pseudomonas aeruginosa TonB-CTD, Amber ff99SB-ILDN, OPC4, 310K, Gromacs
+MD simulation data for Pseudomonas aeruginosa TonB-CTD. Simulated with Amber ff99SB-ILDN force field, OPC4 water model at 310K, Gromacs software package.
+Simulation reported in "Rotational dynamics of proteins from spin relaxation times and molecular dynamics simulations", Ollila et al. Submitted (2017).

@@ -1,0 +1,3 @@
+supporting info for Exploration of Tropocollagen Unwinding by Cathepsins K Dimer with Chondroitin 4-sulfate through Microsecond Timescale Molecular Dynamics
+Additioanl supporting information including the molecular dynamics (MD) simulation trajectories, topology files and movie files 
+for manuscript of "Exploration of Tropocollagen Unwinding by Cathepsins K Dimer with Chondroitin 4-sulfate through Microsecond Timescale Molecular Dynamics"

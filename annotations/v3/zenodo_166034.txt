@@ -1,0 +1,2 @@
+MD simulation trajectory of a lipid bilayer: Pure POPC in water. SLIPIDS, Gromacs 4.6.3. 2016.
+MD simulation trajectory files, for fully hydrated POPC bilayer [512 POPC, 23943 WAT]. The SLIPIDS force field was used with Gromacs 4.6.3. Conditions: T=298K. 170 ns each trajectory, last 100 ns analyzed.

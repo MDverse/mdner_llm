@@ -1,0 +1,3 @@
+Input files and dataset for CD3CN+F Reaction sampling in CHARMM
+The input files and resulting trajectory data for the CD3CN application described in:
+Adaptive free energy sampling in multidimensional collective variable space using boxed molecular dynamics, by O'Connor et al.

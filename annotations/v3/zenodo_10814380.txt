@@ -1,0 +1,24 @@
+Data supporting: "Calcium-driven In Silico Inactivation of a Human Olfactory Receptor"
+In this repository we deposited trajectories and input files for the paper "Calcium-driven In Silico Inactivation of a Human Olfactory Receptor".
+The data is organised as follow:
+ 
+DATA:
+CA / NA / NO_IONS / NEUTRAL
+
+centroid.pdb                                         # centroid calculated with GMX
+step5_input.gro                                         # input file from CHARMM GUI
+topol.top                                         # topol file from CHARMM GUI
+MDPs                                         # folder containing mdp files from CHARMM GUI
+toppar                                         # folder containing topology files from CHARMM GUI                
+
+ 
+TRJs:
+CA / NA / NO_IONS / NEUTRAL
+
+ref.pdb                                           # reference pdb file
+trj1.xtc                                           # trajectory from replica 1
+trj2.xtc                                           # trajectory from replica 2
+trj3.xtc                                           # trajectory from replica 3
+trj4.xtc                                           # trajectory from replica 4
+trj5.xtc                                           # trajectory from replica 5
+trj6.xtc                                          # trajectory from replica 6 (NEUTRAL only)

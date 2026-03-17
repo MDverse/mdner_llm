@@ -1,0 +1,2 @@
+POPC bilayer at 310K with the CHARMM36-NBFIX force field, 111 mM NaCl
+prosECCo 75 paper related data

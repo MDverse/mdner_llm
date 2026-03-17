@@ -1,0 +1,4 @@
+data set to bioRxiv preprint 'Persistent cross-species SARS-CoV-2 variant infectivity predicted via comparative molecular dynamics simulation
+This is supporting data and software code for the following preprint in bioRxiv
+Persistent cross-species SARS-CoV-2 variant infectivity predicted via comparative molecular dynamics simulation
+https://www.biorxiv.org/content/10.1101/2022.04.18.488629v1

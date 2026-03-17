@@ -1,0 +1,39 @@
+LIPAC Test Trajectories: EphA2 and Notch1 in GM3-containing Membranes
+# LIPAC Test Trajectories: EphA2 and Notch in GM3-containing Membranes
+ 
+  ## Overview
+  This dataset contains example molecular dynamics (MD) simulation
+  trajectories for testing and demonstrating the LIPAC (Lipid-Protein
+  Analysis with Causal inference) pipeline. These trajectories were used to
+  validate the method in the manuscript "xxxx".
+ 
+  ## Purpose
+  These trajectories serve as:
+  - **Test data** for the LIPAC pipeline (https://github.com/takeshi-sato-dev)
+ 
+  ## Contents
+  - **EphA2 system**: Dimerized EphA2 receptor in DIPC/DOPS/CHOL/SM/GM3
+  membrane
+    - 2 protein copies for testing protein-specific effects
+    - [5us simulation time]
+ 
+  - **Notch system**: Tetrameric Notch receptor in DIPC/DIPS/CHOL/SM/GM3
+  membrane
+    - 4 protein copies for testing hierarchical Bayesian models
+    - [5us simulation time]
+ 
+  ## File Format
+  - Trajectory files: [.xtc]
+  - Topology files: [.psf]
+ 
+  ## Usage
+  See LIPAC documentation for detailed tutorials using these trajectories.
+ 
+  Citation
+ 
+  If you use this data, please cite:
+  [Your manuscript citation]
+ 
+  Related Resources
+ 
+  - LIPAC code: https://github.com/takeshi-sato-dev

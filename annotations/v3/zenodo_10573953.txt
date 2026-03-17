@@ -1,0 +1,2 @@
+POPC sLipids (Incorrect Charges)
+Missing formal charges on phosphate group

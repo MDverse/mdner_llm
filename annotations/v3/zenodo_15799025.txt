@@ -1,0 +1,75 @@
+Molecular Dynamics Simulations of Amyloid-β Peptides and Cu(II) Complex at a Biomimetic Water/Dichloroethane Interface
+This dataset contains the molecular dynamics (MD) input, parameter, and trajectory files for three systems:
+1. Aβ₁₋₁₆ at the water/DCE interface with all counterions and tetrabutylborate (TB⁻)2. Aβ₄₋₁₆ at the water/DCE interface with all counterions and TB⁻3. Aβ₄₋₁₆–Cu(II) complex at the water/DCE interface with all counterions and TB⁻
+The simulations were conducted using GROMACS 2020.6 with the CHARMM36m force field, modified to include parameters for the organic anion TB⁻ (BATB) and cation BA+ (BTPPA) and other counterions, as well as the DCE organic phase. All peptide systems were simulated at pH 5 using appropriate protonation states.
+Systems Provided (3 total)
+
+
+Aβ₁₋₁₆ at the water/DCE interface (with TB⁻)
+
+
+Folder: Abeta_1_16
+
+
+Contains structure (ab_1_16.pdb), full force field parameters (charmm36m_added.ff/), topology (topol.top), minimized configuration (min_nopbc.gro), trajectory (md_dt200.xtc), and position restraints (posre.itp).
+
+
+
+
+Aβ₄₋₁₆ at the water/DCE interface (with TB⁻)
+
+
+Folder: Abeta_4_16
+
+
+Contains structure (ab_4_16.pdb), same charmm36m force field, and corresponding .top, .gro, .xtc, and .itp files.
+
+
+
+
+Aβ₄₋₁₆–Cu(II) complex at the water/DCE interface (with TB⁻)
+
+
+Folder: Abeta_4_16_Cu
+
+
+Includes ab_4_16_cu.pdb with the Cu(II)-coordinated peptide, the modified force field, full system topology, and trajectory.
+
+
+
+
+Each system includes the full charmm36m_added.ff/ directory to ensure reproducibility. This contains .itp and .gro files for water models, organic ions, and all non-bonded and bonded parameters used.
+All structure, parameter, and trajectory files are provided to ensure full reproducibility.
+
+
+
+File
+Description
+
+
+
+
+.pdb
+Initial peptide structure with protonation states
+
+
+.top
+Topology file referencing all force field components
+
+
+.itp
+Include files for molecule definitions and restraints
+
+
+.gro
+Coordinates of solvated systems after minimization
+
+
+.xtc
+MD trajectory files (100 ns)
+
+
+charmm36m_added.ff/
+Complete force field directory with added DCE and organic ion parameters
+
+

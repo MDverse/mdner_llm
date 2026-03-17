@@ -8,6 +8,10 @@
         "TEMP"
     ],
     "raw_text": "research data supporting \"Revealing the organization of catalytic sequence-defined oligomers via combined molecular dynamics simulations and network analysis\"\nThis repository contains all the data generated and analyzed including the starting structures, the input files, the trajectory files, the output data from cpptraj and network analyses, and in-house scripts used to prepare the network and module files shown in the paper \"Revealing the organization of catalytic sequence-defined oligomers via combined molecular dynamics simulations and network analysis\" published in Journal of Chemical Information and Modeling (DOI: 10.1021/acs.jcim.2c00101). ",
+<<<<<<< HEAD
     "entities": [],
     "url": "https://zenodo.org/records/6580992"
+=======
+    "entities": []
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
 }

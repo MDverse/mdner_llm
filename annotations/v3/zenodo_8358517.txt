@@ -1,0 +1,2 @@
+Input Files for Phospholipids are imported into mitochondria by VDAC, a dimeric beta barrel scramblase
+Input files for simulations in publication: Helene Jahn, Ladislav Bartoš, Grace I. Dearden, Jeremy S. Dittman, Joost C. M. Holthuis, Robert Vácha, Anant K. Menon: Phospholipids are imported into mitochondria by VDAC, a dimeric beta barrel scramblase

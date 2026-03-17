@@ -1,0 +1,2 @@
+MD simulation files
+Simplified Bletilla striata polysaccharide (BSP) and cinnamaldehyde-carboxymethyl chitosan (CC) atomic coordinates in gromacs format (*.gro) and topology files in itp format (*.itp) for gromacs all-atom molecular dynamics simulations.

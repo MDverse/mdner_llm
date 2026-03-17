@@ -1,0 +1,2 @@
+Equilibration simulation of a Lo/Ld phase coexistence in a PSM/DOPC/Cholesterol mixture, larger membrane
+To be added.

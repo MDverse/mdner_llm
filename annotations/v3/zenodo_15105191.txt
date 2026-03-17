@@ -1,0 +1,2 @@
+A key residue of the extracellular gate provides quality control contributing to ABCG substrate specificity
+This dataset contains coordinate files of the Arabidopsis ABCG36/PDR8/PEN3 transporter used in molecular dynamics (MD) and quantum mechanical (QM) calculations as part of the study "A key residue of the extracellular gate provides quality control contributing to ABCG substrate specificity."

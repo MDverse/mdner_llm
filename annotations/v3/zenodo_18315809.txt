@@ -1,0 +1,7 @@
+Input files, parameters, and scripts used for the computational mapping and targeting of BK channel protein–protein interactions in breast cancer
+1. Identification of differentially expressed genes in breast cancer cells: R scripts and output files used to identify differentially expressed genes from the GSE71862 RNA-seq dataset using DESeq2.
+2. Construction of protein interaction networks to identify BK channel partners: Files used to build and analyze BK-centered protein–protein interaction networks and to prioritize candidate interactors based on functional and disease relevance.
+3. Identification of protein-protein contact regions: Scripts and outputs used to identify consensus interface residues between the BK channel and selected partners from multiple computational predictors.
+4. Molecular docking of protein-protein interactions: Input structures, docking configurations, and representative models generated for BK complexes using HADDOCK and Rosetta MPDock.
+5. Coarse-grained molecular dynamics simulations: System setup files and simulation inputs used for coarse-grained molecular dynamics simulations of BK protein complexes in a lipid bilayer.
+6. Design of peptide inhibitors of the BK-LINGO1 complex: Input/output files used for de novo peptide design targeting the BK–LINGO1 interface and for subsequent binding evaluation by molecular dynamics and MM/GBSA.

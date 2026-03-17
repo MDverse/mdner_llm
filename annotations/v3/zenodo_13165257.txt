@@ -1,0 +1,13 @@
+Rac1b and Rac1 all-atom simulations
+
+
+
+
+File Extensions:
+filename.parm7: Refers to topology files.filename.rst7: Refers to Amber format coordinates.filename.gro: Refers to Gromacs format coordinates.
+File Naming Convention:
+The term "monomer" in the file names refers to the ELMO1:DOCK5:Rac1/Rac1b-GDP complex. 
+The files named "NCIs_${complex_name}_prolif.ipynb" refer to the scripts used to assess noncovalent interactions between proteins in each considered system, by using  ProLIF (Bouysset, C.; Fiorucci, S., J Cheminform, 2021, 13, 72.) In our paper, we analyzed 500 frames for each system trajectory. However, to conserve storage space on Zenodo, we uploaded only every 10th frame from each trajectory. As a result, the trajectories were reduced from 500 frames to 50 frames.
+
+
+

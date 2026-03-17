@@ -1,0 +1,2 @@
+MD trajectory_ERK2介导的MKP3激活中变构信号传递机制的结构和动力学见解
+MKP3-CD、ERK2-MKP3-CD 和 MKP5-CD 的分子动力学模拟轨迹。

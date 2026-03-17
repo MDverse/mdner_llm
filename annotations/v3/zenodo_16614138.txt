@@ -1,0 +1,2 @@
+MD trajectories for "Design of peptide-based PAC1 antagonists combining molecular dynamics simulations and a biologically relevant cell-based assay", Biochemical Pharmacology (preprint doi https://doi.org/10.1101/2025.04.16.649181)
+PSF and XTC files for each of the PAC1 systems simulated (stripped of water, POPC, and ions). CHARMM36 topology/parameters for CHA, as well as the patch to create the Lb (EKAM), are provided.

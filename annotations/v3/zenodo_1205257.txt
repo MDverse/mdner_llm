@@ -1,0 +1,22 @@
+(TM3-CIS) Simulation CER160_9_POPC_512_TM3_10_5up_5down_NaCl_150mM_310K (rep1)
+System description
+-------------------
+- Title: (TM3-CIS) Simulation CER160_9_POPC_512_TM3_10_5up_5down_NaCl_150mM_310K (rep1)
+- Description: Simulation intake nine ceramides (CER16) to a POPC membrane containing ten LAPTM4B-TM3 peptides using charmm36 at 310K. (TM3 peptides have cis peptides bonds by mistake)
+- MD engine: gromacs 5.0.5-dev-20150319-0bec922
+- Force field: charmm36
+- Temperature: 310K
+- Simulation time: 4000ns
+- Saving frequency: 100ps
+- Molecular content:
+TM3               10
+POPC             512
+CER160             9
+SOL            34248
+NA               102
+CL                92
+- Other information:
+  * Simulations containing 9 CER16 in the water phase initially.
+  * Membrane containing LAPTM4B TM3 peptides.
+- Problems
+  * By mistake some peptides bonds in TM3 are in CIS configuration

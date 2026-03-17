@@ -1,0 +1,2 @@
+Identification of potential modulators of IFITM3 by in-silico modeling and virtual screening
+Modeled structure of IFITM3 and Desmond MD trajectory files for IFITM3 and IFITM3-ligand complexes. Please see README file.

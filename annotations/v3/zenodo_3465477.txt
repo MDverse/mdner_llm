@@ -1,0 +1,6 @@
+Coarse-grained simulation of a dilute lipid membranes with 7 protein types
+A simulation of a DPPC lipid membrane with one copy of seven protein types. This is an extension to the dataset [1] with an even more dilute membrane. Topologies and mdp files can be obtained from [1], and all the simulation parameters are equal to those described in [1] and in the related publication [2]. The trajectory does not contain the solvent and is stored every 10 ns.
+
+[1] https://doi.org/10.5281/zenodo.846428
+[2] M. Javanainen, H. Martinez-Seara, R. Metzler, and I. Vattulainen; Diffusion of Integral Membrane Proteins in Protein-Rich Membranes. J. Phys. Chem. Lett., 2017, 8 (17), pp 4308–4313, DOI: 10.1021/acs.jpclett.7b01758
+ 

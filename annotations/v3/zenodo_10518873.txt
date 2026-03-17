@@ -1,0 +1,12 @@
+MD simulations of phosphorylated peptides (GGXXGG)
+This repository contains MD simulations and associated analyses of a peptide series of short peptides including phosphorylated residues. It is one of five repositories that are associated to the following research article:
+
+Bickel,D., and Vranken,W. (2024) Effects of Phosphorylation on Protein Backbone Dynamics and Conformational Preferences. J. Chem. Theory Comput. https://doi.org/10.1021/acs.jctc.4c00206.
+
+The full list of the related repositories is given here:
+
+Pentapeptide simulations: 10.5281/zenodo.10517328
+Hexapeptides simulations: 10.5281/zenodo.10518872
+Heptapeptides simulations: 10.5281/zenodo.10518971
+Octapeptides simulations: 10.5281/zenodo.10518993
+Nonapeptides simulations: 10.5281/zenodo.10519033

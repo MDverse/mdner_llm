@@ -1,0 +1,21 @@
+Molecular dynamics simulations of intrinsically disordered protein regions with pathogenic and benign missense variants
+This study aimed to address pathogenic variants in intrinsically disordered regions (IDRs) using molecular dynamics simulations. This dataset contains:
+
+Coarse-grained MD simulations using CALVADOS2 of mutated IDR sequences.
+Metadata for these simulations of mutated sequences and their groupings.
+IDRome wide predictions of MDmis. MDmis is our model trained on features extracted from MD simulations of IDRs.
+Data used in training and other analysis in the manuscript. Features used for training, for plotting labels with proteomic information such as conservation, pLDDT, AlphaMissense and ESM1b scores.
+
+Please note that the folders of coarse-grained and processed MD simulations use the term "Low" and "High" RMSF, which were initially used to denote the "Short" and "Long" IDR dichotomy addressed in the paper. However, this mapping may not be 1:1, so we recommend using the metadata named "calvados_mutation_differences.csv" to map each mutation to the category of interest."Shorter_simulations" are wild-type simulations of long IDRs for very short timescales (70ns) to study the role of time in RMSF calculations.
+Other data used in training and analysis are also provided.
+
+feature_table.csv contains extracted features from MD simulations of IDRs.
+
+This can be merged with sequence_composition_MSA.csv which contains features extracted from Zoonomia MSAs such as entropy, charge pattern, and compositional variation.
+
+
+GPCRmd_train_val has extracted MD features from GPCRmd
+DMS_train_val is for IDRs but focusing on DMS labels.
+Merged Proteome Information is a folder containing all the merged proteomic information from different sources for all labels used in our analysis. 
+DMS and MD metadata provide information useful for processing these datasets. 
+training.csv file that contains all the labels used for the analysis in IDRs and other primarily structured regions.

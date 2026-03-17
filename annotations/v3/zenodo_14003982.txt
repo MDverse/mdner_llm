@@ -1,0 +1,1 @@
+OpenFF w/ MD Integrator + CHARMM36 control w/o HMR + Lipid21 verification w/o HMR

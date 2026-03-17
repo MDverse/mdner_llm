@@ -1,0 +1,3 @@
+MD Simulations of a1b2g2 GABA-A receptor
+MD simulations in Shared structural mechanisms of general anaesthetics and benzodiazepines
+DOI: 10.1038/s41586-020-2654-5

@@ -1,0 +1,22 @@
+Connexin-46/50 in a dynamic lipid environment resolved by CryoEM at 1.9 Å
+These are the molecular dynamics (MD) data that are analyzed, in Flores et al. 2020. Each trajectory file (.dcd) has an associated structure file (.psf), which can be analyzed in VMD. Each gap junction system, Cx46 & Cx50, were simulated with either KCl or NaCl in the intracellular space: Cx46_KCl/NaCl, Cx50_KCl/NaCl. All four systems were equilibrated for 30ns and then followed up with 2 separate 100ns production runs.
+For MD lipid-densities the Cx50_KCl system was used as the representative dataset. Lipid densities from all other systems can be calculated with the provided TCL script calc-density.tcl. 
+In VMD TK-Console:
+> mol new <system>.psf
+> mol addfile <system>.dcd waitfor all
+> source /path/to/scripts/LipNetwork.tcl
+> align
+> source /path/to/scripts/calc-density.tcl
+> dmpcdensity <outname>
+[output] outname_ltailden.dx
+
+Convert from .dx to .mrc using UCSF-Chimera Volume_Viewer plugin.
+[output] outname_ltailden.mrc
+
+Using Relion:
+
+$ relion_image_handler --i outname_ltailden.mrc --o outname_ltailden_D6-Sym.mrc --sym D6
+[output] outname_ltailden_D6-Sym.mrc
+ 
+All trajectory files (.dcd) are 100ns longs (1,000 frames x 100ps/frame).
+For questions regarding MD-data analysis and full trajectory files (2ps/frame), please contact Dr. Steve Reichow (reichow@pdx.edu).

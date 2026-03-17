@@ -1,0 +1,2 @@
+input files for "Determination of Protein Structural Ensembles by Hybrid-Resolution SAXS Restrained Molecular Dynamics".
+input files for "Determination of Protein Structural Ensembles by Hybrid-Resolution SAXS Restrained Molecular Dynamics", cf. plumed-nest

@@ -1,0 +1,2 @@
+6K_trajectory
+A 6001 frames REMD simulation of the Tau peptide.

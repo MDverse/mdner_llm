@@ -1,0 +1,4 @@
+LTF Alkane Gromos54A7 models
+Alkanes between heptane and docosane, modelled with GROMOS 54a7.
+MDP options generally follow the GROMOS 54a7 paper: https://dx.doi.org/10.1007/s00249-011-0700-9 with the exception of dt=1 fs due to some instabilities with longer alkanes in melt.
+Simulations containing melts of heptadecane, octadecane, nonadecane, heneicosane and docosane will need to be rerun in a higher T due to formation of a solid.

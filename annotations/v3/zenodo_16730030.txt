@@ -1,0 +1,5 @@
+Computational design of triple agonist peptide targeting Glucagon, GLP-1 and GIP receptor
+This dataset provides molecular dynamics simulation data for a series of peptide-receptor complexes involving three key class B1 G protein-coupled receptors (GPCRs): the glucagon receptor (GCGR), the glucagon-like peptide-1 receptor (GLP-1R) and the glucose-dependent insulinotropic polypeptide receptor (GIPR). It includes simulations of endogenous ligand-bound states, designed triple agonist peptides, and reference candidates, such as Tirzepatide and Cotadutide targeting these receptors.
+For each receptor system, multiple independent replicate simulations are performed to ensure consistency. The dataset includes final conformations and simulation input files, enabling studies of ligand binding dynamics.
+ 
+Vishnoi, S.; Hudson, S.; Bhattacharya, S. and Thompson, D., Computational design of triple agonist peptide targeting Glucagon, GLP-1 and GIP receptor. Zenodo 2025, doi: 10.5281/zenodo.16730030.

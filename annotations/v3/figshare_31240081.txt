@@ -1,0 +1,2 @@
+EmrB simulations: A model for drug transport across two membranes of Gram-negative bacteria by an MFS tripartite assembly
+Simulation trajectories and input files for EmrB simulations in D29 charged and neutral states.

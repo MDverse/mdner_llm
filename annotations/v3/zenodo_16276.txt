@@ -1,0 +1,25 @@
+DPPC_512_NaCl_150mM_320K_v-rescale
+System description
+-------------------
+- Title: Simulation DPPC_512_NaCl_150mM_320K_v-rescale bilayer
+
+- MD engine: gromacs 5.0.4
+
+- Force field: charmm36
+
+- Temperature: 320K
+
+- Simulation time: 500ns
+
+- Saving frequency: 100ps  
+
+- Molecular content:
+ DPPC          512
+ water         20480
+ Cl-           55
+ Na+           55
+
+- Other information:
+ * Use of v-rescale thermostat instead of the default nose-hoover
+ * Center of mass motion removed independently for bilayer and water+ions
+ 

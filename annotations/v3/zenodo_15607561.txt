@@ -1,0 +1,113 @@
+Dataset: Zigzagging Diffusion and Non-Classical Transport in Molecular Nanopores Under Extreme Confinement
+Dataset underlying the publication "Zigzagging Diffusion and Non-Classical Transport in Molecular Nanopores Under Extreme Confinement" 
+Data structure
+The archive contains setup and analysis results for multiple systems consisting of pores with fullerene particles (Prefixes: C60, C70) filled with solvent (Toluene) or purely solvent filled pores (Prefix: P00). The naming convention is as following:
+<Particle_Type><pore_size_code>_<solvent>_<solid_suffix>
+Particle_Type is one of: C60, C70 or P00, depending on whether there is no particle except solvent (P00), a C60 fullerene (C60) or a C70 fullerene (C70) in the pore. 
+pore_size_code denotes the approximate average size of the pore as a multi-character code according to the following table:
+
+
+
+Size code
+Approximate avg pore width in [nm]
+
+
+qa
+1.08
+
+
+qc
+1.17
+
+
+qe
+1.40
+
+
+qg
+1.53
+
+
+qi
+1.73
+
+
+qk
+1.86
+
+
+qo
+2.21
+
+
+qq
+2.39
+
+
+qs
+2.55
+
+
+qu
+2.69
+
+
+qw
+2.85
+
+
+qy
+3.02
+
+
+pa
+3.38
+
+
+pc
+3.68
+
+
+pe
+4.00
+
+
+pg
+4.36
+
+
+pk
+5.05
+
+
+po
+5.69
+
+
+ps
+6.36
+
+
+pw
+7.04
+
+
+
+solid_suffix is an indicator of the solid making up the pore wall in the system. Here, we have the suffix sphy for hydroxylated sapphire 
+Archives
+Simulation setup
+The simulation_setup archive contains the GROMACS setup files for all simulation production or umbrella sampling runs underlying the results presented in the publication. See the methods section in the publication for details on the simulation methodology.
+Analysis results
+The analysis_results archive contains textual representations of the data published in the figures of the associated publication.
+Within the archive, there are the following subfolders:
+
+density:This contains the interface-normal center of mass density profiles for various systems in a (z, rho(z)) notation (first column is the position, second the density) of different particles (C60, C70, toluene) in their respective systems. The naming convention here is densityCOM_<system name>.datWhere the system name is composed as detailed above
+diffusion:This contains the diffusion data for the pores plotted in fig2 and fig S4. Within each system's directory (see above description for naming convention), there are the following files:
+
+There is one file, containing the parallel diffusion data (diff_profile.dat). It contains the index of the slice, the extracted diffusion in x direction, in y direction and overall in x and y, together with the information for the lower end of the slice in z direction (z_min), the upper end of the slice in z direction (z_max) and the center z-coordinate of the sloce (z_mid)
+There is one file, containing the perpendicular diffusion data (diff_profile_perp.dat). It contains again the bin index, then the diffusion index calculated with three different approaches (taking the time statistics directly from the finite trajectory, extrapolation the statistics with an exponential fit and an extrapolation using the Simple Particle Model (SPM)) as well as the corresponding mean lifetime according to each method (see our publication https://doi.org/10.1016/j.jcis.2023.07.088, "Anisotropic molecular diffusion in confinement I: Transport of small particles in potential and density gradients" for details) and eventually the z_mid position. The diffusion in this file has been corrected for the impact of drift in the effective potential as described in our prior publication.
+Additionally, we include the diffusion data without correction for drift in diff_profile_perp_uncorrected.dat
+
+
+pmf:This directory contains the results for the potential of mean force (pmf) associated with the fullerene systems. The naming convention is again profile_<system name>.datandprofile_<system name>_raw.datfor the raw output from gromacs tools without additional processing.
+velocity:This directory contains the (mean) velocity data of various systems. There is a folder for each individual system as according to above naming convention

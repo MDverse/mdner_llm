@@ -1,0 +1,2 @@
+HpTonB(179-285) simulation Amber ff99SB-ILDN
+MD simulation of C-terminal domain of TonB protein from Helicobacter Pylori HpTonB(179-285) with Amber ff99SB-ILDN force field. Trajectory contains the whole 600ns of the simulation.

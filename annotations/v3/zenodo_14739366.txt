@@ -1,0 +1,3 @@
+Molecular dynamics simulation of Arabidopsis thaliana DUR3
+Source data for MD simulation analysis from the original research article:
+Structural basis of urea transport by Arabidopsis thaliana DUR3

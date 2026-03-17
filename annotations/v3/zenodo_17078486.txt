@@ -1,0 +1,2 @@
+Molecular dynamics (MD) simulation input files for: "A skin-permeable polymer for noninvasive transdermal insulin delivery"
+The provided .tpr files are the input for GROMACS 2020.6 to reproduce the key molecular dynamics simulations presented in our study. The file names correspond to the systems described in the main text. Full simulation details are available from the corresponding author upon request.

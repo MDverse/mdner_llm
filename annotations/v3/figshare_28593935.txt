@@ -1,0 +1,2 @@
+Mechanistic Insights and Computer-Informed Design of α-Galactosidase for Galactooligosaccharide Synthesis
+This dataset accompanies the manuscript: " Mechanistic Insights and Computer-Informed Design of α-Galactosidase for Galactooligosaccharide Synthesis".It contains sample CHARMM input and output files, and topologies required for QM/MM MD and QM/MM umbrella sampling simulations of hydrolysis and transglycosylation reaction in a GH27 family Saccharomyces cerevisiae α-galactosidase (ScAGal).

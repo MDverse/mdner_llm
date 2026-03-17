@@ -1,0 +1,2 @@
+Multiscale computational elucidation of Interleukin-17 receptor A-E3 ubiquitin ligase TRAF3IP2 signaling nexus: structural dynamics and hotspots for targeted autoimmune and anti-inflammatory therapeutics
+This repository contains input files and results from a comprehensive molecular dynamics (MD) simulation, pocket analysis, and binding affinity analysis studies. The dataset encompasses the complete workflow from initial molecular docking through advanced thermodynamic calculations.

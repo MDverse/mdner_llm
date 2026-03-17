@@ -90,104 +90,189 @@
         {
             "label": "FFM",
             "text": "Amber",
+<<<<<<< HEAD
             "start": 818,
             "end": 823
+=======
+            "start": 819,
+            "end": 824
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "315.0 K",
+<<<<<<< HEAD
             "start": 863,
             "end": 870
+=======
+            "start": 864,
+            "end": 871
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "316.7 K",
+<<<<<<< HEAD
             "start": 881,
             "end": 888
+=======
+            "start": 882,
+            "end": 889
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "318.4 K",
+<<<<<<< HEAD
             "start": 899,
             "end": 906
+=======
+            "start": 900,
+            "end": 907
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "320.1 K",
+<<<<<<< HEAD
             "start": 917,
             "end": 924
+=======
+            "start": 918,
+            "end": 925
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "321.8 K",
+<<<<<<< HEAD
             "start": 935,
             "end": 942
+=======
+            "start": 936,
+            "end": 943
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Amber",
+<<<<<<< HEAD
             "start": 945,
             "end": 950
+=======
+            "start": 946,
+            "end": 951
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "315.0 K",
+<<<<<<< HEAD
             "start": 988,
             "end": 995
+=======
+            "start": 989,
+            "end": 996
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "317.0 K",
+<<<<<<< HEAD
             "start": 1024,
             "end": 1031
+=======
+            "start": 1025,
+            "end": 1032
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "319.1 K",
+<<<<<<< HEAD
             "start": 1060,
             "end": 1067
+=======
+            "start": 1061,
+            "end": 1068
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "CHARMM",
+<<<<<<< HEAD
             "start": 1070,
             "end": 1076
+=======
+            "start": 1071,
+            "end": 1077
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "315.0 K",
+<<<<<<< HEAD
             "start": 1114,
             "end": 1121
+=======
+            "start": 1115,
+            "end": 1122
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "317.0 K",
+<<<<<<< HEAD
             "start": 1150,
             "end": 1157
+=======
+            "start": 1151,
+            "end": 1158
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "319.1 K",
+<<<<<<< HEAD
             "start": 1186,
             "end": 1193
+=======
+            "start": 1187,
+            "end": 1194
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Amber",
+<<<<<<< HEAD
             "start": 1261,
             "end": 1266
+=======
+            "start": 1264,
+            "end": 1269
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "Amber",
+<<<<<<< HEAD
             "start": 1396,
             "end": 1401
+=======
+            "start": 1399,
+            "end": 1404
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "CHARMM",
+<<<<<<< HEAD
             "start": 1503,
             "end": 1509
+=======
+            "start": 1506,
+            "end": 1512
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/5573728"

@@ -1,0 +1,2 @@
+Trajectory and topology files for MD simulations of P3HT
+Topology files for GROMACS simulations and relevant trajectory files (in a MATLAB format).

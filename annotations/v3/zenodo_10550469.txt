@@ -1,0 +1,6 @@
+Multiresolution molecular dynamics simulations reveal the interplay between conformational variability and functional interactions in membrane-bound cytochrome 2B4
+This dataset contains coordinate files, scripts and input parameters to run and analyse molecular dynamics simulations of membrane bound CYP 2B4.
+ 
+The associated study is described in: 
+data - containes input data & last simulation frames for all of the described MD simulations and analyses described in the manuscript
+Structures_used_for_figures - contains .pdb and .pse files of all protein structures depicted in the manuscript

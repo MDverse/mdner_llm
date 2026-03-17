@@ -1,0 +1,2 @@
+HpTonB(194-285) simulation Amber ff03ws
+Simulation of C-terminal domain of TonB protein from Helicobacter Pylori HpTonB(194-285) with Amber ff03ws force field. Trajectory contains the whole 1120ns simulation.

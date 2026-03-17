@@ -1,0 +1,2 @@
+MDSimulationData4GPR174-Gs/Gi&P2Y1R-Gs
+MD simulation data files and analysis results for the GPR174-Gs / GPR174-Gi / P2Y1R-Gs systems.

@@ -1,0 +1,2 @@
+SOPC bilayer, CHARMM36
+Simulation of SOPC bilayer with 32 lipids per leavlet for 500ns after minimization and 200ns equilibration. The CHARRM36 forcefield was used.

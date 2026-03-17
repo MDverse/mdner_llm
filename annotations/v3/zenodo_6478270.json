@@ -30,38 +30,68 @@
         {
             "label": "MOL",
             "text": "5E11",
+<<<<<<< HEAD
             "start": 368,
             "end": 372
+=======
+            "start": 369,
+            "end": 373
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "1 microsecond",
+<<<<<<< HEAD
             "start": 450,
             "end": 463
+=======
+            "start": 451,
+            "end": 464
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 480,
             "end": 485
+=======
+            "start": 481,
+            "end": 486
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "CHARMM36m",
+<<<<<<< HEAD
             "start": 493,
             "end": 502
+=======
+            "start": 494,
+            "end": 503
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "CHARMM",
+<<<<<<< HEAD
             "start": 505,
             "end": 511
+=======
+            "start": 506,
+            "end": 512
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "TIP3P",
+<<<<<<< HEAD
             "start": 521,
             "end": 526
+=======
+            "start": 522,
+            "end": 527
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/6478270"

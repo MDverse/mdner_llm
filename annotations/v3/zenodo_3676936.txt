@@ -1,0 +1,3 @@
+A1904 molecular dynamics trajectories data
+Molecular dynamics (MD) trajectories of water solutions of eight zwitterionic amino-acids (L- form) glycine (GLY), alanine (ALA), proline (PRO), threonine (THR), leucine (LEU), glutamine (GLN), histidine (HIS) and tyrosine (TYR) using various force field (OPLS-AA, Amber99ff-SB, GROMOS96 54a7, CHARMM19) and water model (SPC/E, TIP3P) combinations.
+OPLS-AA molecular dynamics (MD) trajectories for alanine (ALA), leucine (LEU), glutamine (GLN), and tyrosine (TYR) varying the values of major force field parameters: charge on all amino acid atoms, bond length (all amino acid bonds), Lennard-Jones potential epsilon parameter and stiffness of bond angles. 

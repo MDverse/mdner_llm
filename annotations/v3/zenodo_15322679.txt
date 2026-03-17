@@ -1,0 +1,3 @@
+A Dietary Supplement Taurine Inhibits ApoE4 Aggregation and Ameliorates Alzheimer's Disease Pathophysiology
+MD simulations by Sergio Marques
+VAMP analysis of MD simulations by Jakub Kopko

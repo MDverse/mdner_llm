@@ -1,0 +1,2 @@
+8p450k.tpr
+portable binary run simulation at 8 GPa and 450k

@@ -1,0 +1,7 @@
+Dataset related to the article "A Minimal Mutation Trajectory Separates Inverting and Retaining Mechanisms on the Same Sialidase Structural Scaffold"
+This dataset contains files related to the article "Two mutations alter the inverting mechanism of a specific sialidase to retaining" by Michael Jakob Pichler, Marina Corbella, Sebastian Meier, Tine Sofie Neilsen, Sanchari Banerjee, Jens Preben Morth, Carme Rovira and Maher Abou Hachem.
+Description of the files:
+Simulation data:
+- classical_md_simulations: includes the inputs, topologies, starting coordinates and starting pdb structures of the classical MD simulation of AmGH181 unliganded and wild-type and H349A/Q350Y in complex with sialyl T-antigen, as well as the restart files of each of the three replicates every 100 ns of simulation.
+- qmmm_simulations: includes the inputs for equilibration and metadynamics, topologies and the starting structures extracted from the classical MD simulations for the Inverting (wild-type liganded) and Retaining (H349A/Q350Y) reaction mechanisms, as well as the restart files every 10 ps of simulation and HILLS files.
+Relevant structures for the reactant states (RS.pdb), transition states (TS.pdb), product states (PS.pdb) and relaxed product states (PS_relax.pdb) along each path, are  included in thei corresponding directories.

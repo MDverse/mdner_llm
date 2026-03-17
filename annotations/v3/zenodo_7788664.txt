@@ -1,0 +1,2 @@
+Bicelle size and lipid/surfactant ratio screening - Magaining 2 tail anchor monomer simulation - 120 Lipids - q0.5 - PBS neutralized - CHARMM36m - 310K - TIP3P water model
+Bicelle size and lipid to surfactant ratio screening to investigate the influence on spin relaxation data with monomers of a given peptide. Special iteration to investigate the influence of the water model

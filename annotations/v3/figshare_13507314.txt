@@ -1,0 +1,2 @@
+Atomistic IDTBT force fields
+Models for the C16-IDTBT and 2EH-IDTBT polymers for organic solar cells and organic transistors based on the OPLS-AA force field. Includes force field files (.itp) and structure files (.gro) for the GROMACS molecular dynamics software. These are part of the collection found at https://doi.org/10.11583/DTU.c.5254236.

@@ -1,0 +1,28 @@
+Research data supporting: "Relevant, hidden, and frustrated information in high-dimensional analyses of complex dynamical systems with internal noise"
+This repository contains the set of data shown in the paper "Relevant, hidden, and frustrated information in high-dimensional analyses of complex dynamical systems with internal noise", published on JCTC (DOI: 10.1021/acs.jctc.5c00374).
+The scripts contained herein are:
+
+ PCA-Analysis.py:  python script to calculate the SOAP descriptor, denoising it, and compute the Principal Component Analysis
+SOAP-Component-Analysis.py: python script to calculate the variance of the single SOAP components
+Hierarchical-Clustering.py: python script to compute the hierarchical clustering and plot the dataset
+OnionClustering-1d.py: script to compute the Onion clustering on a single SOAP component or principal component
+OnionClustering-2d.py: script to compute bi-dimensional Onion clustering
+OnionClustering-plot.py: script to plot the Onion plot, removing clusters with population <1%
+UMAP.py: script to compute the UMAP dimensionality reduction technique
+TiCA.py: script to compute the TiCA dimensionality reduction technique
+VAMPnets.py: script to compute the VAMPnets dimensionality reduction technique
+
+To reproduce the data of this work you should start form SOAP-Component-Analysis.py to calculate the SOAP descriptor and select the components that are interesting for you, then you can calculate the PCA with PCA-Analysis.py, and applying the clustering based on your necessities (OnionClustering-1d.py, OnionClustering-2d.py, Hierarchical-Clustering.py). Further modifications of the Onion plot can be done with the script: OnionClustering-plot.py. UMAP can be calculated with UMAP.py, TiCA with TiCA.py, and VAMPnets with VAMPnets.py.
+ 
+Additional data contained herein are:
+
+starting-configuration.gro: gromacs file with the initial configuration of the ice-water system
+traj-ice-water-50ns-sampl4ps.xtc: trajectory of the ice-water system sampled every 4 ps
+traj-ice-water-50ns-sampl40ps.xtc: trajectory of the ice-water system sampled every 40 ps
+some files containing the SOAP descriptor of the ice-water system: ice-water-50ns-sampl40ps.hdf5, ice-water-50ns-sampl40ps_soap.hdf5, ice-water-50ns-sampl40ps_soap.npy, ice-water-50ns-sampl40ps_soap-spavg.npy
+PCA-results: folder that contains some example results of the PCA
+UMAP-results: folder that contains some example results of UMAP
+TiCA-results: folder that contains some example results of TiCA
+VAMPnets-results: folder that contains some example results of VAMPnets
+
+The data related to the Quincke rollers can be found here: https://zenodo.org/records/10638736

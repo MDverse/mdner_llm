@@ -1,0 +1,29 @@
+Example Dataset of Molecular Dynamics Simulations for MeTrEx
+This data set contains an example of Molecular Dynamics (MD) Simulation files. A Pseudomonas aeruginosa membrane was simulated with Polymyxin B1 and used as an example data set for MeTrEx (Membrane Trajectory Explorer). MeTrEx is a Python-based software to explore and analyse MD Simulation ligand and membrane molecule interaction data.
+The manuscript is currently under review, and the data set will be published open-source after acceptance.
+Included Files
+1. example_topology_with_6PMB.pdb
+Description: Structure file in PDB format, including the topology of a membrane system with six polymyxin B (PMB) molecules.
+Purpose: Provides the structural data required to initialise the simulation.
+ 
+2. example_simulation_6PMB_5000Frames.xtc
+Description: Trajectory file in XTC format containing 5,000 frames of a PMB-membrane interaction simulation.
+Purpose: Allows detailed trajectory exploration and visual analysis in MeTrEx.
+ 
+3. example_simulation_6PMB_500Frames.xtc
+Description: A shorter trajectory file (500 frames) for rapid testing and exploration.
+Purpose: Serves as a lightweight example for quick demonstrations.
+ 
+4. example_contact_LH0_PMB.xvg
+Description: XVG file providing contact analysis data between PMB molecules and the upper membrane leaflet lipids (LH0).
+ 
+5. example_membrane_solvent.xvg
+Description: XVG file containing analysis data of membrane solvent properties.
+ 
+How to Use
+1. Import the provided files into MeTrEx for the visualisation and analysis workflow.
+2. Explore trajectory visualisation, molecular speed and distance mapping, and external analysis integration (XVG File analysis) using the software's corresponding tools.
+3. Refer to the MeTrEx documentation for step-by-step guidance on loading and interacting with these datasets.
+ 
+If you have questions or need support, please contact the MeTrEx developers or refer to the official documentation.
+ 

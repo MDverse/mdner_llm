@@ -1,0 +1,2 @@
+Adjusted OpenFF POPC
+200 ns simulation of an OpenFF parameterized, pure POPC bilayer. 

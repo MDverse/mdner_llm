@@ -1,0 +1,3 @@
+Molecular dynamics trajectories for neuroBR
+The trajectories of all-atom MD simulations of neuroBR_A,B,C.
+Simulations have been performed using the CHARMM36m force field, running with the GROMACS 2022 package.

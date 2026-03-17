@@ -1,0 +1,16 @@
+Addressing a Trapped High-Energy Water: Design and Synthesis of Highly Potent Pyrimidoindole-based GSK-3β inhibitors.
+Raw concatenated trajectories of the molecular dynamics simulations and WaterMap-output files related to publication:
+
+ Addressing a Trapped High-Energy Water: Design and Synthesis of Highly Potent Pyrimidoindole-Based Glycogen Synthase Kinase-3β Inhibitors
+
+J Med Chem (2021): https://doi.org/10.1021/acs.jmedchem.0c02146
+Compounds (S)-5c and (S)-15 trajectories are provided in a single concatenated Desmond trajectory file
+(Both: 1 µs + 1 µs + 1 µs + 1 µs + 1 µs + 1 µs + 1 µs + 1 µs + 1 µs + 1 µs = 10 µs in total) 
+(S)-5c = Files named: M_CL_all-out.cms; M_CL_all_trj/
+(S)-15 = Files named: M_CC_all-out.cms; M_CC_all_trj/
+ 
+WaterMap-output files (.zip)
+(S)-5c = watermap_5c_wm.zip
+(S)-5m = watermap_5c_wm.zip
+(S)-15 = watermap_15_wm.zip; MD-derived (#1-5): MD_derived_watermap_15_?_wm.zip
+ 

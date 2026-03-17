@@ -1,0 +1,9 @@
+Protein-RNA complex simulation
+Simulation trajectory of TSEN/pre-tRNAArgTCT generated with GROMACS. 
+ 
+A hybrid model of truncated TSEN/pre-tRNAArgTCT with the additional TSEN2 domain from AlphaFold Jumper et al, 2021
+and in silico modeled intron bases 37 to 43 was subjected to all-atom molecular dynamics simulations
+for assessment of flexibility. Simulation trajectory can be visualised with PyMOL or VMD.
+ 
+The protein was described by the AMBER14ff (Maier, et al 2015), and the RNA with the OL3 force field (Zgarbova et al, 2011)
+and the TIP3P water model was employed (Jorgensen et al, 1983).

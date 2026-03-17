@@ -7,7 +7,11 @@
         "FFM",
         "TEMP"
     ],
+<<<<<<< HEAD
     "raw_text": "Understanding the Conformational Properties of Fluorinated Polypeptides: Molecular Modelling of Unguisin A\nIn this work, we investigate the\nconformational properties of unguisin\nA, a natural macrocyclic heptapeptide that incorporates a γ-aminobutyric\nacid (Gaba), and four of its difluorinated stereoisomers at the Gaba\nresidue. According to nuclear magnetic resonance (NMR) experiments,\ntheir secondary structure depends dramatically on the stereochemistry\nof the fluorinated carbon atoms. However, many molecular details of\nthe structure and flexibility of these systems remain unknown, so\nthat a rationale of the conformational changes induced by the fluorine\natoms in the macrocycle is still missing. To fill this gap, we apply\nenhanced molecular dynamics (MD) techniques to explore the peptide\nconformational space in dimethyl sulfoxide solution followed by 4–8\nμs of conventional MD simulations that provide extensive equilibrium\nsampling. The simulations, which compare reasonably well with the\nNMR-based observations, show that the secondary structure of the macrocycle\nis altered substantially upon fluorination, except for the (S,S) diastereomer. It also turns out that the conformations\nof the fluorinated peptides are visited during the enhanced MD simulation\nof natural unguisin A, suggesting thus that conformations accessible\nto the unsubstituted macrocyclic peptide may be selected by fluorination.\nTherefore, computational characterization of the macrocyclic peptides\ncould be helpful in the rational design of stereoselective fluorinated\npeptides with fine-tuned conformation and activity.",
+=======
+    "raw_text": "Understanding the Conformational Properties of Fluorinated Polypeptides: Molecular Modelling of Unguisin A\nIn this work, we investigate the conformational properties of unguisin A, a natural macrocyclic heptapeptide that incorporates a γ-aminobutyric acid (Gaba), and four of its difluorinated stereoisomers at the Gaba residue. According to nuclear magnetic resonance (NMR) experiments, their secondary structure depends dramatically on the stereochemistry of the fluorinated carbon atoms. However, many molecular details of the structure and flexibility of these systems remain unknown, so that a rationale of the conformational changes induced by the fluorine atoms in the macrocycle is still missing. To fill this gap, we apply enhanced molecular dynamics (MD) techniques to explore the peptide conformational space in dimethyl sulfoxide solution followed by 4–8 μs of conventional MD simulations that provide extensive equilibrium sampling. The simulations, which compare reasonably well with the NMR-based observations, show that the secondary structure of the macrocycle is altered substantially upon fluorination, except for the (S,S) diastereomer. It also turns out that the conformations of the fluorinated peptides are visited during the enhanced MD simulation of natural unguisin A, suggesting thus that conformations accessible to the unsubstituted macrocyclic peptide may be selected by fluorination. Therefore, computational characterization of the macrocyclic peptides could be helpful in the rational design of stereoselective fluorinated peptides with fine-tuned conformation and activity.",
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",
@@ -18,8 +22,13 @@
         {
             "label": "MOL",
             "text": "unguisin A",
+<<<<<<< HEAD
             "start": 1283,
             "end": 1293
+=======
+            "start": 169,
+            "end": 179
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",

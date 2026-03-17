@@ -1,0 +1,3 @@
+Inhibitors and reactivators of acetylcholinesterase - structural and computational insight [dataset]
+
+The dataset comprises:i) AlphaFold predictions for acetylcholinesteraseii) MD simulations input files iii) PyMOL sessions from AQUA-DUCT calculations

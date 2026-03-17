@@ -7,7 +7,11 @@
         "FFM",
         "TEMP"
     ],
+<<<<<<< HEAD
     "raw_text": "EntF*-D3\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form\n\n-starting coordinates posre.gro\nenergy minimized and water+ions equilibrated around peptide\n-topology topol.top\nforce field AMBER99SB-ILDB, TIP3P water\nprotonation states at pH = 3 (E,K protonated)\n[NaCl] = 25 mM\ndisulfide bond generated between residues 14 and 6\n-md settings md.mdp\ntime step 2 fs, temperature = 298 K, pressure = 1 bar\n-1 microsecond trajectory dry.xtc, dry.gro\nframe rate 10 ps, water and ions removed, box centered on peptide\n-analysis files\nframe rate 1 ps\nradius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+=======
+    "raw_text": "EntF*-D3\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form  -starting coordinates posre.gro energy minimized and water+ions equilibrated around peptide -topology topol.top force field AMBER99SB-ILDB, TIP3P water protonation states at pH = 3 (E,K protonated) [NaCl] = 25 mM disulfide bond generated between residues 14 and 6 -md settings md.mdp time step 2 fs, temperature = 298 K, pressure = 1 bar -1 microsecond trajectory dry.xtc, dry.gro frame rate 10 ps, water and ions removed, box centered on peptide -analysis files frame rate 1 ps radius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",
@@ -24,68 +28,123 @@
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 134,
             "end": 139
+=======
+            "start": 135,
+            "end": 140
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ions",
+<<<<<<< HEAD
             "start": 140,
             "end": 144
+=======
+            "start": 141,
+            "end": 145
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "AMBER99SB-ILDB",
+<<<<<<< HEAD
             "start": 205,
             "end": 219
+=======
+            "start": 206,
+            "end": 220
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
             "text": "TIP3P",
+<<<<<<< HEAD
             "start": 221,
             "end": 226
+=======
+            "start": 222,
+            "end": 227
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 227,
             "end": 232
+=======
+            "start": 228,
+            "end": 233
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "NaCl",
+<<<<<<< HEAD
             "start": 280,
             "end": 284
+=======
+            "start": 281,
+            "end": 285
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "disulfide",
+<<<<<<< HEAD
             "start": 294,
             "end": 303
+=======
+            "start": 295,
+            "end": 304
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "TEMP",
             "text": "298 K",
+<<<<<<< HEAD
             "start": 395,
             "end": 400
+=======
+            "start": 396,
+            "end": 401
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "STIME",
             "text": "1 microsecond",
+<<<<<<< HEAD
             "start": 420,
             "end": 433
+=======
+            "start": 421,
+            "end": 434
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "water",
+<<<<<<< HEAD
             "start": 480,
             "end": 485
+=======
+            "start": 481,
+            "end": 486
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
             "text": "ions",
+<<<<<<< HEAD
             "start": 490,
             "end": 494
+=======
+            "start": 491,
+            "end": 495
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://uvaauas.figshare.com/articles/dataset/EntF_-D3/20485059"

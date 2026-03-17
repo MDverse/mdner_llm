@@ -1,0 +1,5 @@
+Data from "Allostery and evolution: a molecular journey throught the structural and dynamical landscape of an enzyme super family."
+This data accompanies the paper entitled Allostery and evolution: a molecular journey throught the structural and dynamical landscape of an enzyme super family.
+The zip archive contains: 
+1- Starting configurations of the proteins after equilibration in PDB format and trajectories of unrestrained molecular dynamics simulations with the positions of the proteins every 100 ps in XTC gromacs format are provided for all systems. 
+2- The free energy profiles and histograms are provided for all umbrella sampling simulations and the scripts used to run it with gromacs.

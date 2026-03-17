@@ -1,0 +1,24 @@
+2DUV Machine Learning Protocol Code
+Simulation data and code of ML protocol for 2DUV spectra of proteins.
+Any researchers who interested in protein spectroscopy can use our ML protocol online service: http://www.dcaiku.com:13000
+For the machine learning protocol source code written in Python and Bash language which including:
+
+2duv_simulation folder
+	
+2DUV folder
+		
+0_parse_traj.py: Parse the MD trajectory in pdb format.
+1_bench_genH.sh: PBS script for generating the excition Hamiltonian,and E/M dipoles.
+1_cal_Hamil.py:  Python script for submitting a large number of PBS script at once.
+2_extract_struc.py:  Extract  mode information of secondary structure segments from pdb file.
+3_extract_Hamil.py: Extract Hamiltonian, E/M dipoles information of secondary structure segments.
+4_cal_spectra.py: Python script for calculate the 2DUV spectra.
+4_run_calspectra.py:  Python script for submitting a large number of PBS script  for calculating 2DUV spectra at once.
+4_sub_calspectra.pbs: PBS script for runing python script of calculating 2DUV spectra.
+inputs folder: Spectron main input files.
+
+
+GramacsFile: Gromacs main input files.
+
+
+web-api folder: Source code of  our ML protocol online service.

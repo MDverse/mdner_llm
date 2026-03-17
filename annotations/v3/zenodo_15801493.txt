@@ -1,0 +1,2 @@
+POPC Sage2.2.1-alkane-filtered-hvap-tetra-maxstep
+Will be modified later when simulation is finsihed, right now this is a check  SHORT

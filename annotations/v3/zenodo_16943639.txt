@@ -1,0 +1,2 @@
+POPC Sage2.2.1-lipid-v1.3
+Lipid force field development run POPC with Sage2.2.1-lipid-v1.3 naglrc3 charges

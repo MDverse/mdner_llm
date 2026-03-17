@@ -1,0 +1,2 @@
+Three-step docking by WIPI2, ATG16L1 and ATG3 delivers LC3 to the phagophore: Molecular dynamics simulation data
+Atomistic molecular dynamics simulation data set accompanying manuscript "Three-step docking by WIPI2, ATG16L1 and ATG3 delivers LC3 to the phagophore".

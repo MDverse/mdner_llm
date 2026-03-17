@@ -1,0 +1,7 @@
+Proton selective conductance and gating of the lysosomal cation channel TMEM175 - MD simulation input files and analysis dataset
+
+This dataset is associated with the following publication:
+"Proton selective conductance and gating of the lysosomal cation channel TMEM175"
+(DOI: 10.1073/pnas.2503909123).
+
+The dataset contains necessary input files for conducted MD simulations, along with main analysis files and scripts to generate associated plots.

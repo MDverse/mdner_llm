@@ -1,0 +1,13 @@
+MD simulation of 50-lipid DPPC monolayers in the water-air interface, Berger+SPC @298.15K
+
+This record contains the simulation files of 50-lipid DPPC monolayers simulated in the water-air interface without counterions. 
+The initial strcuture of the systems was assembled using previously simulated bilayer (10.5281/zenodo.17237), and equilibrated with GROMACS v.2024.x through few steps with increasing of temperature and integration step size. Then the monolayer were equilibrated at zero sufrace tension, and then the membrane was then compressed and expanded in a simulation using PLUMED, from which states at different values of area per lipid (APL) were extracted.
+Each of these systems was the initial state of a 200 ns long simulation in the NVT ensemble (T=298.15 K), the ones here provided.
+For all simulations, we used the parameters of OPLS-AA-compatible Berger (see ref.) and SPC water model.
+Files provided:
+
+Compressed file with all ITP files with the parameters used for the simulations (we use "oplsaa.ff/forcefield.itp" as well, but it's a standard OPLS-AA distribution coming with GROMACS).
+TOP file for topology.
+MDP file used for the production simulations and corresponding NDX file.
+For each simulation, TRR of the simulation, trajectory in TRR format, energy contributions in EDR format,  CPT generated and GRO with the final state of the system. All files corresponding to the same simulation are labeled as NVT_XX, where XX is the nominal APL at which the simulations were carried out.
+

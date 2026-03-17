@@ -210,8 +210,13 @@
         {
             "label": "SOFTVERS",
             "text": "16",
+<<<<<<< HEAD
             "start": 1827,
             "end": 1829
+=======
+            "start": 1817,
+            "end": 1819
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",

@@ -1,0 +1,3 @@
+Molecular dynamic trajectory for the article "The Binding Mechanism between Inositol Phosphate (InsP) and the Jasmonate Receptor Complex: A Computational Study"
+Molecular dynamic trajectory preparation file of Jasmonate receptor complex. We set up six systems. 
+Each system contains PSF file and PDB file.

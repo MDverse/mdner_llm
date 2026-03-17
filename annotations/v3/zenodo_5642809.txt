@@ -1,0 +1,2 @@
+Progress Toward SHAPE Constrained Computational Prediction of Tertiary Interactions in RNA Structure
+Supplementary repository for the "Progress Toward SHAPE Constrained Computational  Prediction of Tertiary Interactions in RNA Structure" article. Contains the simulation on the Didymium iridis lariat-capping ribozyme (DiLCrz, PDB ID: 4P8Z).

@@ -1,0 +1,2 @@
+PBC8p450.xtc
+Compressed trajectory of a simulation equilibrated at 8 GPa and 450K

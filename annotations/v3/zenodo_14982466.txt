@@ -1,0 +1,2 @@
+Adsorption of Silica Oligomers on Biomolecules: Structural and Dynamical Insights for Atom Probe Tomography via classic Molecular Dynamics Simulations
+The zenodo.zip folder contains the trajectories of the simulated systems (Ubiquitin, SUMO-1, EGFP, Lysozyme-T4, AB40). Specifically, for each system, three scenarios are reported: control, monomeric, oligomeric (please, see the paper notation). Water molecules were removed from each trajectory.

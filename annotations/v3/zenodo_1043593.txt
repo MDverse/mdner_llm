@@ -1,0 +1,5 @@
+MM-MD and QM/MM-MD trajectories of para-nitrophenolate derivatives in aqueous solution
+Classical MD (GAFF/TIP3P) performed of four para-nitrophenolate derivatives. All simulated in water for 600000 steps of 2 fs.
+QM/MM-CPMD (BLYP/TIP3P) simulation of para-nitrophenolate for 44000 steps of 10 a.u.
+QM/MM-BOMD (BLYP/TIP3P) simulation of three para-nitrophenolate derivatives for 44000 steps of 10 a.u.
+Input files, output files and trajectories are provided for all of the above.

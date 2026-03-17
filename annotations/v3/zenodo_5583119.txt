@@ -1,0 +1,2 @@
+Tracking the ATP-binding response in adenylate kinase in real time
+Simulation trajectories as basis for the structural refinement.

@@ -1,0 +1,2 @@
+Chemical control of colloidal self-assembly driven by the electrosolvation force - Simulational data
+files used for BD and MD simulations

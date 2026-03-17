@@ -1,0 +1,13 @@
+GROMACS_INPUT_OUTPUT_DATA_FOR_AMPG
+These are the GROMACS input and output source data from the MD simulation of AmpG. The data were used in the Nature Communications article titled "Structural and functional insights of AmpG in muropeptide transport and multiple β-lactam antibiotics resistance."
+The .zip file contains the following components:
+-2YPIncludes the parameter (.itp) and topology (.top) files for the ligand 2YP.
+Each of the following folders contains input files (.itp, .ndx, .gro, .mdp, .top) and output files (.xtc, .gro) for production molecular dynamics simulations (replicas 1–3):
+-Inward_125_238Inward-facing state of AmpG with D125 and D238 deprotonated.
+-Inward_326Inward-facing state of AmpG with E326 deprotonated.
+-Inward_deprotonationInward-facing state of AmpG with other site-specific deprotonation settings.
+-Outward_125Outward-facing state of AmpG with D125 deprotonated.
+-Outward_125_238Outward-facing state of AmpG with D125 and D238 deprotonated.
+-Outward_238Outward-facing state of AmpG with D238 deprotonated.
+-Outward_326Outward-facing state of AmpG with E326 deprotonated.
+-Outward_deprotonationOutward-facing state of AmpG with other site-specific deprotonation settings.

@@ -1,0 +1,2 @@
+ThermoUhL molecular dynamics
+The molecular dynamics simulations XTC trajectories are raw, available as Gromacs produced them, ie, no PCB correction or frame alignment was done. The PDB correspondent files are also available.

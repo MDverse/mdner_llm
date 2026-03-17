@@ -1,0 +1,2 @@
+LLZO Simulation Trajectories
+Simulation trajectories (in xyz/gro/xtc format) at a range of temperatures of LLZO (from 500 K to 800 K), produced using MetalWalls (doi: 10.21105/joss.02373) and converted to gro format.

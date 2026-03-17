@@ -1,0 +1,2 @@
+Simulation data for "Allosteric inhibition mechanism of PTP1B by DPM-1001 using molecular dynamics simulation"
+This is repository for data used in "Allosteric inhibition mechanism of PTP1B by DPM-1001 using molecular dynamics simulation" by K. Yano, I. Yasuda, Y. Hirano and K. Yasuoka

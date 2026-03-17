@@ -1,0 +1,4 @@
+POPC bilayers from MD simulations run with CHARMM using C36 parameters
+DCD trajectory files from MD simulations for aqueous POPC bilayers (no ions) at two sizes: 72 lipids (400 ns), and 648 lipids (200 ns) with frames spaced at 25 ps.  Filenames indicate the number of lipids and the time range in nanoseconds. The original literature citation is:
+Mechanical properties of lipid bilayers from molecular dynamics simulation.  Richard M. Venable, Frank L.H. Brown, Richard W. Pastor.  Chemistry and Physics of Lipids 192 (2015) 60–74. 
+http://dx.doi.org/10.1016/j.chemphyslip.2015.07.014

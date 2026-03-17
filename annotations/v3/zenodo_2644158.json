@@ -18,8 +18,13 @@
         {
             "label": "MOL",
             "text": "kinesin",
+<<<<<<< HEAD
             "start": 233,
             "end": 240
+=======
+            "start": 235,
+            "end": 242
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         }
     ],
     "url": "https://zenodo.org/records/2644158"

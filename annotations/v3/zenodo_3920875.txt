@@ -1,0 +1,2 @@
+Dataset for molecular simulations of human IRE1 tetramer models.
+Dataset from SymmDock protein-protein docking of different conformers of IRE1 tetramers (dimer of back-to-back dimers); input files scripts and trajectories from subsequent MD simulations using Gromacs. Videos showing PC1 and PC2 of tetramers yIRE14 (S1, S2), hIRE14(R) (S3, S4), hIRE14(L) (S5,S6) and hIRE14(S) (S7,S8), in avi format.

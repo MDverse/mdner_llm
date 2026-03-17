@@ -1,0 +1,2 @@
+Transition state force field (FRCMOD).
+This is the final transition state force field file for Amber program. The parameters listed include new parameters for unique atom types and original parameters for atoms in the TSFF geometry that were not directly involved with the reaction. (FRCMOD)

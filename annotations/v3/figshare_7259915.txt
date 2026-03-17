@@ -1,0 +1,2 @@
+126chains.dcd
+MD trajectory for self-assembly of amphiphilic molecules using a coarse-grained model.

@@ -1,0 +1,5 @@
+Simulations of bovine rhodopsin
+This repository contains the simulations of phosphorylated and unphosphorylated bovine rhodopsin (Uniprot ID: P02699). The simulations and their analysis were published in 'Proteins: Structure, Function, and Bioinformatics'.
+For any use please cite:
+
+Damodaran, K. et al.New simulation insights on the structural transition mechanism of bovine rhodopsin activation.Proteins 91, 771–780 (2023).

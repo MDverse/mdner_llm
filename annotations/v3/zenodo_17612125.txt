@@ -1,0 +1,2 @@
+P-cadherin and desmoglein-2 interact as strand-swap dimers and facilitate desmosome assembly
+Simulation data files included in the publication “P-cadherin and desmoglein-2 interact as strand-swap dimers and facilitate desmosome assembly.” This dataset includes the starting structure files, GROMACS parameter files, run input files, and all MD protein-only trajectory files for all conditions.

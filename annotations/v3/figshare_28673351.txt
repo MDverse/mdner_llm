@@ -1,0 +1,2 @@
+m5-ipx-ml380
+This folder has the input files, topology file and pdb file for iperoxo-ML380 bound M5 mAChR mini-G complex

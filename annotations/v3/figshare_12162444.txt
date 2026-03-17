@@ -1,0 +1,2 @@
+GTT-1-protein-017.dcd
+Trajectories dataTrajectories of WW domain

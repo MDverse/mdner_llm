@@ -1,0 +1,1 @@
+GluA3 NTD dimer multiple-walker well-tempered metadynamics (4 walkers)

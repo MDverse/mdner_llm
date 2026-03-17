@@ -1,0 +1,5 @@
+MD data for Structural basis for allosteric regulation of human phosphofructokinase-1
+This dataset contains MD data related to the article "Structural basis for allosteric regulation of human phosphofructokinase-1".
+MD_files.zip:Initial geometries, input files, and final geometries for MD simulations presented in the article.
+node_degeneracies.xlsx:Results of network path analysis. The spreadsheet contains normalized node degeneracies for residues along the possible paths connecting the C-terminal tail residues and selected residues from the active site and allosteric sites, as shown in Fig S7.
+ 

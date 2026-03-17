@@ -1,0 +1,4 @@
+Molecular dynamics simulation data of the manuscript "KnowVolution of an efficient polyamidase through molecular dynamics simulations of incrementally docked oligomeric substrates"
+This repository provides the simulation data as well as the input and parameters files to reproduce our findings.
+Acknowledgments
+The authors gratefully acknowledge the computing time provided by RWTH Aachen University. Computations were performed with computing resources granted by RWTH Aachen University under project rwth1584.

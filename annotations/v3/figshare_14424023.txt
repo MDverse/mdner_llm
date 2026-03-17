@@ -1,0 +1,2 @@
+250K_trajectory
+A 250000 frames MD of four chains of the Tau peptidethat corresponds to the MD simulation of an extended Tau peptide (PHF8) during 1 microsecond

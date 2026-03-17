@@ -1,0 +1,2 @@
+GWALP_dimer_micelle_70SDS_CHARMM_310K_Na_Neut_OPC_replica2
+GWALP_dimer_micelle_70SDS_CHARMM_310K_Na_Neut_OPC_replica2

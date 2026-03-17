@@ -1,0 +1,2 @@
+Multiscale Reweighted Stochastic Embedding (MRSE): Deep Learning of Collective Variables for Enhanced Sampling [PLUMED Egg]
+PLUMED egg (https://www.plumed-nest.org/) with data supporting the results of *Multiscale Reweighted Stochastic Embedding (MRSE): Deep Learning of Collective Variables for Enhanced Sampling*, arXiv: 2007.06377, 2021.

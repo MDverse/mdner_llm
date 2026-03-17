@@ -1,0 +1,2 @@
+Molecular dynamics data for "Nanomaterial Signatures Program Biomolecular Condensates through Tri-Phase Separation as a Chemo-Plasticity Remodeling Hub"
+These directories contain the initial and final coordinates, along with the input scripts to start the simulations for hnRNPC-NTF2L, hnRNPC-AuNPs and hnRNPC-NTF2L-AuNPs complexs using the publicly available software GROMACS.

@@ -1,0 +1,4 @@
+Molecular Dynamics Simulation Dataset: TrpCage Miniprotein (PDB: 1L2Y)
+This repository contains a molecular dynamics trajectory of the trp_cage miniprotein (PDB: 1L2Y), a 20-residue engineered protein that folds rapidly and serves as an important model system for protein folding studies [1]. The dataset includes the protein trajectory suitable for analysis of folding dynamics and structural stability.
+ 
+[1] Neidigh, J. W., Fesinmeyer, R. M., & Andersen, N. H. Designing a 20-residue protein. Nature Structural Biology 2002, 9(6):425–430.

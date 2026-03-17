@@ -1,0 +1,4 @@
+Coarse-grained simulation of CAV1-8S in a POPC bilayer
+Simulation of CAV1-8S embedded in a symmetric POPC bilayer. The system has 3250 lipids in the protein-proximal leaflet and 3500 lipids in the protein-distal leaflet, counter-ions to neutralize the charges, and was constructed with CHARMM-GUI with initial dimensions of 49 x 49 x 22 nm.
+The simulation was run with the MARTINI 2.2 force field at 37C for a total of 8 us. Uploaded are the structure (.gro) file, the centered trajectory (.dcd) from the last 1.5 us (output every 0.3 ns, so a total of 5000 frames), sample simulation parameters (.mdp) and the force field parameters (.itp).
+More details and results from the simulation can be found in Doktorova et al. 2025. PNAS. In press (https://doi.org/10.1101/2024.08.28.610209)

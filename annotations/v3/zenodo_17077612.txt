@@ -1,0 +1,2 @@
+Molecular dynamics trajectories of heparin dp12 with CHARMM36m in various explicit solvent models
+The following repository contains trajectory data from 1-microsecond MD simulations of the heparin dodecamer (dp12; PDB ID: 1HPN) using the CHARMM36m force field. Each trajectory corresponds to a different explicit solvent model, including TIP3P, TIP4P, TIP5P, SPCE, and OPC. In addition, the structures after minimization, which served as starting points for the simulations, together with the corresponding topology files, are provided.

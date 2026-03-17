@@ -1,0 +1,8 @@
+Molecular Dynamics Simulation of SARS-CoV-2 Spike Protein
+Trajectory data corresponding to the manuscript, tentatively titled "Distant Residues Modulate the Conformational Opening in SARS-CoV-2 Spike Protein"
+Authors: Dhiman Ray, Ly Le, Ioan Andricioaei
+Affiliation: University of California Irvine, USA
+Description: Multiple unbiased simulations of 40 ns were performed for the SARS-CoV-2 spike protein. Frames are saved at 50 ps interval. The initial structures were generated from umbrella sampling simulation starting from PDB ID: 6VSB and 6VXX. The index at the end of filename stands for the umbrella sampling window from which the trajectory was initiated. The indices are not continuous as not all the umbrella sampling windows were used to start trajectories. Additionally 3 trajectories, each of length 80 ns, are included for the closed, partially open and fully open state. The topology is provided as a PDB file ("spike_dry.pdb").
+The trajectories are for the spike head only structure obtained from the CHARMM-GUI Covid-19 archive. No solvent or ions are included in the trajectory or the topology.
+Update: Additional trajectories and PDB files for D614G mutant added. Each trajectory is 40 ns long. The PDB files are named 6VXX_mutant_dry.pdb and 6VSB_mutant_dry.pdb for the closed and partially open state.
+Pre-print available: https://doi.org/10.1101/2020.12.07.415596

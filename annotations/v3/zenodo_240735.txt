@@ -1,0 +1,5 @@
+144 NaK channel proteins in a DPPC membrane
+144 NaK channels embedded in a DPPC membrane formed by 14400 lipid molecules simulated for 25 microseconds using the protein model by Sansom et al. [1,2] and the Martini lipid model [3]. The membrane is solvated by a total of 294163 water beads, counter ions, and a NaCl concentration of 154 mM. Files are compatible with Gromacs 4.6. and above.
+[1] Peter Bond and Mark Sansom, Insertion and assembly of membrane proteins via simulation, J. Am. Chem. Soc., 2006, 128 (8), pp 2697–2704
+[2] Kathryn A. Scott et al., Coarse-Grained MD Simulations of Membrane Protein-Bilayer Self-Assembly, Structure, 2008, 16 (4), pp 621–630
+[3] Siewert J. Marrink et al., Coarse Grained Model for Semiquantitative Lipid Simulations, J. Phys. Chem. B, 2004, 108 (2), pp 750–760

@@ -1,0 +1,2 @@
+Topology for C119-hexyl and C119-decyl channel subunit
+Topology files of C119-hexyl and C119-decyl channel subunit for running MD simulations using GROMACS.

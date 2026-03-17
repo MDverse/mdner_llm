@@ -1,0 +1,3 @@
+POPC:POPG 4:1 MD simulation with CHARMM36 in water with Na+ counter ions
+CHARMM36 POPC:POPG 4:1 bilayer simulation in water. The initial structure was taken from CHARMM-GUI. Temperature is 298 K. The system contains 350 POPC, 88 POPG, 88 sodium ions and 26280 TIP3P water molecules.
+Total length of simulation is 400 ns. First 100 ns were discarded. Saving frequency of 100-300ns.xtc is 20 ps.

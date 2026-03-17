@@ -1,0 +1,16 @@
+CB2 Receptor Signaling Complexes with Beta-Arrestin-2 and Gi Protein
+CB2 receptor signaling complexes with beta-arrestin-2 and Gi proteinEun Ha Heo and Ravinder Abrol (CSUN)11/27/2024 (Zenodo)
+System names as filename prefixes:
+CB2R-WT-NoPhosphoC_BARR2_*: wildtype CB2 receptor without phosphorylated C-terminus bound to beta-arrestin-2. CB2R-WT-NoPhosphoC_Gi-Empty_*: wildtype CB2 receptor without phosphorylated C-terminus bound to nucleotide-free Gi protein (no GDP). CB2R-WT-NoPhosphoC_Gi-GDP_*: wildtype CB2 receptor without phosphorylated C-terminus bound to Gi-GDP. CB2R-WT-PhosphoC_BARR2_*: wildtype CB2 receptor with a phosphorylated C-terminus bound to beta-arrestin-2. 
+CB2R-Q63R-NoPhosphoC_BARR2_*: CB2 receptor mutant Q63R without phosphorylated C-terminus bound to beta-arrestin-2.
+CB2R-Q63R-NoPhosphoC_Gi-Empty_*: CB2 receptor mutant Q63R without phosphorylated C-terminus bound to nucleotide-free Gi protein (no GDP).
+CB2R-Q63R-NoPhosphoC_Gi-GDP_*: CB2 receptor mutant Q63R without phosphorylated C-terminus bound to Gi-GDP.
+CB2R-Q63R-PhosphoC_BARR2_*: CB2 receptor mutant Q63R with a phosphorylated C-terminus bound to beta-arrestin-2. 
+CB2R-L133I-NoPhosphoC_BARR2_*: CB2 receptor mutant L133I without phosphorylated C-terminus bound to beta-arrestin-2.
+CB2R-L133I-NoPhosphoC_Gi-Empty_*: CB2 receptor mutant L133I without phosphorylated C-terminus bound to nucleotide-free Gi protein (no GDP). 
+CB2R-L133I-NoPhosphoC_Gi-GDP_*: CB2 receptor mutant L133I without phosphorylated C-terminus bound to Gi-GDP. 
+CB2R-L133I-PhosphoC_BARR2_*: CB2 receptor L133I mutant with a phosphorylated C-terminus bound to beta-arrestin-2. 
+Different file types in following folders when uncompressed:
+Folder: PDB files for signaling complex starting and average structures*_md.pdb: Solvated complex structures used as starting geometries.*_avgframe#.pdb: PDB file of average frame given by #.
+Folder: MD simulation input files for Amber MD*_md.inpcrd: input coordinates file for MD job*_md.prmtop: parameter and topology file for MD jobStep1_mini_solv.in: mdin file for energy minimization of solvent keeping protein fixed.Step2_equi_solv.in: mdin file for NPT equilibration of solvent while keeping protein fixed.Step3_mini_full.in: mdin file for energy minimization of whole system.Step4_heat_full.in: mdin file for heating system under NPT of whole system.Step5_equi_full.in: mdin file for NPT equilibration of whole system.Step6_prod_full.in: mdin file for 100ns production NPT equilibration of whole system. Step7a_prod_full.in: mdin file for 500ns production NPT equilibration of whole system.Step7b_prod_full.in: mdin file for 500ns production NPT equilibration of whole system.Step7c_prod_full.in: mdin file for 500ns production NPT equilibration of whole system.Step7d_prod_full.in: mdin file for 500ns production NPT equilibration of whole system.
+Folder: MD trajectories*_step7_ai_stride100.xtc: Trajectory file in Gromacs xtc format.

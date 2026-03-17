@@ -1,0 +1,5 @@
+HpTonB(30-285) simulation Amber ff03ws
+MD simulation of periplasmic part of TonB protein from Helicobacter Pylori HpTonB(30-285) with Amber ff03ws force field without additional ions. Trajectory contains the last 1000ns of the total 1171ns simulation.
+run1microsend.xtc (10 ps saving frequency), onlyPROTEIN.tpr, and confPROT.gro contain only protein.
+run6-8skip.xtc (10 ps saving frequency), run6.tpr and confEND.gro contain also solvent.
+Force field parameters are downloaded from https://github.com/bestlab/force_fields

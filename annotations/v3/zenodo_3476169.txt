@@ -1,0 +1,5 @@
+A Refined Open State of the Glycine Receptor Obtained Via Molecular Dynamics Simulations
+Representative simulation trajectory and coordinate files (starting coordinates a representative structure) from the work which first appeared on bioRxiv:
+A Refined Open State of the Glycine Receptor Obtained Via Molecular Dynamics Simulations
+Marc A. Dämgen, Philip C. Biggin
+bioRxiv 668830; doi: https://doi.org/10.1101/668830

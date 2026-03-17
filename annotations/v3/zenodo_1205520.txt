@@ -1,0 +1,22 @@
+(TM3_ASPH-CIS) POPC_512_TM3_ASPH_10_5up_5down_NaCl_150mM_310K
+System description
+-------------------
+- Title: (TM3_ASPH-CIS) Simulation POPC_512_TM3_ASPH_10_5up_5down_NaCl_150mM_310K membrane
+- Description: Simulation of a POPC membrane containing ten LAPTM4B-TM3_ASPH peptides using charmm36 at 310K. (TM3 peptides have cis peptides bonds by mistake)
+- MD engine: gromacs 5.0.4
+- Force field: charmm36
+- Temperature: 310K
+- Simulation time: 2000ns
+- Saving frequency: 100ps
+- Molecular content:
+TM3_ASPH          10
+POPC             512
+SOL            20480
+NA                55
+CL                55
+- Other information:
+  * Membrane containing LAPTM4B TM3 peptides.
+  * ASP 202 is in protonated form
+  * 5 peptides pointing up/ 5 peptides pointing down
+- Problems
+  * By mistake some peptides bonds in TM3 are in CIS configuration

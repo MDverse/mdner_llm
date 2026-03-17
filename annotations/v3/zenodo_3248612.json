@@ -30,8 +30,13 @@
         {
             "label": "MOL",
             "text": "POPC",
+<<<<<<< HEAD
             "start": 286,
             "end": 290
+=======
+            "start": 22,
+            "end": 26
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",
@@ -42,8 +47,13 @@
         {
             "label": "MOL",
             "text": "CER160",
+<<<<<<< HEAD
             "start": 327,
             "end": 333
+=======
+            "start": 11,
+            "end": 17
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "FFM",
@@ -54,8 +64,13 @@
         {
             "label": "TEMP",
             "text": "310K",
+<<<<<<< HEAD
             "start": 354,
             "end": 358
+=======
+            "start": 42,
+            "end": 46
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "SOFTNAME",
@@ -96,8 +111,13 @@
         {
             "label": "MOL",
             "text": "CER160",
+<<<<<<< HEAD
             "start": 528,
             "end": 534
+=======
+            "start": 327,
+            "end": 333
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
         },
         {
             "label": "MOL",

@@ -1,0 +1,2 @@
+Parameter file used for the NPT equilibration phase under constant pressure and temperature.
+It uses the V-rescale thermostat (300 K) and Parrinello-Rahman barostat (1.0 bar), with a time step of 2 fs and constraints applied via the LINCS algorithm. This setup stabilizes pressure and density before the production MD run. This file is in plain text format but is intended for use with GROMACS; users should open it with a text editor or within the GROMACS environment. (MDP)

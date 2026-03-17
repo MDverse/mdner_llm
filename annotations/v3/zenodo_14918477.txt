@@ -1,0 +1,11 @@
+Emergence of the Robeson bound in non-equilibrium molecular dynamics simulations
+Dual Control Volume Molecular Dyanmics (DCVMD)
+OverView
+This repository contains all the necessary data and instructions to reproduce the results published in Yuan et al., "Emergence of the Robeson bound in non-equilibrium molecular dynamics simulations". It is structured to facilitate running simulations, performing analyses, and interpreting results effectively.
+Content
+The repository is organized into the following key directories:
+**`data/`**This folder includes all data files required for simulations and analyses. Key contents are:
+- **GROMACS Files**: MDP files for running simulations such as energy minimization, NPT, and NVT simulations.- **Poreblazer Files**: Includes necessary files to perform Poreblazer analyses. The folder contains three essential files (defaults.dat,  DREIDING.atoms,  input.dat). Edit them accordingly to perform the calculations you want. - **Polymer Files**: Contains data for eight different membranes, including:  - Forcefield files (`ff.itp`)  - Position files (`out.gro`, `out.xyz` (relaxed structure for Poreblazer calculation) )  - Poreblazer input file (`input.dat`)  - Poreblazer results, such as:    - `probe_occupiable_volume.xyz`    - `summary.dat`    - `Total_psd.txt`
+**`DCVMD/`**This folder includes a test case for the DCVMD method. Detailed instructions are provided to perform the test case on PIM-1. Simulations for other membranes can also be conducted using the data files available in the `data/` folder.
+Usage Instructions
+1. For the PIM-1 test case, use the files in the `DCVMD/` folder as a starting point. The instructions there will guide you for an example DCVMD simulation. 2. For custom membrane simulations, refer to the data provided in the `data/Polymer/` folder. Replace the membrane geometry and forcefield files as necessary. 

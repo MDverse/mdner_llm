@@ -1,0 +1,5 @@
+MD Simulation of DD-Transpeptidase (PBP) protein of P. aeruginosa (with mutations recorded in 2018) and Mezlocillin (MEZ) ligand molecule
+A mutated sequence of DD-transpeptidase/PBP2 protein (recorded in 2018) associated with P. aeruginosa is modeled and docked with a molecule of Mezlocillin. The data from subsequent Molecular Dynamics simulation is presented.
+ 
+The data from the Molecular Modelling and Docking Simulations can be found here:
+Roy, A. (2025). Docking of several proteins associated with strains of Pseudomonas aeruginosa with various antibiotic molecules [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15383904

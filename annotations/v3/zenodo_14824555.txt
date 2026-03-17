@@ -1,0 +1,11 @@
+MD simulation of 256-lipid DPPC monolayers in the water-air interface (Martini 2.2@298.15K) (Part 3 of 6)
+About these systems:
+This record contains the simulation files of 256-lipid DPPC monolayers simulated in the water-air interface, at values of the area per lipid of 65 and 70 Å$^2$ (see related works for APL starting from 45 up to 100 Å$^2$).
+The initial strcuture of the systems was assembled using CHARMM-GUI, and equilibrated with GROMACS by following their recommended protocol. The membrane was then compressed and expanded in a simulation using PLUMED, from which states at different values of area per lipid were extracted.
+Each of these systems was the initial state of a 1 μs long simulation in the NVT ensemble (T=298.15 K), the ones here provided.
+For all simulations, Martini 2.2 parameters were used.
+Files provided: 
+
+Compressed file with all ITP files with the parameters used for the simulations.
+MDP file used for the production simulations.
+For each simulation, TOP with the topology, TPR of the simulation, trajectory in TRR format, EDR file, CPT generated and GRO with the final state of the system. All files corresponding to the same simulation are labeled as DPPC_NVT_XX, where XX is the nominal APL at which the simulations were carried out.

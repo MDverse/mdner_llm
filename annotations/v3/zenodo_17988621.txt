@@ -1,0 +1,86 @@
+On equilibrating non-periodic molecular dynamics samples for coupled particle-continuum simulations of amorphous polymers: dataset
+Abstract (from [1]):
+In the context of fracture simulations of polymers, the molecular mechanisms in the vicinity of the crack tip are of particular interest. Nevertheless, to keep the computational cost to a minimum, a coarser resolution must be used in the remaining regions of the numerical sample. For the specific case of amorphous polymers, the Capriccio method bridges the gap between the length and time scales involved at the different levels of resolution by concurrently coupling molecular dynamics (MD) with the finite element method (FEM). Within the scope of the Capriccio approach, the coupling to the molecular MD region introduces non-periodic, so-called stochastic boundary conditions (SBC). In similarity to typical simulations under periodic boundary conditions (PBC), the SBC MD simulations must reach an equilibrium state before mechanical loads are exerted on the coupled systems. In this contribution, we hence extensively study the equilibration properties of non-periodic MD samples using the Capriccio method. We demonstrate that the relaxation behavior of an MD-FE coupled MD domain utilizing non-periodic boundary conditions is rather insensitive to the specific coupling parameters of the method chosen to implement the boundary conditions. The behavior of an exemplary system equilibrated with the parameter set considered as optimal is further studied under uniaxial tension and we observe some peculiarities in view of creep and relaxation phenomena. This raises important questions to be addressed in the further development of the Capriccio method.
+ 
+Contact:
+Felix Weber
+Institute of Applied Mechanics
+Friedrich-Alexander-Universität Erlangen-Nürnberg
+Egerlandstr. 5
+91058 Erlangen
+Germany
+ 
+Context:
+This dataset contains the results presented in [1] and related data.
+ 
+Content:
+Throughout this data set, LAMMPS [2,3] real units are used. We apply a coarse-grained polystyrene model according to Qian et al. [4] in the molecular dynamics simulations. In part of the simulations, we apply the Capriccio code (version 2.0.1) [5], which couples LAMMPS and Matlab (version R2022a) [6]. The finite element meshes were generated in Abaqus/CAE (version 2021.HF7) [7]. 
+ 
+The following folders contain the files to reproduce the simulations under periodic boundary conditions and their results:
+- biax_PBC: Biaxial loading 
+- equil_PBC: Equilibration
+- ut_PBC: Uniaxial tension
+ 
+Each simulation directory contains:
+- input.prm: Input parameters of the specific simulation (read by the input file)
+- job.out: Simulation log file
+- meta.info: Meta data of the specific simulation run
+- LAMMPS input file (*.in) of the specific simulation
+- LAMMPS data file (*.data, molecular style) of the investigated sample
+- LAMMPS_out: Resulting LAMMPS data and restart (*.rst) files and simulation results (LAMMPS thermo_out) in 
+tabulated form, an overview of the columns is given in the respective folders
+ 
+The following folders contain the files to reproduce the simulations applying the Capriccio code and their results:
+- anchor: Equilibration with different numbers of anchor points
+- best: Equilibration with the parameter set considered to be most suitable for the MD-FE coupled equilibration
+- biax: Biaxial loading
+- bridging: Equilibration with different adaptivity levels of the bridging domain
+- descr_obs: Equilibration with a Lagrangian frame for the description of the observation region
+- dpd: Equilibration with different thicknesses of the dissipative particle dynamics (DPD) region
+- friccoeff: Equilibration with different friction coefficients applied in the dissipative particle dynamics region
+- fur: Equilibration with different numbers of fur beads 
+- gausspoints: Equilibration with different numbers of quadrature points per direction 
+- min: Equilibration applying an initial, static energy minimization
+- nodes: Equilibration with a higher number of finite element nodes
+- shifted: Equilibration with particle systems obtained at different positions and points in time within the periodic master system
+- smdcub: Equilibration with different remaining stiffness ratios for the cubic modified weighting factor
+- smdlin: Equilibration with different remaining stiffness ratios for the linear modified weighting factor
+- timestepsize: Equilibration with different molecular dynamics time step sizes
+- ut: Uniaxial tension
+- ut_friccoeff: Uniaxial tension with different friction coefficients applied in the dissipative particle dynamics region
+- weighting: Equilibration with different energy weighting functions
+- youngsmod: Equilibration with different Young's moduli
+ 
+Each simulation directory contains:
+- input_files: 
+- *.ac: Initial coordinates of the anchor points
+- *.BBC: Initial coordinates of the "fur" beads
+- *.cae: Abaqus .cae file of the finite element domain
+- *.data: Initial LAMMPS data file
+- *.inp: Abaqus .inp file of the finite element domain
+- input_parameters:
+- Capriccio.prm: Input parameters
+- MD_data: Results evaluated in the molecular dynamics region. MD_data contains the following subfolders: 
+- anchorforces: Dumped force components on the anchor points (AP) in kcal/mol, files anchorforce_[load step]_[MD-FE iteration].AF 
+- data: Resulting LAMMPS data files *.[load step].[MD-FE iteration].data 
+- Density: Dumped mass density in the observation region in kg/m^3 
+- Energy: Dumped total (kinetic + potential), angle, bond, and pair energies in kcal/(mol*Angstrom) 
+- Strain: Integral strains in the observation region in x-, y-, and z-direction calculated by means of the Matlab script calc_OBSstrain.m
+- Stress: Stresses in the observation region in MPa
+- Temperature: Temperature in the observation region in K
+- job.out: Simulation log file
+- meta.info: Meta data of the specific LAMMPS simulation
+ 
+Information on the subfolders is given in the respective directories (readme.txt files).
+ 
+References:
+[1] F. Weber, M. Ries, C. Bauer, C. R. Wick, S. Pfaller, "On equilibrating non-periodic molecular dynamics samples for coupled particle-continuum simulations of amorphous polymers", Forces in Mechanics, vol. 10, p. 100159, 2023.
+[2] S. Plimpton, "Fast parallel algorithms for short-range molecular dynamics", Journal of computational physics, vol. 117, no. 1, pp. 1-19, 1995.
+[3] A. P. Thompson, H. M. Aktulga, R. Berger, D. S. Bolintineanu, W. M. Brown, P. S. Crozier, P. J. in 't Veld, A. Kohlmeyer, S. G. Moore, T. D. Nguyen, R. Shan, M. J. Stevens, J. Tranchida, C. Trott, S. J. Plimpton, "LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales", Computer Physics Communications, vol. 271, p. 108171, 2022.
+[4] H.-J. Qian, P. Carbone, X. Chen, H. A. Karimi-Varzaneh, C. C. Liew, F. Müller-Plathe, "Temperature-Transferable Coarse-Grained Potentials for Ethylbenzene, Polystyrene, and Their Mixtures", Macromolecules, vol. 41, no. 24, pp. 9919-9929, 2008.
+[5] S. Pfaller, M. Ries, W. Zhao, C. Bauer, F. Weber, and L. Laubert, "CAPRICCIO - Tool to run concurrent Finite Element-Molecular Dynamics Simulations (2.0.1)", Zenodo, https://doi.org/10.5281/zenodo.12606758.
+[6] The MathWorks, Inc., "Matlab. the language of technical computing", https://de.mathworks.com/help/matlab/.
+[7] Dassault Systèmes. "Abaqus documentation", https://abaqus-docs.mit.edu/2017/English/SIMACAEEXCRefMap/simaexc-c-docproc.htm.
+ 
+Funding:
+This research was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - 377472739/GRK 2423/1-2019. The authors are very grateful for this support. Sebastian Pfaller is furthermore funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) - 396414850 (Individual Research Grant ’Identifikation von Interphaseneigenschaften in Nanokompositen’).

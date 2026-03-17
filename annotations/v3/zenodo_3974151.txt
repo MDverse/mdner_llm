@@ -1,0 +1,8 @@
+Identification and characterization of novel splice variants of human farnesoid X receptor
+Dataset related to publication:
+
+Mustonen E-K, Lee SML, Nieß H, Schwab M, Pantsar T, Burk O: "Identification and characterization of novel splice variants of human farnesoid X receptor". Archives of Biochemistry and Biophysics https://doi.org/10.1016/j.abb.2021.108893
+
+ 
+Including:
+I. Full-length raw-trajectories of the 1 microsecond Desmond simulations (-out.cms, trj)

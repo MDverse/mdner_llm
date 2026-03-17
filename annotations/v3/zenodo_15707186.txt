@@ -1,0 +1,2 @@
+A multiscale simulation approach to compute protein-ligand association rate constants by combining Brownian dynamics and molecular dynamics
+This dataset contains the input and output files for the results reported in manuscript "A multiscale simulation approach to compute protein-ligand association rate constants by combining Brownian dynamics and molecular dynamics" by Muñiz-Chicharro, Abraham; Ganotra, Gaurav K.; Wade, Rebecca C., submitted. The README describes the content.

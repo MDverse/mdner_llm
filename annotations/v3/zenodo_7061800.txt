@@ -1,0 +1,3 @@
+Simulations of POPC/cholesterol mixtures at 298 K, three system sizes, MacRog
+GROMACS input and output files. Lipid model by Maciejewski and Rog ('MacRog').
+Membranes with 64, 256, and 1024 lipids.

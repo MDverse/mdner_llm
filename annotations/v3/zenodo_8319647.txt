@@ -1,0 +1,2 @@
+Enzymatic beta-elimination in natural product deglycosylation: C-C bond cleavage as a specialty of a conserved mechanism
+Relevant data from the MD simulations contained in the paper 'Enzymatic b-elimination in natural product deglycosylation: C-C bond cleavage as a specialty of a conserved mechanism'.

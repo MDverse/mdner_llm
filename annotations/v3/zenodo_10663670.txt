@@ -1,0 +1,4 @@
+All-atom molecular dynamics simulations of iRFP713/C15S/V254C/N136R
+The trajectories of all-atom MD simulations of monomeric and dimeric iRFP713/C15S/V254C/N136R with PCB (phycocyanobilin) and BV (biliverdin).
+ 
+Simulations have been performed using the CHARMM36 force field, running with the GROMACS 2022 package.

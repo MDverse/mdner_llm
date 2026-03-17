@@ -1,0 +1,2 @@
+SAM simulation, forcefield and coordinates
+Forcefield parameter files and input coordinates for SAM simulation (for use with Amber software)

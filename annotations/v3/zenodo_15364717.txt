@@ -1,0 +1,6 @@
+Input files for the MD simulations used in the articles "Mobile-Phase Contributions to Analyte Retention and Selectivity in Reversed-Phase Liquid Chromatography" (Part 1: General Effects, Part 2: Solute-Specific Effects)
+This dataset contains the input files for the MD simulations used in the following articles:
+"Mobile-Phase Contributions to Analyte Retention and Selectivity in Reversed-Phase Liquid Chromatography: 1. General Effects"
+and
+"Mobile-Phase Contributions to Analyte Retention and Selectivity in Reversed-Phase Liquid Chromatography: 2. Solute-Specific Effects"
+The dataset includes the GROMACS files for two selected water/organic solvent mobile phases (i.e., containing 20 vol % methanol and 20 vol % acetonitrile) for the analyte benzene. Additionally, the configuration for the empty (solvent-free) RPLC slit-pore and the remaining analyte force-field files are provided. With this information and the data given in Table S1 of Part 1, every simulation system of the entire study (Parts 1 and 2) can be replicated.

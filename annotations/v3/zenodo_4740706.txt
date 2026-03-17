@@ -1,0 +1,10 @@
+Coarse-grained molecular dynamics simulations of SARS-CoV-2 envelope protein E
+The trajectories of coarse-grained (CG) molecular dynamics (MD) simulations of
+1) unmodified (NoPTM_POPC_Martini3b: 0.5 & 2.5 μs); 
+2) palmitoylated (CYSP40, CYSP43, CYSP 44, CYSP40/43, CYSP 40/44, CYSP 43/44, CYSP40/43/44_POPC_Martini3b: 0.5 μs); 
+3) glycosylated (ASNG66: 0.5 μs)
+SARS-CoV-2 E protein in the monomeric form in a POPC bilayer.
+The trajectories of CG MD (TMD;H2H3_NoPTM_POPC_Martini3b: 0.5 μs) of systems containing artificial proteins consisting of only transmembrane domain (TMD) or only cytoplasmic domain (H2H3) in a POPC bilayer.
+The trajectory of CG MD (4xNoPTM_POPC_Martini3b: 0.5 mks) of the system containing 4 proteins with centers of mass fixed in the plane of the POPC bilayer (XY). 
+The trajectories of CG MD of systems containing 2 proteins in the membranes buckled in a single direction (CurvedMembrane1;2X_2xNoPTM_POPC_Martini3b: 1 μs) and in the membrane buckled in both directions (CurvedMembraneXY_2xNoPTM_POPC_Martini3b: 1 μs).
+Simulations have been performed using the beta version of Martini 3 (CG) force field, running with the GROMACS 2020.1 under the conditions reported in bioRxiv 2021.03.10.434722.

@@ -1,0 +1,2 @@
+Human mitochondrial calcium uniporter dominant negative beta (MCUB) amino terminal domain (NTD) molecular dynamics at 310 K.
+GROMACS 2022.3 trajectory (xtc) and energy (edr) file. 1000 ns.

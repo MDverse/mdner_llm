@@ -1,0 +1,2 @@
+Simulations of a membrane with a dilute concentration of proteins in different system sizes
+Simulations of a dilute (400 lipids per protein per leaflet) DPPC membranes with seven types of embedded proteins. The systems are a 50% smaller (S) and 4 times larger (L) versions of the lp400 simulation in the upload: DOI:10.5281/zenodo.846428. Topologies and simulation parameters are identical to those in that upload.

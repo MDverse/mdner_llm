@@ -1,0 +1,2 @@
+chignolin,1micro second
+chignolin in water solution, parm99SB+TIP3P, gromacs-2023, 1micro second trajectory

@@ -7,7 +7,11 @@
         "FFM",
         "TEMP"
     ],
+<<<<<<< HEAD
     "raw_text": "A Bottom-Up Coarse-Grained Model for Nucleosome–Nucleosome Interactions with Explicit Ions\nThe nucleosome core\nparticle (NCP) is a large complex of 145–147\nbase pairs of DNA and eight histone proteins and is the basic building\nblock of chromatin that forms the chromosomes. Here, we develop a\ncoarse-grained (CG) model of the NCP derived through a systematic\nbottom-up approach based on underlying all-atom MD simulations to\ncompute the necessary CG interactions. The model produces excellent\nagreement with known structural features of the NCP and gives a realistic\ndescription of the nucleosome–nucleosome attraction in the\npresence of multivalent cations (Mg­(H2O)62+ or Co­(NH3)63+) for systems\ncomprising 20 NCPs. The results of the simulations reveal structural\ndetails of the NCP–NCP interactions unavailable from experimental\napproaches, and this model opens the prospect for the rigorous modeling\nof chromatin fibers.",
+=======
+    "raw_text": "A Bottom-Up Coarse-Grained Model for Nucleosome–Nucleosome Interactions with Explicit Ions\nThe nucleosome core particle (NCP) is a large complex of 145–147 base pairs of DNA and eight histone proteins and is the basic building block of chromatin that forms the chromosomes. Here, we develop a coarse-grained (CG) model of the NCP derived through a systematic bottom-up approach based on underlying all-atom MD simulations to compute the necessary CG interactions. The model produces excellent agreement with known structural features of the NCP and gives a realistic description of the nucleosome–nucleosome attraction in the presence of multivalent cations (Mg­(H2O)62+ or Co­(NH3)63+) for systems comprising 20 NCPs. The results of the simulations reveal structural details of the NCP–NCP interactions unavailable from experimental approaches, and this model opens the prospect for the rigorous modeling of chromatin fibers.",
+>>>>>>> f524ea8 (refactor: extract cleaned description for figshare datasets (without /n) and transfer the annotations)
     "entities": [
         {
             "label": "MOL",

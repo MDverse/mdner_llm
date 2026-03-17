@@ -1,0 +1,2 @@
+Elucidating the mechanical properties of asymmetric membranes by direct derivation of their energetics - Data sets
+Initial and final snapshots of asymmetric bilayers in umbrella-sampling simulations (NAMD/VMD-compatible topology and coordinate formats)

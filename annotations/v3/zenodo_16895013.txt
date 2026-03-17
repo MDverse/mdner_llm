@@ -1,0 +1,2 @@
+Simulations of ARF/ASAP1 PH domain
+Five replicas each of MD simulations of ARF/ASAP1 PH domain, as well as ARF alone on a model bilayer containing PIP2. Protein structure files (psfs) are included for each replica. See step7_production.mdin for simulation parameters. Frames are saved two nanoseconds.

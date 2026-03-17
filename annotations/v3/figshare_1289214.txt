@@ -1,0 +1,2 @@
+SwissParam CHARMM Parameters files for the cancer drugs Cytarabine, Daunorubicin, Doxorubicin, and Vincristine
+The SwissParam CHARMM parameters used in the study for the anti-cancer drugs Cytarabine, Daunorubicin, Doxorubicin, and Vincristine are provided here in zip file. Zip files can be opened by double-click the ZIP file in any operating systems.

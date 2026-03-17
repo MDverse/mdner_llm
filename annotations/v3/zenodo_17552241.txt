@@ -1,0 +1,5 @@
+Development of molecular dynamics-based features from all-atom simulations of αGAL mutants to assess pharmacoperone responsiveness
+MD trajectories of wild type, N215S and R301Q α-galactosidase A (αGAL).
+Defects of this protein lead to the development of Fabry disease, a multi systemic disease caused by the lysosomal accumulations of neutral glycosphingolipids and globotriaosylceramide GL-3. 
+We developed a pipeline to build and simulate this protein (PDB: 3GXT) and to run some posterior analysis. The resulting trajectories (1 μs each) are stored here in the zip file.
+To visualise the trajectories, download the zip file and unzip it in the parent folder described in github README.

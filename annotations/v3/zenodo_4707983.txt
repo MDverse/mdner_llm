@@ -1,0 +1,7 @@
+Deep Mutagenesis of a Transporter for Uptake of a Non-Native Substrate Identifies Conformationally Dynamic Regions
+Molecular dynamics simulations of the APP+ import mechanism of the human serotonin transporter. Manuscript in review. 
+SeTWT-APP.pdb - sample structure file of SERT embedded in POPC lipid bilayer, solvated with NaCl and TIP3P water molecules. 
+SeTWT-APP-stripped.pdb - stripped (no lipids or water) topology file for SERT APP+ trajectories. 
+MSM_600microstates_100samples.zip contains trajectory files of 100 structures of each microstates (600 total) from the Markov state model in xtc format. 
+SeTWT-APP-600microstates-1sample.dcd - coordinates of 1 sampled structure from each microstate. May be viewed in visualization software such as VMD or PyMOL. 
+Residue numbering in the trajectories/pdbs is offset by 75 from the original SERT sequence. 

@@ -1,0 +1,2 @@
+WT protein
+These are the files related to the KRAS WT protein's simulation.

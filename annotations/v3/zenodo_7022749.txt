@@ -1,0 +1,4 @@
+Simulations of POPC/cholesterol mixtures at 298 K, three system sizes, Slipids
+GROMACS input and output files. Slipids.
+Membranes with 64, 256, and 1024 lipids.
+New version, added missing file: CHOL4_medium.edr

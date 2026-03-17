@@ -1,0 +1,3 @@
+Molecular dynamics dataset for "scalable emulation of protein equilibrium ensembles with generative deep learning": Octapeptides
+Molecular dynamics dataset for octapeptide systems accompanying
+Lewis, S.; Hempel, T.; Jiménez-Luna, J.; Gastegger, M.; Xie, Y.; Foong, A. Y. K.; Satorras, V. G.; Abdin, O.; Veeling, B. S.; Zaporozhets, I.; Chen, Y.; Yang, S.; Foster, A. E.; Schneuing, A.; Nigam, J.; Barbero, F.; Stimper, V.; Campbell, A.; Yim, J.; Lienen, M.; Shi, Y.; Zheng, S.; Schulz, H.; Munir, U.; Sordillo, R.; Tomioka, R.; Clementi, C.; Noé, F. Scalable Emulation of Protein Equilibrium Ensembles with Generative Deep Learning. Science 2025. https://doi.org/10.1126/science.adv9817.

@@ -1,0 +1,6 @@
+Exploring the incorporation of ketoacid building blocks in teicoplanin biosynthesis - MD simulations
+This record contains classical MD simulations discussed in manuscritpt "Exploring the incorporation of ketoacid building blocks in teicoplanin biosynthesis" by M.S. Ratnayake et al. All the simulations were performed in Amber22. The details of the simulations are given in the accompanying manuscript. The trajectories are in Amber NetCDF format and are stripped of most water and ions to save space. The frames filtered according to the criteria specified in the manuscript are also included.
+
+adenylation.zip contains simulations relevant to adenylation of L-Hpg and Hpk substrates
+postadenylation.zip contains simulations relevant to hydrolysis of adenylated substrates
+thioestrification contains simulations relevant to loading of L-Hpg and Hpk onto phosphopatetheine

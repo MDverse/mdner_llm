@@ -1,0 +1,2 @@
+The structural basis of the divalent cation blocking on tetrameric cation channel
+The data for Fig2f, Fig5a, SupFig.2-6. MD simulation source data.

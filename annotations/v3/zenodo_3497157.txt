@@ -1,0 +1,3 @@
+ECC-POPC-curved-bilayer-negative
+A curved POPC bilayer, restrained in the *positive*  regions - negatively curved regions are free to move.
+150 mmol/l CaCl2
