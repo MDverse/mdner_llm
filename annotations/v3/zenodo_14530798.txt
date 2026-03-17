@@ -1,2 +1,0 @@
-Data to accompany Structural prediction of chimeric immunogens to elicit targeted antibodies against betacoronaviruses
-This dataset contains predicted chimera structures, NanoDSF data on thermal stability of expressed chimeras on the surface of pseudoviruses, and immunofluorescence data on expressed chimeras on the surface of pseudoviruses as described in the manuscript.

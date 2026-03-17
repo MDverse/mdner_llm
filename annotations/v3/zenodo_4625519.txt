@@ -1,3 +1,0 @@
-GROMACS input files
-Input files for GROMACS with enforced rotation applied to the C-terminal amino acid of a peptide. 
-See https://doi.org/10.12688/f1000research.28175.1 for more details. 

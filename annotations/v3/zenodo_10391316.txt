@@ -1,2 +1,0 @@
-Identification of the Inhibition Mechanism of Fructooligosaccharide from Chinese Traditional Medicine Polygonatum sibiricum to Carbonic Anhydrase II
-The input files, parameter files, topology files, etc. of the MD simulation in the manuscript "Identification of the Inhibition Mechanism of Fructooligosaccharide from Chinese Traditional Medicine Polygonatum sibiricum to Carbonic Anhydrase II".

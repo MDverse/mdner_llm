@@ -1,4 +1,0 @@
-Fe-S cluster parameters and GROMACS files for NreB_PAS MD simulations
-This Zenodo record contains custom topology/force-field files and associated GROMACS input/output files used to model the Fe-S cofactor in NreB_PAS molecular dynamics (MD) simulations.
-The deposit includes:(1) Force field/topology files: 'topol.top', 'fes.itp' (Fe-S cofactor moleculetype), and 'posre.itp',(2) Force field directory used for the protein: 'amber14sb_parmbsc1.ff/',(3) Structure/coordinate file for system setup: 'complex.gro',(4) Example GROMACS run input/output files in the 'md/' folder, including 'md.tpr', 'md.mdp','md.gro', 'md.xtc', 'md.edr', 'md.cpt', 'index.ndx', and the run log.
-The Fe-S cofactor topology/parameters ('fes.itp') were generated using Sobtop. These files are provided to support transparency and reproducibility of the MD simulations reported in the associated manuscript. Please refer to the included README for fileorganization and brief usage notes.

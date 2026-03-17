@@ -1,2 +1,0 @@
-Structural and Affinity Determinants in the Interaction Between Alcohol Acyltransferase from F. ananassa and Several Alcohol Substrates: A Computational Study
-Here we provided the results of the molecular docking and molecular dynamics simulation studies of the protein alcohol acyltransferase from Fragaria ananassa (FaAAT) with respect to several alcohol substrates.

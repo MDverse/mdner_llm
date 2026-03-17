@@ -1,2 +1,0 @@
-Calculations on the effect of sulfur-substitution on guanine on a DNA oligomer - unmodified oligomer.
-Zip files of results of calculations using molecular dynamics over 15 ns (AMBER10) on  a DNA oligomer  in explicit water (TIP3P).

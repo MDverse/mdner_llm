@@ -1,1 +1,0 @@
-OpenFF POPC 0.9 rvdw OPC3 & TIP3P 400ns

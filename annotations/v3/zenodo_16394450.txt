@@ -1,2 +1,0 @@
-MD input data for Exploring Diverse Binding Ability of SARS-CoV-2 Variant RBDs to Different Antibody Classes: A Computational Study
-This collection represents the input data utilized for molecular dynamics (MD) simulations performed with GROMACS, in support of the manuscript entitled "Exploring Diverse Binding Abilities of SARS-CoV-2 Variant RBDs to Different Antibody Classes: A Computational Study."

@@ -1,3 +1,0 @@
-Pure DPPC membrane with Charmm Drude Polarizable Force Field (OpenMM 7.5.0)
-The pure DPPC membrane (36 lipids in each leaflet) simulations with the Charmm-Drude polarizable force field. Initial structure has been generated via Charmm-Gui on 01.03.2021. Before the production run, 100 ns equilibration was done using the Charmm36 force field.
-This trajectory is 170 ns long. Saving frequency is 10 ps. Simulation temperature is 323 K. There are 36 DPPC lipids in each leaflet and the system is solvated with 2232 SWM4 water molecules. There are no ions present.

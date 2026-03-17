@@ -1,2 +1,0 @@
-Input parameters for manuscript "Understanding drug skin permeation enhancers using Molecular Dynamics Simulation"
-Input parameters used for Gromacs simulations in publication with title: "Understanding drug skin permeation enhancers using Molecular Dynamics Simulation"

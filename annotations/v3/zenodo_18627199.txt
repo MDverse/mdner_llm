@@ -1,5 +1,0 @@
-Linking multipoint folding and stability with functional regulation in the mitochondrial transmembrane β-barrel Sam50
-Contains the following:
-Source files_Main Text: Uncropped gel images and raw values of replicates as Excel file, for data shown in the main text figures.
-Source Files_SI Uncropped Images: Uncropped gel images and an annotated PDF, for data shown in the SI figures.
-MDS files_Complete: Molecular dynamics simulations minimum dataset that are necessary to interpret, verify and extend the research; additiaonlly contains a subfolder with the analysis files.

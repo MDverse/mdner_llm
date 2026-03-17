@@ -1,1 +1,0 @@
-Coarse-grained molecular dynamics simulations of caspase-4-CARD domain binding to curved lipopolysaccharide membranes

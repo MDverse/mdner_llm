@@ -1,2 +1,0 @@
-LC13 + HLA–B*08:01 + all single point mutations of the peptide FLRGRAYGL (F1A, ... L9Y)
-LC13 + HLA–B*08:01 + all single point mutations of the peptide FLRGRAYGL (F1A, ... L9Y). See also Knapp et al. Large scale characterization of the LC13 TCR and HLA-B8 structural landscape in reaction to 172 altered peptide ligands: a molecular dynamics simulation study (https://pubmed.ncbi.nlm.nih.gov/25101830/)

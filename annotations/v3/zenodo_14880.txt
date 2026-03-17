@@ -1,6 +1,0 @@
-MD simulation trajectory and related files for n-octyl-b-D-maltoside (C8G2) simulation in lamellar phase (Gromacs 4.5.)
-Simulation trajectory and related files used in:
-Signal intensities in 1H–13C CP and INEPT MAS NMR of liquid crystals
-A. Nowacka, N.A. Bongartz, O.H.S. Ollila, T. Nylander and D. Topgaard
-Journal of Magnetic Resonance 230 (2013) 165–175
-http://dx.doi.org/10.1016/j.jmr.2013.02.016

@@ -1,2 +1,0 @@
-POPC aux
-POPC simulation parameterized with Sage2.2.1.aux.offxml

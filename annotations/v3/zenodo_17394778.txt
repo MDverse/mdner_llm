@@ -1,1 +1,0 @@
-Dataset of the initial and final MD snapshots in GROMACS gro formats for C1ql1

@@ -1,2 +1,0 @@
-UT-MD files
-This is the relevant file for molecular dynamics simulation of urea transporter

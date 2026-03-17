@@ -1,2 +1,0 @@
-Bilayer 5
-Modifications to the LJ parameters of P and O. Base FF is Sage 2.2.0

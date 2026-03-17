@@ -1,2 +1,0 @@
-The QR code of SNARE proteins
-The raw data belong to a study in which we studied the geometric pattern of SNARE complexes. These proteins form stable four-helix bundles from four different helices. Some of the hydrophobic coiled-coil layers are asymmetric. We found that there is a matching pattern in the core of the complex that dictates the position of the four fundamental SNARE types in the bundle. The raw data include biochemical analyses, molecular dynamics simulations and other calculations. In addition, the data for the respective figures are included in the package. 

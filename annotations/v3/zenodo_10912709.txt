@@ -1,5 +1,0 @@
-Distinct binding hotspots for natural and synthetic agonists of FFA4 from in silico approaches
-Compressed trajectories files of natural and synthetic ligands (TUG-891, alpha-Linolenic acid, Linoleic acid and Oleic acid) as supporting information for a research article in Molecular Informatics exploring binding hotspots of FFA4.
-Each compressed trajectories comprise of a pdb file (xx_Rx.pdb) and its associated trajectory file (xx_Rx_TRJ.trr ) to be read using vmd.
- 
- 

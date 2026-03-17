@@ -1,5 +1,0 @@
-Molecular insights into human phosphatidylserine synthase 1 reveal its inhibition promotes LDL uptake
-Supporting molecular dynamics (MD) files for the manuscript with the same title. It includes three parts: MD initial files, trajectory files with the membrane and solvent water stripped, and an example binding free energy calculation setting file using Molecular Mechanics Poisson-Boltzmann Surface Area (MM-PBSA) method with an implicit membrane model.
-The MD initial files include MD parameters (folder 0_mdin) and specific topology (.parm7), initial structure (.rst7), and structural restraint files (.rest) in the corresponding folder for each simulation.
-The trajectory files include the topology files with membrane and solvent water stripped (.rst7) and 50-snapshot (4 ns interval) coordinate files (.nc) for each MD run.
-The MM-PBSA setting file (.in) is supposed to be used as the input of the MMPBSA.py utility of the AMBER simulation suite.

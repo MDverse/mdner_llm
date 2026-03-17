@@ -1,2 +1,0 @@
-Dataset for "The relevance of structural variability in the time-domain for computational reflection anisotropy spectroscopy at solid-liquid interfaces"
-Molecular dynamics (MD) trajectories from CP2k used in the article "The relevance of structural variability in the time-domain for computational reflection anisotropy spectroscopy at solid-liquid interfaces", published in Journal of Physics: Condensed Matter.

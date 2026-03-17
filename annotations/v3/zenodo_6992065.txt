@@ -1,3 +1,0 @@
-Simulations of POPC/cholesterol mixtures at 298 K, three system sizes, LIPID17
-GROMACS input and output files. LIPID17.
-Membranes with 64, 256, and 1024 lipids.

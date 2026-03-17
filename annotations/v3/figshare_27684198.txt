@@ -1,2 +1,0 @@
-Trajectories
-Kinked-β sheets are distinct peptide motifs involved in reversible amyloid fibril formation, which standard methods cannot identify. We present a machine learning-based framework to characterize these motifs, identify LARKS, and provide a repository for structural and kinetic studies.

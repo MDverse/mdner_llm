@@ -1,2 +1,0 @@
-a-Synuclein short MD simulations:WT
-Short molecular dynamics simulations of a-Synuclein amyloids, WT

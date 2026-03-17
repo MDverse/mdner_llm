@@ -1,4 +1,0 @@
-3D-coordinates of the complex formed by TRN-1 and CA hexamer from HIV-1 and MD simulation of H27 with CA hexamer
-The complex formed by HIV-1 CA hexamer (based on 3H4E) and Transportin-1 (TRN-1, based on 4FQ3) was first obtained by rigid docking and optimized by MD simulations and finally energy minimized using NAMD program and Charmm36m force field. This complex was used for the in silico screening study for discovering new antiviral drugs.
-The 3D coordinates (PDB file) of CA hexamer in presence of H27
-The corresponding trajectory of MD simulation (500 ns) of H27 with CA hexamer in order to find preferential binding sites (trajectory reduced or strided for reducing the size of the file

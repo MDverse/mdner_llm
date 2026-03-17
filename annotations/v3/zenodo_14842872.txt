@@ -1,3 +1,0 @@
-Modeling ligands in cryo-EM with generative AI and density-guided simulations
-The ten directories, named by their respective PDB IDs, contain raw data for the test systems analyzed in the manuscript "Modeling Ligands in Cryo-EM with Generative AI and Density-Guided Simulations." Each directory includes ChimeraX sessions, raw simulation trajectories, and input files.
-The "Scripts" directory provides scripts for calculating cross-correlations (using VMD) and Interaction Energy (using GROMACS), as detailed in the manuscript. The 8IHK system is used as an example within these scripts. This folder also includes a Jupyter Notebook for curating test systems from the PLIDER database.

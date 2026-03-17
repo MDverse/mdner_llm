@@ -1,2 +1,0 @@
-Vascular KATP channel structural dynamics reveal regulatory mechanism by Mg-nucleotides
-MD simulation data for vascular KATP channel focusing on Kir6.1-pore and SUR2B in the presence and absence of MgADP. 

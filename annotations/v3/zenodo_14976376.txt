@@ -1,2 +1,0 @@
-Data associated to the manuscript "Proton transfer in [HEIM][TFSI] ionic liquid: insights from polarisable and neural network simulations"
-Contains input files and analysis scripts used in the article: "Modelling proton transfer in [HEIM][TFSI] ionic liquid"

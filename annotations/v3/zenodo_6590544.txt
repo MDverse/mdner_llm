@@ -1,2 +1,0 @@
-Simulation data for "Corrole-protein interactions in H-Nox and HasA"
-Molecular dynamics simulation trajectories, metadata, and analysis script for the manuscript "Corrode-Protein interactions in H-Nox and HasA" (article link) by Christopher M. Lemon, Amos J. Nissley, Naomi R. Latorraca, Elizabeth C. Wittenborn, and Michael A. Marletta, RCS Chem Biol. 2022, 3, 571-581.  

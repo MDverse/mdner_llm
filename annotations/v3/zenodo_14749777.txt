@@ -1,2 +1,0 @@
-SWEET family transporters act as water conducting carrier proteins in plants
-Input files, parameter files for all structures and states of AtSWEET1 transporter used for molecular dynamics simulation in the study "SWEET family transporters act as water conducting carrier proteins in plants" by Balaji Selvam, Arnav Paul, Ya-Chi Yu, Li-Qing Chen and Diwakar Shukla.

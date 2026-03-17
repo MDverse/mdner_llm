@@ -1,5 +1,0 @@
-Surface tension coefficient of acqueous glycerol from Molecular Dynamics simulations
-The dataset contains the configuration files and the results of molecular simulations of aqueous glycerol liquid slabs. The aim of the simulations is to determine the surface tension of the interface between aqueous glycerol and its vapour. Simulations are performed with Gromacs 2021. The water model is SPC/E, while the force field for Glycerol is extrapolated from OPLS-AA according to the work by Jahn et al. (doi.org/10.1021/jp5059098). Surface tension is computed using Gromacs analysis tool by running
-gmx energy -f ener.edr
-and selecting the #Surf*SurfTen term, which returns the surface tension (bar*nm) times the number of surfaces (2, due to the system's periodicity). The surface tension is computed from the difference between interface-perpendicular and interface-parallel components of the pressure tensor (see Gromacs documentation or Frenkel and Smit Understanding Molecular Simulations second edition p.472).
-The nomenclature of the zip files indicates the mass fraction of glycerol, ranging from 0% (Glycerol000) to 100% (Glycerol100).

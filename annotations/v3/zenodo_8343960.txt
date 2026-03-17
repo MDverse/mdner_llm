@@ -1,2 +1,0 @@
-Nearly complete structure of DT57C bacteriophage reveals unusual architecture of head-to-tail interface and lateral tail fibers
-Supplementary materials for "Nearly complete structure of DT57C bacteriophage reveals unusual architecture of head-to-tail interface and lateral tail fibers", Ayala et al.The dataset contains the molecular dynamics trajectories for three systems: TTMP tail protein ring along with the adjacent outermost LtfA-LtfC ring (1) and the HCP ring with (2) or without (3) the TCP ring. Each simulation was run in triplicate.

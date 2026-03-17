@@ -1,2 +1,0 @@
-Evolutionary Dynamics and Functional Differences in Clinically relevant Pen β-Lactamases from Burkholderia spp.
-PDB, prmtop and xtc files of the metastable states from PenA, PenI, PenL and PenP.

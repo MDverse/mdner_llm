@@ -1,2 +1,0 @@
-Portable compressed binary tCONCOORD trajectory file - 2WEL A
-tCONCOORD trajectory

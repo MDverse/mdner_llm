@@ -1,7 +1,0 @@
-Simulation files for POPC lipid membrane with Charmm36 force field without NBFIX for Gromacs MD simulation engine
-Simulation files for POPC lipid membrane with Charmm36 force field without NBFIX for Gromacs MD simulation engine
-NaCl concentration is 730 mM.
-The goal was to study the effect of salt on the order 
-parameters of the lipid head group and the glycerol 
-backbone for the NMRlipids project, see 
-http://nmrlipids.blogspot.fi for more information.

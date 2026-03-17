@@ -1,6 +1,0 @@
-MD trajectories of lipidated fluorescent proteins constructs cleGFP and dleGFP
-MD trajectories of lipidated fluorescent proteins.
-Force field: Martini2.2p
-File formats: Gromacs 2018
-cleGFP 200µs, c-terminal lipidation
-dleGFP 85.46µs, c-terminal and internal lipidation (i.e. "d" doubly-lipidated)

@@ -1,2 +1,0 @@
-big8p800k.tpr
-Portable binary run of a simulation equilibrated at 8 GPa and 800K.

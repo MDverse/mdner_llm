@@ -1,5 +1,0 @@
-The circularly permuted globin domain of Androglobin exhibits atypical heme stabilization and nitric oxide interaction - Molecular models and molecular dynamics simulations
-Models and MD simulations presented in the preprint
-"The circularly permuted globin domain of Androglobin exhibits atypical heme stabilization and nitric oxide interaction"
-available at:
-https://www.researchsquare.com/article/rs-1685645/v1

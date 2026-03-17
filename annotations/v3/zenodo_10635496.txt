@@ -1,2 +1,0 @@
-prosECCo75 paper related MD Simulation, DPPC CHARMM LO, melting T
-prosECCo 75 paper related data

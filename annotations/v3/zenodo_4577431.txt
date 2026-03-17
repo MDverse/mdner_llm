@@ -1,3 +1,0 @@
-Free energy landscape of RNA binding dynamics in start codon recognition by eukaryotic ribosomal pre-initiation complex: Simulation dataset
-Dataset of molecular dynamics simulations for RNA binding in ribosomal pre-initiation complex.
-NAMD 2.13 (multi-core) was used for the simulations.

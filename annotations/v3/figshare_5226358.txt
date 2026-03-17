@@ -1,2 +1,0 @@
-Calculations on the effect of sulfur-substitution on guanine on a DNA oligomer -oligomer containing thioguanine and a thiogaunine-thymine mismatch.
-Results of calculations using molecular dynamics over 15 ns (AMBER10) on a DNA oligomer containing thioguanine and a thioguanine-thymine mismatch in explicit water (TIP3P).

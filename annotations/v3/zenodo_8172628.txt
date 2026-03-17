@@ -1,2 +1,0 @@
-Source code and data for AIMMD-TPS and PE estimate
-This repository contains the source code, simulation data, and analysis from the study by Lazzeri, Jung, Bolhuis, and Covino (paper submitted in 2023). The code, adaptable for any two-state molecular dynamics system, is paired with annotations to promote understanding. The dataset allows full replication of the paper's results and figures.

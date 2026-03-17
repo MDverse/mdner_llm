@@ -1,2 +1,0 @@
-100K_trajectory
-A 50500 frames MD of serotype 18C of StreptococcusPneumoniae (repetitive unit)

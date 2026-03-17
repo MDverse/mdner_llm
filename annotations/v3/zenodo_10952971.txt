@@ -1,9 +1,0 @@
-Raw data for: Structural and mechanistic insights into human choline and ethanolamine transport
-This repository contains raw data related to "Structural and mechanistic insights into human choline and ethanolamine transport" by Ri et al.
-
-
-
-
-Included are molecular dynamics parameter files, initial structures after system equilibration and production trajectories. Trajectories are subsampled with one frame every 10 ns. 
-Contact information:
-Name: Ainara Claveras CabezudoInstitution: Department of Theoretical Biophysics, Max Planck Institute of BiophysicsAddress: Max-von-Laue-Str. 3, 60438 Frankfurt am Main, GermanyEmail: ainara.claveras@biophys.mpg.de

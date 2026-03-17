@@ -1,2 +1,0 @@
-ECC-POPC-curved-bilayer-positive
-A curved POPC bilayer, restrained in the *negative*  regions - positively curved regions are free to move.

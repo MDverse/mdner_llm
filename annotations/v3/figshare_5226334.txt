@@ -1,2 +1,0 @@
-Calculations on the effect of sulfur-substitution on guanine on a DNA oligomer - oligomer with G:T mismatch
-Results of calculations using molecular dynamics over 15 ns (AMBER10) on a DNA oligomer containing a G:T mismatch in explicit water (TIP3P).

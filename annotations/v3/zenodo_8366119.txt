@@ -1,7 +1,0 @@
-Unexpected single ligand occupancy and negative cooperativity in the SARS-CoV-2 Main protease
-This directory contains files for the project:
-Unexpected single ligand occupancy and negative cooperativity in the SARS-CoV-2 Main protease
-Authors:     Simone Albani, Elisa Costanzi, Gia Linh Hoang, Maria Kuzikov, Marcus Frings, Narjes Ansari, Nicola Demitri, The Toan Nguyen, Valerio Rizzi, Jörg Bernhard Schulz, Carsten Bolm, Andrea Zaliani, Paolo Carloni, Paola Storici, Giulia Rossetti 
-Preprint DOI:10.26434/chemrxiv-2023-n1x1n
-Three sets of simulations were performed. This directory contains input files for simulations of three systems,
-and link to scripts for water analysis.

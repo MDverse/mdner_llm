@@ -1,6 +1,0 @@
-Molecular basis of human norepinephrine transporter reuptake and inhibition - MD simulation files
-Molecular Simulation Data Associated with the Manuscript
-The "simulation system" folder contains the simulation parameters for the LDP and LNR small molecules, as well as the construction files for the two simulation systems.
-The "equilibrium" and "production" folders contain the coordinates and parameters related to the pre-equilibrium and production of the two simulation systems.
-LDP: NET-DA
-LNR: NET-NE

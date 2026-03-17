@@ -1,2 +1,0 @@
-REST-RECT simulations of free N-glycans in solution
-Starting structure (.gro file) and 500 ns trajectory for replica 0 (.xtc) of a Man5 glycan, Man9+Glc3 and the complex glycan Fuc1_Neu4 in solution enhanced sampled by the REST-RECT scheme.

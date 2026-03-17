@@ -1,4 +1,0 @@
-Dataset for manuscript: Flexibility and hydration of the Qo site determine multiple pathways for proton transfer in cytochrome bc1
-Initial configurations and topology files for all MD simulations to enable full reproduction of this study. 
- 
- 

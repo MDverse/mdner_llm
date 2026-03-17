@@ -1,2 +1,0 @@
-All Atom Simulation Trajectories of SSB
-The All Atom Simulation of SSB under different NaCl concentration

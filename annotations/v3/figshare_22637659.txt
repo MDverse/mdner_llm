@@ -1,2 +1,0 @@
-Molecular pathway and structural mechanism of human oncochannel TRPV6 inhibition by the natural phytocannabinoid tetrahydrocannabivarin
-Coordinates of the protein and ligands obtained in MD simulations

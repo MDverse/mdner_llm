@@ -1,5 +1,0 @@
-Updated MD trajectories for "Hidden GPCR structural transitions addressed by multiple walker supervised molecular dynamics (mwSuMD)"
-MD trajectories relative to the preprint "Hidden GPCR structural transitions addressed by multiple walker supervised molecular dynamics (mwSuMD)"
-For a summary of all the simulations performed and the settings employed see Table S1 of the preprint:
-https://www.biorxiv.org/content/10.1101/2022.10.26.513870v1
- 

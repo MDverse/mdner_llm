@@ -1,2 +1,0 @@
-Dataset for: All-atom simulations reveal the intricacies of signal transduction upon binding of HLA-E ligand to the transmembrane inhibitory CD94/NKG2A receptor
-This dataset contains relevant structures, input and other files that are associated with our article "All-atom simulations reveal the intricacies of signal transduction upon binding of HLA-E ligand to the transmembrane inhibitory CD94/NKG2A receptor", available at https://pubs.acs.org/doi/full/10.1021/acs.jcim.3c00249

@@ -1,3 +1,0 @@
-Dataset for the article "Multiphoton Absorption Spectra of Channelrhodopsin-2 via Multiscale Simulation Methods"
-This dataset contains the QM/MM MD trajectories related to the article: "Multiphoton Absorption Spectra of Channelrhodopsin-2 via Multiscale Simulation Methods". The published article can be found at []. A preprint is freely available at https://doi.org/10.26434/chemrxiv-2025-vzz1r-v3 
-The relevant scripts and all input files necessary to reproduce the results presented in this paper can be found in https://github.com/DavidCdeB/ChR2_paper

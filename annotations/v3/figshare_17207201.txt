@@ -1,2 +1,0 @@
-Structures for MD simulations
-Structures after NVT and NPT equilibrations for running production MD simulations.

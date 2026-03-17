@@ -1,2 +1,0 @@
-Molecular basis for the increased affinity of an RNA recognition motif with re-engineered specificity: A molecular dynamics and enhanced sampling simulations study- PART 6
-Trajectories and input files of the simulations of the S151T Rbfox*·pre-miR20b* system.

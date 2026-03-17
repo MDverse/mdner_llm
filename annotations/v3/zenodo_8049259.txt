@@ -1,2 +1,0 @@
-Molecular dynamics trajectories for "Reservoir-REMD facilitates kinetic rescue from metastable peptide conformations
-The molecular dynamics-generated ensemble dataset for cyclo-(cGHHQKLV), used in the manuscript "Reservoir-REMD facilitates kinetic rescue from metastable peptide conformations". The dataset consists of 14 + 6 =20 .dcd files, and one .pdb file for rendering.

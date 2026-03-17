@@ -1,7 +1,0 @@
-Loop Plasticity Drives Paralog-Specific Recognition in BET ET Domains
-Dataset corresponding to the manuscript Loop Plasticity Drives Paralog-Specific Recognition in BET ET Domains.
-The bromodomain and extraterminal domain (BET) family of proteins recognizes diverse peptide motifs through their conserved ET domains, yet exhibits paralog-specific binding preferences. In this study, we use extensive molecular dynamics simulations to investigate how known peptide epitopes binders interacts with the ET domain of the paralogs BRD3 and BRD4.
-Data content in the .zip files:
-
-Molecular Dynamic trajectories (dry): Contains the concatenated triplicates for the 14 systems initially studied, saved each 15 frames for storage purposes, in .xtc format.
-Representative structures: Includes .pdb files that correspond to centroids obtained by PCA-based clustering analysis for the six systems under detail study. Namely, BRD3-ET and BRD4-ET in their unboud forms and in their bounded forms with TP and NSD3 peptide. 

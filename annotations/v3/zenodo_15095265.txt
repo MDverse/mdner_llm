@@ -1,2 +1,0 @@
-Design and characterization of novel hydrophobic eutectic solvents based on metal-extracting ligands
-Experimental data and molecular dynamic input files presented in the following publication:Baptiste Bernicot, Guilhem Arrachart, Sandrine Dourdain, Nicolas Schaeffer, Gabriel Teixeira, Stéphane Pellet-Rostaing, "Design and characterization of novel hydrophobic eutectic solvents based on metal-extracting ligands" Journal of Molecular Liquids, 427 (2025) 127332. DOI: 10.1016/j.molliq.2025.127332

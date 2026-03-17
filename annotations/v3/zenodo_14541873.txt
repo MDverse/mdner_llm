@@ -1,2 +1,0 @@
-Human D676S/N678S (SES) LETM1 F-EF-hand molecular dynamics at 310 K.
-GROMACS 2022.3 trajectory (xtc) and energy (edr) files. 500 ns.

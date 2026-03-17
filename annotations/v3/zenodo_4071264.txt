@@ -1,2 +1,0 @@
-CHARMM36 simulations of pure POPC bilayer and a bilayer containing 50% of cholesterol, T=303K
-Simulation of POPC and 50%POPC+50%cholesterol bilayer in full hydration (40 water/lipid) at T=303K in NPT ensemble. Simulations where done on GPU Gromacs 2020.1. The initial configurations and force field (CHARMM36) were dowloaded from CHARMM-GUI. Simulation uses Parrinello-Rahman barostat and Nose-Hoover thermostat.

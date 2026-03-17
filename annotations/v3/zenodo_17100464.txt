@@ -1,2 +1,0 @@
-Molecular simulations data for: Dynamic assembly of a large multidomain ribozyme visualized by cryo-electron microscopy
-Repository of MD simulations data for: Dynamic assembly of a large multidomain ribozyme visualized by cryo-electron microscopy

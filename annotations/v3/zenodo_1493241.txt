@@ -1,2 +1,0 @@
-POPC:POPS (5:1) with 450 mM potassium simulation with CHARMM36 at 298K
-POPC:POPS (5:1) with 450 mM potassium simulation with CHARMM36 at 298K. Trajectory 50-200ns. 110 POPC molecules, 22 POPS molecules, 4926 water molecules and 40 Na+ ions.

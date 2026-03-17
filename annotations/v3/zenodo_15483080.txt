@@ -1,5 +1,0 @@
-Syntaxin 1A Transmembrane Domain Palmitoylation Induces a Fusogenic Conformation
-All parameter files to repeat simulations and the code for extract and analyze simulation data in the manuscript titled 'Syntaxin 1A Transmembrane Domain Palmitoylation Induces a Fusogenic Conformation'  are included here. Simulation data was extracted by either gromacs or mdtraj  package from simulation xtc trajectory files which are too large to provide here. Rather, they will be provided upon reasonable request.
-All simulations are performed by GROMACS 2021 in Triton supercomputer from Frost Institute for Data Science and Computing (IDSC) in University of Miami.
-All code files for extract and analyze simulation data are written in python on Jupyter notebooks and notebook files to make plots are run on Google Colab. 
-The version of matplotlib to make plots is 3.7.3, seaborn is 0.11, and the statannotations is 0.6.0.

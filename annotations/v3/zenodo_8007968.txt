@@ -1,2 +1,0 @@
-All-atom DOPC + %10 Cholesterol MD Trajectories
-Contains 10 trajectories of all-atom MD simulation of a bilayer membrane containing DOPC with %10 cholesterol at 30C. Each DCD trajectory file corresponds to 10ns. The force-field used is CHARMM36. A PDB structure file is included.

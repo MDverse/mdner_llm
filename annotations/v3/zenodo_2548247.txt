@@ -1,9 +1,0 @@
-S6 molecular dynamics simulation trajectories of tubulin in electric field: 1e7V/m, 5e7 V/m, A1604
-Molecular dynamics simulation trajectories of tubulin in electric field
-traj_centered_07.xtc  1e7 V/m
-traj_centered_5_07.xtc  5e7 V/m
- 
-
-
-
- 

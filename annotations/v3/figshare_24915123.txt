@@ -1,2 +1,0 @@
-Dimerization-dependent serine protease activity of FAM111A prevents replication fork stalling at topoisomerase 1 cleavage complexes
-Molecular dynamics simulation of the FAM111A serine protease domain in monomeric and dimeric forms.

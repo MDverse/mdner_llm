@@ -1,3 +1,0 @@
-Input files for the MD simulations and free energy calculations for the article "Water Dissolved in a Variety of Polymers Studied by Molecular Dynamics Simulation and a Theory of Solutions"
-Article: J. Phys. Chem. B. 125, 9357–9371 (2021) [DOI: 10.1021/acs.jpcb.1c04818]
-The structures of the homopolymers and copolymers simulated are shown in Figures 1 and S1 and Tables 2 and 3. All-atom MD simulation was carried out using GROMACS, and this repository provides the input files with the GAFF/RESP force and initial coordinate files. The free energy of water dissolution was obtained with ERmod, and the input files for the free-energy calculations are also contained. See the README files for details.

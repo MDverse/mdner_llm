@@ -1,2 +1,0 @@
-Input parameters and output trajectory files for manuscript "Discovery of Galloyl-Flavonoids Conjugates as Potent SARS-CoV-2 3CLpro Inhibitors: Understanding Binding Interactions through Computational Approaches" - Set 1
-Input parameters used for molecular dynamics simulations on GROMACS 2022.5 software and the output trajectory files for calculating binding free energy, in the manuscript with the title: "Discovery of Galloyl-Flavonoids Conjugates as Potent SARS-CoV-2 3CLpro Inhibitors: Understanding Binding Interactions through Computational Approaches"

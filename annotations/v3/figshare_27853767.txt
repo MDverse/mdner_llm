@@ -1,2 +1,0 @@
-Generating ultrathin solid-electrolyte interphase enables durable lithium metal batteries
-- S1-cMD.zip and cMD.xlsxThe classical molecular dynamic (cMD) simulation input files for Fig.2b-e, Supplementary Fig.S8-11,Supplementary Table S3.- S2-LiF layer.zipThe MD snapshot of LiF layers simulations for Fig.2h and Supplementary Fig.S17,Fig.S19- S3-lumo.zipThe HOMO-LUMO levels of LiFSI with different coodinations for Supplementary Fig.S12- S4-SEI.zipThe MD snapshot of FSI- defluorinated decomposition reaction for Fig.2f-g and Supplementary Fig.S13-16,Fig.S18

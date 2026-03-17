@@ -1,1 +1,0 @@
-Reaction Mechanism Path Sampling Based on Parallel Cascade Selection QM/MM Molecular Dynamics Simulation: PaCS-Q

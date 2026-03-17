@@ -1,8 +1,0 @@
-Investigating fracture mechanisms in glassy polymers using coupled particle-continuum simulations
-This repository contains public data for the publication "Investigating fracture mechanisms in glassy polymers using coupled atomistic-continuum simulations" [1].
-These scripts, force fields, topologies and other files may be used to reproduce the simulations and calculations that led to the above publication.
-The folder "md simulations" contains data files for pure MD simulations that were used as a reference for understanding molecular fracture mechanisms in our model.
-The folder "coupled simulations" contains data files for coupled MD-FE simulations which are the highlight of our publication.
- 
-Reference:
-[1] W. Zhao, Y. Jain, F. Müller-Plathe, P. Steinmann, S. Pfaller, "Investigating fracture mechanisms in glassy polymers using coupled particle-continuum simulations", Journal of the Mechanics and Physics of Solids, 2024, 105884. DOI: https://doi.org/10.1016/j.jmps.2024.105884

@@ -1,2 +1,0 @@
-Molecular dynamics initialization files to reproduce simulations in "Anillin-Related Mid1 as an Adaptive and Multimodal Contractile Ring Anchoring Protein: A Simulation Study"
-Molecular dynamics initialization files to reproduce simulations in "Anillin-Related Mid1 as an Adaptive and Multimodal Contractile Ring Anchoring Protein: A Simulation Study"  by Aaron R. Hall, Yeol Kyo Choi, Wonpil Im, and Dimitrios Vavylonis, Structure (2024) https://doi.org/10.1016/j.str.2023.11.010

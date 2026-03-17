@@ -1,2 +1,0 @@
-Martini 3 coarse-grained models of azobenzene-based photolipids
-This repository contains the dataset for the publication "Martini 3 coarse-grained models of azobenzene-based photolipids: Modulation of membranes with light" by Cristina Gil Herrero, Thilo Duve, and Sebastian Thallmair. It includes simulation systems, simulation settings, final configurations, and force field parameters at atomistic (CHARMM36m) and coarse-grained resolution (Martini 3.0).

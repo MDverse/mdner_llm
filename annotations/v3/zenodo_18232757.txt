@@ -1,6 +1,0 @@
-MD simulation trajectories, analysis code, and raw data for the paper "Selective binding of divalent cations reshapes nucleosome mechanics and unlocks histone tail dynamics"
-The dataset includes all the MD simulation trajectories for the paper "Selective binding of divalent cations reshapes nucleosome mechanics and unlocks histone tail dynamics".
-NUC_with_tail.zip – Trajectories of nucleosomes with histone tails, generated from simulations using both the 12-6 and m12-6-4 force fields.
-NUC_wo_tail.zip – Trajectories of nucleosomes without histone tails, generated from simulations using the m12-6-4 force field.
-NUC_different_box.zip – Trajectories of nucleosomes with histone tails, generated from simulations using the m12-6-4 force field with two different water box sizes.
-Supplementary-data-for-Divalent-ion-MD-2025.zip – Analysis scripts and raw processed data used to generate main figures and quantitative results in the paper.

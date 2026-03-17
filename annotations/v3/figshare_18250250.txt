@@ -1,2 +1,0 @@
-M protein Atomistic
-Starting structure for atomistic simulations- step5_input.groEnd structure at 30 degrees confout.part0007.groStarting structure for CG (8-mer) -step6.1_minimization.groStarting structure for CG (128-mer) -step5_charmm2gmx.pdb

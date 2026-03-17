@@ -1,6 +1,0 @@
-Identification of Novel Neuraminidase 1 Agonists and Modulators as Potential Therapeutics for Alzheimer's Disease Using Virtual Screening and Molecular Dynamics Simulations
-This dataset contains the molecular docking and molecular dynamics simulation files generated for the study “Identification of Novel Neuraminidase 1 Agonists and Modulators as Potential Therapeutics for Alzheimer’s Disease Using Virtual Screening and Molecular Dynamics Simulations”. The work involved structure-based virtual screening of small molecules targeting Neuraminidase 1 (NEU1), followed by docking simulations to predict binding affinities and interactions. Top-ranked compounds were subjected to molecular dynamics (MD) simulations to evaluate the stability and conformational changes of the protein–ligand complexes.
-The uploaded files include:
-Docking input and output files (prepared protein, ligands, docking poses)
-MD simulation trajectories and MM-GBSA data
-Scripts and configuration files used for the simulations

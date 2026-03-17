@@ -1,5 +1,0 @@
-Chanalyzer: a computational geometry approach for the analysis of protein channel shape and dynamics
-Dataset of molecular dynamics trajectories described in the "Chanalyzer: a computational geometry approach for the analysis of protein channel shape and dynamics" work.
-Trajectories of differently functionalized MscL channel forms. 
-The *_xyzr.tar.gz files contain the processed frames in the xyzr format, which is a compatible input for NanoShaper
-The conf.prm file is the parameter file that has been used for the NanoShaper tool

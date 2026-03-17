@@ -1,6 +1,0 @@
-PIMD simulations of the Zundel cation with PIGSTA-based post-processing
-This dataset contains data from path-integral molecular dynamics (PIMD) simulations of the Zundel cation performed with CP2K, together with post-processed results obtained using the PIGSTA methodology.
-The archive includes CP2K restart files, atomic coordinates, forces, and energy time series for a range of bead numbers. In addition, structural descriptors characterizing nuclear quantum delocalization are provided, including the proton-sharing coordinate (delta) and the radius of gyration of the shared proton.
-For all bead numbers except P = 8192, these structural descriptors were evaluated both on the original PIMD configurations and on the PIGSTA-filtered coordinates, enabling direct assessment of bead-number convergence and internal consistency.
-The dataset further includes a library of convolution kernel functions used in the PIGSTA post-processing, provided in the directory "kernel_library".
-These data support the results and methodological analysis presented in the associated publication and enable further analysis of additional structural descriptors without the need to rerun the underlying simulations.

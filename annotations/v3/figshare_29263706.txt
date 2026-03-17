@@ -1,2 +1,0 @@
-Molecular Dynamics trajectory for HIV - 1 protease - chain A in XTC format
-Molecular Dynamics trajectory in XTC format. Original wild-type structure from PDBID 2PC0. Simulation was run using Amber 22 with f14SB force field. The file contains 50000 frames recorded every 10 ps.

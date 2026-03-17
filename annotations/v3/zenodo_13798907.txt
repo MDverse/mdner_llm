@@ -1,2 +1,0 @@
-Structural studies of the IFNλ4 receptor complex using cryoEM enabled by protein engineering
-MD trajectories for use with the analysis code in https://github.com/bylehn/ifnl4-structure-paper

@@ -1,1 +1,0 @@
-Structural bases of the conformational transitions of the mitochondrial choline carrier SLC25A48 captured by molecular dynamics simulations

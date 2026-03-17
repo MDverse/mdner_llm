@@ -1,2 +1,0 @@
-Data for QM/MM study of the protonation state of Lys599 in the IRE1 kinase active site.
-Classical MD trajectories, QM/MM optimizations and QM/MM-Meta-WT dynamics data for IRE1 in apo form and bound to  GSK2850163 and sulfonamide inhibitor, respectively. Classical MD simulations were performed using Desmond in the Schrödinger package, and QM/MM minimizations and metadynamics are perfoemd with the CP2K package. 

@@ -1,2 +1,0 @@
-Mechanistic Insights into the Binding of Different Antagonists to 5-HT1AR: A Molecular Docking and Molecular Dynamics Simulation Study
-The input files and parameter files of the MD simulations in the APO, Lecozotan, NAD299, WAY01405, NAN190, SDZ216-525, and WAY100635 systems are included in the upload data.

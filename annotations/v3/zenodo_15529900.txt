@@ -1,8 +1,0 @@
-Inhibiting cavitation: The role of insoluble surfactants in coating hydrophobic defects - Simulation inputs
-This repository contains GROMACS input files for performing pressure ramp molecular dynamics simulations of a lipid bilayer, lipid-coated surface, and lipid-coated surfaces featuring a pit-like defect.
- 
-GROMACS input files
-All relevant input files are located in the 'gromacs_input_files' directory: initial configurations, gromacs .mdp parameter files, force field files, and water model files.Folder names 0.5nm, 0.7nm, 1nm, and 2nm refer to the radius of the pit.
- 
-Python code
-Python scripts for setting up and analyzing pressure ramp simulations are available in a separate Zenodo repository:https://zenodo.org/records/14678800

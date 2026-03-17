@@ -1,2 +1,0 @@
-Water conformation at three-phases contact lines
-This dataset contains detailed trajectories obtained from molecular dynamics simulations performed using GROMACS. The simulated system consists in a quasi-2-dimensional SPC/E water meniscus confined between solid substrates composed by silica quadrupoles. Details on the molecular model and the simulation technique can be found in the references article. The data collected in this dataset are utilized in a ongoing project aimed to demystify the motion of three-phases contact lines over hydrophilic surfaces.

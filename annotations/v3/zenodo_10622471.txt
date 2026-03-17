@@ -1,6 +1,0 @@
-Coordinate files from: Mapping Structural and Dynamic Divergence Across the MBOAT Family
-Coordinate files from the first frame of coarse-grained (CG) and atomistic molecular dynamics (MD) simulations of the Membrane Bound O-acyltransferase (MBOAT) family.
-MD simulations were run for HHAT, PORCN, GOAT, DltB, ACAT1 and DGAT1. CG simulations were run for 10 x 15 μs. Atomistic simulations were run for 5 x 200 ns. 
-File description:
-Directories for each protein are listed with the suffix CG or atomistic used to indicate the simulation resolution. 
-md_fit_firstframe_X.gro - GROMACS structure file for the first frame of replicate X. 

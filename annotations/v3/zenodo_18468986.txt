@@ -1,2 +1,0 @@
-Dataset from the article "Computational studies of the dynamics of the human iron exporter Ferroportin. Insight into the effect of pathogenic mutations in the transport mechanism"
-Dataset containing the essential data from MD simulations of human ferroportin in the three main conformational states: Inward-open, outward-open and occluded.

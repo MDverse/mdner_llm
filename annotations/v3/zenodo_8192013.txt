@@ -1,5 +1,0 @@
-Molecular dynamics simulation data 2: Structure of the connexin-43 gap junction channel in a putative closed state
-Molecular dynamics data for the manuscript Qi C.*, Acosta-Gutierrez S.*, Lavriha P., Othman A., Lopez-Pigozzi D., Bayraktar E., Schuster D., Picotti P., Zamboni N., Bortolozzi M., Gervasio F.L., Korkhov V.M. Structure of the connexin-43 gap junction channel in a putative closed state. eLife (2023) https://doi.org/10.7554/eLife.87616.2
-The dataset includes:
-1. The starting coordinates, topology, MD inputs
-2. Production run gromacs trajectories for the Cx43 hemichannel

@@ -1,2 +1,0 @@
-water01.gro - Water coordinate file for cryo-EM image simulation
-This is a .zip file containing coordinate positions for water molecules contained within a 373.4 x 373.4 x 373.4 Angstrom box. The water molecules positions were equilibrated through molecular dynamics to ensure a random distribution. water01.gro is a file required to simulate cryo-EM images from PDB coordinates. The protocol for simulating the images is associated with the scripts on Github: https://github.com/leschzinerlab/Multislice/wiki

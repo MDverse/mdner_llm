@@ -1,4 +1,0 @@
-MD simulations of the Sec61/TRAP/ribosome complex Amber force fields
-Simulation data for the Sec61/TRAP/ribosome complex embedded in an ER membrane mimic. Simulations are performed using GROMACS and with the all-atom Amber family of force fields. The uploaded trajectory (xtc) contains the coordinates stored every 2 ns of the 2-µs-long simulations. The output energy file (edr), run input file (tpr), and the continue point (cpt) at 2 µs are provided. 
-All required input files are also provided to regenerate the run input file: initial structures (gro), index files (ndx), topologies (top and itp), and the simulation parameter file (mdp).  Details of the setup, simulation, and analysis of the systems is available in the preprint:
-https://doi.org/10.1101/2022.09.30.510141

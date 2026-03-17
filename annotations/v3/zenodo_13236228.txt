@@ -1,2 +1,0 @@
-EN2 simulation with amber99SB-ILDN (5 replicas)
-MD simulations of EN2 (residues 145-259) with amber99SB-ILDN force field. Five replicas from different starting structures were taken from 5 different timepoints (10 ps, 250 ns, 500 ns, 750 ns, 1000 ns) of a previously published MD trajectory starting from a fully extended linker (Kiirikki, M. Anne; Ollila, O. H. Samuli. (2020). EN2(143-259) simulation with Amber ff03ws [Data set]. Zenodo. https://doi.org/10.5281/zenodo.3778216). Simulations were run wtih 40 mM NaCl at 303 K. The trajectory has a saving frequency of 10 ps. 

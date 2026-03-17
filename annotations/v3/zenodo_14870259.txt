@@ -1,2 +1,0 @@
-Targeting Glioblastoma Stem Cells via EphA2: Structural Insights into the RNA Aptamer A40s for Precision Therapy
-Input and Trajectory Files for the Computational Investigation of the A40S Three-Dimensional Conformation and Its Binding to the EphrinA2 Receptor

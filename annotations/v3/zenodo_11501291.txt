@@ -1,2 +1,0 @@
-Raw Data for the Manuscript Titled "Can Current Molecular Docking Methods Accurately Predict RNA Inhibitors?"
-This is the additional data for the manuscript titled "Can Current Molecular Docking Methods Accurately Predict RNA Inhibitors?". These files include (a) The docked scores for scoring potential analysis, (b) The docked scores for ranking potential analysis, (c) The top five docked poses from each docking method (AutoDock Vina, HADDOCK, HDOCK and RLDOCK) and (d) The Molecular Dynamics (MD) simulation parameter and topology files used for pose refinment.

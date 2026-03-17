@@ -1,2 +1,0 @@
-Simulation data for "Domain Coupling in Activation of a Family C GPCR"
-All-atom molecular dynamics simulation trajectories of PDB ID 4XAQ bound to co-crystallized ligand, eglumegad, generated on Anton2 at the Pittsburgh Supercomputing Center.

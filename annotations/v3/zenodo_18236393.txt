@@ -1,5 +1,0 @@
-Decoding pH-Driven Phase Transition of Lipid Nanoparticles
-This repository contains data for the publication "Decoding pH-Driven Phase Transition of Lipid Nanoparticles" by Trollmann and Böckmann published in Small (2026).
-File Organization:
-1) parameters        - Molecular dynamics parameters for GROMACS using constant-pH
-2) simulation        - Snapshots from simulations important for main results of the paper        3) topol        - Topologies used in the simulations important for main results of the paper

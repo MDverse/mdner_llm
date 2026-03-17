@@ -1,5 +1,0 @@
-Equilibrium contact angle of acqueous glycerol on a silica-like surface from Molecular Dynamics
-This dataset contains the results of Molecular Dynamics simulations of quasi-2D water-glycerol liquid droplets, spreading on silica-like surfaces. The goal of the simulations is to quantify the equilibrium contact angle of said droplets.
-The pattern "Glycerol***" refers to the mass fraction of glycerol ("000": pure water, "100": pure glycerol). Each folder contains configuration files and compressed output molecular trajectories. The contact angle is computed from density maps binned on-the-fly using a customized Gromacs version (https://github.com/pjohansson/gromacs-flow-field); frames are placed in a tarball ("flow-***p.tar.gz").
-The zipped folder 'scripts.zip' contains a self-contained library of functions to read density maps and a Jupyter notebook with an example of density reading and plotting.
-Simulations are performed with Gromacs. We refer to the code documentation for further information (https://manual.gromacs.org/).

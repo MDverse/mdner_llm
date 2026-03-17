@@ -1,2 +1,0 @@
-Force field parameters for transition state-based ST6Gal I inhibitors
-This depository contains the force field parameters for transition state-based ST6Gal I inhibitors reported in the following publication.Montgomery AP, Skropeta D, Yu H (2017)  Transition state-based ST6Gal I inhibitors: Mimicking the phosphodiester  linkage with a triazole or carbamate through an enthalpy-entropy  compensation. Scientific Reports 7:14428 doi: 10.1038/s41598-017-14560-0

@@ -1,2 +1,0 @@
-Molecular dynamics simulations of riboflavin kinase and flavin mononucleotide riboswitch
-Molecular dynamics simulations of the riboflavin kinase and the flavin mononucleotide riboswitch, both in the unbound state and in complex with the riboflavin ligand. See also github https://github.com/CompMedChemLab/project_riboflavin

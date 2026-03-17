@@ -1,2 +1,0 @@
-Small molecular GAFF force field files
-The topology files for Progesterone and Asoprisnil in Gromacs format based on Amber GAFF force field.STR.itp: ProgesteroneAS0.itp: Asoprisnil

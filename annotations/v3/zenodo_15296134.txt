@@ -1,4 +1,0 @@
-Coarse-grained simulation of CAV1-8S in a symmetric bilayer mixture
-Simulation of CAV1-8S embedded in a symmetric bilayer mixture with a lipid composition modeling that of the cytoplasmic leaflet of mammlian plasma membranes (PAPS/PLPC/PDPE/Chol 26/18/16/40 mol%). The system has 3250 lipids in the protein-proximal leaflet and 3500 lipids in the protein-distal leaflet, 150 mM salt (Na and Cl ions), and was constructed with CHARMM-GUI with initial dimensions of 45 x 45 x 26 nm.
-The simulation was run with the MARTINI 2.2 force field at 37C for a total of 10 us. Uploaded are the structure (.gro) file, the raw trajectory (.xtc) from the last 2 us (output every 0.1 ns), sample simulation parameters (.mdp) and the force field parameters (.itp).
-More details and results from the simulation can be found in Doktorova et al. 2025. PNAS. In press (https://doi.org/10.1101/2024.08.28.610209)

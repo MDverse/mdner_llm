@@ -1,3 +1,0 @@
-All-atom simulation of PLPC with 35 mol% cholesterol
-Fully hydrated all-atom bilayer of 1-palmitoyl-2-linoleoyl-sn-glycero-3-phosphocholine (PLPC) with 35 mol% cholesterol (Chol). The bilayer was constructed with CHARMM-GUI and has 100 lipids per leaflet and no added salt ions. After equilibration in NAMD following CHARMM-GUI's 7-step protocol, the system was simulated at 25C (298K) with OpenMM for 2.16 microseconds.
-Uploaded are the structure file (.psf), trajectory centered on the bilayer midplane with output frequency 40 ps (54,000 frames total, .dcd) and a sample OpenMM input parameter file (.txt).

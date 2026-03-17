@@ -1,2 +1,0 @@
-Calmodulin simulation with amberff03ws (5 replicas)
-MD simulations of calmodulin with amberff03ws force field. Five replicas from different starting structures from taken from RCSB PDB: 1CFC (model 1, 5, 10, 15 and 20). Simulations were run wtih 100 mM KCl at 296 K. The trajectory has a saving frequency of 10 ps. 

@@ -1,3 +1,0 @@
-All-atom molecular dynamics simulations of SARS-CoV-2 envelope protein E
-The trajectories of all-atom (AA) MD simulations (NoPTM-1;2;3;4_POPC;Mix_CHARMM36m: 0.1x3 μs) were obtained based on 4 starting representative conformations from the coarse-grained simulation (10.5281/zenodo.4740706). For each starting structure, there are six trajectories of the E protein: 3 with the protein embedded in the membrane containing POPC, and 3 with the membrane mimicking the natural ERGIC membrane (Mix: 50% POPC, 25% POPE, 10% POPI, 5% POPS, 10% cholesterol).
-Simulations have been performed using the CHARMM36m (AA) force field, running with the GROMACS 2019.5 package on the supercomputer JURECA at Forschungszentrum Jülich.

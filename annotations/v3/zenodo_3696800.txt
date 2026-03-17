@@ -1,4 +1,0 @@
-Files for Molecular Dynamics Simulation of COSAN
-Topology file (.top), force field parameters file (.prm) and coordinate file (.pdb) for Molecular Dynamics Simulations of COSAN molecule compatible with CHARMM force field. Files based on the parameters reported in:
-D.C. Malaspina, C. Viñas, F. Teixidor, J. Faraudo "Atomistic Simulations of COSAN: Amphiphiles without a Head-and-Tail Design Display “Head and Tail” Surfactant Behavior", Angewandte Chemie International Edition  Vol 59(8), Pages 3088-3092 (2020)
-DOI: 10.1002/anie.201913257

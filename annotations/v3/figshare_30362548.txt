@@ -1,2 +1,0 @@
-1ova_air_water.gro
-Molecular dynamics simulation of ovalbumin at air-water interface.

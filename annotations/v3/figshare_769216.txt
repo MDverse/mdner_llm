@@ -1,2 +1,0 @@
-Data and scripts from "Molecular dynamics simulations of the TSSPSAD peptide antigen in free and bound with CAMPATH-1H Fab antibody states: the importance of the beta-turn conformation"
-Data and scripts to replicate to results from the publication Molecular dynamics simulations of the TSSPSAD peptide antigen in free and bound with CAMPATH-1H Fab antibody states: the importance of the beta-turn conformationVasileios A. Tatsis, Ioannis G. Tsoulos and Athanassios StavrakoudisInt J Pept Res Ther, 2009, 15:1-7

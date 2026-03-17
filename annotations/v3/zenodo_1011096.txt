@@ -1,4 +1,0 @@
-POPG lipid bilayer simulation at T298K ran with MODEL_CHARMM_GUI force field and Gromacs
-POPG lipid bilayer simulation at T298K ran 100ns with the force field given by CHARMM gui using Gromacs.
-118 POPG, 4110 TIP3P and 118 potassium molecules.
- 

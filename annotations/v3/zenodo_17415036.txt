@@ -1,2 +1,0 @@
-Supplementary data for: "Enzyme Reset: Water-Mediated Tautomerization Restores the Catalytic Asparagine in Protein O-Fucosyltransferase 1"
-This dataset comprises computational data associated with the research article titled "Enzyme Reset: Water-Mediated Tautomerization Restores the Catalytic Asparagine in Protein O-Fucosyltransferase 1". Included are trajectory files generated from molecular dynamics simulations, along with all extracted data utilized in the study.

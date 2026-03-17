@@ -1,3 +1,0 @@
-POPC CHARMM36 T313K
-POPC CHARMM36 T313K. The simulations are ran for simulations with cationic surfactants for NMRlipids IV project at 313 K using Gromacs 5.
-itp files called in top files can be found from the root of repository https://doi.org/10.5281/zenodo.1288296.

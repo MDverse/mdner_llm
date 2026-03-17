@@ -1,2 +1,0 @@
-Supplement Number 1
-Input files for molecular simulations of the DLM/2022-BK3 models using the GROMACS v4.6.5 simulation package

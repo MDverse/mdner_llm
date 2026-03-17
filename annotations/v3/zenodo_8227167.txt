@@ -1,2 +1,0 @@
-MD trajectories for CyCsoSCA RuBP binding
-This data contains aligned MD trajectories used for the final analysis of conformational sampling differences between Cyanobium CsoSCA in the presence and absence of the ligand RuBP.

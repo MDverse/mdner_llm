@@ -1,6 +1,0 @@
-Molecular Dynamics (MD) Simulation Data for Dynamics Underlie the Drug Recognition Mechanism by the Efflux Transporter EmrE
-MD simulations on the proton bound (PDB 8UWU), deprotonated on E14A (PDB 8UWU), TPP Bound (PDB 8UWU) on our NMR derived structures.
- 
-MD simulations on the proton bound (7MH6) and deprotonated on E14A (7MH6) on X-ray structures. 
- 
-Total raw simulation data would be too large for uploading to repositories.  To reduce size of file, starting structure and tpr files are uploaded.  Final structure at 2.5 μs are also uploaded. 

@@ -1,7 +1,0 @@
-Mechanism-Based Redesign of GAP to Activate Oncogenic Ras
-Additional material for Berta et al. J. Am. Chem. Soc. 2023, 145, 37, 20302–20310
-
-Paths: minimised structures corresponding to the the GTP hydrolysis mechanism.
-MD setup: equilibriated inputs for classical MD simulations for WT and mutant systems in CHARMM/NAMD format, set up for the charmm36m FF.
-NBO: outputs for Natrual Bonding Orbitals analysis carried out for TS and RS structures.
-GAP mutants: optimised TS and RS structures of the most promising designed GAP mutants.

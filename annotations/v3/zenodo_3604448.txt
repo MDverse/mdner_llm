@@ -1,5 +1,0 @@
-Single-protein simulations of different proteins and at various temperatures
-Coarse-grained (Martini) simulations of DPPC membranes with a single membrane protein. Simulations are performed for 7 different protein types. Data for the simulations at temperatures of 285, 300, 330, and 345 K are provided here, whereas data for the simulations at 315 are provided at DOI:10.5281/zenodo.3572299. The simulation parameters follow DOI:10.5281/zenodo.846428, and the required topologies can also be obtained from that upload.  Details on the simulations are given in (ADD CITATION LATER). The naming convention is also explained therein.
- 
-
- 

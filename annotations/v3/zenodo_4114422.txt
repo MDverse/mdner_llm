@@ -1,2 +1,0 @@
-Simulations of a beta-2 adrenergic receptor monomer on a flat membrane
-A B2AR monomer in a bilayer, two replicas

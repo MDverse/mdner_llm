@@ -1,2 +1,0 @@
-Parameter file used for the production molecular dynamics simulation.
-It defines a 50 ns simulation using a 2 fs time step, with temperature and pressure maintained using V-rescale thermostat and Parrinello-Rahman barostat. The file includes constraints, neighbor list updates, and energy output settings for trajectory collection and analysis. This file is in plain text format but is intended for use with GROMACS; users should open it with a text editor or within the GROMACS environment. (MDP)

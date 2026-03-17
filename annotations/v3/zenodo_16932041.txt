@@ -1,2 +1,0 @@
-KKEEVKKEEV(PK)7KEEVKKEEVKK (charged) disordered linker simulations in 150mM NaCl with DESAMBER
-Classical MD simulations of the disordered linker with sequence KKEEVKKEEV(PK)7KEEVKKEEVKK (charged) disordered linker using DESAMBER force field, run in 150mM NaCl.Five replicas (mentioned as model01,02,03,04,05) were run with five different initial structures generated with IDPconfGen (Teixeira et al. (2022)). 

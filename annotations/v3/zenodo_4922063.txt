@@ -1,3 +1,0 @@
-Molecular dynamics simulation data of a toy model (epsilon = 2.5 kJ/mol)
-Molecular dynamics simulations of a toy model (after PBC treatment and pocket-ligand only coordinates). More details can be found here:
-https://chemrxiv.org/articles/preprint/Estimation_of_Binding_Rates_and_Affinities_from_Multiensemble_Markov_Models_and_Ligand_Decoupling/14728206/1

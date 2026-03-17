@@ -1,2 +1,0 @@
-Insights into substrate transport and water permeation in the mycobacterial transporter MmpL3
-These are all input and final structures for a set of simulations investigating the protein MmpL3. All topology, parameter, and NAMD configuration files for running the molecular dynamics simulations are also included. Recommended software to use is Visual Molecular Dynamics (VMD).

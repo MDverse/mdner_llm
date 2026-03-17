@@ -1,2 +1,0 @@
-Exploring Marine Natural Products as Potential Quorum Sensing Inhibitors by Targeting the PqsR in Pseudomonas aeruginosa: Virtual Screening Assisted Structural Dynamics Study
-Simulations trajectory data of the marine natural products bound PqsR complexes are given.Mainly, the 50ps coordinates trajectory (.xtc file) is saved after removing PBC along with .tpr files

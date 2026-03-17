@@ -1,3 +1,0 @@
-Interactive Molecular Dynamics Simulation Movie using MDsrv - BioGem
-The protein structure and molecular dynamics simulation trajectories used to make interactive movie using MDsrv and NGL Viewer.
-https://www.youtube.com/watch?v=m62lg6ZInAI

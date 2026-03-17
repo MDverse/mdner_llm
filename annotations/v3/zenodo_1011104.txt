@@ -1,2 +1,0 @@
-POPS+83%popc lipid bilayer simulation at T298K ran CHARMM_GUI force field and Gromacs
-POPS+83%popc lipid bilayer simulation at T298K ran CHARMM_GUI force field and Gromacs. 100ns long trajectory.

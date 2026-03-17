@@ -1,4 +1,0 @@
-Pn and Sn Tomographic Velocity Models of the North China Craton
-This repository provides the Pn and Sn tomographic velocity models of the North China Craton derived from a large dataset of automatically picked and manually verified seismic phases.
-The dataset includes:(1) gridded Pn and Sn velocity model files (TXT format), and(2) color palette table (CPT) files used for visualization in the main figures of the manuscript.
-The released datasets allow independent reproduction of the principal tomographic images and facilitate further comparative or synthetic studies of the lithospheric structure beneath the North China Craton.

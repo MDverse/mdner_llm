@@ -1,2 +1,0 @@
-Structure for 4AKE protein - chain A in GRO format
-Protein structure in GRO format

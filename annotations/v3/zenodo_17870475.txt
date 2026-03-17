@@ -1,4 +1,0 @@
-Transient Occupancy and Pore Dynamics: IP6 behavior in HIV-1 T=4 Capsids
-This dataset contains input and output files from molecular dynamics (MD) simulations of the T4 system and its variants: wild type (WT), WT complexed with inositol hexakisphosphate (IP6), and the R18L mutant. Each system directory includes initial coordinate and topology files (inside input_structures folder), CHARMM parameters (topdir), NAMD config files (prod_run),  production trajectories (250 ns - trimmed without water and ions) and PDB files for visualization in the trajectory folders.
-All simulations were performed using NAMD 2.14 with the CHARMM36m force field in explicit TIP3P water with 0.15 M NaCl under NPT ensemble conditions at 310 K and 1 atm. A 2 fs integration step was used, and each trajectory represents a 250 ns production run.
- The files are directly compatible with VMD, facilitating visualization, trajectory analysis, or further simulation.

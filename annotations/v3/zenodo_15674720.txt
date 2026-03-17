@@ -1,2 +1,0 @@
-Molecular dynamics trajectory of TcPOP using GROMACS
-Molecular Dynamic simulation with GROMACS (500 ns). For details about the methods and results, see: https://www.biorxiv.org/content/10.1101/2024.03.26.586384v2

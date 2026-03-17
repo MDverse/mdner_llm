@@ -1,2 +1,0 @@
-The AF2 predicted structures and MD simulation results for the paper "In-situ structural insights into activity regulation of mammalian pyruvate dehydrogenase complex"
-Thank you for your interest in our work. You can discover content that interests you within the respective compressed packages, accompanied by “readme” files.

@@ -1,2 +1,0 @@
-OpenFF POPC Simulation w/ sd integrator
-Pure 128 POPC lipid, fully hydrated bilayer parameterized by OpenFF Interchange. MD simulation performed using an sd integrator.

@@ -1,8 +1,0 @@
-Topology, NAMD configuration and starting PDB structure files for Androgen receptor simulations
-NAMD configuration files, simulation system topology files (psf files), starting structure coordinate files (pdb) are given for Androgen receptor classical and accelearted Molecular Dynamics Simulations.
-Simulation systems include:
-
-Wild-type AR
-Mutants of AR
-Enzalutamide bound AR
-Testosterone bound AR

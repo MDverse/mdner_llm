@@ -1,2 +1,0 @@
-Molecular dynamics trajectory of I-FABP for testing and benchmarking solvent dynamics analysis
-The trajectory is a short MD run of I-FABP (intestinal fatty acid binding protein) in water.It was simulated in CHARMM for 500 ps with a 2 fs timestep. Frames were saved every 1 ps and the trajectory was RMSD-fitted to the protein.There are 500 frames in the trajectory.It is used as a test case for the hop package https://github.com/Becksteinlab/hop.

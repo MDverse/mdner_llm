@@ -1,6 +1,0 @@
-MD Simulation of DNA gyrase subunit A (gyrA) protein of P. aeruginosa, with mutations recorded in 1996 and 2018, each in complex with Nalidixic Acid (NDX) ligand molecule
-
-Mutated sequences of DNA gyrase (subunit A) protein (recorded in in 1996 and 2018) associated with P. aeruginosa are modeled and individually docked with a molecule of Nalidixic Acid. The data from subsequent Molecular Dynamics simulation is presented.
- 
-The data from the Molecular Modelling and Docking Simulations can be found here:
-Roy, A. (2025). Docking of several proteins associated with strains of Pseudomonas aeruginosa with various antibiotic molecules [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15383904

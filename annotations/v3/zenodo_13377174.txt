@@ -1,2 +1,0 @@
-Input files for MD simulations of VP40 matrix protein dimer-dimer structure for WT, G198R, and G201R
-For AA simulations, the inp files need to have the path for the toppar folder and the corresponding pdb/psf files need to be renamed.

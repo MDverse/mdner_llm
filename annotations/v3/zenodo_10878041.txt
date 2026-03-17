@@ -1,7 +1,0 @@
-Dataset (I.) related to publication: PIP4K2C inhibition reverses autophagic flux arrest induced by SARS-CoV-2
-MD simulation data (PIKfyve simulations) related to publication: 
-Karim, M., Mishra, M., Lo, CW. et al. PIP4K2C inhibition reverses autophagic flux impairment induced by SARS-CoV-2. Nat Commun 16, 6397 (2025). https://doi.org/10.1038/s41467-025-61759-1
-
-The .zip files contain raw Desmond simulation trajectories of PIKfyve in complex with RMC-113 [18 replicas; each 4 us] (-out.cms files and trajectories).
-
- 

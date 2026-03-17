@@ -1,6 +1,0 @@
-"Structural and Functional Diversity among Agonist-Bound States of the GLP-1 Receptor" - MD trajectories
-Topology (.psf) and coordinates (.xtc) files of:
-- Ex4 WT,  D-Ala Ex4, and L-Ala Ex4 (all simulated in water - without receptor)
-- Partial unbinding and binding simulations of Ex4 WT, D-Ala Ex4 and L-Ala Ex4 from GLP-1R 
-Water molecules, lipids, and ions have been removed.
- 

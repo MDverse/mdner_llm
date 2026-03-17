@@ -1,5 +1,0 @@
-Molecular Dynamics simulations of acqueous glycerol spreading on a silica-like surface
-This dataset contains the results of Molecular Dynamics simulations of quasi-2D water-glycerol liquid droplets, spreading on silica-like surfaces. The goal of the simulations is to quantify the contact line friction coefficient by regressing over the dynamic contact angle and the contact line speed.
-The pattern "Glycerol***" refers to the mass fraction of glycerol ("000": pure water, "100": pure glycerol). Each folder contains configuration files and compressed output molecular trajectories. The contact angle and the contact line speed are computed from density maps binned on-the-fly using a customized Gromacs version (https://github.com/pjohansson/gromacs-flow-field); frames are placed in a tarball ("spread-*p-r1.tar.gz").
-The zipped folder 'scripts.zip' contains a self-contained library of functions to read density maps and a Jupyter notebook with an example of density reading and plotting.
-Simulations are performed with Gromacs. We refer to the code documentation for further information (https://manual.gromacs.org/).

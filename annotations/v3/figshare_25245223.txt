@@ -1,2 +1,0 @@
-The Origin and Evolution of Sex Peptide and Sex Peptide Receptor Interactions
-The dataset contains (1) Top ranked AlphaFold2 predicted structural models of SP-SPR complex and MIP-SPR complexes. (2) Molecular dynamics trajectories of SP-SPR complex and MIP-SPR complexes

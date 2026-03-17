@@ -1,2 +1,0 @@
-MD trajectories for 'Coarse-Grained Model of Disordered RNA for Simulations of Biomolecular Condensates'
-MD trajectories for 'Coarse-Grained Model of Disordered RNA for Simulations of Biomolecular Condensates'

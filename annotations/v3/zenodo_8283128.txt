@@ -1,6 +1,0 @@
-PDB File and MD Simulation results for "The atypical sphingolipid SPB 18:1(14Z);O2 is a biomarker for DEGS1 related hypomyelinating leukodystrophy"
-Supplementary structural file for article: "The atypical sphingolipid SPB 18:1(14Z);O2 is a biomarker for DEGS1 related hypomyelinating leukodystrophy":
--Predicted Structure of DEGS1 docked to C16 Ceramide in PDB format
-- 2.5 µsec Molecular Dynamics Simulation of this DEGS1-Ceramide complex embedded in a DPPC membrane and surrounded by TIP3 water and 150 mM NaCl as mp4 (movies) or as original trajectory. In the version with the smaller file size solvent molecules and the membrane are invisible for clarity. 
-Software/Webservices used for generation: AlphaFold, PPM3 web server, CHARM-GUI PDB Manipulator, Maestro/Glide/Ligprep/Desmond (Schrödinger Inc.).
-Version 1 contained videos in mpeg format that caused error with some players. In Version 2 videos are converted to mp4. 

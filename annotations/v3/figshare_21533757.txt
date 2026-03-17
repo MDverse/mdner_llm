@@ -1,2 +1,0 @@
-Nanovehicle assisted monomer shuttling enables highly permeable and selective nanofiltration membrane for water purification
-Source data (Fig. 2, Fig. 4, Fig. 5, Supplementary Fig. 5, Fig. 8, Fig. 12, Fig. 13, Fig. 14, Fig. 15, Fig. 16, Fig. 18, Fig. 19, Fig. 20, Fig. 21) and Code (MD simulation) are provided.

@@ -1,2 +1,0 @@
-Test Data for Comparing Simulation Speed between SPONGE and AMBER
-Test Data for Comparing Simulation Speed between SPONGE and AMBER

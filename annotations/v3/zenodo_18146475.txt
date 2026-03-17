@@ -1,2 +1,0 @@
-MD and metadynamics input files for "First Water-to-Ligand Substitution Dictates Co2+/Ni2+ Extraction Selectivity"
-This repository contains input files for molecular dynamics simulations and well-tempered metadynamics used in the manuscript "First Water-to-Ligand Substitution Dictates Co2+/Ni2+ Extraction Selectivity".

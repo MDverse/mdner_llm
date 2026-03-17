@@ -1,4 +1,0 @@
-POPC sage2.2.1-lipids-v1.2
- 
-Used for FF development sage2.2.1-lipids-v1.2
-nagl charges

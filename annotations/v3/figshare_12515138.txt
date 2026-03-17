@@ -1,2 +1,0 @@
-np-mediated-fusion-simulation-states.zip
-Molecular dynamics simulation states for nanoparticle mediated fusion of membranes and vesicles.

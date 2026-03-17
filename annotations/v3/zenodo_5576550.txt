@@ -1,2 +1,0 @@
-The atomic-level physiochemical determinants of T cell receptor dissociation kinetics
-The force-dependent bond lifetime of a T Cell Receptors (TCR) to 17 peptide-Major Histocompatibility Complexes (pMHCs) was simulated using Steered Molecular Dynamics. Physiochemical descriptors of the TCR-pMHC interaction during simulation were then filtered and selected to understand the best feature sets that predict bond lifetime. This methodology sets precedence on the rational design of TCRs via force-dependent bond lifetime enhancement.

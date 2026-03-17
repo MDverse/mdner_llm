@@ -1,4 +1,0 @@
-MD simulations of the Sec61/TRAP complex with the Martini 3 force field
-Simulation data for the Sec61/TRAP complex, the Sec61 complex, and the TRAP complex in a POPC membrane. Simulations are performed using GROMACS and with the coarse-grained Martini 3 force fields. The proteins are kept restrained in the simulations. The uploaded trajectories (xtc) contain the coordinates stored every 10 ns of the 20-µs-long simulations. The output energy files (edr), run input files (tpr), and the continue points (cpt) at 20 µs are provided. 
-All required input files are also provided to regenerate the run input files: initial structures (gro), index files (ndx), topologies (top and itp), and the common simulation parameter file (mdp).  Details of the setup, simulation, and analysis of the systems is available in the preprint:
-https://doi.org/10.1101/2022.09.30.510141

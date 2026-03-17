@@ -1,2 +1,0 @@
-Molecular Dynamics simulations of SARS-CoV and SARS-CoV-2 main proteases in monomeric/dimeric and apo/holo states.
-Molecular Dynamics trajectories and reference pdb files of SARS-CoV and SARS-CoV-2 main proteases in monomeric/dimeric and apo/holo states. The trajectories presented in this work were analyzed and presented in "Impact of dimerization and N3 binding on molecular dynamics of SARS-CoV and SARS-CoV-2 main proteases" in Journal of Biomolecular Structure and Dynamics (https://doi.org/10.1080/07391102.2021.1880481).

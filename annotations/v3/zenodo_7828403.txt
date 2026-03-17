@@ -1,9 +1,0 @@
-Raw data for: Structure and assembly of a bacterial gasdermin pore
-This repository contains raw data and code related to "Structure and assembly of a bacterial gasdermin pore" by Johnson et al.
-Included are molecular dynamics parameter files, structure files after energy minimization and equilibration steps, production trajectories, and code used for analysis. Trajectories are subsampled with every second frame of the original raw trajectories. This results in 1 frame / 2 ns for simulations of full 52-meric pores and 1 frame / 1 ns for all other simulations.  
- 
-Contact information:
-Name: Stefan L. Schaefer
-Institution: Department of Theoretical Biophysics, Max Planck Institute of Biophysics
-Address: Max-von-Laue-Str. 3, 60438 Frankfurt am Main, Germany
-Email: stefan.schaefer@biophys.mpg.de

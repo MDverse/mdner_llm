@@ -1,9 +1,0 @@
-The role of fluctuations in the nucleation process
-Data and code associated with the molecular dynamics simulations reported in the manuscript “The role of fluctuations in the nucleation process”.
-
-Code for training the NN-based committor model.
-Training data used in the final iteration of the NN-based committor training.
-Input files for the OPES+$V_\mathcal{K}$ simulations of LJ nucleation (LAMMPS + PLUMED).
-Molecular dynamics outputs from the final iteration of the OPES+$V_\mathcal{K}$ simulations: COLVAR files.
-Input files for the classical MD slab-growth model (LAMMPS).
-Code for analyzing order parameters and temperature profiles as a function of distance from the solid–liquid interface.

@@ -1,5 +1,0 @@
-The Arch from the Stones: Understanding Protein Folding Energy Landscapes via Bio-inspired Collective Variables
-Reference unbiased molecular dynamics trajectories of the double mutant Chignolin CLN025 and the TC10b K8A single-point mutant TRP-Cage. 
-For Chignolin, we present 3 independent unbiased trajectories, each 100 microsecond long. For TRP-Cage, we present a single unbiased trajectory 200 microsecond long. Each simulation folder contains the trajectory in xtc format, the tpr file, a text file with the dynamics of the RMSD over the C-alpha atoms and a one-dimensional free energy estimate over the same collective variable. The xtc files of Chignolin contain only the protein atoms, while the TRP-cage trajectory contains all the atoms including the solvent.
-The simulations were run with GROMACS 2023, using the CHARMM22* force field for Chignolin and DES-Amber SF1.0 for TRP-Cage.
-These simulations were used as reference in our work that can be found at https://www.biorxiv.org/content/10.1101/2025.05.28.656575

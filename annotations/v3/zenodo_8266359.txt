@@ -1,2 +1,0 @@
-Molecular dynamics simulations PksD AH
-This data set includes topology files, trajectories and force field parameters for non-standard residues for the molecular dynamics simulations discussed in the accompanying manuscript "Basis for controlled acyl chain hydrolysis in trans-AT polyketide synthases"

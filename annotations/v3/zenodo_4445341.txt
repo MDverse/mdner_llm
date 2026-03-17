@@ -1,2 +1,0 @@
-Coarse-grained simulations of a phase-separated membrane with different LINCS settings (part 2/3)
-systems with lincs_iter = 2. To be written.

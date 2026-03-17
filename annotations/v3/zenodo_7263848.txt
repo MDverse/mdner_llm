@@ -1,4 +1,0 @@
-Data file containing MD simulation data
-Data file containing MD simulation data in Schrodinger maestro readable format and MMGBSA data in microsoft excel file
- 
- 

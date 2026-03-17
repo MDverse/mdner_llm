@@ -1,3 +1,0 @@
-POPC_sage2.2.0_rc3 increased vdW cutoffs Run 2
- 
-openFF 2.2.0 ff with nagl rc3 charges. Short simulation for prelim data

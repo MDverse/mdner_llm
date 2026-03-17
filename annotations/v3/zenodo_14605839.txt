@@ -1,2 +1,0 @@
-Molecular dynamics simulation of hSLCO2A1-POPC replicate 2
-Files required to visualize and reproduce molecular dynamics simulation of hSLCO2A1 in a POPC bilayer - replicate 2

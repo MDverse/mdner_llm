@@ -1,3 +1,0 @@
-Data for: Deciphering supramolecular nucleopeptide-based hydrogel formation through unique combination of NMR methods and molecular dynamics simulations
-Trajectory and topology files for the 10 MD replicas generated.
-TCL and python scripts for the analysis of PNA-specific interactions and columns counting along the simulation.

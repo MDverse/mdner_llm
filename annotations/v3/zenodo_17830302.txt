@@ -1,7 +1,0 @@
-MD simulation data of truncated tau variants Tau321-343 and Tau326-343 using CHARMM36m
-The dataset contains the MD simulation data associated with the article:
-"Gradual N-terminal truncation of tau dGAE (297-391) reveals the importance of 321-325 sequence for early steps of fibril formation"
-(not published yet)
- 
-Trajectories were produced using CHARMM36m force field with charmm36-modified mTIP3P water model. MD simulations were produced from fully extended protein structures. 
- 

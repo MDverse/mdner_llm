@@ -1,6 +1,0 @@
-Dataset I related to publication: Binding modes of the KRAS(G12C) inhibitors GDC-6036 and LY3537982 revealed by all atom molecular dynamics simulations
-Dataset related to publication: 
-Leini, R., Kapp, J., Kopra, K. et al. Binding modes of the KRAS(G12C) inhibitors GDC-6036 and LY3537982 revealed by all atom molecular dynamics simulations. Sci Rep 15, 24843 (2025). https://doi.org/10.1038/s41598-025-07532-2
-
-.zip-files contain the raw Desmond trajectories of individual replica simulations of GDC-6036.
-WaterMap-output file for the representative conformation of GDC-6036.

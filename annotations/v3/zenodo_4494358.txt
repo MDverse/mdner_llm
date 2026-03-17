@@ -1,3 +1,0 @@
-Longer simulation of a Lo/Ld phase coexistence in a PSM/DOPC/Cholesterol mixture with additional POPC
-Longer version of the entry: https://zenodo.org/record/3985089
-details to be added

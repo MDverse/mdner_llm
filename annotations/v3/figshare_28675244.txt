@@ -1,2 +1,0 @@
-Supplemental Data - Structure and Simulation Raw Data
-Supplemental data contains the structures and molecular dynamic simulation data files associated with the research article 'Insight into the PmrB structures of colistin-resistant Gram-negative bacteria through the multi-template ligand-guided homology modeling and In silico mutagenesis'.

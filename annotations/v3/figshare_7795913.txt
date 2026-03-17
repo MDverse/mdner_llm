@@ -1,2 +1,0 @@
-Complexes in 1-octanol solvation box
-Conformations of quercetin around chitosan in a 1-octanol solvation box for molecular dynamics simulations

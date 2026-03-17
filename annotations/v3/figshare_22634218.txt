@@ -1,2 +1,0 @@
-A reactive interatomic potential for the simulation of sodium phosphate glass
-Input and analysis codes to accompany the paper "A reactive interatomic potential for the simulation of sodium phosphate glass", about to be submitted.  Not all output files are included for space reasons, but the files given are sufficient to reproduce the methodology in the paper.

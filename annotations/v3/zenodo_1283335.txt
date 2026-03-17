@@ -1,2 +1,0 @@
-MacRog POPS simulations (versions 1 and 2) 298 K with corrected PO not OP tails
-MacRog POPS simulations (298 K, starting structure from the CHARMM-GUI) performed with 1.0 nm cut-offs, PME and a dispersion correction. Two simulations were performed with differently assigned random starting velocities. Note that unlike the original MacRog simulations, these have the correct PO and not OP tails.  

@@ -1,9 +1,0 @@
-MD simulation of DMPC bilayer with CHARMM36 force field. 10 w/l.
-MD simulation of DMPC bilayer with CHARMM36 force field. 10 w/l.
-Dataset contains simulation files including trajectories (.xtc) (original production.xtc, and equilibrated and centered centered_pbcmol-50-500ns.xtc).
-System: DMPC bilayer in water
-Number of lipids: 200 (100/leaflet)
-Number of waters: 2000
-Simulation time: 500 ns
-Simulation engine: GROMACS 2019.5
-Temperature: 314 K

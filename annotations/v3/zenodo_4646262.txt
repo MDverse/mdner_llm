@@ -1,2 +1,0 @@
-Molecular dynamics simulations of GTPase associated center
-Unbiased molecular dynamics simulations with different ionic solutions and metadynamics simulations of the GTPase-associated center. See also https://arxiv.org/abs/2103.04964 and https://github.com/bussilab/saxs-md-gac

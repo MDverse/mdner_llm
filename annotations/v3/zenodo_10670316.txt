@@ -1,3 +1,0 @@
-All-atom molecular dynamics simulations of incomplete ATP synthase rotor rings with unusually high stoichiometry predicted by the AlphaFold2-based method
-The trajectories of all-atom MD simulations of AlphaFold2 4, 11, 16 or 18-mer structures of the subunit c fromCandidatus Kryptonium thompsoni (CKt_Nmer_lipid_mix_CHM36m_303K_500ns) and Thalassoglobus polymorphus (Tp_Nmer_lipid_mix_CHM36m_303K_500ns), and AlphaFold2 11-mer structure of the subunit c from Spinacia oleracea (So_11mer-c20_POPC_CHM36m_303K_300ns) in a lipid bilayer.
-Simulations have been performed using the CHARMM36m force field, running with the GROMACS 2022 package.

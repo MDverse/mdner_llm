@@ -1,7 +1,0 @@
-Free Energy-based Refinement of DNA Force Field via Modification of Multiple Non-bonding Energy Terms
-Relevant files of the benchmark DNA simulations.
-*.xtc --> truncated OPESE trajectory file.
-*.tar --> compressed initial structures.
-*.mdp --> GROMACS molecular dynamics parameter file.
-*.dat --> PLUMED input file for OPESE simulation.
- 

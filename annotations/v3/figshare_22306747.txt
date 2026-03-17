@@ -1,2 +1,0 @@
-Molecular dynamics of the ERRγ ligand-binding domain bound with agonist and inverse agonist
-Moleucular dynamics simulation data of ERRγ bound with agonist and inverse agonist are given.  Trajectory files (.xtc) generated using gromacs for apo and ligand bound ERRγ are stored.  100ps coordinates saved after removing PBC for 500ns simulations (.xtc)  are given along with .tpr files.

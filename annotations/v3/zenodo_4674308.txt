@@ -1,4 +1,0 @@
-Simulations of a pulmonary surfactant monolayer with additional compounds at higher concentrations
-To be added...
-Topologies and mdp files available at 
-https://doi.org/10.5281/zenodo.4627963

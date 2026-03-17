@@ -1,2 +1,0 @@
-Structure of an RNA G-Quadruplex from the West Nile Virus Genome
-AMBER 16 parameter and trajectory files for the NS5-B M1 and WT RNA G-quadruplexes.

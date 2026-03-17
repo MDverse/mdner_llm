@@ -1,3 +1,0 @@
-Trajectories and Code from "Small molecules targeting the disordered transactivation domain of the androgen receptor induce the formation of collapsed helical states" Zhu et al. 2022
-Trajectories, GROMACS input files, and analysis code from the manuscript "Small molecules targeting the disordered transactivation domain of the androgen receptor induce the formation of collapsed helical states" Zhu et al. 2022 (Nature Communications, In Press)
-https://www.biorxiv.org/content/10.1101/2021.12.23.474012v1.abstract

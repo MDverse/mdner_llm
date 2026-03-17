@@ -1,3 +1,0 @@
-Pure POPE membrane simulations with the CHARMM-Drude force field at 310K (OpenMM)
-MD simulation data of a pure POPE membrane with the CHARMM-Drude force field generated with the OpenMM simulation engine at 310K.
-Parameters from CHARMM-GUI.

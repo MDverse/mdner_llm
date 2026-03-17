@@ -1,2 +1,0 @@
-Machine Learning-Enhanced Multiple Time-Step Ab Initio Molecular Dynamics
-Supporting data and analysis scripts for the article "Machine Learning-Enhanced Multiple Time-Step Ab Initio Molecular Dynamics"

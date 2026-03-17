@@ -1,2 +1,0 @@
-PBC8p450.gro
-Configuration of a simulation equilibrated at 8 GPa and 450K

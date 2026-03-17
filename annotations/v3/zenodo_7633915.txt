@@ -1,3 +1,0 @@
-D-Glu hydrolysis in the active site of the AmicoTA, a transaminase from the Gram-negative mesophilic bacterium Aminobacterium colombiense
-500 frames from the QM(PBE0-D3/6-31G**)/MM molecular dynamic trajectory in the transition state region. The external potential is centered at 3.9 Å of the collective variable (a sum of the distances between the hydrogen atom of the protonated amino group and an oxygen atom the α-carboxylate group of the substrate and between the nitrogen atom of the substrate and a C4´ atom of PLP).
-In the PDB file the QM atoms have  beta=1 and MM beta=0.

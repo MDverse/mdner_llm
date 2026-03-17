@@ -1,2 +1,0 @@
-Structure for ADK double mutant (V135G, V142G) - chain A in GRO format
-Protein structure in GRO format. Original wild-type structure from PDBID 4AKE. Mutations were inserted using PyRosetta.

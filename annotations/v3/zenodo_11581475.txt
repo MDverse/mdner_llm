@@ -1,8 +1,0 @@
-CG model for axolemma membrane
-Model for axolemma membrane (preprint in "Molecular dynamics study of stiffness and rupture of axonal membranes" Majdolhosseini et al. 2024 https://doi.org/10.1101/2024.04.08.588595). See supplementary material for details on the bilayer composition. GROMACS (www.gromacs.org) input files:
-equilibrated axolemma bilayer in GROMACS coordinate format (axolemma.gro)
-topology files (topol.top and top.zip directory) for MARTINI 2.2 force field (from MARTINI webpage http://www.cgmartini.nl/)
-example of GROMACS parameter file (relax.mpd)
-Axolemma model has been designed by Maryam Majdolhosseini and Alessandra Villa
- 
- 

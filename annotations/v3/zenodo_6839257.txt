@@ -1,6 +1,0 @@
-Molcular Dynamics Data for Therapeutic High Affinity T Cell Receptor Targeting a KRAS G12D Cancer Neoantigen
-This folder contains the starting structures and input scripts required to simulate the wild-type and G12D KRAS peptide bound TCR-pHLA complexes, as performed in this study.
-
-Starting_Structures - This folder contains the amber parameter/topology files used to simulate each system (.prmtop) and the coordinates of the starting structure both as amber coordinate file (.rst) and PDB file (.pdb).
-MD_Inputs - This folder contains the amber MD inputs used to run the md simulations. 
-MMPBSA_inputs - This folder contains the input files for running MMPBSA with the MMPBSA.py script in amber. The mmpbsa.in script was used for calculating overall binding energy whereas the mmpbsa_decomp.in script was used for calculating the per-residue contribution to binding energy.  

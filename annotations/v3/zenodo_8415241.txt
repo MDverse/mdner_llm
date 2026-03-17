@@ -1,2 +1,0 @@
-Data for A weak coupling mechanism for the early steps of the recovery stroke of myosin VI: a free energy simulation and string method analysis
-Representative frames, topology for MD simulation with NAMD and GROMACS, data and notebook to reproduce analyses in the paper "A weak coupling mechanism for the early steps of the recovery stroke of myosin VI: a free energy simulation and string method analysis" (Blanc, Houdusse, Cecchini, PLOS Computational Biology 2024).

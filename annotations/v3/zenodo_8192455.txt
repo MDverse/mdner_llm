@@ -1,6 +1,0 @@
-Supporting data for:"An accurate and efficient SAXS/SANS implementation including solvation layer effects suitable for restrained Molecular Dynamics simulations."
-PLUMED_NEST_REPO.zip contains the plumed.dat file and the template PDB used to perform the metainference MD simulations of Gelsolin and UP1-RNA, with and without the Solvation Layer Contribution.
-TRAJECTORIES.zip contains the Gelsolin and UP1-RNA trajectories and additional data generated with GROMACS. In details:
--Gelsolin. Production Molecular Dynamics Parameter file (production.mdp), a topology file (topol.top), and 3 folders: TPRs (with 10 TPR files -one for each replica-), TRJ_SLC_OFF (with data from simulations without Solvation Layer Contribution), and TRJ_SLC_ON (with data from simulations with Solvation Layer Contribution). The last two contain an index file, a trajectory obtained from the concatenation of the 10 replicas (concat.xtc), and a template PDB file.
--UP1-RNA. TPR file (md.tpr) and 2 folders: TRJ_SLC_OFF (with data from simulations without solvent correction), and TRJ_SLC_ON (with data from simulations with solvent correction). Each folder contains an index file, a template PDB file and a trajectory file (trj.xtc)
- 

@@ -1,7 +1,0 @@
-Charge relaying within a phospho-motif rescues binding competency of a disordered transcription factor.
-#This compressed archive contains .mdp, .xtc, .tpr, .gro and .top files for the work titled 'Charge relaying within a phospho-motif rescues binding competency of a disordered transcription factor.'
-## Requirements: GROMACS version 2021.6
-### Trajectories#### 8 replicates of 1us were performed for each construct (WT, D12A, R15A and K18A) removing the first 200ns as equilibration time.
-##### The periodic boundary conditions for all trajectories were treated by:* 1. -pbc cluster (clustering all the atoms in the protein such that they are all closest to the center of mass of the cluster)* 2. -pbc nojump (putting all atoms that jump outside the box back into the box)* 3. -fit rot+trans (fitting the molecule to the reference structure (md.tpr))* 4. -dt 200 (reduced frames in the output)
-All .mdp files used for equilibration and production runs can be found in the folder titled 'mdpfiles'To visualise the trajectories use: vmd protein.gro md_dt200_cl_nj_fit_b200ns.xtcTo reproduce trajectories collection the md.tpr for each run are provided:
-<code>gmx mdrun -s md.tpr</code>

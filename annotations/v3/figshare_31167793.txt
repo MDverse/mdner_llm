@@ -1,2 +1,0 @@
-MD_PPI_50ns_ENSP00000352252_ENSP00000256996 molecular docking
-This dataset provides processed data and computational results related to protein–protein interaction prediction using machine learning methods.It includes model outputs, functional enrichment results, and molecular docking and molecular dynamics simulation data for selected protein pairs.The dataset is intended to support result verification and reuse in related bioinformatics studies.

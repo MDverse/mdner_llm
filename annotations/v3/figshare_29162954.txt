@@ -1,2 +1,0 @@
-m5-ach
-This folder has the input files, topology file and pdb file for ACh-bound M5 mAChR mini-G complex.

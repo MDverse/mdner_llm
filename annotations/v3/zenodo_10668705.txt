@@ -1,2 +1,0 @@
-Initial and final states of Molecular Dynamics for "The binding and mechanism of a positive allosteric modulator of Kv3 channels"
-Initial and final structures for molecular dynamics for three systems: wildtype, S4R/A5G/S6N mutation and 3.1x3.4 turret exchange.

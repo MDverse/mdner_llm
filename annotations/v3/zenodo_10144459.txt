@@ -1,5 +1,0 @@
-Trajectories of all MD simulations performed of Spike RBD/hACE2 complexes (WT, Delta, BA.1 to BA.4)
-Trajectories (.dcd) of the molecular dynamics simulations performed on Spike RBD / hACE2 complexes
-Protein structure files (.psf) prepared with Charmm36m topology / parameters
-For the WT (SARS-CoV-2 original strain), 6 additional replicas were uploaded, 3 including all glycans present on both spike and hACE2 et 3 replicas without glycan as control simulations.
- 

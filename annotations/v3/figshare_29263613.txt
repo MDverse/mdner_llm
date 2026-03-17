@@ -1,2 +1,0 @@
-Structure for Bacteriocin Plantaracin E peptide (plnE) - chain A in GRO format
-Protein structure in GRO format. Original wild-type structure from PDBID 2JUI.

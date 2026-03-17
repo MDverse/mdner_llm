@@ -1,2 +1,0 @@
-Human mitochondrial calcium uniporter (MCU) amino terminal domain (NTD) molecular dynamics at 310 K in the presence of 5 Ca2+ ions.
-GROMACS 2022.3 trajectory (xtc) and energy (edr) files. 1000 ns.

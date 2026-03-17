@@ -1,2 +1,0 @@
-Molecular dynamics simulations of the temperature-induced unfolding of crambin follow the Arrhenius equation
-These are the files needed to carry out the temperature induced infolding of crambin using Gromacs.

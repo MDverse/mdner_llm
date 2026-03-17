@@ -1,6 +1,0 @@
-MD simulations associated to the paper "Unveiling An Unexpected Redox Regulation of the Folding, Function and Inhibition in the PTB Domain of FRS2"
-This dataset contains the molecular dynamics input files and trajectories performed for the paper "Unveiling An Unexpected Redox Regulation of the Folding, Function and Inhibition in the PTB Domain of FRS2"The data are organized in three folders:
-
-`input_files`, which contains the gromacs .mdp files used for all the minimization, equilibration, and run phases.
-`topologies`, which contains a gromacs topology file (.top) and initial configuration (.gro) for both the oxidized and reduced form of PTB.
-`MD`, which contains the three 1-µs long trajectories in gromacs compressed format (.xtc) and a reference run file (.tpr) for both the oxidized and reduced form of PTB.

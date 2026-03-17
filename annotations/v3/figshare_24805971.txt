@@ -1,2 +1,0 @@
-Run scripts and XNA (MNA, DXYNA, HNA) forcefields
-Run scripts for a standard MD simulation used in the manuscriptForcefields used in the MD simulations of XNA

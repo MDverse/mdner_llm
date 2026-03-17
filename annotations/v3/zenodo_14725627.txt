@@ -1,7 +1,0 @@
-Computational Exploration in Search for Novel Natural Product-Derived EZH2 Inhibitors for Advancing Anti-Cancer Therapy.
-This repository is an supplementory material for "Computational Exploration in Search for Novel Natural Product-Derived EZH2 Inhibitors for Advancing Anti-Cancer Therapy".
-The repository consists of:
-
-The docked protein ligand complexes of the best natural product hits with EZH2 protein.
-MD raw files for the best performing hit LTS0131784 and Tazemetostat are also attached.
-FEL data in CSV and its 3D surface ploting in jupyter notebook

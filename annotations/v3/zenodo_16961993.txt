@@ -1,5 +1,0 @@
-Architecture-Encoded Mechanics and Communication in Microtubules: A Multiscale Computational Study
-This repository contains the original data necessary to replicate the findings of the paper "Architecture-Encoded Mechanics and Communication in Microtubules: A Multiscale Computational Study". The following files are provided:
-
-system topologies, starting structures and parameter files for the MD simulations (file 01-MDSimulations.zip)
-starting files and templates to reconstruct the MT rings for the ENM-NMA analysis (file 02-ENM.zip)

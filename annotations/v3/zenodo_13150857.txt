@@ -1,2 +1,0 @@
-Data Supplement for "Impact of Charged Surfaces on the Structure and Dynamics of Polymer Electrolytes: Insights from Atomistic Simulations"
-Data set containing the molecular dynamics simulation data used for the journal article "Impact of Charged Surfaces on the Structure and Dynamics of Polymer Electrolytes: Insights from Atomistic Simulations" (Andreas Thum, Diddo Diddens, Andreas Heuer, J. Phys. Chem. C 2021, 125, 25392−25403, https://doi.org/10.1021/acs.jpcc.1c07751).

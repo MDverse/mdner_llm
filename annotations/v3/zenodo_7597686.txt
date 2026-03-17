@@ -1,2 +1,0 @@
-Data for "Structure and mechanism of oxalate transporter OxlT in an oxalate-degrading bacterium in the gut microbiota"
-MD simulation data of OxlT. Trajectory data and NAMD input files are included. The first 500 ns trajectory that starts from the occluded conformation with a transition to the outward-open conformation is in the OxlT-occ directory. The 200 ns trajectories that start from the outward-open conformation with different protonation states of K355 are in the  OxlT-out directory. 

@@ -1,2 +1,0 @@
-E6AP_16E6_p53_MD_files
-The MD simulation files for for Wang et al Nat. Commun. 2024 including the initial system configurations, final states, trajectories, simulation parameters, and force field parameters for Supplementary Table 2.
