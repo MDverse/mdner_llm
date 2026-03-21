@@ -46,21 +46,9 @@
             "end": 484
         },
         {
-            "label": "FFM",
-            "text": "CHARMM",
-            "start": 577,
-            "end": 583
-        },
-        {
             "label": "SOFTNAME",
-            "text": "Visual",
+            "text": "Visual Molecular Dynamics",
             "start": 645,
-            "end": 651
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "Molecular Dynamics",
-            "start": 652,
             "end": 670
         },
         {

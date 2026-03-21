@@ -12,6 +12,30 @@
         {
             "label": "MOL",
             "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 5,
+            "end": 10
+        },
+        {
+            "label": "FFM",
+            "text": "LIPID14",
+            "start": 11,
+            "end": 18
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl2",
+            "start": 19,
+            "end": 24
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
             "start": 94,
             "end": 98
         },

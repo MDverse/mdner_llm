@@ -48,26 +48,8 @@
         {
             "label": "FFM",
             "text": "LIPID17",
-            "start": 42,
-            "end": 49
-        },
-        {
-            "label": "MOL",
-            "text": "acryl",
-            "start": 404,
-            "end": 409
-        },
-        {
-            "label": "FFM",
-            "text": "amber",
-            "start": 271,
-            "end": 276
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Github",
-            "start": 762,
-            "end": 768
+            "start": 336,
+            "end": 343
         }
     ],
     "url": "https://zenodo.org/records/3610470"

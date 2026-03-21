@@ -17,21 +17,9 @@
         },
         {
             "label": "MOL",
-            "text": "perfluorinated alcohols",
-            "start": 135,
+            "text": "1H,1H-perfluorinated alcohols",
+            "start": 129,
             "end": 158
-        },
-        {
-            "label": "TEMP",
-            "text": "293.15",
-            "start": 265,
-            "end": 271
-        },
-        {
-            "label": "TEMP",
-            "text": "313.15 K",
-            "start": 272,
-            "end": 280
         },
         {
             "label": "MOL",

@@ -78,20 +78,8 @@
         {
             "label": "FFM",
             "text": "OPC",
-            "start": 542,
-            "end": 545
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 862,
-            "end": 867
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 973,
-            "end": 978
+            "start": 858,
+            "end": 861
         },
         {
             "label": "STIME",
@@ -126,14 +114,8 @@
         {
             "label": "FFM",
             "text": "OPC",
-            "start": 858,
-            "end": 861
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1303,
-            "end": 1308
+            "start": 1299,
+            "end": 1302
         }
     ],
     "url": "https://zenodo.org/records/6817824"

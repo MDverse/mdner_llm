@@ -40,12 +40,6 @@
             "end": 144
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 190,
-            "end": 195
-        },
-        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 225,
@@ -80,12 +74,6 @@
             "text": "POPC",
             "start": 381,
             "end": 385
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 401,
-            "end": 406
         }
     ],
     "url": "https://zenodo.org/records/13814"

@@ -35,12 +35,6 @@
         },
         {
             "label": "MOL",
-            "text": "proteins",
-            "start": 180,
-            "end": 188
-        },
-        {
-            "label": "MOL",
             "text": "2RJY",
             "start": 190,
             "end": 194
@@ -52,12 +46,6 @@
             "end": 237
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 251,
-            "end": 256
-        },
-        {
             "label": "FFM",
             "text": "TIP3P",
             "start": 274,
@@ -65,33 +53,9 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 280,
-            "end": 285
-        },
-        {
-            "label": "MOL",
-            "text": "Proteins",
-            "start": 294,
-            "end": 302
-        },
-        {
-            "label": "MOL",
             "text": "villin headpiece",
             "start": 632,
             "end": 648
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 690,
-            "end": 695
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 24,
-            "end": 28
         }
     ],
     "url": "https://figshare.com/articles/dataset/Villin_Headpiece_Simulations/3983526"

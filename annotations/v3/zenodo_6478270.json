@@ -17,51 +17,27 @@
         },
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 186,
-            "end": 191
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 237,
-            "end": 242
-        },
-        {
-            "label": "MOL",
             "text": "5E11",
             "start": 368,
-            "end": 372
+            "end": 373
         },
         {
             "label": "STIME",
             "text": "1 microsecond",
             "start": 450,
-            "end": 463
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 480,
-            "end": 485
+            "end": 464
         },
         {
             "label": "FFM",
             "text": "CHARMM36m",
             "start": 493,
-            "end": 502
-        },
-        {
-            "label": "FFM",
-            "text": "CHARMM",
-            "start": 505,
-            "end": 511
+            "end": 503
         },
         {
             "label": "FFM",
             "text": "TIP3P",
             "start": 521,
-            "end": 526
+            "end": 527
         }
     ],
     "url": "https://zenodo.org/records/6478270"

@@ -47,15 +47,15 @@
         },
         {
             "label": "MOL",
-            "text": "lopinavir",
-            "start": 387,
-            "end": 396
+            "text": "Mpro",
+            "start": 355,
+            "end": 359
         },
         {
             "label": "MOL",
-            "text": "protease",
-            "start": 97,
-            "end": 105
+            "text": "lopinavir",
+            "start": 387,
+            "end": 396
         }
     ],
     "url": "https://figshare.com/articles/dataset/_PART_1_OF_5_9_molecular_dynamics_simulations_500ps_3_x_3_replicates_of_coronavirus_2019-nCoV_protease_unrefined_crystal_structure_in_complex_with_3_different_conformations_of_lopinavir_/11808396"

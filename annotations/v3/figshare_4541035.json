@@ -11,6 +11,12 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "Poly(N‑isopropylacrylamide)",
+            "start": 26,
+            "end": 53
+        },
+        {
+            "label": "MOL",
             "text": "phenytoin",
             "start": 236,
             "end": 245
@@ -32,12 +38,6 @@
             "text": "pNIPAAm-co-acrylamide",
             "start": 328,
             "end": 349
-        },
-        {
-            "label": "MOL",
-            "text": "Am",
-            "start": 319,
-            "end": 321
         },
         {
             "label": "MOL",

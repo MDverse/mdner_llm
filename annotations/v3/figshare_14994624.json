@@ -65,12 +65,6 @@
         },
         {
             "label": "MOL",
-            "text": "ethanolamine",
-            "start": 540,
-            "end": 552
-        },
-        {
-            "label": "MOL",
             "text": "POPE",
             "start": 1129,
             "end": 1133

@@ -64,6 +64,12 @@
             "end": 500
         },
         {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 628,
+            "end": 634
+        },
+        {
             "label": "MOL",
             "text": "POPC",
             "start": 642,
@@ -86,6 +92,12 @@
             "text": "DPPC",
             "start": 780,
             "end": 784
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 807,
+            "end": 813
         },
         {
             "label": "STIME",

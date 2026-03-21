@@ -41,12 +41,6 @@
         },
         {
             "label": "MOL",
-            "text": "zwitterionic DMPC",
-            "start": 202,
-            "end": 219
-        },
-        {
-            "label": "MOL",
             "text": "DMPC",
             "start": 215,
             "end": 219

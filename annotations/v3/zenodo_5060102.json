@@ -16,6 +16,12 @@
             "end": 43
         },
         {
+            "label": "SOFTNAME",
+            "text": "ANI2x",
+            "start": 90,
+            "end": 95
+        },
+        {
             "label": "MOL",
             "text": "Tricaproin",
             "start": 96,
@@ -34,18 +40,6 @@
             "end": 162
         },
         {
-            "label": "MOL",
-            "text": "alkyl",
-            "start": 188,
-            "end": 193
-        },
-        {
-            "label": "MOL",
-            "text": "glycerol",
-            "start": 216,
-            "end": 224
-        },
-        {
             "label": "STIME",
             "text": "10 ns",
             "start": 261,
@@ -56,6 +50,12 @@
             "text": "tricaproin",
             "start": 286,
             "end": 296
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ANI2x",
+            "start": 413,
+            "end": 418
         },
         {
             "label": "SOFTNAME",
@@ -74,12 +74,6 @@
             "text": "310 K",
             "start": 655,
             "end": 660
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "ASEgui",
-            "start": 739,
-            "end": 745
         },
         {
             "label": "SOFTNAME",
@@ -110,6 +104,24 @@
             "text": "Martini 3",
             "start": 991,
             "end": 1000
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ANI2x",
+            "start": 1027,
+            "end": 1032
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "torchANI",
+            "start": 1079,
+            "end": 1087
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "ASE",
+            "start": 1131,
+            "end": 1134
         }
     ],
     "url": "https://zenodo.org/records/5060102"

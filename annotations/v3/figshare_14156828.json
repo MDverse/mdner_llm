@@ -47,12 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "SARS-CoV-2",
-            "start": 585,
-            "end": 595
-        },
-        {
-            "label": "MOL",
             "text": "angiotensin converting enzyme II",
             "start": 630,
             "end": 662
@@ -107,14 +101,8 @@
         },
         {
             "label": "MOL",
-            "text": "SARS-CoV-2",
+            "text": "SARS-CoV-2 s-protein",
             "start": 1077,
-            "end": 1087
-        },
-        {
-            "label": "MOL",
-            "text": "s-protein",
-            "start": 1088,
             "end": 1097
         },
         {
@@ -143,68 +131,14 @@
         },
         {
             "label": "MOL",
-            "text": "Glu-35",
-            "start": 1413,
-            "end": 1419
-        },
-        {
-            "label": "MOL",
-            "text": "Glu-37",
-            "start": 1421,
-            "end": 1427
-        },
-        {
-            "label": "MOL",
-            "text": "Tyr-83",
-            "start": 1429,
-            "end": 1435
-        },
-        {
-            "label": "MOL",
-            "text": "Lys-353",
-            "start": 1437,
-            "end": 1444
-        },
-        {
-            "label": "MOL",
-            "text": "Arg-393",
-            "start": 1450,
-            "end": 1457
-        },
-        {
-            "label": "MOL",
-            "text": "SARS-CoV-2",
-            "start": 1466,
-            "end": 1476
-        },
-        {
-            "label": "MOL",
-            "text": "s-protein",
-            "start": 1477,
-            "end": 1486
-        },
-        {
-            "label": "MOL",
-            "text": "RBD",
-            "start": 1512,
-            "end": 1515
-        },
-        {
-            "label": "MOL",
             "text": "ACE2",
             "start": 1580,
             "end": 1584
         },
         {
             "label": "MOL",
-            "text": "SARS-CoV-2",
+            "text": "SARS-CoV-2 s-protein",
             "start": 1603,
-            "end": 1613
-        },
-        {
-            "label": "MOL",
-            "text": "s-protein",
-            "start": 1614,
             "end": 1623
         },
         {
@@ -218,6 +152,18 @@
             "text": "ACE2",
             "start": 1810,
             "end": 1814
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1834,
+            "end": 1843
+        },
+        {
+            "label": "MOL",
+            "text": "s-protein",
+            "start": 1890,
+            "end": 1899
         },
         {
             "label": "MOL",

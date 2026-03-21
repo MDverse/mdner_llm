@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "peptide major histocompatibility complex",
+            "start": 70,
+            "end": 110
+        },
+        {
+            "label": "MOL",
             "text": "T Cell Receptor",
             "start": 115,
             "end": 130

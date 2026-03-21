@@ -35,27 +35,9 @@
         },
         {
             "label": "MOL",
-            "text": "Asp197",
-            "start": 360,
-            "end": 366
-        },
-        {
-            "label": "MOL",
             "text": "glucoside",
             "start": 416,
             "end": 425
-        },
-        {
-            "label": "MOL",
-            "text": "Asp197",
-            "start": 503,
-            "end": 509
-        },
-        {
-            "label": "MOL",
-            "text": "Asp300",
-            "start": 514,
-            "end": 520
         },
         {
             "label": "MOL",
@@ -83,51 +65,9 @@
         },
         {
             "label": "MOL",
-            "text": "Glu233",
-            "start": 1099,
-            "end": 1105
-        },
-        {
-            "label": "MOL",
-            "text": "Asp197",
-            "start": 1168,
-            "end": 1174
-        },
-        {
-            "label": "MOL",
             "text": "glucoside",
             "start": 1261,
             "end": 1270
-        },
-        {
-            "label": "MOL",
-            "text": "Asp197",
-            "start": 1375,
-            "end": 1381
-        },
-        {
-            "label": "MOL",
-            "text": "Glu233",
-            "start": 1596,
-            "end": 1602
-        },
-        {
-            "label": "MOL",
-            "text": "Asp197",
-            "start": 1701,
-            "end": 1707
-        },
-        {
-            "label": "MOL",
-            "text": "Glu233",
-            "start": 1908,
-            "end": 1914
-        },
-        {
-            "label": "MOL",
-            "text": "Asp197",
-            "start": 1954,
-            "end": 1960
         },
         {
             "label": "MOL",

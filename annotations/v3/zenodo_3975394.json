@@ -95,12 +95,6 @@
         },
         {
             "label": "MOL",
-            "text": "dimeric protease",
-            "start": 725,
-            "end": 741
-        },
-        {
-            "label": "MOL",
             "text": "SARS-CoV-2 main protease",
             "start": 848,
             "end": 872
@@ -122,12 +116,6 @@
             "text": "amber14sb",
             "start": 1084,
             "end": 1093
-        },
-        {
-            "label": "MOL",
-            "text": "dimeric main protease",
-            "start": 1234,
-            "end": 1255
         },
         {
             "label": "STIME",

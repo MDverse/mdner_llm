@@ -35,38 +35,38 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 359,
-            "end": 364
-        },
-        {
-            "label": "MOL",
             "text": "air",
             "start": 365,
             "end": 368
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 422,
-            "end": 427
+            "text": "atmospheric aerosols",
+            "start": 382,
+            "end": 402
         },
         {
             "label": "MOL",
-            "text": "NO3",
+            "text": "NO3–",
             "start": 529,
-            "end": 532
+            "end": 533
         },
         {
             "label": "MOL",
-            "text": "NO2",
+            "text": "NO2–",
             "start": 535,
-            "end": 538
+            "end": 539
         },
         {
             "label": "MOL",
             "text": "HNO3",
             "start": 541,
+            "end": 545
+        },
+        {
+            "label": "MOL",
+            "text": "NO3",
+            "start": 542,
             "end": 545
         },
         {
@@ -82,10 +82,16 @@
             "end": 591
         },
         {
+            "label": "FFM",
+            "text": "54A7",
+            "start": 596,
+            "end": 600
+        },
+        {
             "label": "MOL",
-            "text": "NO3",
-            "start": 542,
-            "end": 545
+            "text": "NO3–",
+            "start": 726,
+            "end": 730
         },
         {
             "label": "MOL",
@@ -95,15 +101,9 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 843,
-            "end": 848
-        },
-        {
-            "label": "MOL",
             "text": "air",
-            "start": 707,
-            "end": 710
+            "start": 849,
+            "end": 852
         },
         {
             "label": "MOL",
@@ -113,21 +113,15 @@
         },
         {
             "label": "MOL",
-            "text": "NO3",
-            "start": 726,
-            "end": 729
+            "text": "NO3–",
+            "start": 914,
+            "end": 918
         },
         {
             "label": "MOL",
             "text": "HNO3",
             "start": 1028,
             "end": 1032
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1076,
-            "end": 1081
         },
         {
             "label": "MOL",

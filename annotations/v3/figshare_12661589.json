@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "hydrogen sulfide",
+            "start": 244,
+            "end": 260
+        },
+        {
+            "label": "MOL",
             "text": "caprolactam",
             "start": 329,
             "end": 340
@@ -35,15 +41,15 @@
         },
         {
             "label": "MOL",
-            "text": "methane",
-            "start": 1011,
-            "end": 1018
+            "text": "caprolactam",
+            "start": 833,
+            "end": 844
         },
         {
             "label": "MOL",
-            "text": "hydrogen sulfide",
-            "start": 244,
-            "end": 260
+            "text": "methane",
+            "start": 1011,
+            "end": 1018
         },
         {
             "label": "MOL",
@@ -52,16 +58,16 @@
             "end": 1039
         },
         {
-            "label": "TEMP",
-            "text": "25",
-            "start": 1229,
-            "end": 1231
-        },
-        {
             "label": "MOL",
             "text": "hydrogen sulfide",
             "start": 1129,
             "end": 1145
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogen sulfide",
+            "start": 1386,
+            "end": 1402
         },
         {
             "label": "MOL",
@@ -72,14 +78,20 @@
         {
             "label": "MOL",
             "text": "hydrogen sulfide",
-            "start": 1386,
-            "end": 1402
+            "start": 1467,
+            "end": 1483
         },
         {
             "label": "MOL",
             "text": "monoethanolamines",
             "start": 1589,
             "end": 1606
+        },
+        {
+            "label": "MOL",
+            "text": "methyltriphenylphosphonium bromide",
+            "start": 1607,
+            "end": 1641
         },
         {
             "label": "MOL",
@@ -92,18 +104,6 @@
             "text": "choline chloride",
             "start": 1651,
             "end": 1667
-        },
-        {
-            "label": "MOL",
-            "text": "hydrogen sulfide",
-            "start": 1467,
-            "end": 1483
-        },
-        {
-            "label": "MOL",
-            "text": "caprolactam",
-            "start": 833,
-            "end": 844
         },
         {
             "label": "MOL",

@@ -11,6 +11,12 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "Mitochondrial Anion Channel",
+            "start": 202,
+            "end": 229
+        },
+        {
+            "label": "MOL",
             "text": "VDAC1",
             "start": 230,
             "end": 235
@@ -20,12 +26,6 @@
             "text": "Hexokinase-II",
             "start": 240,
             "end": 253
-        },
-        {
-            "label": "STIME",
-            "text": "200ns",
-            "start": 326,
-            "end": 331
         },
         {
             "label": "MOL",
@@ -66,8 +66,8 @@
         {
             "label": "MOL",
             "text": "HKV1",
-            "start": 1184,
-            "end": 1188
+            "start": 1274,
+            "end": 1278
         },
         {
             "label": "SOFTNAME",
@@ -83,15 +83,21 @@
         },
         {
             "label": "MOL",
-            "text": "VDAC1",
-            "start": 1401,
-            "end": 1406
+            "text": "HKV1",
+            "start": 1384,
+            "end": 1388
         },
         {
             "label": "MOL",
             "text": "VDAC1",
             "start": 1434,
             "end": 1439
+        },
+        {
+            "label": "MOL",
+            "text": "VDAC1",
+            "start": 1448,
+            "end": 1453
         },
         {
             "label": "MOL",
@@ -108,20 +114,14 @@
         {
             "label": "MOL",
             "text": "VDAC1",
-            "start": 1448,
-            "end": 1453
+            "start": 1623,
+            "end": 1628
         },
         {
             "label": "MOL",
             "text": "HKV1",
-            "start": 1206,
-            "end": 1210
-        },
-        {
-            "label": "MOL",
-            "text": "VDAC1",
-            "start": 1623,
-            "end": 1628
+            "start": 1636,
+            "end": 1640
         },
         {
             "label": "MOL",
@@ -134,6 +134,12 @@
             "text": "VDAC1",
             "start": 1995,
             "end": 2000
+        },
+        {
+            "label": "MOL",
+            "text": "VDAC1",
+            "start": 2046,
+            "end": 2051
         }
     ],
     "url": "https://figshare.com/articles/dataset/Datasets_supporting_Haloi_et_al_Communications_Biology/14511885"

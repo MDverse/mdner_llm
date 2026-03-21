@@ -23,6 +23,18 @@
         },
         {
             "label": "MOL",
+            "text": "NaCl",
+            "start": 30,
+            "end": 34
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 41,
+            "end": 45
+        },
+        {
+            "label": "MOL",
             "text": "Ceramide",
             "start": 74,
             "end": 82

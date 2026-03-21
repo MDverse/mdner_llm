@@ -64,24 +64,6 @@
             "end": 1725
         },
         {
-            "label": "MOL",
-            "text": "Cys42",
-            "start": 2012,
-            "end": 2017
-        },
-        {
-            "label": "MOL",
-            "text": "Cys189",
-            "start": 2018,
-            "end": 2024
-        },
-        {
-            "label": "MOL",
-            "text": "Thr440",
-            "start": 2055,
-            "end": 2061
-        },
-        {
             "label": "SOFTNAME",
             "text": "GROMACS",
             "start": 2247,
@@ -275,12 +257,6 @@
         },
         {
             "label": "MOL",
-            "text": "NBD",
-            "start": 6616,
-            "end": 6619
-        },
-        {
-            "label": "MOL",
             "text": "PPSA",
             "start": 6731,
             "end": 6735
@@ -299,21 +275,9 @@
         },
         {
             "label": "STIME",
-            "text": "[250ns*6]*2",
-            "start": 6852,
-            "end": 6863
-        },
-        {
-            "label": "MOL",
-            "text": "CD",
-            "start": 7057,
-            "end": 7059
-        },
-        {
-            "label": "MOL",
-            "text": "CD",
-            "start": 7143,
-            "end": 7145
+            "text": "250ns",
+            "start": 6853,
+            "end": 6858
         },
         {
             "label": "MOL",
@@ -341,9 +305,9 @@
         },
         {
             "label": "STIME",
-            "text": "[250ns*24]*2",
-            "start": 7329,
-            "end": 7341
+            "text": "250ns",
+            "start": 7330,
+            "end": 7335
         },
         {
             "label": "MOL",

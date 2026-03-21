@@ -34,18 +34,6 @@
             "end": 169
         },
         {
-            "label": "MOL",
-            "text": "CAT",
-            "start": 182,
-            "end": 185
-        },
-        {
-            "label": "MOL",
-            "text": "SPA",
-            "start": 204,
-            "end": 207
-        },
-        {
             "label": "SOFTNAME",
             "text": "Antechamber",
             "start": 238,
@@ -77,12 +65,6 @@
         },
         {
             "label": "MOL",
-            "text": "methyl",
-            "start": 634,
-            "end": 640
-        },
-        {
-            "label": "MOL",
             "text": "Styrene",
             "start": 648,
             "end": 655
@@ -94,18 +76,6 @@
             "end": 695
         },
         {
-            "label": "MOL",
-            "text": "methyl",
-            "start": 712,
-            "end": 718
-        },
-        {
-            "label": "MOL",
-            "text": "hydrogen",
-            "start": 729,
-            "end": 737
-        },
-        {
             "label": "SOFTNAME",
             "text": "AmberTools",
             "start": 873,
@@ -113,39 +83,9 @@
         },
         {
             "label": "MOL",
-            "text": "methyl",
-            "start": 1056,
-            "end": 1062
-        },
-        {
-            "label": "MOL",
             "text": "STY",
             "start": 1445,
             "end": 1448
-        },
-        {
-            "label": "MOL",
-            "text": "methyl",
-            "start": 1517,
-            "end": 1523
-        },
-        {
-            "label": "MOL",
-            "text": "methyl",
-            "start": 1580,
-            "end": 1586
-        },
-        {
-            "label": "MOL",
-            "text": "CAT",
-            "start": 1594,
-            "end": 1597
-        },
-        {
-            "label": "MOL",
-            "text": "SPA",
-            "start": 1647,
-            "end": 1650
         },
         {
             "label": "SOFTVERS",
@@ -208,10 +148,10 @@
             "end": 2784
         },
         {
-            "label": "MOL",
-            "text": "hydrogen",
-            "start": 3179,
-            "end": 3187
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 3026,
+            "end": 3031
         },
         {
             "label": "SOFTNAME",
@@ -224,6 +164,18 @@
             "text": "Amber",
             "start": 3344,
             "end": 3349
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 3349,
+            "end": 3351
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "cpptraj",
+            "start": 3420,
+            "end": 3427
         },
         {
             "label": "SOFTNAME",
@@ -242,18 +194,6 @@
             "text": "Amber",
             "start": 3749,
             "end": 3754
-        },
-        {
-            "label": "MOL",
-            "text": "CAT",
-            "start": 4061,
-            "end": 4064
-        },
-        {
-            "label": "MOL",
-            "text": "SPA",
-            "start": 4069,
-            "end": 4072
         }
     ],
     "url": "https://figshare.com/articles/dataset/Enzyme_Inspired_Catalysts/4757161"

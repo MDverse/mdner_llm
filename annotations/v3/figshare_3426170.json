@@ -14,6 +14,18 @@
             "text": "TiO2",
             "start": 1465,
             "end": 1469
+        },
+        {
+            "label": "MOL",
+            "text": "carbon nanotubes",
+            "start": 1509,
+            "end": 1525
+        },
+        {
+            "label": "MOL",
+            "text": "satellite tobacco mosaic virus",
+            "start": 1535,
+            "end": 1565
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Combining_Linear-Scaling_DFT_with_Subsystem_DFT_in_Born_Oppenheimer_and_Ehrenfest_Molecular_Dynamics_Simulations_From_Molecules_to_a_Virus_in_Solution/3426170"

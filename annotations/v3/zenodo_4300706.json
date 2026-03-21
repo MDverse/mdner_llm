@@ -16,12 +16,6 @@
             "end": 8
         },
         {
-            "label": "MOL",
-            "text": "Water",
-            "start": 35,
-            "end": 40
-        },
-        {
             "label": "TEMP",
             "text": "288K",
             "start": 55,
@@ -34,70 +28,46 @@
             "end": 73
         },
         {
-            "label": "MOL",
-            "text": "dppc",
-            "start": 577,
-            "end": 581
-        },
-        {
-            "label": "MOL",
-            "text": "dppc",
-            "start": 594,
-            "end": 598
-        },
-        {
             "label": "TEMP",
             "text": "288K",
             "start": 686,
             "end": 690
         },
         {
-            "label": "MOL",
-            "text": "DPPC",
-            "start": 775,
-            "end": 779
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 815,
-            "end": 820
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "Gromacs",
-            "start": 940,
-            "end": 947
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "(v. 2020)",
-            "start": 948,
-            "end": 957
-        },
-        {
-            "label": "FFM",
-            "text": "Charmm36 (v. June 2015)",
-            "start": 970,
-            "end": 993
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 996,
-            "end": 1001
-        },
-        {
-            "label": "FFM",
-            "text": "TIP3P",
-            "start": 1003,
-            "end": 1008
-        },
-        {
             "label": "TEMP",
             "text": "358K",
             "start": 695,
             "end": 699
+        },
+        {
+            "label": "MOL",
+            "text": "DPPC",
+            "start": 776,
+            "end": 780
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 943,
+            "end": 950
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 2020",
+            "start": 952,
+            "end": 959
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36 (v. June 2015)",
+            "start": 973,
+            "end": 996
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 1006,
+            "end": 1011
         }
     ],
     "url": "https://zenodo.org/records/4300706"

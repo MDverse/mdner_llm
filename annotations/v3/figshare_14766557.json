@@ -11,8 +11,14 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "PEDOT:PSS",
+            "text": "PEDOT",
             "start": 22,
+            "end": 27
+        },
+        {
+            "label": "MOL",
+            "text": "PSS",
+            "start": 28,
             "end": 31
         },
         {
@@ -29,9 +35,21 @@
         },
         {
             "label": "MOL",
-            "text": "PEDOT:PSS",
+            "text": "PEDOT",
             "start": 163,
+            "end": 168
+        },
+        {
+            "label": "MOL",
+            "text": "PSS",
+            "start": 169,
             "end": 172
+        },
+        {
+            "label": "FFM",
+            "text": "Generalized AMBER Force Field",
+            "start": 339,
+            "end": 368
         },
         {
             "label": "FFM",

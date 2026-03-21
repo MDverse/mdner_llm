@@ -166,12 +166,6 @@
             "end": 885
         },
         {
-            "label": "SOFTVERS",
-            "text": "16",
-            "start": 928,
-            "end": 930
-        },
-        {
             "label": "MOL",
             "text": "DOPC",
             "start": 932,
@@ -203,15 +197,9 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "4.6->",
+            "text": "4.6",
             "start": 1419,
-            "end": 1424
-        },
-        {
-            "label": "SOFTVERS",
-            "text": "16",
-            "start": 1827,
-            "end": 1829
+            "end": 1422
         },
         {
             "label": "MOL",

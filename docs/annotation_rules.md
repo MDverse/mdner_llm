@@ -16,7 +16,8 @@ This entity covers all types of molecular compounds, including simple molecules,
 - Include amino acid sequences
 - Include any identifiers (PDB ID, UniProt ID...)
 - Exclude adjectives or descriptors that modify the molecule (e.g., hydrated, charged, folded, tetrameric).
-- Exclude generic terms like `protein`, `lipid`, `sugar`, `water`...
+- Exclude generic terms like `protein`, `lipid`, `phospholipid`, `sugar`, `water`, `ions`...
+- Exclude specific résidues or domains like `Lys-353`...
 
 ### Examples
 
@@ -60,6 +61,7 @@ This entity refers to the name of any software used for molecular simulation, vi
 ### Rules
 
 - Exclude generic words such as `software`, `tool`, or `program` unless they are part of the official name.
+- Exclude algorithms like `SHAKE`, `RESP`...
 
 ### Examples
 
@@ -67,6 +69,8 @@ This entity refers to the name of any software used for molecular simulation, vi
 - `VMD` ✅
 - `NAMD` ✅
 - `PyMOL` ✅
+- `PLUMED` ✅
+- `COLVAR` ✅
 - `Python` 🚫 → Too generic
 - `the simulation software` 🚫 → No specific name
 - `GROMACS software` 🚫 → Annotate only `GROMACS` ✅

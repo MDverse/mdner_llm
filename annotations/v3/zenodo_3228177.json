@@ -64,10 +64,16 @@
             "end": 302
         },
         {
+            "label": "SOFTVERS",
+            "text": "2016.1",
+            "start": 315,
+            "end": 321
+        },
+        {
             "label": "FFM",
             "text": "charmm36",
-            "start": 337,
-            "end": 345
+            "start": 338,
+            "end": 346
         },
         {
             "label": "TEMP",
@@ -84,38 +90,20 @@
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 450,
-            "end": 454
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 464,
-            "end": 469
+            "start": 451,
+            "end": 455
         },
         {
             "label": "MOL",
             "text": "Cl-",
-            "start": 480,
-            "end": 483
+            "start": 481,
+            "end": 484
         },
         {
             "label": "MOL",
             "text": "Na+",
-            "start": 496,
-            "end": 499
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 593,
-            "end": 598
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 599,
-            "end": 603
+            "start": 497,
+            "end": 500
         }
     ],
     "url": "https://zenodo.org/records/3228177"

@@ -29,12 +29,6 @@
         },
         {
             "label": "MOL",
-            "text": "H",
-            "start": 80,
-            "end": 81
-        },
-        {
-            "label": "MOL",
             "text": "NH3+",
             "start": 166,
             "end": 170
