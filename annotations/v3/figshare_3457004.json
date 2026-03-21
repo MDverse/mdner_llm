@@ -65,9 +65,15 @@
         },
         {
             "label": "MOL",
+            "text": "CDCl3",
+            "start": 727,
+            "end": 732
+        },
+        {
+            "label": "MOL",
             "text": "Se",
-            "start": 570,
-            "end": 572
+            "start": 918,
+            "end": 920
         },
         {
             "label": "MOL",

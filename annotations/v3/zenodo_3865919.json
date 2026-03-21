@@ -11,9 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "amyloid",
+            "text": "amyloid-β",
             "start": 32,
-            "end": 39
+            "end": 41
         },
         {
             "label": "MOL",
@@ -44,6 +44,30 @@
             "text": "2018.3",
             "start": 392,
             "end": 398
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 417,
+            "end": 423
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 577,
+            "end": 583
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Jupyter",
+            "start": 616,
+            "end": 623
+        },
+        {
+            "label": "MOL",
+            "text": "amyloid-β",
+            "start": 892,
+            "end": 901
         }
     ],
     "url": "https://zenodo.org/records/3865919"

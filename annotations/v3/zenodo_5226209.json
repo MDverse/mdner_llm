@@ -76,28 +76,10 @@
             "end": 433
         },
         {
-            "label": "STIME",
-            "text": "8 microseconds",
-            "start": 435,
-            "end": 449
-        },
-        {
             "label": "MOL",
             "text": "GLP-1R",
             "start": 471,
             "end": 477
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 541,
-            "end": 546
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 154,
-            "end": 158
         },
         {
             "label": "MOL",

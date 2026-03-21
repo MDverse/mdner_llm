@@ -41,12 +41,6 @@
         },
         {
             "label": "MOL",
-            "text": "PC",
-            "start": 533,
-            "end": 535
-        },
-        {
-            "label": "MOL",
             "text": "DOPC",
             "start": 883,
             "end": 887
@@ -68,6 +62,12 @@
             "text": "GROMACS",
             "start": 1200,
             "end": 1207
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2019.3",
+            "start": 1242,
+            "end": 1248
         },
         {
             "label": "FFM",

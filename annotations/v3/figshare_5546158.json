@@ -11,15 +11,27 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "waters",
-            "start": 32,
-            "end": 38
+            "text": "bromodomains",
+            "start": 42,
+            "end": 54
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 449,
-            "end": 454
+            "text": "Bromodomains",
+            "start": 55,
+            "end": 67
+        },
+        {
+            "label": "MOL",
+            "text": "bromodomains",
+            "start": 162,
+            "end": 174
+        },
+        {
+            "label": "MOL",
+            "text": "bromodomains",
+            "start": 473,
+            "end": 485
         },
         {
             "label": "MOL",
@@ -32,6 +44,12 @@
             "text": "BAZ2B",
             "start": 494,
             "end": 499
+        },
+        {
+            "label": "MOL",
+            "text": "BRD2",
+            "start": 501,
+            "end": 505
         },
         {
             "label": "MOL",
@@ -53,15 +71,15 @@
         },
         {
             "label": "MOL",
-            "text": "waters",
-            "start": 865,
-            "end": 871
+            "text": "bromodomains",
+            "start": 692,
+            "end": 704
         },
         {
             "label": "MOL",
-            "text": "waters",
-            "start": 917,
-            "end": 923
+            "text": "bromodomains",
+            "start": 1060,
+            "end": 1072
         }
     ],
     "url": "https://plos.figshare.com/articles/dataset/Protein_dynamics_and_structural_waters_in_bromodomains/5546158"

@@ -56,6 +56,12 @@
             "text": "glycine receptor",
             "start": 427,
             "end": 443
+        },
+        {
+            "label": "MOL",
+            "text": "glycine receptor",
+            "start": 631,
+            "end": 647
         }
     ],
     "url": "https://zenodo.org/records/3786821"

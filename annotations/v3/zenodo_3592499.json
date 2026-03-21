@@ -77,12 +77,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 278,
-            "end": 283
-        },
-        {
-            "label": "MOL",
             "text": "NaCl",
             "start": 296,
             "end": 300

@@ -11,21 +11,15 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 50,
-            "end": 55
+            "text": "n‑Octacosane",
+            "start": 37,
+            "end": 49
         },
         {
             "label": "MOL",
             "text": "Graphene",
             "start": 76,
             "end": 84
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 447,
-            "end": 452
         },
         {
             "label": "MOL",
@@ -41,33 +35,15 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 876,
-            "end": 881
-        },
-        {
-            "label": "MOL",
             "text": "graphene",
             "start": 897,
             "end": 905
         },
         {
             "label": "MOL",
-            "text": "G",
-            "start": 131,
-            "end": 132
-        },
-        {
-            "label": "MOL",
             "text": "graphene oxide",
             "start": 914,
             "end": 928
-        },
-        {
-            "label": "MOL",
-            "text": "GO",
-            "start": 930,
-            "end": 932
         },
         {
             "label": "TEMP",
@@ -130,12 +106,6 @@
             "end": 1453
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 1470,
-            "end": 1475
-        },
-        {
             "label": "FFM",
             "text": "MARTINI",
             "start": 1487,
@@ -143,33 +113,9 @@
         },
         {
             "label": "MOL",
-            "text": "G",
-            "start": 267,
-            "end": 268
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1671,
-            "end": 1676
-        },
-        {
-            "label": "MOL",
             "text": "n-C28",
             "start": 1724,
             "end": 1729
-        },
-        {
-            "label": "MOL",
-            "text": "GO",
-            "start": 1771,
-            "end": 1773
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1804,
-            "end": 1809
         },
         {
             "label": "MOL",
@@ -182,18 +128,6 @@
             "text": "H2O",
             "start": 1940,
             "end": 1943
-        },
-        {
-            "label": "MOL",
-            "text": "G",
-            "start": 806,
-            "end": 807
-        },
-        {
-            "label": "MOL",
-            "text": "GO",
-            "start": 2001,
-            "end": 2003
         },
         {
             "label": "MOL",
@@ -212,12 +146,6 @@
             "text": "H2O",
             "start": 2116,
             "end": 2119
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 2280,
-            "end": 2285
         },
         {
             "label": "MOL",
@@ -242,12 +170,6 @@
             "text": "H2O",
             "start": 2538,
             "end": 2541
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 2577,
-            "end": 2582
         },
         {
             "label": "FFM",

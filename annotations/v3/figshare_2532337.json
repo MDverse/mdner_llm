@@ -110,6 +110,12 @@
             "text": "ff99sb-ildn-NMR",
             "start": 972,
             "end": 987
+        },
+        {
+            "label": "MOL",
+            "text": "dipeptides",
+            "start": 1493,
+            "end": 1503
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Are_Protein_Force_Fields_Getting_Better_A_Systematic_Benchmark_on_524_Diverse_NMR_Measurements/2532337"

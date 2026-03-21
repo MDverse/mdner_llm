@@ -11,15 +11,39 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "GPO",
+            "start": 46,
+            "end": 49
+        },
+        {
+            "label": "MOL",
+            "text": "GPP",
+            "start": 54,
+            "end": 57
+        },
+        {
+            "label": "MOL",
             "text": "tropocollagen",
             "start": 58,
             "end": 71
         },
         {
             "label": "MOL",
+            "text": "GPO",
+            "start": 166,
+            "end": 169
+        },
+        {
+            "label": "MOL",
+            "text": "GPP",
+            "start": 174,
+            "end": 177
+        },
+        {
+            "label": "MOL",
             "text": "collagen",
-            "start": 63,
-            "end": 71
+            "start": 185,
+            "end": 193
         },
         {
             "label": "SOFTNAME",
@@ -38,6 +62,18 @@
             "text": "AMBER",
             "start": 277,
             "end": 282
+        },
+        {
+            "label": "MOL",
+            "text": "GPO",
+            "start": 318,
+            "end": 321
+        },
+        {
+            "label": "MOL",
+            "text": "GPP",
+            "start": 325,
+            "end": 328
         },
         {
             "label": "SOFTNAME",

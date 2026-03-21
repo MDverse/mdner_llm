@@ -78,14 +78,20 @@
         {
             "label": "MOL",
             "text": "GS",
-            "start": 792,
-            "end": 794
+            "start": 824,
+            "end": 826
         },
         {
             "label": "MOL",
-            "text": "Palmitoyl-CoA.",
+            "text": "2OJW",
+            "start": 842,
+            "end": 846
+        },
+        {
+            "label": "MOL",
+            "text": "Palmitoyl-CoA",
             "start": 853,
-            "end": 867
+            "end": 866
         },
         {
             "label": "MOL",
@@ -96,14 +102,14 @@
         {
             "label": "MOL",
             "text": "GS",
-            "start": 824,
-            "end": 826
+            "start": 1004,
+            "end": 1006
         },
         {
             "label": "MOL",
-            "text": "GS",
-            "start": 983,
-            "end": 985
+            "text": "1FPY",
+            "start": 1042,
+            "end": 1046
         },
         {
             "label": "MOL",
@@ -122,12 +128,6 @@
             "text": "GROMACS",
             "start": 1127,
             "end": 1134
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 1179,
-            "end": 1184
         }
     ],
     "url": "https://figshare.com/articles/dataset/Models_and_trajectories_of_GLUTAMINE_SYNTHETASE_with_palmitoyl-coenzyme_A/6575438"

@@ -23,12 +23,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 91,
-            "end": 96
-        },
-        {
-            "label": "MOL",
             "text": "elastin",
             "start": 213,
             "end": 220
@@ -50,6 +44,12 @@
             "text": "5-microsecond",
             "start": 355,
             "end": 368
+        },
+        {
+            "label": "MOL",
+            "text": "(GVPGV)7",
+            "start": 405,
+            "end": 413
         },
         {
             "label": "MOL",

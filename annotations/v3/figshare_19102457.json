@@ -137,14 +137,8 @@
         },
         {
             "label": "FFM",
-            "text": "parm99",
+            "text": "parm99_LNA",
             "start": 1291,
-            "end": 1297
-        },
-        {
-            "label": "MOL",
-            "text": "LNA",
-            "start": 1298,
             "end": 1301
         },
         {
@@ -155,8 +149,8 @@
         },
         {
             "label": "FFM",
-            "text": "OL15",
-            "start": 1327,
+            "text": "βOL15",
+            "start": 1326,
             "end": 1331
         },
         {

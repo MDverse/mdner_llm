@@ -22,18 +22,6 @@
             "end": 50
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 137,
-            "end": 142
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 143,
-            "end": 147
-        },
-        {
             "label": "FFM",
             "text": "AMBER99SB-ILDB",
             "start": 208,
@@ -47,21 +35,9 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 230,
-            "end": 235
-        },
-        {
-            "label": "MOL",
             "text": "NaCl",
             "start": 283,
             "end": 287
-        },
-        {
-            "label": "MOL",
-            "text": "disulfide",
-            "start": 297,
-            "end": 306
         },
         {
             "label": "TEMP",
@@ -74,18 +50,6 @@
             "text": "1 microsecond",
             "start": 424,
             "end": 437
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 484,
-            "end": 489
-        },
-        {
-            "label": "MOL",
-            "text": "ions",
-            "start": 494,
-            "end": 498
         }
     ],
     "url": "https://uvaauas.figshare.com/articles/dataset/EntF_-L/20485017"

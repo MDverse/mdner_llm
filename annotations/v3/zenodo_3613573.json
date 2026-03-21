@@ -22,6 +22,12 @@
             "end": 24
         },
         {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 62,
+            "end": 68
+        },
+        {
             "label": "FFM",
             "text": "Slipids",
             "start": 79,
@@ -53,6 +59,12 @@
         },
         {
             "label": "MOL",
+            "text": "CaCl_2",
+            "start": 250,
+            "end": 256
+        },
+        {
+            "label": "MOL",
             "text": "water",
             "start": 278,
             "end": 283
@@ -76,6 +88,12 @@
             "end": 432
         },
         {
+            "label": "FFM",
+            "text": "Dang",
+            "start": 496,
+            "end": 500
+        },
+        {
             "label": "STIME",
             "text": "1500 ns",
             "start": 675,
@@ -84,14 +102,8 @@
         {
             "label": "STIME",
             "text": "500 ns",
-            "start": 676,
-            "end": 682
-        },
-        {
-            "label": "STIME",
-            "text": "1000 ns",
-            "start": 764,
-            "end": 771
+            "start": 710,
+            "end": 716
         },
         {
             "label": "STIME",

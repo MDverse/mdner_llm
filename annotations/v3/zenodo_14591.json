@@ -16,6 +16,12 @@
             "end": 51
         },
         {
+            "label": "FFM",
+            "text": "Poger GROMOS 53A6_L",
+            "start": 79,
+            "end": 98
+        },
+        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 100,
@@ -46,6 +52,12 @@
             "end": 204
         },
         {
+            "label": "FFM",
+            "text": "Poger GROMOS 53A6_L",
+            "start": 256,
+            "end": 275
+        },
+        {
             "label": "STIME",
             "text": "100ns",
             "start": 338,
@@ -62,12 +74,6 @@
             "text": "DPPC",
             "start": 357,
             "end": 361
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 378,
-            "end": 383
         }
     ],
     "url": "https://zenodo.org/records/14591"

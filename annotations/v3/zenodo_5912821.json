@@ -47,9 +47,27 @@
         },
         {
             "label": "MOL",
+            "text": "Aβ40",
+            "start": 238,
+            "end": 242
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ42",
+            "start": 247,
+            "end": 251
+        },
+        {
+            "label": "MOL",
             "text": "ChAT",
             "start": 255,
             "end": 259
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ peptides",
+            "start": 320,
+            "end": 331
         },
         {
             "label": "MOL",
@@ -59,15 +77,39 @@
         },
         {
             "label": "MOL",
+            "text": "Aβ40",
+            "start": 354,
+            "end": 358
+        },
+        {
+            "label": "MOL",
             "text": "ChAT",
             "start": 370,
             "end": 374
         },
         {
             "label": "MOL",
+            "text": "Aβ40",
+            "start": 375,
+            "end": 379
+        },
+        {
+            "label": "MOL",
             "text": "ChAT",
             "start": 391,
             "end": 395
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ40",
+            "start": 396,
+            "end": 400
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ40",
+            "start": 415,
+            "end": 419
         },
         {
             "label": "MOL",
@@ -83,15 +125,39 @@
         },
         {
             "label": "MOL",
+            "text": "Aβ42",
+            "start": 451,
+            "end": 455
+        },
+        {
+            "label": "MOL",
             "text": "ChAT",
             "start": 467,
             "end": 471
         },
         {
             "label": "MOL",
+            "text": "Aβ42",
+            "start": 472,
+            "end": 476
+        },
+        {
+            "label": "MOL",
             "text": "ChAT",
             "start": 488,
             "end": 492
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ42",
+            "start": 493,
+            "end": 497
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ42",
+            "start": 527,
+            "end": 531
         },
         {
             "label": "MOL",
@@ -104,42 +170,6 @@
             "text": "100 ns",
             "start": 683,
             "end": 689
-        },
-        {
-            "label": "MOL",
-            "text": "ChAT",
-            "start": 842,
-            "end": 846
-        },
-        {
-            "label": "MOL",
-            "text": "ChAT",
-            "start": 942,
-            "end": 946
-        },
-        {
-            "label": "MOL",
-            "text": "ChAT",
-            "start": 1042,
-            "end": 1046
-        },
-        {
-            "label": "MOL",
-            "text": "ChAT",
-            "start": 1142,
-            "end": 1146
-        },
-        {
-            "label": "MOL",
-            "text": "ChAT",
-            "start": 1242,
-            "end": 1246
-        },
-        {
-            "label": "MOL",
-            "text": "ChAT",
-            "start": 1342,
-            "end": 1346
         }
     ],
     "url": "https://zenodo.org/records/5912821"

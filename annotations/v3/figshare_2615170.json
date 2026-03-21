@@ -17,12 +17,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 393,
-            "end": 398
-        },
-        {
-            "label": "MOL",
             "text": "methanol",
             "start": 400,
             "end": 408
@@ -32,6 +26,12 @@
             "text": "ethanol",
             "start": 401,
             "end": 408
+        },
+        {
+            "label": "MOL",
+            "text": "ethanol",
+            "start": 414,
+            "end": 421
         },
         {
             "label": "TEMP",

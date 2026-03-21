@@ -71,26 +71,14 @@
         },
         {
             "label": "STIME",
-            "text": "100",
+            "text": "100-200ns",
             "start": 580,
-            "end": 583
-        },
-        {
-            "label": "STIME",
-            "text": "200ns",
-            "start": 584,
             "end": 589
         },
         {
             "label": "STIME",
-            "text": "200",
+            "text": "200-300ns",
             "start": 603,
-            "end": 606
-        },
-        {
-            "label": "STIME",
-            "text": "300ns",
-            "start": 607,
             "end": 612
         }
     ],

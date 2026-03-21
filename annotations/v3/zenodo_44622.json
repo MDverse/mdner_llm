@@ -53,12 +53,6 @@
         },
         {
             "label": "MOL",
-            "text": "Acyl",
-            "start": 228,
-            "end": 232
-        },
-        {
-            "label": "MOL",
             "text": "azelaoyl",
             "start": 252,
             "end": 260
@@ -74,12 +68,6 @@
             "text": "pazePC",
             "start": 407,
             "end": 413
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 420,
-            "end": 425
         },
         {
             "label": "MOL",
