@@ -1,10 +1,20 @@
 """
-Validate and clean JSON annotations for named entities.
+Validate, clean, and sort JSON annotations for named entities.
 
-This script checks a single JSON annotation file for:
-- Overlapping entities (start/end indices)
-- Span length consistency (end - start == len(text))
-- Sorts annotations in text order
+This script performs a comprehensive quality control on a single JSON
+annotation file or a directory of annotation files. Specifically, it:
+
+- Checks for overlapping entities (where start/end indices overlap).
+- Verifies span length consistency (end - start == len(text)).
+- Confirms that entity text matches the corresponding substring in raw_text.
+- Detects invalid entity boundaries (entities starting or ending with
+  spaces, punctuation, or parentheses).
+- Removes unwanted entities based on a predefined list (e.g., 'water',
+  'protein', 'lipid') with case-insensitive matching.
+- Sorts entities in order of their appearance in the text (by start index).
+- Logs all warnings and actions, including removed entities, using loguru.
+- Persists the cleaned and sorted annotations back to the original JSON
+  file.
 """
 
 import json
