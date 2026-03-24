@@ -41,6 +41,12 @@
         },
         {
             "label": "MOL",
+            "text": "P2Y1R",
+            "start": 281,
+            "end": 286
+        },
+        {
+            "label": "MOL",
             "text": "2MeSADP",
             "start": 563,
             "end": 570
@@ -74,12 +80,6 @@
             "text": "1.6 μs",
             "start": 723,
             "end": 729
-        },
-        {
-            "label": "MOL",
-            "text": "P2Y1R",
-            "start": 281,
-            "end": 286
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Demystifying_P2Y_sub_1_sub_Receptor_Ligand_Recognition_through_Docking_and_Molecular_Dynamics_Analyses/5642866"

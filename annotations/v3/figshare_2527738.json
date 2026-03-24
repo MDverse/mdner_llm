@@ -65,15 +65,15 @@
         },
         {
             "label": "MOL",
-            "text": "POPC",
-            "start": 839,
-            "end": 843
-        },
-        {
-            "label": "MOL",
             "text": "Hp",
             "start": 819,
             "end": 821
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 839,
+            "end": 843
         },
         {
             "label": "MOL",

@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "Smoothened",
+            "start": 221,
+            "end": 231
+        },
+        {
+            "label": "MOL",
             "text": "mSMO",
             "start": 233,
             "end": 237
@@ -116,12 +122,6 @@
             "text": "cholesterol",
             "start": 520,
             "end": 531
-        },
-        {
-            "label": "MOL",
-            "text": "Smoothened",
-            "start": 221,
-            "end": 231
         },
         {
             "label": "MOL",

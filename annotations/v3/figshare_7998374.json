@@ -65,6 +65,12 @@
         },
         {
             "label": "MOL",
+            "text": "lipids",
+            "start": 702,
+            "end": 708
+        },
+        {
+            "label": "MOL",
             "text": "hydrocarbon",
             "start": 883,
             "end": 894
@@ -128,12 +134,6 @@
             "text": "PA",
             "start": 1667,
             "end": 1669
-        },
-        {
-            "label": "MOL",
-            "text": "lipids",
-            "start": 702,
-            "end": 708
         },
         {
             "label": "MOL",

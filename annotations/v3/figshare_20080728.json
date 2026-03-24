@@ -59,12 +59,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 1315,
-            "end": 1320
-        },
-        {
-            "label": "MOL",
             "text": "FUS",
             "start": 903,
             "end": 906
@@ -80,6 +74,12 @@
             "text": "FUS",
             "start": 1127,
             "end": 1130
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1315,
+            "end": 1320
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Insights_into_the_Atomistic_Mechanisms_of_Phosphorylation_in_Disrupting_Liquid_Liquid_Phase_Separation_and_Aggregation_of_the_FUS_Low-Complexity_Domain/20080728"

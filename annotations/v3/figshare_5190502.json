@@ -84,14 +84,14 @@
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 720,
-            "end": 724
+            "start": 895,
+            "end": 899
         },
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 895,
-            "end": 899
+            "start": 940,
+            "end": 944
         },
         {
             "label": "MOL",
@@ -108,8 +108,8 @@
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 940,
-            "end": 944
+            "start": 1118,
+            "end": 1122
         },
         {
             "label": "MOL",
@@ -120,8 +120,8 @@
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 1118,
-            "end": 1122
+            "start": 1275,
+            "end": 1279
         },
         {
             "label": "MOL",
@@ -138,8 +138,8 @@
         {
             "label": "MOL",
             "text": "HNO3",
-            "start": 1275,
-            "end": 1279
+            "start": 1571,
+            "end": 1575
         }
     ],
     "url": "https://tandf.figshare.com/articles/dataset/Organic_and_Third_Phase_in_HNO_sub_3_sub_TBP_i_n_i_-Dodecane_System_No_Reverse_Micelles/5190502"

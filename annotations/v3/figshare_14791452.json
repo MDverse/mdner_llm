@@ -23,39 +23,21 @@
         },
         {
             "label": "MOL",
-            "text": " AlPO-1",
-            "start": 73,
-            "end": 80
+            "text": "AlPO-11",
+            "start": 539,
+            "end": 546
         },
         {
             "label": "MOL",
-            "text": " AlPO-1",
-            "start": 262,
-            "end": 269
+            "text": "AlPO-11",
+            "start": 644,
+            "end": 651
         },
         {
             "label": "MOL",
-            "text": " AlPO-1",
-            "start": 406,
-            "end": 413
-        },
-        {
-            "label": "MOL",
-            "text": "d AlPO-",
-            "start": 72,
-            "end": 79
-        },
-        {
-            "label": "MOL",
-            "text": "ed AlPO",
-            "start": 71,
-            "end": 78
-        },
-        {
-            "label": "MOL",
-            "text": "ted AlP",
-            "start": 70,
-            "end": 77
+            "text": "AlPO-11",
+            "start": 828,
+            "end": 835
         }
     ],
     "url": "https://figshare.com/articles/dataset/Datasets_and_input_for_Revisiting_the_structure_of_calcined_and_hydrated_AlPO-11_with_DFT-based_molecular_dynamics_calculations_/14791452"

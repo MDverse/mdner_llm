@@ -30,14 +30,26 @@
         {
             "label": "MOL",
             "text": "amanitin",
-            "start": 32,
-            "end": 40
+            "start": 653,
+            "end": 661
+        },
+        {
+            "label": "MOL",
+            "text": "ansamers",
+            "start": 931,
+            "end": 939
         },
         {
             "label": "MOL",
             "text": "amanitin",
-            "start": 100,
-            "end": 108
+            "start": 1064,
+            "end": 1072
+        },
+        {
+            "label": "MOL",
+            "text": "ansamers",
+            "start": 1131,
+            "end": 1139
         },
         {
             "label": "MOL",

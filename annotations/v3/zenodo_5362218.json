@@ -40,12 +40,6 @@
             "end": 598
         },
         {
-            "label": "STIME",
-            "text": "500 ns",
-            "start": 592,
-            "end": 598
-        },
-        {
             "label": "MOL",
             "text": "FYVE",
             "start": 612,

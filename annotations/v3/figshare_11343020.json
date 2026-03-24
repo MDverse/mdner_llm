@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "kinase",
+            "start": 167,
+            "end": 173
+        },
+        {
+            "label": "MOL",
             "text": "Btk",
             "start": 175,
             "end": 178
@@ -36,20 +42,14 @@
         {
             "label": "MOL",
             "text": "kinase",
-            "start": 167,
-            "end": 173
+            "start": 273,
+            "end": 279
         },
         {
             "label": "MOL",
             "text": "Btk",
             "start": 600,
             "end": 603
-        },
-        {
-            "label": "MOL",
-            "text": "kinase",
-            "start": 273,
-            "end": 279
         },
         {
             "label": "MOL",

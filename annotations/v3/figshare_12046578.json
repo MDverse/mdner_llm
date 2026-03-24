@@ -11,15 +11,15 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "water",
-            "start": 426,
-            "end": 431
-        },
-        {
-            "label": "MOL",
             "text": "oligopeptide",
             "start": 303,
             "end": 315
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 426,
+            "end": 431
         },
         {
             "label": "MOL",

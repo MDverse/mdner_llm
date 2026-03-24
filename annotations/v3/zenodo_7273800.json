@@ -41,15 +41,15 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "Packmol",
-            "start": 2293,
-            "end": 2300
-        },
-        {
-            "label": "SOFTNAME",
             "text": "Lammps",
             "start": 2210,
             "end": 2216
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Packmol",
+            "start": 2293,
+            "end": 2300
         },
         {
             "label": "SOFTVERS",

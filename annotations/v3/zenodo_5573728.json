@@ -24,8 +24,14 @@
         {
             "label": "MOL",
             "text": "azobioisostere",
-            "start": 40,
-            "end": 54
+            "start": 229,
+            "end": 243
+        },
+        {
+            "label": "MOL",
+            "text": "Aβ42",
+            "start": 274,
+            "end": 278
         },
         {
             "label": "FFM",
@@ -66,8 +72,8 @@
         {
             "label": "MOL",
             "text": "azobioisostere",
-            "start": 229,
-            "end": 243
+            "start": 618,
+            "end": 632
         },
         {
             "label": "MOL",
@@ -90,104 +96,128 @@
         {
             "label": "FFM",
             "text": "Amber",
-            "start": 818,
-            "end": 823
+            "start": 819,
+            "end": 824
         },
         {
             "label": "STIME",
             "text": "315.0 K",
-            "start": 863,
-            "end": 870
+            "start": 864,
+            "end": 871
         },
         {
             "label": "STIME",
             "text": "316.7 K",
-            "start": 881,
-            "end": 888
+            "start": 882,
+            "end": 889
         },
         {
             "label": "STIME",
             "text": "318.4 K",
-            "start": 899,
-            "end": 906
+            "start": 900,
+            "end": 907
         },
         {
             "label": "STIME",
             "text": "320.1 K",
-            "start": 917,
-            "end": 924
+            "start": 918,
+            "end": 925
         },
         {
             "label": "STIME",
             "text": "321.8 K",
-            "start": 935,
-            "end": 942
+            "start": 936,
+            "end": 943
         },
         {
             "label": "FFM",
             "text": "Amber",
-            "start": 945,
-            "end": 950
+            "start": 946,
+            "end": 951
         },
         {
             "label": "STIME",
             "text": "315.0 K",
-            "start": 988,
-            "end": 995
+            "start": 989,
+            "end": 996
+        },
+        {
+            "label": "STIME",
+            "text": "316.0 K",
+            "start": 1007,
+            "end": 1014
         },
         {
             "label": "STIME",
             "text": "317.0 K",
-            "start": 1024,
-            "end": 1031
+            "start": 1025,
+            "end": 1032
+        },
+        {
+            "label": "STIME",
+            "text": "318.0 K",
+            "start": 1043,
+            "end": 1050
         },
         {
             "label": "STIME",
             "text": "319.1 K",
-            "start": 1060,
-            "end": 1067
+            "start": 1061,
+            "end": 1068
         },
         {
             "label": "FFM",
             "text": "CHARMM",
-            "start": 1070,
-            "end": 1076
+            "start": 1071,
+            "end": 1077
         },
         {
             "label": "STIME",
             "text": "315.0 K",
-            "start": 1114,
-            "end": 1121
+            "start": 1115,
+            "end": 1122
+        },
+        {
+            "label": "STIME",
+            "text": "316.0 K",
+            "start": 1133,
+            "end": 1140
         },
         {
             "label": "STIME",
             "text": "317.0 K",
-            "start": 1150,
-            "end": 1157
+            "start": 1151,
+            "end": 1158
+        },
+        {
+            "label": "STIME",
+            "text": "318.0 K",
+            "start": 1169,
+            "end": 1176
         },
         {
             "label": "STIME",
             "text": "319.1 K",
-            "start": 1186,
-            "end": 1193
+            "start": 1187,
+            "end": 1194
         },
         {
             "label": "FFM",
             "text": "Amber",
-            "start": 1261,
-            "end": 1266
+            "start": 1264,
+            "end": 1269
         },
         {
             "label": "FFM",
             "text": "Amber",
-            "start": 1396,
-            "end": 1401
+            "start": 1399,
+            "end": 1404
         },
         {
             "label": "FFM",
             "text": "CHARMM",
-            "start": 1503,
-            "end": 1509
+            "start": 1506,
+            "end": 1512
         }
     ],
     "url": "https://zenodo.org/records/5573728"

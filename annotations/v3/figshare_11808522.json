@@ -11,33 +11,69 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Cyclodextrin",
-            "start": 57,
+            "text": "β‑Cyclodextrin",
+            "start": 55,
             "end": 69
         },
         {
             "label": "MOL",
-            "text": "cyclodextrin",
-            "start": 82,
+            "text": "β-cyclodextrin",
+            "start": 80,
             "end": 94
         },
         {
             "label": "MOL",
-            "text": "CD",
-            "start": 97,
+            "text": "βCD",
+            "start": 96,
             "end": 99
         },
         {
             "label": "MOL",
-            "text": "CD",
-            "start": 480,
+            "text": "organic micropollutants",
+            "start": 179,
+            "end": 202
+        },
+        {
+            "label": "MOL",
+            "text": "OMPs",
+            "start": 204,
+            "end": 208
+        },
+        {
+            "label": "MOL",
+            "text": "OMPs",
+            "start": 378,
+            "end": 382
+        },
+        {
+            "label": "MOL",
+            "text": "OMPs",
+            "start": 469,
+            "end": 473
+        },
+        {
+            "label": "MOL",
+            "text": "βCD",
+            "start": 479,
             "end": 482
         },
         {
             "label": "MOL",
-            "text": "CD",
-            "start": 563,
+            "text": "OMPs",
+            "start": 552,
+            "end": 556
+        },
+        {
+            "label": "MOL",
+            "text": "βCD",
+            "start": 562,
             "end": 565
+        },
+        {
+            "label": "MOL",
+            "text": "OMPs",
+            "start": 739,
+            "end": 743
         },
         {
             "label": "FFM",
@@ -59,21 +95,45 @@
         },
         {
             "label": "MOL",
-            "text": "CD",
-            "start": 1075,
-            "end": 1077
+            "text": "OMPs",
+            "start": 1213,
+            "end": 1217
         },
         {
             "label": "MOL",
-            "text": "CD",
-            "start": 1492,
+            "text": "OMPs",
+            "start": 1345,
+            "end": 1349
+        },
+        {
+            "label": "MOL",
+            "text": "βCD",
+            "start": 1491,
             "end": 1494
         },
         {
             "label": "MOL",
-            "text": "CD",
-            "start": 1640,
+            "text": "βCD",
+            "start": 1639,
             "end": 1642
+        },
+        {
+            "label": "MOL",
+            "text": "OMPs",
+            "start": 1648,
+            "end": 1652
+        },
+        {
+            "label": "MOL",
+            "text": "βCD",
+            "start": 1739,
+            "end": 1742
+        },
+        {
+            "label": "MOL",
+            "text": "OMPs",
+            "start": 1766,
+            "end": 1770
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Inclusion_Complexation_of_Organic_Micropollutants_with_Cyclodextrin/11808522"

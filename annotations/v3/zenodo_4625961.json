@@ -28,16 +28,16 @@
             "end": 40
         },
         {
-            "label": "SOFTNAME",
-            "text": "VMD",
-            "start": 403,
-            "end": 406
-        },
-        {
             "label": "MOL",
             "text": "ion",
             "start": 192,
             "end": 195
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "VMD",
+            "start": 403,
+            "end": 406
         }
     ],
     "url": "https://zenodo.org/records/4625961"

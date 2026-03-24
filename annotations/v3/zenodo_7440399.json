@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "nucleotide",
+            "start": 149,
+            "end": 159
+        },
+        {
+            "label": "MOL",
             "text": "septin",
             "start": 252,
             "end": 258
@@ -68,12 +74,6 @@
             "text": "septin",
             "start": 942,
             "end": 948
-        },
-        {
-            "label": "MOL",
-            "text": "nucleotide",
-            "start": 149,
-            "end": 159
         },
         {
             "label": "MOL",

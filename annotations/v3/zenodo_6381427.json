@@ -11,6 +11,12 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "S",
+            "start": 0,
+            "end": 1
+        },
+        {
+            "label": "MOL",
             "text": "Spike protein",
             "start": 81,
             "end": 94
@@ -32,12 +38,6 @@
             "text": "spike",
             "start": 502,
             "end": 507
-        },
-        {
-            "label": "MOL",
-            "text": "S",
-            "start": 0,
-            "end": 1
         },
         {
             "label": "MOL",

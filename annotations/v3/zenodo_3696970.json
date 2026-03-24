@@ -77,6 +77,12 @@
         },
         {
             "label": "MOL",
+            "text": "electrolyte",
+            "start": 1040,
+            "end": 1051
+        },
+        {
+            "label": "MOL",
             "text": "graphene",
             "start": 1200,
             "end": 1208
@@ -86,12 +92,6 @@
             "text": "carbon",
             "start": 1209,
             "end": 1215
-        },
-        {
-            "label": "MOL",
-            "text": "electrolyte",
-            "start": 1040,
-            "end": 1051
         }
     ],
     "url": "https://zenodo.org/records/3696970"

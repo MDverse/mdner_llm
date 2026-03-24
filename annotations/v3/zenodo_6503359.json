@@ -16,6 +16,30 @@
             "end": 133
         },
         {
+            "label": "MOL",
+            "text": "DSPE",
+            "start": 158,
+            "end": 162
+        },
+        {
+            "label": "MOL",
+            "text": "PEG",
+            "start": 163,
+            "end": 166
+        },
+        {
+            "label": "MOL",
+            "text": "DSPE",
+            "start": 216,
+            "end": 220
+        },
+        {
+            "label": "MOL",
+            "text": "PEG",
+            "start": 221,
+            "end": 224
+        },
+        {
             "label": "SOFTNAME",
             "text": "GROMACS",
             "start": 237,
@@ -36,14 +60,14 @@
         {
             "label": "MOL",
             "text": "DSPE",
-            "start": 158,
-            "end": 162
+            "start": 831,
+            "end": 835
         },
         {
             "label": "MOL",
             "text": "PEG",
-            "start": 163,
-            "end": 166
+            "start": 836,
+            "end": 839
         },
         {
             "label": "MOL",
@@ -65,33 +89,9 @@
         },
         {
             "label": "MOL",
-            "text": "DSPE",
-            "start": 216,
-            "end": 220
-        },
-        {
-            "label": "MOL",
-            "text": "PEG",
-            "start": 221,
-            "end": 224
-        },
-        {
-            "label": "MOL",
             "text": "amide",
             "start": 1151,
             "end": 1156
-        },
-        {
-            "label": "MOL",
-            "text": "DSPE",
-            "start": 831,
-            "end": 835
-        },
-        {
-            "label": "MOL",
-            "text": "PEG",
-            "start": 836,
-            "end": 839
         }
     ],
     "url": "https://zenodo.org/records/6503359"

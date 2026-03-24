@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "M",
+            "start": 35,
+            "end": 36
+        },
+        {
+            "label": "MOL",
             "text": "Phosphatidyl-myo-inositol Mannosyltransferase A",
             "start": 62,
             "end": 109
@@ -80,12 +86,6 @@
             "text": "mannose",
             "start": 464,
             "end": 471
-        },
-        {
-            "label": "MOL",
-            "text": "M",
-            "start": 35,
-            "end": 36
         },
         {
             "label": "MOL",

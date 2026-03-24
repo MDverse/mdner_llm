@@ -24,12 +24,6 @@
         {
             "label": "MOL",
             "text": "ethanol",
-            "start": 401,
-            "end": 408
-        },
-        {
-            "label": "MOL",
-            "text": "ethanol",
             "start": 414,
             "end": 421
         },

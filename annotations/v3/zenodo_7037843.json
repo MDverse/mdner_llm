@@ -11,15 +11,21 @@
     "entities": [
         {
             "label": "STIME",
-            "text": "microsecond",
-            "start": 407,
-            "end": 418
+            "text": "us",
+            "start": 98,
+            "end": 100
         },
         {
             "label": "STIME",
             "text": "us",
-            "start": 98,
-            "end": 100
+            "start": 122,
+            "end": 124
+        },
+        {
+            "label": "STIME",
+            "text": "microsecond",
+            "start": 407,
+            "end": 418
         },
         {
             "label": "STIME",
@@ -74,12 +80,6 @@
             "text": "microsecond",
             "start": 1713,
             "end": 1724
-        },
-        {
-            "label": "STIME",
-            "text": "us",
-            "start": 122,
-            "end": 124
         },
         {
             "label": "FFM",

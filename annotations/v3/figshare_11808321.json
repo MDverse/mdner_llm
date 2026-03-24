@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "amyloid",
+            "start": 370,
+            "end": 377
+        },
+        {
+            "label": "MOL",
             "text": "water",
             "start": 519,
             "end": 524
@@ -44,12 +50,6 @@
             "text": "p-FTAA",
             "start": 1520,
             "end": 1526
-        },
-        {
-            "label": "MOL",
-            "text": "amyloid",
-            "start": 370,
-            "end": 377
         },
         {
             "label": "MOL",

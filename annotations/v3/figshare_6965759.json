@@ -72,8 +72,8 @@
         {
             "label": "MOL",
             "text": "OH",
-            "start": 202,
-            "end": 204
+            "start": 351,
+            "end": 353
         },
         {
             "label": "MOL",
@@ -126,14 +126,20 @@
         {
             "label": "MOL",
             "text": "OH",
-            "start": 351,
-            "end": 353
+            "start": 1249,
+            "end": 1251
+        },
+        {
+            "label": "STIME",
+            "text": "1 ns",
+            "start": 1305,
+            "end": 1309
         },
         {
             "label": "MOL",
             "text": "OH",
-            "start": 447,
-            "end": 449
+            "start": 1345,
+            "end": 1347
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Reactive_Oxygen_and_Nitrogen_Species_at_Phospholipid_Bilayers_Peroxynitrous_Acid_and_Its_Homolysis_Products/6965759"

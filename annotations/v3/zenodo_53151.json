@@ -136,16 +136,16 @@
             "end": 902
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 1294,
-            "end": 1299
-        },
-        {
             "label": "TEMP",
             "text": "323 K",
             "start": 929,
             "end": 934
+        },
+        {
+            "label": "MOL",
+            "text": "water",
+            "start": 1294,
+            "end": 1299
         }
     ],
     "url": "https://zenodo.org/records/53151"

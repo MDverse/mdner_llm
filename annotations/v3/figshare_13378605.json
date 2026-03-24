@@ -77,6 +77,12 @@
         },
         {
             "label": "MOL",
+            "text": "corilagin",
+            "start": 494,
+            "end": 503
+        },
+        {
+            "label": "MOL",
             "text": "Stp1",
             "start": 553,
             "end": 557
@@ -90,14 +96,14 @@
         {
             "label": "MOL",
             "text": "corilagin",
-            "start": 494,
-            "end": 503
+            "start": 708,
+            "end": 717
         },
         {
             "label": "MOL",
             "text": "corilagin",
-            "start": 708,
-            "end": 717
+            "start": 856,
+            "end": 865
         },
         {
             "label": "MOL",
@@ -114,14 +120,14 @@
         {
             "label": "MOL",
             "text": "corilagin",
-            "start": 856,
-            "end": 865
+            "start": 939,
+            "end": 948
         },
         {
             "label": "MOL",
             "text": "corilagin",
-            "start": 939,
-            "end": 948
+            "start": 1088,
+            "end": 1097
         },
         {
             "label": "MOL",
@@ -134,12 +140,6 @@
             "text": "Stp1",
             "start": 1160,
             "end": 1164
-        },
-        {
-            "label": "MOL",
-            "text": "corilagin",
-            "start": 1088,
-            "end": 1097
         },
         {
             "label": "MOL",

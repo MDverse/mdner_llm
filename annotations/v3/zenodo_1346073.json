@@ -22,16 +22,16 @@
             "end": 229
         },
         {
-            "label": "SOFTNAME",
-            "text": "PyInteraph",
-            "start": 493,
-            "end": 503
-        },
-        {
             "label": "MOL",
             "text": "KRAS",
             "start": 308,
             "end": 312
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PyInteraph",
+            "start": 493,
+            "end": 503
         }
     ],
     "url": "https://zenodo.org/records/1346073"
