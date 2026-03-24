@@ -106,6 +106,12 @@
             "end": 1196
         },
         {
+            "label": "STIME",
+            "text": "20 ns",
+            "start": 1273,
+            "end": 1278
+        },
+        {
             "label": "MOL",
             "text": "arylamide",
             "start": 1449,

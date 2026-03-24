@@ -101,6 +101,18 @@
         },
         {
             "label": "FFM",
+            "text": "NB-Fix",
+            "start": 624,
+            "end": 630
+        },
+        {
+            "label": "MOL",
+            "text": "sodium",
+            "start": 640,
+            "end": 646
+        },
+        {
+            "label": "FFM",
             "text": "Charmm36",
             "start": 654,
             "end": 662

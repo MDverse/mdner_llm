@@ -101,6 +101,12 @@
         },
         {
             "label": "STIME",
+            "text": "1000 ns",
+            "start": 764,
+            "end": 771
+        },
+        {
+            "label": "STIME",
             "text": "1500 ns",
             "start": 870,
             "end": 877
