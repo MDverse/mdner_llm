@@ -17,9 +17,21 @@
         },
         {
             "label": "MOL",
+            "text": "GSK3β inhibitors",
+            "start": 23,
+            "end": 39
+        },
+        {
+            "label": "MOL",
             "text": "Pyridinylimidazoles",
             "start": 151,
             "end": 170
+        },
+        {
+            "label": "MOL",
+            "text": "GSK3β inhibitors",
+            "start": 174,
+            "end": 190
         },
         {
             "label": "SOFTNAME",

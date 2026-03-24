@@ -40,6 +40,12 @@
             "end": 598
         },
         {
+            "label": "STIME",
+            "text": "500 ns",
+            "start": 592,
+            "end": 598
+        },
+        {
             "label": "MOL",
             "text": "FYVE",
             "start": 612,
@@ -66,32 +72,32 @@
         {
             "label": "STIME",
             "text": "500 ns",
-            "start": 592,
-            "end": 598
+            "start": 835,
+            "end": 841
         },
         {
             "label": "MOL",
             "text": "FYVE",
-            "start": 854,
-            "end": 858
+            "start": 855,
+            "end": 859
         },
         {
             "label": "MOL",
             "text": "EEA1",
-            "start": 871,
-            "end": 875
+            "start": 872,
+            "end": 876
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 887,
-            "end": 891
+            "start": 888,
+            "end": 892
         },
         {
             "label": "MOL",
             "text": "POP1",
-            "start": 892,
-            "end": 896
+            "start": 893,
+            "end": 897
         }
     ],
     "url": "https://zenodo.org/records/5362218"

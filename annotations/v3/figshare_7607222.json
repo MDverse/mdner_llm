@@ -58,6 +58,12 @@
             "end": 544
         },
         {
+            "label": "FFM",
+            "text": "GROMOS 56A6CARBO/CARBO_R",
+            "start": 555,
+            "end": 579
+        },
+        {
             "label": "MOL",
             "text": "carbohydrates",
             "start": 687,

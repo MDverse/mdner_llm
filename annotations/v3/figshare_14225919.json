@@ -94,6 +94,12 @@
             "end": 856
         },
         {
+            "label": "TEMP",
+            "text": "34 K",
+            "start": 929,
+            "end": 933
+        },
+        {
             "label": "FFM",
             "text": "PYS",
             "start": 940,
@@ -104,6 +110,18 @@
             "text": "Williams 7B",
             "start": 948,
             "end": 959
+        },
+        {
+            "label": "TEMP",
+            "text": "2",
+            "start": 1010,
+            "end": 1011
+        },
+        {
+            "label": "TEMP",
+            "text": "3 K",
+            "start": 1016,
+            "end": 1019
         },
         {
             "label": "MOL",

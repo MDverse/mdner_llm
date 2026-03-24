@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "Protein",
+            "start": 35,
+            "end": 42
+        },
+        {
+            "label": "MOL",
             "text": "SARS-CoV-2 Spike",
             "start": 167,
             "end": 183
@@ -41,9 +47,27 @@
         },
         {
             "label": "MOL",
-            "text": "Protein",
-            "start": 35,
-            "end": 42
+            "text": "RBD",
+            "start": 617,
+            "end": 620
+        },
+        {
+            "label": "MOL",
+            "text": "SD1",
+            "start": 622,
+            "end": 625
+        },
+        {
+            "label": "MOL",
+            "text": "SD2",
+            "start": 630,
+            "end": 633
+        },
+        {
+            "label": "MOL",
+            "text": "RBD",
+            "start": 690,
+            "end": 693
         },
         {
             "label": "SOFTNAME",
