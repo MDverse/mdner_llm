@@ -1,0 +1,224 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "In silico prediction of ARB resistance: A first step in creating personalized ARB therapy\nAT1R Model preparation\nThe crystal structure of human AT1R bound to olmesartan (PDB: 4ZUD) was downloaded from the RCSB Protein Data Bank. 4ZUD contains apocytochrome b562RIL fused to the amino terminus, and many of the flexible regions, as well as helix 8, are not resolved. In order to generate an appropriate starting structure, olmesartan and the apocytochrome b562RIL fusion were removed from 4ZUD, and the missing regions were added to the protein with MOE software (Chemical Computing Group ULC, Montreal, Canada). Specifically, the N-Terminus (residues 1 to 25), intracellular loop 2 (residues 134 to 140), extracellular loop 2 (residues 186 to 188), intracellular loop 3 (residues 223 to 234), and helix 8 (residues 305 to 316) were added to the AT1R in accordance to the human AT1R sequence and PDB:4YAY. The remaining carboxyl-tail of the AT1R (residues 317 to 359) was not modeled. The AT1R model then underwent an energy minimization within MOE using the Amber10:Extended Huckel Theory (EHT) force field.\nMolecular dynamic (MD) simulations and analysis\nThe MOE minimized AT1R was loaded into CHARMM-GUI. An 80 Å by 80 Å lipid bi-layer composed of 13% cholesterol and 87% Phosphatidylcholine (POPC) was generated around the receptor. Water was packed 17.5 Å above and below the lipid bi-layer, and 150 mM Na+ and Cl- ions were added to the system via Monte-Carlo ion placing. The all-atom CHARMM C36 force field for proteins and ions, and the CHARMM TIP3P force field for water were selected. A hard non-bonded cutoff of 8.0 angstroms was utilized. All molecular dynamics simulations were performed using the PMEMD module of the AMBER16 package with support for MPI multi-process control and GPU acceleration code.  Orthorhombic periodic boundary conditions with a constant pressure of 1 atm was set via the NPT ensemble and temperature was set to 310.15°K (37°C) using Langevin dynamics. The SHAKE algorithm was used to constrain bonds containing hydrogens. The dynamics were propagated using Langevin dynamics with Langevin damping coefficient of 1 ps-1 and a time step of 2 fs. Before the production run, the AT1R model was minimized for 5000 steps using the steepest descent method and then equilibrated for 600 ps. The protein coordinates were saved in 10 ps intervals. The production run lasted 150 ns, at which point all three replicas were stable for at least the last 20 ns.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 90,
+            "end": 94
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 144,
+            "end": 148
+        },
+        {
+            "label": "MOL",
+            "text": "olmesartan",
+            "start": 158,
+            "end": 168
+        },
+        {
+            "label": "MOL",
+            "text": "4ZUD",
+            "start": 175,
+            "end": 179
+        },
+        {
+            "label": "MOL",
+            "text": "4ZUD",
+            "start": 229,
+            "end": 233
+        },
+        {
+            "label": "MOL",
+            "text": "apocytochrome b562RIL",
+            "start": 243,
+            "end": 264
+        },
+        {
+            "label": "MOL",
+            "text": "olmesartan",
+            "start": 422,
+            "end": 432
+        },
+        {
+            "label": "MOL",
+            "text": "apocytochrome b562RIL",
+            "start": 441,
+            "end": 462
+        },
+        {
+            "label": "MOL",
+            "text": "4ZUD",
+            "start": 488,
+            "end": 492
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "MOE",
+            "start": 549,
+            "end": 552
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 823,
+            "end": 825
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 845,
+            "end": 849
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 877,
+            "end": 881
+        },
+        {
+            "label": "MOL",
+            "text": "4YAY",
+            "start": 899,
+            "end": 903
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 940,
+            "end": 944
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 988,
+            "end": 992
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "MOE",
+            "start": 1044,
+            "end": 1047
+        },
+        {
+            "label": "FFM",
+            "text": "Amber10:Extended Huckel Theory (EHT)",
+            "start": 1058,
+            "end": 1094
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "MOE",
+            "start": 1160,
+            "end": 1163
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 1174,
+            "end": 1178
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 1195,
+            "end": 1205
+        },
+        {
+            "label": "MOL",
+            "text": "cholesterol",
+            "start": 1254,
+            "end": 1265
+        },
+        {
+            "label": "MOL",
+            "text": "Phosphatidylcholine",
+            "start": 1274,
+            "end": 1293
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 1295,
+            "end": 1299
+        },
+        {
+            "label": "MOL",
+            "text": "Na+",
+            "start": 1407,
+            "end": 1410
+        },
+        {
+            "label": "MOL",
+            "text": "Cl-",
+            "start": 1415,
+            "end": 1418
+        },
+        {
+            "label": "FFM",
+            "text": "C36",
+            "start": 1498,
+            "end": 1501
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 1552,
+            "end": 1557
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AMBER",
+            "start": 1731,
+            "end": 1736
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 1736,
+            "end": 1738
+        },
+        {
+            "label": "TEMP",
+            "text": "310.15°K",
+            "start": 1950,
+            "end": 1958
+        },
+        {
+            "label": "TEMP",
+            "text": "37°C",
+            "start": 1960,
+            "end": 1964
+        },
+        {
+            "label": "MOL",
+            "text": "AT1R",
+            "start": 2214,
+            "end": 2218
+        },
+        {
+            "label": "STIME",
+            "text": "150 ns",
+            "start": 2403,
+            "end": 2409
+        },
+        {
+            "label": "STIME",
+            "text": "20 ns",
+            "start": 2479,
+            "end": 2484
+        }
+    ],
+    "url": "https://zenodo.org/records/3988469"
+}
