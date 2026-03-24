@@ -1,98 +1,98 @@
 {
-    "classes": [
-        "SOFTNAME",
-        "SOFTVERS",
-        "STIME",
-        "MOL",
-        "FFM",
-        "TEMP"
-    ],
-    "raw_text": "FORECASTING MOLECULAR DYNAMICS SIMULATIONS OF POLYMER-LIPIDS IN SOLUTION WITH RNNs\nFiles and scripts pertaining to our work: \n\nGROMACS files for the topology (DSPE+PEG.top) and the initial structure of the aggregate (DSPE+PEG_EA_NPT.gro)\nGROMACS topology file for the ethyl acetate molecule: EA_SI.top\nScripts to submit the GROMACS utilities for calculation of the interaction energies are described in README.txt (Subset_energy.sh , Interaction_energies.sh)\nScripts pertaining to PyTorch use and access of methods are described in README.txt (Multiple-run.sh. Job.sh, Pytorch_train-model.py)\nScripts pertaining to scikit learn access for the Expectation Maximization clustering are described in the README.txt (Job_EM.sh, EM_Clustering.py)\nFiles with the time series of the potential energy (PE) and interaction energy (IE) of the DSPE-PEG aggregate with the ethyl acetate solvent. Series contain 500,000 snapshots taken every 10 fs along the NVT Molecular Dynamics trajectory at 300 K and 906.3 kg/m3 density. The molecular solution is in a cubic box of edge length 13.76 nm, containing 16,000 ethyl acetate molecules and one aggregate of 4 DSPE-PEG-amide macromolecules (224,000 atoms): Data_Andrews_etal_DSPE-PEG_2022.zip\nArXiv preprint: https://doi.org/10.48550/arXiv.2203.00151 (JAndrews_etal_arXiv-doi.pdf)\n",
-    "entities": [
-        {
-            "label": "SOFTNAME",
-            "text": "GROMACS",
-            "start": 126,
-            "end": 133
-        },
-        {
-            "label": "MOL",
-            "text": "DSPE",
-            "start": 158,
-            "end": 162
-        },
-        {
-            "label": "MOL",
-            "text": "PEG",
-            "start": 163,
-            "end": 166
-        },
-        {
-            "label": "MOL",
-            "text": "DSPE",
-            "start": 216,
-            "end": 220
-        },
-        {
-            "label": "MOL",
-            "text": "PEG",
-            "start": 221,
-            "end": 224
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "GROMACS",
-            "start": 237,
-            "end": 244
-        },
-        {
-            "label": "MOL",
-            "text": "ethyl acetate",
-            "start": 267,
-            "end": 280
-        },
-        {
-            "label": "SOFTNAME",
-            "text": "GROMACS",
-            "start": 323,
-            "end": 330
-        },
-        {
-            "label": "MOL",
-            "text": "DSPE",
-            "start": 831,
-            "end": 835
-        },
-        {
-            "label": "MOL",
-            "text": "PEG",
-            "start": 836,
-            "end": 839
-        },
-        {
-            "label": "MOL",
-            "text": "ethyl acetate",
-            "start": 859,
-            "end": 872
-        },
-        {
-            "label": "TEMP",
-            "text": "300 K",
-            "start": 980,
-            "end": 985
-        },
-        {
-            "label": "MOL",
-            "text": "ethyl acetate",
-            "start": 1095,
-            "end": 1108
-        },
-        {
-            "label": "MOL",
-            "text": "amide",
-            "start": 1151,
-            "end": 1156
-        }
-    ],
-    "url": "https://zenodo.org/records/6503359"
+  "classes": [
+    "SOFTNAME",
+    "SOFTVERS",
+    "STIME",
+    "MOL",
+    "FFM",
+    "TEMP"
+  ],
+  "raw_text": "FORECASTING MOLECULAR DYNAMICS SIMULATIONS OF POLYMER-LIPIDS IN SOLUTION WITH RNNs\nFiles and scripts pertaining to our work: \n\nGROMACS files for the topology (DSPE+PEG.top) and the initial structure of the aggregate (DSPE+PEG_EA_NPT.gro)\nGROMACS topology file for the ethyl acetate molecule: EA_SI.top\nScripts to submit the GROMACS utilities for calculation of the interaction energies are described in README.txt (Subset_energy.sh , Interaction_energies.sh)\nScripts pertaining to PyTorch use and access of methods are described in README.txt (Multiple-run.sh. Job.sh, Pytorch_train-model.py)\nScripts pertaining to scikit learn access for the Expectation Maximization clustering are described in the README.txt (Job_EM.sh, EM_Clustering.py)\nFiles with the time series of the potential energy (PE) and interaction energy (IE) of the DSPE-PEG aggregate with the ethyl acetate solvent. Series contain 500,000 snapshots taken every 10 fs along the NVT Molecular Dynamics trajectory at 300 K and 906.3 kg/m3 density. The molecular solution is in a cubic box of edge length 13.76 nm, containing 16,000 ethyl acetate molecules and one aggregate of 4 DSPE-PEG-amide macromolecules (224,000 atoms): Data_Andrews_etal_DSPE-PEG_2022.zip\nArXiv preprint: https://doi.org/10.48550/arXiv.2203.00151 (JAndrews_etal_arXiv-doi.pdf)\n",
+  "entities": [
+    {
+      "label": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 126,
+      "end": 133
+    },
+    {
+      "label": "MOL",
+      "text": "DSPE",
+      "start": 158,
+      "end": 162
+    },
+    {
+      "label": "MOL",
+      "text": "PEG",
+      "start": 163,
+      "end": 166
+    },
+    {
+      "label": "MOL",
+      "text": "DSPE",
+      "start": 216,
+      "end": 220
+    },
+    {
+      "label": "MOL",
+      "text": "PEG",
+      "start": 221,
+      "end": 224
+    },
+    {
+      "label": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 237,
+      "end": 244
+    },
+    {
+      "label": "MOL",
+      "text": "ethyl acetate",
+      "start": 267,
+      "end": 280
+    },
+    {
+      "label": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 323,
+      "end": 330
+    },
+    {
+      "label": "MOL",
+      "text": "DSPE",
+      "start": 831,
+      "end": 835
+    },
+    {
+      "label": "MOL",
+      "text": "PEG",
+      "start": 836,
+      "end": 839
+    },
+    {
+      "label": "MOL",
+      "text": "ethyl acetate",
+      "start": 859,
+      "end": 872
+    },
+    {
+      "label": "TEMP",
+      "text": "300 K",
+      "start": 980,
+      "end": 985
+    },
+    {
+      "label": "MOL",
+      "text": "ethyl acetate",
+      "start": 1095,
+      "end": 1108
+    },
+    {
+      "label": "MOL",
+      "text": "amide",
+      "start": 1151,
+      "end": 1156
+    }
+  ],
+  "url": "https://zenodo.org/records/6503359"
 }

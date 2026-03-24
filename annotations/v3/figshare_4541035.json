@@ -1,92 +1,92 @@
 {
-    "classes": [
-        "SOFTNAME",
-        "SOFTVERS",
-        "STIME",
-        "MOL",
-        "FFM",
-        "TEMP"
-    ],
-    "raw_text": "Assessing the Efficacy of Poly(N‑isopropylacrylamide) for Drug Delivery Applications Using Molecular Dynamics Simulations\nAll-atom molecular dynamic simulations (AA-MD) are performed for aqueous solutions of hydrophobic drug molecules (phenytoin) with model polymer excipients, namely, (1) N-isopropylacrylamide, (pNIPAAm), (2) pNIPAAm-co-acrylamide (Am), and (3) pNIPAAm-co-dimethylacrylamide (DMA). After validating the force field parameters using the well-known lower critical solution behavior of pNIPAAm, we simulate the polymer–drug complex in water and its behavior at temperatures below (295 K) and above the LCST (310 K). Using radial distribution functions, we find that there is an optimum comonomer molar fraction of around 20–30% DMA at which interaction with phenytoin drug molecules is strongest, consistent with recent experimental findings. The results provide evidence that molecular simulations are able to provide guidance in the optimization of novel polymer excipients for drug release.",
-    "entities": [
-        {
-            "label": "MOL",
-            "text": "Poly(N‑isopropylacrylamide)",
-            "start": 26,
-            "end": 53
-        },
-        {
-            "label": "MOL",
-            "text": "phenytoin",
-            "start": 236,
-            "end": 245
-        },
-        {
-            "label": "MOL",
-            "text": "N-isopropylacrylamide",
-            "start": 290,
-            "end": 311
-        },
-        {
-            "label": "MOL",
-            "text": "pNIPAAm",
-            "start": 314,
-            "end": 321
-        },
-        {
-            "label": "MOL",
-            "text": "pNIPAAm-co-acrylamide",
-            "start": 328,
-            "end": 349
-        },
-        {
-            "label": "MOL",
-            "text": "pNIPAAm-co-dimethylacrylamide",
-            "start": 364,
-            "end": 393
-        },
-        {
-            "label": "MOL",
-            "text": "DMA",
-            "start": 395,
-            "end": 398
-        },
-        {
-            "label": "MOL",
-            "text": "pNIPAAm",
-            "start": 502,
-            "end": 509
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 551,
-            "end": 556
-        },
-        {
-            "label": "TEMP",
-            "text": "295 K",
-            "start": 597,
-            "end": 602
-        },
-        {
-            "label": "TEMP",
-            "text": "310 K",
-            "start": 624,
-            "end": 629
-        },
-        {
-            "label": "MOL",
-            "text": "DMA",
-            "start": 744,
-            "end": 747
-        },
-        {
-            "label": "MOL",
-            "text": "phenytoin",
-            "start": 774,
-            "end": 783
-        }
-    ],
-    "url": "https://acs.figshare.com/articles/dataset/Assessing_the_Efficacy_of_Poly_i_N_i_isopropylacrylamide_for_Drug_Delivery_Applications_Using_Molecular_Dynamics_Simulations/4541035"
+  "classes": [
+    "SOFTNAME",
+    "SOFTVERS",
+    "STIME",
+    "MOL",
+    "FFM",
+    "TEMP"
+  ],
+  "raw_text": "Assessing the Efficacy of Poly(N‑isopropylacrylamide) for Drug Delivery Applications Using Molecular Dynamics Simulations\nAll-atom molecular dynamic simulations (AA-MD) are performed for aqueous solutions of hydrophobic drug molecules (phenytoin) with model polymer excipients, namely, (1) N-isopropylacrylamide, (pNIPAAm), (2) pNIPAAm-co-acrylamide (Am), and (3) pNIPAAm-co-dimethylacrylamide (DMA). After validating the force field parameters using the well-known lower critical solution behavior of pNIPAAm, we simulate the polymer–drug complex in water and its behavior at temperatures below (295 K) and above the LCST (310 K). Using radial distribution functions, we find that there is an optimum comonomer molar fraction of around 20–30% DMA at which interaction with phenytoin drug molecules is strongest, consistent with recent experimental findings. The results provide evidence that molecular simulations are able to provide guidance in the optimization of novel polymer excipients for drug release.",
+  "entities": [
+    {
+      "label": "MOL",
+      "text": "Poly(N‑isopropylacrylamide)",
+      "start": 26,
+      "end": 53
+    },
+    {
+      "label": "MOL",
+      "text": "phenytoin",
+      "start": 236,
+      "end": 245
+    },
+    {
+      "label": "MOL",
+      "text": "N-isopropylacrylamide",
+      "start": 290,
+      "end": 311
+    },
+    {
+      "label": "MOL",
+      "text": "pNIPAAm",
+      "start": 314,
+      "end": 321
+    },
+    {
+      "label": "MOL",
+      "text": "pNIPAAm-co-acrylamide",
+      "start": 328,
+      "end": 349
+    },
+    {
+      "label": "MOL",
+      "text": "pNIPAAm-co-dimethylacrylamide",
+      "start": 364,
+      "end": 393
+    },
+    {
+      "label": "MOL",
+      "text": "DMA",
+      "start": 395,
+      "end": 398
+    },
+    {
+      "label": "MOL",
+      "text": "pNIPAAm",
+      "start": 502,
+      "end": 509
+    },
+    {
+      "label": "MOL",
+      "text": "water",
+      "start": 551,
+      "end": 556
+    },
+    {
+      "label": "TEMP",
+      "text": "295 K",
+      "start": 597,
+      "end": 602
+    },
+    {
+      "label": "TEMP",
+      "text": "310 K",
+      "start": 624,
+      "end": 629
+    },
+    {
+      "label": "MOL",
+      "text": "DMA",
+      "start": 744,
+      "end": 747
+    },
+    {
+      "label": "MOL",
+      "text": "phenytoin",
+      "start": 774,
+      "end": 783
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Assessing_the_Efficacy_of_Poly_i_N_i_isopropylacrylamide_for_Drug_Delivery_Applications_Using_Molecular_Dynamics_Simulations/4541035"
 }

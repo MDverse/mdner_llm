@@ -1,44 +1,44 @@
 {
-    "classes": [
-        "SOFTNAME",
-        "SOFTVERS",
-        "STIME",
-        "MOL",
-        "FFM",
-        "TEMP"
-    ],
-    "raw_text": "Datasets and input for \"Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations\"\nThis dataset contains data as well as sample input files associated with the study Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations.The following files are included in the dataset:CP2K_inputs.zip: Sample CP2K input files AlPO-11_structures_CIF.zip: DFT-optimised structures (CIF format)AlPO-11_calcined_MD_avpos.zip: AIMD average structures of calcined AlPO-11 (CIF format)AlPO-11_calcined_MD_trajectories.zip: Production part of AIMD trajectories, calcined AlPO-11 (PDB format)AlPO-11_8H2O_MD_avpos.zip: AIMD average structures of hydrated AlPO-11 (CIF format)AlPO-11_8H2O_MD_trajectories.zip: Production part of AIMD trajectories, hydrated AlPO-11 (PDB format)",
-    "entities": [
-        {
-            "label": "MOL",
-            "text": "AlPO-11",
-            "start": 74,
-            "end": 81
-        },
-        {
-            "label": "MOL",
-            "text": "AlPO-11",
-            "start": 263,
-            "end": 270
-        },
-        {
-            "label": "MOL",
-            "text": "AlPO-11",
-            "start": 539,
-            "end": 546
-        },
-        {
-            "label": "MOL",
-            "text": "AlPO-11",
-            "start": 644,
-            "end": 651
-        },
-        {
-            "label": "MOL",
-            "text": "AlPO-11",
-            "start": 828,
-            "end": 835
-        }
-    ],
-    "url": "https://figshare.com/articles/dataset/Datasets_and_input_for_Revisiting_the_structure_of_calcined_and_hydrated_AlPO-11_with_DFT-based_molecular_dynamics_calculations_/14791452"
+  "classes": [
+    "SOFTNAME",
+    "SOFTVERS",
+    "STIME",
+    "MOL",
+    "FFM",
+    "TEMP"
+  ],
+  "raw_text": "Datasets and input for \"Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations\"\nThis dataset contains data as well as sample input files associated with the study Revisiting the structure of calcined and hydrated AlPO-11 with DFT-based molecular dynamics calculations.The following files are included in the dataset:CP2K_inputs.zip: Sample CP2K input files AlPO-11_structures_CIF.zip: DFT-optimised structures (CIF format)AlPO-11_calcined_MD_avpos.zip: AIMD average structures of calcined AlPO-11 (CIF format)AlPO-11_calcined_MD_trajectories.zip: Production part of AIMD trajectories, calcined AlPO-11 (PDB format)AlPO-11_8H2O_MD_avpos.zip: AIMD average structures of hydrated AlPO-11 (CIF format)AlPO-11_8H2O_MD_trajectories.zip: Production part of AIMD trajectories, hydrated AlPO-11 (PDB format)",
+  "entities": [
+    {
+      "label": "MOL",
+      "text": "AlPO-11",
+      "start": 74,
+      "end": 81
+    },
+    {
+      "label": "MOL",
+      "text": "AlPO-11",
+      "start": 263,
+      "end": 270
+    },
+    {
+      "label": "MOL",
+      "text": "AlPO-11",
+      "start": 539,
+      "end": 546
+    },
+    {
+      "label": "MOL",
+      "text": "AlPO-11",
+      "start": 644,
+      "end": 651
+    },
+    {
+      "label": "MOL",
+      "text": "AlPO-11",
+      "start": 828,
+      "end": 835
+    }
+  ],
+  "url": "https://figshare.com/articles/dataset/Datasets_and_input_for_Revisiting_the_structure_of_calcined_and_hydrated_AlPO-11_with_DFT-based_molecular_dynamics_calculations_/14791452"
 }
