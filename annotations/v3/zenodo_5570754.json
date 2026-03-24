@@ -1,44 +1,44 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "Computational Insights into the Unfolding of a Destabilized Superoxide Dismutase 1 Mutant\nThis data accompanies the article entitled Computational Insights into the Unfolding of a Destabilized Superoxide Dismutase 1 Mutant and published in Biology.\nSOD1_WT_I35A_REST2.zip: The zip archive includes REST2 trajectories for the two SOD1 constructs and the two force fields investigated in the paper.\nThe trajectories are saved in the GROMACS XTC file format, separately for each temperature (i=0,...,23). Owing to the considerable trajectory sizes, only protein coordinates are reported, and the output frequency is reduced to 100 ps. The initial geometry (in the Gromos87 GRO format) after a short relaxation is provided for each REST2 simulation (conf_prot.gro). Furthermore, for each REST2 simulation, an xarray (http://xarray.pydata.org) dataset, saved in the netCDF file format, is included and contains the following observables: fraction of native contacts relative to the crystal structure, secondary-structure content (i.e., the fraction of protein residues found in an alpha-helix, beta-sheet, beta-bridge, or a turn), as well as the number of residues with the beta-sheet secondary structure per each beta-strand and beta-sheet of the SOD1 barrel.",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "Destabilized Superoxide Dismutase 1",
-      "start": 47,
-      "end": 82
-    },
-    {
-      "label": "MOL",
-      "text": "SOD1",
-      "start": 329,
-      "end": 333
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 431,
-      "end": 438
-    },
-    {
-      "label": "FFM",
-      "text": "Gromos87",
-      "start": 661,
-      "end": 669
-    },
-    {
-      "label": "MOL",
-      "text": "SOD1",
-      "start": 1243,
-      "end": 1247
-    }
-  ],
-  "url": "https://zenodo.org/records/5570754"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Computational Insights into the Unfolding of a Destabilized Superoxide Dismutase 1 Mutant\nThis data accompanies the article entitled Computational Insights into the Unfolding of a Destabilized Superoxide Dismutase 1 Mutant and published in Biology.\nSOD1_WT_I35A_REST2.zip: The zip archive includes REST2 trajectories for the two SOD1 constructs and the two force fields investigated in the paper.\nThe trajectories are saved in the GROMACS XTC file format, separately for each temperature (i=0,...,23). Owing to the considerable trajectory sizes, only protein coordinates are reported, and the output frequency is reduced to 100 ps. The initial geometry (in the Gromos87 GRO format) after a short relaxation is provided for each REST2 simulation (conf_prot.gro). Furthermore, for each REST2 simulation, an xarray (http://xarray.pydata.org) dataset, saved in the netCDF file format, is included and contains the following observables: fraction of native contacts relative to the crystal structure, secondary-structure content (i.e., the fraction of protein residues found in an alpha-helix, beta-sheet, beta-bridge, or a turn), as well as the number of residues with the beta-sheet secondary structure per each beta-strand and beta-sheet of the SOD1 barrel.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Destabilized Superoxide Dismutase 1",
+            "start": 47,
+            "end": 82
+        },
+        {
+            "label": "MOL",
+            "text": "SOD1",
+            "start": 329,
+            "end": 333
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 431,
+            "end": 438
+        },
+        {
+            "label": "FFM",
+            "text": "Gromos87",
+            "start": 661,
+            "end": 669
+        },
+        {
+            "label": "MOL",
+            "text": "SOD1",
+            "start": 1243,
+            "end": 1247
+        }
+    ],
+    "url": "https://zenodo.org/records/5570754"
 }

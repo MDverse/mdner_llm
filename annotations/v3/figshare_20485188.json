@@ -1,56 +1,56 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "EntF*-D5\nMolecular dynamics simulation of the EntF* peptide, residue 5 in D form  -starting coordinates posre.gro energy minimized and water+ions equilibrated around peptide -topology topol.top force field AMBER99SB-ILDB, TIP3P water protonation states at pH = 3 (E,K protonated) [NaCl] = 25 mM disulfide bond generated between residues 14 and 6 -md settings md.mdp time step 2 fs, temperature = 298 K, pressure = 1 bar -1 microsecond trajectory dry.xtc, dry.gro frame rate 10 ps, water and ions removed, box centered on peptide -analysis files frame rate 1 ps radius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "EntF*",
-      "start": 0,
-      "end": 5
-    },
-    {
-      "label": "MOL",
-      "text": "EntF*",
-      "start": 46,
-      "end": 51
-    },
-    {
-      "label": "FFM",
-      "text": "AMBER99SB-ILDB",
-      "start": 206,
-      "end": 220
-    },
-    {
-      "label": "FFM",
-      "text": "TIP3P",
-      "start": 222,
-      "end": 227
-    },
-    {
-      "label": "MOL",
-      "text": "NaCl",
-      "start": 281,
-      "end": 285
-    },
-    {
-      "label": "TEMP",
-      "text": "298 K",
-      "start": 396,
-      "end": 401
-    },
-    {
-      "label": "STIME",
-      "text": "1 microsecond",
-      "start": 421,
-      "end": 434
-    }
-  ],
-  "url": "https://uvaauas.figshare.com/articles/dataset/EntF_-D5/20485188"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "EntF*-D5\nMolecular dynamics simulation of the EntF* peptide, residue 5 in D form  -starting coordinates posre.gro energy minimized and water+ions equilibrated around peptide -topology topol.top force field AMBER99SB-ILDB, TIP3P water protonation states at pH = 3 (E,K protonated) [NaCl] = 25 mM disulfide bond generated between residues 14 and 6 -md settings md.mdp time step 2 fs, temperature = 298 K, pressure = 1 bar -1 microsecond trajectory dry.xtc, dry.gro frame rate 10 ps, water and ions removed, box centered on peptide -analysis files frame rate 1 ps radius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "EntF*",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "label": "MOL",
+            "text": "EntF*",
+            "start": 46,
+            "end": 51
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER99SB-ILDB",
+            "start": 206,
+            "end": 220
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 222,
+            "end": 227
+        },
+        {
+            "label": "MOL",
+            "text": "NaCl",
+            "start": 281,
+            "end": 285
+        },
+        {
+            "label": "TEMP",
+            "text": "298 K",
+            "start": 396,
+            "end": 401
+        },
+        {
+            "label": "STIME",
+            "text": "1 microsecond",
+            "start": 421,
+            "end": 434
+        }
+    ],
+    "url": "https://uvaauas.figshare.com/articles/dataset/EntF_-D5/20485188"
 }

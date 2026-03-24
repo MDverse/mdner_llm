@@ -1,80 +1,80 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "MD simulation trajectory and related files for POPC bilayer in low hydration (Berger model delivered by Tieleman, Gromacs 4.5)\nEquilibrated POPC lipid bilayer simulation in low hydration (7 water per lipid molecule) ran with Gromacs 4.5, Berger force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads) with fixed double bond dihedrals, 60ns, T=298K, 128 POPC molecules, 896 water molecules. This data is used in the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi. If data is used, please cite the nmrlipids.blogspot.fi project and the original publications related to the force field.",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 47,
-      "end": 51
-    },
-    {
-      "label": "FFM",
-      "text": "Berger",
-      "start": 78,
-      "end": 84
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 114,
-      "end": 121
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "4.5",
-      "start": 122,
-      "end": 125
-    },
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 140,
-      "end": 144
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 225,
-      "end": 232
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "4.5",
-      "start": 233,
-      "end": 236
-    },
-    {
-      "label": "FFM",
-      "text": "Berger",
-      "start": 238,
-      "end": 244
-    },
-    {
-      "label": "STIME",
-      "text": "60ns",
-      "start": 363,
-      "end": 367
-    },
-    {
-      "label": "STIME",
-      "text": "298K",
-      "start": 371,
-      "end": 375
-    },
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 381,
-      "end": 385
-    }
-  ],
-  "url": "https://zenodo.org/records/13814"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "MD simulation trajectory and related files for POPC bilayer in low hydration (Berger model delivered by Tieleman, Gromacs 4.5)\nEquilibrated POPC lipid bilayer simulation in low hydration (7 water per lipid molecule) ran with Gromacs 4.5, Berger force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads) with fixed double bond dihedrals, 60ns, T=298K, 128 POPC molecules, 896 water molecules. This data is used in the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi. If data is used, please cite the nmrlipids.blogspot.fi project and the original publications related to the force field.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "label": "FFM",
+            "text": "Berger",
+            "start": 78,
+            "end": 84
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 114,
+            "end": 121
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5",
+            "start": 122,
+            "end": 125
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 140,
+            "end": 144
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 225,
+            "end": 232
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4.5",
+            "start": 233,
+            "end": 236
+        },
+        {
+            "label": "FFM",
+            "text": "Berger",
+            "start": 238,
+            "end": 244
+        },
+        {
+            "label": "STIME",
+            "text": "60ns",
+            "start": 363,
+            "end": 367
+        },
+        {
+            "label": "STIME",
+            "text": "298K",
+            "start": 371,
+            "end": 375
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 381,
+            "end": 385
+        }
+    ],
+    "url": "https://zenodo.org/records/13814"
 }

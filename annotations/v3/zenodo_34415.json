@@ -1,116 +1,116 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "POPC_AMBER_LIPID14_CaCl2_035Mol\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 0.35M CaCl2. The LIPID14 force field was used with Gromacs 5.0.3. Ions were described by AMBER99SB-ILDN force field. Conditions: T=298.15, 128 POPC molecules, 6400 tip3p waters (lipid/water 1:50), 35 Ca, 70 Cl. 200ns trajectory  (preceded by 5ns NPT equillibration) (2 files of 100ns).\nTHE TRAJECTORY \"035M_CaCl2_POPC_AMB_100_200ns.xtc\" IS CORRUPTED. FOR THE UNCORRUPTED FILE PLEASE FOLLOW THE LINK: https://zenodo.org/record/46234\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 0,
-      "end": 4
-    },
-    {
-      "label": "FFM",
-      "text": "AMBER",
-      "start": 5,
-      "end": 10
-    },
-    {
-      "label": "FFM",
-      "text": "LIPID14",
-      "start": 11,
-      "end": 18
-    },
-    {
-      "label": "MOL",
-      "text": "CaCl2",
-      "start": 19,
-      "end": 24
-    },
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 94,
-      "end": 98
-    },
-    {
-      "label": "MOL",
-      "text": "CaCl2",
-      "start": 118,
-      "end": 123
-    },
-    {
-      "label": "FFM",
-      "text": "LIPID14",
-      "start": 129,
-      "end": 136
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 163,
-      "end": 170
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "5.0.3",
-      "start": 171,
-      "end": 176
-    },
-    {
-      "label": "FFM",
-      "text": "AMBER99SB-ILDN",
-      "start": 201,
-      "end": 215
-    },
-    {
-      "label": "TEMP",
-      "text": "298.15",
-      "start": 243,
-      "end": 249
-    },
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 255,
-      "end": 259
-    },
-    {
-      "label": "FFM",
-      "text": "tip3p",
-      "start": 276,
-      "end": 281
-    },
-    {
-      "label": "MOL",
-      "text": "Ca",
-      "start": 312,
-      "end": 314
-    },
-    {
-      "label": "MOL",
-      "text": "Cl",
-      "start": 319,
-      "end": 321
-    },
-    {
-      "label": "STIME",
-      "text": "200ns",
-      "start": 323,
-      "end": 328
-    },
-    {
-      "label": "STIME",
-      "text": "100ns",
-      "start": 390,
-      "end": 395
-    }
-  ],
-  "url": "https://zenodo.org/records/34415"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "POPC_AMBER_LIPID14_CaCl2_035Mol\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 0.35M CaCl2. The LIPID14 force field was used with Gromacs 5.0.3. Ions were described by AMBER99SB-ILDN force field. Conditions: T=298.15, 128 POPC molecules, 6400 tip3p waters (lipid/water 1:50), 35 Ca, 70 Cl. 200ns trajectory  (preceded by 5ns NPT equillibration) (2 files of 100ns).\nTHE TRAJECTORY \"035M_CaCl2_POPC_AMB_100_200ns.xtc\" IS CORRUPTED. FOR THE UNCORRUPTED FILE PLEASE FOLLOW THE LINK: https://zenodo.org/record/46234\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER",
+            "start": 5,
+            "end": 10
+        },
+        {
+            "label": "FFM",
+            "text": "LIPID14",
+            "start": 11,
+            "end": 18
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl2",
+            "start": 19,
+            "end": 24
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 94,
+            "end": 98
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl2",
+            "start": 118,
+            "end": 123
+        },
+        {
+            "label": "FFM",
+            "text": "LIPID14",
+            "start": 129,
+            "end": 136
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 163,
+            "end": 170
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "5.0.3",
+            "start": 171,
+            "end": 176
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER99SB-ILDN",
+            "start": 201,
+            "end": 215
+        },
+        {
+            "label": "TEMP",
+            "text": "298.15",
+            "start": 243,
+            "end": 249
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 255,
+            "end": 259
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 276,
+            "end": 281
+        },
+        {
+            "label": "MOL",
+            "text": "Ca",
+            "start": 312,
+            "end": 314
+        },
+        {
+            "label": "MOL",
+            "text": "Cl",
+            "start": 319,
+            "end": 321
+        },
+        {
+            "label": "STIME",
+            "text": "200ns",
+            "start": 323,
+            "end": 328
+        },
+        {
+            "label": "STIME",
+            "text": "100ns",
+            "start": 390,
+            "end": 395
+        }
+    ],
+    "url": "https://zenodo.org/records/34415"
 }

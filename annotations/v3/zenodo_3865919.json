@@ -1,74 +1,74 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "Small molecule sequestration of amyloid-β as a drug discovery strategy for Alzheimer's disease\nThese data describe the bound and unbound ensembles of a disordered peptide (amyloid beta) in the presence and absence of a small, drug-like molecule. The data were produced by metadynamic metainference simulations restrained with NMR chemical shift data. We used PLUMED version 2.6.0 and GROMACS 2018.3. All the data and PLUMED input files required to reproduce the metadynamic metainference results are available on PLUMED-NEST (www.plumed-nest.org), the public repository of the PLUMED consortium, as plumID:20.014.\nA Jupyter Notebook describing the analysis of these results is available from GitHub at https://github.com/vendruscolo-lab/amyloid-beta_small_mol/ in Metadynamic_metainference/Analysis.\nThese data support the findings of the manuscript entitled \"Small molecule sequestration of amyloid-β as a drug discovery strategy for Alzheimer's disease\" by Heller et al. DOI: 10.1101/729392",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "amyloid-β",
-      "start": 32,
-      "end": 41
-    },
-    {
-      "label": "MOL",
-      "text": "amyloid beta",
-      "start": 172,
-      "end": 184
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "PLUMED",
-      "start": 359,
-      "end": 365
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "version 2.6.0",
-      "start": 366,
-      "end": 379
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 384,
-      "end": 391
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "2018.3",
-      "start": 392,
-      "end": 398
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "PLUMED",
-      "start": 417,
-      "end": 423
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "PLUMED",
-      "start": 577,
-      "end": 583
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Jupyter",
-      "start": 616,
-      "end": 623
-    },
-    {
-      "label": "MOL",
-      "text": "amyloid-β",
-      "start": 892,
-      "end": 901
-    }
-  ],
-  "url": "https://zenodo.org/records/3865919"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Small molecule sequestration of amyloid-β as a drug discovery strategy for Alzheimer's disease\nThese data describe the bound and unbound ensembles of a disordered peptide (amyloid beta) in the presence and absence of a small, drug-like molecule. The data were produced by metadynamic metainference simulations restrained with NMR chemical shift data. We used PLUMED version 2.6.0 and GROMACS 2018.3. All the data and PLUMED input files required to reproduce the metadynamic metainference results are available on PLUMED-NEST (www.plumed-nest.org), the public repository of the PLUMED consortium, as plumID:20.014.\nA Jupyter Notebook describing the analysis of these results is available from GitHub at https://github.com/vendruscolo-lab/amyloid-beta_small_mol/ in Metadynamic_metainference/Analysis.\nThese data support the findings of the manuscript entitled \"Small molecule sequestration of amyloid-β as a drug discovery strategy for Alzheimer's disease\" by Heller et al. DOI: 10.1101/729392",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "amyloid-β",
+            "start": 32,
+            "end": 41
+        },
+        {
+            "label": "MOL",
+            "text": "amyloid beta",
+            "start": 172,
+            "end": 184
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 359,
+            "end": 365
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "version 2.6.0",
+            "start": 366,
+            "end": 379
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 384,
+            "end": 391
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2018.3",
+            "start": 392,
+            "end": 398
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 417,
+            "end": 423
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PLUMED",
+            "start": 577,
+            "end": 583
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Jupyter",
+            "start": 616,
+            "end": 623
+        },
+        {
+            "label": "MOL",
+            "text": "amyloid-β",
+            "start": 892,
+            "end": 901
+        }
+    ],
+    "url": "https://zenodo.org/records/3865919"
 }

@@ -1,200 +1,200 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "Enzyme Inspired Catalysts\nPolystyrene fragments containing catalytic and hydrophobic residues were built and simulated using Amber16 package.\u0007Parameters for styrene (STY), catalyst (CAT) and hydrophobic (SPA) residues were assigned using Antechamber\u0007 and General Amber Force Field (GAFF),\u0007\b while the charges were derived using two-stage RESP fitting procedure\u0007\b to the electrostatic potential calculated with Gaussian09 at HF/6-31G(d) level of theory.\b\u0007\b\u0007 This level of theory was used to be consistent with GAFF parameterization. Geometry of each residue was optimized in the gas phase and polymer backbone atoms were capped with a methyl group. Styrene monomer was modelled as 2-phenylpropane. The additional methyl group and hydrogen atom were removed in the subsequent step to ensure correct connectivity between the monomers, which was defined with prepgen module of AmberTools. Charges on these capping groups were required to sum to zero and the excess charge was distributed between the remaining atoms. Terminal styrene residues were capped with methyl groups. Identical approach was employed for creating catalyst and hydrophobic residue parameters, except multi-conformer fitting was performed for these molecules due to their conformational flexibility.  We used 10 conformers for each molecule in the RESP procedure of partial charge derivation. The uploaded files include prep libraries required for building polystyrene system:* STY: styrene monomer * HST: terminal (head) styrene monomer capped with methyl group* TST: terminal (tail) styrene monomer capped with methyl group* CAT: styrene residue with catalytic moiety attached* SPA: styrene residue with C16 alkyl chain attached* SCL: cross-linking residue (p-divinylbenzene) with 1 additional branching point* SDB: cross-linking residue (p-divinylbenzene) with 2 additional branching points (double-branch)Six fragments containing catalyst and hydrophobic residue separated by 0 to 5 styrene units (EIC-0 to EIC-5) were built, with three additional styrene units added on each side of catalyst and hydrophobic residue. These fragments were then solvated with TIP3P waters in a truncated octahedron box with 10 Å buffer in each direction from the solute. The solvated fragments were relaxed in 4 steps: 1) steepest descent minimization was performed with maximum of 10 000 cycles; 2) slow heating of the system from 0 to 300 K in 100 ps with harmonic position restraints on solute (2.5 kcal/mol Å2) under constant volume (NVT); 3) constant pressure (NPT) dynamics at 300 K for 1 ns with harmonic position restraints placed on solute (2.5 kcal/mol Å2); 4) constant pressure (NPT) dynamics at 300 K without restraints for another 1 ns. After relaxation (total of 2.1 ns), each system was simulated for 100 ns at 300 K under constant volume (NVT). Periodic boundary conditions were used and long range electrostatic interactions were calculated with the Particle-Mesh Ewald (PME) technique with a cutoff of 8.0 Å. The temperature in all simulations was set to 300 K and controlled by Langevin thermostat combined with random seed generator.\u0007[6]\b The SHAKE algorithm\u0007[7]\b was employed to constrain bonds involving hydrogen atoms during dynamics and an integration time step of 2 fs was used. The simulations were carried out using GPU version of PMEMD program implemented in the Amber16 package, saving snapshots every 10 ps. Analysis was performed using cpptraj module available in AmberTools. For clustering, all-atom RMS deviations of catalyst and hydrophobic residues (styrene residues were not included) was used in conjunction with k-means algorithm with maximum number of clusters set to 20.   An example input file to build a fragment with these residues using LEaP module of Amber package is provided (build_example.leap), as well as the input files for running molecular dynamics (min.in, heat.in, npt-restr.in, npt.in, nvt.in). Conformations representing the two most populated clusters for each fragments is shown in figure named top2clusters_EIC0-5.png. Distances calculated between CAT and SPA residues, as well as the distances measured between head and tail atoms for each of these two residues is shown in figure named Distances&initial_conformations.png. Finally, the system topologies and resulting trajectories with stripped solvent are provided (eic-N.prmtop and eic-N.nc files).",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "Polystyrene",
-      "start": 26,
-      "end": 37
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Amber",
-      "start": 125,
-      "end": 130
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "16",
-      "start": 130,
-      "end": 132
-    },
-    {
-      "label": "MOL",
-      "text": "STY",
-      "start": 166,
-      "end": 169
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Antechamber",
-      "start": 238,
-      "end": 249
-    },
-    {
-      "label": "FFM",
-      "text": "Amber",
-      "start": 263,
-      "end": 268
-    },
-    {
-      "label": "FFM",
-      "text": "GAFF",
-      "start": 282,
-      "end": 286
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Gaussian09",
-      "start": 410,
-      "end": 420
-    },
-    {
-      "label": "FFM",
-      "text": "GAFF",
-      "start": 509,
-      "end": 513
-    },
-    {
-      "label": "MOL",
-      "text": "Styrene",
-      "start": 648,
-      "end": 655
-    },
-    {
-      "label": "MOL",
-      "text": "2-phenylpropane",
-      "start": 680,
-      "end": 695
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "AmberTools",
-      "start": 873,
-      "end": 883
-    },
-    {
-      "label": "MOL",
-      "text": "STY",
-      "start": 1445,
-      "end": 1448
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "16",
-      "start": 1674,
-      "end": 1676
-    },
-    {
-      "label": "MOL",
-      "text": "alkyl",
-      "start": 1677,
-      "end": 1682
-    },
-    {
-      "label": "MOL",
-      "text": "p-divinylbenzene",
-      "start": 1727,
-      "end": 1743
-    },
-    {
-      "label": "MOL",
-      "text": "p-divinylbenzene",
-      "start": 1808,
-      "end": 1824
-    },
-    {
-      "label": "FFM",
-      "text": "TIP3P",
-      "start": 2129,
-      "end": 2134
-    },
-    {
-      "label": "TEMP",
-      "text": "300 K",
-      "start": 2390,
-      "end": 2395
-    },
-    {
-      "label": "TEMP",
-      "text": "300 K",
-      "start": 2536,
-      "end": 2541
-    },
-    {
-      "label": "TEMP",
-      "text": "300 K",
-      "start": 2660,
-      "end": 2665
-    },
-    {
-      "label": "STIME",
-      "text": "100 ns",
-      "start": 2769,
-      "end": 2775
-    },
-    {
-      "label": "TEMP",
-      "text": "300 K",
-      "start": 2779,
-      "end": 2784
-    },
-    {
-      "label": "TEMP",
-      "text": "300 K",
-      "start": 3026,
-      "end": 3031
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "PMEMD",
-      "start": 3311,
-      "end": 3316
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Amber",
-      "start": 3344,
-      "end": 3349
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "16",
-      "start": 3349,
-      "end": 3351
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "cpptraj",
-      "start": 3420,
-      "end": 3427
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "AmberTools",
-      "start": 3448,
-      "end": 3458
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "LEaP",
-      "start": 3734,
-      "end": 3738
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "Amber",
-      "start": 3749,
-      "end": 3754
-    }
-  ],
-  "url": "https://figshare.com/articles/dataset/Enzyme_Inspired_Catalysts/4757161"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Enzyme Inspired Catalysts\nPolystyrene fragments containing catalytic and hydrophobic residues were built and simulated using Amber16 package.\u0007Parameters for styrene (STY), catalyst (CAT) and hydrophobic (SPA) residues were assigned using Antechamber\u0007 and General Amber Force Field (GAFF),\u0007\b while the charges were derived using two-stage RESP fitting procedure\u0007\b to the electrostatic potential calculated with Gaussian09 at HF/6-31G(d) level of theory.\b\u0007\b\u0007 This level of theory was used to be consistent with GAFF parameterization. Geometry of each residue was optimized in the gas phase and polymer backbone atoms were capped with a methyl group. Styrene monomer was modelled as 2-phenylpropane. The additional methyl group and hydrogen atom were removed in the subsequent step to ensure correct connectivity between the monomers, which was defined with prepgen module of AmberTools. Charges on these capping groups were required to sum to zero and the excess charge was distributed between the remaining atoms. Terminal styrene residues were capped with methyl groups. Identical approach was employed for creating catalyst and hydrophobic residue parameters, except multi-conformer fitting was performed for these molecules due to their conformational flexibility.  We used 10 conformers for each molecule in the RESP procedure of partial charge derivation. The uploaded files include prep libraries required for building polystyrene system:* STY: styrene monomer * HST: terminal (head) styrene monomer capped with methyl group* TST: terminal (tail) styrene monomer capped with methyl group* CAT: styrene residue with catalytic moiety attached* SPA: styrene residue with C16 alkyl chain attached* SCL: cross-linking residue (p-divinylbenzene) with 1 additional branching point* SDB: cross-linking residue (p-divinylbenzene) with 2 additional branching points (double-branch)Six fragments containing catalyst and hydrophobic residue separated by 0 to 5 styrene units (EIC-0 to EIC-5) were built, with three additional styrene units added on each side of catalyst and hydrophobic residue. These fragments were then solvated with TIP3P waters in a truncated octahedron box with 10 Å buffer in each direction from the solute. The solvated fragments were relaxed in 4 steps: 1) steepest descent minimization was performed with maximum of 10 000 cycles; 2) slow heating of the system from 0 to 300 K in 100 ps with harmonic position restraints on solute (2.5 kcal/mol Å2) under constant volume (NVT); 3) constant pressure (NPT) dynamics at 300 K for 1 ns with harmonic position restraints placed on solute (2.5 kcal/mol Å2); 4) constant pressure (NPT) dynamics at 300 K without restraints for another 1 ns. After relaxation (total of 2.1 ns), each system was simulated for 100 ns at 300 K under constant volume (NVT). Periodic boundary conditions were used and long range electrostatic interactions were calculated with the Particle-Mesh Ewald (PME) technique with a cutoff of 8.0 Å. The temperature in all simulations was set to 300 K and controlled by Langevin thermostat combined with random seed generator.\u0007[6]\b The SHAKE algorithm\u0007[7]\b was employed to constrain bonds involving hydrogen atoms during dynamics and an integration time step of 2 fs was used. The simulations were carried out using GPU version of PMEMD program implemented in the Amber16 package, saving snapshots every 10 ps. Analysis was performed using cpptraj module available in AmberTools. For clustering, all-atom RMS deviations of catalyst and hydrophobic residues (styrene residues were not included) was used in conjunction with k-means algorithm with maximum number of clusters set to 20.   An example input file to build a fragment with these residues using LEaP module of Amber package is provided (build_example.leap), as well as the input files for running molecular dynamics (min.in, heat.in, npt-restr.in, npt.in, nvt.in). Conformations representing the two most populated clusters for each fragments is shown in figure named top2clusters_EIC0-5.png. Distances calculated between CAT and SPA residues, as well as the distances measured between head and tail atoms for each of these two residues is shown in figure named Distances&initial_conformations.png. Finally, the system topologies and resulting trajectories with stripped solvent are provided (eic-N.prmtop and eic-N.nc files).",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Polystyrene",
+            "start": 26,
+            "end": 37
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 125,
+            "end": 130
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 130,
+            "end": 132
+        },
+        {
+            "label": "MOL",
+            "text": "STY",
+            "start": 166,
+            "end": 169
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Antechamber",
+            "start": 238,
+            "end": 249
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 263,
+            "end": 268
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF",
+            "start": 282,
+            "end": 286
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gaussian09",
+            "start": 410,
+            "end": 420
+        },
+        {
+            "label": "FFM",
+            "text": "GAFF",
+            "start": 509,
+            "end": 513
+        },
+        {
+            "label": "MOL",
+            "text": "Styrene",
+            "start": 648,
+            "end": 655
+        },
+        {
+            "label": "MOL",
+            "text": "2-phenylpropane",
+            "start": 680,
+            "end": 695
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AmberTools",
+            "start": 873,
+            "end": 883
+        },
+        {
+            "label": "MOL",
+            "text": "STY",
+            "start": 1445,
+            "end": 1448
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 1674,
+            "end": 1676
+        },
+        {
+            "label": "MOL",
+            "text": "alkyl",
+            "start": 1677,
+            "end": 1682
+        },
+        {
+            "label": "MOL",
+            "text": "p-divinylbenzene",
+            "start": 1727,
+            "end": 1743
+        },
+        {
+            "label": "MOL",
+            "text": "p-divinylbenzene",
+            "start": 1808,
+            "end": 1824
+        },
+        {
+            "label": "FFM",
+            "text": "TIP3P",
+            "start": 2129,
+            "end": 2134
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 2390,
+            "end": 2395
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 2536,
+            "end": 2541
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 2660,
+            "end": 2665
+        },
+        {
+            "label": "STIME",
+            "text": "100 ns",
+            "start": 2769,
+            "end": 2775
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 2779,
+            "end": 2784
+        },
+        {
+            "label": "TEMP",
+            "text": "300 K",
+            "start": 3026,
+            "end": 3031
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "PMEMD",
+            "start": 3311,
+            "end": 3316
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 3344,
+            "end": 3349
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16",
+            "start": 3349,
+            "end": 3351
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "cpptraj",
+            "start": 3420,
+            "end": 3427
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "AmberTools",
+            "start": 3448,
+            "end": 3458
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "LEaP",
+            "start": 3734,
+            "end": 3738
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Amber",
+            "start": 3749,
+            "end": 3754
+        }
+    ],
+    "url": "https://figshare.com/articles/dataset/Enzyme_Inspired_Catalysts/4757161"
 }

@@ -1,32 +1,32 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "Molecular dynamics simulation data of designed cyclic peptide - ligand 1-3 (receptor-ligand bound)\nTrajectories of receptor-ligand bound simulation and simulation set-up files of designed cyclic peptide as MDM2 binders. This dataset contains simulations of ligand 1-3. Ligand 4 data can be found here: http://doi.org/10.5281/zenodo.3782629\nThe original paper of these designed cyclic peptide: Danelius, E., Pettersson, M., Bred, M., Min, J., Waddell, M. B., Guy, R. K., et al. (2016). Flexibility is important for inhibition of the MDM2/p53 protein–protein interaction by cyclic β-hairpins. Org. Biomol. Chem., 14(44), 10386–10393. http://doi.org/10.1039/C6OB01510G",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "MDM2",
-      "start": 206,
-      "end": 210
-    },
-    {
-      "label": "MOL",
-      "text": "MDM2",
-      "start": 532,
-      "end": 536
-    },
-    {
-      "label": "MOL",
-      "text": "p53",
-      "start": 537,
-      "end": 540
-    }
-  ],
-  "url": "https://zenodo.org/records/3780463"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular dynamics simulation data of designed cyclic peptide - ligand 1-3 (receptor-ligand bound)\nTrajectories of receptor-ligand bound simulation and simulation set-up files of designed cyclic peptide as MDM2 binders. This dataset contains simulations of ligand 1-3. Ligand 4 data can be found here: http://doi.org/10.5281/zenodo.3782629\nThe original paper of these designed cyclic peptide: Danelius, E., Pettersson, M., Bred, M., Min, J., Waddell, M. B., Guy, R. K., et al. (2016). Flexibility is important for inhibition of the MDM2/p53 protein–protein interaction by cyclic β-hairpins. Org. Biomol. Chem., 14(44), 10386–10393. http://doi.org/10.1039/C6OB01510G",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "MDM2",
+            "start": 206,
+            "end": 210
+        },
+        {
+            "label": "MOL",
+            "text": "MDM2",
+            "start": 532,
+            "end": 536
+        },
+        {
+            "label": "MOL",
+            "text": "p53",
+            "start": 537,
+            "end": 540
+        }
+    ],
+    "url": "https://zenodo.org/records/3780463"
 }

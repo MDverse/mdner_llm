@@ -1,104 +1,104 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "Molecular Dynamics with Chemical AccuracyAlkane Adsorption in Acidic Zeolites\nFor the adsorption of methane to hexane on acidic zeolites with varying pore sizes (Socony Mobil-5 (MFI), chabazite (CHA), faujasite (FAU)) and Brønsted acid site concentrations, heats of adsorption are predicted. The widely applied “standard model” of computational catalysis, density functional theory with some account of dispersion (DFT-D) and the harmonic approximation for local sampling of the potential energy surface (PES), leads to a large mean absolute deviation (MAD) from experiment of 17.2 kJ mol–1, far outside chemical accuracy limits (±4 kJ mol–1). Passing either to molecular dynamics (MD) at the DFT-D level or to wave function-based electron correlation methods (second-order Møller–Plesset perturbation theory  MP2) for energies at local minimum structures reduces the MAD to 8.7 and 5.9 kJ mol–1, respectively, still outside the chemical accuracy range. We present MD simulations on an MP2 quality PES, which strongly reduces the MAD to 1.9 kJ mol–1. This has been achieved by finding two descriptors for the MP2–DFT-D energy differences, which reduces the total number of required MP2 calculations to only 36 and, hence, the computational demand by several orders of magnitude. The predicted heats of adsorption at reaction temperatures (650 K) support experimental results derived from spectroscopic measurements. They show that the observed decrease of experimental apparent barriers from propane to pentane for alkane cracking in MFI (28 kJ mol–1) is largely due to increasing adsorption strengths (21 kJ mol–1) and to a much smaller extent to decreasing intrinsic barriers (7 kJ mol–1).",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "Alkane",
-      "start": 42,
-      "end": 48
-    },
-    {
-      "label": "MOL",
-      "text": "Acidic Zeolites",
-      "start": 63,
-      "end": 78
-    },
-    {
-      "label": "MOL",
-      "text": "methane",
-      "start": 101,
-      "end": 108
-    },
-    {
-      "label": "MOL",
-      "text": "hexane",
-      "start": 112,
-      "end": 118
-    },
-    {
-      "label": "MOL",
-      "text": "acidic zeolites",
-      "start": 122,
-      "end": 137
-    },
-    {
-      "label": "MOL",
-      "text": "Socony Mobil-5",
-      "start": 163,
-      "end": 177
-    },
-    {
-      "label": "MOL",
-      "text": "MFI",
-      "start": 179,
-      "end": 182
-    },
-    {
-      "label": "MOL",
-      "text": "chabazite",
-      "start": 185,
-      "end": 194
-    },
-    {
-      "label": "MOL",
-      "text": "CHA",
-      "start": 196,
-      "end": 199
-    },
-    {
-      "label": "MOL",
-      "text": "faujasite",
-      "start": 202,
-      "end": 211
-    },
-    {
-      "label": "MOL",
-      "text": "FAU",
-      "start": 213,
-      "end": 216
-    },
-    {
-      "label": "MOL",
-      "text": "propane",
-      "start": 1494,
-      "end": 1501
-    },
-    {
-      "label": "MOL",
-      "text": "pentane",
-      "start": 1505,
-      "end": 1512
-    },
-    {
-      "label": "MOL",
-      "text": "alkane",
-      "start": 1517,
-      "end": 1523
-    },
-    {
-      "label": "MOL",
-      "text": "MFI",
-      "start": 1536,
-      "end": 1539
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/Molecular_Dynamics_with_Chemical_Accuracy_Alkane_Adsorption_in_Acidic_Zeolites/21940502"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Molecular Dynamics with Chemical AccuracyAlkane Adsorption in Acidic Zeolites\nFor the adsorption of methane to hexane on acidic zeolites with varying pore sizes (Socony Mobil-5 (MFI), chabazite (CHA), faujasite (FAU)) and Brønsted acid site concentrations, heats of adsorption are predicted. The widely applied “standard model” of computational catalysis, density functional theory with some account of dispersion (DFT-D) and the harmonic approximation for local sampling of the potential energy surface (PES), leads to a large mean absolute deviation (MAD) from experiment of 17.2 kJ mol–1, far outside chemical accuracy limits (±4 kJ mol–1). Passing either to molecular dynamics (MD) at the DFT-D level or to wave function-based electron correlation methods (second-order Møller–Plesset perturbation theory  MP2) for energies at local minimum structures reduces the MAD to 8.7 and 5.9 kJ mol–1, respectively, still outside the chemical accuracy range. We present MD simulations on an MP2 quality PES, which strongly reduces the MAD to 1.9 kJ mol–1. This has been achieved by finding two descriptors for the MP2–DFT-D energy differences, which reduces the total number of required MP2 calculations to only 36 and, hence, the computational demand by several orders of magnitude. The predicted heats of adsorption at reaction temperatures (650 K) support experimental results derived from spectroscopic measurements. They show that the observed decrease of experimental apparent barriers from propane to pentane for alkane cracking in MFI (28 kJ mol–1) is largely due to increasing adsorption strengths (21 kJ mol–1) and to a much smaller extent to decreasing intrinsic barriers (7 kJ mol–1).",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Alkane",
+            "start": 42,
+            "end": 48
+        },
+        {
+            "label": "MOL",
+            "text": "Acidic Zeolites",
+            "start": 63,
+            "end": 78
+        },
+        {
+            "label": "MOL",
+            "text": "methane",
+            "start": 101,
+            "end": 108
+        },
+        {
+            "label": "MOL",
+            "text": "hexane",
+            "start": 112,
+            "end": 118
+        },
+        {
+            "label": "MOL",
+            "text": "acidic zeolites",
+            "start": 122,
+            "end": 137
+        },
+        {
+            "label": "MOL",
+            "text": "Socony Mobil-5",
+            "start": 163,
+            "end": 177
+        },
+        {
+            "label": "MOL",
+            "text": "MFI",
+            "start": 179,
+            "end": 182
+        },
+        {
+            "label": "MOL",
+            "text": "chabazite",
+            "start": 185,
+            "end": 194
+        },
+        {
+            "label": "MOL",
+            "text": "CHA",
+            "start": 196,
+            "end": 199
+        },
+        {
+            "label": "MOL",
+            "text": "faujasite",
+            "start": 202,
+            "end": 211
+        },
+        {
+            "label": "MOL",
+            "text": "FAU",
+            "start": 213,
+            "end": 216
+        },
+        {
+            "label": "MOL",
+            "text": "propane",
+            "start": 1494,
+            "end": 1501
+        },
+        {
+            "label": "MOL",
+            "text": "pentane",
+            "start": 1505,
+            "end": 1512
+        },
+        {
+            "label": "MOL",
+            "text": "alkane",
+            "start": 1517,
+            "end": 1523
+        },
+        {
+            "label": "MOL",
+            "text": "MFI",
+            "start": 1536,
+            "end": 1539
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Molecular_Dynamics_with_Chemical_Accuracy_Alkane_Adsorption_in_Acidic_Zeolites/21940502"
 }

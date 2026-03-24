@@ -1,140 +1,140 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "POPC @ 310K, 450 mM of CaCl_2. Charmm36 with default Charmm ions\nSimulations of a POPC bilayer with 450 mM of CaCl_2. \nThe goal was to study the effect of salt on the order \nparameters of the lipid head group and the glycerol \nbackbone for the NMRlipids project, see \nhttp://nmrlipids.blogspot.fi for more information.\nA POPC bilayer consisting of 200 lipids (100 per leaflet) \nis simulated in the presence of 450 mM CaCl_2. The Charmm36 \nmodel [1] is employed for lipids, the Charmm compatible variant \nof the tip3p model for water, and the default Charmm\nion parameters (type CAL) for CaCl_2.\nThe Charmm36 force field parameters were obtained from http://mackerell.umaryland.edu/charmm_ff.shtml\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\nThe files are in GROMACS format. Trajectory (.xtc) is \n100 ns long with data saved every 100 ps. These data\nwere collected after 1900 ns of simulation Additionally,\nthe initial structure (.gro), topology (.top), index file (.ndx), \nsimulation paremeter file (.mdp), binary run input file \nfor GROMACS v. 5.0–> (.tpr) and the energy output file \n(.edr) are provided. \n––––––––––––––––––––––––––––––––––––––––––––––––––––––\n[1] Update of the CHARMM All-Atom Additive Force Field \nfor Lipids: Validation on Six Lipid Types\nJeffery B. Klauda, Richard M. Venable, J. Alfredo Freites, \nJoseph W. O’Connor, Douglas J. Tobias, Carlos Mondragon-Ramirez, \nIgor Vorobyov, Alexander D. MacKerell, Jr., and Richard W. Pastor\nThe Journal of Physical Chemistry B 2010 114 (23), 7830-7843\nDOI: 10.1021/jp101759q",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 0,
-      "end": 4
-    },
-    {
-      "label": "TEMP",
-      "text": "310K",
-      "start": 7,
-      "end": 11
-    },
-    {
-      "label": "MOL",
-      "text": "CaCl_2",
-      "start": 23,
-      "end": 29
-    },
-    {
-      "label": "FFM",
-      "text": "Charmm36",
-      "start": 31,
-      "end": 39
-    },
-    {
-      "label": "FFM",
-      "text": "Charmm",
-      "start": 53,
-      "end": 59
-    },
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 82,
-      "end": 86
-    },
-    {
-      "label": "MOL",
-      "text": "CaCl_2",
-      "start": 110,
-      "end": 116
-    },
-    {
-      "label": "MOL",
-      "text": "glycerol",
-      "start": 217,
-      "end": 225
-    },
-    {
-      "label": "MOL",
-      "text": "POPC",
-      "start": 321,
-      "end": 325
-    },
-    {
-      "label": "MOL",
-      "text": "CaCl_2",
-      "start": 417,
-      "end": 423
-    },
-    {
-      "label": "FFM",
-      "text": "Charmm36",
-      "start": 429,
-      "end": 437
-    },
-    {
-      "label": "FFM",
-      "text": "Charmm",
-      "start": 477,
-      "end": 483
-    },
-    {
-      "label": "FFM",
-      "text": "tip3p",
-      "start": 511,
-      "end": 516
-    },
-    {
-      "label": "FFM",
-      "text": "Charmm",
-      "start": 550,
-      "end": 556
-    },
-    {
-      "label": "MOL",
-      "text": "CaCl_2",
-      "start": 587,
-      "end": 593
-    },
-    {
-      "label": "FFM",
-      "text": "Charmm36",
-      "start": 599,
-      "end": 607
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 769,
-      "end": 776
-    },
-    {
-      "label": "STIME",
-      "text": "100 ns",
-      "start": 807,
-      "end": 813
-    },
-    {
-      "label": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 1045,
-      "end": 1052
-    },
-    {
-      "label": "SOFTVERS",
-      "text": "v. 5.0",
-      "start": 1053,
-      "end": 1059
-    },
-    {
-      "label": "FFM",
-      "text": "CHARMM",
-      "start": 1192,
-      "end": 1198
-    }
-  ],
-  "url": "https://zenodo.org/records/51185"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "POPC @ 310K, 450 mM of CaCl_2. Charmm36 with default Charmm ions\nSimulations of a POPC bilayer with 450 mM of CaCl_2. \nThe goal was to study the effect of salt on the order \nparameters of the lipid head group and the glycerol \nbackbone for the NMRlipids project, see \nhttp://nmrlipids.blogspot.fi for more information.\nA POPC bilayer consisting of 200 lipids (100 per leaflet) \nis simulated in the presence of 450 mM CaCl_2. The Charmm36 \nmodel [1] is employed for lipids, the Charmm compatible variant \nof the tip3p model for water, and the default Charmm\nion parameters (type CAL) for CaCl_2.\nThe Charmm36 force field parameters were obtained from http://mackerell.umaryland.edu/charmm_ff.shtml\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\nThe files are in GROMACS format. Trajectory (.xtc) is \n100 ns long with data saved every 100 ps. These data\nwere collected after 1900 ns of simulation Additionally,\nthe initial structure (.gro), topology (.top), index file (.ndx), \nsimulation paremeter file (.mdp), binary run input file \nfor GROMACS v. 5.0–> (.tpr) and the energy output file \n(.edr) are provided. \n––––––––––––––––––––––––––––––––––––––––––––––––––––––\n[1] Update of the CHARMM All-Atom Additive Force Field \nfor Lipids: Validation on Six Lipid Types\nJeffery B. Klauda, Richard M. Venable, J. Alfredo Freites, \nJoseph W. O’Connor, Douglas J. Tobias, Carlos Mondragon-Ramirez, \nIgor Vorobyov, Alexander D. MacKerell, Jr., and Richard W. Pastor\nThe Journal of Physical Chemistry B 2010 114 (23), 7830-7843\nDOI: 10.1021/jp101759q",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "TEMP",
+            "text": "310K",
+            "start": 7,
+            "end": 11
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 23,
+            "end": 29
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 31,
+            "end": 39
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 53,
+            "end": 59
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 82,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 110,
+            "end": 116
+        },
+        {
+            "label": "MOL",
+            "text": "glycerol",
+            "start": 217,
+            "end": 225
+        },
+        {
+            "label": "MOL",
+            "text": "POPC",
+            "start": 321,
+            "end": 325
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 417,
+            "end": 423
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 429,
+            "end": 437
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 477,
+            "end": 483
+        },
+        {
+            "label": "FFM",
+            "text": "tip3p",
+            "start": 511,
+            "end": 516
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm",
+            "start": 550,
+            "end": 556
+        },
+        {
+            "label": "MOL",
+            "text": "CaCl_2",
+            "start": 587,
+            "end": 593
+        },
+        {
+            "label": "FFM",
+            "text": "Charmm36",
+            "start": 599,
+            "end": 607
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 769,
+            "end": 776
+        },
+        {
+            "label": "STIME",
+            "text": "100 ns",
+            "start": 807,
+            "end": 813
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1045,
+            "end": 1052
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "v. 5.0",
+            "start": 1053,
+            "end": 1059
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 1192,
+            "end": 1198
+        }
+    ],
+    "url": "https://zenodo.org/records/51185"
 }

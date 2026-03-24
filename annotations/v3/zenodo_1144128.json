@@ -1,50 +1,44 @@
 {
-  "classes": [
-    "SOFTNAME",
-    "SOFTVERS",
-    "STIME",
-    "MOL",
-    "FFM",
-    "TEMP"
-  ],
-  "raw_text": "Atomistic trajectories from ab-initio molecular dynamics simulations of wetted TiO2 nanoparticle\nThis repository contains atomistic trajectories from ab-initio molecular dynamics simulations of water and TiO2 nanoparticle described in the paper:\nE. G. Brandt, L. Agosta and A.P.Lyubartsev, \" Reactive wetting properties  of TiO2 nanoparticles predicted by ab initio molecular dynamics simulations\", Nanoscale, 8, 13385-13398 (2016) DOI: 10.1039/c6nr02791a\nThe trajectories are saved in the .xtc format, and initial structures with specification of atom types are given in the .pdb format.\nThe name of each file contains brief information about the simulated system:\nTiO2 : composition of the nanoparticle\nn24  : number of TiO2 units in the nanoparticle\nanatase/brookite/rutile : type of crystall structure\n- a number 0 - 30 : number of water molecules in the simulation\n2fs - the time step\nFor more details, see the referred paper",
-  "entities": [
-    {
-      "label": "MOL",
-      "text": "TiO2",
-      "start": 79,
-      "end": 83
-    },
-    {
-      "label": "MOL",
-      "text": "water",
-      "start": 194,
-      "end": 199
-    },
-    {
-      "label": "MOL",
-      "text": "TiO2",
-      "start": 204,
-      "end": 208
-    },
-    {
-      "label": "MOL",
-      "text": "TiO2",
-      "start": 324,
-      "end": 328
-    },
-    {
-      "label": "MOL",
-      "text": "TiO2",
-      "start": 666,
-      "end": 670
-    },
-    {
-      "label": "MOL",
-      "text": "TiO2",
-      "start": 722,
-      "end": 726
-    }
-  ],
-  "url": "https://zenodo.org/records/1144128"
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Atomistic trajectories from ab-initio molecular dynamics simulations of wetted TiO2 nanoparticle\nThis repository contains atomistic trajectories from ab-initio molecular dynamics simulations of water and TiO2 nanoparticle described in the paper:\nE. G. Brandt, L. Agosta and A.P.Lyubartsev, \" Reactive wetting properties  of TiO2 nanoparticles predicted by ab initio molecular dynamics simulations\", Nanoscale, 8, 13385-13398 (2016) DOI: 10.1039/c6nr02791a\nThe trajectories are saved in the .xtc format, and initial structures with specification of atom types are given in the .pdb format.\nThe name of each file contains brief information about the simulated system:\nTiO2 : composition of the nanoparticle\nn24  : number of TiO2 units in the nanoparticle\nanatase/brookite/rutile : type of crystall structure\n- a number 0 - 30 : number of water molecules in the simulation\n2fs - the time step\nFor more details, see the referred paper",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "TiO2",
+            "start": 79,
+            "end": 83
+        },
+        {
+            "label": "MOL",
+            "text": "TiO2",
+            "start": 204,
+            "end": 208
+        },
+        {
+            "label": "MOL",
+            "text": "TiO2",
+            "start": 324,
+            "end": 328
+        },
+        {
+            "label": "MOL",
+            "text": "TiO2",
+            "start": 666,
+            "end": 670
+        },
+        {
+            "label": "MOL",
+            "text": "TiO2",
+            "start": 722,
+            "end": 726
+        }
+    ],
+    "url": "https://zenodo.org/records/1144128"
 }
