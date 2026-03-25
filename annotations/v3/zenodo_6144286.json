@@ -35,6 +35,12 @@
         },
         {
             "label": "MOL",
+            "text": "glycosylated mouse Smoothened",
+            "start": 202,
+            "end": 231
+        },
+        {
+            "label": "MOL",
             "text": "mSMO",
             "start": 233,
             "end": 237

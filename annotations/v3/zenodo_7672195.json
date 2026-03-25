@@ -47,12 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "proteins",
-            "start": 695,
-            "end": 703
-        },
-        {
-            "label": "MOL",
             "text": "KRas-4B",
             "start": 796,
             "end": 803
