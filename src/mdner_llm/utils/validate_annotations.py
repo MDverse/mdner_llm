@@ -21,60 +21,78 @@ import json
 import operator
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import click
 import loguru
+import yaml
 
 from mdner_llm.core.logger import create_logger
 
-UNWANTED_TEXTS = {
-    "water",
-    "waters",
-    "lipid",
-    "lipids",
-    "protein",
-    "membrane",
-}
+
+def load_entities_config(config_path: Path | str) -> dict[str, Any]:
+    """Load entity configuration from a YAML file.
+
+    Parameters
+    ----------
+    config_path : Path or str
+        Path to the YAML configuration file.
+
+    Returns
+    -------
+    dict
+        Parsed configuration dictionary.
+    """
+    with Path(config_path).open("r", encoding="utf-8") as file:
+        return yaml.safe_load(file)
 
 
 def remove_unwanted_entities(
-    entities: list[dict],
-    unwanted_texts: set[str],
+    entities: list[dict[str, Any]],
+    config: dict[str, Any],
     logger: "loguru.Logger" = loguru.logger,
-) -> tuple[list[dict], int]:
-    """Remove entities whose text matches unwanted terms.
+) -> tuple[list[dict[str, Any]], int]:
+    """Remove entities based on per-label blacklists.
 
     Matching is case-insensitive.
 
     Parameters
     ----------
-    entities : list[dict]
-        List of entity dictionaries.
-    unwanted_texts : set[str]
-        Set of unwanted entity texts (lowercase).
+    entities : list of dict
+        List of entity dictionaries with "label" and "text".
+    config : dict
+        Configuration dictionary containing blacklists for each entity label.
     logger : loguru.Logger, optional
-        Logger instance for logging removed entities.
-        If None, a default logger will be used.
+        Logger instance.
 
     Returns
     -------
-    list[dict]
-        Filtered list of entities.
+    list of dict
+        Filtered entities.
     int
-        Count of removed entities.
+        Number of removed entities.
     """
     filtered_entities = []
     count_removed = 0
+
     for ent in entities:
+        label = ent.get("label")
         text_lower = ent.get("text", "").lower()
-        if text_lower in unwanted_texts:
+        # Get the blacklist for this label from config (case-insensitive)
+        label_config = config.get(label) or {}
+        blacklist = {text.lower() for text in label_config.get("black_list", [])}
+        # Check if the entity text is in the blacklist
+        if text_lower in blacklist:
             count_removed += 1
             logger.debug(
-                f"Removed entity '{ent.get('text')}' [{ent.get('start')}, "
-                f"{ent.get('end')}]"
+                f"Removed entity '{ent.get('text')}' "
+                f"[{ent.get('start')}, {ent.get('end')}] "
+                f"(label={label})"
             )
         else:
+            # Keep the entity if it's not in the blacklist
             filtered_entities.append(ent)
+
     return filtered_entities, count_removed
 
 
@@ -149,12 +167,16 @@ def fix_text_mismatch_local(
 
 
 def validate_annotations(
-    json_path: str, logger: "loguru.Logger" = loguru.logger
-) -> tuple[int, int, int, int, int]:
+    entities_config_path: Path | str,
+    json_path: str,
+    logger: "loguru.Logger" = loguru.logger,
+) -> dict[str, int]:
     """Validate named entity annotations in a JSON file.
 
     Parameters
     ----------
+    entities_config_path : Path or str
+        Path to the YAML configuration file containing blacklists for entity labels.
     json_path : str
         Path to the JSON file containing annotations.
         The JSON should have a structure like:
@@ -172,14 +194,14 @@ def validate_annotations(
 
     Returns
     -------
-    tuple[int, int, int, int, int]
-        A tuple containing:
-        - count_text_mismatches (int): Number of entities with text mismatches.
-        - count_span_mismatches (int): Number of entities with span length mismatches.
-        - count_overlaps (int): Number of overlapping entity pairs.
-        - count_invalid_boundaries (int):
-          Number of entities with invalid leading/trailing characters.
-        - count_removed (int): Number of entities removed due to unwanted text.
+    dict[str, int]
+        Dictionary containing validation statistics:
+        - text_mismatches
+        - span_mismatches
+        - overlaps
+        - invalid_boundaries
+        - removed
+        - unknown_labels
     """
     # Load JSON data
     path = Path(json_path)
@@ -189,9 +211,13 @@ def validate_annotations(
     entities = data.get("entities", [])
     # Extract raw text
     raw_text = data.get("raw_text", "")
+    # Load entity configuration
+    # it contains blacklists for each entity label
+    config = load_entities_config(entities_config_path)
     # Remove unwanted entities
-    entities, count_removed = remove_unwanted_entities(entities, UNWANTED_TEXTS, logger)
+    entities, count_removed = remove_unwanted_entities(entities, config, logger)
 
+    count_unknown_labels = 0
     count_text_mismatches = 0
     count_span_mismatches = 0
     count_invalid_boundaries = 0
@@ -199,6 +225,15 @@ def validate_annotations(
         start = ent.get("start")
         end = ent.get("end")
         text = ent.get("text", "")
+        label = ent.get("label")
+        # Check if label is valid according to config
+        valid_labels = set(config.keys())
+        if label not in valid_labels:
+            count_unknown_labels += 1
+            logger.warning(
+                f"Unknown label '{label}' for entity '{ent.get('text')}' "
+                f"[{ent.get('start')}, {ent.get('end')}] ({path})"
+            )
         # Check if the text matches the span in raw_text
         if raw_text[start:end] != text:
             count_text_mismatches += 1
@@ -254,22 +289,25 @@ def validate_annotations(
     with path.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    return (
-        count_text_mismatches,
-        count_span_mismatches,
-        count_overlaps,
-        count_invalid_boundaries,
-        count_removed,
-    )
+    return {
+        "text_mismatches": count_text_mismatches,
+        "span_mismatches": count_span_mismatches,
+        "overlaps": count_overlaps,
+        "invalid_boundaries": count_invalid_boundaries,
+        "removed": count_removed,
+        "unknown_labels": count_unknown_labels,
+    }
 
 
 def validate_all_annotations_from_dir(
-    annotations_dir: str, log_path: str | None = None
+    entities_config_path: str | Path, annotations_dir: str, log_path: str | None = None
 ):
     """Validate all JSON annotation files in a directory.
 
     Parameters
     ----------
+    entities_config_path : str or Path
+        Path to the YAML configuration file containing blacklists for entity labels.
     annotations_dir : str
         Path to the directory containing JSON annotation files.
     log_path : str, optional
@@ -286,21 +324,19 @@ def validate_all_annotations_from_dir(
     total_overlaps = 0
     total_invalid_boundaries = 0
     total_removed = 0
+    total_unknown_labels = 0
 
     # Validate each file and accumulate counts
     for json_file in annotation_files:
-        (
-            text_mismatches,
-            span_mismatches,
-            overlaps,
-            invalid_boundaries,
-            count_removed,
-        ) = validate_annotations(str(json_file), logger)
-        total_text_mismatches += text_mismatches
-        total_span_mismatches += span_mismatches
-        total_overlaps += overlaps
-        total_invalid_boundaries += invalid_boundaries
-        total_removed += count_removed
+        count_errors = validate_annotations(
+            entities_config_path, str(json_file), logger
+        )
+        total_text_mismatches += count_errors["text_mismatches"]
+        total_span_mismatches += count_errors["span_mismatches"]
+        total_overlaps += count_errors["overlaps"]
+        total_invalid_boundaries += count_errors["invalid_boundaries"]
+        total_removed += count_errors["removed"]
+        total_unknown_labels += count_errors["unknown_labels"]
     # Log summary
     logger.info("Validation complete.")
     logger.info(f"Total text mismatches: {total_text_mismatches}")
@@ -308,23 +344,31 @@ def validate_all_annotations_from_dir(
     logger.info(f"Total overlapping entities: {total_overlaps}")
     logger.info(f"Total removed entities: {total_removed}")
     logger.info(f"Total entities with invalid boundaries: {total_invalid_boundaries}")
+    logger.info(f"Total unknown labels: {total_unknown_labels}")
 
 
 @click.command()
 @click.option("--json-path", type=click.Path(exists=True))
 @click.option("--annotations-dir", type=click.Path(exists=True))
-def run_main_from_cli(json_path: str | None, annotations_dir: str | None):
+@click.option(
+    "--config-path", type=click.Path(exists=True), default="docs/entities_config.yaml"
+)
+def run_main_from_cli(
+    json_path: str | None, annotations_dir: str | None, config_path: str | Path
+):
     """Run the annotation validation from the command line."""
     if json_path:
         # Initialize logger
         logger = create_logger()
         logger.info(f"Validating annotations in {json_path}...")
-        validate_annotations(json_path, logger)
+        validate_annotations(config_path, json_path, logger)
         logger.success(f"Sorted entities saved to {json_path} successfully.")
     if annotations_dir:
         timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
         log_path = f"logs/validate_annotations_{timestamp}.log"
-        validate_all_annotations_from_dir(annotations_dir, log_path=log_path)
+        validate_all_annotations_from_dir(
+            config_path, annotations_dir, log_path=log_path
+        )
 
 
 if __name__ == "__main__":
