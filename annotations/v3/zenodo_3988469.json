@@ -70,12 +70,6 @@
             "end": 552
         },
         {
-            "label": "SOFTVERS",
-            "text": "16",
-            "start": 823,
-            "end": 825
-        },
-        {
             "label": "MOL",
             "text": "AT1R",
             "start": 845,
@@ -212,12 +206,6 @@
             "text": "150 ns",
             "start": 2403,
             "end": 2409
-        },
-        {
-            "label": "STIME",
-            "text": "20 ns",
-            "start": 2479,
-            "end": 2484
         }
     ],
     "url": "https://zenodo.org/records/3988469"
