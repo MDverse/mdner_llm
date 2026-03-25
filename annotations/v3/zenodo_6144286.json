@@ -11,21 +11,27 @@
     "entities": [
         {
             "label": "MOL",
+            "text": "Patched 1",
+            "start": 17,
+            "end": 26
+        },
+        {
+            "label": "MOL",
             "text": "Smoothened",
             "start": 37,
             "end": 47
         },
         {
             "label": "MOL",
-            "text": "Smoothened",
-            "start": 146,
-            "end": 156
+            "text": "sterol",
+            "start": 63,
+            "end": 69
         },
         {
             "label": "MOL",
             "text": "Smoothened",
-            "start": 221,
-            "end": 231
+            "start": 146,
+            "end": 156
         },
         {
             "label": "MOL",
@@ -54,12 +60,6 @@
         {
             "label": "MOL",
             "text": "mSMO",
-            "start": 320,
-            "end": 324
-        },
-        {
-            "label": "MOL",
-            "text": "mSMO",
             "start": 332,
             "end": 336
         },
@@ -68,12 +68,6 @@
             "text": "cholesterol",
             "start": 346,
             "end": 357
-        },
-        {
-            "label": "MOL",
-            "text": "mSMO",
-            "start": 365,
-            "end": 369
         },
         {
             "label": "MOL",
@@ -90,12 +84,6 @@
         {
             "label": "MOL",
             "text": "mSMO",
-            "start": 415,
-            "end": 419
-        },
-        {
-            "label": "MOL",
-            "text": "mSMO",
             "start": 432,
             "end": 436
         },
@@ -104,12 +92,6 @@
             "text": "cholesterol",
             "start": 442,
             "end": 453
-        },
-        {
-            "label": "MOL",
-            "text": "mSMO",
-            "start": 480,
-            "end": 484
         },
         {
             "label": "MOL",
@@ -125,9 +107,9 @@
         },
         {
             "label": "MOL",
-            "text": "mSMO",
-            "start": 562,
-            "end": 566
+            "text": "Smoothened",
+            "start": 536,
+            "end": 546
         },
         {
             "label": "MOL",
@@ -140,12 +122,6 @@
             "text": "cholesterols",
             "start": 609,
             "end": 621
-        },
-        {
-            "label": "MOL",
-            "text": "mSMO",
-            "start": 658,
-            "end": 662
         },
         {
             "label": "MOL",
@@ -167,12 +143,6 @@
         },
         {
             "label": "MOL",
-            "text": "mSMO",
-            "start": 794,
-            "end": 798
-        },
-        {
-            "label": "MOL",
             "text": "hSMO",
             "start": 808,
             "end": 812
@@ -182,12 +152,6 @@
             "text": "cholesterol",
             "start": 826,
             "end": 837
-        },
-        {
-            "label": "MOL",
-            "text": "hSMO",
-            "start": 847,
-            "end": 851
         },
         {
             "label": "STIME",
