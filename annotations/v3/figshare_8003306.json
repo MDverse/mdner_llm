@@ -9,6 +9,72 @@
     ],
     "raw_text": "MA-CA-SP molecular dynamics trajectory for HIV-1 Gag protein\nMA-CA-SP1_trajectory.tar.gz is a compressed folder containing files md_0_1.gro and md_0_1.xtc that correspond to a molecular dynamics trajectory of 50 ns for MA-CA-SP1. This model includes amino acids 2 to 377 of protein GAG-HIV1 (UNIPROT code P12497) in a compact conformation.\n\nmd.mdp is a text file with the conditions to generate the molecular dynamics run.\n\nThe simulation was performed using the GROMACS package version 2018.1 (Abraham et al., 2015) in conjunction with the GROMOS 53A6 force field (Oostenbrink et al., 2004). Water was represented explicitly using the SPC/E model (Berendsen et al.,1987). The system was simulated under periodic conditions in a dodecahedron box. The temperature was maintained throughout the simulation by independently coupling the protein and the solvent to an external temperature bath at 310 K with a coupling constant tau_t= 0.1 ps using a modified Berendsen thermostat (Bussi et al., 2007). The pressure was maintained at 1 bar by weakly coupling the system to an isotropic pressure bath (Parrinello & Rahman., 1981) using an isothermal compressibility of 4.5 x 10-5\n\nbar-1 and a coupling constant of tau_p= 2.0 ps. During the simulations, the length of all bonds within the protein was constrained using the LINear Constraint Solver (LINCS) algorithm (Hess et al. 1997). All bonds, even heavy atom-H bonds were constrained. The time step for integrating the equations of motion was 2 fs. The algorithm used for computing long range electrostatic interactions was Particle-Mesh-Ewald (PME) (Petersen et al. 1995).\n\nAbraham, M. J., Murtola, T., Schulz, R., Páll, S., Smith, J. C., Hess, B., Lindahl, E. (2015) SoftwareX 1–2:19–25.\n\nBerendsen, H. J. C., Postma, J. P .M., and van Gunsteren, W. F., DiNola, A., Haak, J. R. (1984). J. Chem. pHYS. 81, 3684-3690.\n\nBussi, G., Donadio, D., Parrinello, M., (2007). J. Chem. Phys. 126, 014101-7.\n\nHess, B., Bekker, H.,Berendsen, H.J.C., and Fraaijc, J. G.E.M. (1997). J. Comput. Chem. 18, 1463-1472.\n\nOostenbrink B.C., Pitera J.W., Lipzig M.M.H., Meerman J.H.N., Gunsteren W.F. van (2000) J. Comput. Chem. 25:1656-1676.\n\nParrinello, M. and Rahman, A. (1981). J. Appl. Phys. 52, 7182-7190.\n\nPetersen H. G. (1995) J. Chem. Phys. 103, 3668-3679.",
     "entities": [
+        {
+            "label": "MOL",
+            "text": "MA-CA-SP",
+            "start": 0,
+            "end": 8
+        },
+        {
+            "label": "MOL",
+            "text": "HIV-1 Gag protein",
+            "start": 43,
+            "end": 60
+        },
+        {
+            "label": "STIME",
+            "text": "50 ns",
+            "start": 209,
+            "end": 214
+        },
+        {
+            "label": "MOL",
+            "text": "MA-CA-SP1",
+            "start": 219,
+            "end": 228
+        },
+        {
+            "label": "MOL",
+            "text": "GAG-HIV1",
+            "start": 282,
+            "end": 290
+        },
+        {
+            "label": "MOL",
+            "text": "P12497",
+            "start": 305,
+            "end": 311
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 463,
+            "end": 470
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "2018.1",
+            "start": 487,
+            "end": 493
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS 53A6",
+            "start": 541,
+            "end": 552
+        },
+        {
+            "label": "FFM",
+            "text": "SPC/E",
+            "start": 636,
+            "end": 641
+        },
+        {
+            "label": "TEMP",
+            "text": "310 K",
+            "start": 893,
+            "end": 898
+        }
     ],
     "url": "https://figshare.com/articles/dataset/MA-CA-SP_molecular_dynamics_trajectory_for_HIV-1_Gag_protein/8003306"
 }
