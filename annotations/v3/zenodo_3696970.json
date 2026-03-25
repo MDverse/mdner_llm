@@ -17,9 +17,9 @@
         },
         {
             "label": "MOL",
-            "text": "Carbon",
+            "text": "Carbon Nanotube",
             "start": 100,
-            "end": 106
+            "end": 115
         },
         {
             "label": "SOFTNAME",
@@ -52,7 +52,7 @@
             "end": 282
         },
         {
-            "label": "MOL",
+            "label": "FFM",
             "text": "BPY1,3-TFSI",
             "start": 417,
             "end": 428
@@ -71,27 +71,15 @@
         },
         {
             "label": "MOL",
-            "text": "electrolyte",
-            "start": 647,
-            "end": 658
-        },
-        {
-            "label": "MOL",
-            "text": "electrolyte",
-            "start": 1040,
-            "end": 1051
-        },
-        {
-            "label": "MOL",
             "text": "graphene",
             "start": 1200,
             "end": 1208
         },
         {
             "label": "MOL",
-            "text": "carbon",
+            "text": "carbon nanotube",
             "start": 1209,
-            "end": 1215
+            "end": 1224
         }
     ],
     "url": "https://zenodo.org/records/3696970"
