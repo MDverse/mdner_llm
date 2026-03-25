@@ -48,7 +48,8 @@ This entity refers to any force field or molecular model used to describe the in
 - `GROMOS53a6` ✅
 - `GROMOS96 43A1` ✅
 - `the force field` 🚫 → Too generic
-- `TIP3P water` 🚫 → Annotate only `TIP3P` FFM
+- `TIP3P water` 🚫 → Annotate only `TIP3P` as FFM
+- `the CHARMM36 force field` 🚫 → Annotate only `CHARMM36` as FFM
 
 See also [`ffm.yaml`](ffm.yaml) for a list of force fields and models.
 
