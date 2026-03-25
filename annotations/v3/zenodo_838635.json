@@ -58,12 +58,6 @@
             "end": 500
         },
         {
-            "label": "FFM",
-            "text": "OPC",
-            "start": 497,
-            "end": 500
-        },
-        {
             "label": "SOFTNAME",
             "text": "PLUMED",
             "start": 628,
@@ -73,12 +67,6 @@
             "label": "MOL",
             "text": "POPC",
             "start": 642,
-            "end": 646
-        },
-        {
-            "label": "FFM",
-            "text": "OPC",
-            "start": 643,
             "end": 646
         },
         {

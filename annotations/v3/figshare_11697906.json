@@ -47,12 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "lanosterol",
-            "start": 138,
-            "end": 148
-        },
-        {
-            "label": "MOL",
             "text": "cholesterol",
             "start": 684,
             "end": 695
@@ -60,14 +54,14 @@
         {
             "label": "MOL",
             "text": "lanosterol",
-            "start": 615,
-            "end": 625
+            "start": 867,
+            "end": 877
         },
         {
             "label": "MOL",
-            "text": "lanosterol",
-            "start": 867,
-            "end": 877
+            "text": "methyl",
+            "start": 928,
+            "end": 934
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Biosynthetic_Mechanism_of_Lanosterol_A_Completed_Story/11697906"

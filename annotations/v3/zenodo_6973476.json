@@ -56,12 +56,6 @@
             "text": "10 µs",
             "start": 808,
             "end": 813
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 857,
-            "end": 862
         }
     ],
     "url": "https://zenodo.org/records/6973476"

@@ -66,56 +66,50 @@
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 422,
-            "end": 428
+            "start": 423,
+            "end": 429
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 510,
-            "end": 514
+            "start": 511,
+            "end": 515
         },
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 519,
-            "end": 525
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 532,
-            "end": 537
+            "start": 520,
+            "end": 526
         },
         {
             "label": "MOL",
             "text": "potassium",
-            "start": 545,
-            "end": 554
+            "start": 546,
+            "end": 555
         },
         {
             "label": "STIME",
             "text": "167ns",
-            "start": 582,
-            "end": 587
+            "start": 583,
+            "end": 588
         },
         {
             "label": "MOL",
             "text": "POPC",
-            "start": 607,
-            "end": 611
+            "start": 608,
+            "end": 612
         },
         {
             "label": "FFM",
             "text": "Berger",
-            "start": 624,
-            "end": 630
+            "start": 625,
+            "end": 631
         },
         {
             "label": "MOL",
             "text": "pazePC",
-            "start": 657,
-            "end": 663
+            "start": 658,
+            "end": 664
         }
     ],
     "url": "https://zenodo.org/records/44660"

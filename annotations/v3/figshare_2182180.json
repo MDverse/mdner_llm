@@ -35,21 +35,21 @@
         },
         {
             "label": "MOL",
-            "text": "quinone",
-            "start": 128,
-            "end": 135
-        },
-        {
-            "label": "MOL",
-            "text": "quinone",
-            "start": 691,
-            "end": 698
-        },
-        {
-            "label": "MOL",
             "text": "quinones",
             "start": 862,
             "end": 870
+        },
+        {
+            "label": "MOL",
+            "text": "QB site",
+            "start": 885,
+            "end": 892
+        },
+        {
+            "label": "MOL",
+            "text": "2-methoxy group",
+            "start": 1021,
+            "end": 1036
         },
         {
             "label": "MOL",
@@ -59,15 +59,39 @@
         },
         {
             "label": "MOL",
+            "text": "QB site",
+            "start": 1058,
+            "end": 1065
+        },
+        {
+            "label": "MOL",
+            "text": "2-methoxy group",
+            "start": 1152,
+            "end": 1167
+        },
+        {
+            "label": "MOL",
             "text": "quinones",
             "start": 1227,
             "end": 1235
         },
         {
             "label": "MOL",
+            "text": "QB site",
+            "start": 1257,
+            "end": 1264
+        },
+        {
+            "label": "MOL",
             "text": "ubiquinone",
             "start": 1327,
             "end": 1337
+        },
+        {
+            "label": "MOL",
+            "text": "2-methoxy group",
+            "start": 1360,
+            "end": 1375
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Redox_Potential_Tuning_through_Differential_Quinone_Binding_in_the_Photosynthetic_Reaction_Center_of_i_Rhodobacter_sphaeroides_i_/2182180"

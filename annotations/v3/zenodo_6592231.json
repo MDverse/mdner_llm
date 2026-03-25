@@ -64,6 +64,12 @@
             "end": 788
         },
         {
+            "label": "SOFTVERS",
+            "text": "4",
+            "start": 807,
+            "end": 808
+        },
+        {
             "label": "MOL",
             "text": "GSH",
             "start": 810,
@@ -113,14 +119,20 @@
         },
         {
             "label": "FFM",
-            "text": "CHARMM36m.",
+            "text": "CHARMM36m",
             "start": 1030,
-            "end": 1040
+            "end": 1039
         },
         {
             "label": "SOFTNAME",
-            "text": "AutoDock4",
+            "text": "AutoDock",
             "start": 1140,
+            "end": 1148
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "4",
+            "start": 1148,
             "end": 1149
         }
     ],

@@ -88,12 +88,6 @@
             "end": 749
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 770,
-            "end": 775
-        },
-        {
             "label": "SOFTNAME",
             "text": "AMBER",
             "start": 1011,

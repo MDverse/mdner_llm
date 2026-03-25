@@ -35,12 +35,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 271,
-            "end": 276
-        },
-        {
-            "label": "MOL",
             "text": "thiolate",
             "start": 285,
             "end": 293

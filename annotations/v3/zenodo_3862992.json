@@ -83,12 +83,6 @@
         },
         {
             "label": "MOL",
-            "text": "lipids",
-            "start": 1021,
-            "end": 1027
-        },
-        {
-            "label": "MOL",
             "text": "actin",
             "start": 1167,
             "end": 1172

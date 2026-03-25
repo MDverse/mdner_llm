@@ -53,12 +53,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 259,
-            "end": 264
-        },
-        {
-            "label": "MOL",
             "text": "DMPC",
             "start": 276,
             "end": 280
@@ -76,12 +70,6 @@
             "end": 319
         },
         {
-            "label": "MOL",
-            "text": "waters",
-            "start": 341,
-            "end": 347
-        },
-        {
             "label": "FFM",
             "text": "Berger",
             "start": 369,
@@ -92,12 +80,6 @@
             "text": "DMTAP",
             "start": 423,
             "end": 428
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 493,
-            "end": 498
         },
         {
             "label": "FFM",
@@ -116,18 +98,6 @@
             "text": "3.x",
             "start": 590,
             "end": 593
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 844,
-            "end": 849
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1241,
-            "end": 1246
         },
         {
             "label": "TEMP",

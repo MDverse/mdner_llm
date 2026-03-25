@@ -22,28 +22,10 @@
             "end": 30
         },
         {
-            "label": "MOL",
-            "text": "Water",
-            "start": 31,
-            "end": 36
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 93,
-            "end": 98
-        },
-        {
             "label": "FFM",
             "text": "OPC",
             "start": 107,
             "end": 110
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 196,
-            "end": 201
         },
         {
             "label": "FFM",
@@ -56,12 +38,6 @@
             "text": "OPC3",
             "start": 357,
             "end": 361
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 362,
-            "end": 367
         },
         {
             "label": "SOFTNAME",
@@ -112,22 +88,10 @@
             "end": 636
         },
         {
-            "label": "MOL",
-            "text": "Water",
-            "start": 659,
-            "end": 664
-        },
-        {
             "label": "FFM",
             "text": "OPC",
             "start": 679,
             "end": 682
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 723,
-            "end": 728
         },
         {
             "label": "FFM",

@@ -71,12 +71,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 1146,
-            "end": 1151
-        },
-        {
-            "label": "MOL",
             "text": "glucose",
             "start": 1427,
             "end": 1434

@@ -36,20 +36,20 @@
         {
             "label": "MOL",
             "text": "hBGT1",
-            "start": 523,
-            "end": 528
+            "start": 524,
+            "end": 529
         },
         {
             "label": "MOL",
             "text": "GABA",
-            "start": 591,
-            "end": 595
+            "start": 592,
+            "end": 596
         },
         {
             "label": "STIME",
             "text": "100ns",
-            "start": 612,
-            "end": 617
+            "start": 613,
+            "end": 618
         }
     ],
     "url": "https://zenodo.org/records/5357152"

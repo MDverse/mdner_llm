@@ -11,21 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 24,
-            "end": 29
-        },
-        {
-            "label": "MOL",
             "text": "Chitosan",
             "start": 68,
             "end": 76
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 242,
-            "end": 247
         },
         {
             "label": "MOL",
@@ -35,33 +23,15 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 408,
-            "end": 413
-        },
-        {
-            "label": "MOL",
             "text": "chitosan",
             "start": 474,
             "end": 482
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 547,
-            "end": 552
-        },
-        {
-            "label": "MOL",
             "text": "chitosan",
             "start": 676,
             "end": 684
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 920,
-            "end": 925
         },
         {
             "label": "MOL",

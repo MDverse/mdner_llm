@@ -91,12 +91,36 @@ def find_entity_positions(raw_text: str, entity_text: str) -> list[tuple[int, in
     return positions
 
 
+def has_overlap(start: int, end: int, entities: list[dict]) -> bool:
+    """Check if a span overlaps with existing entities.
+
+    Parameters
+    ----------
+    start : int
+        Start index of the new entity.
+    end : int
+        End index of the new entity.
+    entities : list[dict]
+        List of existing entities with "start" and "end" keys.
+
+    Returns
+    -------
+    bool
+        True if there is an overlap, False otherwise.
+    """
+    return any(start < ent["end"] and ent["start"] < end for ent in entities)
+
+
 def add_entity_annotation_file(
     file_path: Path,
     new_entities: list[tuple[str, str]],
 ) -> None:
     """
     Add new (label, text) entities to an annotation file.
+
+    Entities are only added if:
+    - They are not already present
+    - They do not overlap with existing entities
 
     Parameters
     ----------
@@ -105,13 +129,11 @@ def add_entity_annotation_file(
     new_entities : list[tuple[str, str]]
         List of (label, text) pairs to insert.
     """
-    # Load annotation data
     with open(file_path, encoding="utf-8") as file:
         data = json.load(file)
 
     raw_text = data["raw_text"]
 
-    # Insert entities if not already present
     for label, text in new_entities:
         positions = find_entity_positions(raw_text, text)
 
@@ -123,13 +145,19 @@ def add_entity_annotation_file(
                 "end": end,
             }
 
-            if entity_dict not in data["entities"]:
-                data["entities"].append(entity_dict)
+            # Skip if exact duplicate
+            if entity_dict in data["entities"]:
+                continue
 
-    # Sort entities by start index
+            # Skip if overlap
+            if has_overlap(start, end, data["entities"]):
+                continue
+
+            data["entities"].append(entity_dict)
+
+    # Sort entities
     data["entities"] = sorted(data["entities"], key=operator.itemgetter("start"))
 
-    # Save updated file
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 

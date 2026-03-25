@@ -17,12 +17,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 861,
-            "end": 866
-        },
-        {
-            "label": "MOL",
             "text": "ions",
             "start": 196,
             "end": 200

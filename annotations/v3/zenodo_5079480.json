@@ -11,21 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 13,
-            "end": 18
-        },
-        {
-            "label": "MOL",
             "text": "Zeolites",
             "start": 22,
             "end": 30
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 84,
-            "end": 89
         },
         {
             "label": "MOL",
@@ -38,12 +26,6 @@
             "text": "zeolite",
             "start": 598,
             "end": 605
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 641,
-            "end": 646
         },
         {
             "label": "MOL",

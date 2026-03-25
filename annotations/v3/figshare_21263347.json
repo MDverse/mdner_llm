@@ -47,12 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 922,
-            "end": 927
-        },
-        {
-            "label": "MOL",
             "text": "PGLa",
             "start": 1048,
             "end": 1052

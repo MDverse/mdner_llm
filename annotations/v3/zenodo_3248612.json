@@ -29,12 +29,6 @@
         },
         {
             "label": "MOL",
-            "text": "POPC",
-            "start": 286,
-            "end": 290
-        },
-        {
-            "label": "MOL",
             "text": "ceramides",
             "start": 316,
             "end": 325
@@ -86,12 +80,6 @@
             "text": "3000 ns",
             "start": 460,
             "end": 467
-        },
-        {
-            "label": "MOL",
-            "text": "POPC",
-            "start": 512,
-            "end": 516
         },
         {
             "label": "MOL",

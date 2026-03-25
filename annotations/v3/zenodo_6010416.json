@@ -41,6 +41,12 @@
         },
         {
             "label": "MOL",
+            "text": "carbon",
+            "start": 869,
+            "end": 875
+        },
+        {
+            "label": "MOL",
             "text": "DOPC",
             "start": 883,
             "end": 887

@@ -17,15 +17,15 @@
         },
         {
             "label": "MOL",
-            "text": "8ArG",
-            "start": 384,
-            "end": 388
-        },
-        {
-            "label": "MOL",
             "text": "8-aryl",
             "start": 358,
             "end": 364
+        },
+        {
+            "label": "MOL",
+            "text": "8ArG",
+            "start": 384,
+            "end": 388
         },
         {
             "label": "MOL",

@@ -11,12 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "lipid",
-            "start": 80,
-            "end": 85
-        },
-        {
-            "label": "MOL",
             "text": "gold nanoparticles",
             "start": 152,
             "end": 170
@@ -35,33 +29,15 @@
         },
         {
             "label": "MOL",
-            "text": "NP",
-            "start": 520,
-            "end": 522
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 568,
-            "end": 573
-        },
-        {
-            "label": "MOL",
             "text": "amphiphilic NP",
             "start": 508,
             "end": 522
         },
         {
             "label": "MOL",
-            "text": "NP",
-            "start": 826,
+            "text": "amphiphilic NP",
+            "start": 814,
             "end": 828
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 1116,
-            "end": 1121
         },
         {
             "label": "MOL",
@@ -71,15 +47,9 @@
         },
         {
             "label": "MOL",
-            "text": "lipid",
-            "start": 1404,
-            "end": 1409
-        },
-        {
-            "label": "MOL",
             "text": "NPs",
-            "start": 1395,
-            "end": 1398
+            "start": 1465,
+            "end": 1468
         }
     ],
     "url": "https://zenodo.org/records/4993181"

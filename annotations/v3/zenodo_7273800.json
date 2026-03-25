@@ -18,74 +18,170 @@
         {
             "label": "MOL",
             "text": "epoxy resins",
-            "start": 166,
-            "end": 178
+            "start": 167,
+            "end": 179
         },
         {
             "label": "MOL",
             "text": "epoxy resins",
-            "start": 463,
-            "end": 475
+            "start": 464,
+            "end": 476
         },
         {
             "label": "FFM",
             "text": "AMBER",
-            "start": 499,
-            "end": 504
+            "start": 500,
+            "end": 505
+        },
+        {
+            "label": "MOL",
+            "text": "DGEBA",
+            "start": 728,
+            "end": 733
+        },
+        {
+            "label": "MOL",
+            "text": "DDS",
+            "start": 734,
+            "end": 737
+        },
+        {
+            "label": "MOL",
+            "text": "epoxy resins",
+            "start": 1433,
+            "end": 1445
+        },
+        {
+            "label": "FFM",
+            "text": "Amber",
+            "start": 1947,
+            "end": 1952
+        },
+        {
+            "label": "MOL",
+            "text": "DGEBA",
+            "start": 2027,
+            "end": 2032
         },
         {
             "label": "MOL",
             "text": "epoxy resin",
-            "start": 1432,
-            "end": 1443
+            "start": 2033,
+            "end": 2044
         },
         {
-            "label": "SOFTNAME",
-            "text": "Packmol",
-            "start": 2293,
-            "end": 2300
+            "label": "MOL",
+            "text": "DDS",
+            "start": 2069,
+            "end": 2072
+        },
+        {
+            "label": "MOL",
+            "text": "DICY",
+            "start": 2074,
+            "end": 2078
+        },
+        {
+            "label": "MOL",
+            "text": "IPTA",
+            "start": 2083,
+            "end": 2087
+        },
+        {
+            "label": "MOL",
+            "text": "DGEBA",
+            "start": 2141,
+            "end": 2146
         },
         {
             "label": "SOFTNAME",
             "text": "Lammps",
-            "start": 2210,
-            "end": 2216
+            "start": 2214,
+            "end": 2220
+        },
+        {
+            "label": "MOL",
+            "text": "DGEBA",
+            "start": 2245,
+            "end": 2250
+        },
+        {
+            "label": "MOL",
+            "text": "DDS",
+            "start": 2251,
+            "end": 2254
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Packmol",
+            "start": 2297,
+            "end": 2304
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Lammps",
+            "start": 2471,
+            "end": 2477
         },
         {
             "label": "SOFTVERS",
             "text": "Stable Dec. 2018",
-            "start": 2473,
-            "end": 2489
+            "start": 2478,
+            "end": 2494
         },
         {
-            "label": "MOL",
-            "text": "alcohol",
-            "start": 3521,
-            "end": 3528
+            "label": "SOFTNAME",
+            "text": "Lammps",
+            "start": 2570,
+            "end": 2576
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Lammps",
+            "start": 3271,
+            "end": 3277
         },
         {
             "label": "SOFTNAME",
             "text": "Gaussian",
-            "start": 3628,
-            "end": 3636
+            "start": 3648,
+            "end": 3656
         },
         {
             "label": "SOFTVERS",
             "text": "16 Rev B01",
-            "start": 3637,
-            "end": 3647
+            "start": 3657,
+            "end": 3667
         },
         {
             "label": "SOFTNAME",
             "text": "LAMMPS",
-            "start": 3665,
-            "end": 3671
+            "start": 3685,
+            "end": 3691
         },
         {
             "label": "SOFTVERS",
-            "text": "(Dec 2018, stable)",
-            "start": 3672,
-            "end": 3690
+            "text": "Dec 2018, stable",
+            "start": 3693,
+            "end": 3709
+        },
+        {
+            "label": "MOL",
+            "text": "epoxy resins",
+            "start": 4000,
+            "end": 4012
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "Gaussian",
+            "start": 4180,
+            "end": 4188
+        },
+        {
+            "label": "SOFTVERS",
+            "text": "16 Rev. B.01, 2016",
+            "start": 4189,
+            "end": 4207
         }
     ],
     "url": "https://zenodo.org/records/7273800"

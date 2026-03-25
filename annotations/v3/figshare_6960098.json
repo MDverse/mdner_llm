@@ -24,20 +24,8 @@
         {
             "label": "MOL",
             "text": "DNA",
-            "start": 61,
-            "end": 64
-        },
-        {
-            "label": "MOL",
-            "text": "DNA",
             "start": 147,
             "end": 150
-        },
-        {
-            "label": "MOL",
-            "text": "H-NS",
-            "start": 253,
-            "end": 257
         },
         {
             "label": "MOL",
@@ -47,9 +35,9 @@
         },
         {
             "label": "MOL",
-            "text": "protein",
-            "start": 110,
-            "end": 117
+            "text": "H-NS",
+            "start": 253,
+            "end": 257
         },
         {
             "label": "MOL",
@@ -62,6 +50,12 @@
             "text": "DNA",
             "start": 302,
             "end": 305
+        },
+        {
+            "label": "MOL",
+            "text": "DNA",
+            "start": 333,
+            "end": 336
         },
         {
             "label": "MOL",
@@ -96,8 +90,8 @@
         {
             "label": "MOL",
             "text": "DNA",
-            "start": 333,
-            "end": 336
+            "start": 678,
+            "end": 681
         },
         {
             "label": "MOL",
@@ -126,8 +120,8 @@
         {
             "label": "MOL",
             "text": "DNA",
-            "start": 613,
-            "end": 616
+            "start": 1297,
+            "end": 1300
         },
         {
             "label": "MOL",
@@ -138,8 +132,20 @@
         {
             "label": "MOL",
             "text": "DNA",
-            "start": 678,
-            "end": 681
+            "start": 1326,
+            "end": 1329
+        },
+        {
+            "label": "MOL",
+            "text": "QGR motif",
+            "start": 1350,
+            "end": 1359
+        },
+        {
+            "label": "MOL",
+            "text": "QGR motif",
+            "start": 1411,
+            "end": 1420
         },
         {
             "label": "MOL",
@@ -150,8 +156,26 @@
         {
             "label": "MOL",
             "text": "DNA",
-            "start": 1092,
-            "end": 1095
+            "start": 1529,
+            "end": 1532
+        },
+        {
+            "label": "MOL",
+            "text": "QGR motif",
+            "start": 1647,
+            "end": 1656
+        },
+        {
+            "label": "MOL",
+            "text": "QGR motif",
+            "start": 1688,
+            "end": 1697
+        },
+        {
+            "label": "MOL",
+            "text": "QGR motif",
+            "start": 1848,
+            "end": 1857
         },
         {
             "label": "MOL",
@@ -161,9 +185,15 @@
         },
         {
             "label": "MOL",
-            "text": "AT-rich",
+            "text": "AT-rich DNA",
             "start": 1912,
-            "end": 1919
+            "end": 1923
+        },
+        {
+            "label": "MOL",
+            "text": "QGR motif",
+            "start": 1959,
+            "end": 1968
         },
         {
             "label": "MOL",
@@ -174,8 +204,8 @@
         {
             "label": "MOL",
             "text": "DNA",
-            "start": 1297,
-            "end": 1300
+            "start": 2079,
+            "end": 2082
         }
     ],
     "url": "https://uvaauas.figshare.com/articles/dataset/Predicting_the_mechanism_and_rate_of_H-NS_binding_to_AT-rich_DNA/6960098"

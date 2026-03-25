@@ -35,18 +35,6 @@
         },
         {
             "label": "MOL",
-            "text": "Protein",
-            "start": 570,
-            "end": 577
-        },
-        {
-            "label": "MOL",
-            "text": "Lipid",
-            "start": 590,
-            "end": 595
-        },
-        {
-            "label": "MOL",
             "text": "Phospholipids",
             "start": 663,
             "end": 676

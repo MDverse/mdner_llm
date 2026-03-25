@@ -11,12 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 0,
-            "end": 5
-        },
-        {
-            "label": "MOL",
             "text": "acetonitrile",
             "start": 7,
             "end": 19
@@ -26,12 +20,6 @@
             "text": "methanol",
             "start": 25,
             "end": 33
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 157,
-            "end": 162
         },
         {
             "label": "MOL",
@@ -66,32 +54,26 @@
         {
             "label": "TEMP",
             "text": "298.15 K",
-            "start": 815,
-            "end": 823
+            "start": 816,
+            "end": 824
         },
         {
             "label": "TEMP",
             "text": "298.15 K",
-            "start": 893,
-            "end": 901
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 998,
-            "end": 1003
+            "start": 894,
+            "end": 902
         },
         {
             "label": "MOL",
             "text": "acetonitrile",
-            "start": 1025,
-            "end": 1037
+            "start": 1026,
+            "end": 1038
         },
         {
             "label": "MOL",
             "text": "methanol",
-            "start": 1052,
-            "end": 1060
+            "start": 1053,
+            "end": 1061
         }
     ],
     "url": "https://zenodo.org/records/7112198"

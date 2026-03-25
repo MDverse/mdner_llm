@@ -1,13 +1,12 @@
-"""Quality control inventory of named entities from annotation files.
+"""Build a vocabulary of named entities from JSON annotation files.
 
 This script scans a directory of JSON annotation files, aggregates named
-entities by class, normalizes entity text to lowercase, counts global
-occurrences across all annotations, and produces one vocabulary file
-per entity class.
+entities by class, normalizes entity text to lowercase, counts total
+occurrences across all files, and generates one vocabulary file per entity class.
 
 Each output file contains:
-- A header reporting the number of unique entities for the class
-- One normalized entity per line with its total occurrence count
+- A header reporting the number of unique entities for that class.
+- One normalized entity per line with its total occurrence count.
 """
 
 import json

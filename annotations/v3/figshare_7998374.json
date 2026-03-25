@@ -131,12 +131,6 @@
         },
         {
             "label": "MOL",
-            "text": "lipids",
-            "start": 702,
-            "end": 708
-        },
-        {
-            "label": "MOL",
             "text": "acyl",
             "start": 1805,
             "end": 1809

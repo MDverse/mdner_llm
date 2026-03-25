@@ -11,21 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 9,
-            "end": 14
-        },
-        {
-            "label": "MOL",
             "text": "C11R6",
             "start": 152,
             "end": 157
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 194,
-            "end": 199
         },
         {
             "label": "MOL",
@@ -41,12 +29,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 453,
-            "end": 458
-        },
-        {
-            "label": "MOL",
             "text": "C11R6",
             "start": 574,
             "end": 579
@@ -56,12 +38,6 @@
             "text": "C11R6",
             "start": 586,
             "end": 591
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 648,
-            "end": 653
         },
         {
             "label": "MOL",

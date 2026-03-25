@@ -11,21 +11,15 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "SARS-CoV-2 Spike",
+            "text": "SARS-CoV-2 Spike Protein",
             "start": 18,
-            "end": 34
-        },
-        {
-            "label": "MOL",
-            "text": "Protein",
-            "start": 35,
             "end": 42
         },
         {
             "label": "MOL",
-            "text": "SARS-CoV-2 Spike",
+            "text": "SARS-CoV-2 Spike Protein",
             "start": 167,
-            "end": 183
+            "end": 191
         },
         {
             "label": "MOL",
@@ -68,6 +62,12 @@
             "text": "RBD",
             "start": 690,
             "end": 693
+        },
+        {
+            "label": "MOL",
+            "text": "6M0J",
+            "start": 718,
+            "end": 722
         },
         {
             "label": "SOFTNAME",

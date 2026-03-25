@@ -65,12 +65,6 @@
         },
         {
             "label": "MOL",
-            "text": "NO3",
-            "start": 542,
-            "end": 545
-        },
-        {
-            "label": "MOL",
             "text": "HNO2",
             "start": 551,
             "end": 555

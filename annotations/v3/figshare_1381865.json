@@ -16,12 +16,6 @@
             "end": 213
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 252,
-            "end": 257
-        },
-        {
             "label": "SOFTNAME",
             "text": "AMBER",
             "start": 300,
@@ -62,12 +56,6 @@
             "text": "AMBER",
             "start": 861,
             "end": 866
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1673,
-            "end": 1678
         }
     ],
     "url": "https://figshare.com/articles/dataset/Molecular_Dynamics_Simulations_of_Sheet_like_Replicators/1381865"

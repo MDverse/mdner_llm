@@ -28,12 +28,6 @@
             "end": 244
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 249,
-            "end": 254
-        },
-        {
             "label": "STIME",
             "text": "nanosecond",
             "start": 603,

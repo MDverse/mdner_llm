@@ -58,12 +58,6 @@
             "end": 509
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 551,
-            "end": 556
-        },
-        {
             "label": "TEMP",
             "text": "295 K",
             "start": 597,

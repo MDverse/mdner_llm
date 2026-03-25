@@ -42,7 +42,7 @@
         {
             "label": "MOL",
             "text": "DPPC",
-            "start": 804,
+            "start": 805,
             "end": 809
         },
         {
@@ -61,13 +61,13 @@
             "label": "FFM",
             "text": "Charmm36 (v. June 2015)",
             "start": 1004,
-            "end": 1028
+            "end": 1027
         },
         {
             "label": "FFM",
             "text": "TIP3P",
             "start": 1037,
-            "end": 1043
+            "end": 1042
         },
         {
             "label": "STIME",

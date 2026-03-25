@@ -17,12 +17,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 194,
-            "end": 199
-        },
-        {
-            "label": "MOL",
             "text": "TiO2",
             "start": 204,
             "end": 208

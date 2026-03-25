@@ -41,6 +41,12 @@
         },
         {
             "label": "MOL",
+            "text": "flavonoid",
+            "start": 147,
+            "end": 156
+        },
+        {
+            "label": "MOL",
             "text": "dioleoyl-phosphatidylcholine",
             "start": 496,
             "end": 524
@@ -83,6 +89,12 @@
         },
         {
             "label": "MOL",
+            "text": "flavonoid",
+            "start": 739,
+            "end": 748
+        },
+        {
+            "label": "MOL",
             "text": "quercetin",
             "start": 876,
             "end": 885
@@ -90,8 +102,8 @@
         {
             "label": "MOL",
             "text": "flavonoid",
-            "start": 147,
-            "end": 156
+            "start": 997,
+            "end": 1006
         },
         {
             "label": "MOL",
@@ -113,21 +125,9 @@
         },
         {
             "label": "MOL",
-            "text": "flavonoid",
-            "start": 739,
-            "end": 748
-        },
-        {
-            "label": "MOL",
             "text": "rutin",
             "start": 1301,
             "end": 1306
-        },
-        {
-            "label": "MOL",
-            "text": "flavonoid",
-            "start": 997,
-            "end": 1006
         },
         {
             "label": "MOL",

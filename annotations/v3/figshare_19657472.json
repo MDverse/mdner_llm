@@ -47,12 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "RNAs",
-            "start": 227,
-            "end": 231
-        },
-        {
-            "label": "MOL",
             "text": "CsrA",
             "start": 343,
             "end": 347
@@ -86,12 +80,6 @@
             "text": "protegens",
             "start": 514,
             "end": 523
-        },
-        {
-            "label": "MOL",
-            "text": "RNAs",
-            "start": 323,
-            "end": 327
         },
         {
             "label": "MOL",

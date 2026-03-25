@@ -23,12 +23,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 1184,
-            "end": 1189
-        },
-        {
-            "label": "MOL",
             "text": "cholesterol",
             "start": 1592,
             "end": 1603

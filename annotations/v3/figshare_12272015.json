@@ -23,21 +23,9 @@
         },
         {
             "label": "MOL",
-            "text": "glycoprotein",
-            "start": 75,
-            "end": 87
-        },
-        {
-            "label": "MOL",
             "text": "SARS-CoV-2 spike",
             "start": 148,
             "end": 164
-        },
-        {
-            "label": "MOL",
-            "text": "glycoprotein",
-            "start": 165,
-            "end": 177
         },
         {
             "label": "MOL",
@@ -60,14 +48,14 @@
         {
             "label": "MOL",
             "text": "S",
-            "start": 61,
-            "end": 62
+            "start": 237,
+            "end": 238
         },
         {
             "label": "MOL",
             "text": "S",
-            "start": 151,
-            "end": 152
+            "start": 305,
+            "end": 306
         },
         {
             "label": "MOL",
@@ -90,8 +78,8 @@
         {
             "label": "MOL",
             "text": "S",
-            "start": 223,
-            "end": 224
+            "start": 541,
+            "end": 542
         },
         {
             "label": "MOL",
@@ -102,14 +90,8 @@
         {
             "label": "MOL",
             "text": "S",
-            "start": 237,
-            "end": 238
-        },
-        {
-            "label": "MOL",
-            "text": "glycoprotein",
-            "start": 652,
-            "end": 664
+            "start": 650,
+            "end": 651
         },
         {
             "label": "MOL",
@@ -164,12 +146,6 @@
             "text": "SARS-CoV-2 spike",
             "start": 1773,
             "end": 1789
-        },
-        {
-            "label": "MOL",
-            "text": "protein",
-            "start": 80,
-            "end": 87
         }
     ],
     "url": "https://nih.figshare.com/articles/dataset/Glycosylated_Swiss-model_molecular_dynamics_trajectory_of_SARS-CoV-2_spike_glycoprotein/12272015"

@@ -140,12 +140,6 @@
             "text": "POPG",
             "start": 1426,
             "end": 1430
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 911,
-            "end": 916
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Cholesteryl_Hemisuccinate_Is_Not_a_Good_Replacement_for_Cholesterol_in_Lipid_Nanodiscs/10287393"

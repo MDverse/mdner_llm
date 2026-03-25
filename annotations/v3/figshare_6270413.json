@@ -17,45 +17,9 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 470,
-            "end": 475
-        },
-        {
-            "label": "MOL",
             "text": "xyloglucan",
             "start": 628,
             "end": 638
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 952,
-            "end": 957
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 969,
-            "end": 974
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1134,
-            "end": 1139
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1222,
-            "end": 1227
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1576,
-            "end": 1581
         },
         {
             "label": "MOL",

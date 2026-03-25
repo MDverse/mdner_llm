@@ -17,21 +17,9 @@
         },
         {
             "label": "MOL",
-            "text": "lipid",
-            "start": 447,
-            "end": 452
-        },
-        {
-            "label": "MOL",
             "text": "ethyl",
             "start": 573,
             "end": 578
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 692,
-            "end": 697
         },
         {
             "label": "MOL",

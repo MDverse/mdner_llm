@@ -1,0 +1,13 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Dataset of 'Unveiling the gating mechanism of CRAC channel: a computational study'\nMolecular Dynamics simulation trajectories of CRAC ion channel. All of the trajectories can be visualized using the topology file CRAC_topol.prmtop. Three trajectories refer to equilibrium simulations of the closed state of the channel PDB: 4HKR (4HKR_equil_100ns.dcd) and of the two putative open states PDB: 6BBF (6BBF_equil_100ns.dcd) and PDB ID: 6AKI (6AKI_equil_100ns.dcd). The remaining two trajectories refer to Targeted Molecular Dynamics simulations steering the molecular system from the closed to the open state (TMD_C_to_O_100ns.dcd) and from the open to the closed state (TMD_O_to_C_500ns.dcd).\n\nAll simulations have been performed with the NAMD 2.11b2 suite of programs using the Amber ff15ipq force field for the protein, the Lipid17 force field for the phospholipids and the SPC/E water model.",
+    "entities": [],
+    "url": "https://zenodo.org/records/5497661"
+}

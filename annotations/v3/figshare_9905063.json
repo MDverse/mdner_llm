@@ -11,8 +11,8 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Methyl",
-            "start": 39,
+            "text": "α-Methyl",
+            "start": 37,
             "end": 45
         },
         {
@@ -26,6 +26,12 @@
             "text": "Norcoclaurine Synthases",
             "start": 71,
             "end": 94
+        },
+        {
+            "label": "MOL",
+            "text": "Norcoclaurine synthase",
+            "start": 95,
+            "end": 117
         },
         {
             "label": "MOL",
@@ -107,9 +113,9 @@
         },
         {
             "label": "MOL",
-            "text": "methyl",
-            "start": 616,
-            "end": 622
+            "text": "α-methyl-substituted aldehydes",
+            "start": 614,
+            "end": 644
         },
         {
             "label": "MOL",
@@ -144,8 +150,8 @@
         {
             "label": "MOL",
             "text": "TfNCS",
-            "start": 685,
-            "end": 690
+            "start": 1007,
+            "end": 1012
         },
         {
             "label": "MOL",
@@ -158,12 +164,6 @@
             "text": "dopamine",
             "start": 1451,
             "end": 1459
-        },
-        {
-            "label": "MOL",
-            "text": "aldehyde",
-            "start": 635,
-            "end": 643
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Acceptance_and_Kinetic_Resolution_of_-Methyl-Substituted_Aldehydes_by_Norcoclaurine_Synthases/9905063"

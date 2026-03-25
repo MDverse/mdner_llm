@@ -41,18 +41,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 1039,
-            "end": 1044
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1092,
-            "end": 1097
-        },
-        {
-            "label": "MOL",
             "text": "PfM1-AAP",
             "start": 1232,
             "end": 1240

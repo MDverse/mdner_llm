@@ -52,6 +52,24 @@
             "end": 214
         },
         {
+            "label": "MOL",
+            "text": "peroxidase",
+            "start": 324,
+            "end": 334
+        },
+        {
+            "label": "MOL",
+            "text": "hydrogen peroxide",
+            "start": 362,
+            "end": 379
+        },
+        {
+            "label": "MOL",
+            "text": "hydroperoxides",
+            "start": 400,
+            "end": 414
+        },
+        {
             "label": "FFM",
             "text": "GAFF",
             "start": 493,

@@ -23,12 +23,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 606,
-            "end": 611
-        },
-        {
-            "label": "MOL",
             "text": "nitric acid",
             "start": 613,
             "end": 624

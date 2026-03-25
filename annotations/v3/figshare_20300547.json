@@ -17,6 +17,12 @@
         },
         {
             "label": "MOL",
+            "text": "alkyl",
+            "start": 210,
+            "end": 215
+        },
+        {
+            "label": "MOL",
             "text": "graphene oxides",
             "start": 220,
             "end": 235
@@ -42,8 +48,8 @@
         {
             "label": "MOL",
             "text": "alkyl",
-            "start": 210,
-            "end": 215
+            "start": 610,
+            "end": 615
         },
         {
             "label": "MOL",
@@ -56,12 +62,6 @@
             "text": "AGOs",
             "start": 753,
             "end": 757
-        },
-        {
-            "label": "MOL",
-            "text": "alkyl",
-            "start": 610,
-            "end": 615
         },
         {
             "label": "MOL",

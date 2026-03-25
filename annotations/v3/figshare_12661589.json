@@ -65,6 +65,12 @@
         },
         {
             "label": "MOL",
+            "text": "H2S",
+            "start": 1221,
+            "end": 1224
+        },
+        {
+            "label": "MOL",
             "text": "hydrogen sulfide",
             "start": 1386,
             "end": 1402

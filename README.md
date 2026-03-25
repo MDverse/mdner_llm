@@ -201,7 +201,7 @@ uv run count-entities --annotations-dir annotations/v3
 To generate a QC inventory of annotated entities from json files, run:
 
 ```sh
-uv run qc-annotations \
+uv run build-entity-vocab \
     --annot-folder annotations/v3 \
     --out-folder results/qc_annotations
 ```
@@ -250,3 +250,20 @@ uv run transfer-annotations \
 ```
 
 > This command transfers annotations from JSON files in `annotations/v2` to corresponding files in `annotations/v3` based on filename matching. It reads each old annotation file, extracts the entities, and updates the new annotation file with these entities while preserving the original text and metadata. The updated annotations are saved back to the new annotation directory.
+
+
+### 7. Validate annotations
+
+To validate the annotations in a JSON file or a directory of JSON files, run:
+
+#### Validate a single JSON file
+```sh
+uv run validate-annotations --json-path annotations/v3/figshare_121241.json
+```
+
+#### Validate all JSON files in a directory
+```sh
+uv run validate-annotations --annotations-dir annotations/v3
+```
+
+> This command checks the validity of annotations in the specified JSON file or all JSON files in the given directory. It performs several checks, including verifying that the annotated text matches the corresponding text span in the original text, ensuring that entity spans are valid and do not overlap, and removing unwanted entities based on a predefined list.

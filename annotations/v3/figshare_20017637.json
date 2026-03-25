@@ -23,6 +23,18 @@
         },
         {
             "label": "MOL",
+            "text": "Ub",
+            "start": 95,
+            "end": 97
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 119,
+            "end": 121
+        },
+        {
+            "label": "MOL",
             "text": "ubiquitin",
             "start": 205,
             "end": 214
@@ -30,8 +42,20 @@
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 95,
-            "end": 97
+            "start": 216,
+            "end": 218
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 273,
+            "end": 275
+        },
+        {
+            "label": "MOL",
+            "text": "Ub",
+            "start": 362,
+            "end": 364
         },
         {
             "label": "MOL",
@@ -66,8 +90,8 @@
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 119,
-            "end": 121
+            "start": 587,
+            "end": 589
         },
         {
             "label": "MOL",
@@ -78,8 +102,8 @@
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 216,
-            "end": 218
+            "start": 672,
+            "end": 674
         },
         {
             "label": "MOL",
@@ -90,8 +114,8 @@
         {
             "label": "MOL",
             "text": "Ub",
-            "start": 273,
-            "end": 275
+            "start": 735,
+            "end": 737
         },
         {
             "label": "MOL",
@@ -119,21 +143,9 @@
         },
         {
             "label": "MOL",
-            "text": "Ub",
-            "start": 362,
-            "end": 364
-        },
-        {
-            "label": "MOL",
             "text": "E2",
             "start": 1120,
             "end": 1122
-        },
-        {
-            "label": "MOL",
-            "text": "Ub",
-            "start": 587,
-            "end": 589
         },
         {
             "label": "MOL",
@@ -149,12 +161,6 @@
         },
         {
             "label": "MOL",
-            "text": "Ub",
-            "start": 672,
-            "end": 674
-        },
-        {
-            "label": "MOL",
             "text": "E3",
             "start": 1352,
             "end": 1354
@@ -164,12 +170,6 @@
             "text": "E2",
             "start": 1471,
             "end": 1473
-        },
-        {
-            "label": "MOL",
-            "text": "Ub",
-            "start": 735,
-            "end": 737
         },
         {
             "label": "MOL",

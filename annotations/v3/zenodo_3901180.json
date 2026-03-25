@@ -17,15 +17,15 @@
         },
         {
             "label": "SOFTVERS",
-            "text": "software (v. 2016.4)",
-            "start": 364,
-            "end": 384
+            "text": "v. 2016.4",
+            "start": 374,
+            "end": 383
         },
         {
             "label": "FFM",
-            "text": "MARTINI",
+            "text": "MARTINI coarse-grained (CG) force field (v. 2.2)",
             "start": 393,
-            "end": 400
+            "end": 441
         },
         {
             "label": "MOL",
@@ -92,12 +92,6 @@
             "text": "DPSM",
             "start": 890,
             "end": 894
-        },
-        {
-            "label": "MOL",
-            "text": "lipid",
-            "start": 38,
-            "end": 43
         },
         {
             "label": "MOL",

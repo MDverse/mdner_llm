@@ -47,12 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "alkylsilane",
-            "start": 53,
-            "end": 64
-        },
-        {
-            "label": "MOL",
             "text": "OTS",
             "start": 1187,
             "end": 1190

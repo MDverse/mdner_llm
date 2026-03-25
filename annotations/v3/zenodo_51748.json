@@ -11,15 +11,21 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "lipid",
-            "start": 55,
-            "end": 60
+            "text": "DMTAP",
+            "start": 81,
+            "end": 86
+        },
+        {
+            "label": "MOL",
+            "text": "DMPC",
+            "start": 87,
+            "end": 91
         },
         {
             "label": "MOL",
             "text": "DMTAP",
-            "start": 81,
-            "end": 86
+            "start": 130,
+            "end": 135
         },
         {
             "label": "MOL",
@@ -36,8 +42,8 @@
         {
             "label": "MOL",
             "text": "DMPC",
-            "start": 87,
-            "end": 91
+            "start": 201,
+            "end": 205
         },
         {
             "label": "MOL",
@@ -47,21 +53,15 @@
         },
         {
             "label": "MOL",
-            "text": "lipids",
-            "start": 249,
-            "end": 255
-        },
-        {
-            "label": "MOL",
             "text": "DMPC",
-            "start": 201,
-            "end": 205
+            "start": 276,
+            "end": 280
         },
         {
             "label": "MOL",
             "text": "DMTAP",
-            "start": 130,
-            "end": 135
+            "start": 296,
+            "end": 301
         },
         {
             "label": "MOL",
@@ -76,18 +76,6 @@
             "end": 325
         },
         {
-            "label": "MOL",
-            "text": "waters",
-            "start": 341,
-            "end": 347
-        },
-        {
-            "label": "MOL",
-            "text": "Lipid",
-            "start": 355,
-            "end": 360
-        },
-        {
             "label": "FFM",
             "text": "'Berger",
             "start": 368,
@@ -96,14 +84,8 @@
         {
             "label": "MOL",
             "text": "DMTAP",
-            "start": 296,
-            "end": 301
-        },
-        {
-            "label": "MOL",
-            "text": "Water",
-            "start": 493,
-            "end": 498
+            "start": 423,
+            "end": 428
         },
         {
             "label": "FFM",
@@ -122,18 +104,6 @@
             "text": "3.x",
             "start": 590,
             "end": 593
-        },
-        {
-            "label": "MOL",
-            "text": "DMTAP",
-            "start": 423,
-            "end": 428
-        },
-        {
-            "label": "MOL",
-            "text": "DMPC",
-            "start": 276,
-            "end": 280
         }
     ],
     "url": "https://zenodo.org/records/51748"

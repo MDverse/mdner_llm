@@ -65,12 +65,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 278,
-            "end": 283
-        },
-        {
-            "label": "MOL",
             "text": "Na+",
             "start": 331,
             "end": 334
@@ -104,6 +98,12 @@
             "text": "500 ns",
             "start": 710,
             "end": 716
+        },
+        {
+            "label": "STIME",
+            "text": "1000 ns",
+            "start": 764,
+            "end": 771
         },
         {
             "label": "STIME",

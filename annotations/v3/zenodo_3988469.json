@@ -167,14 +167,14 @@
         },
         {
             "label": "FFM",
-            "text": "C36",
-            "start": 1498,
+            "text": "CHARMM C36",
+            "start": 1491,
             "end": 1501
         },
         {
             "label": "FFM",
-            "text": "TIP3P",
-            "start": 1552,
+            "text": "CHARMM TIP3P",
+            "start": 1545,
             "end": 1557
         },
         {

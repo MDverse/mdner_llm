@@ -89,12 +89,6 @@
         },
         {
             "label": "MOL",
-            "text": "hydroxymethyl",
-            "start": 1027,
-            "end": 1040
-        },
-        {
-            "label": "MOL",
             "text": "furanose",
             "start": 1147,
             "end": 1155

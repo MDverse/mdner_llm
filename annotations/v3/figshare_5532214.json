@@ -29,9 +29,9 @@
         },
         {
             "label": "SOFTNAME",
-            "text": "GROMACS,",
+            "text": "GROMACS",
             "start": 291,
-            "end": 299
+            "end": 298
         },
         {
             "label": "SOFTVERS",
@@ -56,6 +56,12 @@
             "text": "elastin",
             "start": 510,
             "end": 517
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 626,
+            "end": 633
         }
     ],
     "url": "https://figshare.com/articles/dataset/Microsecond-long_molecular_dynamics_trajectory_of_an_aggregate_of_elastin-like_peptides_in_water/5532214"

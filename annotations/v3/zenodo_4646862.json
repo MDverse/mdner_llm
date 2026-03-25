@@ -11,33 +11,21 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 33,
-            "end": 38
-        },
-        {
-            "label": "MOL",
             "text": "Pyrimidoindole",
             "start": 78,
             "end": 92
         },
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 190,
-            "end": 195
-        },
-        {
-            "label": "MOL",
             "text": "Pyrimidoindole",
-            "start": 315,
-            "end": 329
+            "start": 316,
+            "end": 330
         },
         {
             "label": "SOFTNAME",
             "text": "Desmond",
-            "start": 518,
-            "end": 525
+            "start": 520,
+            "end": 527
         }
     ],
     "url": "https://zenodo.org/records/4646862"

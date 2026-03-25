@@ -47,18 +47,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 642,
-            "end": 647
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 737,
-            "end": 742
-        },
-        {
-            "label": "MOL",
             "text": "phosphonium",
             "start": 1436,
             "end": 1447

@@ -59,12 +59,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 1315,
-            "end": 1320
-        },
-        {
-            "label": "MOL",
             "text": "FUS",
             "start": 903,
             "end": 906

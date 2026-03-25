@@ -11,54 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 10,
-            "end": 15
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 244,
-            "end": 249
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 335,
-            "end": 341
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 452,
-            "end": 457
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 488,
-            "end": 494
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 657,
-            "end": 662
-        },
-        {
-            "label": "MOL",
-            "text": "waters",
-            "start": 983,
-            "end": 989
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1133,
-            "end": 1138
-        },
-        {
-            "label": "MOL",
             "text": "thermolysin",
             "start": 1327,
             "end": 1338
@@ -80,12 +32,6 @@
             "text": "thermolysin",
             "start": 1454,
             "end": 1465
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1608,
-            "end": 1613
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Conserved_Water_Networks_Identification_for_Drug_Design_Using_Density_Clustering_Approaches_on_Positional_and_Orientational_Data/21528986"

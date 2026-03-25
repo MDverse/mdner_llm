@@ -41,12 +41,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 819,
-            "end": 824
-        },
-        {
-            "label": "MOL",
             "text": "benzene",
             "start": 1031,
             "end": 1038
@@ -65,27 +59,9 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 1356,
-            "end": 1361
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1446,
-            "end": 1451
-        },
-        {
-            "label": "MOL",
             "text": "hydronium",
             "start": 1552,
             "end": 1561
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1679,
-            "end": 1684
         },
         {
             "label": "MOL",

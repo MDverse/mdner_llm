@@ -59,12 +59,6 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 736,
-            "end": 741
-        },
-        {
-            "label": "MOL",
             "text": "dialanine",
             "start": 1043,
             "end": 1052
@@ -80,12 +74,6 @@
             "text": "Fmoc",
             "start": 1266,
             "end": 1270
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1337,
-            "end": 1342
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Experimental_and_Computational_Studies_Reveal_an_Alternative_Supramolecular_Structure_for_Fmoc_Dipeptide_Self_Assembly/2470129"

@@ -11,21 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Water",
-            "start": 16,
-            "end": 21
-        },
-        {
-            "label": "MOL",
             "text": "Metal",
             "start": 76,
             "end": 81
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 82,
-            "end": 87
         },
         {
             "label": "MOL",
@@ -34,40 +22,16 @@
             "end": 293
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 298,
-            "end": 303
-        },
-        {
             "label": "FFM",
             "text": "GAL17",
             "start": 389,
             "end": 394
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 427,
-            "end": 432
-        },
-        {
             "label": "FFM",
             "text": "GAL17",
             "start": 456,
             "end": 461
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 576,
-            "end": 581
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 816,
-            "end": 821
         },
         {
             "label": "FFM",
@@ -80,12 +44,6 @@
             "text": "H2O",
             "start": 1071,
             "end": 1074
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1208,
-            "end": 1213
         },
         {
             "label": "FFM",
@@ -104,12 +62,6 @@
             "text": "metal",
             "start": 1489,
             "end": 1494
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 1495,
-            "end": 1500
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Force_Field_for_Water_over_Pt_111_Development_Assessment_and_Comparison/6272471"

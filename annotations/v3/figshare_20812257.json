@@ -41,15 +41,15 @@
         },
         {
             "label": "MOL",
-            "text": "water",
-            "start": 449,
-            "end": 454
+            "text": "sulfonated calix-[4]-arenes",
+            "start": 930,
+            "end": 957
         },
         {
             "label": "MOL",
-            "text": "calix-[4]-arenes",
-            "start": 371,
-            "end": 387
+            "text": "cytochrome c",
+            "start": 965,
+            "end": 977
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Capturing_the_Recognition_Dynamics_of_i_para_i_-Sulfonato-calix_4_arenes_by_Cytochrome_c_Toward_a_Quantitative_Free_Energy_Assessment/20812257"

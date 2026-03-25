@@ -16,12 +16,6 @@
             "end": 154
         },
         {
-            "label": "MOL",
-            "text": "water",
-            "start": 155,
-            "end": 160
-        },
-        {
             "label": "SOFTNAME",
             "text": "Gromacs",
             "start": 258,

@@ -22,36 +22,6 @@
             "end": 16
         },
         {
-            "label": "MOL",
-            "text": "Ligands",
-            "start": 67,
-            "end": 74
-        },
-        {
-            "label": "MOL",
-            "text": "Protein",
-            "start": 78,
-            "end": 85
-        },
-        {
-            "label": "MOL",
-            "text": "Proteins",
-            "start": 100,
-            "end": 108
-        },
-        {
-            "label": "MOL",
-            "text": "ligands",
-            "start": 229,
-            "end": 236
-        },
-        {
-            "label": "MOL",
-            "text": "ligand",
-            "start": 330,
-            "end": 336
-        },
-        {
             "label": "SOFTNAME",
             "text": "ProBiS",
             "start": 423,
@@ -76,64 +46,10 @@
             "end": 518
         },
         {
-            "label": "MOL",
-            "text": "protein",
-            "start": 263,
-            "end": 270
-        },
-        {
-            "label": "MOL",
-            "text": "ligand",
-            "start": 618,
-            "end": 624
-        },
-        {
             "label": "SOFTNAME",
             "text": "ProBiS",
             "start": 718,
             "end": 724
-        },
-        {
-            "label": "MOL",
-            "text": "ligands",
-            "start": 745,
-            "end": 752
-        },
-        {
-            "label": "MOL",
-            "text": "proteins",
-            "start": 771,
-            "end": 779
-        },
-        {
-            "label": "MOL",
-            "text": "ligands",
-            "start": 812,
-            "end": 819
-        },
-        {
-            "label": "MOL",
-            "text": "protein",
-            "start": 610,
-            "end": 617
-        },
-        {
-            "label": "MOL",
-            "text": "protein",
-            "start": 846,
-            "end": 853
-        },
-        {
-            "label": "MOL",
-            "text": "protein",
-            "start": 942,
-            "end": 949
-        },
-        {
-            "label": "MOL",
-            "text": "ligands",
-            "start": 1050,
-            "end": 1057
         },
         {
             "label": "SOFTNAME",
@@ -148,18 +64,6 @@
             "end": 1177
         },
         {
-            "label": "MOL",
-            "text": "protein",
-            "start": 1032,
-            "end": 1039
-        },
-        {
-            "label": "MOL",
-            "text": "ligand",
-            "start": 1378,
-            "end": 1384
-        },
-        {
             "label": "SOFTNAME",
             "text": "ProBiS",
             "start": 1528,
@@ -170,18 +74,6 @@
             "text": "CHARMMing",
             "start": 1535,
             "end": 1544
-        },
-        {
-            "label": "MOL",
-            "text": "protein",
-            "start": 1370,
-            "end": 1377
-        },
-        {
-            "label": "MOL",
-            "text": "ligand",
-            "start": 1568,
-            "end": 1574
         },
         {
             "label": "SOFTNAME",

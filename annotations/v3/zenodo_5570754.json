@@ -11,21 +11,9 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "Superoxide Dismutase 1",
-            "start": 60,
-            "end": 82
-        },
-        {
-            "label": "MOL",
             "text": "Destabilized Superoxide Dismutase 1",
             "start": 47,
             "end": 82
-        },
-        {
-            "label": "MOL",
-            "text": "SOD1",
-            "start": 249,
-            "end": 253
         },
         {
             "label": "MOL",

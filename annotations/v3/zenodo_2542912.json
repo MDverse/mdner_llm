@@ -23,27 +23,21 @@
         },
         {
             "label": "MOL",
-            "text": "protein",
-            "start": 359,
-            "end": 366
-        },
-        {
-            "label": "MOL",
             "text": "bptf",
-            "start": 699,
-            "end": 703
+            "start": 700,
+            "end": 704
         },
         {
             "label": "MOL",
             "text": "BPTF",
-            "start": 739,
-            "end": 743
+            "start": 740,
+            "end": 744
         },
         {
             "label": "MOL",
             "text": "AU1",
-            "start": 760,
-            "end": 763
+            "start": 761,
+            "end": 764
         }
     ],
     "url": "https://zenodo.org/records/2542912"

@@ -60,12 +60,6 @@
         {
             "label": "MOL",
             "text": "GQ",
-            "start": 475,
-            "end": 477
-        },
-        {
-            "label": "MOL",
-            "text": "GQ",
             "start": 746,
             "end": 748
         },
@@ -76,16 +70,16 @@
             "end": 809
         },
         {
-            "label": "FFM",
-            "text": "AMBER bsc1",
-            "start": 989,
-            "end": 999
-        },
-        {
             "label": "MOL",
             "text": "GQ",
             "start": 888,
             "end": 890
+        },
+        {
+            "label": "FFM",
+            "text": "AMBER bsc1",
+            "start": 989,
+            "end": 999
         },
         {
             "label": "MOL",
@@ -98,6 +92,12 @@
             "text": "GQ",
             "start": 1051,
             "end": 1053
+        },
+        {
+            "label": "MOL",
+            "text": "GQ",
+            "start": 1089,
+            "end": 1091
         },
         {
             "label": "MOL",
@@ -114,8 +114,8 @@
         {
             "label": "MOL",
             "text": "GQ",
-            "start": 1089,
-            "end": 1091
+            "start": 1504,
+            "end": 1506
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Improving_All-Atom_Force_Field_to_Accurately_Describe_DNA_G_Quadruplex_Loops/20477204"

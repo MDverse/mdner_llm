@@ -83,12 +83,6 @@
         },
         {
             "label": "MOL",
-            "text": "M",
-            "start": 35,
-            "end": 36
-        },
-        {
-            "label": "MOL",
             "text": "GDP-mannose",
             "start": 488,
             "end": 499
@@ -185,9 +179,9 @@
         },
         {
             "label": "MOL",
-            "text": "PimA.",
+            "text": "PimA",
             "start": 783,
-            "end": 788
+            "end": 787
         },
         {
             "label": "MOL",
@@ -203,9 +197,9 @@
         },
         {
             "label": "MOL",
-            "text": "PimA.",
+            "text": "PimA",
             "start": 905,
-            "end": 910
+            "end": 909
         },
         {
             "label": "STIME",
@@ -215,15 +209,15 @@
         },
         {
             "label": "MOL",
-            "text": "PimA.",
+            "text": "PimA",
             "start": 1048,
-            "end": 1053
+            "end": 1052
         },
         {
             "label": "MOL",
-            "text": "PimA.",
+            "text": "PimA",
             "start": 1111,
-            "end": 1116
+            "end": 1115
         },
         {
             "label": "MOL",
@@ -269,9 +263,9 @@
         },
         {
             "label": "MOL",
-            "text": "PimA.",
+            "text": "PimA",
             "start": 1631,
-            "end": 1636
+            "end": 1635
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Understanding_the_Mannose_Transfer_Mechanism_of_Mycobacterial_Phosphatidyl-myo-inositol_Mannosyltransferase_A_from_Molecular_Dynamics_Simulations/19949518"

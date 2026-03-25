@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "phosphate",
+            "start": 98,
+            "end": 107
+        },
+        {
+            "label": "MOL",
             "text": "PLP",
             "start": 109,
             "end": 112
@@ -66,8 +72,8 @@
         {
             "label": "MOL",
             "text": "phosphate",
-            "start": 98,
-            "end": 107
+            "start": 637,
+            "end": 646
         },
         {
             "label": "MOL",
@@ -84,20 +90,14 @@
         {
             "label": "MOL",
             "text": "phosphate",
-            "start": 637,
-            "end": 646
+            "start": 852,
+            "end": 861
         },
         {
             "label": "MOL",
             "text": "MGL",
             "start": 911,
             "end": 914
-        },
-        {
-            "label": "MOL",
-            "text": "phosphate",
-            "start": 852,
-            "end": 861
         },
         {
             "label": "MOL",

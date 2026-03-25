@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "nucleosome",
+            "start": 95,
+            "end": 105
+        },
+        {
+            "label": "MOL",
             "text": "NCP",
             "start": 121,
             "end": 124
@@ -56,12 +62,6 @@
             "text": "NCP",
             "start": 541,
             "end": 544
-        },
-        {
-            "label": "MOL",
-            "text": "nucleosome",
-            "start": 95,
-            "end": 105
         },
         {
             "label": "MOL",

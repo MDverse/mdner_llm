@@ -59,9 +59,9 @@
         },
         {
             "label": "FFM",
-            "text": "C36m.",
+            "text": "C36m",
             "start": 896,
-            "end": 901
+            "end": 900
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/In-Cell_Protein_Protein_Contacts_Transient_Interactions_in_the_Crowd/9788852"

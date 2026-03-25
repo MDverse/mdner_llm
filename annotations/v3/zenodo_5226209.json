@@ -76,6 +76,12 @@
             "end": 433
         },
         {
+            "label": "STIME",
+            "text": "8 microseconds",
+            "start": 435,
+            "end": 449
+        },
+        {
             "label": "MOL",
             "text": "GLP-1R",
             "start": 471,

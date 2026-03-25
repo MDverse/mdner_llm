@@ -65,12 +65,6 @@
         },
         {
             "label": "MOL",
-            "text": "waters",
-            "start": 1184,
-            "end": 1190
-        },
-        {
-            "label": "MOL",
             "text": "chloride counterions",
             "start": 1195,
             "end": 1215

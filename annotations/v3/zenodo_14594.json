@@ -62,12 +62,6 @@
             "text": "DPPC",
             "start": 357,
             "end": 361
-        },
-        {
-            "label": "MOL",
-            "text": "water",
-            "start": 378,
-            "end": 383
         }
     ],
     "url": "https://zenodo.org/records/14594"

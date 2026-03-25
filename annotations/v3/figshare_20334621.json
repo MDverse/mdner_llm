@@ -29,6 +29,12 @@
         },
         {
             "label": "MOL",
+            "text": "Gd",
+            "start": 528,
+            "end": 530
+        },
+        {
+            "label": "MOL",
             "text": "lanthanide",
             "start": 643,
             "end": 653
@@ -38,12 +44,6 @@
             "text": "metal ion",
             "start": 1313,
             "end": 1322
-        },
-        {
-            "label": "MOL",
-            "text": "Gd",
-            "start": 528,
-            "end": 530
         },
         {
             "label": "MOL",
