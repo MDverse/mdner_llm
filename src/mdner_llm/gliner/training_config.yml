@@ -1,0 +1,44 @@
+model:
+  model_name: "microsoft/deberta-v3-base"
+  span_mode: "markerV0"
+  max_width: 12
+  hidden_size: 768
+  dropout: 0.4
+  max_len: 384
+  max_types: 25
+
+training:
+  # Model checkpoint
+  prev_path: null # Set to model path for fine-tuning
+
+  # Training schedule
+  num_steps: 10000
+  train_batch_size: 8
+  eval_every: 1000
+  warmup_ratio: 0.1
+  scheduler_type: "cosine"
+
+  # Learning rates
+  lr_encoder: 1e-5 # Learning rate for encoder
+  lr_others: 5e-5 # Learning rate for other components
+  weight_decay_encoder: 0.01
+  weight_decay_other: 0.01
+  max_grad_norm: 1.0
+
+  # Loss configuration
+  loss_alpha: -1 # Focal loss alpha (-1 disables)
+  loss_gamma: 0 # Focal loss gamma (0 disables)
+  loss_reduction: "sum"
+  negatives: 1.0 # Negative sampling ratio
+  masking: "none" # Options: "none", "global", "label", "span"
+
+  # Checkpointing
+  save_total_limit: 3
+
+  # Component freezing (optional)
+  freeze_components: null # e.g., ["text_encoder"]
+
+data:
+  root_dir: "models"
+  train_data: "data/train.json"
+  val_data_dir: "data/val.json"
