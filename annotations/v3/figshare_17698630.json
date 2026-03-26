@@ -23,6 +23,12 @@
         },
         {
             "label": "MOL",
+            "text": "Falcipain‑2",
+            "start": 62,
+            "end": 73
+        },
+        {
+            "label": "MOL",
             "text": "falcipain-2",
             "start": 409,
             "end": 420
@@ -41,8 +47,8 @@
         },
         {
             "label": "MOL",
-            "text": "human cathepsins",
-            "start": 573,
+            "text": "cathepsins",
+            "start": 579,
             "end": 589
         },
         {

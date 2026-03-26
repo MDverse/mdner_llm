@@ -11,8 +11,8 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "E. coli OmpF",
-            "start": 850,
+            "text": "OmpF",
+            "start": 858,
             "end": 862
         },
         {

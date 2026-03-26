@@ -47,8 +47,8 @@
         },
         {
             "label": "MOL",
-            "text": "human and E. coli thioredoxins",
-            "start": 684,
+            "text": "thioredoxins",
+            "start": 702,
             "end": 714
         },
         {
@@ -59,8 +59,8 @@
         },
         {
             "label": "MOL",
-            "text": "human thioredoxin",
-            "start": 917,
+            "text": "thioredoxin",
+            "start": 923,
             "end": 934
         },
         {

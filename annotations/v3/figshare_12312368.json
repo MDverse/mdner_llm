@@ -29,6 +29,12 @@
         },
         {
             "label": "MOL",
+            "text": "OXA-48 enzymes",
+            "start": 174,
+            "end": 188
+        },
+        {
+            "label": "MOL",
             "text": "serine β-lactamases",
             "start": 222,
             "end": 241
@@ -53,9 +59,27 @@
         },
         {
             "label": "MOL",
+            "text": "OXA-48",
+            "start": 334,
+            "end": 340
+        },
+        {
+            "label": "MOL",
+            "text": "OXA-48",
+            "start": 420,
+            "end": 426
+        },
+        {
+            "label": "MOL",
             "text": "carbapenems",
             "start": 448,
             "end": 459
+        },
+        {
+            "label": "MOL",
+            "text": "OXA-163",
+            "start": 473,
+            "end": 480
         },
         {
             "label": "MOL",
@@ -77,6 +101,12 @@
         },
         {
             "label": "MOL",
+            "text": "OXA-163",
+            "start": 590,
+            "end": 597
+        },
+        {
+            "label": "MOL",
             "text": "cephalosporin",
             "start": 723,
             "end": 736
@@ -86,6 +116,12 @@
             "text": "ceftazidime",
             "start": 748,
             "end": 759
+        },
+        {
+            "label": "MOL",
+            "text": "OXA-48",
+            "start": 828,
+            "end": 834
         },
         {
             "label": "MOL",
@@ -107,9 +143,27 @@
         },
         {
             "label": "MOL",
+            "text": "OXA-163",
+            "start": 1283,
+            "end": 1290
+        },
+        {
+            "label": "MOL",
+            "text": "OXA-48",
+            "start": 1479,
+            "end": 1485
+        },
+        {
+            "label": "MOL",
             "text": "ceftazidime",
             "start": 1541,
             "end": 1552
+        },
+        {
+            "label": "MOL",
+            "text": "OXA-163",
+            "start": 1576,
+            "end": 1583
         },
         {
             "label": "MOL",

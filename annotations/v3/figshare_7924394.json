@@ -11,12 +11,6 @@
     "entities": [
         {
             "label": "MOL",
-            "text": "F",
-            "start": 37,
-            "end": 38
-        },
-        {
-            "label": "MOL",
             "text": "MIL-101",
             "start": 401,
             "end": 408
@@ -38,6 +32,12 @@
             "text": "Na+",
             "start": 647,
             "end": 650
+        },
+        {
+            "label": "MOL",
+            "text": "F–",
+            "start": 652,
+            "end": 654
         },
         {
             "label": "MOL",
