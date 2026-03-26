@@ -49,7 +49,7 @@ def write_json(tmp_path: Path, data: dict) -> Path:
                     {"text": "xyz", "start": 0, "end": 3, "label": "MOL"},
                 ],
             },
-            {"text": 1, "span": 0, "overlap": 0, "invalid": 0},
+            {"text": 1, "span": 0, "overlap": 0, "invalid": 0, "label": 0},
         ),
         # Span mismatch
         (
@@ -59,7 +59,7 @@ def write_json(tmp_path: Path, data: dict) -> Path:
                     {"text": "Hello", "start": 0, "end": 10, "label": "MOL"},
                 ],
             },
-            {"text": 0, "span": 1, "overlap": 0, "invalid": 0},
+            {"text": 0, "span": 1, "overlap": 0, "invalid": 0, "label": 0},
         ),
         # Overlap
         (
@@ -70,7 +70,7 @@ def write_json(tmp_path: Path, data: dict) -> Path:
                     {"text": "bcd", "start": 1, "end": 4, "label": "MOL"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 1, "invalid": 0},
+            {"text": 0, "span": 0, "overlap": 1, "invalid": 0, "label": 0},
         ),
         # Invalid boundaries
         (
@@ -80,7 +80,17 @@ def write_json(tmp_path: Path, data: dict) -> Path:
                     {"text": " hello", "start": 0, "end": 6, "label": "MOL"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 0, "invalid": 1},
+            {"text": 0, "span": 0, "overlap": 0, "invalid": 1, "label": 0},
+        ),
+        # Wrong labels
+        (
+            {
+                "raw_text": "abcdef",
+                "entities": [
+                    {"text": "ab", "start": 0, "end": 2, "label": "WRONG"},
+                ],
+            },
+            {"text": 0, "span": 0, "overlap": 0, "invalid": 0, "label": 1},
         ),
         # Clean case
         (
@@ -90,7 +100,7 @@ def write_json(tmp_path: Path, data: dict) -> Path:
                     {"text": "ab", "start": 0, "end": 2, "label": "MOL"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 0, "invalid": 0},
+            {"text": 0, "span": 0, "overlap": 0, "invalid": 0, "label": 0},
         ),
     ],
 )
@@ -98,12 +108,13 @@ def test_validation_counts(tmp_path: Path, data: dict, expected: dict):
     """Test validation counters using parameterized inputs."""
     file_path = write_json(tmp_path, data)
 
-    text, span, overlap, invalid, _removed = validate_annotations(str(file_path))
+    count_errors = validate_annotations("docs/entities_config.yaml", str(file_path))
 
-    assert text == expected["text"]
-    assert span == expected["span"]
-    assert overlap == expected["overlap"]
-    assert invalid == expected["invalid"]
+    assert count_errors["text_mismatches"] == expected["text"]
+    assert count_errors["span_mismatches"] == expected["span"]
+    assert count_errors["overlaps"] == expected["overlap"]
+    assert count_errors["invalid_boundaries"] == expected["invalid"]
+    assert count_errors["unknown_labels"] == expected["label"]
 
 
 def test_sorting_and_persistence(tmp_path: Path):
@@ -118,7 +129,7 @@ def test_sorting_and_persistence(tmp_path: Path):
 
     file_path = write_json(tmp_path, data)
 
-    validate_annotations(str(file_path))
+    validate_annotations("docs/entities_config.yaml", str(file_path))
 
     with file_path.open("r", encoding="utf-8") as f:
         updated = json.load(f)
@@ -142,10 +153,10 @@ def test_multiple_issues_same_entity(tmp_path: Path):
     }
 
     file_path = write_json(tmp_path, data)
+    count_errors = validate_annotations("docs/entities_config.yaml", str(file_path))
 
-    text, span, overlap, invalid, _removed = validate_annotations(str(file_path))
-
-    assert text == 1
-    assert invalid == 1
-    assert span == 1
-    assert overlap == 0
+    assert count_errors["text_mismatches"] == 1
+    assert count_errors["invalid_boundaries"] == 1
+    assert count_errors["span_mismatches"] == 1
+    assert count_errors["overlaps"] == 0
+    assert count_errors["unknown_labels"] == 0
