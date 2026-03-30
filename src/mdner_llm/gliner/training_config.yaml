@@ -26,7 +26,7 @@ entities:
 
 training:
   # Training schedule
-  num_epochs: 50
+  num_epochs: 15
   batch_size: 2
   max_steps: -1
   gradient_accumulation_steps: 4
@@ -49,4 +49,5 @@ training:
   save_best: True
 
   # Logging
-  logging_steps: 50
+  logging_steps: 5
+  logging_first_step: True
