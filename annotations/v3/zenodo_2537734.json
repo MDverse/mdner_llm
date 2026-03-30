@@ -16,6 +16,18 @@
             "end": 9
         },
         {
+            "label": "SOFTNAME",
+            "text": "Galaxy",
+            "start": 44,
+            "end": 50
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "BRIDGE",
+            "start": 55,
+            "end": 61
+        },
+        {
             "label": "MOL",
             "text": "octaose",
             "start": 126,
