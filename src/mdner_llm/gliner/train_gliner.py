@@ -3,6 +3,7 @@
 import io
 import json
 import os
+import random
 import sys
 from contextlib import contextmanager, redirect_stdout
 from datetime import UTC, datetime
@@ -15,6 +16,7 @@ from gliner2 import GLiNER2
 from gliner2.training.data import InputExample, TrainingDataset
 from gliner2.training.trainer import GLiNER2Trainer, TrainingConfig
 from matplotlib import pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from pydantic import ValidationError
 
 from mdner_llm.core.logger import create_logger
@@ -160,7 +162,7 @@ def build_train_dataset(
     annotation_paths_file: Path,
     entity_descriptions: dict[str, str] | None = None,
     logger: "loguru.Logger" = loguru.logger,
-) -> TrainingDataset:
+) -> tuple[TrainingDataset, list[Path]]:
     """
     Build a TrainingDataset from annotation JSON files specified in a text file.
 
@@ -175,6 +177,8 @@ def build_train_dataset(
     -------
     TrainingDataset
         Training dataset containing the formatted InputExample objects.
+    list[Path]
+        List of annotation paths that were successfully processed.
     """
     logger.info(f"Creating dataset from annotation paths file: {annotation_paths_file}")
     train_examples = []
@@ -212,7 +216,7 @@ def build_train_dataset(
     dataset = TrainingDataset(train_examples)
     log_dataset_stats(dataset, logger)
     logger.success(f"Created dataset with {len(train_examples)} examples successfully!")
-    return dataset
+    return dataset, selected_annotation_paths
 
 
 def validate_dataset(
@@ -251,8 +255,57 @@ def suppress_stdout():
             sys.stdout = old_stdout
 
 
+def split_paths(
+    paths: list[Path],
+    config_data: GLiNERConfig,
+) -> tuple[list[Path], list[Path], list[Path]]:
+    """
+    Split a list of paths into train/val/test subsets using deterministic indexing.
+
+    Parameters
+    ----------
+    paths : list[Path]
+        List of paths to split.
+    config_data : GLiNERConfig
+        Configuration object containing split ratios and seed.
+
+    Returns
+    -------
+    tuple
+        (train_paths, val_paths, test_paths) - the split path lists.
+
+    """
+    indices = list(range(len(paths)))
+
+    if config_data.shuffle:
+        random.seed(config_data.seed)
+        random.shuffle(indices)
+
+    n = len(indices)
+    train_end = int(n * config_data.train_ratio)
+    val_end = train_end + int(n * config_data.val_ratio)
+
+    train_paths = [paths[i] for i in indices[:train_end]]
+    val_paths = [paths[i] for i in indices[train_end:val_end]]
+    test_paths = [paths[i] for i in indices[val_end:]]
+
+    return train_paths, val_paths, test_paths
+
+
+def save_paths_txt(paths: list[Path], target_path: Path) -> None:
+    """
+    Save a list of paths to a .txt file, one path per line.
+
+    The output file is derived from the dataset path by replacing its suffix.
+    """
+    txt_path = target_path.with_name(f"{target_path.stem}_paths.txt")
+    txt_path.parent.mkdir(parents=True, exist_ok=True)
+    txt_path.write_text("\n".join(str(p) for p in paths), encoding="utf-8")
+
+
 def split_and_save_dataset(
     dataset: TrainingDataset,
+    selected_annotation_paths: list[Path],
     config_data: GLiNERConfig,
     logger: "loguru.Logger" = loguru.logger,
 ):
@@ -263,6 +316,8 @@ def split_and_save_dataset(
     ----------
     dataset : TrainingDataset
         Validated GLiNER dataset to split.
+    selected_annotation_paths : list[Path]
+        List of annotation paths that were successfully processed.
     config_data : DataConfig
         Configuration object containing split ratios, paths and seed.
     logger : loguru.Logger
@@ -281,7 +336,8 @@ def split_and_save_dataset(
         f"Val: {config_data.val_ratio}, "
         f"Test: {config_data.test_ratio}"
     )
-
+    # Split the dataset into train/validation/test sets
+    # using the specified ratios and seed
     train_data, val_data, test_data = dataset.split(
         train_ratio=config_data.train_ratio,
         val_ratio=config_data.val_ratio,
@@ -289,21 +345,28 @@ def split_and_save_dataset(
         shuffle=config_data.shuffle,
         seed=config_data.seed,
     )
+    # Split the list of annotation paths in the same way
+    # to keep track of which examples belong to which set
+    train_paths, val_paths, test_paths = split_paths(
+        selected_annotation_paths, config_data
+    )
     with suppress_stdout():
         train_data.save(config_data.train_data_path)
-    logger.success(
-        f"Saved {len(train_data)} training examples to {config_data.train_data_path}"
-    )
-    with suppress_stdout():
+        save_paths_txt(train_paths, config_data.train_data_path)
+        logger.success(
+            f"Saved {len(train_data)} training examples to "
+            f"{config_data.train_data_path}"
+        )
         val_data.save(config_data.val_data_path)
-    logger.success(
-        f"Saved {len(val_data)} validation examples to {config_data.val_data_path}"
-    )
-    with suppress_stdout():
+        save_paths_txt(val_paths, config_data.val_data_path)
+        logger.success(
+            f"Saved {len(val_data)} validation examples to {config_data.val_data_path}"
+        )
         test_data.save(config_data.test_data_path)
-    logger.success(
-        f"Saved {len(test_data)} test examples to {config_data.test_data_path}"
-    )
+        save_paths_txt(test_paths, config_data.test_data_path)
+        logger.success(
+            f"Saved {len(test_data)} test examples to {config_data.test_data_path}"
+        )
     return train_data, val_data, test_data
 
 
@@ -408,24 +471,21 @@ def train_gliner_model(
 
 
 def save_plot_training_curves(
-    results: dict, output_dir: Path, logger: "loguru.Logger"
+    results: dict,
+    output_dir: Path,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """Plot evaluation loss as a function of epochs."""
-    # Extract training history from results
+    """Plot training and evaluation loss curves with improved styling."""
+    # Extract training history, evaluation history, total epochs and total time
     train_history = results.get("train_metrics_history", [])
     eval_history = results.get("eval_metrics_history", [])
-    # Extract total epochs and time for title
     total_epochs = results.get("total_epochs", "?")
     total_time = results.get("total_time_seconds", 0)
-
-    # Prepare data for plotting
     train_epochs = [int(entry["epoch"]) for entry in train_history]
     train_losses = [entry["loss"] for entry in train_history]
-
     eval_epochs = [int(entry["epoch"]) for entry in eval_history]
     eval_losses = [entry["eval_loss"] for entry in eval_history]
-
-    # Find minimum eval loss and corresponding epoch for annotation
+    # Identify minimum eval loss and corresponding epoch
     if eval_losses:
         min_loss = min(eval_losses)
         min_idx = eval_losses.index(min_loss)
@@ -434,38 +494,96 @@ def save_plot_training_curves(
         min_loss = None
         min_epoch = None
 
-    # Create subplots for train and eval loss
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-    # Train subplot
+    # Identify minimum train loss and corresponding epoch
     if train_losses:
-        axes[0].plot(train_epochs, train_losses, marker="o")
-    axes[0].set_title("Train Loss")
-    axes[0].set_xlabel("Epoch")
-    axes[0].set_ylabel("Loss")
-    # Eval subplot
-    if eval_losses:
-        axes[1].plot(eval_epochs, eval_losses, marker="o")
+        min_train_loss = min(train_losses)
+        min_train_idx = train_losses.index(min_train_loss)
+        min_train_epoch = train_epochs[min_train_idx]
+    else:
+        min_train_loss = None
+        min_train_epoch = None
+    # Plotting
+    plt.style.use("default")
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.6)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
 
-        # Highlight minimum
-        axes[1].axhline(min_loss, linestyle="--")
-        axes[1].annotate(
-            f"min={min_loss:.2f}",
-            xy=(min_epoch, min_loss),
-            xytext=(min_epoch, min_loss * 1.02),
+    # Train
+    if train_losses:
+        ax.plot(
+            train_epochs,
+            train_losses,
+            marker="o",
+            linewidth=2,
+            markersize=4,
+            color="blue",
+            label="Train",
+        )
+        ax.axvline(min_train_epoch, linestyle=":", linewidth=1.5, color="blue")
+        ax.annotate(
+            f"min={min_train_loss:.3f}\nepoch={min_train_epoch}",
+            xy=(min_train_epoch, min_train_loss),
+            xytext=(min_train_epoch + 0.2, min_train_loss * 5),
+            textcoords="data",
+            arrowprops={"arrowstyle": "->", "linewidth": 1, "color": "blue"},
+            fontsize=9,
+            weight="bold",
+            bbox={
+                "boxstyle": "round,pad=0.3",
+                "alpha": 0.4,
+                "facecolor": "blue",
+                "edgecolor": "blue",
+            },
+            color="blue",
         )
 
-    axes[1].set_title("Validation Loss")
-    axes[1].set_xlabel("Epoch")
-    axes[1].set_ylabel("Loss")
+    # Eval
+    if eval_losses:
+        ax.plot(
+            eval_epochs,
+            eval_losses,
+            marker="o",
+            linewidth=2,
+            markersize=4,
+            color="orange",
+            label="Validation",
+        )
+        ax.axvline(min_epoch, linestyle=":", linewidth=1.5, color="orange")
+        ax.annotate(
+            f"min={min_loss:.3f}\nepoch={min_epoch}",
+            xy=(min_epoch, min_loss),
+            xytext=(min_epoch + 0.4, min_loss - 50),
+            textcoords="data",
+            arrowprops={"arrowstyle": "->", "linewidth": 1, "color": "orange"},
+            fontsize=9,
+            weight="bold",
+            bbox={
+                "boxstyle": "round,pad=0.3",
+                "alpha": 0.4,
+                "facecolor": "orange",
+                "edgecolor": "orange",
+            },
+            color="orange",
+        )
 
-    # Global title
-    fig.suptitle(f"Training curves | epochs={total_epochs} | time={total_time:.1f}s")
+    ax.set_xlabel("Epoch")
+    ax.set_ylabel("Loss")
+    ax.set_xlim(left=0)
+    ax.set_ylim(bottom=0)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.legend()
+
+    # Overall title and layout
+    fig.suptitle(
+        f"Training and Validation Loss (epochs={total_epochs}, "
+        f"duration={total_time:.1f}s)",
+        fontsize=12,
+    )
     plt.tight_layout()
-
     # Save the plot to the output directory
     output_path = output_dir / "training_curves.png"
     plt.savefig(output_path, dpi=300)
-
     # Display the plot
     plt.show()
     plt.close()
@@ -484,18 +602,18 @@ def main(config_path: str | Path):
         logger.error("Exiting training process.")
         return
     # Setup output directory
-    output_dir = Path(cfg.model.output_dir) / f"{cfg.model.experiment_name}_{timestamp}"
+    output_dir = Path(cfg.model.output_dir) / f"{cfg.model.experiment_name}"
     output_dir.mkdir(parents=True, exist_ok=True)
     # Create dataset
     # Build training examples from annotation files
-    dataset = build_train_dataset(
+    dataset, selected_annotation_paths = build_train_dataset(
         cfg.data.annotation_paths, entity_descriptions=cfg.entities, logger=logger
     )
     # Validate dataset
     validated_dataset = validate_dataset(dataset, logger)
     # Split dataset into train/val/test
     train_data, val_data, _test_data = split_and_save_dataset(
-        validated_dataset, cfg.data, logger
+        validated_dataset, selected_annotation_paths, cfg.data, logger
     )
     # Build model and configure training parameters
     model, training_config = load_model_and_config(cfg.model.name, cfg, logger)
@@ -516,7 +634,7 @@ def main(config_path: str | Path):
 @click.option(
     "--config-path",
     type=click.Path(exists=True, dir_okay=False, readable=True),
-    default="src/mdner_llm/gliner/training_config.yml",
+    default="src/mdner_llm/gliner/training_config.yaml",
     help="Path to the training config YAML file.",
 )
 def run_main_from_cli(config_path: str | Path):
