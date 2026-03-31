@@ -162,7 +162,7 @@ def build_train_dataset(
     annotation_paths_file: Path,
     entity_descriptions: dict[str, str] | None = None,
     logger: "loguru.Logger" = loguru.logger,
-) -> tuple[TrainingDataset, list[Path]]:
+) -> tuple[TrainingDataset, list[Path], list[str]]:
     """
     Build a TrainingDataset from annotation JSON files specified in a text file.
 
@@ -179,9 +179,12 @@ def build_train_dataset(
         Training dataset containing the formatted InputExample objects.
     list[Path]
         List of annotation paths that were successfully processed.
+    urls : list[str]
+        List of URLs extracted from the annotation files (if present).
     """
     logger.info(f"Creating dataset from annotation paths file: {annotation_paths_file}")
     train_examples = []
+    urls = []
     first_logged = False
     # Read annotation file paths from the provided text file
     with annotation_paths_file.open("r", encoding="utf-8") as file:
@@ -198,6 +201,8 @@ def build_train_dataset(
         example, url = build_example(annotation_path, entity_descriptions)
         # Add it to the list of training examples
         train_examples.append(example)
+        if url:
+            urls.append(url)
         # Log the first example for debugging purposes
         if not first_logged:
             first_logged = True
@@ -216,7 +221,7 @@ def build_train_dataset(
     dataset = TrainingDataset(train_examples)
     log_dataset_stats(dataset, logger)
     logger.success(f"Created dataset with {len(train_examples)} examples successfully!")
-    return dataset, selected_annotation_paths
+    return dataset, selected_annotation_paths, urls
 
 
 def validate_dataset(
@@ -255,27 +260,28 @@ def suppress_stdout():
             sys.stdout = old_stdout
 
 
-def split_paths(
-    paths: list[Path],
+def split_randomly(
+    elements: list,
     config_data: GLiNERConfig,
-) -> tuple[list[Path], list[Path], list[Path]]:
+) -> tuple[list, list, list]:
     """
-    Split a list of paths into train/val/test subsets using deterministic indexing.
+    Split a list into train/val/test subsets using deterministic indexing.
 
     Parameters
     ----------
-    paths : list[Path]
-        List of paths to split.
+    elements : list
+        List of elements to split.
     config_data : GLiNERConfig
         Configuration object containing split ratios and seed.
 
     Returns
     -------
     tuple
-        (train_paths, val_paths, test_paths) - the split path lists.
-
+        The list split into (train, val, test)
+        according to the specified ratios and shuffled using the
+        provided seed for reproducibility.
     """
-    indices = list(range(len(paths)))
+    indices = list(range(len(elements)))
 
     if config_data.shuffle:
         random.seed(config_data.seed)
@@ -285,27 +291,29 @@ def split_paths(
     train_end = int(n * config_data.train_ratio)
     val_end = train_end + int(n * config_data.val_ratio)
 
-    train_paths = [paths[i] for i in indices[:train_end]]
-    val_paths = [paths[i] for i in indices[train_end:val_end]]
-    test_paths = [paths[i] for i in indices[val_end:]]
+    train_elements = [elements[i] for i in indices[:train_end]]
+    val_elements = [elements[i] for i in indices[train_end:val_end]]
+    test_elements = [elements[i] for i in indices[val_end:]]
 
-    return train_paths, val_paths, test_paths
+    return train_elements, val_elements, test_elements
 
 
-def save_paths_txt(paths: list[Path], target_path: Path) -> None:
+def save_paths_txt(paths: list[Path], urls: list[str], target_path: Path) -> None:
     """
-    Save a list of paths to a .txt file, one path per line.
+    Save a list of paths with urls to a .txt file, one path per line.
 
     The output file is derived from the dataset path by replacing its suffix.
     """
     txt_path = target_path.with_name(f"{target_path.stem}_paths.txt")
     txt_path.parent.mkdir(parents=True, exist_ok=True)
-    txt_path.write_text("\n".join(str(p) for p in paths), encoding="utf-8")
+    with open(txt_path, "w", encoding="utf-8") as f:
+        f.writelines(f"{p}\t{url}\n" for p, url in zip(paths, urls, strict=False))
 
 
 def split_and_save_dataset(
     dataset: TrainingDataset,
     selected_annotation_paths: list[Path],
+    urls: list[str],
     config_data: GLiNERConfig,
     logger: "loguru.Logger" = loguru.logger,
 ):
@@ -318,6 +326,8 @@ def split_and_save_dataset(
         Validated GLiNER dataset to split.
     selected_annotation_paths : list[Path]
         List of annotation paths that were successfully processed.
+    urls : list[str]
+        List of URLs extracted from the annotation files (if present).
     config_data : DataConfig
         Configuration object containing split ratios, paths and seed.
     logger : loguru.Logger
@@ -347,23 +357,26 @@ def split_and_save_dataset(
     )
     # Split the list of annotation paths in the same way
     # to keep track of which examples belong to which set
-    train_paths, val_paths, test_paths = split_paths(
+    train_paths, val_paths, test_paths = split_randomly(
         selected_annotation_paths, config_data
     )
+    # Split the list of URLs in the same way (if present)
+    train_urls, val_urls, test_urls = split_randomly(urls, config_data)
+
     with suppress_stdout():
         train_data.save(config_data.train_data_path)
-        save_paths_txt(train_paths, config_data.train_data_path)
+        save_paths_txt(train_paths, train_urls, config_data.train_data_path)
         logger.success(
             f"Saved {len(train_data)} training examples to "
             f"{config_data.train_data_path}"
         )
         val_data.save(config_data.val_data_path)
-        save_paths_txt(val_paths, config_data.val_data_path)
+        save_paths_txt(val_paths, val_urls, config_data.val_data_path)
         logger.success(
             f"Saved {len(val_data)} validation examples to {config_data.val_data_path}"
         )
         test_data.save(config_data.test_data_path)
-        save_paths_txt(test_paths, config_data.test_data_path)
+        save_paths_txt(test_paths, test_urls, config_data.test_data_path)
         logger.success(
             f"Saved {len(test_data)} test examples to {config_data.test_data_path}"
         )
@@ -606,14 +619,14 @@ def main(config_path: str | Path):
     output_dir.mkdir(parents=True, exist_ok=True)
     # Create dataset
     # Build training examples from annotation files
-    dataset, selected_annotation_paths = build_train_dataset(
+    dataset, selected_annotation_paths, urls = build_train_dataset(
         cfg.data.annotation_paths, entity_descriptions=cfg.entities, logger=logger
     )
     # Validate dataset
     validated_dataset = validate_dataset(dataset, logger)
     # Split dataset into train/val/test
     train_data, val_data, _test_data = split_and_save_dataset(
-        validated_dataset, selected_annotation_paths, cfg.data, logger
+        validated_dataset, selected_annotation_paths, urls, cfg.data, logger
     )
     # Build model and configure training parameters
     model, training_config = load_model_and_config(cfg.model.name, cfg, logger)
