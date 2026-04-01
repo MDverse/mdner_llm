@@ -569,10 +569,10 @@ def compute_stats_per_label(
             f"F-beta score (beta={beta}): {fbeta_score[label_mask].to_numpy()}"
         )
     # Add the computed metrics as new columns in the grouped DataFrame
-    grouped["precision"] = precision
-    grouped["recall"] = recall
-    grouped["f1"] = f1_score
-    grouped[f"fbeta_{beta}"] = fbeta_score
+    grouped["precision_score"] = precision
+    grouped["recall_score"] = recall
+    grouped["f1_score"] = f1_score
+    grouped[f"fbeta_{beta}_score"] = fbeta_score
     logger.success(
         f"Computed metrics per model and per label for {len(grouped)} "
         "samples successfully!"
@@ -621,10 +621,10 @@ def compute_stats_overall(
         logger.debug(f"F1-score: {f1_score[model_mask].to_numpy()}")
         logger.debug(f"F-beta score (beta=0.5): {fbeta_score[model_mask].to_numpy()}")
     # Add the computed metrics as new columns in the grouped DataFrame
-    grouped["precision"] = precision
-    grouped["recall"] = recall
-    grouped["f1"] = f1_score
-    grouped["fbeta_0.5"] = fbeta_score
+    grouped["precision_score"] = precision
+    grouped["recall_score"] = recall
+    grouped["f1_score"] = f1_score
+    grouped["fbeta_0.5_score"] = fbeta_score
     # Rename the label to "OVERALL" since this is the overall metrics for each model
     grouped["label"] = "OVERALL"
     logger.success(
@@ -745,7 +745,9 @@ def main(
     """Evaluate GLINER2 model using the specified model path."""
     # Initialize logger
     timestamp = datetime.now(UTC).strftime("%Y%m%d")
-    logger = create_logger(f"logs/eval_gliner_{timestamp}.log")
+    logger = create_logger(
+        f"logs/eval_gliner_{sanitize_filename(model_name)}_{timestamp}.log"
+    )
     logger.info("Starting GLINER2 evaluation...")
     start_time = datetime.now(UTC)
     # Load finetuned model
