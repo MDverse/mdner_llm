@@ -298,16 +298,75 @@ def split_randomly(
     return train_elements, val_elements, test_elements
 
 
-def save_paths_txt(paths: list[Path], urls: list[str], target_path: Path) -> None:
+def save_paths_txt(
+    paths: list[Path],
+    urls: list[str],
+    target_path: Path,
+    logger: "loguru.Logger" = loguru.logger,
+) -> None:
     """
     Save a list of paths with urls to a .txt file, one path per line.
 
     The output file is derived from the dataset path by replacing its suffix.
     """
-    txt_path = target_path.with_name(f"{target_path.stem}_paths.txt")
+    txt_path = target_path.with_name(f"{target_path.stem}_metadata.txt")
     txt_path.parent.mkdir(parents=True, exist_ok=True)
     with open(txt_path, "w", encoding="utf-8") as f:
         f.writelines(f"{p}\t{url}\n" for p, url in zip(paths, urls, strict=False))
+    logger.debug(
+        f"Saved {len(paths)} {target_path.stem} examples metadata to {txt_path}"
+    )
+
+
+def check_alignment(
+    train_data: TrainingDataset,
+    train_paths: list[Path],
+    logger: "loguru.Logger" = loguru.logger,
+) -> list[dict[str, int | Path]] | None:
+    """Check alignment between train_data inputs and raw_text in JSON files.
+
+    Parameters
+    ----------
+    train_data : TrainingDataset
+        Training data containing an "input" key with text entries.
+    train_paths : list[Path]
+        List of paths to JSON files containing a "raw_text" field.
+    logger : loguru.Logger, optional
+        Logger instance.
+
+    Returns
+    -------
+    list[dict[str, Any]] | None
+        A list of mismatches with index and path if any inconsistency is found,
+        otherwise None.
+    """
+    mismatches = []
+    inputs = [example.text for example in train_data]
+
+    for idx, (expected_text, path) in enumerate(zip(inputs, train_paths, strict=False)):
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+
+            raw_text = data["raw_text"]
+        except OSError as exc:
+            logger.warning(f"I/O error at index {idx} for {path}: {exc}")
+            mismatches.append({"index": idx, "path": path})
+            continue
+        except json.JSONDecodeError as exc:
+            logger.warning(f"Invalid JSON at index {idx} for {path}: {exc}")
+            mismatches.append({"index": idx, "path": path})
+            continue
+        except KeyError:
+            logger.warning(f"Missing 'raw_text' in {path} (index {idx})")
+            mismatches.append({"index": idx, "path": path})
+            continue
+
+        if raw_text != expected_text:
+            logger.warning(f"Mismatch at index {idx} for file {path}")
+            mismatches.append({"index": idx, "path": path})
+
+    return mismatches or None
 
 
 def split_and_save_dataset(
@@ -365,18 +424,24 @@ def split_and_save_dataset(
 
     with suppress_stdout():
         train_data.save(config_data.train_data_path)
-        save_paths_txt(train_paths, train_urls, config_data.train_data_path)
+        issues = check_alignment(train_data, train_paths, logger)
+        if not issues:
+            save_paths_txt(train_paths, train_urls, config_data.train_data_path, logger)
         logger.success(
             f"Saved {len(train_data)} training examples to "
             f"{config_data.train_data_path}"
         )
         val_data.save(config_data.val_data_path)
-        save_paths_txt(val_paths, val_urls, config_data.val_data_path)
+        issues = check_alignment(val_data, val_paths, logger)
+        if not issues:
+            save_paths_txt(val_paths, val_urls, config_data.val_data_path, logger)
         logger.success(
             f"Saved {len(val_data)} validation examples to {config_data.val_data_path}"
         )
         test_data.save(config_data.test_data_path)
-        save_paths_txt(test_paths, test_urls, config_data.test_data_path)
+        issues = check_alignment(test_data, test_paths, logger)
+        if not issues:
+            save_paths_txt(test_paths, test_urls, config_data.test_data_path, logger)
         logger.success(
             f"Saved {len(test_data)} test examples to {config_data.test_data_path}"
         )
