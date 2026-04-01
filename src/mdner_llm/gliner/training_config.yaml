@@ -1,6 +1,6 @@
 model:
-  name: "fastino/gliner2-base-v1"
-  experiment_name: "test_100_descriptions"
+  name: "fastino/gliner2-large-v1"
+  experiment_name: "gliner2-large-v1_finetuned"
   output_dir: "results/gliner"
   chunk_size: 512
   overlap: 64
@@ -26,10 +26,10 @@ entities:
 
 training:
   # Training schedule
-  num_epochs: 15
-  batch_size: 2
+  num_epochs: 30
+  batch_size: 4
   max_steps: -1
-  gradient_accumulation_steps: 4
+  gradient_accumulation_steps: 8
 
   # Learning rates
   encoder_lr: 5e-6 # Learning rate for encoder
