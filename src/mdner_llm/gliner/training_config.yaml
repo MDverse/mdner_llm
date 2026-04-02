@@ -1,6 +1,6 @@
 model:
   name: "fastino/gliner2-large-v1"
-  experiment_name: "gliner2-large-v1_finetuned"
+  experiment_name: "gliner2-base-large"
   output_dir: "results/gliner"
   chunk_size: 512
   overlap: 64

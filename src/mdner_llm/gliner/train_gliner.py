@@ -184,6 +184,7 @@ def build_train_dataset(
     """
     logger.info(f"Creating dataset from annotation paths file: {annotation_paths_file}")
     train_examples = []
+    processed_annotation_paths = []
     urls = []
     first_logged = False
     # Read annotation file paths from the provided text file
@@ -201,8 +202,8 @@ def build_train_dataset(
         example, url = build_example(annotation_path, entity_descriptions)
         # Add it to the list of training examples
         train_examples.append(example)
-        if url:
-            urls.append(url)
+        processed_annotation_paths.append(annotation_path)
+        urls.append(url or "")
         # Log the first example for debugging purposes
         if not first_logged:
             first_logged = True
@@ -221,7 +222,7 @@ def build_train_dataset(
     dataset = TrainingDataset(train_examples)
     log_dataset_stats(dataset, logger)
     logger.success(f"Created dataset with {len(train_examples)} examples successfully!")
-    return dataset, selected_annotation_paths, urls
+    return dataset, processed_annotation_paths, urls
 
 
 def validate_dataset(
@@ -662,8 +663,6 @@ def save_plot_training_curves(
     # Save the plot to the output directory
     output_path = output_dir / "training_curves.png"
     plt.savefig(output_path, dpi=300)
-    # Display the plot
-    plt.show()
     plt.close()
     logger.success(f"Saved training curves plot to {output_path}")
 

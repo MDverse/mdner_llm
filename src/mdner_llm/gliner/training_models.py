@@ -214,6 +214,10 @@ class TrainConfig(BaseModel):
         ge=1,
         description="Number of steps between logging events.",
     )
+    logging_first_step: bool = Field(
+        default=True,
+        description="Whether to log training metrics at the first step.",
+    )
 
 
 class GLiNERConfig(BaseModel):
