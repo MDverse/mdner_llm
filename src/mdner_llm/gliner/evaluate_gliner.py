@@ -12,6 +12,9 @@ from gliner2 import GLiNER2
 
 from mdner_llm.core.logger import create_logger
 from mdner_llm.utils.common import ensure_dir, sanitize_filename
+from mdner_llm.utils.plot_evaluation_metrics import (
+    plot_and_save_overall_metrics,
+)
 
 
 def load_model(
@@ -545,7 +548,7 @@ def compute_stats_per_label(
         # and aggregate the relevant columns to compute metrics
         .agg(
             # Count the number of unique texts (samples) for this model and label
-            nb_annotations=("text", "nunique"),
+            nb_of_texts_with_label=("text", "nunique"),
             # Compute the percentage of samples where the output format is valid
             pct_is_format_valid=("is_format_valid", lambda s: 100 * s.mean()),
             # Compute the percentage of samples where there is no hallucination
@@ -572,7 +575,7 @@ def compute_stats_per_label(
     grouped["precision_score"] = precision
     grouped["recall_score"] = recall
     grouped["f1_score"] = f1_score
-    grouped[f"fbeta_{beta}_score"] = fbeta_score
+    grouped[f"fbeta{beta}_score"] = fbeta_score
     logger.success(
         f"Computed metrics per model and per label for {len(grouped)} "
         "samples successfully!"
@@ -603,7 +606,7 @@ def compute_stats_overall(
         # Group by model name only (merging all labels together)
         df.groupby("model_name")
         .agg(
-            nb_annotations=("text", "nunique"),
+            nb_of_texts_with_label=("text", "nunique"),
             pct_is_format_valid=("is_format_valid", lambda s: 100 * s.mean()),
             pct_has_no_hallucination=("has_no_hallucination", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
@@ -624,7 +627,7 @@ def compute_stats_overall(
     grouped["precision_score"] = precision
     grouped["recall_score"] = recall
     grouped["f1_score"] = f1_score
-    grouped["fbeta_0.5_score"] = fbeta_score
+    grouped["fbeta0.5_score"] = fbeta_score
     # Rename the label to "OVERALL" since this is the overall metrics for each model
     grouped["label"] = "OVERALL"
     logger.success(
@@ -703,7 +706,7 @@ def save_overall_stats_to_excel(
     output_dir: str | Path,
     timestamp: str,
     logger: "loguru.Logger" = loguru.logger,
-) -> None:
+) -> Path | None:
     """Save the overall evaluation metrics DataFrame to an Excel file.
 
     Parameters
@@ -719,6 +722,11 @@ def save_overall_stats_to_excel(
         A timestamp string to include in the filename for versioning.
     logger : loguru.Logger, optional
         Logger for logging messages, by default loguru.logger
+
+    Returns
+    -------
+    Path | None
+        The path to the saved Excel file if successful, None otherwise.
     """
     output_path = (
         Path(output_dir)
@@ -732,6 +740,7 @@ def save_overall_stats_to_excel(
     except Exception as exc:
         logger.error(f"Failed to save overall metrics to {output_path}: {exc}")
         raise
+    return output_path
 
 
 def main(
@@ -771,7 +780,11 @@ def main(
     save_per_text_metrics_to_parquet(df, model_name, output_dir, timestamp, logger)
     # Compute the aggregated metrics per label and overall, and save to Excel
     stats = compute_all_stats(df, beta=beta, logger=logger)
-    save_overall_stats_to_excel(stats, model_name, output_dir, timestamp, logger)
+    df_xlsx_file_path = save_overall_stats_to_excel(
+        stats, model_name, output_dir, timestamp, logger
+    )
+    # Plot and save evaluation metrics per label and overall
+    plot_and_save_overall_metrics(df_xlsx_file_path, model_name, logger)
     elapsed_time = int((datetime.now(UTC) - start_time).total_seconds())
     logger.success(
         f"Evaluation completed successfully in: {timedelta(seconds=elapsed_time)}!"
