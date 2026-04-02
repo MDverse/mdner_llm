@@ -4,15 +4,15 @@ This folder contains Jupyter notebooks used for experimentation, annotation, and
 
 ## Structure
 
-### `utils/`
-- [Annotate text with LLM](utils/annotate_text_with_llm.ipynb)
-- [Visualize annotation from JSON file](utils/visualize_annotation_from_json.ipynb)
-- [Visualize annotations from a directory](utils/visualize_all_annotations_from_directory.ipynb)
+### `visualize/`
+- [Annotate text with LLM  📝](visualize/annotate_text_with_llm.ipynb)
+- [Visualize annotation from JSON file 🔎](visualize/visualize_annotation_from_json.ipynb)
+- [Visualize annotations from a directory 📂](visualize/visualize_all_annotations_from_directory.ipynb)
 
 ### `review/`
-- [Correct annotations](review/correct_annotations.ipynb)
-- [QC entity inventory explorer](review/qc_entity_inventory_explorer.ipynb)
+- [Correct annotations 🛠️](review/correct_annotations.ipynb)
+- [QC entity inventory explorer 🧐](review/qc_entity_inventory_explorer.ipynb)
+- [Validate Annotations ✅](review/qc_entity_inventory_explorer_with_filtering.ipynb)
 
 ### `gliner/`
-- [Train GLiNER2 model](gliner/train_gliner2.ipynb)
-- [Explore GLiNER2 performance](gliner/explore_gliner2_performance.ipynb)
+- [Compare GLiNER2 models performance 📊](notebooks/gliner/compare_gliner2_models_performance.ipynb)

@@ -180,6 +180,31 @@ uv run evaluate-llm-annotations \
 
 > This command loads all LLM-generated JSON files in results/llm_annotations, computes per-annotation metrics against the ground-truth, and saves the results in `results/annotation_evaluation_stats/per_text_metrics_YYYY-MM-DDTHH-MM-SS.parquet`. It then creates an Excel summary for each model and framework in `results/annotation_evaluation_stats/evaluation_summary_YYYY-MM-DDTHH-MM-SS.xlsx`.
 
+## Train Gliner2 model on Molecular Dynamics annotations
+
+To train the Gliner2 model on the Molecular Dynamics annotations, run:
+
+```sh
+uv run train-gliner --config-path src/mdner_llm/gliner/training_config.yaml
+```
+> This command trains the Gliner2 model using the configuration specified in [src/mdner_llm/gliner/training_config.yaml](src/mdner_llm/gliner/training_config.yaml) and save the trained model with the best validation performance.
+
+
+## Evaluate Gliner2 models
+
+To evaluate the performance of the trained Gliner2 model or on a test set of annotations, run:
+
+```sh
+uv run evaluate-gliner \
+    --model-name gliner2_base_large \
+    --model-path fastino/gliner2-large-v1 \
+    --test-dataset data/gliner/test.jsonl \
+    --test-metadata-path data/gliner/test_metadata.txt
+```
+
+> This command evaluates the specified Gliner2 model on the test dataset provided in `data/gliner/test.jsonl`. It computes evaluation metrics such as precision, recall, and F1-score for each entity class. It saves the annotation results (per test sample and per labels) into a parquet file, and generates a summary Excel file with overall metrics for each entity class.
+
+
 ## Utilities
 
 ### 1. Correct JSON annotations
@@ -267,3 +292,15 @@ uv run validate-annotations --annotations-dir annotations/v3
 ```
 
 > This command checks the validity of annotations in the specified JSON file or all JSON files in the given directory. It performs several checks, including verifying that the annotated text matches the corresponding text span in the original text, ensuring that entity spans are valid and do not overlap, and removing unwanted entities based on a predefined list.
+
+
+### 8. Plot performance metrics
+
+To plot the evaluation metrics of a single gliner model, run:
+
+```sh
+uv run plot-metrics \
+    --input-file <path-to-xlsx-file>
+    --model-name <model-name>
+```
+> This command reads the evaluation metrics from the specified Excel file, generates and saves a plot of precision, recall, and F1-score for each entity class.
