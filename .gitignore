@@ -197,6 +197,7 @@ cython_debug/
 # Folder contents
 results/*
 data/*
+plots/*
 
 # Ignore common data files
 *.parquet

@@ -70,13 +70,17 @@ requires = ["uv_build>=0.9.22,<0.10.0"]
 build-backend = "uv_build"
 
 [project.scripts]
+extract-entities = "mdner_llm.core.extract_entities:main"
+extract-entities-all-texts = "mdner_llm.core.extract_entities_all_texts:main"
+evaluate-annotations = "mdner_llm.core.evaluate_annotations:main"
+
+train-gliner = "mdner_llm.gliner.train_gliner:run_main_from_cli"
+evaluate-gliner = "mdner_llm.gliner.evaluate_gliner:run_main_from_cli"
+
 count-entities = "mdner_llm.utils.count_entities:run_main_from_cli"
 select-annotations = "mdner_llm.utils.select_annotation_files:main"
 transfer-annotations = "mdner_llm.utils.transfer_annotations:main"
 build-entity-vocab = "mdner_llm.utils.build_entity_vocab:run_main_from_cli"
 extract-description = "mdner_llm.utils.extract_description_from_parquets:main"
 validate-annotations = "mdner_llm.utils.validate_annotations:run_main_from_cli"
-
-extract-entities = "mdner_llm.core.extract_entities:main"
-extract-entities-all-texts = "mdner_llm.core.extract_entities_all_texts:main"
-evaluate-annotations = "mdner_llm.core.evaluate_annotations:main"
+plot-metrics = "mdner_llm.utils.plot_evaluation_metrics:run_main_from_cli"

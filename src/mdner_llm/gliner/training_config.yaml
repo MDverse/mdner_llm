@@ -1,0 +1,53 @@
+model:
+  name: "fastino/gliner2-large-v1"
+  experiment_name: "gliner2-base-large"
+  output_dir: "results/gliner"
+  chunk_size: 512
+  overlap: 64
+
+data:
+  annotation_paths: "results/selected_md_dataset_description_paths.txt"
+  train_ratio: 0.6
+  train_data_path: "data/gliner/train.jsonl"
+  val_ratio: 0.2
+  val_data_path: "data/gliner/val.jsonl"
+  test_ratio: 0.2
+  test_data_path: "data/gliner/test.jsonl"
+  shuffle: True
+  seed: 42
+
+entities:
+  MOL: "Molecule or chemical compound involved in the simulation"
+  SOFTNAME: "Molecular dynamics software used for the simulation"
+  SOFTVERS: "Version of the molecular dynamics software"
+  TEMP: "Simulation temperature, typically expressed in Kelvin or Celsius"
+  FFM: "Force field model used to describe interatomic interactions"
+  STIME: "Total simulation time or duration"
+
+training:
+  # Training schedule
+  num_epochs: 30
+  batch_size: 4
+  max_steps: -1
+  gradient_accumulation_steps: 8
+
+  # Learning rates
+  encoder_lr: 5e-6 # Learning rate for encoder
+  task_lr: 1e-4 # Learning rate for task-specific heads
+  warmup_ratio: 0.05
+  scheduler_type: "cosine"
+
+  # Optimization
+  weight_decay: 0.01
+
+  # Precision / hardware
+  fp16: True
+
+  # Checkpointing
+  eval_strategy: "epoch"
+  metric_for_best: "eval_loss"
+  save_best: True
+
+  # Logging
+  logging_steps: 5
+  logging_first_step: True
