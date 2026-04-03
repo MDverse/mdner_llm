@@ -795,14 +795,18 @@ def main(
 @click.option(
     "--model-name",
     type=str,
-    default="GLiNER2_Base_205M_parameters",
+    default="gliner2-base-small",
     help="Name of the model.",
 )
 @click.option(
     "--model-path",
     type=click.Path(),
     default="fastino/gliner2-base-v1",
-    help="Path to the trained model file.",
+    help=(
+        "Path to the trained model file or model identifier from Hugging Face Hub. "
+        "Hugging Face example: 'fastino/gliner2-base-v1', 'fastino/gliner2-large-v1'."
+        "Local file example: 'results/gliner/models/gliner2-finetuned-small/best'."
+    ),
 )
 @click.option(
     "--test-dataset",
