@@ -22,8 +22,7 @@ import instructor
 import loguru
 from instructor.core import InstructorRetryException
 from instructor.core.exceptions import ModeError, ProviderError
-from instructor.core.exceptions import \
-    ValidationError as InstructorValidationError
+from instructor.core.exceptions import ValidationError as InstructorValidationError
 from llama_index.llms.openai import OpenAI as llamaOpenAI
 from llama_index.llms.openrouter import OpenRouter
 from openai.types.chat import ChatCompletion
@@ -37,24 +36,28 @@ from pydantic_core import ValidationError as CoreValidationError
 from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
-from mdner_llm.utils.common import (ensure_dir, load_api_key,
-                                    sanitize_filename, serialize_response)
+from mdner_llm.utils.common import (
+    ensure_dir,
+    load_api_key,
+    sanitize_filename,
+    serialize_response,
+)
 
 
-def load_text_and_groundtruth(
-    path_text: str | Path, tag_prompt: str, logger: "loguru.Logger" = loguru.logger
-) -> tuple[str, ListOfEntities | ListOfEntitiesPositions]:
+def load_text_and_metadata(
+    path_text: str | Path, prompt_tag: str, logger: "loguru.Logger" = loguru.logger
+) -> tuple[str, ListOfEntities | ListOfEntitiesPositions, str]:
     """Load raw text and ground truth annotations from a JSON file.
 
-    The JSON file must contain a ``raw_text`` field and an ``entities`` field.
-    Depending on the value of ``tag_prompt``, entities are normalized or kept
+    The JSON file must contain a ``raw_text``, ``entities`` field and a ``url`` field.
+    Depending on the value of ``prompt_tag``, entities are normalized or kept
     with positional information.
 
     Parameters
     ----------
     path_text
         Path to the JSON file containing the text and annotations.
-    tag_prompt
+    prompt_tag
         Annotation format selector. If equal to `json`, entity positions
         are removed.
     logger
@@ -63,8 +66,9 @@ def load_text_and_groundtruth(
 
     Returns
     -------
-    tuple[str, str, ListOfEntities | ListOfEntitiesPositions]
-        The raw text to annotate and the corresponding ground truth object.
+    tuple[str, str, ListOfEntities | ListOfEntitiesPositions, str]
+        The raw text to annotate and the corresponding ground truth object parsed from
+        the JSON file, and the URL if available.
 
     Raises
     ------
@@ -91,8 +95,9 @@ def load_text_and_groundtruth(
     # Extract raw text and entities from the loaded JSON
     text_to_annotate = data["raw_text"]
     entities = data["entities"]
-    # Normalize entities based on the tag_prompt value
-    if tag_prompt == "json":
+    url = data.get("url", "N/A")
+    # Normalize entities based on the prompt_tag value
+    if prompt_tag == "json":
         # Remove positional information from entities
         normalized = [
             {"label": ent.get("label"), "text": ent.get("text")} for ent in entities
@@ -104,7 +109,7 @@ def load_text_and_groundtruth(
         groundtruth = ListOfEntitiesPositions(entities=entities)
     preview = text_to_annotate[:75].replace("\n", " ")
     logger.debug(f"Loaded text ({len(text_to_annotate)} chars): {preview}...")
-    return text_to_annotate, groundtruth
+    return text_to_annotate, groundtruth, url
 
 
 def load_prompt(prompt_file: Path, logger: "loguru.Logger" = loguru.logger) -> str:
@@ -382,8 +387,99 @@ def annotate_with_pydanticai(
         return llm_response, elapsed_time
 
 
+def save_json_output(
+    json_output_path: Path,
+    json_data: dict[str, str],
+    logger: "loguru.Logger" = loguru.logger,
+) -> None:
+    """
+    Save structured annotation metadata to a JSON file.
+
+    Parameters
+    ----------
+    json_output_path : Path
+        Path where the JSON file will be written.
+    json_data : dict[str, str]
+        Dictionary containing metadata and model outputs.
+    logger : loguru.Logger, optional
+        Logger for logging messages, by default loguru.logger
+
+    Raises
+    ------
+    FileNotFoundError
+        If the parent directory does not exist.
+    PermissionError
+        If writing permissions are insufficient.
+    OSError
+        If a system-level error occurs during writing.
+    ValueError
+        If the data cannot be serialized to JSON.
+    """
+    try:
+        json_output_path.write_text(
+            json.dumps(json_data, indent=4, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        logger.debug(
+            f"Saved JSON output to {json_output_path} "
+            "with metadata and model response successfully."
+        )
+    except FileNotFoundError as exc:
+        msg = f"Directory does not exist for output file: {json_output_path}"
+        raise FileNotFoundError(msg) from exc
+    except PermissionError as exc:
+        msg = f"Permission denied when writing to {json_output_path}"
+        raise PermissionError(msg) from exc
+    except OSError as exc:
+        msg = f"Failed to write JSON to {json_output_path}: {exc}"
+        raise OSError(msg) from exc
+    except TypeError as exc:
+        msg = f"Invalid data provided for JSON serialization: {exc}"
+        raise ValueError(msg) from exc
+
+
+def save_txt_output(
+    txt_output_path: Path,
+    content: str,
+    logger: "loguru.Logger" = loguru.logger,
+) -> None:
+    """
+    Save raw LLM response to a text file.
+
+    Parameters
+    ----------
+    txt_output_path : Path
+        Path where the text file will be written.
+    content : str
+        Raw string content to save.
+    logger : loguru.Logger, optional
+        Logger for logging messages, by default loguru.logger
+
+    Raises
+    ------
+    FileNotFoundError
+        If the parent directory does not exist.
+    PermissionError
+        If writing permissions are insufficient.
+    OSError
+        If a system-level error occurs during writing.
+    """
+    try:
+        txt_output_path.write_text(content, encoding="utf-8")
+        logger.debug(f"Saved raw response to {txt_output_path} successfully.")
+    except FileNotFoundError as exc:
+        msg = f"Directory does not exist for output file: {txt_output_path}"
+        raise FileNotFoundError(msg) from exc
+    except PermissionError as exc:
+        msg = f"Permission denied when writing to {txt_output_path}"
+        raise PermissionError(msg) from exc
+    except OSError as exc:
+        msg = f"Failed to write raw response to {txt_output_path}: {exc}"
+        raise OSError(msg) from exc
+
+
 def extract_entities(
-    tag_prompt: str,
+    prompt_tag: str,
     prompt_file: Path,
     model: str,
     text_path: Path,
@@ -401,7 +497,7 @@ def extract_entities(
         Path to a text file containing the extraction prompt.
     model : str
         Model name to use for extraction.
-    path_text : str
+    text_path : str
         Path to the JSON text to process.
     framework : str
         Validation framework.
@@ -413,35 +509,32 @@ def extract_entities(
     logger : loguru.Logger
         Logger instance for logging messages.
     """
+    # Log input parameters
     logger.debug(f"Text to annotate: {text_path}")
     logger.debug(f"Model: {model}")
     logger.debug(f"Framework: {framework}")
-    logger.debug(f"Tag prompt: {tag_prompt}")
+    logger.debug(f"Tag prompt: {prompt_tag}")
     logger.debug(f"Prompt file: {prompt_file}")
     logger.debug(f"Output directory: {output_dir}")
     logger.debug(f"Max retries: {max_retries}")
-    
-    # Load text to annotate
-    text_to_annotate, groundtruth = load_text_and_groundtruth(
-        text_path, tag_prompt, logger
+    # Load info from the JSON file:
+    # raw text, ground truth entities and URL if available
+    text_to_annotate, groundtruth, url = load_text_and_metadata(
+        text_path, prompt_tag, logger
     )
-
     # Load prompt from txt file
     prompt = load_prompt(prompt_file, logger)
-
     # Set response model and retries based on tag and framework
     if framework:
-        if tag_prompt == "json":
+        if prompt_tag == "json":
             response_model = ListOfEntities
         else:
             response_model = ListOfEntitiesPositions
     else:
         response_model = None
         max_retries = 0
-
-    # Retrive the openrouter api key
+    # Retrieve the openrouter api key
     api_key = load_api_key("OPENROUTER_API_KEY")
-
     # Run annotation and time it
     if framework in {"instructor", "none"}:
         if framework == "none":
@@ -456,12 +549,10 @@ def extract_entities(
             max_retries,
             logger,
         )
-
     elif framework == "llamaindex":
         llm_response, inference_time = annotate_with_llamaindex(
             text_to_annotate, model, api_key, prompt, response_model, logger=logger
         )
-
     elif framework == "pydanticai":
         llm_response, inference_time = annotate_with_pydanticai(
             text_to_annotate,
@@ -472,7 +563,6 @@ def extract_entities(
             max_retries,
             logger=logger,
         )
-
     if llm_response is None:
         logger.warning(
             f"LLM did not return a response for text '{text_path.name}'. "
@@ -488,47 +578,24 @@ def extract_entities(
     base_name = f"{text_path.stem}_{model_safe}_{framework}_{timestamp}"
     json_output_path = output_dir / f"{base_name}.json"
     txt_output_path = output_dir / f"{base_name}.txt"
-
     # Save JSON metadata + response
     json_data = {
         "timestamp": timestamp,
-        "output_file": str(txt_output_path),
-        "text_file": str(text_path),
-        "framework_name": framework,
+        "json_path": str(text_path),
+        "text": serialize_response(text_to_annotate),
+        "url": url,
         "model_name": model,
+        "framework_name": framework,
         "prompt_path": str(prompt_file),
-        "tag_prompt": tag_prompt,
-        "inference_time_sec": inference_time,
-        "raw_llm_response": serialize_response(llm_response),
+        "prompt_tag": prompt_tag,
         "groundtruth": serialize_response(groundtruth),
+        "raw_llm_response": serialize_response(llm_response),
+        "inference_time_sec": inference_time,
+        "response_file": str(txt_output_path),
     }
-    try:
-        json_output_path.write_text(
-            json.dumps(json_data, indent=4, ensure_ascii=False), encoding="utf-8"
-        )
-        logger.debug(f"Saved JSON output to {json_output_path}")
-    except FileNotFoundError as e:
-        raise FileNotFoundError(f"Directory does not exist for output file: {json_output_path}") from e
-    except PermissionError as e:
-        raise PermissionError(f"Permission denied when writing to {json_output_path}") from e
-    except OSError as e:
-        raise OSError(f"Failed to write JSON to {json_output_path}: {e}") from e
-    except TypeError as e:
-        raise ValueError(f"Invalid data provided for JSON serialization: {e}") from e
-    
+    save_json_output(json_output_path, json_data, logger)
     # Save raw model response
-    try:
-        txt_output_path.write_text(
-            serialize_response(llm_response),
-            encoding="utf-8",
-        )
-        logger.debug(f"Saved raw response to {txt_output_path}")
-    except FileNotFoundError as e:
-        raise FileNotFoundError(f"Directory does not exist for output file: {txt_output_path}") from e
-    except PermissionError as e:
-        raise PermissionError(f"Permission denied when writing to {txt_output_path}") from e
-    except OSError as e:
-        raise OSError(f"Failed to write raw response to {txt_output_path}: {e}") from e
+    save_txt_output(txt_output_path, serialize_response(llm_response), logger)
 
 
 @click.command()
@@ -539,23 +606,25 @@ def extract_entities(
     help="Path to the JSON annotation file to process.",
 )
 @click.option(
-    "--model", required=True, type=str, 
-    help="LLM model name to use for extraction." \
-    "Find available models in OpenRouter (https://openrouter.ai/models)."
+    "--model",
+    required=True,
+    type=str,
+    help="LLM model name to use for extraction."
+    "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
 @click.option(
     "--framework",
     default="none",
     type=click.Choice(["instructor", "llamaindex", "pydanticai", "none"]),
-    help="Validation framework to apply to model outputs." \
-    "Choices: 'instructor', 'llamaindex', 'pydanticai'. " \
+    help="Validation framework to apply to model outputs."
+    "Choices: 'instructor', 'llamaindex', 'pydanticai'. "
     "If 'none', no validation is applied and the raw model response is returned.",
 )
 @click.option(
     "--tag-prompt",
     default="json",
     type=click.Choice(["json", "json_with_positions"]),
-    help="Descriptor indicating the format of the expected LLM output." \
+    help="Descriptor indicating the format of the expected LLM output."
     "Choices: 'json' or 'json_with_positions'.",
 )
 @click.option(
@@ -566,7 +635,7 @@ def extract_entities(
 )
 @click.option(
     "--output-dir",
-    default="results/llm_annotations",
+    default="results/llm/annotations",
     type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
     help="Directory to save output files.",
     callback=ensure_dir,
@@ -578,7 +647,7 @@ def extract_entities(
     help="Maximum number of retries in case of API or validation failure.",
 )
 def main(
-    tag_prompt: str,
+    prompt_tag: str,
     prompt_file: Path,
     model: str,
     text_path: Path,
@@ -590,7 +659,7 @@ def main(
     logger = create_logger(level="DEBUG")
     logger.info("Starting the extraction of entities.")
     extract_entities(
-        tag_prompt=tag_prompt,
+        prompt_tag=prompt_tag,
         prompt_file=prompt_file,
         model=model,
         text_path=text_path,
