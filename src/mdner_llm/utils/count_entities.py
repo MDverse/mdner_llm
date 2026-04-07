@@ -8,6 +8,7 @@ and the number of entities by class.
 
 import json
 import math
+import os
 from pathlib import Path
 
 import click
@@ -20,6 +21,7 @@ import watermark
 from loguru import logger
 
 from mdner_llm.core.logger import create_logger
+from mdner_llm.utils.visualize_annotations import COLORS
 
 CLASSES = ["TEMP", "SOFTNAME", "SOFTVERS", "STIME", "MOL", "FFM"]
 
@@ -158,8 +160,7 @@ def aggregate(counts_list: list[dict], classes: list[str]) -> pd.DataFrame:
     for cls in classes:
         columns[cls] = f"{cls}_nb"
     df = df.rename(columns=columns)
-    df = df[["filename", "text_length", *list(columns.values())]]
-    return df
+    return df[["filename", "text_length", *list(columns.values())]]
 
 
 def display_stats(df: pd.DataFrame, classes: list[str]) -> None:
@@ -197,7 +198,8 @@ def export_to_tsv(
     # Ensure output directory exists.
     if not output_dir.exists():
         output_dir.mkdir(parents=True, exist_ok=True)
-    tsv_file_path = output_dir / "entities_count.tsv"
+    tsv_file_path = output_dir / "qc_annotations/all_entities.tsv"
+    os.makedirs(tsv_file_path.parent, exist_ok=True)
     try:
         df.to_csv(tsv_file_path, sep="\t", index=False)
     except OSError as e:
@@ -249,9 +251,10 @@ def plot_class_distribution(df: pd.DataFrame, output_dir: Path) -> None:
     ax.set_ylabel("Total count", fontsize=13)
     ax.set_xticks(x)
     ax.set_xticklabels(classes)
-    filename = output_dir / "entity_class_distribution.png"
-    fig.savefig(filename, bbox_inches="tight", dpi=200)
-    logger.success(f"Class distribution plot saved in '{filename}'")
+    file_path = Path("plots/annotations/entity_class_distribution.png")
+    os.makedirs(file_path.parent, exist_ok=True)
+    fig.savefig(file_path, bbox_inches="tight", dpi=200)
+    logger.success(f"Class distribution plot saved in '{file_path}'")
 
 
 def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> None:
@@ -263,11 +266,9 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
         DataFrame containing columns ending with '_nb' = counts of each entity class.
     """
     cols = [col for col in df.columns if col.endswith("_nb")]
+    # Sort colums by alphabetical order of class names.
+    cols = sorted(cols, key=lambda x: x.replace("_nb", ""))
     n_classes = len(cols)
-
-    cmap = mpl.colormaps.get_cmap("Set1")
-    colors = cmap(np.linspace(0, 1, n_classes))
-
     n_cols = 2
     n_rows = math.ceil(n_classes / n_cols)
 
@@ -284,6 +285,8 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
         max_bins = 15
         bins = np.arange(0, max_bins + 1)
         labels = [str(label) for label in np.arange(0, max_bins)]
+        class_name = col.replace("_nb", "")
+        color = COLORS.get(class_name, "#cccccc")
         # Add last boundary depending on data beyond the fixed boundary.
         if max_val <= max_bins:
             bins = np.append(bins, max_bins + 1)
@@ -298,7 +301,7 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
         ax.bar(
             x=ticks,
             height=heights,
-            color=colors[i],
+            color=color,
             edgecolor="black",
         )
         # Add appropriate ticks.
@@ -317,9 +320,10 @@ def plot_entity_distribution_by_class(df: pd.DataFrame, output_dir: Path) -> Non
         fig.delaxes(axes[j])
     fig.suptitle("Entity distributions by class", fontsize=16, fontweight="bold")
     # Save figure.
-    filename = output_dir / "entity_distribution_by_class.png"
-    fig.savefig(filename, bbox_inches="tight", dpi=200)
-    logger.success(f"Entity distribution by class plot saved as '{filename}'")
+    file_path = Path("plots/annotations/entity_distribution_by_class.png")
+    os.makedirs(file_path.parent, exist_ok=True)
+    fig.savefig(file_path, bbox_inches="tight", dpi=200)
+    logger.success(f"Entity distribution by class plot saved as '{file_path}'")
 
 
 def compute_entity_counts_df(
@@ -348,8 +352,7 @@ def compute_entity_counts_df(
     # Collect entity counts for each file
     all_counts = collect_entity_counts(json_files, classes)
     # Aggregate results into a DataFrame
-    counts_df = aggregate(all_counts, classes)
-    return counts_df
+    return aggregate(all_counts, classes)
 
 
 def main(annotations_dir: Path, results_dir: Path) -> None:
