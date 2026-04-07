@@ -199,9 +199,16 @@ results/*
 data/*
 plots/*
 
+# Exclude specific folders
+!results/qc_annotations/
+
 # Ignore common data files
 *.parquet
 *.xtcx
 *.csv
 *.tsv
 annotations/v3/*.txt
+
+# Exclude specific files
+!results/groundtruth_paths.txt
+!results/qc_annotations/entities.tsv
