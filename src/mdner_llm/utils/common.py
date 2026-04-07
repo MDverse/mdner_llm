@@ -5,8 +5,8 @@ import os
 import re
 from pathlib import Path
 
+import loguru
 from dotenv import load_dotenv
-from loguru import logger
 from openai.types.chat import ChatCompletion
 
 from mdner_llm.models.entities import ListOfEntities
@@ -39,6 +39,8 @@ def ensure_dir(ctx, param, value: Path) -> Path:
     """
     value.mkdir(parents=True, exist_ok=True)
     return value
+
+
 def sanitize_filename(s: str) -> str:
     """Replace unsafe characters for filenames.
 
@@ -58,7 +60,10 @@ def sanitize_filename(s: str) -> str:
     """
     return re.sub(r"[^\w\-_.]", "_", s)
 
-def serialize_response(resp: ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str | dict) -> str:
+
+def serialize_response(
+    resp: ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str | dict,
+) -> str:
     """
     Serialize various response objects into a JSON-safe string representation.
 
@@ -87,6 +92,7 @@ def serialize_response(resp: ListOfEntities | ListOfEntitiesPositions | ChatComp
 
     return str(resp)
 
+
 def load_api_key(key: str) -> str:
     """
     Load an API key from .env file or environment variables.
@@ -95,11 +101,12 @@ def load_api_key(key: str) -> str:
     ----------
     key : str
         The name of the environment variable containing the API key.
-    
+
     Returns
     -------
     str
         The API key string.
+
     Raises
     ------
     ValueError
@@ -115,3 +122,31 @@ def load_api_key(key: str) -> str:
         # raise an error to prevent further execution without a valid API key
         raise ValueError(msg)
     return api_key
+
+
+def list_json_files_from_txt(
+    texts_path: Path,
+    logger: "loguru.Logger" = loguru.logger,
+) -> list[Path]:
+    """Read a text file containing paths to JSON files.
+
+    Parameters
+    ----------
+    texts_path : Path
+        Path to a text file where each line is a path to a JSON file.
+
+    Returns
+    -------
+    list[Path]
+        A list of Path objects corresponding to the JSON files listed in the text file.
+    """
+    logger.info(f"Reading list of JSON files from {texts_path}.")
+    # Read the list of annotation text files from the provided path
+    selected_files = [
+        Path(line.strip())
+        for line in texts_path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    total_files = len(selected_files)
+    logger.success(f"Found {total_files} JSON files successfully.")
+    return selected_files

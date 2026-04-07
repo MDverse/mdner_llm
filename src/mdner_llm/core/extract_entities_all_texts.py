@@ -9,7 +9,11 @@ import click
 
 from mdner_llm.core.extract_entities import extract_entities
 from mdner_llm.core.logger import create_logger
-from mdner_llm.utils.common import ensure_dir, sanitize_filename
+from mdner_llm.utils.common import (
+    ensure_dir,
+    list_json_files_from_txt,
+    sanitize_filename,
+)
 
 
 @click.command()
@@ -75,14 +79,8 @@ def main(
         f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}_{timestamp}.log"
     )
     logger.info("Starting batch entity extraction.")
-    # Read the list of annotation text files from the provided path
-    selected_files = [
-        Path(line.strip())
-        for line in texts_path.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
+    selected_files = list_json_files_from_txt(texts_path=texts_path, logger=logger)
     total_files = len(selected_files)
-    logger.info(f"Total files to process: {total_files}")
     # Process each file and extract entities
     start_time = datetime.now(UTC)
     for idx, file_path in enumerate(selected_files, start=1):
