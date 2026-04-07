@@ -227,11 +227,11 @@ To generate a QC inventory of annotated entities from json files, run:
 
 ```sh
 uv run build-entity-vocab \
-    --annot-folder annotations/v3 \
-    --out-folder results/qc_annotations
+    --texts-path results/groundtruth_paths.txt \
+    --out-path results/qc_annotations/entities.tsv
 ```
 
-> This command will scan all JSON annotations, aggregate and normalize entities per class, count their occurrences, and save one vocabulary file per class in the output folder.
+> This command will scan all JSON annotations listed in `results/groundtruth_paths.txt`, extract all annotated entities, and compile them into a TSV file at `results/qc_annotations/entities.tsv`. The TSV file will contain columns for the entity text, label, source file, and frequency of occurrence across all annotations.
 
 > 💡 Running a QC inventory on annotation files ensures that all entities are
 > consistently aggregated and normalized. This is a crucial step for
