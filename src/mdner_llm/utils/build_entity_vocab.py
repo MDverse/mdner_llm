@@ -43,6 +43,9 @@ def collect_entity_counts(
 
     if json_files == []:
         logger.warning(f"No JSON annotation files found in {texts_path}")
+    # Handle relative paths if the text file is located in a different directory
+    if str(texts_path).startswith("../../"):
+        json_files = [Path("../../") / json_file for json_file in json_files]
 
     for json_file in json_files:
         try:
