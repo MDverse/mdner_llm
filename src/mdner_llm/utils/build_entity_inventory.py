@@ -68,7 +68,7 @@ def collect_entities(
                 "category": label,
                 "json_file": Path(json_file).name
             }
-            entities_list.append(entity_dict)           
+            entities_list.append(entity_dict)
     logger.success(
         f"Collected {len(entities_list)} entities"
     )
@@ -92,7 +92,7 @@ def write_inventory(
     logger.info("Writing entity inventory TSV file.")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     # Create the dataframe
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(entities)
     # Write to TSV
     df.to_csv(out_path, sep="\t", index=False)
     logger.success(f"Saved entity inventoryin: {out_path}")
@@ -130,7 +130,6 @@ def run_cli(
     entities = collect_entities(annotation_path)
     write_inventory(entities, out_path)
     logger.success("Entity inventory completed successfully!")
-    return entity_counts
 
 
 if __name__ == "__main__":
