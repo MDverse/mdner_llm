@@ -20,14 +20,14 @@ FRAMEWORKS=(
 )
 
 PROMPT_FILE="json_few_shot.txt"
-TEXT_PATH="results/50_selected_md_dataset_description_paths.txt"
+TEXT_PATH="results/groundtruth_paths.txt"
 OUTPUT_DIR="results/llm/annotations"
 TAG_PROMPT="json"
 MAX_RETRIES=3
 
 for model in "${MODELS[@]}"; do
   for framework in "${FRAMEWORKS[@]}"; do
-    echo "Running model=${model} framework=${framework}"
+    echo "Running model= ${model} framework=${framework}"
 
     uv run src/mdner_llm/core/extract_entities_all_texts.py \
       --prompt-file "${PROMPT_FILE}" \

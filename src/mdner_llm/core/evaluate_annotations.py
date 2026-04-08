@@ -34,6 +34,7 @@ import json
 import re
 import time
 import unicodedata
+from collections import defaultdict
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -150,6 +151,22 @@ def _safe_div(num: float, den: float) -> float:
     return num / den if den > 0 else 0.0
 
 
+def _group_by_label(entities):
+    grouped = defaultdict(set)
+    for e in entities:
+        grouped[e.label].add(normalize_text(e.text))
+    return grouped
+
+
+def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    df = df.loc[:, df.columns.map(lambda x: isinstance(x, str))]
+    df = df.dropna(axis=1, how="all")
+    df = df.loc[:, ~df.columns.duplicated()]
+
+    return df
+
+
 def compute_confusion_metrics(
     df: pd.DataFrame,
     results_dir: Path,
@@ -236,52 +253,62 @@ def compute_confusion_metrics(
                     f"fbeta_{beta}_of_annotation": 0.0,
                 }
             )
-        # Convert entities to sets of (label, normalized_text)
-        preds_set = {(e.label, normalize_text(e.text)) for e in pred_model.entities}
-        gt_set = {(e.label, normalize_text(e.text)) for e in gt_model.entities}
+        preds_by_label = _group_by_label(pred_model.entities)
+        gt_by_label = _group_by_label(gt_model.entities)
+        all_labels = set(preds_by_label) | set(gt_by_label)
 
-        # Compute confusion counts
-        tp = len(preds_set & gt_set)
-        fp = len(preds_set - gt_set)
-        fn = len(gt_set - preds_set)
-        # Compute metrics safely
-        precision = _safe_div(tp, tp + fp)
-        recall = _safe_div(tp, tp + fn)
-        f1 = _safe_div(2 * precision * recall, precision + recall)
-        fbeta = _safe_div(
-            (1 + beta**2) * precision * recall,
-            (beta**2 * precision) + recall,
-        )
+        rows = []
+        for label in all_labels:
+            pred_set = preds_by_label.get(label, set())
+            gt_set = gt_by_label.get(label, set())
 
-        logger.info(f"[{file}]:")
-        logger.info(f"Is correct output format: {is_format_valid}")
-        logger.info(f"Is without hallucination: {no_hallucination}")
-        logger.debug(f"Predictions ({len(preds_set)}): {sorted(preds_set)}")
-        logger.debug(f"Groundtruth ({len(gt_set)}): {sorted(gt_set)}")
-        logger.info(f"Confusion counts: TP={tp} | FP={fp} | FN={fn}")
-        logger.info(
-            f"Evaluation metrics: precision={precision:.3f} | "
-            f"recall={recall:.3f} | f1={f1:.3f} | "
-            f"fbeta_{beta}={fbeta:.3f}\n"
-        )
+            tp = len(pred_set & gt_set)
+            fp = len(pred_set - gt_set)
+            fn = len(gt_set - pred_set)
 
-        return pd.Series(
-            {
-                "is_format_valid": is_format_valid,
-                "has_no_hallucination": no_hallucination,
-                "true_positives": tp,
-                "false_positives": fp,
-                "false_negatives": fn,
-                "precision_of_annotation": precision,
-                "recall_of_annotation": recall,
-                "f1_of_annotation": f1,
-                f"fbeta_{beta}_of_annotation": fbeta,
-            }
-        )
+            precision = _safe_div(tp, tp + fp)
+            recall = _safe_div(tp, tp + fn)
+            f1 = _safe_div(2 * precision * recall, precision + recall)
+            fbeta = _safe_div(
+                (1 + beta**2) * precision * recall,
+                (beta**2 * precision) + recall,
+            )
+
+            logger.info(f"[{file}]:")
+            logger.info(f"Is correct output format: {is_format_valid}")
+            logger.info(f"Is without hallucination: {no_hallucination}")
+            logger.info(f"Evaluating label: {label}")
+            logger.debug(f"Predictions ({len(pred_set)}): {sorted(pred_set)}")
+            logger.debug(f"Groundtruth ({len(gt_set)}): {sorted(gt_set)}")
+            logger.info(f"Confusion counts: TP={tp} | FP={fp} | FN={fn}")
+            logger.info(
+                f"Evaluation metrics: precision={precision:.3f} | "
+                f"recall={recall:.3f} | f1={f1:.3f} | "
+                f"fbeta_{beta}={fbeta:.3f}\n"
+            )
+
+            rows.append(
+                {
+                    "response_metadata": file,
+                    "label": label,
+                    "true_positives": tp,
+                    "false_positives": fp,
+                    "false_negatives": fn,
+                    "precision": precision,
+                    "recall": recall,
+                    "f1": f1,
+                    f"fbeta_{beta}": fbeta,
+                    "is_format_valid": is_format_valid,
+                    "has_no_hallucination": no_hallucination,
+                }
+            )
+
+        return pd.DataFrame(rows)
 
     # Apply row-wise computation
-    metrics = df.apply(_compute_row, axis=1)
+    metrics = pd.concat(df.apply(_compute_row, axis=1).to_list(), ignore_index=True)
     res_df = pd.concat([df, metrics], axis=1)
+    res_df = clean_dataframe(res_df)
 
     # Saving metrics by text into a parquet file
     parquet_path = (
@@ -483,6 +510,94 @@ def safe_divide(num: pd.Series, den: pd.Series) -> pd.Series:
     return np.round(result, 3)
 
 
+def compute_label_stats(df: pd.DataFrame) -> pd.DataFrame:
+    """Compute global metrics per label (micro-averaged)."""
+    grouped = (
+        df.groupby("label")
+        .agg(
+            true_positives=("true_positives", "sum"),
+            false_positives=("false_positives", "sum"),
+            false_negatives=("false_negatives", "sum"),
+        )
+        .reset_index()
+    )
+
+    tp = grouped["true_positives"]
+    fp = grouped["false_positives"]
+    fn = grouped["false_negatives"]
+
+    grouped["precision"] = safe_divide(tp, tp + fp)
+    grouped["recall"] = safe_divide(tp, tp + fn)
+
+    grouped["f1"] = safe_divide(
+        2 * grouped["precision"] * grouped["recall"],
+        grouped["precision"] + grouped["recall"],
+    )
+
+    beta = 0.5
+    grouped[f"fbeta_{beta}"] = safe_divide(
+        (1 + beta**2) * grouped["precision"] * grouped["recall"],
+        beta**2 * grouped["precision"] + grouped["recall"],
+    )
+
+    return grouped
+
+
+def compute_overall_stats(df: pd.DataFrame) -> pd.DataFrame:
+    """Compute global micro metrics across all labels."""
+    tp = df["true_positives"].sum()
+    fp = df["false_positives"].sum()
+    fn = df["false_negatives"].sum()
+
+    precision = _safe_div(tp, tp + fp)
+    recall = _safe_div(tp, tp + fn)
+    f1 = _safe_div(2 * precision * recall, precision + recall)
+
+    beta = 0.5
+    fbeta = _safe_div(
+        (1 + beta**2) * precision * recall,
+        (beta**2 * precision) + recall,
+    )
+
+    return pd.DataFrame(
+        [
+            {
+                "label": "overall",
+                "true_positives": tp,
+                "false_positives": fp,
+                "false_negatives": fn,
+                "precision": precision,
+                "recall": recall,
+                "f1": f1,
+                f"fbeta_{beta}": fbeta,
+            }
+        ]
+    )
+
+
+def _add_metrics(grouped: pd.DataFrame) -> pd.DataFrame:
+    beta = 0.5
+
+    tp = grouped["true_positives"]
+    fp = grouped["false_positives"]
+    fn = grouped["false_negatives"]
+
+    grouped["precision"] = safe_divide(tp, tp + fp)
+    grouped["recall"] = safe_divide(tp, tp + fn)
+
+    grouped["f1"] = safe_divide(
+        2 * grouped["precision"] * grouped["recall"],
+        grouped["precision"] + grouped["recall"],
+    )
+
+    grouped[f"fbeta_{beta}"] = safe_divide(
+        (1 + beta**2) * grouped["precision"] * grouped["recall"],
+        beta**2 * grouped["precision"] + grouped["recall"],
+    )
+
+    return grouped
+
+
 def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
     """
     Compute evaluation statistics grouped by framework and model.
@@ -515,14 +630,17 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
         - "true_positives", "false_positives", "false_negatives": summed per group
         - "precision", "recall", "f1", "fbeta_0.5": aggregated metrics
     """
-    logger.info("Computing evaluation metrics grouped by framework and models...")
+    logger.info(
+        "Computing evaluation metrics grouped by framework, model, and label..."
+    )
     df = df.copy()
 
-    # Aggregate per framework and per model
-    grouped = (
-        df.groupby(["framework_name", "model_name", "tag_prompt"])
+    group_cols = ["framework_name", "model_name", "prompt_tag"]
+
+    grouped_label = (
+        df.groupby([*group_cols, "label"])
         .agg(
-            nb_annotations=("raw_llm_response", "count"),
+            nb_of_texts_with_label=("text", "nunique"),
             pct_is_format_valid=("is_format_valid", lambda s: 100 * s.mean()),
             pct_has_no_hallucination=("has_no_hallucination", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
@@ -532,26 +650,24 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
         .reset_index()
     )
 
-    # Compute precision, recall, F1, F-beta per group
-    beta = 0.5
-    tp = grouped["true_positives"]
-    fp = grouped["false_positives"]
-    fn = grouped["false_negatives"]
-
-    grouped["precision"] = safe_divide(tp, tp + fp)
-    grouped["recall"] = safe_divide(tp, tp + fn)
-
-    grouped["f1"] = safe_divide(
-        2 * grouped["precision"] * grouped["recall"],
-        grouped["precision"] + grouped["recall"],
+    overall = (
+        df.groupby(group_cols)
+        .agg(
+            nb_of_texts_with_label=("text", "nunique"),
+            pct_is_format_valid=("is_format_valid", lambda s: 100 * s.mean()),
+            pct_has_no_hallucination=("has_no_hallucination", lambda s: 100 * s.mean()),
+            true_positives=("true_positives", "sum"),
+            false_positives=("false_positives", "sum"),
+            false_negatives=("false_negatives", "sum"),
+        )
+        .reset_index()
     )
 
-    grouped[f"fbeta_{beta}"] = safe_divide(
-        (1 + beta**2) * grouped["precision"] * grouped["recall"],
-        beta**2 * grouped["precision"] + grouped["recall"],
-    )
+    overall["label"] = "OVERALL"
+    grouped_label = _add_metrics(grouped_label)
+    overall = _add_metrics(overall)
 
-    return grouped
+    return pd.concat([grouped_label, overall], ignore_index=True)
 
 
 def normalize_text(text: str) -> str:
@@ -635,7 +751,7 @@ def save_grouped_stats_to_excel(
         Path to the generated Excel file.
     """
     metrics_map = {
-        "nb_annotations": "Number of Annotations",
+        "nb_of_texts_with_label": "Number of Texts with Label",
         "pct_is_format_valid": "Is correct Output Format",
         "pct_has_no_hallucination": "Has no Hallucination",
         "precision": "Precision",
@@ -647,7 +763,7 @@ def save_grouped_stats_to_excel(
 
     # Pivot to include framework in columns
     df_pivot = df.pivot_table(
-        index="model_name",
+        index=["model_name", "label"],
         columns="framework_name",
         values=metrics,
         aggfunc="first",  # or "mean"
