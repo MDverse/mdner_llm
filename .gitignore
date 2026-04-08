@@ -196,7 +196,6 @@ cython_debug/
 
 # Folder contents
 results/*
-data/*
 plots/*
 
 # Exclude specific folders
@@ -205,10 +204,7 @@ plots/*
 # Ignore common data files
 *.parquet
 *.xtcx
-*.csv
-*.tsv
 annotations/v3/*.txt
 
 # Exclude specific files
-!results/groundtruth_paths.txt
-!results/qc_annotations/entities.tsv
+!data/*

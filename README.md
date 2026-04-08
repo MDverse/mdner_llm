@@ -106,15 +106,15 @@ uv run ...XXXX
 Make the inventory of all entities:
 
 ```sh
-$ uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --out-path results/entities.tsv
-2026-04-08 14:58:32 | INFO     | Starting entity inventory.
-2026-04-08 14:58:32 | INFO     | Collecting entities.
-2026-04-08 14:58:32 | INFO     | Reading list of JSON files from data/groundtruth_paths.txt.
-2026-04-08 14:58:32 | SUCCESS  | Found 109 JSON files successfully.
-2026-04-08 14:58:32 | SUCCESS  | Collected 1708 entities
-2026-04-08 14:58:32 | INFO     | Writing entity inventory TSV file.
-2026-04-08 14:58:32 | SUCCESS  | Saved entity inventoryin: results/entities.tsv
-2026-04-08 14:58:32 | SUCCESS  | Entity inventory completed successfully!
+$ uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --out-path data/entities.tsv
+2026-04-08 15:29:25 | INFO     | Starting entity inventory.
+2026-04-08 15:29:25 | INFO     | Collecting entities.
+2026-04-08 15:29:25 | INFO     | Reading list of JSON files from data/groundtruth_paths.txt.
+2026-04-08 15:29:25 | SUCCESS  | Found 109 JSON files successfully.
+2026-04-08 15:29:25 | SUCCESS  | Collected 1708 entities
+2026-04-08 15:29:25 | INFO     | Writing entity inventory TSV file.
+2026-04-08 15:29:25 | SUCCESS  | Saved entity inventoryin: data/entities.tsv
+2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
 ```
 
 A list of entities per category can be found in `notebooks/review/explore_entities_from_inventory.ipynb`
