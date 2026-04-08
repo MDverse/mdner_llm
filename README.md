@@ -7,9 +7,9 @@ This project explores methods for automatically annotating dataset descriptions 
 ## Annotation dataset
 
 A dataset of about 280 annotated texts is available in the `annotations` folder.
-These texts are the title and description of molecular dynamics simulation datasets scraped from Zenodo and Figshare.
+These texts are build from the title and description of molecular dynamics simulation datasets scraped from Zenodo and Figshare.
 
-These texts have been annotated with [annotation rules](docs/annotation_rules.md).
+These texts have been manually annotated with [annotation rules](docs/annotation_rules.md).
 
 ## Using large language models
 
@@ -94,6 +94,30 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 ```
 
 > Remark: This .env file is ignored by git.
+
+## Perform quality control and explore annotation dataset
+
+Perform quality control on manually annotated entities:
+
+```sh
+uv run ...XXXX
+```
+
+Make the inventory of all entities:
+
+```sh
+$ uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --out-path data/entities.tsv
+2026-04-08 15:29:25 | INFO     | Starting entity inventory.
+2026-04-08 15:29:25 | INFO     | Collecting entities.
+2026-04-08 15:29:25 | INFO     | Reading list of JSON files from data/groundtruth_paths.txt.
+2026-04-08 15:29:25 | SUCCESS  | Found 109 JSON files successfully.
+2026-04-08 15:29:25 | SUCCESS  | Collected 1708 entities
+2026-04-08 15:29:25 | INFO     | Writing entity inventory TSV file.
+2026-04-08 15:29:25 | SUCCESS  | Saved entity inventoryin: data/entities.tsv
+2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
+```
+
+A list of entities per category can be found in `notebooks/review/explore_entities_from_inventory.ipynb`
 
 ## Usage
 
@@ -187,6 +211,7 @@ To train the Gliner2 model on the Molecular Dynamics annotations, run:
 ```sh
 uv run train-gliner --config-path src/mdner_llm/gliner/training_config.yaml
 ```
+
 > This command trains the Gliner2 model using the configuration specified in [src/mdner_llm/gliner/training_config.yaml](src/mdner_llm/gliner/training_config.yaml) and save the trained model with the best validation performance.
 
 
