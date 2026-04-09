@@ -231,7 +231,7 @@ def annotate_with_instructor(
         # Raised when all retry attempts fail.
         logger.warning(f"Failed after {exc.n_attempts} attempts")
         logger.warning(f"Last completion: {exc.last_completion}")
-        return exc.last_completion, 0
+        return None, 0
 
     except (ProviderError, ModeError) as exc:
         # Catch-all for provider-level, mode-related, or parsing errors.
