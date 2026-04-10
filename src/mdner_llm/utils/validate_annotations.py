@@ -52,16 +52,16 @@ def remove_unwanted_entities(
     config: dict[str, Any],
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[list[dict[str, Any]], int]:
-    """Remove entities based on per-label blacklists.
+    """Remove entities based on per-category blacklists.
 
     Matching is case-insensitive.
 
     Parameters
     ----------
     entities : list of dict
-        List of entity dictionaries with "label" and "text".
+        List of entity dictionaries with "category" and "text".
     config : dict
-        Configuration dictionary containing blacklists for each entity label.
+        Configuration dictionary containing blacklists for each entity category.
     logger : loguru.Logger, optional
         Logger instance.
 
@@ -76,18 +76,18 @@ def remove_unwanted_entities(
     count_removed = 0
 
     for ent in entities:
-        label = ent.get("label")
+        category = ent.get("category")
         text_lower = ent.get("text", "").lower()
-        # Get the blacklist for this label from config (case-insensitive)
-        label_config = config.get(label) or {}
-        blacklist = {text.lower() for text in label_config.get("black_list", [])}
+        # Get the blacklist for this category from config (case-insensitive)
+        category_config = config.get(category) or {}
+        blacklist = {text.lower() for text in category_config.get("black_list", [])}
         # Check if the entity text is in the blacklist
         if text_lower in blacklist:
             count_removed += 1
             logger.debug(
                 f"Removed entity '{ent.get('text')}' "
                 f"[{ent.get('start')}, {ent.get('end')}] "
-                f"(label={label})"
+                f"(category={category})"
             )
         else:
             # Keep the entity if it's not in the blacklist
@@ -109,7 +109,7 @@ def has_invalid_boundaries(text: str) -> bool:
     bool
         True if the text has invalid leading or trailing characters, False otherwise.
     """
-    invalid_chars = {" ", ".", ",", "(", ")", ";"}
+    invalid_chars = {" ", ".", ",", ";"}
     return len(text) > 0 and (text[0] in invalid_chars or text[-1] in invalid_chars)
 
 
@@ -176,15 +176,15 @@ def validate_annotations(
     Parameters
     ----------
     entities_config_path : Path or str
-        Path to the YAML configuration file containing blacklists for entity labels.
+        Path to the YAML configuration file containing blacklists for entity categories.
     json_path : str
         Path to the JSON file containing annotations.
         The JSON should have a structure like:
         {
             "raw_text": "Some text to annotate.",
             "entities": [
-                {"start": 0, "end": 4, "text": "Some", "label": "O"},
-                {"start": 5, "end": 9, "text": "text", "label": "O"},
+                {"start": 0, "end": 4, "text": "Some", "category": "O"},
+                {"start": 5, "end": 9, "text": "text", "category": "O"},
                 ...
             ]
         }
@@ -201,7 +201,7 @@ def validate_annotations(
         - overlaps
         - invalid_boundaries
         - removed
-        - unknown_labels
+        - unknown_categories
     """
     # Load JSON data
     path = Path(json_path)
@@ -212,12 +212,12 @@ def validate_annotations(
     # Extract raw text
     raw_text = data.get("raw_text", "")
     # Load entity configuration
-    # it contains blacklists for each entity label
+    # it contains blacklists for each entity category
     config = load_entities_config(entities_config_path)
     # Remove unwanted entities
     entities, count_removed = remove_unwanted_entities(entities, config, logger)
 
-    count_unknown_labels = 0
+    count_unknown_categories = 0
     count_text_mismatches = 0
     count_span_mismatches = 0
     count_invalid_boundaries = 0
@@ -225,13 +225,13 @@ def validate_annotations(
         start = ent.get("start")
         end = ent.get("end")
         text = ent.get("text", "")
-        label = ent.get("label")
-        # Check if label is valid according to config
-        valid_labels = set(config.keys())
-        if label not in valid_labels:
-            count_unknown_labels += 1
+        category = ent.get("category")
+        # Check if category is valid according to config
+        valid_categories = set(config.keys())
+        if category not in valid_categories:
+            count_unknown_categories += 1
             logger.warning(
-                f"Unknown label '{label}' for entity '{ent.get('text')}' "
+                f"Unknown category '{category}' for entity '{ent.get('text')}' "
                 f"[{ent.get('start')}, {ent.get('end')}] ({path})"
             )
         # Check if the text matches the span in raw_text
@@ -295,7 +295,7 @@ def validate_annotations(
         "overlaps": count_overlaps,
         "invalid_boundaries": count_invalid_boundaries,
         "removed": count_removed,
-        "unknown_labels": count_unknown_labels,
+        "unknown_categories": count_unknown_categories,
     }
 
 
@@ -307,14 +307,14 @@ def validate_all_annotations_from_dir(
     Parameters
     ----------
     entities_config_path : str or Path
-        Path to the YAML configuration file containing blacklists for entity labels.
+        Path to the YAML configuration file containing blacklists for entity categories.
     annotations_dir : str
         Path to the directory containing JSON annotation files.
     log_path : str, optional
         Path to save the validation log. If None, logs will be printed to console.
     """
     logger = create_logger(log_path)
-    logger.info(f"Validating all annotations in directory: {annotations_dir}")
+    logger.info(f"Validating all annotations in directory: {annotations_dir}.")
     # Find all JSON files in the directory
     annotation_files = list(Path(annotations_dir).glob("*.json"))
     logger.info(f"Found {len(annotation_files)} JSON files to validate.")
@@ -324,7 +324,7 @@ def validate_all_annotations_from_dir(
     total_overlaps = 0
     total_invalid_boundaries = 0
     total_removed = 0
-    total_unknown_labels = 0
+    total_unknown_categories = 0
 
     # Validate each file and accumulate counts
     for json_file in annotation_files:
@@ -336,15 +336,15 @@ def validate_all_annotations_from_dir(
         total_overlaps += count_errors["overlaps"]
         total_invalid_boundaries += count_errors["invalid_boundaries"]
         total_removed += count_errors["removed"]
-        total_unknown_labels += count_errors["unknown_labels"]
+        total_unknown_categories += count_errors["unknown_categories"]
     # Log summary
-    logger.info("Validation complete.")
     logger.info(f"Total text mismatches: {total_text_mismatches}")
     logger.info(f"Total span mismatches: {total_span_mismatches}")
     logger.info(f"Total overlapping entities: {total_overlaps}")
     logger.info(f"Total removed entities: {total_removed}")
     logger.info(f"Total entities with invalid boundaries: {total_invalid_boundaries}")
-    logger.info(f"Total unknown labels: {total_unknown_labels}")
+    logger.info(f"Total unknown categories: {total_unknown_categories}")
+    logger.success("Validation completed successfully!")
 
 
 @click.command()
