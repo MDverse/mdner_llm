@@ -6,10 +6,10 @@ This module defines strongly typed entity classes representing different kinds o
 extracted from scientific Molecular Dynamics (MD) texts, such as molecules, simulation times,
 force fields, and software names.
 
-Each entity subclass uses Python's `Literal` type for its `label` field to enforce strict typing.
+Each entity subclass uses Python's `Literal` type for its `category` field to enforce strict typing.
 This ensures that only the correct entity type can be assigned, preventing misclassification
 (e.g., a force field entity cannot be assigned to a Molecule class). All entities share the
-base fields `label` and `text`.
+base fields `category` and `text`.
 
 ```mermaid
 classDiagram
@@ -18,42 +18,42 @@ classDiagram
     }
 
     class SoftwareVersion {
-        label: str = 'SOFTVERS'
+        category: str = 'SOFTVERS'
         text: str
     }
 
     class Temperature {
-        label: str = 'TEMP'
+        category: str = 'TEMP'
         text: str
     }
 
     class SimulationTime {
-        label: str = 'STIME'
+        category: str = 'STIME'
         text: str
     }
 
     class Molecule {
-        label: str = 'MOL'
+        category: str = 'MOL'
         text: str
     }
 
     class SoftwareName {
-        label: str = 'SOFTNAME'
+        category: str = 'SOFTNAME'
         text: str
     }
 
     class ForceFieldModelName {
-        label: str = 'FFMNAME'
+        category: str = 'FFMNAME'
         text: str
     }
 
     class ForceFieldModelVersion {
-        label: str = 'FFMVERSION'
+        category: str = 'FFMVERSION'
         text: str
     }
 
     class Entity {
-        label: str
+        category: str
         text: str
     }
 
@@ -72,23 +72,17 @@ classDiagram
 
 A Pydantic model representing a list of `Entity` instances.Each `Entity` contains:
 
-- `label`: short code identifying the entity type (e.g., `"MOL"`, `"STIME"`).
+- `category`: short code identifying the entity type (e.g., `"MOL"`, `"STIME"`).
 - `text`: exact substring extracted from the source text.
 
-Useful for storing or validating multiple entities extracted from a document.
 
 ### [`ListOfEntitiesPositions`](entities_with_positions.py)
 
 A Pydantic model representing a list of `EntityWithPosition` instances.Each `EntityWithPosition` contains:
 
-- `label`: short code identifying the entity type.
+- `category`: short code identifying the entity type.
 - `text`: exact substring.
 - `start`: start index in the source text.
 - `end`: end index in the source text.
 
 Useful when you need to retain the exact location of entities for downstream tasks like highlighting.
-
-## Purpose
-
-These models provide a unified schema to validate, store, and manipulate NER results
-produced by automated extraction pipelines.
