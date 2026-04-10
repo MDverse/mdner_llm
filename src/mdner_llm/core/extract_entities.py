@@ -621,7 +621,7 @@ def extract_entities(
     "If 'none', no validation is applied and the raw model response is returned.",
 )
 @click.option(
-    "--tag-prompt",
+    "--prompt-tag",
     default="json",
     type=click.Choice(["json", "json_with_positions"]),
     help="Descriptor indicating the format of the expected LLM output."
