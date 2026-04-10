@@ -1,6 +1,7 @@
 """Evaluate the GLINER2 model on a test set."""
 
 import json
+import time
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -10,6 +11,7 @@ import loguru
 import pandas as pd
 from gliner2 import GLiNER2
 
+from mdner_llm.core.evaluate_llm_and_framework import safe_divide
 from mdner_llm.core.logger import create_logger
 from mdner_llm.utils.common import ensure_dir, sanitize_filename
 from mdner_llm.utils.plot_evaluation_metrics import (
@@ -464,25 +466,6 @@ def build_evaluation_dataframe(
     return pd.DataFrame(rows)
 
 
-def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
-    """Safely divide two pandas Series.
-
-    Parameters
-    ----------
-    a : pd.Series
-        The numerator series.
-    b : pd.Series
-        The denominator series.
-
-    Returns
-    -------
-    pd.Series
-        The result of a / b,
-        where division by zero is handled gracefully by returning NA.
-    """
-    return a / b.replace(0, pd.NA)
-
-
 def compute_metrics(
     df: pd.DataFrame,
     beta: float = 0.5,
@@ -622,12 +605,14 @@ def compute_stats_overall(
         logger.debug(f"Precision: {precision[model_mask].to_numpy()}")
         logger.debug(f"Recall: {recall[model_mask].to_numpy()}")
         logger.debug(f"F1-score: {f1_score[model_mask].to_numpy()}")
-        logger.debug(f"F-beta score (beta=0.5): {fbeta_score[model_mask].to_numpy()}")
+        logger.debug(
+            f"F-beta score (beta={beta}): {fbeta_score[model_mask].to_numpy()}"
+        )
     # Add the computed metrics as new columns in the grouped DataFrame
     grouped["precision_score"] = precision
     grouped["recall_score"] = recall
     grouped["f1_score"] = f1_score
-    grouped["fbeta0.5_score"] = fbeta_score
+    grouped[f"fbeta{beta}_score"] = fbeta_score
     # Rename the label to "OVERALL" since this is the overall metrics for each model
     grouped["label"] = "OVERALL"
     logger.success(
@@ -757,8 +742,8 @@ def main(
     logger = create_logger(
         f"logs/eval_gliner_{sanitize_filename(model_name)}_{timestamp}.log"
     )
-    logger.info("Starting GLINER2 evaluation...")
-    start_time = datetime.now(UTC)
+    logger.info("Starting GLINER2 annotation evaluation...")
+    start_time = time.perf_counter()
     # Load finetuned model
     model = load_model(model_path, logger)
     # Get the test dataset from the JSONL file
@@ -785,7 +770,7 @@ def main(
     )
     # Plot and save evaluation metrics per label and overall
     plot_and_save_overall_metrics(df_xlsx_file_path, model_name, logger)
-    elapsed_time = int((datetime.now(UTC) - start_time).total_seconds())
+    elapsed_time = int(time.perf_counter() - start_time)
     logger.success(
         f"Evaluation completed successfully in: {timedelta(seconds=elapsed_time)}!"
     )
