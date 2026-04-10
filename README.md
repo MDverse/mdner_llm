@@ -100,7 +100,16 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 Perform quality control on manually annotated entities:
 
 ```sh
-uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --out-path data/entities.tsv
+$ uv run validate-annotations --annotations-dir data/annotations
+2026-04-10 15:36:46 | INFO     | Validating all annotations in directory: data/annotations.
+2026-04-10 15:36:46 | INFO     | Found 372 JSON files to validate.
+2026-04-10 15:36:47 | INFO     | Total text mismatches: 0
+2026-04-10 15:36:47 | INFO     | Total span mismatches: 0
+2026-04-10 15:36:47 | INFO     | Total overlapping entities: 0
+2026-04-10 15:36:47 | INFO     | Total removed entities: 0
+2026-04-10 15:36:47 | INFO     | Total entities with invalid boundaries: 0
+2026-04-10 15:36:47 | INFO     | Total unknown categories: 0
+2026-04-10 15:36:47 | SUCCESS  | Validation completed successfully!
 ```
 
 Make the inventory of all entities:
