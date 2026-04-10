@@ -73,7 +73,7 @@ build-backend = "uv_build"
 [project.scripts]
 extract-entities = "mdner_llm.core.extract_entities:main"
 extract-entities-all-texts = "mdner_llm.core.extract_entities_all_texts:main"
-evaluate-llm-annotations = "mdner_llm.core.evaluate_annotations:main"
+evaluate-llm-and-framework = "mdner_llm.core.evaluate_llm_and_framework:run_main_from_cli"
 
 train-gliner = "mdner_llm.gliner.train_gliner:run_main_from_cli"
 evaluate-gliner = "mdner_llm.gliner.evaluate_gliner:run_main_from_cli"

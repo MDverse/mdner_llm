@@ -174,7 +174,7 @@ uv run extract-entities \
     "framework_name": "instructor",
     "model_name": "openai/gpt-5.2",
     "prompt_path": "json_few_shot.txt",
-    "tag_prompt": "json",
+    "prompt_tag": "json",
     "inference_time_sec": 14.71316909790039,
     "raw_llm_response": "<raw LLM response string>",
     "groundtruth": "<ground-truth entities string>",
@@ -187,7 +187,7 @@ To extract structured entities from multiple dataset descriptions listed in [res
 
 ```sh
 uv run extract-entities-all-texts \
-    --texts-path results/100_selected_md_dataset_description_paths.txt \
+    --texts-path results/groundtruth_paths.txt \
     --model openai/gpt-5.2 \
     --framework instructor
 ```
@@ -197,12 +197,12 @@ uv run extract-entities-all-texts \
 To evaluate the quality of annotations produced by LLMs and different framework, run:
 
 ```sh
-uv run evaluate-llm-annotations \
-        --annotations-dir results/llm_annotations \
-        --results-dir results/annotation_evaluation_stats
+uv run evaluate-llm-and-framework \
+        --annotations-dir results/llm/annotations \
+        --results-dir results/llm/evaluation_stats
 ```
 
-> This command loads all LLM-generated JSON files in results/llm_annotations, computes per-annotation metrics against the ground-truth, and saves the results in `results/annotation_evaluation_stats/per_text_metrics_YYYY-MM-DDTHH-MM-SS.parquet`. It then creates an Excel summary for each model and framework in `results/annotation_evaluation_stats/evaluation_summary_YYYY-MM-DDTHH-MM-SS.xlsx`.
+> This command loads all LLM-generated JSON files in results/llm/annotations, computes per-annotation metrics against the ground-truth, and saves the results in results/llm/evaluation_stats. It generates an Excel file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each label.
 
 ## Train Gliner2 model on Molecular Dynamics annotations
 

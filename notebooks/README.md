@@ -12,7 +12,7 @@ This folder contains Jupyter notebooks used for experimentation, annotation, and
 ### `review/`
 - [Correct annotations 🛠️](review/correct_annotations.ipynb)
 - [QC entity inventory explorer 🧐](review/qc_entity_inventory_explorer.ipynb)
-- [Validate Annotations ✅](review/qc_entity_inventory_explorer_with_filtering.ipynb)
 
-### `gliner/`
-- [Compare GLiNER2 models performance 📊](notebooks/gliner/compare_gliner2_models_performance.ipynb)
+### `compare/`
+- [Compare GLiNER2 models performance 📊](compare/compare_gliner2_models_performance.ipynb)
+- [Compare LLM frameworks performance 📊](compare/compare_llms_frameworks_performance.ipynb)
