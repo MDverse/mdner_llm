@@ -197,6 +197,7 @@ cython_debug/
 # Folder contents
 results/*
 plots/*
+data/gliner/*
 
 # Exclude specific folders
 !results/qc_annotations/
