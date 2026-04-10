@@ -1,0 +1,96 @@
+{
+  "raw_text": "General AMBER Force Field Parameters for Diphenyl Diselenides and Diphenyl Ditellurides\nThe General AMBER Force Field (GAFF) has been extended to describe a series of selenium and tellurium diphenyl dichalcogenides. These compounds, besides being eco-friendly catalysts for numerous oxidations in organic chemistry, display peroxidase activity, i.e., can reduce hydrogen peroxide and harmful organic hydroperoxides to water/alcohols and as such are very promising antioxidant drugs. The novel GAFF parameters are tested in MD simulations in different solvents and the 77Se NMR chemical shift of diphenyl diselenide is computed using structures extracted from MD snapshots and found in nice agreement with the measured value in CDCl3. The whole computational protocol is described in detail and integrated with in-house code to allow easy derivation of the force field parameters for analogous compounds as well as for Se/Te organocompounds in general.",
+  "entities": [
+    {
+      "category": "FFM",
+      "text": "General AMBER Force Field",
+      "start": 0,
+      "end": 25
+    },
+    {
+      "category": "MOL",
+      "text": "Diphenyl Diselenides",
+      "start": 41,
+      "end": 61
+    },
+    {
+      "category": "MOL",
+      "text": "Diphenyl Ditellurides",
+      "start": 66,
+      "end": 87
+    },
+    {
+      "category": "FFM",
+      "text": "General AMBER Force Field",
+      "start": 92,
+      "end": 117
+    },
+    {
+      "category": "FFM",
+      "text": "GAFF",
+      "start": 119,
+      "end": 123
+    },
+    {
+      "category": "MOL",
+      "text": "selenium",
+      "start": 167,
+      "end": 175
+    },
+    {
+      "category": "MOL",
+      "text": "tellurium diphenyl dichalcogenides",
+      "start": 180,
+      "end": 214
+    },
+    {
+      "category": "MOL",
+      "text": "peroxidase",
+      "start": 324,
+      "end": 334
+    },
+    {
+      "category": "MOL",
+      "text": "hydrogen peroxide",
+      "start": 362,
+      "end": 379
+    },
+    {
+      "category": "MOL",
+      "text": "hydroperoxides",
+      "start": 400,
+      "end": 414
+    },
+    {
+      "category": "FFM",
+      "text": "GAFF",
+      "start": 493,
+      "end": 497
+    },
+    {
+      "category": "MOL",
+      "text": "diphenyl diselenide",
+      "start": 595,
+      "end": 614
+    },
+    {
+      "category": "MOL",
+      "text": "CDCl3",
+      "start": 727,
+      "end": 732
+    },
+    {
+      "category": "MOL",
+      "text": "Se",
+      "start": 918,
+      "end": 920
+    },
+    {
+      "category": "MOL",
+      "text": "Te",
+      "start": 921,
+      "end": 923
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/General_AMBER_Force_Field_Parameters_for_Diphenyl_Diselenides_and_Diphenyl_Ditellurides/3457004"
+}

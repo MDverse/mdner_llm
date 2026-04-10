@@ -1,0 +1,72 @@
+{
+  "raw_text": "Basket-type G-Quadruplex with Two Tetrads in the Presence of TMAO and Urea: A Molecular Dynamics Study\nMolecular Dynamics simulation trajectories of basket-type DNA G-quadruplex (PDB: 2KF7). The structures have been simulated in the temperatures 300 K and 360 K in pure water, 1 M TMAO solution, 2 M urea solution and the mixture of 1 M TMAO and 2 M urea.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Basket-type G-Quadruplex",
+      "start": 0,
+      "end": 24
+    },
+    {
+      "category": "MOL",
+      "text": "TMAO",
+      "start": 61,
+      "end": 65
+    },
+    {
+      "category": "MOL",
+      "text": "Urea",
+      "start": 70,
+      "end": 74
+    },
+    {
+      "category": "MOL",
+      "text": "basket-type DNA G-quadruplex",
+      "start": 149,
+      "end": 177
+    },
+    {
+      "category": "MOL",
+      "text": "2KF7",
+      "start": 184,
+      "end": 188
+    },
+    {
+      "category": "TEMP",
+      "text": "300 K",
+      "start": 246,
+      "end": 251
+    },
+    {
+      "category": "TEMP",
+      "text": "360 K",
+      "start": 256,
+      "end": 261
+    },
+    {
+      "category": "MOL",
+      "text": "TMAO",
+      "start": 281,
+      "end": 285
+    },
+    {
+      "category": "MOL",
+      "text": "urea",
+      "start": 300,
+      "end": 304
+    },
+    {
+      "category": "MOL",
+      "text": "TMAO",
+      "start": 337,
+      "end": 341
+    },
+    {
+      "category": "MOL",
+      "text": "urea",
+      "start": 350,
+      "end": 354
+    }
+  ],
+  "url": "https://zenodo.org/records/6791876"
+}

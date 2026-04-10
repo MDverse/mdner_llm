@@ -1,0 +1,72 @@
+{
+  "raw_text": "Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations\nDataset and supplementary files of the research: Interaction of N-3-oxododecanoyl homoserine lactone with transcriptional regulator LasR of Pseudomonas aeruginosa: Insights from molecular docking and dynamics simulations (https://doi.org/10.1101/121681)\n- Supporting Information\n- Input: Parameters and initial structures\n- Output: Trajectories, Docking poses\nGromacs (multi-core with CUDA) was used for the simulations.\nAutodock Vina, FlexAid and rDock were used for molecular docking.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "N-3-oxododecanoyl homoserine lactone",
+      "start": 15,
+      "end": 51
+    },
+    {
+      "category": "MOL",
+      "text": "transcriptional regulator",
+      "start": 57,
+      "end": 82
+    },
+    {
+      "category": "MOL",
+      "text": "LasR",
+      "start": 83,
+      "end": 87
+    },
+    {
+      "category": "MOL",
+      "text": "N-3-oxododecanoyl homoserine lactone",
+      "start": 236,
+      "end": 272
+    },
+    {
+      "category": "MOL",
+      "text": "transcriptional regulator",
+      "start": 278,
+      "end": 303
+    },
+    {
+      "category": "MOL",
+      "text": "LasR",
+      "start": 304,
+      "end": 308
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 532,
+      "end": 539
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Autodock",
+      "start": 593,
+      "end": 601
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "Vina",
+      "start": 602,
+      "end": 606
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "FlexAid",
+      "start": 608,
+      "end": 615
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "rDock",
+      "start": 620,
+      "end": 625
+    }
+  ],
+  "url": "https://zenodo.org/records/2586559"
+}

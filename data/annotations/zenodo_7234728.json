@@ -1,0 +1,66 @@
+{
+  "raw_text": "Deep potential model and datasets used in the publication \"Plastic Deformation of Superionic Water Ices\"\nThe file training_data_for_deepmd.zip contains the training set and deep potential model for superionic ices used in the publication \"Plastic Deformation of Superionic Water Ices\". The deep potential (DP) neural-network model was generated using the DeepMD-kit package. The training set was generated using AIMD/CP2K calculations for both undeformed and deformed states of the fcc superionic phase at temperatures of 2500, 3000, 3500 and 4000 K. \n \nThe file cp2k_shear.zip contains instructions to modify the CP2K code to calculate the shear vs strain deformation in continuous mode.  \n \nThe file lammps_dislocation.zip contains the files needed to run the dislocation mobility calculation. \n ",
+  "entities": [
+    {
+      "category": "SOFTNAME",
+      "text": "DeepMD-kit",
+      "start": 355,
+      "end": 365
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "AIMD",
+      "start": 412,
+      "end": 416
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "CP2K",
+      "start": 417,
+      "end": 421
+    },
+    {
+      "category": "TEMP",
+      "text": "2500",
+      "start": 522,
+      "end": 526
+    },
+    {
+      "category": "TEMP",
+      "text": "3000",
+      "start": 528,
+      "end": 532
+    },
+    {
+      "category": "TEMP",
+      "text": "3500",
+      "start": 534,
+      "end": 538
+    },
+    {
+      "category": "TEMP",
+      "text": "4000 K",
+      "start": 543,
+      "end": 549
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "cp2k",
+      "start": 563,
+      "end": 567
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "CP2K",
+      "start": 614,
+      "end": 618
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "lammps",
+      "start": 702,
+      "end": 708
+    }
+  ],
+  "url": "https://zenodo.org/records/7234728"
+}

@@ -1,0 +1,156 @@
+{
+  "raw_text": "Bug in CCFD stress profile calculation of GROMACS-LS?\nIn Martini simulations (15 us, last 5 us analyzed) of an asymmetric GM1+POPC lipid bilayer (5+95 upper, 0+100 lower leaflet) strong stress fluctuations arising from the dihedral contributions of CCF decomposition are found. It is possible that these are due to a slight bug in the GROMACS-LS (http://mdstress.org) code, because:\n1) The fluctuations do not show converge, when more data is added, see the attached plot ‘effect_of_sampling_rate.pdf’.\n2) The fluctuations (but no other features of the stress profiles) visibly depend on the chosen frame of reference, see ‘effect_of_centering_schemes.pdf’.\n3) The stress profiles calculated along the coordinates that lay in the membrane plane (x and y), are not constant in CCFD, see ‘profiles_along_x_and_y.pdf’.\n \nTo assist debugging the code, this repository contains:\n5to95_0to100_0.trr --- 1st 33.3% of a 5 us trajectory with snapshots every 100 ps\n5to95_0to100_0.trr --- 2nd 33.3% of a 5 us trajectory with snapshots every 100 ps\n5to95_0to100_0.trr --- 3rd 33.3% of a 5 us trajectory with snapshots every 100 ps\n5to95_0to100.tpr --- tpr used for production (Gromacs 5.1.1)\n5to95_0to100_rerun.tpr --- tpr used for stress analysis and centering\n5to95_0to100.gro --- gro file after 15 us (10 us relaxation, 5 us production)\nindex.ndx --- index file used in production\n5to95_0to100.ndx --- index file used in analysis\nsystem.top --- topology file\nmartini_v2.0_ions.itp --- martini FF file (system.top expects this to be in folder toppar/)\nmartini_v2.0_lipids_all_201506.itp --- martini FF file (system.top expects this to be in folder toppar/)\nmartini_v2.2.itp --- martini FF file (system.top expects this to be in folder toppar/)\nmartini_straight_GM1_saveVels.mdp --- run input file used for production (Gromacs 5.1.1)\nmartini_straight_GM1_rerunForP.mdp --- run input file used for analysis and centering\neffect_of_sampling_rate.pdf --- plot of results showing that fluctuations in CCFD do not appear to converge when data is added\nprofiles_along_x_and_y.pdf --- plot of results showing that in CCFD pressure profiles along the membrane directions are not constant\neffect_of_centering_schemes.pdf --- plot of results showing that choice of center of mass (here three possibilities are shown: CoM of POPC GL1 beads, CoM of POPCs, and CoM of all lipids) visibly affects CCFD fluctuations, but not other features of the stress profile\neffect_of_centering_schemes_2.pdf --- plot of results (similar to 'effect_of_centering_schemes.pdf', but the center of the bilayer is at 3.7 nm instead at 0.0 / 7.4 nm)\nindividual_components.pdf --- plot of results showing that the fluctuations in CCFD arise from dihedrals\nCCFD_gridsize.pdf --- plot of results showing that decreasing gridsize has no clear effect on the CCFD fluctuations",
+  "entities": [
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS-LS",
+      "start": 42,
+      "end": 52
+    },
+    {
+      "category": "FFM",
+      "text": "Martini",
+      "start": 57,
+      "end": 64
+    },
+    {
+      "category": "MOL",
+      "text": "GM1",
+      "start": 122,
+      "end": 125
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 126,
+      "end": 130
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS-LS",
+      "start": 335,
+      "end": 345
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 1166,
+      "end": 1173
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "5.1.1",
+      "start": 1174,
+      "end": 1179
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1451,
+      "end": 1458
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1477,
+      "end": 1484
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1543,
+      "end": 1550
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1582,
+      "end": 1589
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1648,
+      "end": 1655
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1669,
+      "end": 1676
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1735,
+      "end": 1742
+    },
+    {
+      "category": "MOL",
+      "text": "GM1",
+      "start": 1752,
+      "end": 1755
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 1809,
+      "end": 1816
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "5.1.1",
+      "start": 1817,
+      "end": 1822
+    },
+    {
+      "category": "FFM",
+      "text": "martini",
+      "start": 1824,
+      "end": 1831
+    },
+    {
+      "category": "MOL",
+      "text": "GM1",
+      "start": 1841,
+      "end": 1844
+    },
+    {
+      "category": "MOL",
+      "text": "CoM",
+      "start": 2297,
+      "end": 2300
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 2304,
+      "end": 2308
+    },
+    {
+      "category": "MOL",
+      "text": "GL1",
+      "start": 2309,
+      "end": 2312
+    },
+    {
+      "category": "MOL",
+      "text": "CoM",
+      "start": 2320,
+      "end": 2323
+    },
+    {
+      "category": "MOL",
+      "text": "POPCs",
+      "start": 2327,
+      "end": 2332
+    },
+    {
+      "category": "MOL",
+      "text": "CoM",
+      "start": 2338,
+      "end": 2341
+    }
+  ],
+  "url": "https://zenodo.org/records/55565"
+}

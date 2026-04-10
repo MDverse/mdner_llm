@@ -1,0 +1,66 @@
+{
+  "raw_text": "Influence of the Greater Protein Environment on the Electrostatic Potential in Metalloenzyme Active Sites: The Case of Formate Dehydrogenase\nThe Mo/W-containing metalloenzyme formate dehydrogenase (FDH) is an efficient and selective natural catalyst that reversibly converts CO2 to formate under ambient conditions. In this study, we investigate the impact of the greater protein environment on the electrostatic potential (ESP) of the active site. To model the enzyme environment, we used a combination of classical molecular dynamics and multiscale quantum-mechanical (QM)/molecular-mechanical (MM) simulations. We leverage charge shift analysis to systematically construct QM regions and analyze the electronic environment of the active site by evaluating the degree of charge transfer between the core active site and the protein environment. The contribution of the terminal chalcogen ligand to the ESP of the metal center is substantial and dependent on the chalcogen identity, with similar, less negative ESPs for Se and S terminal chalcogens in comparison to O regardless of whether the metal is Mo or W. The orientation of the side chains and conformations of the cofactor also affect the ESP, highlighting the importance of sampling dynamic fluctuations in the protein. Overall, our observations suggest that the terminal chalcogen ligand identity plays an important role in the enzymatic activity of FDH, suggesting opportunities for a rational bioinspired catalyst design.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Metalloenzyme",
+      "start": 79,
+      "end": 92
+    },
+    {
+      "category": "MOL",
+      "text": "Formate Dehydrogenase",
+      "start": 119,
+      "end": 140
+    },
+    {
+      "category": "MOL",
+      "text": "metalloenzyme",
+      "start": 161,
+      "end": 174
+    },
+    {
+      "category": "MOL",
+      "text": "formate dehydrogenase",
+      "start": 175,
+      "end": 196
+    },
+    {
+      "category": "MOL",
+      "text": "FDH",
+      "start": 198,
+      "end": 201
+    },
+    {
+      "category": "MOL",
+      "text": "formate",
+      "start": 282,
+      "end": 289
+    },
+    {
+      "category": "MOL",
+      "text": "chalcogen",
+      "start": 880,
+      "end": 889
+    },
+    {
+      "category": "MOL",
+      "text": "chalcogen",
+      "start": 964,
+      "end": 973
+    },
+    {
+      "category": "MOL",
+      "text": "chalcogen",
+      "start": 1039,
+      "end": 1048
+    },
+    {
+      "category": "MOL",
+      "text": "FDH",
+      "start": 1411,
+      "end": 1414
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Influence_of_the_Greater_Protein_Environment_on_the_Electrostatic_Potential_in_Metalloenzyme_Active_Sites_The_Case_of_Formate_Dehydrogenase/19858240"
+}

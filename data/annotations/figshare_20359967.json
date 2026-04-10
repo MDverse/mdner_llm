@@ -1,0 +1,96 @@
+{
+  "raw_text": "Mebendazole’s Conformational Space and Its Predicted Binding to Human Heat-Shock Protein 90\nRecent experimental evidence suggests that mebendazole, a popular antiparasitic drug, binds to heat shock protein 90 (Hsp90) and inhibits acute myeloid leukemia cell growth. In this study we use quantum mechanics (QM), molecular similarity, and molecular dynamics (MD) calculations to predict possible binding poses of mebendazole to the adenosine triphosphate (ATP) binding site of Hsp90. Extensive conformational searches and minimization of the five mebendazole tautomers using the MP2/aug-cc-pVTZ theory level resulted in 152 minima. Mebendazole-Hsp90 complex models were subsequently created using the QM optimized conformations and protein coordinates obtained from experimental crystal structures that were chosen through similarity calculations. Nine different poses were identified from a total of 600 ns of explicit solvent, all-atom MD simulations using two different force fields. All simulations support the hypothesis that mebendazole is able to bind to the ATP binding site of Hsp90.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Mebendazole",
+      "start": 0,
+      "end": 11
+    },
+    {
+      "category": "MOL",
+      "text": "Heat-Shock Protein 90",
+      "start": 70,
+      "end": 91
+    },
+    {
+      "category": "MOL",
+      "text": "mebendazole",
+      "start": 135,
+      "end": 146
+    },
+    {
+      "category": "MOL",
+      "text": "heat shock protein 90",
+      "start": 187,
+      "end": 208
+    },
+    {
+      "category": "MOL",
+      "text": "Hsp90",
+      "start": 210,
+      "end": 215
+    },
+    {
+      "category": "MOL",
+      "text": "mebendazole",
+      "start": 411,
+      "end": 422
+    },
+    {
+      "category": "MOL",
+      "text": "ATP",
+      "start": 454,
+      "end": 457
+    },
+    {
+      "category": "MOL",
+      "text": "Hsp90",
+      "start": 475,
+      "end": 480
+    },
+    {
+      "category": "MOL",
+      "text": "mebendazole",
+      "start": 545,
+      "end": 556
+    },
+    {
+      "category": "MOL",
+      "text": "Mebendazole",
+      "start": 630,
+      "end": 641
+    },
+    {
+      "category": "MOL",
+      "text": "Hsp90",
+      "start": 642,
+      "end": 647
+    },
+    {
+      "category": "STIME",
+      "text": "600 ns",
+      "start": 899,
+      "end": 905
+    },
+    {
+      "category": "MOL",
+      "text": "mebendazole",
+      "start": 1029,
+      "end": 1040
+    },
+    {
+      "category": "MOL",
+      "text": "ATP",
+      "start": 1064,
+      "end": 1067
+    },
+    {
+      "category": "MOL",
+      "text": "Hsp90",
+      "start": 1084,
+      "end": 1089
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Mebendazole_s_Conformational_Space_and_Its_Predicted_Binding_to_Human_Heat-Shock_Protein_90/20359967"
+}

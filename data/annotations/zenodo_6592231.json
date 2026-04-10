@@ -1,0 +1,132 @@
+{
+  "raw_text": "Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\nWe here provide the structure files, trajectories and topology files for analyzing and reproducing simulations performed in the publication: \"Modulation of Multidrug Resistance Protein 1-mediated transport processes by the antiretroviral drug ritonavir\".\nClassical molecular dynamics simulation of rat Mrp1 have been performed in complex with native substrates like GSH and GSSG  or drug molecules like ritonavir, to study binding modes of different combinations. \nStructure and trajectory files (all 1 µs long) as well as recorded movies of the time progression are provided for the following simulation systems:\n1. GSH bound to rat Mrp1\n2. GSSG bound to rat Mrp1\n3. Ritonavir bound to rat Mrp1\n4. GSH + Ritonavir bound to rat Mrp1\n5. GSSG + Ritonavir bound to rat Mrp1\nAdditionally itp files (GROMACS format) containing parameter information about the ligands GSH, GSSG and Ritonavir are provided for the force field CHARMM36m. \nRaw data of the homology modeling of rat Mrp1 by I-Tasser as well as Docking results produced via AutoDock4 are uploaded as zip directories. \n ",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "ritonavir",
+      "start": 101,
+      "end": 110
+    },
+    {
+      "category": "MOL",
+      "text": "ritonavir",
+      "start": 354,
+      "end": 363
+    },
+    {
+      "category": "MOL",
+      "text": "GSH",
+      "start": 477,
+      "end": 480
+    },
+    {
+      "category": "MOL",
+      "text": "GSSG",
+      "start": 485,
+      "end": 489
+    },
+    {
+      "category": "MOL",
+      "text": "ritonavir",
+      "start": 514,
+      "end": 523
+    },
+    {
+      "category": "STIME",
+      "text": "1 µs",
+      "start": 612,
+      "end": 616
+    },
+    {
+      "category": "MOL",
+      "text": "GSH",
+      "start": 728,
+      "end": 731
+    },
+    {
+      "category": "MOL",
+      "text": "GSSG",
+      "start": 753,
+      "end": 757
+    },
+    {
+      "category": "MOL",
+      "text": "Ritonavir",
+      "start": 779,
+      "end": 788
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "4",
+      "start": 807,
+      "end": 808
+    },
+    {
+      "category": "MOL",
+      "text": "GSH",
+      "start": 810,
+      "end": 813
+    },
+    {
+      "category": "MOL",
+      "text": "Ritonavir",
+      "start": 816,
+      "end": 825
+    },
+    {
+      "category": "MOL",
+      "text": "GSSG",
+      "start": 847,
+      "end": 851
+    },
+    {
+      "category": "MOL",
+      "text": "Ritonavir",
+      "start": 854,
+      "end": 863
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 906,
+      "end": 913
+    },
+    {
+      "category": "MOL",
+      "text": "GSH",
+      "start": 973,
+      "end": 976
+    },
+    {
+      "category": "MOL",
+      "text": "GSSG",
+      "start": 978,
+      "end": 982
+    },
+    {
+      "category": "MOL",
+      "text": "Ritonavir",
+      "start": 987,
+      "end": 996
+    },
+    {
+      "category": "FFM",
+      "text": "CHARMM36m",
+      "start": 1030,
+      "end": 1039
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "AutoDock",
+      "start": 1140,
+      "end": 1148
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "4",
+      "start": 1148,
+      "end": 1149
+    }
+  ],
+  "url": "https://zenodo.org/records/6592231"
+}

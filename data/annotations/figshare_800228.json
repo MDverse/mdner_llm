@@ -1,0 +1,198 @@
+{
+  "raw_text": "Insight into the Intermolecular Recognition Mechanism between Keap1 and IKKβ Combining Homology Modelling, Protein-Protein Docking, Molecular Dynamics Simulations and Virtual Alanine Mutation\nDegradation of certain proteins through the ubiquitin-proteasome pathway is a common strategy taken by the key modulators responsible for stress responses. Kelch-like ECH-associated protein-1(Keap1), a substrate adaptor component of the Cullin3 (Cul3)-based ubiquitin E3 ligase complex, mediates the ubiquitination of two key modulators, NF-E2-related factor 2 (Nrf2) and IκB kinase β (IKKβ), which are involved in the redox control of gene transcription. However, compared to the Keap1-Nrf2 protein-protein interaction (PPI), the intermolecular recognition mechanism of Keap1 and IKKβ has been poorly investigated. In order to explore the binding pattern between Keap1 and IKKβ, the PPI model of Keap1 and IKKβ was investigated. The structure of human IKKβ was constructed by means of the homology modeling method and using reported crystal structure of Xenopus laevis IKKβ as the template. A protein-protein docking method was applied to develop the Keap1-IKKβ complex model. After the refinement and visual analysis of docked proteins, the chosen pose was further optimized through molecular dynamics simulations. The resulting structure was utilized to conduct the virtual alanine mutation for the exploration of hot-spots significant for the intermolecular interaction. Overall, our results provided structural insights into the PPI model of Keap1-IKKβ and suggest that the substrate specificity of Keap1 depend on the interaction with the key tyrosines, namely Tyr525, Tyr574 and Tyr334. The study presented in the current project may be useful to design molecules that selectively modulate Keap1. The selective recognition mechanism of Keap1 with IKKβ or Nrf2 will be helpful to further know the crosstalk between NF-κB and Nrf2 signaling.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 62,
+      "end": 67
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 72,
+      "end": 75
+    },
+    {
+      "category": "MOL",
+      "text": "ubiquitin",
+      "start": 236,
+      "end": 245
+    },
+    {
+      "category": "MOL",
+      "text": "proteasome",
+      "start": 246,
+      "end": 256
+    },
+    {
+      "category": "MOL",
+      "text": "Kelch-like ECH-associated protein-1",
+      "start": 348,
+      "end": 383
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 384,
+      "end": 389
+    },
+    {
+      "category": "MOL",
+      "text": "Cullin3",
+      "start": 429,
+      "end": 436
+    },
+    {
+      "category": "MOL",
+      "text": "Cul3",
+      "start": 438,
+      "end": 442
+    },
+    {
+      "category": "MOL",
+      "text": "ubiquitin E3 ligase",
+      "start": 450,
+      "end": 469
+    },
+    {
+      "category": "MOL",
+      "text": "NF-E2-related factor 2",
+      "start": 530,
+      "end": 552
+    },
+    {
+      "category": "MOL",
+      "text": "Nrf2",
+      "start": 554,
+      "end": 558
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 578,
+      "end": 581
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 673,
+      "end": 678
+    },
+    {
+      "category": "MOL",
+      "text": "Nrf2",
+      "start": 679,
+      "end": 683
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 763,
+      "end": 768
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 773,
+      "end": 776
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 856,
+      "end": 861
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 866,
+      "end": 869
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 889,
+      "end": 894
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 899,
+      "end": 902
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 945,
+      "end": 948
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 1062,
+      "end": 1065
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 1144,
+      "end": 1149
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 1150,
+      "end": 1153
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 1539,
+      "end": 1544
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 1545,
+      "end": 1548
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 1596,
+      "end": 1601
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 1789,
+      "end": 1794
+    },
+    {
+      "category": "MOL",
+      "text": "Keap1",
+      "start": 1835,
+      "end": 1840
+    },
+    {
+      "category": "MOL",
+      "text": "IKK",
+      "start": 1846,
+      "end": 1849
+    },
+    {
+      "category": "MOL",
+      "text": "Nrf2",
+      "start": 1854,
+      "end": 1858
+    },
+    {
+      "category": "MOL",
+      "text": "Nrf2",
+      "start": 1923,
+      "end": 1927
+    }
+  ],
+  "url": "https://plos.figshare.com/articles/dataset/_Insight_into_the_Intermolecular_Recognition_Mechanism_between_Keap1_and_IKK_946_Combining_Homology_Modelling_Protein_Protein_Docking_Molecular_Dynamics_Simulations_and_Virtual_Alanine_Mutation_/800228"
+}

@@ -1,0 +1,66 @@
+{
+  "raw_text": "Molecular dynamics trajectories of protein folding\nMolecular dynamics trajectories of protein folding are deposited for educational purposes.\nCurrently, the following trajectories are available:\n\nChignolin (five independent NVT simulations up to 1.5 micro-sec):\n\t\n`movie.pse` is a PyMOL session file of MD trajectories. \n`movie.mp4` is a movie file that shows you how a protein folds during simulation.\nxtc files (Gromacs compressed format) and corresponding tpr files.\ngro files for movie making\n\n\n\n \nComputational setting \n\nAmber ff99SB-ILDN for protein (Lindorff-Larsen, K. et al. Improved side-chain torsion potentials for the Amber ff99SB protein force field. Proteins 78, 1950–1958 (2010))\nTIP3P water model\n0.1 M salt concentration \nNVT ensemble at 300 K with V-rescale thermostat (Bussi, G., Donadio, D. & Parrinello, M. Canonical sampling through velocity rescaling. J. Chem. Phys. 126, 014101 (2007))\nTime step : 2 fs\ngromacs-2020.6\n",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Chignolin",
+      "start": 196,
+      "end": 205
+    },
+    {
+      "category": "STIME",
+      "text": "1.5 micro-sec",
+      "start": 246,
+      "end": 259
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "PyMOL",
+      "start": 281,
+      "end": 286
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 414,
+      "end": 421
+    },
+    {
+      "category": "FFM",
+      "text": "Amber ff99SB-ILDN",
+      "start": 526,
+      "end": 543
+    },
+    {
+      "category": "FFM",
+      "text": "Amber ff99SB",
+      "start": 631,
+      "end": 643
+    },
+    {
+      "category": "FFM",
+      "text": "TIP3P",
+      "start": 696,
+      "end": 701
+    },
+    {
+      "category": "TEMP",
+      "text": "300 K",
+      "start": 756,
+      "end": 761
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 928,
+      "end": 935
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "2020.6",
+      "start": 936,
+      "end": 942
+    }
+  ],
+  "url": "https://zenodo.org/records/6349893"
+}

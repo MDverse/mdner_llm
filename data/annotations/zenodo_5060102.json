@@ -1,0 +1,120 @@
+{
+  "raw_text": "Molecular dynamics simulation of tricaproin in gas phase using machine-learning potential ANI2x\nTricaproin (Glycerol trihexanoate) is an example of a triglyceride molecule with very short alkyl tails attached to the glycerol moiety, and this deposit contains a 10 ns long simulation of tricaproin in a gas phase.\nThe model chemistry (a.k.a. interaction potential or force field) is the machine-learning potential ANI2x implemented in python package torchANI, which has a close-to-DFT accuracy, yet low cost compared to DFT or other electronic structure theories.\nMolecular dynamics were run using ASE with Langevin integrator at a constant temperature of 310 K.\nThe resulting trajectory was written every 1 ps (\"traj.h5\", can be viewed in ASEgui), and gathered every 10 ps in a XTC format (\"traj.xtc\", open in MDAnalysis, VMD, UnityMol, GROMACS tools ...).\n \nDetailed simulation settings are in the python script.\n \nThis simulation was performed for the purpose of building a coarse grained Martini 3 model of this molecule.\n \nANI2x https://doi.org/10.26434/chemrxiv.11819268.v1\ntorchANI https://aiqm.github.io/torchani/index.html\nASE https://wiki.fysik.dtu.dk/ase/tutorials/md/md.html#constant-temperature-md",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "tricaproin",
+      "start": 33,
+      "end": 43
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "ANI2x",
+      "start": 90,
+      "end": 95
+    },
+    {
+      "category": "MOL",
+      "text": "Tricaproin",
+      "start": 96,
+      "end": 106
+    },
+    {
+      "category": "MOL",
+      "text": "Glycerol trihexanoate",
+      "start": 108,
+      "end": 129
+    },
+    {
+      "category": "MOL",
+      "text": "triglyceride",
+      "start": 150,
+      "end": 162
+    },
+    {
+      "category": "STIME",
+      "text": "10 ns",
+      "start": 261,
+      "end": 266
+    },
+    {
+      "category": "MOL",
+      "text": "tricaproin",
+      "start": 286,
+      "end": 296
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "ANI2x",
+      "start": 413,
+      "end": 418
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "torchANI",
+      "start": 449,
+      "end": 457
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "ASE",
+      "start": 597,
+      "end": 600
+    },
+    {
+      "category": "TEMP",
+      "text": "310 K",
+      "start": 655,
+      "end": 660
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "MDAnalysis",
+      "start": 810,
+      "end": 820
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "VMD",
+      "start": 822,
+      "end": 825
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "UnityMol",
+      "start": 827,
+      "end": 835
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 837,
+      "end": 844
+    },
+    {
+      "category": "FFM",
+      "text": "Martini 3",
+      "start": 991,
+      "end": 1000
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "ANI2x",
+      "start": 1027,
+      "end": 1032
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "torchANI",
+      "start": 1079,
+      "end": 1087
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "ASE",
+      "start": 1131,
+      "end": 1134
+    }
+  ],
+  "url": "https://zenodo.org/records/5060102"
+}

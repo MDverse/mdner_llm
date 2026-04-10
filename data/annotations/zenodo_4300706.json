@@ -1,0 +1,66 @@
+{
+  "raw_text": "256 DPPC Molecules bilayer in pure Water, simulated at 288K (gel) or 358K (fluid)\nPublication: MLLPA: A Machine Learning-assisted Python module to study phase-specific events in lipid membranes\nPublished on: 08 April 2021\nJournal: J Comp Chem, 2021, DOI: 10.1002/jcc.26508\nDescription: Simulation files used to train our Python module to identify the thermodynamic phase of individual lipid molecules in a bilayer, as well as the simulation files analysed by the machine learning models. More information on the module can be found on its website.\nThe training files are named dppc_gel.gro and dppc_fluid.gro. They respectively correspond to the final frame of the systems simulated at 288K and 358K. All other files are the files analysed by the module.\nSystem composition:\n\nDPPC molecules: 256 with 130 atoms each\nWater molecules:  42,492 with 3 atoms each \nSimulation box dimensions (approx.): 9 x 9 x 20 nm\n\nSimulation details:\n\nSoftware: Gromacs (v. 2020)\nForcefield: Charmm36 (v. June 2015) - Water: TIP3P\nThermostat: Nose-hoover (0.4ps, 2 groups)\nBarostat: Parrinello-Rahman semi-isotropic (2.0ps, 1.0 bar on each axis, 4.5e-5 bar-1)\nDuration: 25 ns (after stabilisation)\n",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 4,
+      "end": 8
+    },
+    {
+      "category": "TEMP",
+      "text": "288K",
+      "start": 55,
+      "end": 59
+    },
+    {
+      "category": "TEMP",
+      "text": "358K",
+      "start": 69,
+      "end": 73
+    },
+    {
+      "category": "TEMP",
+      "text": "288K",
+      "start": 686,
+      "end": 690
+    },
+    {
+      "category": "TEMP",
+      "text": "358K",
+      "start": 695,
+      "end": 699
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 776,
+      "end": 780
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 943,
+      "end": 950
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "v. 2020",
+      "start": 952,
+      "end": 959
+    },
+    {
+      "category": "FFM",
+      "text": "Charmm36 (v. June 2015)",
+      "start": 973,
+      "end": 996
+    },
+    {
+      "category": "FFM",
+      "text": "TIP3P",
+      "start": 1006,
+      "end": 1011
+    }
+  ],
+  "url": "https://zenodo.org/records/4300706"
+}

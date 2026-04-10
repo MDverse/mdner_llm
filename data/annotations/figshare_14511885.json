@@ -1,0 +1,138 @@
+{
+  "raw_text": "Datasets supporting Haloi et al. Communications Biology\nThis file includes datasets used in Haloi et al. - Communications Biology. Title of the manuscript \"Structural Basis of Complex Formation Between Mitochondrial Anion Channel VDAC1 and Hexokinase-II\".Fig2_PanelA_HMMM.psf, Fig2_PanelA_HMMM_frame_0, Fig2_PanelA_HMMM_frame_200ns: Initial and final, membrane-bound configurations of HKII-N in a representative HMMM MD trajectory. These files can be directly open using VMD.Fig2_PanelA_full.psf, Fig2_PanelA_full_frame_200ns.pdb: Final, membrane-bound configurations of HKII-N in a representative full-membrane MD trajectory. These files can be directly opened using VMD.Fig2_PanelB.xlsx: Insertion depth of H-anchor residue I2 into the membrane, calculated using the HMMM and full-membrane MD simulations. Fig2_PanelC.xlsx: Insertion depth of the H-anchor residues (1-27) into the membrane, calculated using the full-membrane MD simulation.Fig3_PanelA.xlsx: Tilt angle of the H-anchor, calculated using the BD and MD simulation.Fig3_PanelD.xlsx: X-Y coordinates of the center of mass of H-anchor, calculated using the trajectories from all 100 independent BD replicates.Fig3_PanelE_HKV1.psf, Fig3_PanelE_HKV1.pdb: Final configuration membrane-embedded HKII/VDAC1 complex (HKV1). These files can be directly opened using VMD.Fig4_PanelB_HKV1.xls: Radius profile of the VDAC1 pore in HKV1.Fig4_PanelB_VDAC1.xls: Radius profile of the VDAC1 pore in VDAC1 alone.Fig4_PanelD.xlsx: The cumulative net number of channel-crossing events by Chloride  and Sodium, tracked over the time course of a representative MD simulation for VDAC1 or the HKV1 complex.Fig5_Electrophysilogy.xlsx: Values of our electrophysiology data points. Fig6_PanelA.xlsx: X-Y coordinates of the center of mass (C.O.M) of H-anchor, calculated using the trajectories from all 100 independent BD replicates of WT- and S215phosphorylated-VDAC1 system.Fig6_PanelB.xlsx: Z-coordinate (perpendicular to the membrane normal) values of VDAC1 residues, calculated using the full-membrane VDAC1-alone MD simulation.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Mitochondrial Anion Channel",
+      "start": 202,
+      "end": 229
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 230,
+      "end": 235
+    },
+    {
+      "category": "MOL",
+      "text": "Hexokinase-II",
+      "start": 240,
+      "end": 253
+    },
+    {
+      "category": "MOL",
+      "text": "HKII-N",
+      "start": 385,
+      "end": 391
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "VMD",
+      "start": 471,
+      "end": 474
+    },
+    {
+      "category": "MOL",
+      "text": "HKII-N",
+      "start": 571,
+      "end": 577
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "VMD",
+      "start": 668,
+      "end": 671
+    },
+    {
+      "category": "MOL",
+      "text": "HKII",
+      "start": 1254,
+      "end": 1258
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1259,
+      "end": 1264
+    },
+    {
+      "category": "MOL",
+      "text": "HKV1",
+      "start": 1274,
+      "end": 1278
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "VMD",
+      "start": 1322,
+      "end": 1325
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1370,
+      "end": 1375
+    },
+    {
+      "category": "MOL",
+      "text": "HKV1",
+      "start": 1384,
+      "end": 1388
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1434,
+      "end": 1439
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1448,
+      "end": 1453
+    },
+    {
+      "category": "MOL",
+      "text": "Chloride",
+      "start": 1534,
+      "end": 1542
+    },
+    {
+      "category": "MOL",
+      "text": "Sodium",
+      "start": 1548,
+      "end": 1554
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1623,
+      "end": 1628
+    },
+    {
+      "category": "MOL",
+      "text": "HKV1",
+      "start": 1636,
+      "end": 1640
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1902,
+      "end": 1907
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 1995,
+      "end": 2000
+    },
+    {
+      "category": "MOL",
+      "text": "VDAC1",
+      "start": 2046,
+      "end": 2051
+    }
+  ],
+  "url": "https://figshare.com/articles/dataset/Datasets_supporting_Haloi_et_al_Communications_Biology/14511885"
+}

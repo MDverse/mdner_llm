@@ -1,0 +1,162 @@
+{
+  "raw_text": "Acceptance and Kinetic Resolution of α-Methyl-Substituted Aldehydes by Norcoclaurine Synthases\nNorcoclaurine synthase (NCS) catalyzes a stereoselective Pictet–Spengler reaction to give the key intermediate, (S)-norcoclaurine in benzylisoquinoline alkaloid biosynthesis. This family of alkaloids contains many bioactive molecules including morphine and berberine. Recently, NCS has been demonstrated to accept a variety of aldehydes and some ketones as substrates, leading to a range of chiral tetrahydroisoquinoline (THIQ) products. Here, we report the unusual acceptance of α-substituted aldehydes, in particular α-methyl-substituted aldehydes, by wild-type Thalictrum flavum NCS (Δ33TfNCS) to give THIQ products. Moreover, the kinetic resolution of several α-substituted aldehydes to give THIQs with two defined chiral centers in a single step with high conversions was achieved. Several dopamine analogues were also accepted as substrates, and reactions were amenable to scale up. Active site mutants of TfNCS were then used, which demonstrated the potential to enhance the stereoselectivities in the reaction and improve yields. The rationale for the acceptance of these substrates and improved activity with different mutants has been gained from a co-crystallized structure of Δ33TfNCS with a nonproductive mimic of a reaction intermediate bound in the active site. Finally, molecular dynamics simulations were performed to study the binding of dopamine and an α-substituted aldehyde and provided further insight into the reaction with these substrates.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "α-Methyl",
+      "start": 37,
+      "end": 45
+    },
+    {
+      "category": "MOL",
+      "text": "Aldehydes",
+      "start": 58,
+      "end": 67
+    },
+    {
+      "category": "MOL",
+      "text": "Norcoclaurine Synthases",
+      "start": 71,
+      "end": 94
+    },
+    {
+      "category": "MOL",
+      "text": "Norcoclaurine synthase",
+      "start": 95,
+      "end": 117
+    },
+    {
+      "category": "MOL",
+      "text": "NCS",
+      "start": 119,
+      "end": 122
+    },
+    {
+      "category": "MOL",
+      "text": "(S)-norcoclaurine",
+      "start": 207,
+      "end": 224
+    },
+    {
+      "category": "MOL",
+      "text": "benzylisoquinoline",
+      "start": 228,
+      "end": 246
+    },
+    {
+      "category": "MOL",
+      "text": "alkaloid",
+      "start": 247,
+      "end": 255
+    },
+    {
+      "category": "MOL",
+      "text": "alkaloids",
+      "start": 285,
+      "end": 294
+    },
+    {
+      "category": "MOL",
+      "text": "morphine",
+      "start": 339,
+      "end": 347
+    },
+    {
+      "category": "MOL",
+      "text": "berberine",
+      "start": 352,
+      "end": 361
+    },
+    {
+      "category": "MOL",
+      "text": "NCS",
+      "start": 373,
+      "end": 376
+    },
+    {
+      "category": "MOL",
+      "text": "aldehydes",
+      "start": 422,
+      "end": 431
+    },
+    {
+      "category": "MOL",
+      "text": "ketones",
+      "start": 441,
+      "end": 448
+    },
+    {
+      "category": "MOL",
+      "text": "tetrahydroisoquinoline",
+      "start": 493,
+      "end": 515
+    },
+    {
+      "category": "MOL",
+      "text": "THIQ",
+      "start": 517,
+      "end": 521
+    },
+    {
+      "category": "MOL",
+      "text": "aldehydes",
+      "start": 589,
+      "end": 598
+    },
+    {
+      "category": "MOL",
+      "text": "α-methyl-substituted aldehydes",
+      "start": 614,
+      "end": 644
+    },
+    {
+      "category": "MOL",
+      "text": "Thalictrum flavum NCS",
+      "start": 659,
+      "end": 680
+    },
+    {
+      "category": "MOL",
+      "text": "33TfNCS",
+      "start": 683,
+      "end": 690
+    },
+    {
+      "category": "MOL",
+      "text": "THIQ",
+      "start": 700,
+      "end": 704
+    },
+    {
+      "category": "MOL",
+      "text": "THIQs",
+      "start": 791,
+      "end": 796
+    },
+    {
+      "category": "MOL",
+      "text": "dopamine",
+      "start": 890,
+      "end": 898
+    },
+    {
+      "category": "MOL",
+      "text": "TfNCS",
+      "start": 1007,
+      "end": 1012
+    },
+    {
+      "category": "MOL",
+      "text": "33TfNCS",
+      "start": 1284,
+      "end": 1291
+    },
+    {
+      "category": "MOL",
+      "text": "dopamine",
+      "start": 1451,
+      "end": 1459
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Acceptance_and_Kinetic_Resolution_of_-Methyl-Substituted_Aldehydes_by_Norcoclaurine_Synthases/9905063"
+}

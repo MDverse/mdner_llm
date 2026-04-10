@@ -1,0 +1,48 @@
+{
+  "raw_text": "Two-Level Spatial Modulation of Vibronic Conductance in Conjugated Oligophenylenes on Boron Nitride\nIntramolecular current-induced vibronic excitations are reported in highly ordered monolayers of quaterphenylene dicarbonitriles at an electronically patterned boron nitride on copper platform (BN/Cu(111)). A first level of spatially modulated conductance at the nanometer-scale is induced by the substrate. Moreover, a second level of conductance variations at the molecular level is found. Low temperature scanning tunneling microscopy studies in conjunction with molecular dynamics calculations reveal collective amplification of the molecule’s interphenylene torsion angles in the monolayer. Librational modes influencing these torsion angles are identified as initial excitations during vibronic conductance. Density functional theory is used to map phenylene breathing modes and other vibrational excitations that are suggested to be at the origin of the submolecular features during vibronic conductance.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Oligophenylenes",
+      "start": 67,
+      "end": 82
+    },
+    {
+      "category": "MOL",
+      "text": "Boron Nitride",
+      "start": 86,
+      "end": 99
+    },
+    {
+      "category": "MOL",
+      "text": "quaterphenylene dicarbonitriles",
+      "start": 197,
+      "end": 228
+    },
+    {
+      "category": "MOL",
+      "text": "boron nitride",
+      "start": 260,
+      "end": 273
+    },
+    {
+      "category": "MOL",
+      "text": "copper",
+      "start": 277,
+      "end": 283
+    },
+    {
+      "category": "MOL",
+      "text": "BN",
+      "start": 294,
+      "end": 296
+    },
+    {
+      "category": "MOL",
+      "text": "Cu(111)",
+      "start": 297,
+      "end": 304
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Two_Level_Spatial_Modulation_of_Vibronic_Conductance_in_Conjugated_Oligophenylenes_on_Boron_Nitride/2178850"
+}

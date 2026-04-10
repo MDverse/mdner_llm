@@ -1,0 +1,48 @@
+{
+  "raw_text": "Capturing the Recognition Dynamics of para-Sulfonato-calix[4]arenes by Cytochrome c: Toward a Quantitative Free Energy Assessment\nCalix[n]arenes’ selective recognition of protein surfaces covers a broad range of timely applications, from controlling protein assembly and crystallization to trapping partially disordered proteins. Here, the interaction of para-sulfonated calix-[4]-arenes with cytochrome c is investigated through all-atom, explicit water molecular dynamics simulations which allow characterization of two binding sites in quantitative agreement with experimental evidence. Free energy calculations based on the MM-PBSA and the attach-pull-release (APR) methods highlight key residues implicated in the recognition process and provide binding free energy results in quantitative agreement with isothermal titration calorimetry. Our study emphasizes the role of MD simulations to capture and describe the “walk” of sulfonated calix-[4]-arenes on the cytochrome c surface, with the arginine R13 as a pivotal interacting residue. Our MD investigation allows, through the quasi-harmonic multibasin (QHMB) method, probing an allosteric reinforcement of several per-residue interactions upon calixarene binding, which suggests a more complex mode of action of these supramolecular auxiliaries.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "para-Sulfonato-calix[4]arenes",
+      "start": 38,
+      "end": 67
+    },
+    {
+      "category": "MOL",
+      "text": "Cytochrome c",
+      "start": 71,
+      "end": 83
+    },
+    {
+      "category": "MOL",
+      "text": "Calix[n]arenes",
+      "start": 130,
+      "end": 144
+    },
+    {
+      "category": "MOL",
+      "text": "para-sulfonated calix-[4]-arenes",
+      "start": 355,
+      "end": 387
+    },
+    {
+      "category": "MOL",
+      "text": "cytochrome c",
+      "start": 393,
+      "end": 405
+    },
+    {
+      "category": "MOL",
+      "text": "sulfonated calix-[4]-arenes",
+      "start": 930,
+      "end": 957
+    },
+    {
+      "category": "MOL",
+      "text": "cytochrome c",
+      "start": 965,
+      "end": 977
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Capturing_the_Recognition_Dynamics_of_i_para_i_-Sulfonato-calix_4_arenes_by_Cytochrome_c_Toward_a_Quantitative_Free_Energy_Assessment/20812257"
+}

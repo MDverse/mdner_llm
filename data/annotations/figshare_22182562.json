@@ -1,0 +1,66 @@
+{
+  "raw_text": "SMD Simulations of GC-analogue Sequence\nSteered Molecular Dynamics (SMD) simulations of the following system in explicit water: H-NS; dsDNA with nucleotide sequences  5’-GCGGCGCGCCGC-3’, and neutralized with 50 mM NaCl performed with GROMACS, version 2020.4 patched with PLUMED version 2.6.3.\n\nAll dry_*.pdb and dry_*.xtc contain the topology and SMD trajectories. The COLVAR_* files contain the work and bias output. And the run.mdp and plumed.dat contain the input settings containing the pulling coordinate and simulations settings. The SMD runs are 100 ns long and the force constant is 500 kJ/mol.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "GC-analogue Sequence",
+      "start": 19,
+      "end": 39
+    },
+    {
+      "category": "MOL",
+      "text": "H-NS",
+      "start": 128,
+      "end": 132
+    },
+    {
+      "category": "MOL",
+      "text": "dsDNA",
+      "start": 134,
+      "end": 139
+    },
+    {
+      "category": "MOL",
+      "text": "5’-GCGGCGCGCCGC-3’",
+      "start": 167,
+      "end": 185
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 214,
+      "end": 218
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 234,
+      "end": 241
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "2020.4",
+      "start": 251,
+      "end": 257
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "PLUMED",
+      "start": 271,
+      "end": 277
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "2.6.3",
+      "start": 286,
+      "end": 291
+    },
+    {
+      "category": "STIME",
+      "text": "100 ns",
+      "start": 553,
+      "end": 559
+    }
+  ],
+  "url": "https://figshare.com/articles/dataset/SMD_Simulations_of_GC-analogue_Sequence/22182562/1"
+}

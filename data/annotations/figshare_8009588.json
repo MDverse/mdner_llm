@@ -1,0 +1,12 @@
+{
+  "raw_text": "Potential of mean force and umbrella sampling histograms for MA/CActd and CActd/CActd complexes\nPMF & Histogram data for CActd/CActd and MA/CActd complexes- md_pull.mdp Gromacs' molecular dynamics parameters for pulling process of complexes, used for generating starting configurations for the umbrella sampling windows. These windows are used to obtain histograms of COM separations which are used to calculate the potential of mean force for each of the complexes by the weighted histogram method (WHAM).-  distPull-MACA.xvg Table of distance (nm) vs time (ps) for the pulling process of the MA/CActd complex- distPull-CACA.xvg Table of distance (nm) vs time (ps) for the pulling process of the CActd/CActd complex- histoMACA.xvg Table of histograms (count) vs COM separation (nm) from umbrella sampling of the MA/CActd complex- histoCACA.xvg Table of histograms (count) vs COM separation (nm) from umbrella sampling of the CActd/CActd complex- PMF_MA_CActd.txt Table of potential of mean force (kcal/mol) vs COM separation (nm) for the MA/CActd complex.- PMF_CActd_CActd.txt Table of potential of mean force (kcal/mol) vs COM separation (nm) for the CActd/CActd complex.",
+  "entities": [
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 169,
+      "end": 176
+    }
+  ],
+  "url": "https://figshare.com/articles/dataset/Potential_of_mean_force_and_umbrella_sampling_histograms_for_MA_CActd_and_CActd_CActd_complexes/8009588"
+}

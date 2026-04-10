@@ -1,0 +1,138 @@
+{
+  "raw_text": "Reactive Oxygen and Nitrogen Species at Phospholipid Bilayers: Peroxynitrous Acid and Its Homolysis Products\nPeroxynitrite is a powerful and long-lived oxidant generated in vivo. Peroxynitrous acid (ONOOH), its protonated form, may penetrate into phospholipid bilayers and undergo homolytic cleavage to nitrogen dioxide (·NO2) and hydroxyl radicals (·OH), causing severe nitro-oxidative damage. The membrane environment is thought to influence ONOOH reactions, but the mechanisms remain speculative. Most experimental techniques lack the level of resolution required to keep track of the motion of very reactive species and their interactions with the membrane. Here, we performed molecular dynamics simulations of the permeation, interactions, and dynamics of ONOOH and its homolysis products in the phospholipid membrane environment. We started by developing an ONOOH model that successfully accounted for its conformational equilibria and solvation energies. Membrane permeation of ONOOH was accompanied by conformational changes. ONOOH exhibited a strong tendency to bind to and accumulate at the membrane headgroup region. There, ONOOH homolysis led to ·NO2 radicals, which in turn partitioned to the membrane interior. About one-third of the ·OH radicals readily escaped to the aqueous phase within 1 ns. However, a significant number of ·OH radicals became trapped at the lipid headgroup region for a longer period. The possible implications for membrane-based nitration and oxidation processes were discussed.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Oxygen",
+      "start": 9,
+      "end": 15
+    },
+    {
+      "category": "MOL",
+      "text": "Nitrogen",
+      "start": 20,
+      "end": 28
+    },
+    {
+      "category": "MOL",
+      "text": "Phospholipid",
+      "start": 40,
+      "end": 52
+    },
+    {
+      "category": "MOL",
+      "text": "Peroxynitrous Acid",
+      "start": 63,
+      "end": 81
+    },
+    {
+      "category": "MOL",
+      "text": "Peroxynitrite",
+      "start": 109,
+      "end": 122
+    },
+    {
+      "category": "MOL",
+      "text": "Peroxynitrous acid",
+      "start": 179,
+      "end": 197
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 199,
+      "end": 204
+    },
+    {
+      "category": "MOL",
+      "text": "phospholipid",
+      "start": 247,
+      "end": 259
+    },
+    {
+      "category": "MOL",
+      "text": "NO2",
+      "start": 322,
+      "end": 325
+    },
+    {
+      "category": "MOL",
+      "text": "hydroxyl",
+      "start": 331,
+      "end": 339
+    },
+    {
+      "category": "MOL",
+      "text": "OH",
+      "start": 351,
+      "end": 353
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 444,
+      "end": 449
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 761,
+      "end": 766
+    },
+    {
+      "category": "MOL",
+      "text": "phospholipid",
+      "start": 801,
+      "end": 813
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 864,
+      "end": 869
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 985,
+      "end": 990
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 1034,
+      "end": 1039
+    },
+    {
+      "category": "MOL",
+      "text": "ONOOH",
+      "start": 1135,
+      "end": 1140
+    },
+    {
+      "category": "MOL",
+      "text": "NO2",
+      "start": 1159,
+      "end": 1162
+    },
+    {
+      "category": "MOL",
+      "text": "OH",
+      "start": 1249,
+      "end": 1251
+    },
+    {
+      "category": "STIME",
+      "text": "1 ns",
+      "start": 1305,
+      "end": 1309
+    },
+    {
+      "category": "MOL",
+      "text": "OH",
+      "start": 1345,
+      "end": 1347
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Reactive_Oxygen_and_Nitrogen_Species_at_Phospholipid_Bilayers_Peroxynitrous_Acid_and_Its_Homolysis_Products/6965759"
+}

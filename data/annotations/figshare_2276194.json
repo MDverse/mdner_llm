@@ -1,0 +1,84 @@
+{
+  "raw_text": "Free Energy Calculation of Nanodiamond-Membrane AssociationThe Effect of Shape and Surface Functionalization\nNanodiamonds (NDs) are nanoscale diamond particles with broad applications in biosensing, drug delivery, and long-term tracking. Their interactions with a membrane dictate both the endocytosis process and subsequent intracellular fate of the nanoparticles. However, details of ND-membrane association and the energetics of this process remain largely unknown. In this work, we use all-atom molecular dynamics (MD) simulations to determine the free energy profile and molecular details of ND-membrane association, with a focus on the impact of shape and surface functionalization. Through altogether 6.5 μs umbrella sampling on six atomistic ND models of different shapes (spherical or pyramidal) and surface functionalization (5%, 35%, and 55%), we show that nanodiamonds associate favorably with the membrane, which is largely driven by ND–lipid interactions. During its membrane association, the shape of a nanodiamond plays a key role in determining the location of the free energy minimum, while its surface functionalization modulates the depth of the minimum. Of the six models studied here, all spherical NDs adhere to the bilayer surface, whereas pyramidal NDs, with the exception of the most functionalized P55, anchor inside the membrane. Shape also dominates the height of the free energy barrier: the sharp pyramidal NDs have much lower barriers against penetrating a POPC bilayer than spherical ones. Our all-atom ND models and their bilayer association strength determined here can be combined with future coarse-grained or continuum models to further explore ND–membrane interactions on larger length scales.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Nanodiamonds",
+      "start": 110,
+      "end": 122
+    },
+    {
+      "category": "MOL",
+      "text": "NDs",
+      "start": 124,
+      "end": 127
+    },
+    {
+      "category": "MOL",
+      "text": "ND",
+      "start": 387,
+      "end": 389
+    },
+    {
+      "category": "MOL",
+      "text": "ND",
+      "start": 598,
+      "end": 600
+    },
+    {
+      "category": "MOL",
+      "text": "ND",
+      "start": 751,
+      "end": 753
+    },
+    {
+      "category": "MOL",
+      "text": "nanodiamonds",
+      "start": 869,
+      "end": 881
+    },
+    {
+      "category": "MOL",
+      "text": "ND",
+      "start": 948,
+      "end": 950
+    },
+    {
+      "category": "MOL",
+      "text": "NDs",
+      "start": 1222,
+      "end": 1225
+    },
+    {
+      "category": "MOL",
+      "text": "NDs",
+      "start": 1275,
+      "end": 1278
+    },
+    {
+      "category": "MOL",
+      "text": "NDs",
+      "start": 1439,
+      "end": 1442
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 1490,
+      "end": 1494
+    },
+    {
+      "category": "MOL",
+      "text": "ND",
+      "start": 1537,
+      "end": 1539
+    },
+    {
+      "category": "MOL",
+      "text": "ND",
+      "start": 1684,
+      "end": 1686
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Free_Energy_Calculation_of_Nanodiamond_Membrane_Association_The_Effect_of_Shape_and_Surface_Functionalization/2276194"
+}

@@ -1,0 +1,186 @@
+{
+  "raw_text": "Molecular dynamics trajectories for SARS-CoV-2 Mpro with 7 HIV inhibitors\nRaw trajectory data (GROMACS format) of all atom molecular dynamics simulation of COVID-19 related SARS-CoV-2 dimeric main protease (based on PDB 6LU7) with 7 kinds of HIV inhibitors (darunavir, indinavir, lopinavir, nelfinavir, ritonavir, saquinavir, and tipranavir) were calculated on massively parallel supercomputer HOKUSAI Big Waterfall at RIKEN ISC, and a special-purpose computer, MDGRAPE-4A, at RIKEN BDR, JAPAN. For each ligand, 200ns length 28 trajectories were calculated. Some of these trajectories were calculated further longer. We can observe formation of encounter complex and investigate potential binding sites on the surface of the dimeric protease. We hope that these raw data are valuable for further drug repurposing/development research targeting the SARS-CoV-2 main protease. We will submit analysis of these data to refereed journal.\nMolecular dynamics simulations were performed under NVT at 310K, with the time step 2.5fs. The starting structure was prepared based on PDB 6LU7, with amber14sb force field in about 10nm cubic box with periodic boundary conditions. The ligands were initially placed apart from the active sites of the dimeric main protease.\nWe have also already deposited 10 microseconds trajectories of the dimeric protease without ligand (with amber99sb-ildn force field) in the repository https://data.mendeley.com/datasets/vpps4vhryg/1 (DOI:10.17632/vpps4vhryg.1).\nFiles:\n\nLIG_28traj200ns_every200ps.zip    (28trajectories for each ligand)\n\n\t\ntraj200ns_every200ps/LIG/a/traj200ns_every200ps_LIG-a-n.xtc\n\n\t\t\n(trajectory in GROMACS XTC)\n\n\ntraj200ns_every200ps/LIG/a/conf.gro\n\t\t\n(initial condition in GROMACS GRO)\n\n\ntraj200ns_every200ps/LIG/topology/\n\t\t\n(contains topology files)\n\n\ntraj200ns_every200ps/LIG/mdp/\n\t\t\n(contains run paramter files)\n\n\n\n\nZZZ_20traj1us_every200ps.zip               (20trajectories extended to 1microsecond)\n\t\ntraj1us_every200ps/traj1us_every200ps_LIG-a-n.xtc\n\t\t\nDAR-C-06, DAR-D-07\nIND-C-05, IND-C-06, IND-D-06\nLOP-A-02, LOP-D-03\nNEL-B-01, NEL-C-07, NEL-D-02\nRIT-B-07, RIT-C-07\nSAQ-B-01, SAQ-C-04, SAQ-D-03\nTPR-A-07, TPR-B-04, TPR-B-06, TPR-C-05, TPR-D-02\n\n\n\n\nZZZ_3traj6us_every1ns.zip                 (3trajectories extended to 6microseconds or more)\n\t\ntraj6us_every1ns/traj6us_every1ns_LIG-a-n.xtc\n\t\t\nIND-D-06, NEL-B-01, TPR-B-04\n\n\n\n\n\n \n\nZZZ_LigandBindingPosePDBs.zip        (pickup 3 snapshots for each ligand)\n\t\nLigandBindingPosePDBs/LIG-a-n_frame.pdb\n\n\n\n \n\nmovies_overlooking_28traj200ns.zip     (7x2movies)\n\t\nmovies_28traj200ns/movie_overlooking_LIG_28traj200ns-viewA.mp4\n\n\t\t\ninspecting 28traj at once\n\n\nmovies_28traj200ns/movie_overlooking_LIG_28traj200ns-viewB.mp4\n\t\t\nfrom the opposite angle\n\n\n\n\nmovies_1us.zip          (17movies)\n\t\nmovies_1us/movie_LIG-a-n_1us.mp4\n\n\nmovies_6us.zip          (3movies)\n\t\nmovies_6us/movie_LIG-a-n_6us.mp4\n\n\n\n        where\n             LIG={DAR,IND,LOP,NEL,RIT,SAQ,TPR}\n                 DAR:darunavir\n                 IND:indinavir\n                 NEL:nelfinavir\n                 RIT:ritonavir\n                 SAQ:saquinavir\n                 TPR:tipranavir\n             a={A,B,C,D}\n             n={01,02,03,04,05,06,07}\n \n\nZZZz_3traj1us_every200ps_unbinding.zip      (3trajectories extended to 1microsecond exhibiting unbinding)\nZZZz_56traj200ns_every200ps_negative_control.zip    (56trajectories as a negative control)\nZZZz_LigandBindingPosePDBsRevised.zip                    (pickuped 3 snapshots for each ligand)\n\n ",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "SARS-CoV-2 Mpro",
+      "start": 36,
+      "end": 51
+    },
+    {
+      "category": "MOL",
+      "text": "HIV inhibitors",
+      "start": 59,
+      "end": 73
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS",
+      "start": 95,
+      "end": 102
+    },
+    {
+      "category": "MOL",
+      "text": "SARS-CoV-2 dimeric main protease",
+      "start": 173,
+      "end": 205
+    },
+    {
+      "category": "MOL",
+      "text": "6LU7",
+      "start": 220,
+      "end": 224
+    },
+    {
+      "category": "MOL",
+      "text": "HIV inhibitors",
+      "start": 242,
+      "end": 256
+    },
+    {
+      "category": "MOL",
+      "text": "darunavir",
+      "start": 258,
+      "end": 267
+    },
+    {
+      "category": "MOL",
+      "text": "indinavir",
+      "start": 269,
+      "end": 278
+    },
+    {
+      "category": "MOL",
+      "text": "lopinavir",
+      "start": 280,
+      "end": 289
+    },
+    {
+      "category": "MOL",
+      "text": "nelfinavir",
+      "start": 291,
+      "end": 301
+    },
+    {
+      "category": "MOL",
+      "text": "ritonavir",
+      "start": 303,
+      "end": 312
+    },
+    {
+      "category": "MOL",
+      "text": "saquinavir",
+      "start": 314,
+      "end": 324
+    },
+    {
+      "category": "MOL",
+      "text": "tipranavir",
+      "start": 330,
+      "end": 340
+    },
+    {
+      "category": "STIME",
+      "text": "200ns",
+      "start": 512,
+      "end": 517
+    },
+    {
+      "category": "MOL",
+      "text": "SARS-CoV-2 main protease",
+      "start": 848,
+      "end": 872
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 992,
+      "end": 996
+    },
+    {
+      "category": "MOL",
+      "text": "6LU7",
+      "start": 1073,
+      "end": 1077
+    },
+    {
+      "category": "FFM",
+      "text": "amber14sb",
+      "start": 1084,
+      "end": 1093
+    },
+    {
+      "category": "STIME",
+      "text": "10 microseconds",
+      "start": 1288,
+      "end": 1303
+    },
+    {
+      "category": "MOL",
+      "text": "dimeric protease",
+      "start": 1324,
+      "end": 1340
+    },
+    {
+      "category": "FFM",
+      "text": "amber99sb-ildn",
+      "start": 1362,
+      "end": 1376
+    },
+    {
+      "category": "STIME",
+      "text": "1microsecond",
+      "start": 1937,
+      "end": 1949
+    },
+    {
+      "category": "STIME",
+      "text": "6microseconds",
+      "start": 2272,
+      "end": 2285
+    },
+    {
+      "category": "MOL",
+      "text": "darunavir",
+      "start": 2973,
+      "end": 2982
+    },
+    {
+      "category": "MOL",
+      "text": "indinavir",
+      "start": 3004,
+      "end": 3013
+    },
+    {
+      "category": "MOL",
+      "text": "nelfinavir",
+      "start": 3035,
+      "end": 3045
+    },
+    {
+      "category": "MOL",
+      "text": "ritonavir",
+      "start": 3067,
+      "end": 3076
+    },
+    {
+      "category": "MOL",
+      "text": "saquinavir",
+      "start": 3098,
+      "end": 3108
+    },
+    {
+      "category": "MOL",
+      "text": "tipranavir",
+      "start": 3130,
+      "end": 3140
+    },
+    {
+      "category": "STIME",
+      "text": "1microsecond",
+      "start": 3278,
+      "end": 3290
+    }
+  ],
+  "url": "https://zenodo.org/records/3975394"
+}

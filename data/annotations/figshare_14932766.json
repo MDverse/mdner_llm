@@ -1,0 +1,66 @@
+{
+  "raw_text": "Protein Dynamics and Substrate Protonation States Mediate the Catalytic Action of trans-4-Hydroxy‑l‑Proline Dehydratase\nThe enzyme trans-4-hydroxy-l-proline (Hyp) dehydratase (HypD) is among the most abundant glycyl radical enzymes (GREs) in the healthy human gut microbiome and is considered a promising antibiotic target for the prominent antibiotic-resistant pathogen Clostridium difficile. Although an enzymatic mechanism has been proposed, the role of the greater HypD protein environment in mediating radical reactivity is not well understood. To fill this gap in understanding, we investigate HypD across multiple time- and length-scales using electronic structure modeling and classical molecular dynamics. We observe that the Hyp substrate protonation state significantly alters both its enzyme-free reactivity and its dynamics within the enzyme active site. Accurate coupled-cluster modeling suggests the deprotonated form of Hyp to be the most reactive protonation state for C5–Hpro‑S activation. In the protein environment, hydrophobic interactions modulate the positioning of the Cys434 radical to enhance the reactivity of C5–Hpro‑S abstraction. Long-time dynamics reveal that changing Hyp protonation states triggers the switching of a Leu643-gated water tunnel, a functional feature that has not yet been observed for members of the GRE superfamily.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Dehydratase",
+      "start": 108,
+      "end": 119
+    },
+    {
+      "category": "MOL",
+      "text": "trans-4-hydroxy-l-proline",
+      "start": 131,
+      "end": 156
+    },
+    {
+      "category": "MOL",
+      "text": "Hyp",
+      "start": 158,
+      "end": 161
+    },
+    {
+      "category": "MOL",
+      "text": "dehydratase",
+      "start": 163,
+      "end": 174
+    },
+    {
+      "category": "MOL",
+      "text": "HypD",
+      "start": 176,
+      "end": 180
+    },
+    {
+      "category": "MOL",
+      "text": "HypD",
+      "start": 469,
+      "end": 473
+    },
+    {
+      "category": "MOL",
+      "text": "HypD",
+      "start": 600,
+      "end": 604
+    },
+    {
+      "category": "MOL",
+      "text": "Hyp",
+      "start": 735,
+      "end": 738
+    },
+    {
+      "category": "MOL",
+      "text": "Hyp",
+      "start": 936,
+      "end": 939
+    },
+    {
+      "category": "MOL",
+      "text": "Hyp",
+      "start": 1200,
+      "end": 1203
+    }
+  ],
+  "url": "https://acs.figshare.com/articles/dataset/Protein_Dynamics_and_Substrate_Protonation_States_Mediate_the_Catalytic_Action_of_i_trans_i_-4-Hydroxy_l_Proline_Dehydratase/14932766"
+}

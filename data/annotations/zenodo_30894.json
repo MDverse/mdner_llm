@@ -1,0 +1,96 @@
+{
+  "raw_text": "POPC_Ulmschneider_OPLS_NaCl_1Mol\nMD simulation trajectory and related files for fully hydrated POPC bilayer with 1M NaCl. The Ulmschneider force field for POPC was used with Gromacs 5.0.3 [1,2]. Ions were described by OPLS-AA force field (Gromacs 5.0.3). Conditions: T=298.15, 128 POPC molecules, 5120 tip3p waters, 77 Na, 77 Cl. 200ns trajectory (preceded by 5ns NPT equillibration).\nThis data is ran for the nmrlipids.blospot.fi project. More details from nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi\n[1] J.P. Ulmschneider & M.B. Ulmschneider, United Atom Lipid Parameters for Combination with the Optimized Potentials for Liquid Simulations All-Atom Force Field, JCTC 2009, 5(7), 1803–1813\n[2] http://lipidbook.bioch.ox.ac.uk/package/show/id/52.html",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 95,
+      "end": 99
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 116,
+      "end": 120
+    },
+    {
+      "category": "FFM",
+      "text": "Ulmschneider",
+      "start": 126,
+      "end": 138
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 155,
+      "end": 159
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 174,
+      "end": 181
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "5.0.3",
+      "start": 182,
+      "end": 187
+    },
+    {
+      "category": "FFM",
+      "text": "OPLS-AA",
+      "start": 218,
+      "end": 225
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Gromacs",
+      "start": 239,
+      "end": 246
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "5.0.3",
+      "start": 247,
+      "end": 252
+    },
+    {
+      "category": "TEMP",
+      "text": "298.15",
+      "start": 269,
+      "end": 275
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 281,
+      "end": 285
+    },
+    {
+      "category": "FFM",
+      "text": "tip3p",
+      "start": 302,
+      "end": 307
+    },
+    {
+      "category": "MOL",
+      "text": "Na",
+      "start": 319,
+      "end": 321
+    },
+    {
+      "category": "MOL",
+      "text": "Cl",
+      "start": 326,
+      "end": 328
+    },
+    {
+      "category": "STIME",
+      "text": "200ns",
+      "start": 330,
+      "end": 335
+    }
+  ],
+  "url": "https://zenodo.org/records/30894"
+}

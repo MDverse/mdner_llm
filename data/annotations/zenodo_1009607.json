@@ -1,0 +1,180 @@
+{
+  "raw_text": "Set simulations small pure bilayers (72 lipids) using charmm36 ff in gromacs (DPPC, POPC)\nCollection simulations of DPPC and POPC bilayers in gromacs using the charmm36 force field. The list of systems describing their particular simulation conditions can be found below:\n1) DPPC_72_325K (500ns)\n2) DPPC_72_310K_rmcomm_leaflets (500ns)\n3) DPPC_72_310K_rmcomm_leaflets_low_hydration (500ns)\n4) POPC_72_310K (500ns)\n5) POPC_72_310K_rmcomm_leaflets (500ns)\n6) POPC_72_310K_rmcomm_leaflets_low_hydration (550ns)\n7) POPC_72_303K_rmcomm_leaflets_low_hydration (550ns)\nFor further information read the Readme file provided for each simulation.",
+  "entities": [
+    {
+      "category": "FFM",
+      "text": "charmm36",
+      "start": 54,
+      "end": 62
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 69,
+      "end": 76
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 78,
+      "end": 82
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 84,
+      "end": 88
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 116,
+      "end": 120
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 125,
+      "end": 129
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 142,
+      "end": 149
+    },
+    {
+      "category": "FFM",
+      "text": "charmm36",
+      "start": 160,
+      "end": 168
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 275,
+      "end": 279
+    },
+    {
+      "category": "TEMP",
+      "text": "325K",
+      "start": 283,
+      "end": 287
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 289,
+      "end": 294
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 299,
+      "end": 303
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 307,
+      "end": 311
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 329,
+      "end": 334
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 339,
+      "end": 343
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 347,
+      "end": 351
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 383,
+      "end": 388
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 393,
+      "end": 397
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 401,
+      "end": 405
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 407,
+      "end": 412
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 417,
+      "end": 421
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 425,
+      "end": 429
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 447,
+      "end": 452
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 457,
+      "end": 461
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 465,
+      "end": 469
+    },
+    {
+      "category": "STIME",
+      "text": "550ns",
+      "start": 501,
+      "end": 506
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 511,
+      "end": 515
+    },
+    {
+      "category": "TEMP",
+      "text": "303K",
+      "start": 519,
+      "end": 523
+    },
+    {
+      "category": "STIME",
+      "text": "550ns",
+      "start": 555,
+      "end": 560
+    }
+  ],
+  "url": "https://zenodo.org/records/1009607"
+}

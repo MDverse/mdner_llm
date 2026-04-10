@@ -1,0 +1,48 @@
+{
+  "raw_text": "Etidocaine binding to POPC membrane, CHARMM36-ParamChem, 34 mM, 298 K\nSystem info in README.yaml, including basic analysis - headgroup OP,  averaged APL and repead distance, analysis performed only from eqilibrated part of the simulation, marked as \"BINDINGEQ\",\nhere:\nFILES:\n  xtc:\n    NAME: [name]\n    SIZE: [MB]\n    MODIFIED: [yyyy-mm-dd time]\n    LENGTH: [ps]\n    SAVING_FREQUENCY: [ps]\n    BEGIN: [ps] - how much of the simulation was simulated before and is excluded\nFILES:\n  tpr:\n    GMX_VERSION:  gromacs version used for \"gmx grompp\" creation of *.tpr file at local computer\n  log:\n    GMX_VERSION:  gromacs version used for \"gmx mdrun\" at cluster and read out from *.log file",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Etidocaine",
+      "start": 0,
+      "end": 10
+    },
+    {
+      "category": "MOL",
+      "text": "POPC",
+      "start": 22,
+      "end": 26
+    },
+    {
+      "category": "FFM",
+      "text": "CHARMM36",
+      "start": 37,
+      "end": 45
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "ParamChem",
+      "start": 46,
+      "end": 55
+    },
+    {
+      "category": "TEMP",
+      "text": "298 K",
+      "start": 64,
+      "end": 69
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 504,
+      "end": 511
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 608,
+      "end": 615
+    }
+  ],
+  "url": "https://zenodo.org/records/6988344"
+}

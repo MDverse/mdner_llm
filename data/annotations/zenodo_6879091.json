@@ -1,0 +1,60 @@
+{
+  "raw_text": "Molecular dynamics simulation trajectories of HIV protein gp120 in complex with antibody VRC01 and 30 of its Ala mutants\nThis data set accompanies the publication by S. Conti, E. Lau, and V. Ovchinnikov entitled \"On the rapid calculation of binding affinities for antigen and antibody design and affinity maturation simulations\", to be published in the MDPI journal Antibodies. It contains molecular dynamics simulation trajectories of HIV protein gp120 in complex with antibody VRC01 and 30 of its Ala mutants, as described in the paper. The format of the trajectory files is CHARMM-compatible dcd. The files can be visualized with the program Visual Molecular Dynamics (VMD) (see paper by Humphrey et al. 1996, J. Molec. Graphics).  The accompanying file \"view\" is a tcl-based script for VMD that can be executed in the Linux environment using: \"vmd -e view\", which will display the trajectory of the mutant specified by editing the first noncomment line of the script.\n ",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "HIV protein",
+      "start": 46,
+      "end": 57
+    },
+    {
+      "category": "MOL",
+      "text": "gp120",
+      "start": 58,
+      "end": 63
+    },
+    {
+      "category": "MOL",
+      "text": "VRC01",
+      "start": 89,
+      "end": 94
+    },
+    {
+      "category": "MOL",
+      "text": "HIV protein",
+      "start": 436,
+      "end": 447
+    },
+    {
+      "category": "MOL",
+      "text": "gp120",
+      "start": 448,
+      "end": 453
+    },
+    {
+      "category": "MOL",
+      "text": "VRC01",
+      "start": 479,
+      "end": 484
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "Visual Molecular Dynamics",
+      "start": 645,
+      "end": 670
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "VMD",
+      "start": 672,
+      "end": 675
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "VMD",
+      "start": 790,
+      "end": 793
+    }
+  ],
+  "url": "https://zenodo.org/records/6879091"
+}

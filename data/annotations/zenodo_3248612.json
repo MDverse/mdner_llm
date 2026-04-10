@@ -1,0 +1,102 @@
+{
+  "raw_text": "Simulation CER160_128_POPC_512_NaCl_150mM_310K_rep1 membrane\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation 512 POPCs membrane containing 128 ceramides (CER160)  using charmm36 at 310K.\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 3000 ns\nSaving frequency: 100 ps\nMolecular content:\nPOPC        512\nCER160    128\nSOL      32000\nNA             86\nCL              86\nAdditional information:",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "Ceramide",
+      "start": 82,
+      "end": 90
+    },
+    {
+      "category": "MOL",
+      "text": "LAPTM4B",
+      "start": 139,
+      "end": 146
+    },
+    {
+      "category": "MOL",
+      "text": "POPCs",
+      "start": 286,
+      "end": 291
+    },
+    {
+      "category": "MOL",
+      "text": "ceramides",
+      "start": 316,
+      "end": 325
+    },
+    {
+      "category": "MOL",
+      "text": "CER160",
+      "start": 327,
+      "end": 333
+    },
+    {
+      "category": "FFM",
+      "text": "charmm36",
+      "start": 342,
+      "end": 350
+    },
+    {
+      "category": "TEMP",
+      "text": "310K",
+      "start": 354,
+      "end": 358
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 371,
+      "end": 378
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "2016.1",
+      "start": 379,
+      "end": 385
+    },
+    {
+      "category": "FFM",
+      "text": "charmm36",
+      "start": 399,
+      "end": 407
+    },
+    {
+      "category": "TEMP",
+      "text": "310 K",
+      "start": 421,
+      "end": 426
+    },
+    {
+      "category": "STIME",
+      "text": "3000 ns",
+      "start": 460,
+      "end": 467
+    },
+    {
+      "category": "MOL",
+      "text": "CER160",
+      "start": 528,
+      "end": 534
+    },
+    {
+      "category": "MOL",
+      "text": "SOL",
+      "start": 542,
+      "end": 545
+    },
+    {
+      "category": "MOL",
+      "text": "NA",
+      "start": 557,
+      "end": 559
+    },
+    {
+      "category": "MOL",
+      "text": "CL",
+      "start": 575,
+      "end": 577
+    }
+  ],
+  "url": "https://zenodo.org/records/3248612"
+}

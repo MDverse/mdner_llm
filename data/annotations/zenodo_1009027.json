@@ -1,0 +1,276 @@
+{
+  "raw_text": "Simulations DPPC bilayers (512 lipids) using charmm36 ff in gromacs\nCollection simulations of DPPC (512 lipids) bilayers in gromacs using the charmm36 force field.  Several temperatures between 315 and 338 K are included. The list of systems can be found below where the several parameter are:\n1) DPPC_512_NaCl_150mM_315K_v-rescale (500ns)\n2) DPPC_512_NaCl_150mM_320K (700ns)\n3) DPPC_512_NaCl_150mM_320K_v-rescale (500ns)\n4) DPPC_512_NaCl_150mM_322K_v-rescale (700ns)\n5) DPPC_512_NaCl_150mM_325K (500ns)\n6) DPPC_512_NaCl_150mM_325K_v-rescale (500ns)\n7) DPPC_512_NaCl_150mM_325K_cutoff09 (500ns)\n8) DPPC_512_NaCl_150mM_325K_MEMB_338K (500ns)\n9) DPPC_512_NaCl_150mM_338K (500ns)\nFor further information read the Readme file provided for each simulation.",
+  "entities": [
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 12,
+      "end": 16
+    },
+    {
+      "category": "FFM",
+      "text": "charmm36",
+      "start": 45,
+      "end": 53
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 60,
+      "end": 67
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 94,
+      "end": 98
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "gromacs",
+      "start": 124,
+      "end": 131
+    },
+    {
+      "category": "FFM",
+      "text": "charmm36",
+      "start": 142,
+      "end": 150
+    },
+    {
+      "category": "TEMP",
+      "text": "315",
+      "start": 194,
+      "end": 197
+    },
+    {
+      "category": "TEMP",
+      "text": "338 K",
+      "start": 202,
+      "end": 207
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 297,
+      "end": 301
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 306,
+      "end": 310
+    },
+    {
+      "category": "TEMP",
+      "text": "315K",
+      "start": 317,
+      "end": 321
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 333,
+      "end": 338
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 343,
+      "end": 347
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 352,
+      "end": 356
+    },
+    {
+      "category": "TEMP",
+      "text": "320K",
+      "start": 363,
+      "end": 367
+    },
+    {
+      "category": "STIME",
+      "text": "700ns",
+      "start": 369,
+      "end": 374
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 379,
+      "end": 383
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 388,
+      "end": 392
+    },
+    {
+      "category": "TEMP",
+      "text": "320K",
+      "start": 399,
+      "end": 403
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 415,
+      "end": 420
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 425,
+      "end": 429
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 434,
+      "end": 438
+    },
+    {
+      "category": "TEMP",
+      "text": "322K",
+      "start": 445,
+      "end": 449
+    },
+    {
+      "category": "STIME",
+      "text": "700ns",
+      "start": 461,
+      "end": 466
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 471,
+      "end": 475
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 480,
+      "end": 484
+    },
+    {
+      "category": "TEMP",
+      "text": "325K",
+      "start": 491,
+      "end": 495
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 497,
+      "end": 502
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 507,
+      "end": 511
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 516,
+      "end": 520
+    },
+    {
+      "category": "TEMP",
+      "text": "325K",
+      "start": 527,
+      "end": 531
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 543,
+      "end": 548
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 553,
+      "end": 557
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 562,
+      "end": 566
+    },
+    {
+      "category": "TEMP",
+      "text": "325K",
+      "start": 573,
+      "end": 577
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 588,
+      "end": 593
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 598,
+      "end": 602
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 607,
+      "end": 611
+    },
+    {
+      "category": "TEMP",
+      "text": "325K",
+      "start": 618,
+      "end": 622
+    },
+    {
+      "category": "TEMP",
+      "text": "338K",
+      "start": 628,
+      "end": 632
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 634,
+      "end": 639
+    },
+    {
+      "category": "MOL",
+      "text": "DPPC",
+      "start": 644,
+      "end": 648
+    },
+    {
+      "category": "MOL",
+      "text": "NaCl",
+      "start": 653,
+      "end": 657
+    },
+    {
+      "category": "TEMP",
+      "text": "338K",
+      "start": 664,
+      "end": 668
+    },
+    {
+      "category": "STIME",
+      "text": "500ns",
+      "start": 670,
+      "end": 675
+    }
+  ],
+  "url": "https://zenodo.org/records/1009027"
+}
