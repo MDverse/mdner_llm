@@ -1,27 +1,29 @@
 set -euo pipefail
 
 MODELS=(
-  "openai/gpt-5.4"
   "openai/gpt-4o"
-  "openai/gpt-oss-120b"
+  "anthropic/claude-sonnet-4.6"
+  "z-ai/glm-5.1z-ai/glm-5.1"
+  "openai/gpt-5.4"
   "deepseek/deepseek-v3.2"
+  "google/gemma-4-31b-it"
+  "meta-llama/llama-4-maverick"
   "nvidia/nemotron-3-super-120b-a12b"
+  "mistralai/mistral-large-2512"
+  "openai/gpt-oss-120b"
   "qwen/qwen3.5-122b-a10b"
   "google/gemini-3.1-pro-preview"
-  "mistralai/mistral-large-2512"
-  "meta-llama/llama-4-maverick"
-  "anthropic/claude-sonnet-4.6"
 )
 
 FRAMEWORKS=(
-  #"none"
+  "none"
   "instructor"
   #"pydanticai"
 )
 
 PROMPT_FILE="json_few_shot.txt"
-TEXT_PATH="results/groundtruth_paths.txt"
-OUTPUT_DIR="results/llm/annotations"
+TEXT_PATH="data/groundtruth_paths.txt"
+OUTPUT_DIR="results/llm/annotations_with_costs"
 TAG_PROMPT="json"
 MAX_RETRIES=3
 
