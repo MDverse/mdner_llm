@@ -9,6 +9,7 @@ and generates:
 Plots are saved in: plots/gliner/<model_name>/
 """
 
+import operator
 import os
 from pathlib import Path
 
@@ -236,7 +237,143 @@ def darken_color(color: str, factor: float = 0.3) -> str:
     return mcolors.to_hex(darkened)
 
 
-def make_plot_compare_scores_models(df: pd.DataFrame) -> None:
+def make_plot_compare_scores_models_by_framework(
+    df: pd.DataFrame, out_dir: Path = Path("../../plots/evaluation/llm")
+) -> None:
+    """Generate comparison plots per framework from a flattened DataFrame.
+
+    Expected column format: "<framework>_<metric>" + "model_name", "label".
+    Example: "rag_accuracy", "rag_f1", "baseline_accuracy", etc.
+    """
+    # Extract metric columns (exclude metadata columns)
+    metric_columns = [col for col in df.columns if col not in {"model_name", "label"}]
+    # Extract frameworks and metrics from flattened names
+    frameworks = sorted({col.split("_")[0] for col in metric_columns})
+    metrics = sorted({col.split("_", 1)[1] for col in metric_columns})
+    # Get labels and models
+    labels = df["label"]
+    model_names = df["model_name"].unique()
+    labels_unique = labels.unique()
+    group_spacing = 1.2
+    labels_index = np.arange(len(labels_unique)) * group_spacing
+    # Get colors for each label (same color across models)
+    colors = [COLORS.get(label, "#272727") for label in labels_unique]
+    edge_colors = [darken_color(c, 0.6) for c in colors]
+
+    for framework in frameworks:
+        # Compute total annotations
+        count_col = f"{framework}_Number of Texts with Label"
+        if count_col in df.columns:
+            total_annotations_series = df[df["label"] == "OVERALL"][count_col]
+            total_annotations = (
+                int(total_annotations_series.iloc[0])
+                if not total_annotations_series.empty
+                else 0
+            )
+        else:
+            total_annotations = 0
+        for metric in metrics:
+            # Check if the column for this framework and metric exists
+            col_name = f"{framework}_{metric}"
+            if col_name not in df.columns:
+                continue
+            # Compute ranking ONCE per metric
+            top_models_per_label = {}
+            for label in labels_unique:
+                scores = []
+                for m in model_names:
+                    df_model = df[df["model_name"] == m]
+                    val = df_model[df_model["label"] == label][col_name]
+                    score = val.iloc[0] if not val.empty else 0
+                    scores.append((m, score))
+
+                scores_sorted = sorted(scores, key=operator.itemgetter(1), reverse=True)
+                top_models_per_label[label] = {m for m, _ in scores_sorted[:3]}
+            # Create the plot
+            fig, ax = plt.subplots(figsize=(20, 15))
+            bar_height = (1.2 - 0.2) / len(model_names)
+            # For each model, plot its bars for this metric and framework
+            for model_idx, model_name in enumerate(model_names):
+                # Get values for this model and metric
+                df_model = df[df["model_name"] == model_name]
+                values = []
+                for label in labels_unique:
+                    val = df_model[df_model["label"] == label][col_name]
+                    values.append(val.iloc[0] if not val.empty else 0)
+                shift = bar_height * (len(model_names) - 1) / 2
+                positions = labels_index - shift + model_idx * bar_height
+
+                # Plot bars for this model
+                ax.barh(
+                    positions,
+                    values,
+                    height=bar_height,
+                    edgecolor=edge_colors,
+                    color=colors,
+                )
+
+                for label, y, x in zip(labels_unique, positions, values, strict=False):
+                    is_top = model_name in top_models_per_label[label]
+                    weight = "bold" if is_top else "normal"
+                    # Model name (outside bar)
+                    ax.text(
+                        x + 0.01,
+                        y,
+                        model_name,
+                        va="center",
+                        ha="left",
+                        rotation=0,
+                        color="dimgrey",
+                        fontweight=weight,
+                        fontsize=8,
+                    )
+                    # Score (inside bar)
+                    ax.text(
+                        x - 0.02,
+                        y,
+                        f"{x:.2f}",
+                        va="center",
+                        ha="right",
+                        fontsize=8,
+                        color="dimgrey",
+                        fontweight=weight,
+                    )
+            # Formatting
+            ax.set_yticks(labels_index, labels_unique, weight="bold", color="#3D3D3D")
+            ax.set_xlim(0, 1)
+            ax.set_xlabel(metric)
+            # Title
+            fig.suptitle(
+                f"{metric} comparison across LLM models "
+                f"(test samples: {total_annotations})",
+                fontsize=18,
+                fontweight="bold",
+                color="#3D3D3D",
+                y=0.92,
+            )
+            ax.set_title(
+                f"Framework: {framework}",
+                fontsize=12,
+                color="gray",
+                loc="left",
+                pad=2,
+            )
+            # Clean spines
+            ax.spines["right"].set_visible(False)
+            ax.spines["top"].set_visible(False)
+            # Saving the plot into png file
+            fw_dir = out_dir / framework
+            os.makedirs(fw_dir, exist_ok=True)
+            plt.savefig(fw_dir / f"{metric}_comparaison_llm_models.png")
+
+            # Show the plot
+            plt.show()
+            plt.close()
+
+
+def make_plot_compare_scores_gliner_models(
+    df: pd.DataFrame, out_dir: Path = Path("../../plots/evaluation/gliner")
+) -> None:
     """
     Plot multiple *_score metrics for multiple models using horizontal bars.
 
@@ -327,11 +464,10 @@ def make_plot_compare_scores_models(df: pd.DataFrame) -> None:
         ax.spines["right"].set_visible(False)
         ax.spines["top"].set_visible(False)
         # Saving the plot into png file
-        output_path = (
-            f"../../plots/evaluation/gliner/{score}_comparaison_gliner_models.png"
-        )
+        output_path = out_dir / f"{score}_comparaison_gliner_models.png"
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         plt.savefig(output_path, dpi=300)
+        # Show the plot
         plt.show()
         plt.close()
 
