@@ -107,3 +107,7 @@ annotations/v3/zenodo_6791876.json
 annotations/v3/zenodo_2645909.json
 annotations/v3/zenodo_5497661.json
 annotations/v3/zenodo_573274.json
+annotations/v3/figshare_4508975.json
+annotations/v3/figshare_5051593.json
+annotations/v3/figshare_3556404.json
+annotations/v3/figshare_2587978.json

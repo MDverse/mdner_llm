@@ -1,0 +1,80 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "P3HT and PCBM atomistic force fields\nGROMOS 53A6 based atomistic force field for the conjugated polymer P3HT, the fullerene derivative PCBM and chlorobenzene.The provided files are in GROMACS format (see GROMACS manual and tutorial in case of need). A pre-equilibrated system containing a P3HT chain (24 repeat units) and a PCBM molecule solvated in chlorobenzene is provided. The associated top(ology) file (and files included therein) is provided, along with run parameter files for an energy minimization (em.mdp), NVT equilibration (shortNVT.mdp), NPT equilibration (shortNPT.mdp), and production run (prodNPT.mdp).NOTE! The archive \"p3ht_gromos_v_2017RA-JACS.ff.zip\" needs to be unzipped first (command: unzip p3ht_gromos_v_2017RA-JACS.ff.zip). For details on the atomistic force fields, see the associated publication (and please cite it if you find the files useful for your work):Bulk Heterojunction Morphologies with Atomistic Resolution from Coarse-Grain Solvent Evaporation SimulationsRiccardo Alessandri, Jaakko J. Uusitalo, Alex H. de Vries, Remco W. A. Havenith, and Siewert J. MarrinkJ. Am. Chem. Soc., 2017, 139 (10), pp 3697–3705",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "P3HT",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "label": "MOL",
+            "text": "PCBM",
+            "start": 9,
+            "end": 13
+        },
+        {
+            "label": "FFM",
+            "text": "GROMOS 53A6",
+            "start": 37,
+            "end": 48
+        },
+        {
+            "label": "MOL",
+            "text": "P3HT",
+            "start": 104,
+            "end": 108
+        },
+        {
+            "label": "MOL",
+            "text": "PCBM",
+            "start": 135,
+            "end": 139
+        },
+        {
+            "label": "MOL",
+            "text": "chlorobenzene",
+            "start": 144,
+            "end": 157
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 184,
+            "end": 191
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 204,
+            "end": 211
+        },
+        {
+            "label": "MOL",
+            "text": "P3HT",
+            "start": 289,
+            "end": 293
+        },
+        {
+            "label": "MOL",
+            "text": "PCBM",
+            "start": 324,
+            "end": 328
+        },
+        {
+            "label": "MOL",
+            "text": "chlorobenzene",
+            "start": 350,
+            "end": 363
+        }
+    ],
+    "url": "https://figshare.com/articles/dataset/P3HT_and_PCBM_atomistic_force_fields/5051593"
+}

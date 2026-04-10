@@ -1,0 +1,62 @@
+{
+    "classes": [
+        "SOFTNAME",
+        "SOFTVERS",
+        "STIME",
+        "MOL",
+        "FFM",
+        "TEMP"
+    ],
+    "raw_text": "Development of Force Field Parameters for Molecular Simulation of Polylactide\nPolylactide is a biodegradable polymer that is widely used for biomedical applications, and it is a replacement for some petroleum-based polymers in applications that range from packaging to carpeting. Efforts to characterize and further enhance polylactide-based systems using molecular simulations have to this point been hindered by the lack of accurate atomistic models for the polymer. Thus, we present force field parameters specifically suited for molecular modeling of PLA. The model, which we refer to as PLAFF3, is based on a combination of the OPLS and CHARMM force fields, with modifications to bonded and nonbonded parameters. Dihedral angle parameters were adjusted to reproduce DFT data using newly developed CMAP dihedral cross terms, and the model was further adjusted to reproduce experimentally resolved crystal structure conformations, melt density, volume expansivity, and the glass transition temperature of PLA. We recommend the use of PLAFF3 in modeling PLA in its crystalline or amorphous states and have provided the necessary input files required for the publicly available molecular dynamics code GROMACS.",
+    "entities": [
+        {
+            "label": "MOL",
+            "text": "Polylactide",
+            "start": 66,
+            "end": 77
+        },
+        {
+            "label": "MOL",
+            "text": "Polylactide",
+            "start": 78,
+            "end": 89
+        },
+        {
+            "label": "MOL",
+            "text": "PLA",
+            "start": 555,
+            "end": 558
+        },
+        {
+            "label": "FFM",
+            "text": "OPLS",
+            "start": 633,
+            "end": 637
+        },
+        {
+            "label": "FFM",
+            "text": "CHARMM",
+            "start": 642,
+            "end": 648
+        },
+        {
+            "label": "MOL",
+            "text": "PLA",
+            "start": 1008,
+            "end": 1011
+        },
+        {
+            "label": "MOL",
+            "text": "PLA",
+            "start": 1056,
+            "end": 1059
+        },
+        {
+            "label": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1203,
+            "end": 1210
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Development_of_Force_Field_Parameters_for_Molecular_Simulation_of_Polylactide/2587978"
+}
