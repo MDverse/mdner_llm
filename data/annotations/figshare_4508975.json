@@ -3,18 +3,6 @@
   "entities": [
     {
       "category": "MOL",
-      "text": "DNA",
-      "start": 34,
-      "end": 37
-    },
-    {
-      "category": "MOL",
-      "text": "B-DNA",
-      "start": 61,
-      "end": 66
-    },
-    {
-      "category": "MOL",
       "text": "5'-CGATTTTTTGGC-3'",
       "start": 108,
       "end": 126
@@ -32,12 +20,6 @@
       "end": 290
     },
     {
-      "category": "MOL",
-      "text": "DNA",
-      "start": 474,
-      "end": 477
-    },
-    {
       "category": "FFM",
       "text": "AMBER03",
       "start": 503,
@@ -51,8 +33,8 @@
     },
     {
       "category": "STIME",
-      "text": "5 200ns",
-      "start": 631,
+      "text": "200ns",
+      "start": 633,
       "end": 638
     },
     {
