@@ -100,7 +100,7 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 Perform quality control on manually annotated entities:
 
 ```sh
-uv run ...XXXX
+uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --out-path data/entities.tsv
 ```
 
 Make the inventory of all entities:
@@ -117,7 +117,7 @@ $ uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --o
 2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
 ```
 
-A list of entities per category can be found in `notebooks/review/explore_entities_from_inventory.ipynb`
+A list of entities per category can be found in [notebooks/review/explore_entities_from_inventory.ipynb](notebooks/review/explore_entities_from_inventory.ipynb).
 
 ## Usage
 
