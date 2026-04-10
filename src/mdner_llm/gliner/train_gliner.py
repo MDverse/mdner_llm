@@ -19,8 +19,8 @@ from matplotlib import pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from pydantic import ValidationError
 
-from mdner_llm.core.logger import create_logger
 from mdner_llm.gliner.training_models import GLiNERConfig
+from mdner_llm.utils.common import create_logger
 
 
 def load_config(

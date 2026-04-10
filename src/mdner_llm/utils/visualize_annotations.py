@@ -5,9 +5,9 @@ from pathlib import Path
 from typing import Any
 
 from loguru import logger
+from mdner_llm.core.logger import create_logger
 from spacy import displacy
 
-from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 
@@ -47,7 +47,7 @@ def _convert_annotations_to_displacy(
         {
             "start": item["start"],
             "end": item["end"],
-            "label": item["label"],
+            "label": item["category"],
         }
         for item in json_data["entities"]
     ]
