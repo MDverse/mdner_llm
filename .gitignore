@@ -199,8 +199,6 @@ results/*
 plots/*
 data/gliner/*
 
-# Exclude specific folders
-!results/qc_annotations/
 
 # Ignore common data files
 *.parquet
