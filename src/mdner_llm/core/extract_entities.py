@@ -25,6 +25,7 @@ from instructor.core.exceptions import ModeError, ProviderError
 from instructor.core.exceptions import ValidationError as InstructorValidationError
 from llama_index.llms.openai import OpenAI as llamaOpenAI
 from llama_index.llms.openrouter import OpenRouter
+from openai import APIConnectionError, APIError, OpenAI, RateLimitError
 from openai.types.chat import ChatCompletion
 from pydantic import ValidationError as PydanticValidationError
 from pydantic_ai import Agent
@@ -33,10 +34,10 @@ from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_core import ValidationError as CoreValidationError
 
-from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 from mdner_llm.utils.common import (
+    create_logger,
     ensure_dir,
     load_api_key,
     sanitize_filename,
@@ -100,7 +101,8 @@ def load_text_and_metadata(
     if prompt_tag == "json":
         # Remove positional information from entities
         normalized = [
-            {"label": ent.get("label"), "text": ent.get("text")} for ent in entities
+            {"category": ent.get("category"), "text": ent.get("text")}
+            for ent in entities
         ]
         # Create a ListOfEntities object for the ground truth
         groundtruth = ListOfEntities(entities=normalized)
@@ -152,6 +154,88 @@ def load_prompt(prompt_file: Path, logger: "loguru.Logger" = loguru.logger) -> s
     return prompt
 
 
+def annotate_without_framework(
+    text: str,
+    model: str,
+    api_key: str | None,
+    prompt: str,
+    logger: "loguru.Logger" = loguru.logger,
+) -> tuple[ChatCompletion | str, float | int, dict[str, float | int]]:
+    """
+    Annotate a text without applying any validation framework.
+
+    Parameters
+    ----------
+    text : str
+        Input text to annotate.
+    model : str
+        Identifier of the LLM model to use.
+    api_key : str | None
+        API key used to authenticate requests to OpenRouter
+        (typically provided via the ``OPENROUTER_API_KEY`` environment variable).
+    prompt : str
+        Instruction prompt provided to the model.
+    logger : loguru.Logger, optional
+        Logger for logging messages, by default loguru.logger
+
+    Returns
+    -------
+    ChatCompletion | str
+        Raw annotation result returned by the LLM.
+    float | int:
+        The time elapsed for the inference.
+    dict[str, float | int]:
+        A dictionary containing cost usage and token counts.
+    """
+    # Instantiate an OpenAI client for the requested model
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=api_key,
+    )
+    try:
+        # Query the LLM and time the inference
+        start_time = time.perf_counter()
+        llm_response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Extract entities as structured JSON.",
+                },
+                {
+                    "role": "user",
+                    "content": f"{prompt}\n{text}",
+                },
+            ],
+        )
+    # Handle common OpenAI API exceptions
+    except RateLimitError as exc:
+        logger.warning(f"Rate limit exceeded: {exc}")
+        return (
+            None,
+            0,
+            0,
+            {"cost": 0, "input_tokens": 0, "output_tokens": 0},
+        )
+
+    except APIConnectionError as exc:
+        logger.warning(f"Connection error: {exc}")
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
+
+    except APIError as exc:
+        logger.warning(f"API error: {exc}")
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
+    else:
+        # Only executes if no exception was raised
+        elapsed_time = time.perf_counter() - start_time
+        usage = {
+            "cost": llm_response.usage.cost_details["upstream_inference_cost"],
+            "input_tokens": llm_response.usage.prompt_tokens,
+            "output_tokens": llm_response.usage.completion_tokens,
+        }
+        return llm_response, elapsed_time, usage
+
+
 def annotate_with_instructor(
     text: str,
     model: str,
@@ -161,7 +245,9 @@ def annotate_with_instructor(
     max_retries: int = 3,
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[
-    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
+    float | int,
+    dict[str, float | int],
 ]:
     """
     Annotate a text using the Instructor framework.
@@ -190,6 +276,8 @@ def annotate_with_instructor(
         whether validation is enabled and on the chosen response model.
     float | int:
         The time elapsed for the inference.
+    dict[str, float | int]:
+        A dictionary containing cost usage and token counts.
     """
     # Instantiate an Instructor client for the requested model.
     model_entry_point = (
@@ -205,8 +293,8 @@ def annotate_with_instructor(
 
     try:
         # Query the LLM
-        start_time = time.time()
-        llm_response = client.create(
+        start_time = time.perf_counter()
+        llm_response, completion = client.create_with_completion(
             messages=[
                 {
                     "role": "system",
@@ -217,7 +305,7 @@ def annotate_with_instructor(
                     "content": f"{prompt}\n{text}",
                 },
             ],
-            # The response is optionally validated against the provided Pydantic model.
+            # The response is validated against the provided Pydantic model.
             response_model=response_model,
             max_retries=max_retries,
         )
@@ -225,23 +313,28 @@ def annotate_with_instructor(
     except InstructorValidationError as exc:
         # Raised when the LLM output does not conform to the expected schema.
         logger.warning(f"Validation failed: {exc}")
-        return None, 0
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
 
     except InstructorRetryException as exc:
         # Raised when all retry attempts fail.
         logger.warning(f"Failed after {exc.n_attempts} attempts")
         logger.warning(f"Last completion: {exc.last_completion}")
-        return None, 0
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
 
     except (ProviderError, ModeError) as exc:
         # Catch-all for provider-level, mode-related, or parsing errors.
         logger.warning(f"Instructor error: {exc}")
-        return None, 0
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
 
     else:
         # Only executes if no exception was raised
-        elapsed_time: int | float = time.time() - start_time
-        return llm_response, elapsed_time
+        elapsed_time = time.perf_counter() - start_time
+        usage = {
+            "cost": completion.usage.cost_details["upstream_inference_cost"],
+            "input_tokens": completion.usage.prompt_tokens,
+            "output_tokens": completion.usage.completion_tokens,
+        }
+        return llm_response, elapsed_time, usage
 
 
 def annotate_with_llamaindex(
@@ -307,13 +400,13 @@ def annotate_with_llamaindex(
         else:
             # Only executes if no exception was raised
             elapsed_time: int | float = time.time() - start_time
-            return llm_response, elapsed_time
+            return llm_response, elapsed_time, None
 
     # Raw LLM response
     start_time = time.time()
     raw_response = base_llm.complete(f"{prompt}\n{text}").text
     elapsed = time.time() - start_time
-    return raw_response, elapsed
+    return raw_response, elapsed, None
 
 
 def annotate_with_pydanticai(
@@ -325,7 +418,9 @@ def annotate_with_pydanticai(
     max_retries: int = 3,
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[
-    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
+    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
+    float | int,
+    dict[str, float | int],
 ]:
     """
     Annotate a text using the PydanticAI framework.
@@ -354,13 +449,15 @@ def annotate_with_pydanticai(
         whether validation is enabled and on the chosen response model.
     float | int:
         The time elapsed for the inference.
+    dict[str, float | int]:
+        A dictionary containing cost usage and token counts.
     """
     # Instantiate an PydanticAI client for the requested model
     client = OpenAIChatModel(model, provider=OpenRouterProvider(api_key=api_key))
 
     try:
         # Query the LLM
-        start_time = time.time()
+        start_time = time.perf_counter()
         agent = Agent(
             model=client,
             output_type=response_model,
@@ -368,23 +465,97 @@ def annotate_with_pydanticai(
             system_prompt=("Extract entities as structured JSON."),
         )
         llm_response = agent.run_sync(f"{prompt}\n{text}").output
-        elapsed_time: int | float = time.time() - start_time
+        elapsed_time = time.perf_counter() - start_time
 
     except PydanticValidationError as e:
         logger.error(f"Pydantic validation error: {e}")
-        return None, 0
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
 
     except CoreValidationError as e:
         logger.error(f"Core validation error: {e}")
-        return None, 0
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
 
     except UnexpectedModelBehavior as e:
         logger.error(f"Unexpected model behavior: {e}")
-        return None, 0
+        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
     else:
         # Only executes if no exception was raised
         elapsed_time: int | float = time.time() - start_time
-        return llm_response, elapsed_time
+        return (
+            llm_response,
+            elapsed_time,
+            {"cost": 0, "input_tokens": 0, "output_tokens": 0},
+        )
+
+
+def extract_content(raw: ChatCompletion) -> str | None:
+    """
+    Extract message content from a ChatCompletion-like object.
+
+    Parameters
+    ----------
+    raw : ChatCompletion
+        The raw output from the LLM, expected to be a ChatCompletion object
+        containing a list of choices, where each choice has a message with content.
+
+    Returns
+    -------
+    str | None
+        The content string extracted from the first choice's message, or None if
+        the expected structure is not present (e.g., in tool-call scenarios).
+
+    Raises
+    ------
+    ValueError
+        If the expected structure is not present.
+    """
+    if hasattr(raw, "choices"):
+        choices = getattr(raw, "choices", None)
+        if not choices:
+            msg = "ChatCompletion has no choices"
+            raise ValueError(msg)
+        first_choice = choices[0]
+        message = getattr(first_choice, "message", None)
+        if message is None:
+            msg = "Missing message in first choice"
+            raise ValueError(msg)
+
+        return getattr(message, "content", None)
+
+    return raw
+
+
+def normalize_llm_output(
+    raw: ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None,
+) -> str | ListOfEntities | ListOfEntitiesPositions | None:
+    """
+    Normalize heterogeneous LLM outputs into a consistent format.
+
+    Rules
+    -----
+    - If input is a Pydantic model (e.g. ListOfEntities), return as-is.
+    - If input is a ChatCompletion, extract message.content.
+    - If input is already dict, return as-is.
+    - Otherwise return input unchanged.
+
+    Parameters
+    ----------
+    raw : ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None
+        The raw output from the LLM, which can be in various formats depending on
+        the framework used.
+
+    Returns
+    -------
+    str | ListOfEntities | ListOfEntitiesPositions
+        If the input was a ChatCompletion, returns the content string.
+        For the other types, returns the input as-is
+        (which could be a Pydantic model or a raw string).
+    """
+    # OpenAI ChatCompletion object
+    if hasattr(raw, "choices"):
+        return extract_content(raw)
+    else:
+        return raw
 
 
 def save_json_output(
@@ -530,17 +701,20 @@ def extract_entities(
             response_model = ListOfEntities
         else:
             response_model = ListOfEntitiesPositions
-    else:
-        response_model = None
-        max_retries = 0
     # Retrieve the openrouter api key
     api_key = load_api_key("OPENROUTER_API_KEY")
     # Run annotation and time it
-    if framework in {"instructor", "none"}:
-        if framework == "none":
-            response_model = None
-            max_retries = 0
-        llm_response, inference_time = annotate_with_instructor(
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%d_T%H-%M-%S")
+    if framework == "none":
+        raw_llm_response, inference_time, usage = annotate_without_framework(
+            text_to_annotate,
+            model,
+            api_key,
+            prompt,
+            logger,
+        )
+    if framework == "instructor":
+        raw_llm_response, inference_time, usage = annotate_with_instructor(
             text_to_annotate,
             model,
             api_key,
@@ -550,11 +724,11 @@ def extract_entities(
             logger,
         )
     elif framework == "llamaindex":
-        llm_response, inference_time = annotate_with_llamaindex(
+        raw_llm_response, inference_time, usage = annotate_with_llamaindex(
             text_to_annotate, model, api_key, prompt, response_model, logger=logger
         )
     elif framework == "pydanticai":
-        llm_response, inference_time = annotate_with_pydanticai(
+        raw_llm_response, inference_time, usage = annotate_with_pydanticai(
             text_to_annotate,
             model,
             api_key,
@@ -563,23 +737,24 @@ def extract_entities(
             max_retries,
             logger=logger,
         )
-    if llm_response is None:
-        logger.warning(
-            f"LLM did not return a response for text '{text_path.name}'. "
-            "Skipping saving of annotation results."
-        )
-        return
+    # Normalize the LLM output to extract the content string if it's a ChatCompletion,
+    llm_response = normalize_llm_output(raw_llm_response)
+    llm_response_str = serialize_response(llm_response)
+    if raw_llm_response is None:
+        logger.warning(f"LLM did not return a response for text '{text_path.name}'.")
     else:
-        logger.debug(f"LLM response: {serialize_response(llm_response)}")
+        logger.debug(f"LLM response: {llm_response}")
         logger.debug(f"Inference time: {inference_time:.2f} seconds")
+        logger.debug(f"Input tokens: {usage['input_tokens']}")
+        logger.debug(f"Output tokens: {usage['output_tokens']}")
+        logger.debug(f"Cost usage: {usage['cost']:.2f} $")
     # Prepare output paths
-    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
     model_safe = sanitize_filename(model)
     base_name = f"{text_path.stem}_{model_safe}_{framework}_{timestamp}"
     json_output_path = output_dir / f"{base_name}.json"
     txt_output_path = output_dir / f"{base_name}.txt"
     # Save JSON metadata + response
-    json_data = {
+    response_metadata = {
         "timestamp": timestamp,
         "json_path": str(text_path),
         "text": serialize_response(text_to_annotate),
@@ -589,13 +764,17 @@ def extract_entities(
         "prompt_path": str(prompt_file),
         "prompt_tag": prompt_tag,
         "groundtruth": serialize_response(groundtruth),
-        "raw_llm_response": serialize_response(llm_response),
+        "raw_llm_response": serialize_response(raw_llm_response),
+        "llm_response": llm_response_str,
         "inference_time_sec": inference_time,
+        "input_tokens": usage["input_tokens"],
+        "output_tokens": usage["output_tokens"],
+        "inference_cost_usd": usage["cost"],
         "response_file": str(txt_output_path),
     }
-    save_json_output(json_output_path, json_data, logger)
-    # Save raw model response
-    save_txt_output(txt_output_path, serialize_response(llm_response), logger)
+    save_json_output(json_output_path, response_metadata, logger)
+    # Save parsed response in a txt file
+    save_txt_output(txt_output_path, llm_response_str, logger)
 
 
 @click.command()
