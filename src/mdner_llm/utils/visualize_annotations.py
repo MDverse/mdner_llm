@@ -5,11 +5,11 @@ from pathlib import Path
 from typing import Any
 
 from loguru import logger
-from mdner_llm.core.logger import create_logger
 from spacy import displacy
 
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
+from mdner_llm.utils.logger import create_logger
 
 COLORS = {
     "TEMP": "#ffb3ba",
