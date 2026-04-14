@@ -51,7 +51,6 @@ def _convert_annotations_to_displacy(
         }
         for item in json_data["entities"]
     ]
-
     # Return displaCy input structure
     return [{"text": json_data["raw_text"], "ents": ents}]
 
@@ -80,7 +79,6 @@ def visualize_annotations_from_json_file(file_path: Path) -> None:
     displacy.render(
         converted_data, style="ent", manual=True, options={"colors": COLORS}
     )
-
     print()
 
 
