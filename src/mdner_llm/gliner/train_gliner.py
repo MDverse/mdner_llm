@@ -19,8 +19,8 @@ from matplotlib import pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from pydantic import ValidationError
 
-from mdner_llm.core.logger import create_logger
 from mdner_llm.gliner.training_models import GLiNERConfig
+from mdner_llm.utils.logger import create_logger
 
 
 def load_config(
@@ -94,9 +94,9 @@ def filter_entity_descriptions(
     Parameters
     ----------
     entities : dict[str, list[str]]
-        Dictionary of entity labels and their corresponding values in the dataset.
+        Dictionary of entity categories and their corresponding values in the dataset.
     descriptions : dict[str, str] | None
-        Optional dictionary mapping entity labels to their descriptions.
+        Optional dictionary mapping entity categories to their descriptions.
         If None, no filtering is applied and an empty dictionary is returned.
 
     Returns
@@ -120,7 +120,7 @@ def build_example(
     annotation_path : Path
         Path to the JSON annotation file containing raw text and entity annotations.
     entity_descriptions : dict[str, str] | None
-        Optional dictionary mapping entity labels to their descriptions.
+        Optional dictionary mapping entity categories to their descriptions.
 
     Returns
     -------
@@ -138,18 +138,19 @@ def build_example(
     # Format entities into the structure expected by InputExample
     formatted_entities = {}
     for ent in raw_entities:
-        label = ent["label"]
+        category = ent["category"]
         value = ent["text"]
-        formatted_entities.setdefault(label, [])
-        if value not in formatted_entities[label]:
-            formatted_entities[label].append(value)
+        formatted_entities.setdefault(category, [])
+        if value not in formatted_entities[category]:
+            formatted_entities[category].append(value)
     # Create an InputExample
     example = InputExample(
         # with the raw text
         text=raw_text,
-        # the formatted entities (label -> list of values)
+        # the formatted entities (category -> list of values)
         entities=formatted_entities,
-        # and the filtered entity descriptions (only for labels present in the dataset)
+        # and the filtered entity descriptions
+        # (only for categories present in the dataset)
         entity_descriptions=filter_entity_descriptions(
             formatted_entities, entity_descriptions
         ),
@@ -171,7 +172,7 @@ def build_train_dataset(
     annotation_paths_file : Path
         Path to a text file containing paths to annotation JSON files (one per line).
     entity_descriptions : dict[str, str] | None
-        Optional mapping from label to description.
+        Optional mapping from category to description.
 
     Returns
     -------
@@ -212,12 +213,12 @@ def build_train_dataset(
                 logger.info(f"URL: {url}")
             logger.info(f"Text: {example.text.replace('\n', ' ')[:70]}...")
             logger.info("Entities:")
-            for label, values in example.entities.items():
-                logger.info(f"  {label}: {values}")
+            for category, values in example.entities.items():
+                logger.info(f"  {category}: {values}")
             if entity_descriptions:
                 logger.info("Entity Descriptions:")
-                for label, desc in entity_descriptions.items():
-                    logger.info(f"  {label}: {desc}")
+                for category, desc in entity_descriptions.items():
+                    logger.info(f"  {category}: {desc}")
     # Instantiate TrainingDataset with the list of InputExample objects
     dataset = TrainingDataset(train_examples)
     log_dataset_stats(dataset, logger)
@@ -603,7 +604,7 @@ def save_plot_training_curves(
         ax.annotate(
             f"min={min_train_loss:.3f}\nepoch={min_train_epoch}",
             xy=(min_train_epoch, min_train_loss),
-            xytext=(min_train_epoch + 0.2, min_train_loss * 5),
+            xytext=(min_train_epoch + 0.4, min_train_loss * 3),
             textcoords="data",
             arrowprops={"arrowstyle": "->", "linewidth": 1, "color": "blue"},
             fontsize=9,

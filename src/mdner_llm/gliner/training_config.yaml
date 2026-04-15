@@ -1,12 +1,12 @@
 model:
-  name: "fastino/gliner2-base-v1"
-  experiment_name: "gliner2-finetuned-small"
+  name: "fastino/gliner2-large-v1"
+  experiment_name: "gliner2-large-v1-finetuned"
   output_dir: "results/gliner/models"
   chunk_size: 512
   overlap: 64
 
 data:
-  annotation_paths: "results/selected_md_dataset_description_paths.txt"
+  annotation_paths: "data/groundtruth_paths.txt"
   train_ratio: 0.6
   train_data_path: "data/gliner/train.jsonl"
   val_ratio: 0.2
@@ -27,7 +27,7 @@ entities:
 training:
   # Training schedule
   num_epochs: 30
-  batch_size: 4
+  batch_size: 2
   max_steps: -1
   gradient_accumulation_steps: 8
 

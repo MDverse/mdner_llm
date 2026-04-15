@@ -7,9 +7,9 @@ from typing import Any
 from loguru import logger
 from spacy import displacy
 
-from mdner_llm.core.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
+from mdner_llm.utils.logger import create_logger
 
 COLORS = {
     "TEMP": "#ffb3ba",
@@ -47,11 +47,10 @@ def _convert_annotations_to_displacy(
         {
             "start": item["start"],
             "end": item["end"],
-            "label": item["label"],
+            "label": item["category"],
         }
         for item in json_data["entities"]
     ]
-
     # Return displaCy input structure
     return [{"text": json_data["raw_text"], "ents": ents}]
 
@@ -80,7 +79,6 @@ def visualize_annotations_from_json_file(file_path: Path) -> None:
     displacy.render(
         converted_data, style="ent", manual=True, options={"colors": COLORS}
     )
-
     print()
 
 

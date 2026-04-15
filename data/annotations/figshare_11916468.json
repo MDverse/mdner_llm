@@ -1,0 +1,102 @@
+{
+    "raw_text": "Influence of Organic Structure-Directing Agents on Fluoride Dynamics in As-Synthesized Silicalite‑1\nSilicalite-1, an all-silica zeolite having the MFI topology, can be synthesized in the presence of fluoride ions, which balance the charge of the cationic organic structure-directing agents (OSDAs; such as tetrapropylammonium). In as-synthesized Silicalite-1, the fluoride anions occupy well-defined positions in the 41·52·62 cages where they are covalently bonded to framework Si atoms. Previous experimental studies showed that the fluoride anions are dynamically disordered at room temperature. The dynamic disorder can be suppressed by cooling to cryogenic temperatures and also through a variation of the OSDA, pointing to an interplay between framework and extra framework dynamics. In the present work, ab initio molecular dynamics (AIMD) simulations in the framework of density functional theory (DFT) were employed to study the influence of the OSDA on the fluoride dynamics, comparing a total of eight alkylammonium OSDAs having either four alkyl chains of equal length (symmetric) or one short and three longer chains (asymmetric). In addition to time-averaged quantities, such as atomic root mean square displacements, the number of dynamic events in which fluoride ions “jump” from one Si atom to a neighboring one was analyzed. While the timescale accessible to the AIMD simulations was found to be too short to observe significant fluoride dynamic disorder at room temperature, it was clearly detectable when increasing the temperature to 373 K. For systems incorporating symmetric OSDAs, increasing the OSDA size correlated with decreasing freedom of motion of the framework atoms. In line with previous experimental findings, a drastic reduction of the fluoride dynamic disorder was observed for systems containing tributylammonium-based OSDAs having one short (methyl or ethyl) chain. Besides reproducing the experimental observations, the computational approach also helped to explain this suppression of the dynamic disorder on the basis of the size and shape of the OSDA.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Silicalite‑1",
+            "start": 87,
+            "end": 99
+        },
+        {
+            "category": "MOL",
+            "text": "Silicalite-1",
+            "start": 100,
+            "end": 112
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 199,
+            "end": 207
+        },
+        {
+            "category": "MOL",
+            "text": "tetrapropylammonium",
+            "start": 306,
+            "end": 325
+        },
+        {
+            "category": "MOL",
+            "text": "Silicalite-1",
+            "start": 346,
+            "end": 358
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 364,
+            "end": 372
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 534,
+            "end": 542
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 966,
+            "end": 974
+        },
+        {
+            "category": "MOL",
+            "text": "alkylammonium",
+            "start": 1012,
+            "end": 1025
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 1269,
+            "end": 1277
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 1446,
+            "end": 1454
+        },
+        {
+            "category": "TEMP",
+            "text": "373 K",
+            "start": 1554,
+            "end": 1559
+        },
+        {
+            "category": "MOL",
+            "text": "fluoride",
+            "start": 1770,
+            "end": 1778
+        },
+        {
+            "category": "MOL",
+            "text": "tributylammonium",
+            "start": 1832,
+            "end": 1848
+        },
+        {
+            "category": "MOL",
+            "text": "methyl",
+            "start": 1879,
+            "end": 1885
+        },
+        {
+            "category": "MOL",
+            "text": "ethyl",
+            "start": 1889,
+            "end": 1894
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Influence_of_Organic_Structure-Directing_Agents_on_Fluoride_Dynamics_in_As-Synthesized_Silicalite_1/11916468"
+}

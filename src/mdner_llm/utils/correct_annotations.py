@@ -34,7 +34,7 @@ def remove_entity_annotation_file(
     for ent in data["entities"]:
         keep = True
         for label, text, idx in entities_to_remove:
-            if ent["label"] == label and ent["text"] == text:
+            if ent["category"] == label and ent["text"] == text:
                 if idx is None:
                     keep = False  # Remove all occurrences
                     break
@@ -44,7 +44,7 @@ def remove_entity_annotation_file(
                     matches = [
                         e
                         for e in data["entities"]
-                        if e["label"] == label and e["text"] == text
+                        if e["category"] == label and e["text"] == text
                     ]
                     if matches.index(ent) == idx:
                         keep = False
@@ -134,12 +134,12 @@ def add_entity_annotation_file(
 
     raw_text = data["raw_text"]
 
-    for label, text in new_entities:
+    for category, text in new_entities:
         positions = find_entity_positions(raw_text, text)
 
         for start, end in positions:
             entity_dict = {
-                "label": label,
+                "category": category,
                 "text": text,
                 "start": start,
                 "end": end,

@@ -1,0 +1,168 @@
+{
+    "raw_text": "Molecular Insights into the Loading and Dynamics of Doxorubicin on PEGylated Graphene Oxide Nanocarriers\nMolecular dynamics (MD) simulations were performed to investigate the loading and dynamics of doxorubicin (DOX) anticancer drug on graphene oxide (GO) and poly­(ethylene glycol) (PEG) decorated GO (PEGGO) nanocarriers in an aqueous environment at human body temperature (310 K) and physiological pH level of 7.4. Mechanisms of DOX adsorption on PEGGO as a function of PEG chain length were revealed. Although the total DOX-nanocarrier interaction energy was the same for the DOX/GO (control), DOX/Sh-PEGGO (short PEG chains consisting of 15 repeat units), and DOX/L-PEGGO (long PEG chains consisting of 30 repeat units) within the margin of error, the PEG-DOX interactions increased with an increase in the PEG chain length. At the same time, the PEG-DOX solvent-accessible contact area almost doubled going from the short to long PEG chains. PEGylation of the GO effectively causes an increase in the average water density around the nanocarrier, which can act as a barrier, leading to the DOX migration to the solvated PEG-free part of the GO surface. This effect is more pronounced for shorter PEG chains. The DOX-DOX solvent-accessible contact area is smaller in the DOX/GO system, which means the drug molecules are less aggregated in this system. However, the level of DOX aggregation is slightly higher for the PEGGO systems. The computational results in this work shed light on the fact that increasing the PEG chain length benefits DOX loading on the nanocarrier, revealing an observation that is difficult to acertain through experiments. Moreover, a detailed picture is provided for the DOX adsorption and retention in PEGGO drug delivery systems, which would enable the researchers to improve the drug’s circulation time, as well as its delivery and targeting efficiency.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "doxorubicin",
+            "start": 199,
+            "end": 210
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 212,
+            "end": 215
+        },
+        {
+            "category": "MOL",
+            "text": "graphene oxide",
+            "start": 236,
+            "end": 250
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 252,
+            "end": 254
+        },
+        {
+            "category": "MOL",
+            "text": "poly­(ethylene glycol)",
+            "start": 260,
+            "end": 282
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 284,
+            "end": 287
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 299,
+            "end": 301
+        },
+        {
+            "category": "TEMP",
+            "text": "human body temperature",
+            "start": 352,
+            "end": 374
+        },
+        {
+            "category": "TEMP",
+            "text": "310 K",
+            "start": 376,
+            "end": 381
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 432,
+            "end": 435
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 473,
+            "end": 476
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 580,
+            "end": 583
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 584,
+            "end": 586
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 618,
+            "end": 621
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 683,
+            "end": 686
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 812,
+            "end": 815
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 936,
+            "end": 939
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 966,
+            "end": 968
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1096,
+            "end": 1099
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 1147,
+            "end": 1149
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 1202,
+            "end": 1205
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1276,
+            "end": 1279
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 1280,
+            "end": 1282
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1380,
+            "end": 1383
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 1520,
+            "end": 1523
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1546,
+            "end": 1549
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1703,
+            "end": 1706
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Molecular_Insights_into_the_Loading_and_Dynamics_of_Doxorubicin_on_PEGylated_Graphene_Oxide_Nanocarriers/11894358"
+}

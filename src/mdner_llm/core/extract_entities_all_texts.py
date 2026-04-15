@@ -8,8 +8,8 @@ from pathlib import Path
 import click
 
 from mdner_llm.core.extract_entities import extract_entities
-from mdner_llm.core.logger import create_logger
 from mdner_llm.utils.common import (
+    create_logger,
     ensure_dir,
     list_json_files_from_txt,
     sanitize_filename,
@@ -74,7 +74,7 @@ def main(
     max_retries: int,
 ) -> None:
     """Run entity extraction on multiple annotation files."""
-    timestamp = time.strftime("%Y-%m-%dT%H:%M:%S")
+    timestamp = time.strftime("%Y-%m-%d_T%H-%M-%S")
     logger = create_logger(
         f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}_{timestamp}.log"
     )
