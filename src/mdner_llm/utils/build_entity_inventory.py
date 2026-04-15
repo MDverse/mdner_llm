@@ -16,8 +16,8 @@ import click
 import pandas as pd
 from loguru import logger
 
-from mdner_llm.core.logger import create_logger
 from mdner_llm.utils.common import list_json_files_from_txt
+from mdner_llm.utils.logger import create_logger
 
 
 def collect_entities(
@@ -56,22 +56,20 @@ def collect_entities(
             continue
 
         for entity in data.get("entities", []):
-            # Extract label and text
-            label = entity.get("label")
+            # Extract category and text
+            category = entity.get("category")
             text = entity.get("text")
-            # Skip if either label or text is missing
-            if not label or not text:
+            # Skip if either category or text is missing
+            if not category or not text:
                 continue
             # Create entity dictionnary
             entity_dict = {
-                "entity" : text.lower(),
-                "category": label,
-                "json_file": Path(json_file).name
+                "entity": text.lower(),
+                "category": category,
+                "json_file": Path(json_file).name,
             }
             entities_list.append(entity_dict)
-    logger.success(
-        f"Collected {len(entities_list)} entities"
-    )
+    logger.success(f"Collected {len(entities_list)} entities")
     return entities_list
 
 
