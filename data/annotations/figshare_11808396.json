@@ -1,54 +1,54 @@
 {
-  "raw_text": "(PART 1 OF 5) 9 molecular dynamics simulations (500ps 3 x 3 replicates) of coronavirus 2019-nCoV protease unrefined crystal structure in complex with 3 different conformations of lopinavir.\nMolecular dynamics simulations (500 ps MD at 310 K) of the unrefined crystal structure by Prof. Yang group from ShanghaiTech of novel coronavirus 2019-nCoV protease Mpro in complex with the ligand lopinavir (see note below). The starting positions of the ligand (LP1, LP2, LP3) derive from docking experiments.The suffixes (a, b, c) on the filenames represent the replicates of the same MD simulation using random initial velocities.The  archives contain also an heatmap representing the protein-ligand  contact frequencies. Green-boxed occurrences in the heatmap represent  hydrogen bond occurrences during the simulation.Note: The refined crystal structure of the protease of our partner Prof. Yang group from ShanghaiTech is oficially released: https://www.rcsb.org/structure/6LU7Part 1 of 5:XHD_LC1aXHD_LC1b+ images of the 3 docked starting positions",
-  "entities": [
-    {
-      "category": "STIME",
-      "text": "500ps",
-      "start": 48,
-      "end": 53
-    },
-    {
-      "category": "MOL",
-      "text": "coronavirus 2019-nCoV protease",
-      "start": 75,
-      "end": 105
-    },
-    {
-      "category": "MOL",
-      "text": "lopinavir",
-      "start": 179,
-      "end": 188
-    },
-    {
-      "category": "STIME",
-      "text": "500 ps",
-      "start": 222,
-      "end": 228
-    },
-    {
-      "category": "TEMP",
-      "text": "310 K",
-      "start": 235,
-      "end": 240
-    },
-    {
-      "category": "MOL",
-      "text": "coronavirus 2019-nCoV protease",
-      "start": 324,
-      "end": 354
-    },
-    {
-      "category": "MOL",
-      "text": "Mpro",
-      "start": 355,
-      "end": 359
-    },
-    {
-      "category": "MOL",
-      "text": "lopinavir",
-      "start": 387,
-      "end": 396
-    }
-  ],
-  "url": "https://figshare.com/articles/dataset/_PART_1_OF_5_9_molecular_dynamics_simulations_500ps_3_x_3_replicates_of_coronavirus_2019-nCoV_protease_unrefined_crystal_structure_in_complex_with_3_different_conformations_of_lopinavir_/11808396"
+    "raw_text": "(PART 1 OF 5) 9 molecular dynamics simulations (500ps 3 x 3 replicates) of coronavirus 2019-nCoV protease unrefined crystal structure in complex with 3 different conformations of lopinavir.\nMolecular dynamics simulations (500 ps MD at 310 K) of the unrefined crystal structure by Prof. Yang group from ShanghaiTech of novel coronavirus 2019-nCoV protease Mpro in complex with the ligand lopinavir (see note below). The starting positions of the ligand (LP1, LP2, LP3) derive from docking experiments.The suffixes (a, b, c) on the filenames represent the replicates of the same MD simulation using random initial velocities.The  archives contain also an heatmap representing the protein-ligand  contact frequencies. Green-boxed occurrences in the heatmap represent  hydrogen bond occurrences during the simulation.Note: The refined crystal structure of the protease of our partner Prof. Yang group from ShanghaiTech is oficially released: https://www.rcsb.org/structure/6LU7Part 1 of 5:XHD_LC1aXHD_LC1b+ images of the 3 docked starting positions",
+    "entities": [
+        {
+            "category": "STIME",
+            "text": "500ps",
+            "start": 48,
+            "end": 53
+        },
+        {
+            "category": "MOL",
+            "text": "coronavirus 2019-nCoV protease",
+            "start": 75,
+            "end": 105
+        },
+        {
+            "category": "MOL",
+            "text": "lopinavir",
+            "start": 179,
+            "end": 188
+        },
+        {
+            "category": "STIME",
+            "text": "500 ps",
+            "start": 222,
+            "end": 228
+        },
+        {
+            "category": "TEMP",
+            "text": "310 K",
+            "start": 235,
+            "end": 240
+        },
+        {
+            "category": "MOL",
+            "text": "coronavirus 2019-nCoV protease",
+            "start": 324,
+            "end": 354
+        },
+        {
+            "category": "MOL",
+            "text": "Mpro",
+            "start": 355,
+            "end": 359
+        },
+        {
+            "category": "MOL",
+            "text": "lopinavir",
+            "start": 387,
+            "end": 396
+        }
+    ],
+    "url": "https://figshare.com/articles/dataset/_PART_1_OF_5_9_molecular_dynamics_simulations_500ps_3_x_3_replicates_of_coronavirus_2019-nCoV_protease_unrefined_crystal_structure_in_complex_with_3_different_conformations_of_lopinavir_/11808396"
 }

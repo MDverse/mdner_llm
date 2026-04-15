@@ -1,114 +1,114 @@
 {
-  "raw_text": "Molecular dynamics simulations of lipid bilayers containing POPC and POPS (various mixtures) with ECC-lipids force field, and Na+ (K+) counterions\nClassical molecular dynamics simulations of various mixtures of POPC:POPS lipid bilayers in water solution with only Na+ counterions (or with K+ counterions when noted with \"_KCl\" suffix).\nECC-lipids force field parameters used for lipids, SPC/E water model and ECC-ions, all parameters available at https://github.com/jmelcr/ecc_lipids\nsimulations performed with Gromacs 2018.0 (*.xtc files)\nsimulation length 1000 ns = 1 microsecond\ntemperature 298 K\nGromacs simulation setting is in the file npt_lipid_bilayer.mdp",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 60,
-      "end": 64
-    },
-    {
-      "category": "MOL",
-      "text": "POPS",
-      "start": 69,
-      "end": 73
-    },
-    {
-      "category": "FFM",
-      "text": "ECC-lipids",
-      "start": 98,
-      "end": 108
-    },
-    {
-      "category": "MOL",
-      "text": "Na+",
-      "start": 126,
-      "end": 129
-    },
-    {
-      "category": "MOL",
-      "text": "K+",
-      "start": 131,
-      "end": 133
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 211,
-      "end": 215
-    },
-    {
-      "category": "MOL",
-      "text": "POPS",
-      "start": 216,
-      "end": 220
-    },
-    {
-      "category": "MOL",
-      "text": "Na+",
-      "start": 264,
-      "end": 267
-    },
-    {
-      "category": "MOL",
-      "text": "K+",
-      "start": 289,
-      "end": 291
-    },
-    {
-      "category": "FFM",
-      "text": "ECC-lipids",
-      "start": 336,
-      "end": 346
-    },
-    {
-      "category": "FFM",
-      "text": "SPC/E",
-      "start": 387,
-      "end": 392
-    },
-    {
-      "category": "FFM",
-      "text": "ECC-ions",
-      "start": 409,
-      "end": 417
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 511,
-      "end": 518
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "2018.0",
-      "start": 519,
-      "end": 525
-    },
-    {
-      "category": "STIME",
-      "text": "1000 ns",
-      "start": 558,
-      "end": 565
-    },
-    {
-      "category": "STIME",
-      "text": "1 microsecond",
-      "start": 568,
-      "end": 581
-    },
-    {
-      "category": "TEMP",
-      "text": "298 K",
-      "start": 594,
-      "end": 599
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 600,
-      "end": 607
-    }
-  ],
-  "url": "https://zenodo.org/records/1488094"
+    "raw_text": "Molecular dynamics simulations of lipid bilayers containing POPC and POPS (various mixtures) with ECC-lipids force field, and Na+ (K+) counterions\nClassical molecular dynamics simulations of various mixtures of POPC:POPS lipid bilayers in water solution with only Na+ counterions (or with K+ counterions when noted with \"_KCl\" suffix).\nECC-lipids force field parameters used for lipids, SPC/E water model and ECC-ions, all parameters available at https://github.com/jmelcr/ecc_lipids\nsimulations performed with Gromacs 2018.0 (*.xtc files)\nsimulation length 1000 ns = 1 microsecond\ntemperature 298 K\nGromacs simulation setting is in the file npt_lipid_bilayer.mdp",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 60,
+            "end": 64
+        },
+        {
+            "category": "MOL",
+            "text": "POPS",
+            "start": 69,
+            "end": 73
+        },
+        {
+            "category": "FFM",
+            "text": "ECC-lipids",
+            "start": 98,
+            "end": 108
+        },
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 126,
+            "end": 129
+        },
+        {
+            "category": "MOL",
+            "text": "K+",
+            "start": 131,
+            "end": 133
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 211,
+            "end": 215
+        },
+        {
+            "category": "MOL",
+            "text": "POPS",
+            "start": 216,
+            "end": 220
+        },
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 264,
+            "end": 267
+        },
+        {
+            "category": "MOL",
+            "text": "K+",
+            "start": 289,
+            "end": 291
+        },
+        {
+            "category": "FFM",
+            "text": "ECC-lipids",
+            "start": 336,
+            "end": 346
+        },
+        {
+            "category": "FFM",
+            "text": "SPC/E",
+            "start": 387,
+            "end": 392
+        },
+        {
+            "category": "FFM",
+            "text": "ECC-ions",
+            "start": 409,
+            "end": 417
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 511,
+            "end": 518
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2018.0",
+            "start": 519,
+            "end": 525
+        },
+        {
+            "category": "STIME",
+            "text": "1000 ns",
+            "start": 558,
+            "end": 565
+        },
+        {
+            "category": "STIME",
+            "text": "1 microsecond",
+            "start": 568,
+            "end": 581
+        },
+        {
+            "category": "TEMP",
+            "text": "298 K",
+            "start": 594,
+            "end": 599
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 600,
+            "end": 607
+        }
+    ],
+    "url": "https://zenodo.org/records/1488094"
 }

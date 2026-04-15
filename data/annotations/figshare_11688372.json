@@ -1,72 +1,72 @@
 {
-  "raw_text": "AMBER Force Field Parameters for Cobalt-Containing Biological Systems: A Systematic Derivation Study\nIn the present work, the parameterization of a set of cobalt-containing systems has been performed to create a comprehensive library for bonding parameters of biological Co-containing systems. A standard process for the extraction and validation of parameters was employed, which could be used to create force field parameters for the other metal-containing systems. All protein data banks were searched to extract common chemical groups in bonding with cobalt, and finally, 16 structures were designed to represent the binding model of the chemical moieties with cobalt. The Hessian matrix of each structure was computed at the B3LYP/6-311++G­(2d,2p) level of theory and the Seminario method was employed to compute cobalt bond stretching and angle bending parameters. Validation of the derived parameters was performed using structural minimization and molecular dynamics (MD) simulations of four models. Further validation was performed using an extensive MD simulation on carbonic anhydrase II as a common cobalt-containing metalloprotein. The results demonstrated that among models, the bonded model in combination with the RESP charges can produce the most reliable and accurate structural conformations for the metal site of cobalt-containing systems.",
-  "entities": [
-    {
-      "category": "FFM",
-      "text": "AMBER",
-      "start": 0,
-      "end": 5
-    },
-    {
-      "category": "MOL",
-      "text": "Cobalt",
-      "start": 33,
-      "end": 39
-    },
-    {
-      "category": "MOL",
-      "text": "cobalt",
-      "start": 155,
-      "end": 161
-    },
-    {
-      "category": "MOL",
-      "text": "metal",
-      "start": 442,
-      "end": 447
-    },
-    {
-      "category": "MOL",
-      "text": "cobalt",
-      "start": 555,
-      "end": 561
-    },
-    {
-      "category": "MOL",
-      "text": "cobalt",
-      "start": 665,
-      "end": 671
-    },
-    {
-      "category": "MOL",
-      "text": "cobalt",
-      "start": 818,
-      "end": 824
-    },
-    {
-      "category": "MOL",
-      "text": "carbonic anhydrase II",
-      "start": 1077,
-      "end": 1098
-    },
-    {
-      "category": "MOL",
-      "text": "cobalt",
-      "start": 1111,
-      "end": 1117
-    },
-    {
-      "category": "MOL",
-      "text": "metal",
-      "start": 1129,
-      "end": 1134
-    },
-    {
-      "category": "MOL",
-      "text": "cobalt",
-      "start": 1333,
-      "end": 1339
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/AMBER_Force_Field_Parameters_for_Cobalt-Containing_Biological_Systems_A_Systematic_Derivation_Study/11688372"
+    "raw_text": "AMBER Force Field Parameters for Cobalt-Containing Biological Systems: A Systematic Derivation Study\nIn the present work, the parameterization of a set of cobalt-containing systems has been performed to create a comprehensive library for bonding parameters of biological Co-containing systems. A standard process for the extraction and validation of parameters was employed, which could be used to create force field parameters for the other metal-containing systems. All protein data banks were searched to extract common chemical groups in bonding with cobalt, and finally, 16 structures were designed to represent the binding model of the chemical moieties with cobalt. The Hessian matrix of each structure was computed at the B3LYP/6-311++G­(2d,2p) level of theory and the Seminario method was employed to compute cobalt bond stretching and angle bending parameters. Validation of the derived parameters was performed using structural minimization and molecular dynamics (MD) simulations of four models. Further validation was performed using an extensive MD simulation on carbonic anhydrase II as a common cobalt-containing metalloprotein. The results demonstrated that among models, the bonded model in combination with the RESP charges can produce the most reliable and accurate structural conformations for the metal site of cobalt-containing systems.",
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "AMBER",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "category": "MOL",
+            "text": "Cobalt",
+            "start": 33,
+            "end": 39
+        },
+        {
+            "category": "MOL",
+            "text": "cobalt",
+            "start": 155,
+            "end": 161
+        },
+        {
+            "category": "MOL",
+            "text": "metal",
+            "start": 442,
+            "end": 447
+        },
+        {
+            "category": "MOL",
+            "text": "cobalt",
+            "start": 555,
+            "end": 561
+        },
+        {
+            "category": "MOL",
+            "text": "cobalt",
+            "start": 665,
+            "end": 671
+        },
+        {
+            "category": "MOL",
+            "text": "cobalt",
+            "start": 818,
+            "end": 824
+        },
+        {
+            "category": "MOL",
+            "text": "carbonic anhydrase II",
+            "start": 1077,
+            "end": 1098
+        },
+        {
+            "category": "MOL",
+            "text": "cobalt",
+            "start": 1111,
+            "end": 1117
+        },
+        {
+            "category": "MOL",
+            "text": "metal",
+            "start": 1129,
+            "end": 1134
+        },
+        {
+            "category": "MOL",
+            "text": "cobalt",
+            "start": 1333,
+            "end": 1339
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/AMBER_Force_Field_Parameters_for_Cobalt-Containing_Biological_Systems_A_Systematic_Derivation_Study/11688372"
 }

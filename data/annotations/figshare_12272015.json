@@ -1,144 +1,144 @@
 {
-  "raw_text": "Glycosylated Swiss-model molecular dynamics trajectory of SARS-CoV-2 spike glycoprotein\nMolecular dynamics simulation trajectory. The system is the SARS-CoV-2 spike glycoprotein with glycans modeled on using GLYCAM-Web. SARS-CoV2 spike (S) protein structure – A 3D structure of the prefusion  form of the S protein (RefSeq: YP_009724390.1, UniProt: P0DTC2  SPIKE_SARS2), based on a Cryo-EM structure (PDB code 6VSB), was obtained  from the SWISS-MODEL server (swissmodel.expasy.org). The model has 95%  coverage (residues 27 to 1146) of the S protein. The site specific glycans used to model a glycoform representative of  the data obtained from the S glycoprotein expressed in HEK293 cells, are  presented below:  Hybrid: DManpα1-6[DManpα1-3]DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 657  FA2: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH Glycosites: 149, 165, 331, 343, 616, 1134  A2: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 1098  FA2B: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-4][DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH Glycosites: 74, 282  M5: DManpα1-6[DManpα1-3]DManpα1-6[DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 61, 122, 603, 709, 717, 801, 1074  M8: DManpα1-2DManpα1-6[DManpα1-2DManpα1-3]DManpα1-6[DManpα1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 234  Glycan naming system. In cases where the mass spectrometry data allows  for multiple structures, such as FA2/FA1B, the glycan with the least  ambiguity was selected. For example, FA2 was selected over FA1B, as the  position of the single antennae is ambiguous.Dataset supports the following preprint: 3D Models of glycosylated SARS-CoV-2 spike protein suggest challenges and opportunities for vaccine development. Oliver C. Grant, David Montgomery, Keigo Ito, Robert J. Woods; bioRxiv 2020.04.07.030445; doi: https://doi.org/10.1101/2020.04.07.030445",
-  "entities": [
-    {
-      "category": "SOFTNAME",
-      "text": "Swiss-model",
-      "start": 13,
-      "end": 24
-    },
-    {
-      "category": "MOL",
-      "text": "SARS-CoV-2 spike",
-      "start": 58,
-      "end": 74
-    },
-    {
-      "category": "MOL",
-      "text": "SARS-CoV-2 spike",
-      "start": 148,
-      "end": 164
-    },
-    {
-      "category": "MOL",
-      "text": "glycans",
-      "start": 183,
-      "end": 190
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "GLYCAM-Web",
-      "start": 208,
-      "end": 218
-    },
-    {
-      "category": "MOL",
-      "text": "SARS-CoV2 spike",
-      "start": 220,
-      "end": 235
-    },
-    {
-      "category": "MOL",
-      "text": "S",
-      "start": 237,
-      "end": 238
-    },
-    {
-      "category": "MOL",
-      "text": "S",
-      "start": 305,
-      "end": 306
-    },
-    {
-      "category": "MOL",
-      "text": "P0DTC2",
-      "start": 349,
-      "end": 355
-    },
-    {
-      "category": "MOL",
-      "text": "6VSB",
-      "start": 410,
-      "end": 414
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "SWISS-MODEL",
-      "start": 440,
-      "end": 451
-    },
-    {
-      "category": "MOL",
-      "text": "S",
-      "start": 541,
-      "end": 542
-    },
-    {
-      "category": "MOL",
-      "text": "glycans",
-      "start": 570,
-      "end": 577
-    },
-    {
-      "category": "MOL",
-      "text": "S",
-      "start": 650,
-      "end": 651
-    },
-    {
-      "category": "MOL",
-      "text": "FA2",
-      "start": 827,
-      "end": 830
-    },
-    {
-      "category": "MOL",
-      "text": "FA2B",
-      "start": 1066,
-      "end": 1070
-    },
-    {
-      "category": "MOL",
-      "text": "Glycan",
-      "start": 1446,
-      "end": 1452
-    },
-    {
-      "category": "MOL",
-      "text": "FA2",
-      "start": 1551,
-      "end": 1554
-    },
-    {
-      "category": "MOL",
-      "text": "FA1B",
-      "start": 1555,
-      "end": 1559
-    },
-    {
-      "category": "MOL",
-      "text": "glycan",
-      "start": 1565,
-      "end": 1571
-    },
-    {
-      "category": "MOL",
-      "text": "FA2",
-      "start": 1625,
-      "end": 1628
-    },
-    {
-      "category": "MOL",
-      "text": "FA1B",
-      "start": 1647,
-      "end": 1651
-    },
-    {
-      "category": "MOL",
-      "text": "SARS-CoV-2 spike",
-      "start": 1773,
-      "end": 1789
-    }
-  ],
-  "url": "https://nih.figshare.com/articles/dataset/Glycosylated_Swiss-model_molecular_dynamics_trajectory_of_SARS-CoV-2_spike_glycoprotein/12272015"
+    "raw_text": "Glycosylated Swiss-model molecular dynamics trajectory of SARS-CoV-2 spike glycoprotein\nMolecular dynamics simulation trajectory. The system is the SARS-CoV-2 spike glycoprotein with glycans modeled on using GLYCAM-Web. SARS-CoV2 spike (S) protein structure – A 3D structure of the prefusion  form of the S protein (RefSeq: YP_009724390.1, UniProt: P0DTC2  SPIKE_SARS2), based on a Cryo-EM structure (PDB code 6VSB), was obtained  from the SWISS-MODEL server (swissmodel.expasy.org). The model has 95%  coverage (residues 27 to 1146) of the S protein. The site specific glycans used to model a glycoform representative of  the data obtained from the S glycoprotein expressed in HEK293 cells, are  presented below:  Hybrid: DManpα1-6[DManpα1-3]DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 657  FA2: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH Glycosites: 149, 165, 331, 343, 616, 1134  A2: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 1098  FA2B: DGlcpNAcβ1-2DManpα1-6[DGlcpNAcβ1-4][DGlcpNAcβ1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4[LFucpα1-6]DGlcpNAcβ1-OH Glycosites: 74, 282  M5: DManpα1-6[DManpα1-3]DManpα1-6[DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 61, 122, 603, 709, 717, 801, 1074  M8: DManpα1-2DManpα1-6[DManpα1-2DManpα1-3]DManpα1-6[DManpα1-2DManpα1-3]DManpβ1-4DGlcpNAcβ1-4DGlcpNAcβ1-OH Glycosites: 234  Glycan naming system. In cases where the mass spectrometry data allows  for multiple structures, such as FA2/FA1B, the glycan with the least  ambiguity was selected. For example, FA2 was selected over FA1B, as the  position of the single antennae is ambiguous.Dataset supports the following preprint: 3D Models of glycosylated SARS-CoV-2 spike protein suggest challenges and opportunities for vaccine development. Oliver C. Grant, David Montgomery, Keigo Ito, Robert J. Woods; bioRxiv 2020.04.07.030445; doi: https://doi.org/10.1101/2020.04.07.030445",
+    "entities": [
+        {
+            "category": "SOFTNAME",
+            "text": "Swiss-model",
+            "start": 13,
+            "end": 24
+        },
+        {
+            "category": "MOL",
+            "text": "SARS-CoV-2 spike",
+            "start": 58,
+            "end": 74
+        },
+        {
+            "category": "MOL",
+            "text": "SARS-CoV-2 spike",
+            "start": 148,
+            "end": 164
+        },
+        {
+            "category": "MOL",
+            "text": "glycans",
+            "start": 183,
+            "end": 190
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GLYCAM-Web",
+            "start": 208,
+            "end": 218
+        },
+        {
+            "category": "MOL",
+            "text": "SARS-CoV2 spike",
+            "start": 220,
+            "end": 235
+        },
+        {
+            "category": "MOL",
+            "text": "S",
+            "start": 237,
+            "end": 238
+        },
+        {
+            "category": "MOL",
+            "text": "S",
+            "start": 305,
+            "end": 306
+        },
+        {
+            "category": "MOL",
+            "text": "P0DTC2",
+            "start": 349,
+            "end": 355
+        },
+        {
+            "category": "MOL",
+            "text": "6VSB",
+            "start": 410,
+            "end": 414
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "SWISS-MODEL",
+            "start": 440,
+            "end": 451
+        },
+        {
+            "category": "MOL",
+            "text": "S",
+            "start": 541,
+            "end": 542
+        },
+        {
+            "category": "MOL",
+            "text": "glycans",
+            "start": 570,
+            "end": 577
+        },
+        {
+            "category": "MOL",
+            "text": "S",
+            "start": 650,
+            "end": 651
+        },
+        {
+            "category": "MOL",
+            "text": "FA2",
+            "start": 827,
+            "end": 830
+        },
+        {
+            "category": "MOL",
+            "text": "FA2B",
+            "start": 1066,
+            "end": 1070
+        },
+        {
+            "category": "MOL",
+            "text": "Glycan",
+            "start": 1446,
+            "end": 1452
+        },
+        {
+            "category": "MOL",
+            "text": "FA2",
+            "start": 1551,
+            "end": 1554
+        },
+        {
+            "category": "MOL",
+            "text": "FA1B",
+            "start": 1555,
+            "end": 1559
+        },
+        {
+            "category": "MOL",
+            "text": "glycan",
+            "start": 1565,
+            "end": 1571
+        },
+        {
+            "category": "MOL",
+            "text": "FA2",
+            "start": 1625,
+            "end": 1628
+        },
+        {
+            "category": "MOL",
+            "text": "FA1B",
+            "start": 1647,
+            "end": 1651
+        },
+        {
+            "category": "MOL",
+            "text": "SARS-CoV-2 spike",
+            "start": 1773,
+            "end": 1789
+        }
+    ],
+    "url": "https://nih.figshare.com/articles/dataset/Glycosylated_Swiss-model_molecular_dynamics_trajectory_of_SARS-CoV-2_spike_glycoprotein/12272015"
 }

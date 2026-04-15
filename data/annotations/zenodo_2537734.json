@@ -1,78 +1,78 @@
 {
-  "raw_text": "Cellulose test MD dataset for analysis with Galaxy and BRIDGE\nThis coordinate and trajectory dataset is that of cellulase and octaose substrate in water. It has been derived from the 7CEL PDB structure of a fungal cellobiohydrolase.\n\nThe original enzyme has been modified to revert the mutation at position 217 and to include disulfide bonds. The octaose substrate is an oligosaccharide consisting of 8 beta 1-4 linked glucose monomers.  The enzyme and substrate have been placed in a cubic TIP3P water box containing 0.15 M ions (NaCl).\n\nThe files includes are: \ncbh1test.pdb: the coordinates of the entire system(water, protein and substrate) in PDB format. \ncbh1test.dcd: a short MD trajectory (16 frames) in CHARMM DCD format.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Cellulose",
-      "start": 0,
-      "end": 9
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Galaxy",
-      "start": 44,
-      "end": 50
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "BRIDGE",
-      "start": 55,
-      "end": 61
-    },
-    {
-      "category": "MOL",
-      "text": "octaose",
-      "start": 126,
-      "end": 133
-    },
-    {
-      "category": "MOL",
-      "text": "7CEL",
-      "start": 183,
-      "end": 187
-    },
-    {
-      "category": "MOL",
-      "text": "fungal cellobiohydrolase",
-      "start": 207,
-      "end": 231
-    },
-    {
-      "category": "MOL",
-      "text": "octaose",
-      "start": 347,
-      "end": 354
-    },
-    {
-      "category": "MOL",
-      "text": "oligosaccharide",
-      "start": 371,
-      "end": 386
-    },
-    {
-      "category": "MOL",
-      "text": "glucose",
-      "start": 419,
-      "end": 426
-    },
-    {
-      "category": "FFM",
-      "text": "TIP3P",
-      "start": 491,
-      "end": 496
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 531,
-      "end": 535
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "CHARMM",
-      "start": 712,
-      "end": 718
-    }
-  ],
-  "url": "https://zenodo.org/records/2537734"
+    "raw_text": "Cellulose test MD dataset for analysis with Galaxy and BRIDGE\nThis coordinate and trajectory dataset is that of cellulase and octaose substrate in water. It has been derived from the 7CEL PDB structure of a fungal cellobiohydrolase.\n\nThe original enzyme has been modified to revert the mutation at position 217 and to include disulfide bonds. The octaose substrate is an oligosaccharide consisting of 8 beta 1-4 linked glucose monomers.  The enzyme and substrate have been placed in a cubic TIP3P water box containing 0.15 M ions (NaCl).\n\nThe files includes are: \ncbh1test.pdb: the coordinates of the entire system(water, protein and substrate) in PDB format. \ncbh1test.dcd: a short MD trajectory (16 frames) in CHARMM DCD format.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Cellulose",
+            "start": 0,
+            "end": 9
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Galaxy",
+            "start": 44,
+            "end": 50
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "BRIDGE",
+            "start": 55,
+            "end": 61
+        },
+        {
+            "category": "MOL",
+            "text": "octaose",
+            "start": 126,
+            "end": 133
+        },
+        {
+            "category": "MOL",
+            "text": "7CEL",
+            "start": 183,
+            "end": 187
+        },
+        {
+            "category": "MOL",
+            "text": "fungal cellobiohydrolase",
+            "start": 207,
+            "end": 231
+        },
+        {
+            "category": "MOL",
+            "text": "octaose",
+            "start": 347,
+            "end": 354
+        },
+        {
+            "category": "MOL",
+            "text": "oligosaccharide",
+            "start": 371,
+            "end": 386
+        },
+        {
+            "category": "MOL",
+            "text": "glucose",
+            "start": 419,
+            "end": 426
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 491,
+            "end": 496
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 531,
+            "end": 535
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CHARMM",
+            "start": 712,
+            "end": 718
+        }
+    ],
+    "url": "https://zenodo.org/records/2537734"
 }

@@ -1,138 +1,138 @@
 {
-  "raw_text": "Hundred nanosecond molecular dynamics simulation of the G domain of K-Ras4B\n(This is a public copy of https://figshare.com/s/453b1b215cf2f9270769)This is a one hundred nanosecond simulation of the G domain of K-Ras4B  (UNIPROT:P01116-2, residues 1-166). The simulation was generated using  GROMACS v.4.6.5 with the AMBER99SB-ILDN forcefield (altered following  doi:10.1002/jcc.10262, see References), TIP3P water and 0.15 M salt. The  leap-frog integrator with 2 fs timestep was used. A v-rescale  thermostat was used at 310 K, with two energy groups (protein+GTP+MG and  water+salt) and a time constant of 0.1 ps. PME was used with a  tolerance of 1e-5 for the coulomb interactions and a cutoff was used for  the VdW interactions, both with a cutoff of 1.1 nm. A Parrinello-rahman  barostat was applied with a reference pressure of 1 bar and a time  constant of 1 ps. For more information take a look at md.mdp.  Coordinates were saved every 1 nanosecond and waters were stripped,  resulting in a trajectory of 101 snapshots. The initial model was  made using the G-domain of GppNHp bound H-Ras (PDB ID: 4EFL). The  protein was converted using MODELLER v9.16(doi:10.1002/cpbi.3 , see  References) and GppNHp was converted to GTP by hand.",
-  "entities": [
-    {
-      "category": "STIME",
-      "text": "Hundred nanosecond",
-      "start": 0,
-      "end": 18
-    },
-    {
-      "category": "MOL",
-      "text": "G domain",
-      "start": 56,
-      "end": 64
-    },
-    {
-      "category": "MOL",
-      "text": "K-Ras4B",
-      "start": 68,
-      "end": 75
-    },
-    {
-      "category": "STIME",
-      "text": "one hundred nanosecond",
-      "start": 156,
-      "end": 178
-    },
-    {
-      "category": "MOL",
-      "text": "G domain",
-      "start": 197,
-      "end": 205
-    },
-    {
-      "category": "MOL",
-      "text": "K-Ras4B",
-      "start": 209,
-      "end": 216
-    },
-    {
-      "category": "MOL",
-      "text": "P01116-2",
-      "start": 227,
-      "end": 235
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 290,
-      "end": 297
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "v.4.6.5",
-      "start": 298,
-      "end": 305
-    },
-    {
-      "category": "FFM",
-      "text": "AMBER99SB-ILDN",
-      "start": 315,
-      "end": 329
-    },
-    {
-      "category": "FFM",
-      "text": "TIP3P",
-      "start": 401,
-      "end": 406
-    },
-    {
-      "category": "TEMP",
-      "text": "310 K",
-      "start": 521,
-      "end": 526
-    },
-    {
-      "category": "MOL",
-      "text": "GTP",
-      "start": 560,
-      "end": 563
-    },
-    {
-      "category": "MOL",
-      "text": "MG",
-      "start": 564,
-      "end": 566
-    },
-    {
-      "category": "MOL",
-      "text": "G-domain",
-      "start": 1065,
-      "end": 1073
-    },
-    {
-      "category": "MOL",
-      "text": "GppNHp",
-      "start": 1077,
-      "end": 1083
-    },
-    {
-      "category": "MOL",
-      "text": "H-Ras",
-      "start": 1090,
-      "end": 1095
-    },
-    {
-      "category": "MOL",
-      "text": "4EFL",
-      "start": 1105,
-      "end": 1109
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "MODELLER",
-      "start": 1145,
-      "end": 1153
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "v9.16",
-      "start": 1154,
-      "end": 1159
-    },
-    {
-      "category": "MOL",
-      "text": "GppNHp",
-      "start": 1202,
-      "end": 1208
-    },
-    {
-      "category": "MOL",
-      "text": "GTP",
-      "start": 1226,
-      "end": 1229
-    }
-  ],
-  "url": "https://figshare.com/articles/dataset/Hundred_nanosecond_molecular_dynamics_simulation_of_the_G_domain_of_K-Ras4B/13135976"
+    "raw_text": "Hundred nanosecond molecular dynamics simulation of the G domain of K-Ras4B\n(This is a public copy of https://figshare.com/s/453b1b215cf2f9270769)This is a one hundred nanosecond simulation of the G domain of K-Ras4B  (UNIPROT:P01116-2, residues 1-166). The simulation was generated using  GROMACS v.4.6.5 with the AMBER99SB-ILDN forcefield (altered following  doi:10.1002/jcc.10262, see References), TIP3P water and 0.15 M salt. The  leap-frog integrator with 2 fs timestep was used. A v-rescale  thermostat was used at 310 K, with two energy groups (protein+GTP+MG and  water+salt) and a time constant of 0.1 ps. PME was used with a  tolerance of 1e-5 for the coulomb interactions and a cutoff was used for  the VdW interactions, both with a cutoff of 1.1 nm. A Parrinello-rahman  barostat was applied with a reference pressure of 1 bar and a time  constant of 1 ps. For more information take a look at md.mdp.  Coordinates were saved every 1 nanosecond and waters were stripped,  resulting in a trajectory of 101 snapshots. The initial model was  made using the G-domain of GppNHp bound H-Ras (PDB ID: 4EFL). The  protein was converted using MODELLER v9.16(doi:10.1002/cpbi.3 , see  References) and GppNHp was converted to GTP by hand.",
+    "entities": [
+        {
+            "category": "STIME",
+            "text": "Hundred nanosecond",
+            "start": 0,
+            "end": 18
+        },
+        {
+            "category": "MOL",
+            "text": "G domain",
+            "start": 56,
+            "end": 64
+        },
+        {
+            "category": "MOL",
+            "text": "K-Ras4B",
+            "start": 68,
+            "end": 75
+        },
+        {
+            "category": "STIME",
+            "text": "one hundred nanosecond",
+            "start": 156,
+            "end": 178
+        },
+        {
+            "category": "MOL",
+            "text": "G domain",
+            "start": 197,
+            "end": 205
+        },
+        {
+            "category": "MOL",
+            "text": "K-Ras4B",
+            "start": 209,
+            "end": 216
+        },
+        {
+            "category": "MOL",
+            "text": "P01116-2",
+            "start": 227,
+            "end": 235
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 290,
+            "end": 297
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "v.4.6.5",
+            "start": 298,
+            "end": 305
+        },
+        {
+            "category": "FFM",
+            "text": "AMBER99SB-ILDN",
+            "start": 315,
+            "end": 329
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 401,
+            "end": 406
+        },
+        {
+            "category": "TEMP",
+            "text": "310 K",
+            "start": 521,
+            "end": 526
+        },
+        {
+            "category": "MOL",
+            "text": "GTP",
+            "start": 560,
+            "end": 563
+        },
+        {
+            "category": "MOL",
+            "text": "MG",
+            "start": 564,
+            "end": 566
+        },
+        {
+            "category": "MOL",
+            "text": "G-domain",
+            "start": 1065,
+            "end": 1073
+        },
+        {
+            "category": "MOL",
+            "text": "GppNHp",
+            "start": 1077,
+            "end": 1083
+        },
+        {
+            "category": "MOL",
+            "text": "H-Ras",
+            "start": 1090,
+            "end": 1095
+        },
+        {
+            "category": "MOL",
+            "text": "4EFL",
+            "start": 1105,
+            "end": 1109
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "MODELLER",
+            "start": 1145,
+            "end": 1153
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "v9.16",
+            "start": 1154,
+            "end": 1159
+        },
+        {
+            "category": "MOL",
+            "text": "GppNHp",
+            "start": 1202,
+            "end": 1208
+        },
+        {
+            "category": "MOL",
+            "text": "GTP",
+            "start": 1226,
+            "end": 1229
+        }
+    ],
+    "url": "https://figshare.com/articles/dataset/Hundred_nanosecond_molecular_dynamics_simulation_of_the_G_domain_of_K-Ras4B/13135976"
 }

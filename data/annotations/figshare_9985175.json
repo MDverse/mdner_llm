@@ -1,84 +1,84 @@
 {
-  "raw_text": "Martini Coarse-Grained Model for Clay–Polymer Nanocomposites\nWe have developed a coarse-grained (CG) model of a polymer–clay system consisting of organically modified montmorillonite (oMMT) nanoclay as the nanoparticle in accordance with the MARTINI force field. We have used mechanical properties and cleavage free energy of the clay particle to respectively parameterize bonded and nonbonded interaction parameters for an oMMT clay particle, where intergallery Na+ ions are replaced by tetramethylammonium (TMA) ions. The mechanical properties were determined from the slope of the stress–strain curve and cleavage free energy was determined by allowing for full surface reconstruction corresponding to a slow equilibrium cleavage process. Individual dispersive and polar contributions to oMMT cleavage energy were used for determination of appropriate MARTINI bead types for the CG oMMT sheet. The self-consistency of the developed MARTINIFF parameters for the TMA–montmorillonite–polymer system was verified by comparing estimates for select structural, thermodynamic, and dynamic properties obtained in all-atomistic simulations with that obtained in CG simulations. We have determined the influence of clay particles on properties of three polymer melts (polyethylene, polypropylene, and polystyrene) at two temperatures to establish transferability of the developed parameters. We have also shown that the effect of clay–polymer interactions on structure–property relationships in the polymer–clay nanocomposite system is well captured by Rosenfeld’s excess entropy scaling.",
-  "entities": [
-    {
-      "category": "FFM",
-      "text": "Martini",
-      "start": 0,
-      "end": 7
-    },
-    {
-      "category": "MOL",
-      "text": "montmorillonite",
-      "start": 167,
-      "end": 182
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 242,
-      "end": 249
-    },
-    {
-      "category": "MOL",
-      "text": "Na+",
-      "start": 463,
-      "end": 466
-    },
-    {
-      "category": "MOL",
-      "text": "tetramethylammonium",
-      "start": 488,
-      "end": 507
-    },
-    {
-      "category": "MOL",
-      "text": "TMA",
-      "start": 509,
-      "end": 512
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 855,
-      "end": 862
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 935,
-      "end": 942
-    },
-    {
-      "category": "MOL",
-      "text": "TMA",
-      "start": 964,
-      "end": 967
-    },
-    {
-      "category": "MOL",
-      "text": "montmorillonite",
-      "start": 968,
-      "end": 983
-    },
-    {
-      "category": "MOL",
-      "text": "polyethylene",
-      "start": 1261,
-      "end": 1273
-    },
-    {
-      "category": "MOL",
-      "text": "polypropylene",
-      "start": 1275,
-      "end": 1288
-    },
-    {
-      "category": "MOL",
-      "text": "polystyrene",
-      "start": 1294,
-      "end": 1305
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/Martini_Coarse-Grained_Model_for_Clay_Polymer_Nanocomposites/9985175"
+    "raw_text": "Martini Coarse-Grained Model for Clay–Polymer Nanocomposites\nWe have developed a coarse-grained (CG) model of a polymer–clay system consisting of organically modified montmorillonite (oMMT) nanoclay as the nanoparticle in accordance with the MARTINI force field. We have used mechanical properties and cleavage free energy of the clay particle to respectively parameterize bonded and nonbonded interaction parameters for an oMMT clay particle, where intergallery Na+ ions are replaced by tetramethylammonium (TMA) ions. The mechanical properties were determined from the slope of the stress–strain curve and cleavage free energy was determined by allowing for full surface reconstruction corresponding to a slow equilibrium cleavage process. Individual dispersive and polar contributions to oMMT cleavage energy were used for determination of appropriate MARTINI bead types for the CG oMMT sheet. The self-consistency of the developed MARTINIFF parameters for the TMA–montmorillonite–polymer system was verified by comparing estimates for select structural, thermodynamic, and dynamic properties obtained in all-atomistic simulations with that obtained in CG simulations. We have determined the influence of clay particles on properties of three polymer melts (polyethylene, polypropylene, and polystyrene) at two temperatures to establish transferability of the developed parameters. We have also shown that the effect of clay–polymer interactions on structure–property relationships in the polymer–clay nanocomposite system is well captured by Rosenfeld’s excess entropy scaling.",
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "Martini",
+            "start": 0,
+            "end": 7
+        },
+        {
+            "category": "MOL",
+            "text": "montmorillonite",
+            "start": 167,
+            "end": 182
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 242,
+            "end": 249
+        },
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 463,
+            "end": 466
+        },
+        {
+            "category": "MOL",
+            "text": "tetramethylammonium",
+            "start": 488,
+            "end": 507
+        },
+        {
+            "category": "MOL",
+            "text": "TMA",
+            "start": 509,
+            "end": 512
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 855,
+            "end": 862
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 935,
+            "end": 942
+        },
+        {
+            "category": "MOL",
+            "text": "TMA",
+            "start": 964,
+            "end": 967
+        },
+        {
+            "category": "MOL",
+            "text": "montmorillonite",
+            "start": 968,
+            "end": 983
+        },
+        {
+            "category": "MOL",
+            "text": "polyethylene",
+            "start": 1261,
+            "end": 1273
+        },
+        {
+            "category": "MOL",
+            "text": "polypropylene",
+            "start": 1275,
+            "end": 1288
+        },
+        {
+            "category": "MOL",
+            "text": "polystyrene",
+            "start": 1294,
+            "end": 1305
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Martini_Coarse-Grained_Model_for_Clay_Polymer_Nanocomposites/9985175"
 }

@@ -1,96 +1,96 @@
 {
-  "raw_text": "POPC/Cholesterol (50:50) lipid membrane, 303K, Charmm36 force field, simulation files and 100 ns trajectory for GROMACS simulation engine v5\nAll runs were performed with GROMACS simulation engine v5 and CHARMM36 additive force field parameters obtained from MacKerell lab website (http://mackerell.umaryland.edu/charmm_ff.shtml, also available at\nhttps://doi.org/10.5281/zenodo.209080). Conditions: T=303, 80 POPC and 80 Cholesterol molecules, 7200 tip3p waters, 100ns trajectory (preceded with equilibration). \nThese data were originally obtained for the nmrlipids.blospot.fi project.\nFind more details at nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 0,
-      "end": 4
-    },
-    {
-      "category": "MOL",
-      "text": "Cholesterol",
-      "start": 5,
-      "end": 16
-    },
-    {
-      "category": "TEMP",
-      "text": "303K",
-      "start": 41,
-      "end": 45
-    },
-    {
-      "category": "FFM",
-      "text": "Charmm36",
-      "start": 47,
-      "end": 55
-    },
-    {
-      "category": "STIME",
-      "text": "100 ns",
-      "start": 90,
-      "end": 96
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 112,
-      "end": 119
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "v5",
-      "start": 138,
-      "end": 140
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 170,
-      "end": 177
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "v5",
-      "start": 196,
-      "end": 198
-    },
-    {
-      "category": "FFM",
-      "text": "CHARMM36",
-      "start": 203,
-      "end": 211
-    },
-    {
-      "category": "TEMP",
-      "text": "303",
-      "start": 401,
-      "end": 404
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 409,
-      "end": 413
-    },
-    {
-      "category": "MOL",
-      "text": "Cholesterol",
-      "start": 421,
-      "end": 432
-    },
-    {
-      "category": "FFM",
-      "text": "tip3p",
-      "start": 449,
-      "end": 454
-    },
-    {
-      "category": "STIME",
-      "text": "100ns",
-      "start": 463,
-      "end": 468
-    }
-  ],
-  "url": "https://zenodo.org/records/247386"
+    "raw_text": "POPC/Cholesterol (50:50) lipid membrane, 303K, Charmm36 force field, simulation files and 100 ns trajectory for GROMACS simulation engine v5\nAll runs were performed with GROMACS simulation engine v5 and CHARMM36 additive force field parameters obtained from MacKerell lab website (http://mackerell.umaryland.edu/charmm_ff.shtml, also available at\nhttps://doi.org/10.5281/zenodo.209080). Conditions: T=303, 80 POPC and 80 Cholesterol molecules, 7200 tip3p waters, 100ns trajectory (preceded with equilibration). \nThese data were originally obtained for the nmrlipids.blospot.fi project.\nFind more details at nmrlipids.blospot.fi and https://github.com/NMRLipids/nmrlipids.blogspot.fi",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "category": "MOL",
+            "text": "Cholesterol",
+            "start": 5,
+            "end": 16
+        },
+        {
+            "category": "TEMP",
+            "text": "303K",
+            "start": 41,
+            "end": 45
+        },
+        {
+            "category": "FFM",
+            "text": "Charmm36",
+            "start": 47,
+            "end": 55
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 90,
+            "end": 96
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 112,
+            "end": 119
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "v5",
+            "start": 138,
+            "end": 140
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 170,
+            "end": 177
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "v5",
+            "start": 196,
+            "end": 198
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 203,
+            "end": 211
+        },
+        {
+            "category": "TEMP",
+            "text": "303",
+            "start": 401,
+            "end": 404
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 409,
+            "end": 413
+        },
+        {
+            "category": "MOL",
+            "text": "Cholesterol",
+            "start": 421,
+            "end": 432
+        },
+        {
+            "category": "FFM",
+            "text": "tip3p",
+            "start": 449,
+            "end": 454
+        },
+        {
+            "category": "STIME",
+            "text": "100ns",
+            "start": 463,
+            "end": 468
+        }
+    ],
+    "url": "https://zenodo.org/records/247386"
 }

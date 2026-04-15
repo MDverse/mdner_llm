@@ -1,204 +1,204 @@
 {
-  "raw_text": "Simulations of Na+ and Ca2+ binding to phospholipid membranes\nSimulations of various bilayers together with ions. A DOPC bilayer in the liquid disordered phase (310 K) and a DPPC bilayer in the gel phase (293 K), both formed of 200 lipids, were simulated with the presence of either 130 mM of NaCl or 450 mM of CaCl_2. The Slipids model [1–3] is employed for lipids, tip3p model for water, the ion parameters by Smith and Dang for NaCl [4] and the ion parameters by Kohagen et al. for CaCl_2 [5]. Trajectories with NaCl are 200 ns long, while with CaCl_2 they were either 500 ns (DOPC) or 800 ns (DPPC) long.\nAdditionally, a ternary mixture of DPPC, DOPC, and cholesterol was simulated with the presence of 150 mM or 1 M of NaCl [4] at 310 K. The membrane was pre-assembled to contain Ld/Lo coexistence with a well-defined boundary. The Lo side consisted of 205 DPPC and 52 cholesterol molecules, while the Ld side consisted of 166 DOPC molecules. Trajectories are 200 ns long.\nThe Slipids force field parameters are available at http://www.fos.su.se/~sasha/SLipids/ and the ion parameters are available at https://bitbucket.org/hseara/ions/\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\nThe files are in GROMACS format. Trajectories (.xtc) are saved every 100 ps. Additionally, the final structure (.gro), topology (.top), index file (.ndx), energy output file (.edr), and binary run input files (for Gromacs 4.6->) (.tpr) are provided for each system. The common simulation parameter file except for the varying temperatures (md.mdp) is also provided.\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\n[1] Derivation and Systematic Validation of a Refined All-Atom Force Field for Phosphatidylcholine Lipids. Joakim P. M. Jämbeck and Alexander P. Lyubartsev, The Journal of Physical Chemistry B 2012 116 (10), 3164-3179, DOI: 10.1021/jp212503e\n[2] An Extension and Further Validation of an All-Atomistic Force Field for Biological Membranes. Joakim P. M. Jämbeck and Alexander P. Lyubartsev, Journal of Chemical Theory and Computation 2012 8 (8), 2938-2948, DOI: 10.1021/ct300342n\n[3] Another Piece of the Membrane Puzzle: Extending Slipids Further. Joakim P. M. Jämbeck and Alexander P. Lyubartsev, Journal of Chemical Theory and Computation 2013 9 (1), 774-784, DOI: 10.1021/ct300777p\n[4] Computer simulations of NaCl association in polarizable water. David E. Smith and Liem X. Dang, The Journal of Chemical Physics 1994 100, 3757-3766, DOI: 10.1063/1.466363\n[5] Accurate Description of Calcium Solvation in Concentrated Aqueous Solutions. Miriam Kohagen, Philip E. Mason, and Pavel Jungwirth, The Journal of Physical Chemistry B 2014 118 (28), 7902-7909, DOI: 10.1021/jp5005693",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Na+",
-      "start": 15,
-      "end": 18
-    },
-    {
-      "category": "MOL",
-      "text": "Ca2+",
-      "start": 23,
-      "end": 27
-    },
-    {
-      "category": "MOL",
-      "text": "DOPC",
-      "start": 116,
-      "end": 120
-    },
-    {
-      "category": "TEMP",
-      "text": "310 K",
-      "start": 161,
-      "end": 166
-    },
-    {
-      "category": "MOL",
-      "text": "DPPC",
-      "start": 174,
-      "end": 178
-    },
-    {
-      "category": "TEMP",
-      "text": "293 K",
-      "start": 205,
-      "end": 210
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 293,
-      "end": 297
-    },
-    {
-      "category": "MOL",
-      "text": "CaCl_2",
-      "start": 311,
-      "end": 317
-    },
-    {
-      "category": "FFM",
-      "text": "Slipids",
-      "start": 323,
-      "end": 330
-    },
-    {
-      "category": "FFM",
-      "text": "tip3p",
-      "start": 367,
-      "end": 372
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 431,
-      "end": 435
-    },
-    {
-      "category": "MOL",
-      "text": "CaCl_2",
-      "start": 485,
-      "end": 491
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 515,
-      "end": 519
-    },
-    {
-      "category": "STIME",
-      "text": "200 ns",
-      "start": 524,
-      "end": 530
-    },
-    {
-      "category": "MOL",
-      "text": "CaCl_2",
-      "start": 548,
-      "end": 554
-    },
-    {
-      "category": "STIME",
-      "text": "500 ns",
-      "start": 572,
-      "end": 578
-    },
-    {
-      "category": "MOL",
-      "text": "DOPC",
-      "start": 580,
-      "end": 584
-    },
-    {
-      "category": "STIME",
-      "text": "800 ns",
-      "start": 589,
-      "end": 595
-    },
-    {
-      "category": "MOL",
-      "text": "DPPC",
-      "start": 597,
-      "end": 601
-    },
-    {
-      "category": "MOL",
-      "text": "DPPC",
-      "start": 644,
-      "end": 648
-    },
-    {
-      "category": "MOL",
-      "text": "DOPC",
-      "start": 650,
-      "end": 654
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 660,
-      "end": 671
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 724,
-      "end": 728
-    },
-    {
-      "category": "TEMP",
-      "text": "310 K",
-      "start": 736,
-      "end": 741
-    },
-    {
-      "category": "MOL",
-      "text": "DPPC",
-      "start": 862,
-      "end": 866
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 874,
-      "end": 885
-    },
-    {
-      "category": "MOL",
-      "text": "DOPC",
-      "start": 932,
-      "end": 936
-    },
-    {
-      "category": "STIME",
-      "text": "200 ns",
-      "start": 965,
-      "end": 971
-    },
-    {
-      "category": "FFM",
-      "text": "Slipids",
-      "start": 982,
-      "end": 989
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "GROMACS",
-      "start": 1214,
-      "end": 1221
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 1411,
-      "end": 1418
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "4.6",
-      "start": 1419,
-      "end": 1422
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 2331,
-      "end": 2335
-    }
-  ],
-  "url": "https://zenodo.org/records/259443"
+    "raw_text": "Simulations of Na+ and Ca2+ binding to phospholipid membranes\nSimulations of various bilayers together with ions. A DOPC bilayer in the liquid disordered phase (310 K) and a DPPC bilayer in the gel phase (293 K), both formed of 200 lipids, were simulated with the presence of either 130 mM of NaCl or 450 mM of CaCl_2. The Slipids model [1–3] is employed for lipids, tip3p model for water, the ion parameters by Smith and Dang for NaCl [4] and the ion parameters by Kohagen et al. for CaCl_2 [5]. Trajectories with NaCl are 200 ns long, while with CaCl_2 they were either 500 ns (DOPC) or 800 ns (DPPC) long.\nAdditionally, a ternary mixture of DPPC, DOPC, and cholesterol was simulated with the presence of 150 mM or 1 M of NaCl [4] at 310 K. The membrane was pre-assembled to contain Ld/Lo coexistence with a well-defined boundary. The Lo side consisted of 205 DPPC and 52 cholesterol molecules, while the Ld side consisted of 166 DOPC molecules. Trajectories are 200 ns long.\nThe Slipids force field parameters are available at http://www.fos.su.se/~sasha/SLipids/ and the ion parameters are available at https://bitbucket.org/hseara/ions/\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\nThe files are in GROMACS format. Trajectories (.xtc) are saved every 100 ps. Additionally, the final structure (.gro), topology (.top), index file (.ndx), energy output file (.edr), and binary run input files (for Gromacs 4.6->) (.tpr) are provided for each system. The common simulation parameter file except for the varying temperatures (md.mdp) is also provided.\n––––––––––––––––––––––––––––––––––––––––––––––––––––––\n[1] Derivation and Systematic Validation of a Refined All-Atom Force Field for Phosphatidylcholine Lipids. Joakim P. M. Jämbeck and Alexander P. Lyubartsev, The Journal of Physical Chemistry B 2012 116 (10), 3164-3179, DOI: 10.1021/jp212503e\n[2] An Extension and Further Validation of an All-Atomistic Force Field for Biological Membranes. Joakim P. M. Jämbeck and Alexander P. Lyubartsev, Journal of Chemical Theory and Computation 2012 8 (8), 2938-2948, DOI: 10.1021/ct300342n\n[3] Another Piece of the Membrane Puzzle: Extending Slipids Further. Joakim P. M. Jämbeck and Alexander P. Lyubartsev, Journal of Chemical Theory and Computation 2013 9 (1), 774-784, DOI: 10.1021/ct300777p\n[4] Computer simulations of NaCl association in polarizable water. David E. Smith and Liem X. Dang, The Journal of Chemical Physics 1994 100, 3757-3766, DOI: 10.1063/1.466363\n[5] Accurate Description of Calcium Solvation in Concentrated Aqueous Solutions. Miriam Kohagen, Philip E. Mason, and Pavel Jungwirth, The Journal of Physical Chemistry B 2014 118 (28), 7902-7909, DOI: 10.1021/jp5005693",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 15,
+            "end": 18
+        },
+        {
+            "category": "MOL",
+            "text": "Ca2+",
+            "start": 23,
+            "end": 27
+        },
+        {
+            "category": "MOL",
+            "text": "DOPC",
+            "start": 116,
+            "end": 120
+        },
+        {
+            "category": "TEMP",
+            "text": "310 K",
+            "start": 161,
+            "end": 166
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 174,
+            "end": 178
+        },
+        {
+            "category": "TEMP",
+            "text": "293 K",
+            "start": 205,
+            "end": 210
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 293,
+            "end": 297
+        },
+        {
+            "category": "MOL",
+            "text": "CaCl_2",
+            "start": 311,
+            "end": 317
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 323,
+            "end": 330
+        },
+        {
+            "category": "FFM",
+            "text": "tip3p",
+            "start": 367,
+            "end": 372
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 431,
+            "end": 435
+        },
+        {
+            "category": "MOL",
+            "text": "CaCl_2",
+            "start": 485,
+            "end": 491
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 515,
+            "end": 519
+        },
+        {
+            "category": "STIME",
+            "text": "200 ns",
+            "start": 524,
+            "end": 530
+        },
+        {
+            "category": "MOL",
+            "text": "CaCl_2",
+            "start": 548,
+            "end": 554
+        },
+        {
+            "category": "STIME",
+            "text": "500 ns",
+            "start": 572,
+            "end": 578
+        },
+        {
+            "category": "MOL",
+            "text": "DOPC",
+            "start": 580,
+            "end": 584
+        },
+        {
+            "category": "STIME",
+            "text": "800 ns",
+            "start": 589,
+            "end": 595
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 597,
+            "end": 601
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 644,
+            "end": 648
+        },
+        {
+            "category": "MOL",
+            "text": "DOPC",
+            "start": 650,
+            "end": 654
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 660,
+            "end": 671
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 724,
+            "end": 728
+        },
+        {
+            "category": "TEMP",
+            "text": "310 K",
+            "start": 736,
+            "end": 741
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 862,
+            "end": 866
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 874,
+            "end": 885
+        },
+        {
+            "category": "MOL",
+            "text": "DOPC",
+            "start": 932,
+            "end": 936
+        },
+        {
+            "category": "STIME",
+            "text": "200 ns",
+            "start": 965,
+            "end": 971
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 982,
+            "end": 989
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1214,
+            "end": 1221
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1411,
+            "end": 1418
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "4.6",
+            "start": 1419,
+            "end": 1422
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 2331,
+            "end": 2335
+        }
+    ],
+    "url": "https://zenodo.org/records/259443"
 }

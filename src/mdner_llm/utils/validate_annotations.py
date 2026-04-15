@@ -27,7 +27,7 @@ import click
 import loguru
 import yaml
 
-from mdner_llm.core.logger import create_logger
+from mdner_llm.utils.logger import create_logger
 
 
 def load_entities_config(config_path: Path | str) -> dict[str, Any]:

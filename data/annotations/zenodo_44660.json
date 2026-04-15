@@ -1,108 +1,108 @@
 {
-  "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of protonated pazePC (Berger, Gromacs 4.5.)\nSimulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al. https://doi.org/10.1021/acs.langmuir.6b00788\n\nThe simulation with deprotonated pazePC from the same publication available at http://dx.doi.org/10.5281/zenodo.44622\n90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 167ns.\n \nForce field for POPC is based on Berger model and force field for pazePC is modified from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96(7), 2734 – 2743, http://dx.doi.org/10.1016/j.bpj.2009.01.007.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 47,
-      "end": 51
-    },
-    {
-      "category": "MOL",
-      "text": "pazePC",
-      "start": 87,
-      "end": 93
-    },
-    {
-      "category": "FFM",
-      "text": "Berger",
-      "start": 95,
-      "end": 101
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 103,
-      "end": 110
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "4.5",
-      "start": 111,
-      "end": 114
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 161,
-      "end": 165
-    },
-    {
-      "category": "MOL",
-      "text": "pazePC",
-      "start": 189,
-      "end": 195
-    },
-    {
-      "category": "MOL",
-      "text": "Acyl",
-      "start": 226,
-      "end": 230
-    },
-    {
-      "category": "MOL",
-      "text": "azelaoyl",
-      "start": 250,
-      "end": 258
-    },
-    {
-      "category": "MOL",
-      "text": "pazePC",
-      "start": 423,
-      "end": 429
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 511,
-      "end": 515
-    },
-    {
-      "category": "MOL",
-      "text": "pazePC",
-      "start": 520,
-      "end": 526
-    },
-    {
-      "category": "MOL",
-      "text": "potassium",
-      "start": 546,
-      "end": 555
-    },
-    {
-      "category": "STIME",
-      "text": "167ns",
-      "start": 583,
-      "end": 588
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 608,
-      "end": 612
-    },
-    {
-      "category": "FFM",
-      "text": "Berger",
-      "start": 625,
-      "end": 631
-    },
-    {
-      "category": "MOL",
-      "text": "pazePC",
-      "start": 658,
-      "end": 664
-    }
-  ],
-  "url": "https://zenodo.org/records/44660"
+    "raw_text": "MD simulation trajectory and related files for POPC bilayer with 30 mol% of protonated pazePC (Berger, Gromacs 4.5.)\nSimulation trajectory and related files for POPC bilayer with 30mol% of pazePC in deprotonated form used in \"Acyl chain disorder and azelaoyl orientation in lipid membranes containing oxidised lipids\" by T. M. Ferreira, et al. https://doi.org/10.1021/acs.langmuir.6b00788\n\nThe simulation with deprotonated pazePC from the same publication available at http://dx.doi.org/10.5281/zenodo.44622\n90 POPC, 38 pazePC, 7250 water and 38 potassium molecules. Simulation time 167ns.\n \nForce field for POPC is based on Berger model and force field for pazePC is modified from H. Khandelia and O. G. Mouritsen, Biophysical Journal, 2009, 96(7), 2734 – 2743, http://dx.doi.org/10.1016/j.bpj.2009.01.007.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "category": "MOL",
+            "text": "pazePC",
+            "start": 87,
+            "end": 93
+        },
+        {
+            "category": "FFM",
+            "text": "Berger",
+            "start": 95,
+            "end": 101
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 103,
+            "end": 110
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "4.5",
+            "start": 111,
+            "end": 114
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 161,
+            "end": 165
+        },
+        {
+            "category": "MOL",
+            "text": "pazePC",
+            "start": 189,
+            "end": 195
+        },
+        {
+            "category": "MOL",
+            "text": "Acyl",
+            "start": 226,
+            "end": 230
+        },
+        {
+            "category": "MOL",
+            "text": "azelaoyl",
+            "start": 250,
+            "end": 258
+        },
+        {
+            "category": "MOL",
+            "text": "pazePC",
+            "start": 423,
+            "end": 429
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 511,
+            "end": 515
+        },
+        {
+            "category": "MOL",
+            "text": "pazePC",
+            "start": 520,
+            "end": 526
+        },
+        {
+            "category": "MOL",
+            "text": "potassium",
+            "start": 546,
+            "end": 555
+        },
+        {
+            "category": "STIME",
+            "text": "167ns",
+            "start": 583,
+            "end": 588
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 608,
+            "end": 612
+        },
+        {
+            "category": "FFM",
+            "text": "Berger",
+            "start": 625,
+            "end": 631
+        },
+        {
+            "category": "MOL",
+            "text": "pazePC",
+            "start": 658,
+            "end": 664
+        }
+    ],
+    "url": "https://zenodo.org/records/44660"
 }

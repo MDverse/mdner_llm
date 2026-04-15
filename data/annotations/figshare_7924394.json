@@ -1,54 +1,54 @@
 {
-  "raw_text": "Molecular Level Understanding of the Free Energy Landscape in Early Stages of Metal–Organic Framework Nucleation\nThe assembly mechanism of  Metal-Organic Frameworks (MOFs) is controlled by the choice of solvent and the presence of spectator ions. In this paper, we apply  enhanced sampling molecular dynamics methods to investigate the role of solvent and ions in the early stages of the synthesis of MIL-101­(Cr). Microsecond-long well-tempered metadynamics  simulations uncover a  rich  structural free energy landscape, with secondary building units (SBUs) adopting distinct crystal and noncrystal like configurations. In the presence of ions (Na+, F–), we observe a complex effect on the crystallinity of SBUs. By  modulating the interactions between terephthalate linkers and Cr atoms, ions affect the  abundance of crystal-like SBUs, consequently controlling the percentage of defects. Solvent effects are assessed by comparing water with  N,N-dimethylformamide, in which SBU adducts are appreciably more stable and compact. These results shed light on how solvent and ionic strength impact the free energy of the assembly phenomena that ultimately control material synthesis.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "MIL-101",
-      "start": 401,
-      "end": 408
-    },
-    {
-      "category": "MOL",
-      "text": "Cr",
-      "start": 410,
-      "end": 412
-    },
-    {
-      "category": "STIME",
-      "text": "Microsecond",
-      "start": 415,
-      "end": 426
-    },
-    {
-      "category": "MOL",
-      "text": "Na+",
-      "start": 647,
-      "end": 650
-    },
-    {
-      "category": "MOL",
-      "text": "F–",
-      "start": 652,
-      "end": 654
-    },
-    {
-      "category": "MOL",
-      "text": "terephthalate",
-      "start": 755,
-      "end": 768
-    },
-    {
-      "category": "MOL",
-      "text": "Cr",
-      "start": 781,
-      "end": 783
-    },
-    {
-      "category": "MOL",
-      "text": "N,N-dimethylformamide",
-      "start": 946,
-      "end": 967
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/Molecular_Level_Understanding_of_the_Free_Energy_Landscape_in_Early_Stages_of_Metal_Organic_Framework_Nucleation/7924394"
+    "raw_text": "Molecular Level Understanding of the Free Energy Landscape in Early Stages of Metal–Organic Framework Nucleation\nThe assembly mechanism of  Metal-Organic Frameworks (MOFs) is controlled by the choice of solvent and the presence of spectator ions. In this paper, we apply  enhanced sampling molecular dynamics methods to investigate the role of solvent and ions in the early stages of the synthesis of MIL-101­(Cr). Microsecond-long well-tempered metadynamics  simulations uncover a  rich  structural free energy landscape, with secondary building units (SBUs) adopting distinct crystal and noncrystal like configurations. In the presence of ions (Na+, F–), we observe a complex effect on the crystallinity of SBUs. By  modulating the interactions between terephthalate linkers and Cr atoms, ions affect the  abundance of crystal-like SBUs, consequently controlling the percentage of defects. Solvent effects are assessed by comparing water with  N,N-dimethylformamide, in which SBU adducts are appreciably more stable and compact. These results shed light on how solvent and ionic strength impact the free energy of the assembly phenomena that ultimately control material synthesis.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "MIL-101",
+            "start": 401,
+            "end": 408
+        },
+        {
+            "category": "MOL",
+            "text": "Cr",
+            "start": 410,
+            "end": 412
+        },
+        {
+            "category": "STIME",
+            "text": "Microsecond",
+            "start": 415,
+            "end": 426
+        },
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 647,
+            "end": 650
+        },
+        {
+            "category": "MOL",
+            "text": "F–",
+            "start": 652,
+            "end": 654
+        },
+        {
+            "category": "MOL",
+            "text": "terephthalate",
+            "start": 755,
+            "end": 768
+        },
+        {
+            "category": "MOL",
+            "text": "Cr",
+            "start": 781,
+            "end": 783
+        },
+        {
+            "category": "MOL",
+            "text": "N,N-dimethylformamide",
+            "start": 946,
+            "end": 967
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Molecular_Level_Understanding_of_the_Free_Energy_Landscape_in_Early_Stages_of_Metal_Organic_Framework_Nucleation/7924394"
 }

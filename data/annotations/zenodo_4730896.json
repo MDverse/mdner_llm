@@ -1,108 +1,108 @@
 {
-  "raw_text": "SIRAH-CoV2 initiative: T307I Mutation in a SARS-CoV-2 Spike from sub-Antarctic Chile\nThis dataset contains the trajectories of 10 microseconds-long coarse-grained molecular dynamics simulations of the soluble part of the wild-type spike protein of SARS-CoV2, the single mutant D614G, and the double mutant T307I/D614G. Simulations are based on the PDB structure 6XR8. Loops were completed using the SwissProt sever, and glycans were not included. Simulations were performed using the SIRAH force field 2.0 running with the Gromacs 2018.3 package at the Institut Pasteur de Montevideo under the conditions reported in Machado et al. JCTC 2019, adding 150 mM NaCl according to Machado & Pantano JCTC 2020. \nThe following files in gromacs format are provided for each simulation:\ni) a .psf containing the topological information (connectivity, etc)\nii) a big .xtc file containing 10 microseconds of the CG protein recorded every 200 picoseconds (50000 frames)\niii) a smaller .xtc file containing the same trajectory but with only one frame per nanosecond (1000 frames)\niv) a .gro file with the initial configuration\nFinally, the file sirah_vmdtk.tcl contains a series of macros and scripts that facilitate the visualization and analysis of the CG trajectories. Step-By-Step tutorials for visualizing and analyzing CG trajectories using SirahTools can be found at www.sirahff.com.\nTo take a quick look at a trajectory using VMD 1.9.3, run the command:\n> vmd SpikeWT-SIRAH.psf SpikeWT-SIRAH.gro SpikeWT-SIRAH-1kfrm.xtc -e sirah_vmdtk.tcl\nNote that you can use normal VMD drawing methods as vdw, licorice, etc., and coloring by restype, element, name, etc. \nThis dataset is part of the SIRAH-CoV2 initiative for data sharing. If you use this data, please cite Garay PG, et al \"The SIRAH-CoV-2 Initiative: A Coarse-Grained Simulations’ Dataset of the SARS-CoV-2 Proteome\". Front. Med. Technol. 3:644039. doi: 10.3389/fmedt.2021.644039\nFor further details, please contact Sergio Pantano (spantano@pasteur.edu.uy).",
-  "entities": [
-    {
-      "category": "FFM",
-      "text": "SIRAH",
-      "start": 0,
-      "end": 5
-    },
-    {
-      "category": "MOL",
-      "text": "CoV2",
-      "start": 6,
-      "end": 10
-    },
-    {
-      "category": "MOL",
-      "text": "SARS-CoV-2 Spike",
-      "start": 43,
-      "end": 59
-    },
-    {
-      "category": "MOL",
-      "text": "spike protein",
-      "start": 231,
-      "end": 244
-    },
-    {
-      "category": "MOL",
-      "text": "CoV2",
-      "start": 253,
-      "end": 257
-    },
-    {
-      "category": "MOL",
-      "text": "6XR8",
-      "start": 362,
-      "end": 366
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "SwissProt",
-      "start": 399,
-      "end": 408
-    },
-    {
-      "category": "MOL",
-      "text": "glycans",
-      "start": 420,
-      "end": 427
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 523,
-      "end": 530
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "2018.3",
-      "start": 531,
-      "end": 537
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 657,
-      "end": 661
-    },
-    {
-      "category": "STIME",
-      "text": "10 microseconds",
-      "start": 877,
-      "end": 892
-    },
-    {
-      "category": "MOL",
-      "text": "CG protein",
-      "start": 900,
-      "end": 910
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "VMD",
-      "start": 1420,
-      "end": 1423
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "1.9.3",
-      "start": 1424,
-      "end": 1429
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "VMD",
-      "start": 1562,
-      "end": 1565
-    },
-    {
-      "category": "MOL",
-      "text": "CoV2",
-      "start": 1686,
-      "end": 1690
-    }
-  ],
-  "url": "https://zenodo.org/records/4730896"
+    "raw_text": "SIRAH-CoV2 initiative: T307I Mutation in a SARS-CoV-2 Spike from sub-Antarctic Chile\nThis dataset contains the trajectories of 10 microseconds-long coarse-grained molecular dynamics simulations of the soluble part of the wild-type spike protein of SARS-CoV2, the single mutant D614G, and the double mutant T307I/D614G. Simulations are based on the PDB structure 6XR8. Loops were completed using the SwissProt sever, and glycans were not included. Simulations were performed using the SIRAH force field 2.0 running with the Gromacs 2018.3 package at the Institut Pasteur de Montevideo under the conditions reported in Machado et al. JCTC 2019, adding 150 mM NaCl according to Machado & Pantano JCTC 2020. \nThe following files in gromacs format are provided for each simulation:\ni) a .psf containing the topological information (connectivity, etc)\nii) a big .xtc file containing 10 microseconds of the CG protein recorded every 200 picoseconds (50000 frames)\niii) a smaller .xtc file containing the same trajectory but with only one frame per nanosecond (1000 frames)\niv) a .gro file with the initial configuration\nFinally, the file sirah_vmdtk.tcl contains a series of macros and scripts that facilitate the visualization and analysis of the CG trajectories. Step-By-Step tutorials for visualizing and analyzing CG trajectories using SirahTools can be found at www.sirahff.com.\nTo take a quick look at a trajectory using VMD 1.9.3, run the command:\n> vmd SpikeWT-SIRAH.psf SpikeWT-SIRAH.gro SpikeWT-SIRAH-1kfrm.xtc -e sirah_vmdtk.tcl\nNote that you can use normal VMD drawing methods as vdw, licorice, etc., and coloring by restype, element, name, etc. \nThis dataset is part of the SIRAH-CoV2 initiative for data sharing. If you use this data, please cite Garay PG, et al \"The SIRAH-CoV-2 Initiative: A Coarse-Grained Simulations’ Dataset of the SARS-CoV-2 Proteome\". Front. Med. Technol. 3:644039. doi: 10.3389/fmedt.2021.644039\nFor further details, please contact Sergio Pantano (spantano@pasteur.edu.uy).",
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "SIRAH",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "category": "MOL",
+            "text": "CoV2",
+            "start": 6,
+            "end": 10
+        },
+        {
+            "category": "MOL",
+            "text": "SARS-CoV-2 Spike",
+            "start": 43,
+            "end": 59
+        },
+        {
+            "category": "MOL",
+            "text": "spike protein",
+            "start": 231,
+            "end": 244
+        },
+        {
+            "category": "MOL",
+            "text": "CoV2",
+            "start": 253,
+            "end": 257
+        },
+        {
+            "category": "MOL",
+            "text": "6XR8",
+            "start": 362,
+            "end": 366
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "SwissProt",
+            "start": 399,
+            "end": 408
+        },
+        {
+            "category": "MOL",
+            "text": "glycans",
+            "start": 420,
+            "end": 427
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 523,
+            "end": 530
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2018.3",
+            "start": 531,
+            "end": 537
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 657,
+            "end": 661
+        },
+        {
+            "category": "STIME",
+            "text": "10 microseconds",
+            "start": 877,
+            "end": 892
+        },
+        {
+            "category": "MOL",
+            "text": "CG protein",
+            "start": 900,
+            "end": 910
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "VMD",
+            "start": 1420,
+            "end": 1423
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "1.9.3",
+            "start": 1424,
+            "end": 1429
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "VMD",
+            "start": 1562,
+            "end": 1565
+        },
+        {
+            "category": "MOL",
+            "text": "CoV2",
+            "start": 1686,
+            "end": 1690
+        }
+    ],
+    "url": "https://zenodo.org/records/4730896"
 }

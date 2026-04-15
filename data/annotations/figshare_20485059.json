@@ -1,48 +1,48 @@
 {
-  "raw_text": "EntF*-D3\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form  -starting coordinates posre.gro energy minimized and water+ions equilibrated around peptide -topology topol.top force field AMBER99SB-ILDB, TIP3P water protonation states at pH = 3 (E,K protonated) [NaCl] = 25 mM disulfide bond generated between residues 14 and 6 -md settings md.mdp time step 2 fs, temperature = 298 K, pressure = 1 bar -1 microsecond trajectory dry.xtc, dry.gro frame rate 10 ps, water and ions removed, box centered on peptide -analysis files frame rate 1 ps radius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "EntF*",
-      "start": 0,
-      "end": 5
-    },
-    {
-      "category": "MOL",
-      "text": "EntF*",
-      "start": 46,
-      "end": 51
-    },
-    {
-      "category": "FFM",
-      "text": "AMBER99SB-ILDB",
-      "start": 206,
-      "end": 220
-    },
-    {
-      "category": "FFM",
-      "text": "TIP3P",
-      "start": 222,
-      "end": 227
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 281,
-      "end": 285
-    },
-    {
-      "category": "TEMP",
-      "text": "298 K",
-      "start": 396,
-      "end": 401
-    },
-    {
-      "category": "STIME",
-      "text": "1 microsecond",
-      "start": 421,
-      "end": 434
-    }
-  ],
-  "url": "https://uvaauas.figshare.com/articles/dataset/EntF_-D3/20485059"
+    "raw_text": "EntF*-D3\nMolecular dynamics simulation of the EntF* peptide, residue 3 in D form  -starting coordinates posre.gro energy minimized and water+ions equilibrated around peptide -topology topol.top force field AMBER99SB-ILDB, TIP3P water protonation states at pH = 3 (E,K protonated) [NaCl] = 25 mM disulfide bond generated between residues 14 and 6 -md settings md.mdp time step 2 fs, temperature = 298 K, pressure = 1 bar -1 microsecond trajectory dry.xtc, dry.gro frame rate 10 ps, water and ions removed, box centered on peptide -analysis files frame rate 1 ps radius of gyration, solvent accessible surface area (hydrophilic parts (backbone + hydrophilic side chains), hydrophobic parts (hydrophobic side chains))",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "EntF*",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "category": "MOL",
+            "text": "EntF*",
+            "start": 46,
+            "end": 51
+        },
+        {
+            "category": "FFM",
+            "text": "AMBER99SB-ILDB",
+            "start": 206,
+            "end": 220
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 222,
+            "end": 227
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 281,
+            "end": 285
+        },
+        {
+            "category": "TEMP",
+            "text": "298 K",
+            "start": 396,
+            "end": 401
+        },
+        {
+            "category": "STIME",
+            "text": "1 microsecond",
+            "start": 421,
+            "end": 434
+        }
+    ],
+    "url": "https://uvaauas.figshare.com/articles/dataset/EntF_-D3/20485059"
 }

@@ -1,90 +1,90 @@
 {
-  "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 15,
-      "end": 19
-    },
-    {
-      "category": "MOL",
-      "text": "dihexadecylammonium",
-      "start": 104,
-      "end": 123
-    },
-    {
-      "category": "FFM",
-      "text": "ECC-POPC",
-      "start": 130,
-      "end": 138
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 197,
-      "end": 201
-    },
-    {
-      "category": "MOL",
-      "text": "dihexadecylammonium",
-      "start": 286,
-      "end": 305
-    },
-    {
-      "category": "FFM",
-      "text": "ECC-POPC",
-      "start": 312,
-      "end": 320
-    },
-    {
-      "category": "FFM",
-      "text": "SPC/E",
-      "start": 345,
-      "end": 350
-    },
-    {
-      "category": "FFM",
-      "text": "ECC-ions",
-      "start": 367,
-      "end": 375
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 575,
-      "end": 582
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "5.1.4",
-      "start": 583,
-      "end": 588
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "openMM",
-      "start": 607,
-      "end": 613
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "7",
-      "start": 614,
-      "end": 615
-    },
-    {
-      "category": "STIME",
-      "text": "200 ns",
-      "start": 648,
-      "end": 654
-    },
-    {
-      "category": "TEMP",
-      "text": "313 K",
-      "start": 667,
-      "end": 672
-    }
-  ],
-  "url": "https://zenodo.org/records/1118682"
+    "raw_text": "Simulations of POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field\nClassical molecular dynamics simulations of a POPC lipid bilayer in water solution with various molar fractions of cationic surfactant dihexadecylammonium using ECC-POPC force field parameters, SPC/E water model and ECC-ions.\nSimulation at pure water is in a separate Zenodo deposit\nhttps://doi.org/10.5281/zenodo.1118266\nfile names report molar fraction of cations (i.e. not bulk concentrations)\nsimulations performed with Gromacs 5.1.4 (*.xtc files) and openMM 7 (*.dcd files)\nsimulation length 200 ns\ntemperature 313 K (otherwise noted)",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 15,
+            "end": 19
+        },
+        {
+            "category": "MOL",
+            "text": "dihexadecylammonium",
+            "start": 104,
+            "end": 123
+        },
+        {
+            "category": "FFM",
+            "text": "ECC-POPC",
+            "start": 130,
+            "end": 138
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 197,
+            "end": 201
+        },
+        {
+            "category": "MOL",
+            "text": "dihexadecylammonium",
+            "start": 286,
+            "end": 305
+        },
+        {
+            "category": "FFM",
+            "text": "ECC-POPC",
+            "start": 312,
+            "end": 320
+        },
+        {
+            "category": "FFM",
+            "text": "SPC/E",
+            "start": 345,
+            "end": 350
+        },
+        {
+            "category": "FFM",
+            "text": "ECC-ions",
+            "start": 367,
+            "end": 375
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 575,
+            "end": 582
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "5.1.4",
+            "start": 583,
+            "end": 588
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "openMM",
+            "start": 607,
+            "end": 613
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "7",
+            "start": 614,
+            "end": 615
+        },
+        {
+            "category": "STIME",
+            "text": "200 ns",
+            "start": 648,
+            "end": 654
+        },
+        {
+            "category": "TEMP",
+            "text": "313 K",
+            "start": 667,
+            "end": 672
+        }
+    ],
+    "url": "https://zenodo.org/records/1118682"
 }

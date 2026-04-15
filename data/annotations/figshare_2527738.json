@@ -1,96 +1,96 @@
 {
-  "raw_text": "Interaction of Hematoporphyrin with Lipid Membranes\nNatural or synthetic porphyrins are being used as photosensitizers in photodiagnosis (PD) and photodynamic therapy (PDT) of malignancies and some other diseases. Understanding the interactions between porphyrins and cell membranes is therefore important to rationalize the uptake of photosensitizers and their passive transport through cell membranes. In this study, we consider the properties of hematoporphyrin (Hp), a well-known photosensitizer for PD and PDT, in the presence of a 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine (POPC) bilayer that we use as a model system for protein-free cell membranes. For this purpose, we employed 200 ns atomic-scale molecular dynamics (MD) simulations for five systems containing the neutral (Hp0) or the dianionic form (Hp2–) of Hp and the POPC bilayer. MD simulations allowed one to estimate the position, orientation, and dynamics of Hp molecules inside the membrane. The dye molecules were found to reside in the phospholipid headgroup area close to the carbonyl groups of the POPC acyl chains. Their orientations were dependent on the protonation state of two propionic groups. Hp2– was found to have a lower affinity to enter the membrane than the neutral form. The dianions, being in the aqueous phase, formed stable dimers with a strictly determined geometry. Our results fully supported the experimental data and provide a more detailed molecular-level description of the interactions of photosensitizers with lipid membranes.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Hematoporphyrin",
-      "start": 15,
-      "end": 30
-    },
-    {
-      "category": "MOL",
-      "text": "porphyrins",
-      "start": 73,
-      "end": 83
-    },
-    {
-      "category": "MOL",
-      "text": "porphyrins",
-      "start": 253,
-      "end": 263
-    },
-    {
-      "category": "MOL",
-      "text": "hematoporphyrin",
-      "start": 449,
-      "end": 464
-    },
-    {
-      "category": "MOL",
-      "text": "Hp",
-      "start": 466,
-      "end": 468
-    },
-    {
-      "category": "MOL",
-      "text": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine",
-      "start": 537,
-      "end": 585
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 587,
-      "end": 591
-    },
-    {
-      "category": "STIME",
-      "text": "200 ns",
-      "start": 694,
-      "end": 700
-    },
-    {
-      "category": "MOL",
-      "text": "Hp",
-      "start": 791,
-      "end": 793
-    },
-    {
-      "category": "MOL",
-      "text": "Hp",
-      "start": 819,
-      "end": 821
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 839,
-      "end": 843
-    },
-    {
-      "category": "MOL",
-      "text": "phospholipid",
-      "start": 1015,
-      "end": 1027
-    },
-    {
-      "category": "MOL",
-      "text": "carbonyl",
-      "start": 1056,
-      "end": 1064
-    },
-    {
-      "category": "MOL",
-      "text": "POPC acyl",
-      "start": 1079,
-      "end": 1088
-    },
-    {
-      "category": "MOL",
-      "text": "dianions",
-      "start": 1270,
-      "end": 1278
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/Interaction_of_Hematoporphyrin_with_Lipid_Membranes/2527738"
+    "raw_text": "Interaction of Hematoporphyrin with Lipid Membranes\nNatural or synthetic porphyrins are being used as photosensitizers in photodiagnosis (PD) and photodynamic therapy (PDT) of malignancies and some other diseases. Understanding the interactions between porphyrins and cell membranes is therefore important to rationalize the uptake of photosensitizers and their passive transport through cell membranes. In this study, we consider the properties of hematoporphyrin (Hp), a well-known photosensitizer for PD and PDT, in the presence of a 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine (POPC) bilayer that we use as a model system for protein-free cell membranes. For this purpose, we employed 200 ns atomic-scale molecular dynamics (MD) simulations for five systems containing the neutral (Hp0) or the dianionic form (Hp2–) of Hp and the POPC bilayer. MD simulations allowed one to estimate the position, orientation, and dynamics of Hp molecules inside the membrane. The dye molecules were found to reside in the phospholipid headgroup area close to the carbonyl groups of the POPC acyl chains. Their orientations were dependent on the protonation state of two propionic groups. Hp2– was found to have a lower affinity to enter the membrane than the neutral form. The dianions, being in the aqueous phase, formed stable dimers with a strictly determined geometry. Our results fully supported the experimental data and provide a more detailed molecular-level description of the interactions of photosensitizers with lipid membranes.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Hematoporphyrin",
+            "start": 15,
+            "end": 30
+        },
+        {
+            "category": "MOL",
+            "text": "porphyrins",
+            "start": 73,
+            "end": 83
+        },
+        {
+            "category": "MOL",
+            "text": "porphyrins",
+            "start": 253,
+            "end": 263
+        },
+        {
+            "category": "MOL",
+            "text": "hematoporphyrin",
+            "start": 449,
+            "end": 464
+        },
+        {
+            "category": "MOL",
+            "text": "Hp",
+            "start": 466,
+            "end": 468
+        },
+        {
+            "category": "MOL",
+            "text": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine",
+            "start": 537,
+            "end": 585
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 587,
+            "end": 591
+        },
+        {
+            "category": "STIME",
+            "text": "200 ns",
+            "start": 694,
+            "end": 700
+        },
+        {
+            "category": "MOL",
+            "text": "Hp",
+            "start": 791,
+            "end": 793
+        },
+        {
+            "category": "MOL",
+            "text": "Hp",
+            "start": 819,
+            "end": 821
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 839,
+            "end": 843
+        },
+        {
+            "category": "MOL",
+            "text": "phospholipid",
+            "start": 1015,
+            "end": 1027
+        },
+        {
+            "category": "MOL",
+            "text": "carbonyl",
+            "start": 1056,
+            "end": 1064
+        },
+        {
+            "category": "MOL",
+            "text": "POPC acyl",
+            "start": 1079,
+            "end": 1088
+        },
+        {
+            "category": "MOL",
+            "text": "dianions",
+            "start": 1270,
+            "end": 1278
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Interaction_of_Hematoporphyrin_with_Lipid_Membranes/2527738"
 }

@@ -36,6 +36,13 @@ MOL:
     - proteins
     - salt
     - membrane
+    - dna
+    - rna
+    - ion
+    - ions
+    - ligand
+    - ligands
+
 
 SOFTNAME:
   black_list:

@@ -1,186 +1,186 @@
 {
-  "raw_text": "Simulations for: Patched 1 regulates Smoothened by controlling sterol binding to its extracellular cysteine-rich domain.\nAtomistic simulations of Smoothened:\nAtomistic molecular dynamics simulations of glycosylated mouse Smoothened (mSMO) and human Smoothened (hSMO) in distinct liganded states:\n- mSMO in an apo state (mSMO_apo)\n- mSMO with TMD cholesterol bound (mSMO_chol_TMD)\n- mSMO with CRD cholesterol bound (mSMO_chol_CRD)\n- mSMO with cholesterol bound to the CRD and TMD (mSMO_2chol_TMD_CRD)\n- mSMO bound to CRD cholesterol and Smoothened agonist (SAG) (mSMO_chol_CRD_SAG)\n- mSMO bound to CRD and TMD cholesterols, SAG and an intracellular nanobody (mSMO_2chol_SAG_nanobody)\n- mSMO bound to CRD and TMD cholesterol and with an additional cholesterol bound at a proposed 'mid' position (mSMO_3chol)\n- hSMO bound to CRD cholesterol and SAG (hSMO_chol_CRD_SAG)\n \nAll simulations were run for 5x 300 ns. The active mSMO conformation was obtained from the Protein Data Bank (PDB ID: 6O3C). The hSMO structure was determined using X-ray crystallography as outlined within this study.  \nFile description for each system:\n- md_fit_firstframe.pdb : Initial frame used for atomistic simulations (replicate 1, each replicate equilibrated independently). \n- md_fit_X.xtc : Gromacs trajectory file for each replicate (X=replicate number). ",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Patched 1",
-      "start": 17,
-      "end": 26
-    },
-    {
-      "category": "MOL",
-      "text": "Smoothened",
-      "start": 37,
-      "end": 47
-    },
-    {
-      "category": "MOL",
-      "text": "sterol",
-      "start": 63,
-      "end": 69
-    },
-    {
-      "category": "MOL",
-      "text": "Smoothened",
-      "start": 146,
-      "end": 156
-    },
-    {
-      "category": "MOL",
-      "text": "glycosylated mouse Smoothened",
-      "start": 202,
-      "end": 231
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 233,
-      "end": 237
-    },
-    {
-      "category": "MOL",
-      "text": "human Smoothened",
-      "start": 243,
-      "end": 259
-    },
-    {
-      "category": "MOL",
-      "text": "hSMO",
-      "start": 261,
-      "end": 265
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 298,
-      "end": 302
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 332,
-      "end": 336
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 346,
-      "end": 357
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 382,
-      "end": 386
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 396,
-      "end": 407
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 432,
-      "end": 436
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 442,
-      "end": 453
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 502,
-      "end": 506
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 520,
-      "end": 531
-    },
-    {
-      "category": "MOL",
-      "text": "Smoothened",
-      "start": 536,
-      "end": 546
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 583,
-      "end": 587
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterols",
-      "start": 609,
-      "end": 621
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 685,
-      "end": 689
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 711,
-      "end": 722
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 746,
-      "end": 757
-    },
-    {
-      "category": "MOL",
-      "text": "hSMO",
-      "start": 808,
-      "end": 812
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 826,
-      "end": 837
-    },
-    {
-      "category": "STIME",
-      "text": "300 ns",
-      "start": 900,
-      "end": 906
-    },
-    {
-      "category": "MOL",
-      "text": "mSMO",
-      "start": 919,
-      "end": 923
-    },
-    {
-      "category": "MOL",
-      "text": "6O3C",
-      "start": 986,
-      "end": 990
-    },
-    {
-      "category": "MOL",
-      "text": "hSMO",
-      "start": 997,
-      "end": 1001
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 1269,
-      "end": 1276
-    }
-  ],
-  "url": "https://zenodo.org/records/6144286"
+    "raw_text": "Simulations for: Patched 1 regulates Smoothened by controlling sterol binding to its extracellular cysteine-rich domain.\nAtomistic simulations of Smoothened:\nAtomistic molecular dynamics simulations of glycosylated mouse Smoothened (mSMO) and human Smoothened (hSMO) in distinct liganded states:\n- mSMO in an apo state (mSMO_apo)\n- mSMO with TMD cholesterol bound (mSMO_chol_TMD)\n- mSMO with CRD cholesterol bound (mSMO_chol_CRD)\n- mSMO with cholesterol bound to the CRD and TMD (mSMO_2chol_TMD_CRD)\n- mSMO bound to CRD cholesterol and Smoothened agonist (SAG) (mSMO_chol_CRD_SAG)\n- mSMO bound to CRD and TMD cholesterols, SAG and an intracellular nanobody (mSMO_2chol_SAG_nanobody)\n- mSMO bound to CRD and TMD cholesterol and with an additional cholesterol bound at a proposed 'mid' position (mSMO_3chol)\n- hSMO bound to CRD cholesterol and SAG (hSMO_chol_CRD_SAG)\n \nAll simulations were run for 5x 300 ns. The active mSMO conformation was obtained from the Protein Data Bank (PDB ID: 6O3C). The hSMO structure was determined using X-ray crystallography as outlined within this study.  \nFile description for each system:\n- md_fit_firstframe.pdb : Initial frame used for atomistic simulations (replicate 1, each replicate equilibrated independently). \n- md_fit_X.xtc : Gromacs trajectory file for each replicate (X=replicate number). ",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Patched 1",
+            "start": 17,
+            "end": 26
+        },
+        {
+            "category": "MOL",
+            "text": "Smoothened",
+            "start": 37,
+            "end": 47
+        },
+        {
+            "category": "MOL",
+            "text": "sterol",
+            "start": 63,
+            "end": 69
+        },
+        {
+            "category": "MOL",
+            "text": "Smoothened",
+            "start": 146,
+            "end": 156
+        },
+        {
+            "category": "MOL",
+            "text": "glycosylated mouse Smoothened",
+            "start": 202,
+            "end": 231
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 233,
+            "end": 237
+        },
+        {
+            "category": "MOL",
+            "text": "human Smoothened",
+            "start": 243,
+            "end": 259
+        },
+        {
+            "category": "MOL",
+            "text": "hSMO",
+            "start": 261,
+            "end": 265
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 298,
+            "end": 302
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 332,
+            "end": 336
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 346,
+            "end": 357
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 382,
+            "end": 386
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 396,
+            "end": 407
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 432,
+            "end": 436
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 442,
+            "end": 453
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 502,
+            "end": 506
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 520,
+            "end": 531
+        },
+        {
+            "category": "MOL",
+            "text": "Smoothened",
+            "start": 536,
+            "end": 546
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 583,
+            "end": 587
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterols",
+            "start": 609,
+            "end": 621
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 685,
+            "end": 689
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 711,
+            "end": 722
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 746,
+            "end": 757
+        },
+        {
+            "category": "MOL",
+            "text": "hSMO",
+            "start": 808,
+            "end": 812
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 826,
+            "end": 837
+        },
+        {
+            "category": "STIME",
+            "text": "300 ns",
+            "start": 900,
+            "end": 906
+        },
+        {
+            "category": "MOL",
+            "text": "mSMO",
+            "start": 919,
+            "end": 923
+        },
+        {
+            "category": "MOL",
+            "text": "6O3C",
+            "start": 986,
+            "end": 990
+        },
+        {
+            "category": "MOL",
+            "text": "hSMO",
+            "start": 997,
+            "end": 1001
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1269,
+            "end": 1276
+        }
+    ],
+    "url": "https://zenodo.org/records/6144286"
 }

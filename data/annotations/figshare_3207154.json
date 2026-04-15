@@ -1,72 +1,72 @@
 {
-  "raw_text": "Accurate Structure Prediction and Conformational Analysis of Cyclic Peptides with Residue-Specific Force Fields\nCyclic peptides (CPs) are promising candidates for drugs, chemical biology tools, and self-assembling nanomaterials. However, the development of reliable and accurate computational methods for their structure prediction has been challenging. Here, 20 all-trans CPs of 5–12 residues selected from Cambridge Structure Database have been simulated using replica-exchange molecular dynamics with four different force fields. Our recently developed residue-specific force fields RSFF1 and RSFF2 can correctly identify the crystal-like conformations of more than half CPs as the most populated conformation. The RSFF2 performs the best, which consistently predicts the crystal structures of 17 out of 20 CPs with rmsd < 1.1 Å. We also compared the backbone (ϕ, ψ) sampling of residues in CPs with those in short linear peptides and in globular proteins. In general, unlike linear peptides, CPs have local conformational free energies and entropies quite similar to globular proteins.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Cyclic Peptides",
-      "start": 61,
-      "end": 76
-    },
-    {
-      "category": "MOL",
-      "text": "Cyclic peptides",
-      "start": 112,
-      "end": 127
-    },
-    {
-      "category": "MOL",
-      "text": "CPs",
-      "start": 129,
-      "end": 132
-    },
-    {
-      "category": "MOL",
-      "text": "CPs",
-      "start": 373,
-      "end": 376
-    },
-    {
-      "category": "FFM",
-      "text": "RSFF1",
-      "start": 586,
-      "end": 591
-    },
-    {
-      "category": "FFM",
-      "text": "RSFF2",
-      "start": 596,
-      "end": 601
-    },
-    {
-      "category": "MOL",
-      "text": "CPs",
-      "start": 674,
-      "end": 677
-    },
-    {
-      "category": "FFM",
-      "text": "RSFF2",
-      "start": 718,
-      "end": 723
-    },
-    {
-      "category": "MOL",
-      "text": "CPs",
-      "start": 810,
-      "end": 813
-    },
-    {
-      "category": "MOL",
-      "text": "CPs",
-      "start": 894,
-      "end": 897
-    },
-    {
-      "category": "MOL",
-      "text": "CPs",
-      "start": 996,
-      "end": 999
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/Accurate_Structure_Prediction_and_Conformational_Analysis_of_Cyclic_Peptides_with_Residue_Specific_Force_Fields/3207154"
+    "raw_text": "Accurate Structure Prediction and Conformational Analysis of Cyclic Peptides with Residue-Specific Force Fields\nCyclic peptides (CPs) are promising candidates for drugs, chemical biology tools, and self-assembling nanomaterials. However, the development of reliable and accurate computational methods for their structure prediction has been challenging. Here, 20 all-trans CPs of 5–12 residues selected from Cambridge Structure Database have been simulated using replica-exchange molecular dynamics with four different force fields. Our recently developed residue-specific force fields RSFF1 and RSFF2 can correctly identify the crystal-like conformations of more than half CPs as the most populated conformation. The RSFF2 performs the best, which consistently predicts the crystal structures of 17 out of 20 CPs with rmsd < 1.1 Å. We also compared the backbone (ϕ, ψ) sampling of residues in CPs with those in short linear peptides and in globular proteins. In general, unlike linear peptides, CPs have local conformational free energies and entropies quite similar to globular proteins.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Cyclic Peptides",
+            "start": 61,
+            "end": 76
+        },
+        {
+            "category": "MOL",
+            "text": "Cyclic peptides",
+            "start": 112,
+            "end": 127
+        },
+        {
+            "category": "MOL",
+            "text": "CPs",
+            "start": 129,
+            "end": 132
+        },
+        {
+            "category": "MOL",
+            "text": "CPs",
+            "start": 373,
+            "end": 376
+        },
+        {
+            "category": "FFM",
+            "text": "RSFF1",
+            "start": 586,
+            "end": 591
+        },
+        {
+            "category": "FFM",
+            "text": "RSFF2",
+            "start": 596,
+            "end": 601
+        },
+        {
+            "category": "MOL",
+            "text": "CPs",
+            "start": 674,
+            "end": 677
+        },
+        {
+            "category": "FFM",
+            "text": "RSFF2",
+            "start": 718,
+            "end": 723
+        },
+        {
+            "category": "MOL",
+            "text": "CPs",
+            "start": 810,
+            "end": 813
+        },
+        {
+            "category": "MOL",
+            "text": "CPs",
+            "start": 894,
+            "end": 897
+        },
+        {
+            "category": "MOL",
+            "text": "CPs",
+            "start": 996,
+            "end": 999
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Accurate_Structure_Prediction_and_Conformational_Analysis_of_Cyclic_Peptides_with_Residue_Specific_Force_Fields/3207154"
 }

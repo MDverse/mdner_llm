@@ -1,36 +1,24 @@
 {
-  "raw_text": "Connexin 46 and connexin 50 gap junction channel properties are shaped by structural and dynamic features of their N-terminal domains\nProvided are reduced trajectories (.dcd) of the MD simulations -- each trajectory has 100 ps/frame with only protein and ion atoms remaining. Each set of trajectories are accompanied by a protein structure file (.psf) which is required to visualize the trajectories in VMD. Additionally, the z-trajectories of each intracellular ion (2 ps/frame) are provided in zipped files.\n\nTo re-create the potentials of mean force (PMF) in Yue & Haddad et al., use the scripts provided with the paper (https://github.com/reichow-lab/Yue-Haddad_et-al.JPhysiol2021):\n\n \npython3 GapJ_Analysis.py \"Cx46_Ace_Produc-1_POT_*\"\n\nChoose a bin size in Å (3)\nChoose an output name (Cx46_Ace)\nChoose option (M)\nChoose time (ps) / frame (2)\nChoose column from file (1)\nChoose binmin/binmax (auto)\n",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Connexin 46",
-      "start": 0,
-      "end": 11
-    },
-    {
-      "category": "MOL",
-      "text": "connexin 50",
-      "start": 16,
-      "end": 27
-    },
-    {
-      "category": "MOL",
-      "text": "ion",
-      "start": 37,
-      "end": 40
-    },
-    {
-      "category": "MOL",
-      "text": "ion",
-      "start": 192,
-      "end": 195
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "VMD",
-      "start": 403,
-      "end": 406
-    }
-  ],
-  "url": "https://zenodo.org/records/4625961"
+    "raw_text": "Connexin 46 and connexin 50 gap junction channel properties are shaped by structural and dynamic features of their N-terminal domains\nProvided are reduced trajectories (.dcd) of the MD simulations -- each trajectory has 100 ps/frame with only protein and ion atoms remaining. Each set of trajectories are accompanied by a protein structure file (.psf) which is required to visualize the trajectories in VMD. Additionally, the z-trajectories of each intracellular ion (2 ps/frame) are provided in zipped files.\n\nTo re-create the potentials of mean force (PMF) in Yue & Haddad et al., use the scripts provided with the paper (https://github.com/reichow-lab/Yue-Haddad_et-al.JPhysiol2021):\n\n \npython3 GapJ_Analysis.py \"Cx46_Ace_Produc-1_POT_*\"\n\nChoose a bin size in Å (3)\nChoose an output name (Cx46_Ace)\nChoose option (M)\nChoose time (ps) / frame (2)\nChoose column from file (1)\nChoose binmin/binmax (auto)\n",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Connexin 46",
+            "start": 0,
+            "end": 11
+        },
+        {
+            "category": "MOL",
+            "text": "connexin 50",
+            "start": 16,
+            "end": 27
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "VMD",
+            "start": 403,
+            "end": 406
+        }
+    ],
+    "url": "https://zenodo.org/records/4625961"
 }

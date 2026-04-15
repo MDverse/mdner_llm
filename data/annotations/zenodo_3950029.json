@@ -1,72 +1,72 @@
 {
-  "raw_text": "212 DPPC Molecules bilayer in pure Water, simulated at temperatures ranging from 288K to 358K\nPublication: A machine learning study of the two states model for lipid bilayer phase transitions\nPublished on: 12 August 2020\nJournal: Phys. Chem. Chem. Phys., 2020, DOI: 10.1039/D0CP02058C\nDescription: Simulation files used to train our machine learning algorithm to identify the thermodynamic phase of individual lipid molecules in a bilayer, as well as the simulation files analysed by the machine learning models. Code source for the ML algorithm can be found on Github.\nThe training files are named gel.gro and fluid.gro. They respectively correspond to the final frame of the systems simulated at 288K and 358K.\nAll other files are the files analysed by the machine learning models.\nSystem composition:\n\nDPPC molecules: 212 with 130 atoms each\nWater molecules:  29,826 with 3 atoms each \nSimulation box dimensions (approx.): 8 x 8 x 20 nm\n\nSimulation details:\n\nSoftware: Gromacs (v. 2016.4)\nForcefield: Charmm36 (v. June 2015) - Water: TIP3P\nThermostat: Nose-hoover (0.4ps, 2 groups)\nBarostat: Parrinello-Rahman semi-isotropic (2.0ps, 1.0 bar on each axis, 4.5e-5 bar-1)\nDuration: 50 ns\n",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "DPPC",
-      "start": 4,
-      "end": 8
-    },
-    {
-      "category": "TEMP",
-      "text": "288K",
-      "start": 81,
-      "end": 85
-    },
-    {
-      "category": "TEMP",
-      "text": "358K",
-      "start": 89,
-      "end": 93
-    },
-    {
-      "category": "TEMP",
-      "text": "288K",
-      "start": 698,
-      "end": 702
-    },
-    {
-      "category": "TEMP",
-      "text": "358K",
-      "start": 707,
-      "end": 711
-    },
-    {
-      "category": "MOL",
-      "text": "DPPC",
-      "start": 805,
-      "end": 809
-    },
-    {
-      "category": "SOFTNAME",
-      "text": "Gromacs",
-      "start": 972,
-      "end": 979
-    },
-    {
-      "category": "SOFTVERS",
-      "text": "v. 2016.4",
-      "start": 981,
-      "end": 990
-    },
-    {
-      "category": "FFM",
-      "text": "Charmm36 (v. June 2015)",
-      "start": 1004,
-      "end": 1027
-    },
-    {
-      "category": "FFM",
-      "text": "TIP3P",
-      "start": 1037,
-      "end": 1042
-    },
-    {
-      "category": "STIME",
-      "text": "50 ns",
-      "start": 1182,
-      "end": 1187
-    }
-  ],
-  "url": "https://zenodo.org/records/3950029"
+    "raw_text": "212 DPPC Molecules bilayer in pure Water, simulated at temperatures ranging from 288K to 358K\nPublication: A machine learning study of the two states model for lipid bilayer phase transitions\nPublished on: 12 August 2020\nJournal: Phys. Chem. Chem. Phys., 2020, DOI: 10.1039/D0CP02058C\nDescription: Simulation files used to train our machine learning algorithm to identify the thermodynamic phase of individual lipid molecules in a bilayer, as well as the simulation files analysed by the machine learning models. Code source for the ML algorithm can be found on Github.\nThe training files are named gel.gro and fluid.gro. They respectively correspond to the final frame of the systems simulated at 288K and 358K.\nAll other files are the files analysed by the machine learning models.\nSystem composition:\n\nDPPC molecules: 212 with 130 atoms each\nWater molecules:  29,826 with 3 atoms each \nSimulation box dimensions (approx.): 8 x 8 x 20 nm\n\nSimulation details:\n\nSoftware: Gromacs (v. 2016.4)\nForcefield: Charmm36 (v. June 2015) - Water: TIP3P\nThermostat: Nose-hoover (0.4ps, 2 groups)\nBarostat: Parrinello-Rahman semi-isotropic (2.0ps, 1.0 bar on each axis, 4.5e-5 bar-1)\nDuration: 50 ns\n",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 4,
+            "end": 8
+        },
+        {
+            "category": "TEMP",
+            "text": "288K",
+            "start": 81,
+            "end": 85
+        },
+        {
+            "category": "TEMP",
+            "text": "358K",
+            "start": 89,
+            "end": 93
+        },
+        {
+            "category": "TEMP",
+            "text": "288K",
+            "start": 698,
+            "end": 702
+        },
+        {
+            "category": "TEMP",
+            "text": "358K",
+            "start": 707,
+            "end": 711
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 805,
+            "end": 809
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 972,
+            "end": 979
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "v. 2016.4",
+            "start": 981,
+            "end": 990
+        },
+        {
+            "category": "FFM",
+            "text": "Charmm36 (v. June 2015)",
+            "start": 1004,
+            "end": 1027
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 1037,
+            "end": 1042
+        },
+        {
+            "category": "STIME",
+            "text": "50 ns",
+            "start": 1182,
+            "end": 1187
+        }
+    ],
+    "url": "https://zenodo.org/records/3950029"
 }

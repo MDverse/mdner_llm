@@ -1,90 +1,90 @@
 {
-  "raw_text": "MD simulation input files and results for ,,Atomistic MD simulations of n-alkanes in a phospholipid bilayer: CHARMM36 versus Slipids\"\nInput files and trajectories of n-alkane/lipid systems used in the article: ,,Atomistic MD simulations of n-alkanes in a phospholipid bilayer: CHARMM36 versus Slipids\".\nEquilibrated starting configurations were created using CHARMM36. Otherwise, filenames specifiy the force field used (C36 or SL), Temperature and system composition.\n.xtc trajectories were created using gmx trjconv with options -pbc nojump -dt 10. run2 equals simulations from 100-200ns, run3 equals 200-300ns. The first 100ns were excluded from the analysis and are not included in this dataset.\nExemplary .mdp files have been included for both force-fields. Please refer to the manuscript for the force field sources and additional information.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "n-alkanes",
-      "start": 72,
-      "end": 81
-    },
-    {
-      "category": "MOL",
-      "text": "phospholipid",
-      "start": 87,
-      "end": 99
-    },
-    {
-      "category": "FFM",
-      "text": "CHARMM36",
-      "start": 109,
-      "end": 117
-    },
-    {
-      "category": "FFM",
-      "text": "Slipids",
-      "start": 125,
-      "end": 132
-    },
-    {
-      "category": "MOL",
-      "text": "n-alkane",
-      "start": 166,
-      "end": 174
-    },
-    {
-      "category": "MOL",
-      "text": "n-alkanes",
-      "start": 240,
-      "end": 249
-    },
-    {
-      "category": "MOL",
-      "text": "phospholipid",
-      "start": 255,
-      "end": 267
-    },
-    {
-      "category": "FFM",
-      "text": "CHARMM36",
-      "start": 277,
-      "end": 285
-    },
-    {
-      "category": "FFM",
-      "text": "Slipids",
-      "start": 293,
-      "end": 300
-    },
-    {
-      "category": "FFM",
-      "text": "CHARMM36",
-      "start": 359,
-      "end": 367
-    },
-    {
-      "category": "FFM",
-      "text": "C36",
-      "start": 421,
-      "end": 424
-    },
-    {
-      "category": "FFM",
-      "text": "SL",
-      "start": 428,
-      "end": 430
-    },
-    {
-      "category": "STIME",
-      "text": "100-200ns",
-      "start": 580,
-      "end": 589
-    },
-    {
-      "category": "STIME",
-      "text": "200-300ns",
-      "start": 603,
-      "end": 612
-    }
-  ],
-  "url": "https://zenodo.org/records/7572990"
+    "raw_text": "MD simulation input files and results for ,,Atomistic MD simulations of n-alkanes in a phospholipid bilayer: CHARMM36 versus Slipids\"\nInput files and trajectories of n-alkane/lipid systems used in the article: ,,Atomistic MD simulations of n-alkanes in a phospholipid bilayer: CHARMM36 versus Slipids\".\nEquilibrated starting configurations were created using CHARMM36. Otherwise, filenames specifiy the force field used (C36 or SL), Temperature and system composition.\n.xtc trajectories were created using gmx trjconv with options -pbc nojump -dt 10. run2 equals simulations from 100-200ns, run3 equals 200-300ns. The first 100ns were excluded from the analysis and are not included in this dataset.\nExemplary .mdp files have been included for both force-fields. Please refer to the manuscript for the force field sources and additional information.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "n-alkanes",
+            "start": 72,
+            "end": 81
+        },
+        {
+            "category": "MOL",
+            "text": "phospholipid",
+            "start": 87,
+            "end": 99
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 109,
+            "end": 117
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 125,
+            "end": 132
+        },
+        {
+            "category": "MOL",
+            "text": "n-alkane",
+            "start": 166,
+            "end": 174
+        },
+        {
+            "category": "MOL",
+            "text": "n-alkanes",
+            "start": 240,
+            "end": 249
+        },
+        {
+            "category": "MOL",
+            "text": "phospholipid",
+            "start": 255,
+            "end": 267
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 277,
+            "end": 285
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 293,
+            "end": 300
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 359,
+            "end": 367
+        },
+        {
+            "category": "FFM",
+            "text": "C36",
+            "start": 421,
+            "end": 424
+        },
+        {
+            "category": "FFM",
+            "text": "SL",
+            "start": 428,
+            "end": 430
+        },
+        {
+            "category": "STIME",
+            "text": "100-200ns",
+            "start": 580,
+            "end": 589
+        },
+        {
+            "category": "STIME",
+            "text": "200-300ns",
+            "start": 603,
+            "end": 612
+        }
+    ],
+    "url": "https://zenodo.org/records/7572990"
 }

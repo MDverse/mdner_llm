@@ -1,168 +1,168 @@
 {
-  "raw_text": "Choline acetyltransferase (ChAT) - Amyloid beta peptides complex Molecular dynamics Trajectories\nIn silico molecular dynamics study was performed for the choline acetyltransferase (ChAT) - Abeta peptides complex. The molecular docking of Aβ40 and Aβ42 on ChAT suggested three most probable binding clusters for both the Aβ peptides. Thus generating ChAT-Aβ40 Cluster-0, ChAT-Aβ40 Cluster-1, ChAT-Aβ40 Cluster-2 for Aβ40 peptide on ChAT, likewise ChAT-Aβ42 Cluster-0, ChAT-Aβ42 Cluster-1, ChAT-Aβ42 Cluster-2 were generated for Aβ42 peptide on ChAT.\nEach of the folders contains the topology file with a ‘.gro’ extension and a trajectory file with ‘.xtc’ extension generated from the 100 ns molecular dynamics performed for each of the clusters mentioned above that were generated from the molecular docking. The folders are named as follows:\n\nChAT_AB40_Cluster_0: Containing the topology file (ab40_0.gro) and the trajectory file (ab40_0.xtc)\nChAT_AB40_Cluster_1: Containing the topology file (ab40_1.gro) and the trajectory file (ab40_1.xtc)\nChAT_AB40_Cluster_2: Containing the topology file (ab40_2.gro) and the trajectory file (ab40_2.xtc)\nChAT_AB42_Cluster_0: Containing the topology file (ab42_0.gro) and the trajectory file (ab42_0.xtc)\nChAT_AB42_Cluster_1: Containing the topology file (ab42_1.gro) and the trajectory file (ab42_1.xtc)\nChAT_AB42_Cluster_2: Containing the topology file (ab42_2.gro) and the trajectory file (ab42_2.xtc\n",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Choline acetyltransferase",
-      "start": 0,
-      "end": 25
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 27,
-      "end": 31
-    },
-    {
-      "category": "MOL",
-      "text": "Amyloid beta",
-      "start": 35,
-      "end": 47
-    },
-    {
-      "category": "MOL",
-      "text": "choline acetyltransferase",
-      "start": 154,
-      "end": 179
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 181,
-      "end": 185
-    },
-    {
-      "category": "MOL",
-      "text": "Abeta",
-      "start": 189,
-      "end": 194
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ40",
-      "start": 238,
-      "end": 242
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ42",
-      "start": 247,
-      "end": 251
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 255,
-      "end": 259
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ peptides",
-      "start": 320,
-      "end": 331
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 349,
-      "end": 353
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ40",
-      "start": 354,
-      "end": 358
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 370,
-      "end": 374
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ40",
-      "start": 375,
-      "end": 379
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 391,
-      "end": 395
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ40",
-      "start": 396,
-      "end": 400
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ40",
-      "start": 415,
-      "end": 419
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 431,
-      "end": 435
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 446,
-      "end": 450
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ42",
-      "start": 451,
-      "end": 455
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 467,
-      "end": 471
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ42",
-      "start": 472,
-      "end": 476
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 488,
-      "end": 492
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ42",
-      "start": 493,
-      "end": 497
-    },
-    {
-      "category": "MOL",
-      "text": "Aβ42",
-      "start": 527,
-      "end": 531
-    },
-    {
-      "category": "MOL",
-      "text": "ChAT",
-      "start": 543,
-      "end": 547
-    },
-    {
-      "category": "STIME",
-      "text": "100 ns",
-      "start": 683,
-      "end": 689
-    }
-  ],
-  "url": "https://zenodo.org/records/5912821"
+    "raw_text": "Choline acetyltransferase (ChAT) - Amyloid beta peptides complex Molecular dynamics Trajectories\nIn silico molecular dynamics study was performed for the choline acetyltransferase (ChAT) - Abeta peptides complex. The molecular docking of Aβ40 and Aβ42 on ChAT suggested three most probable binding clusters for both the Aβ peptides. Thus generating ChAT-Aβ40 Cluster-0, ChAT-Aβ40 Cluster-1, ChAT-Aβ40 Cluster-2 for Aβ40 peptide on ChAT, likewise ChAT-Aβ42 Cluster-0, ChAT-Aβ42 Cluster-1, ChAT-Aβ42 Cluster-2 were generated for Aβ42 peptide on ChAT.\nEach of the folders contains the topology file with a ‘.gro’ extension and a trajectory file with ‘.xtc’ extension generated from the 100 ns molecular dynamics performed for each of the clusters mentioned above that were generated from the molecular docking. The folders are named as follows:\n\nChAT_AB40_Cluster_0: Containing the topology file (ab40_0.gro) and the trajectory file (ab40_0.xtc)\nChAT_AB40_Cluster_1: Containing the topology file (ab40_1.gro) and the trajectory file (ab40_1.xtc)\nChAT_AB40_Cluster_2: Containing the topology file (ab40_2.gro) and the trajectory file (ab40_2.xtc)\nChAT_AB42_Cluster_0: Containing the topology file (ab42_0.gro) and the trajectory file (ab42_0.xtc)\nChAT_AB42_Cluster_1: Containing the topology file (ab42_1.gro) and the trajectory file (ab42_1.xtc)\nChAT_AB42_Cluster_2: Containing the topology file (ab42_2.gro) and the trajectory file (ab42_2.xtc\n",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Choline acetyltransferase",
+            "start": 0,
+            "end": 25
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 27,
+            "end": 31
+        },
+        {
+            "category": "MOL",
+            "text": "Amyloid beta",
+            "start": 35,
+            "end": 47
+        },
+        {
+            "category": "MOL",
+            "text": "choline acetyltransferase",
+            "start": 154,
+            "end": 179
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 181,
+            "end": 185
+        },
+        {
+            "category": "MOL",
+            "text": "Abeta",
+            "start": 189,
+            "end": 194
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ40",
+            "start": 238,
+            "end": 242
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ42",
+            "start": 247,
+            "end": 251
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 255,
+            "end": 259
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ peptides",
+            "start": 320,
+            "end": 331
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 349,
+            "end": 353
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ40",
+            "start": 354,
+            "end": 358
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 370,
+            "end": 374
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ40",
+            "start": 375,
+            "end": 379
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 391,
+            "end": 395
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ40",
+            "start": 396,
+            "end": 400
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ40",
+            "start": 415,
+            "end": 419
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 431,
+            "end": 435
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 446,
+            "end": 450
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ42",
+            "start": 451,
+            "end": 455
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 467,
+            "end": 471
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ42",
+            "start": 472,
+            "end": 476
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 488,
+            "end": 492
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ42",
+            "start": 493,
+            "end": 497
+        },
+        {
+            "category": "MOL",
+            "text": "Aβ42",
+            "start": 527,
+            "end": 531
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 543,
+            "end": 547
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 683,
+            "end": 689
+        }
+    ],
+    "url": "https://zenodo.org/records/5912821"
 }

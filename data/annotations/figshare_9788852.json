@@ -1,60 +1,60 @@
 {
-  "raw_text": "In-Cell Protein–Protein Contacts: Transient Interactions in the Crowd\nProteins in vivo are immersed in a crowded environment of water, ions, metabolites, and macromolecules. In-cell experiments highlight how transient weak protein–protein interactions promote (via functional “quinary structure”) or hinder (via competitive binding or “sticking”) complex formation. Computational models of the cytoplasm are expensive. We tackle this challenge with an all-atom model of a small volume of the E. coli cytoplasm to simulate protein–protein contacts up to the 5 μs time scale on the special-purpose supercomputer Anton 2. We use three CHARMM-derived force fields: C22*, C36m, and C36mCU (with CUFIX corrections). We find that both C36m and C36mCU form smaller contact surfaces than C22*. Although CUFIX was developed to reduce protein–protein sticking, larger contacts are observed with C36mCU than C36m. We show that the lifespan Δt of protein–protein contacts obeys a power law distribution between 0.03 and 3 μs, with ∼90% of all contacts lasting <1 μs (similar to the time scale for downhill folding).",
-  "entities": [
-    {
-      "category": "STIME",
-      "text": "5 μs",
-      "start": 557,
-      "end": 561
-    },
-    {
-      "category": "FFM",
-      "text": "C22*",
-      "start": 661,
-      "end": 665
-    },
-    {
-      "category": "FFM",
-      "text": "C36m",
-      "start": 667,
-      "end": 671
-    },
-    {
-      "category": "FFM",
-      "text": "C36mCU",
-      "start": 677,
-      "end": 683
-    },
-    {
-      "category": "FFM",
-      "text": "C36m",
-      "start": 728,
-      "end": 732
-    },
-    {
-      "category": "FFM",
-      "text": "C36mCU",
-      "start": 737,
-      "end": 743
-    },
-    {
-      "category": "FFM",
-      "text": "C22*",
-      "start": 779,
-      "end": 783
-    },
-    {
-      "category": "FFM",
-      "text": "C36mCU",
-      "start": 884,
-      "end": 890
-    },
-    {
-      "category": "FFM",
-      "text": "C36m",
-      "start": 896,
-      "end": 900
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/In-Cell_Protein_Protein_Contacts_Transient_Interactions_in_the_Crowd/9788852"
+    "raw_text": "In-Cell Protein–Protein Contacts: Transient Interactions in the Crowd\nProteins in vivo are immersed in a crowded environment of water, ions, metabolites, and macromolecules. In-cell experiments highlight how transient weak protein–protein interactions promote (via functional “quinary structure”) or hinder (via competitive binding or “sticking”) complex formation. Computational models of the cytoplasm are expensive. We tackle this challenge with an all-atom model of a small volume of the E. coli cytoplasm to simulate protein–protein contacts up to the 5 μs time scale on the special-purpose supercomputer Anton 2. We use three CHARMM-derived force fields: C22*, C36m, and C36mCU (with CUFIX corrections). We find that both C36m and C36mCU form smaller contact surfaces than C22*. Although CUFIX was developed to reduce protein–protein sticking, larger contacts are observed with C36mCU than C36m. We show that the lifespan Δt of protein–protein contacts obeys a power law distribution between 0.03 and 3 μs, with ∼90% of all contacts lasting <1 μs (similar to the time scale for downhill folding).",
+    "entities": [
+        {
+            "category": "STIME",
+            "text": "5 μs",
+            "start": 557,
+            "end": 561
+        },
+        {
+            "category": "FFM",
+            "text": "C22*",
+            "start": 661,
+            "end": 665
+        },
+        {
+            "category": "FFM",
+            "text": "C36m",
+            "start": 667,
+            "end": 671
+        },
+        {
+            "category": "FFM",
+            "text": "C36mCU",
+            "start": 677,
+            "end": 683
+        },
+        {
+            "category": "FFM",
+            "text": "C36m",
+            "start": 728,
+            "end": 732
+        },
+        {
+            "category": "FFM",
+            "text": "C36mCU",
+            "start": 737,
+            "end": 743
+        },
+        {
+            "category": "FFM",
+            "text": "C22*",
+            "start": 779,
+            "end": 783
+        },
+        {
+            "category": "FFM",
+            "text": "C36mCU",
+            "start": 884,
+            "end": 890
+        },
+        {
+            "category": "FFM",
+            "text": "C36m",
+            "start": 896,
+            "end": 900
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/In-Cell_Protein_Protein_Contacts_Transient_Interactions_in_the_Crowd/9788852"
 }

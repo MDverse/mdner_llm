@@ -1,60 +1,60 @@
 {
-  "raw_text": "Steered molecular dynamics simulations reveal critical residues for (un)binding of substrates, inhibitors and a product to the malarial M1 aminopeptidase\nMalaria is a life-threatening disease spread by mosquitoes. Plasmodium falciparum M1 alanyl aminopeptidase (PfM1-AAP) is a promising target for the treatment of malaria. The recently solved crystal structures of PfM1-AAP revealed that the buried active site can be accessed through two channel openings: a short N-terminal channel with the length of 8 Å and a long C-terminal channel with the length of 30 Å. It is unclear, however, how substrates and inhibitors migrate to the active site and a product of cleavage leaves. Here, we study the molecular mechanism of substrate and inhibitor migration to the active site and the product release using steered molecular dynamics simulations. We identified a stepwise passage of substrates and inhibitors in the C-terminal channel of PfM1-AAP, involving (I) ligand recognition at the opening of the channel, (II) ionic translation to the ‘water reservoir’, (III) ligand reorientation in the ‘water reservoir’ and (IV) passage in a suitable conformation into the active site. Endorsed by enzymatic analysis of functional recombinant PfM1-AAP and mutagenesis studies, our novel ligand-residue binding network analysis has identified the functional residues controlling ligand migration within the C-terminal channel of PfM1-AAP. Furthermore, from unbinding simulations of the Arg product we propose a charge repulsion as the driving force to expel the product out from the N-terminal channel of PfM1-AAP. Our work paves the way towards the design of a novel class of PfM1-AAP inhibitors based on preventing substrate entry to the active site.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "malarial M1 aminopeptidase",
-      "start": 127,
-      "end": 153
-    },
-    {
-      "category": "MOL",
-      "text": "Plasmodium falciparum M1 alanyl aminopeptidase",
-      "start": 214,
-      "end": 260
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 262,
-      "end": 270
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 366,
-      "end": 374
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 934,
-      "end": 942
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 1232,
-      "end": 1240
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 1417,
-      "end": 1425
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 1593,
-      "end": 1601
-    },
-    {
-      "category": "MOL",
-      "text": "PfM1-AAP",
-      "start": 1665,
-      "end": 1673
-    }
-  ],
-  "url": "https://plos.figshare.com/articles/dataset/Steered_molecular_dynamics_simulations_reveal_critical_residues_for_un_binding_of_substrates_inhibitors_and_a_product_to_the_malarial_M1_aminopeptidase/7279100"
+    "raw_text": "Steered molecular dynamics simulations reveal critical residues for (un)binding of substrates, inhibitors and a product to the malarial M1 aminopeptidase\nMalaria is a life-threatening disease spread by mosquitoes. Plasmodium falciparum M1 alanyl aminopeptidase (PfM1-AAP) is a promising target for the treatment of malaria. The recently solved crystal structures of PfM1-AAP revealed that the buried active site can be accessed through two channel openings: a short N-terminal channel with the length of 8 Å and a long C-terminal channel with the length of 30 Å. It is unclear, however, how substrates and inhibitors migrate to the active site and a product of cleavage leaves. Here, we study the molecular mechanism of substrate and inhibitor migration to the active site and the product release using steered molecular dynamics simulations. We identified a stepwise passage of substrates and inhibitors in the C-terminal channel of PfM1-AAP, involving (I) ligand recognition at the opening of the channel, (II) ionic translation to the ‘water reservoir’, (III) ligand reorientation in the ‘water reservoir’ and (IV) passage in a suitable conformation into the active site. Endorsed by enzymatic analysis of functional recombinant PfM1-AAP and mutagenesis studies, our novel ligand-residue binding network analysis has identified the functional residues controlling ligand migration within the C-terminal channel of PfM1-AAP. Furthermore, from unbinding simulations of the Arg product we propose a charge repulsion as the driving force to expel the product out from the N-terminal channel of PfM1-AAP. Our work paves the way towards the design of a novel class of PfM1-AAP inhibitors based on preventing substrate entry to the active site.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "malarial M1 aminopeptidase",
+            "start": 127,
+            "end": 153
+        },
+        {
+            "category": "MOL",
+            "text": "Plasmodium falciparum M1 alanyl aminopeptidase",
+            "start": 214,
+            "end": 260
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 262,
+            "end": 270
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 366,
+            "end": 374
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 934,
+            "end": 942
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 1232,
+            "end": 1240
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 1417,
+            "end": 1425
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 1593,
+            "end": 1601
+        },
+        {
+            "category": "MOL",
+            "text": "PfM1-AAP",
+            "start": 1665,
+            "end": 1673
+        }
+    ],
+    "url": "https://plos.figshare.com/articles/dataset/Steered_molecular_dynamics_simulations_reveal_critical_residues_for_un_binding_of_substrates_inhibitors_and_a_product_to_the_malarial_M1_aminopeptidase/7279100"
 }

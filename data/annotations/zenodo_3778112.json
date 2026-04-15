@@ -1,78 +1,78 @@
 {
-  "raw_text": "Mutated EN2(143-259) simulation with Amber ff03ws\nMD simulation of a mutated protein EN2(143-259)  with Amber ff03ws and 40 mM NaCl as the solvent.\nThe mutated sequence differs from the original sequence by amino acids serine (148, 150, 153, 154, 155, 156) and aspartic acid (152,154) changed to threonine and glutamate respectively.\nThe trajectory files contain the total 1080 ns simulation. The trajectory file without solvent has saving frequency 10 ps. The trajectory files with solvent have a saving frequency 100ps.\nForce field parameters for proteins and counter ions are downloaded from https://github.com/bestlab/force_fields, for NaCl from https://bitbucket.org/hseara/ions\n ",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "EN2",
-      "start": 8,
-      "end": 11
-    },
-    {
-      "category": "FFM",
-      "text": "Amber ff03ws",
-      "start": 37,
-      "end": 49
-    },
-    {
-      "category": "MOL",
-      "text": "EN2",
-      "start": 85,
-      "end": 88
-    },
-    {
-      "category": "FFM",
-      "text": "Amber ff03ws",
-      "start": 104,
-      "end": 116
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 127,
-      "end": 131
-    },
-    {
-      "category": "MOL",
-      "text": "serine",
-      "start": 219,
-      "end": 225
-    },
-    {
-      "category": "MOL",
-      "text": "aspartic acid",
-      "start": 261,
-      "end": 274
-    },
-    {
-      "category": "MOL",
-      "text": "threonine",
-      "start": 296,
-      "end": 305
-    },
-    {
-      "category": "MOL",
-      "text": "glutamate",
-      "start": 310,
-      "end": 319
-    },
-    {
-      "category": "STIME",
-      "text": "1080 ns",
-      "start": 373,
-      "end": 380
-    },
-    {
-      "category": "MOL",
-      "text": "counter ions",
-      "start": 562,
-      "end": 574
-    },
-    {
-      "category": "MOL",
-      "text": "NaCl",
-      "start": 640,
-      "end": 644
-    }
-  ],
-  "url": "https://zenodo.org/records/3778112"
+    "raw_text": "Mutated EN2(143-259) simulation with Amber ff03ws\nMD simulation of a mutated protein EN2(143-259)  with Amber ff03ws and 40 mM NaCl as the solvent.\nThe mutated sequence differs from the original sequence by amino acids serine (148, 150, 153, 154, 155, 156) and aspartic acid (152,154) changed to threonine and glutamate respectively.\nThe trajectory files contain the total 1080 ns simulation. The trajectory file without solvent has saving frequency 10 ps. The trajectory files with solvent have a saving frequency 100ps.\nForce field parameters for proteins and counter ions are downloaded from https://github.com/bestlab/force_fields, for NaCl from https://bitbucket.org/hseara/ions\n ",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "EN2",
+            "start": 8,
+            "end": 11
+        },
+        {
+            "category": "FFM",
+            "text": "Amber ff03ws",
+            "start": 37,
+            "end": 49
+        },
+        {
+            "category": "MOL",
+            "text": "EN2",
+            "start": 85,
+            "end": 88
+        },
+        {
+            "category": "FFM",
+            "text": "Amber ff03ws",
+            "start": 104,
+            "end": 116
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 127,
+            "end": 131
+        },
+        {
+            "category": "MOL",
+            "text": "serine",
+            "start": 219,
+            "end": 225
+        },
+        {
+            "category": "MOL",
+            "text": "aspartic acid",
+            "start": 261,
+            "end": 274
+        },
+        {
+            "category": "MOL",
+            "text": "threonine",
+            "start": 296,
+            "end": 305
+        },
+        {
+            "category": "MOL",
+            "text": "glutamate",
+            "start": 310,
+            "end": 319
+        },
+        {
+            "category": "STIME",
+            "text": "1080 ns",
+            "start": 373,
+            "end": 380
+        },
+        {
+            "category": "MOL",
+            "text": "counter ions",
+            "start": 562,
+            "end": 574
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 640,
+            "end": 644
+        }
+    ],
+    "url": "https://zenodo.org/records/3778112"
 }

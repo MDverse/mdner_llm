@@ -1,198 +1,198 @@
 {
-  "raw_text": "Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers\nCholesterol trafficking, which is an essential function in mammalian cells, is intimately connected to molecular-scale interactions through cholesterol modulation of membrane structure and dynamics and interaction with membrane receptors. Since these effects of cholesterol occur on micro- to millisecond time scales, it is essential to develop accurate coarse-grained simulation models that can reach these time scales. Cholesterol has been shown experimentally to thicken the membrane and increase phospholipid tail order between 0 and 40% cholesterol, above which these effects plateau or slightly decrease. Here, we showed that the published MARTINI coarse-grained force-field for phospholipid (POPC) and cholesterol fails to capture these effects. Using reference atomistic simulations, we systematically modified POPC and cholesterol bonded parameters in MARTINI to improve its performance. We showed that the corrections to pseudobond angles between glycerol and the lipid tails and around the oleoyl double bond particle (the “angle-corrected model”) slightly improves the agreement of MARTINI with experimentally measured thermal, elastic, and dynamic properties of POPC membranes. The angle-corrected model improves prediction of the thickening and ordering effects up to 40% cholesterol but overestimates these effects at higher cholesterol concentration. In accordance with prior work that showed the cholesterol rough face methyl groups are important for limiting cholesterol self-association, we revised the coarse-grained representation of these methyl groups to better match cholesterol-cholesterol radial distribution functions from atomistic simulations. In addition, by using a finer-grained representation of the branched cholesterol tail than MARTINI, we improved predictions of lipid tail order and bilayer thickness across a wide range of concentrations. Finally, transferability testing shows that a model incorporating our revised parameters into DOPC outperforms other CG models in a DOPC/cholesterol simulation series, which further argues for its efficacy and generalizability. These results argue for the importance of systematic optimization for coarse-graining biologically important molecules like cholesterol with complicated molecular structure.",
-  "entities": [
-    {
-      "category": "MOL",
-      "text": "Cholesterol",
-      "start": 36,
-      "end": 47
-    },
-    {
-      "category": "MOL",
-      "text": "Cholesterol",
-      "start": 74,
-      "end": 85
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 214,
-      "end": 225
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 336,
-      "end": 347
-    },
-    {
-      "category": "MOL",
-      "text": "Cholesterol",
-      "start": 495,
-      "end": 506
-    },
-    {
-      "category": "MOL",
-      "text": "phospholipid",
-      "start": 574,
-      "end": 586
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 616,
-      "end": 627
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 720,
-      "end": 727
-    },
-    {
-      "category": "MOL",
-      "text": "phospholipid",
-      "start": 759,
-      "end": 771
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 773,
-      "end": 777
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 783,
-      "end": 794
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 893,
-      "end": 897
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 902,
-      "end": 913
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 935,
-      "end": 942
-    },
-    {
-      "category": "MOL",
-      "text": "glycerol",
-      "start": 1031,
-      "end": 1039
-    },
-    {
-      "category": "MOL",
-      "text": "oleoyl",
-      "start": 1075,
-      "end": 1081
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 1168,
-      "end": 1175
-    },
-    {
-      "category": "MOL",
-      "text": "POPC",
-      "start": 1249,
-      "end": 1253
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1360,
-      "end": 1371
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1414,
-      "end": 1425
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1487,
-      "end": 1498
-    },
-    {
-      "category": "MOL",
-      "text": "methyl",
-      "start": 1510,
-      "end": 1516
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1551,
-      "end": 1562
-    },
-    {
-      "category": "MOL",
-      "text": "methyl",
-      "start": 1635,
-      "end": 1641
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1665,
-      "end": 1676
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1677,
-      "end": 1688
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 1816,
-      "end": 1827
-    },
-    {
-      "category": "FFM",
-      "text": "MARTINI",
-      "start": 1838,
-      "end": 1845
-    },
-    {
-      "category": "MOL",
-      "text": "DOPC",
-      "start": 2046,
-      "end": 2050
-    },
-    {
-      "category": "MOL",
-      "text": "DOPC",
-      "start": 2084,
-      "end": 2088
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 2089,
-      "end": 2100
-    },
-    {
-      "category": "MOL",
-      "text": "cholesterol",
-      "start": 2304,
-      "end": 2315
-    }
-  ],
-  "url": "https://acs.figshare.com/articles/dataset/Improved_Coarse_Grained_Modeling_of_Cholesterol_Containing_Lipid_Bilayers/2032860"
+    "raw_text": "Improved Coarse-Grained Modeling of Cholesterol-Containing Lipid Bilayers\nCholesterol trafficking, which is an essential function in mammalian cells, is intimately connected to molecular-scale interactions through cholesterol modulation of membrane structure and dynamics and interaction with membrane receptors. Since these effects of cholesterol occur on micro- to millisecond time scales, it is essential to develop accurate coarse-grained simulation models that can reach these time scales. Cholesterol has been shown experimentally to thicken the membrane and increase phospholipid tail order between 0 and 40% cholesterol, above which these effects plateau or slightly decrease. Here, we showed that the published MARTINI coarse-grained force-field for phospholipid (POPC) and cholesterol fails to capture these effects. Using reference atomistic simulations, we systematically modified POPC and cholesterol bonded parameters in MARTINI to improve its performance. We showed that the corrections to pseudobond angles between glycerol and the lipid tails and around the oleoyl double bond particle (the “angle-corrected model”) slightly improves the agreement of MARTINI with experimentally measured thermal, elastic, and dynamic properties of POPC membranes. The angle-corrected model improves prediction of the thickening and ordering effects up to 40% cholesterol but overestimates these effects at higher cholesterol concentration. In accordance with prior work that showed the cholesterol rough face methyl groups are important for limiting cholesterol self-association, we revised the coarse-grained representation of these methyl groups to better match cholesterol-cholesterol radial distribution functions from atomistic simulations. In addition, by using a finer-grained representation of the branched cholesterol tail than MARTINI, we improved predictions of lipid tail order and bilayer thickness across a wide range of concentrations. Finally, transferability testing shows that a model incorporating our revised parameters into DOPC outperforms other CG models in a DOPC/cholesterol simulation series, which further argues for its efficacy and generalizability. These results argue for the importance of systematic optimization for coarse-graining biologically important molecules like cholesterol with complicated molecular structure.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "Cholesterol",
+            "start": 36,
+            "end": 47
+        },
+        {
+            "category": "MOL",
+            "text": "Cholesterol",
+            "start": 74,
+            "end": 85
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 214,
+            "end": 225
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 336,
+            "end": 347
+        },
+        {
+            "category": "MOL",
+            "text": "Cholesterol",
+            "start": 495,
+            "end": 506
+        },
+        {
+            "category": "MOL",
+            "text": "phospholipid",
+            "start": 574,
+            "end": 586
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 616,
+            "end": 627
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 720,
+            "end": 727
+        },
+        {
+            "category": "MOL",
+            "text": "phospholipid",
+            "start": 759,
+            "end": 771
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 773,
+            "end": 777
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 783,
+            "end": 794
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 893,
+            "end": 897
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 902,
+            "end": 913
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 935,
+            "end": 942
+        },
+        {
+            "category": "MOL",
+            "text": "glycerol",
+            "start": 1031,
+            "end": 1039
+        },
+        {
+            "category": "MOL",
+            "text": "oleoyl",
+            "start": 1075,
+            "end": 1081
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 1168,
+            "end": 1175
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 1249,
+            "end": 1253
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1360,
+            "end": 1371
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1414,
+            "end": 1425
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1487,
+            "end": 1498
+        },
+        {
+            "category": "MOL",
+            "text": "methyl",
+            "start": 1510,
+            "end": 1516
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1551,
+            "end": 1562
+        },
+        {
+            "category": "MOL",
+            "text": "methyl",
+            "start": 1635,
+            "end": 1641
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1665,
+            "end": 1676
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1677,
+            "end": 1688
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 1816,
+            "end": 1827
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI",
+            "start": 1838,
+            "end": 1845
+        },
+        {
+            "category": "MOL",
+            "text": "DOPC",
+            "start": 2046,
+            "end": 2050
+        },
+        {
+            "category": "MOL",
+            "text": "DOPC",
+            "start": 2084,
+            "end": 2088
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 2089,
+            "end": 2100
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 2304,
+            "end": 2315
+        }
+    ],
+    "url": "https://acs.figshare.com/articles/dataset/Improved_Coarse_Grained_Modeling_of_Cholesterol_Containing_Lipid_Bilayers/2032860"
 }
