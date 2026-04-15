@@ -111,3 +111,5 @@ data/annotations/figshare_4508975.json
 data/annotations/figshare_5051593.json
 data/annotations/figshare_3556404.json
 data/annotations/figshare_2587978.json
+data/annotations/figshare_11916468.json
+data/annotations/figshare_11894358.json
