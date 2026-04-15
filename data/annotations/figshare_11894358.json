@@ -3,6 +3,24 @@
     "entities": [
         {
             "category": "MOL",
+            "text": "Doxorubicin",
+            "start": 52,
+            "end": 63
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 67,
+            "end": 70
+        },
+        {
+            "category": "MOL",
+            "text": "Graphene Oxide",
+            "start": 77,
+            "end": 91
+        },
+        {
+            "category": "MOL",
             "text": "doxorubicin",
             "start": 199,
             "end": 210
@@ -44,6 +62,12 @@
             "end": 301
         },
         {
+            "category": "MOL",
+            "text": "PEGGO",
+            "start": 303,
+            "end": 308
+        },
+        {
             "category": "TEMP",
             "text": "human body temperature",
             "start": 352,
@@ -63,9 +87,21 @@
         },
         {
             "category": "MOL",
+            "text": "PEGGO",
+            "start": 450,
+            "end": 455
+        },
+        {
+            "category": "MOL",
             "text": "PEG",
             "start": 473,
             "end": 476
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 524,
+            "end": 527
         },
         {
             "category": "MOL",
@@ -81,9 +117,33 @@
         },
         {
             "category": "MOL",
+            "text": "DOX",
+            "start": 598,
+            "end": 601
+        },
+        {
+            "category": "MOL",
+            "text": "PEGGO",
+            "start": 605,
+            "end": 610
+        },
+        {
+            "category": "MOL",
             "text": "PEG",
             "start": 618,
             "end": 621
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 665,
+            "end": 668
+        },
+        {
+            "category": "MOL",
+            "text": "PEGGO",
+            "start": 671,
+            "end": 676
         },
         {
             "category": "MOL",
@@ -94,14 +154,44 @@
         {
             "category": "MOL",
             "text": "PEG",
+            "start": 757,
+            "end": 760
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 761,
+            "end": 764
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
             "start": 812,
             "end": 815
         },
         {
             "category": "MOL",
             "text": "PEG",
+            "start": 852,
+            "end": 855
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 856,
+            "end": 859
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
             "start": 936,
             "end": 939
+        },
+        {
+            "category": "MOL",
+            "text": "PEG",
+            "start": 948,
+            "end": 951
         },
         {
             "category": "MOL",
@@ -117,6 +207,12 @@
         },
         {
             "category": "MOL",
+            "text": "PEG",
+            "start": 1126,
+            "end": 1129
+        },
+        {
+            "category": "MOL",
             "text": "GO",
             "start": 1147,
             "end": 1149
@@ -126,6 +222,18 @@
             "text": "PEG",
             "start": 1202,
             "end": 1205
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1218,
+            "end": 1221
+        },
+        {
+            "category": "MOL",
+            "text": "DOX",
+            "start": 1222,
+            "end": 1225
         },
         {
             "category": "MOL",
@@ -147,6 +255,12 @@
         },
         {
             "category": "MOL",
+            "text": "PEGGO",
+            "start": 1423,
+            "end": 1428
+        },
+        {
+            "category": "MOL",
             "text": "PEG",
             "start": 1520,
             "end": 1523
@@ -162,6 +276,12 @@
             "text": "DOX",
             "start": 1703,
             "end": 1706
+        },
+        {
+            "category": "MOL",
+            "text": "PEGGO",
+            "start": 1735,
+            "end": 1740
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Molecular_Insights_into_the_Loading_and_Dynamics_of_Doxorubicin_on_PEGylated_Graphene_Oxide_Nanocarriers/11894358"

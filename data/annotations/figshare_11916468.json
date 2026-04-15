@@ -3,6 +3,18 @@
     "entities": [
         {
             "category": "MOL",
+            "text": "Organic Structure-Directing Agents",
+            "start": 13,
+            "end": 47
+        },
+        {
+            "category": "MOL",
+            "text": "Fluoride",
+            "start": 51,
+            "end": 59
+        },
+        {
+            "category": "MOL",
             "text": "Silicalite‑1",
             "start": 87,
             "end": 99
@@ -18,6 +30,18 @@
             "text": "fluoride",
             "start": 199,
             "end": 207
+        },
+        {
+            "category": "MOL",
+            "text": "organic structure-directing agents",
+            "start": 255,
+            "end": 289
+        },
+        {
+            "category": "MOL",
+            "text": "OSDAs",
+            "start": 291,
+            "end": 296
         },
         {
             "category": "MOL",
@@ -45,6 +69,18 @@
         },
         {
             "category": "MOL",
+            "text": "OSDA",
+            "start": 710,
+            "end": 714
+        },
+        {
+            "category": "MOL",
+            "text": "OSDA",
+            "start": 954,
+            "end": 958
+        },
+        {
+            "category": "MOL",
             "text": "fluoride",
             "start": 966,
             "end": 974
@@ -54,6 +90,12 @@
             "text": "alkylammonium",
             "start": 1012,
             "end": 1025
+        },
+        {
+            "category": "MOL",
+            "text": "OSDAs",
+            "start": 1026,
+            "end": 1031
         },
         {
             "category": "MOL",
@@ -69,9 +111,27 @@
         },
         {
             "category": "TEMP",
+            "text": "room temperature",
+            "start": 1475,
+            "end": 1491
+        },
+        {
+            "category": "TEMP",
             "text": "373 K",
             "start": 1554,
             "end": 1559
+        },
+        {
+            "category": "MOL",
+            "text": "OSDAs",
+            "start": 1597,
+            "end": 1602
+        },
+        {
+            "category": "MOL",
+            "text": "OSDA",
+            "start": 1619,
+            "end": 1623
         },
         {
             "category": "MOL",
@@ -87,15 +147,15 @@
         },
         {
             "category": "MOL",
-            "text": "methyl",
-            "start": 1879,
-            "end": 1885
+            "text": "OSDAs",
+            "start": 1855,
+            "end": 1860
         },
         {
             "category": "MOL",
-            "text": "ethyl",
-            "start": 1889,
-            "end": 1894
+            "text": "OSDA",
+            "start": 2087,
+            "end": 2091
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Influence_of_Organic_Structure-Directing_Agents_on_Fluoride_Dynamics_in_As-Synthesized_Silicalite_1/11916468"
