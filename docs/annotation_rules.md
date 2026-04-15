@@ -16,18 +16,18 @@ This entity covers all types of molecular compounds, including simple molecules,
 - Include amino acid sequences
 - Include any identifiers (PDB ID, UniProt ID...)
 - Exclude adjectives or descriptors that modify the molecule (e.g., hydrated, charged, folded, tetrameric).
-- Exclude generic terms like `protein`, `lipid`, `phospholipid`, `sugar`, `water`, `ions`...
+- Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `ions`...
 - Exclude specific résidues or domains like `Lys-353`...
 
 ### Examples
 
 - `sodium chloride` ✅
-- `DNA` ✅
 - `ethanol` ✅
 - `ammonia` ✅
 - `Q29537` ✅
 - `Na⁺` ✅
-- `lipids` 🚫 → Too generic.
+- `lipids` 🚫 → Generic term
+- `DNA` 🚫 → Generic term
 - `hydrated sodium chloride` 🚫 → Only annotate `sodium chloride` ✅
 
 ## Force field and model (FFM) 🛠️
@@ -47,7 +47,7 @@ This entity refers to any force field or molecular model used to describe the in
 - `AMBER99SB` ✅
 - `GROMOS53a6` ✅
 - `GROMOS96 43A1` ✅
-- `the force field` 🚫 → Too generic
+- `the force field` 🚫 → Generic term
 - `TIP3P water` 🚫 → Annotate only `TIP3P` as FFM
 - `the CHARMM36 force field` 🚫 → Annotate only `CHARMM36` as FFM
 
@@ -72,7 +72,7 @@ This entity refers to the name of any software used for molecular simulation, vi
 - `PyMOL` ✅
 - `PLUMED` ✅
 - `COLVAR` ✅
-- `Python` 🚫 → Too generic
+- `Python` 🚫 → Generic term
 - `the simulation software` 🚫 → No specific name
 - `GROMACS software` 🚫 → Annotate only `GROMACS` ✅
 
@@ -139,5 +139,5 @@ This entity refers to the thermal conditions under which a simulation is conduct
 - `300K` ✅
 - `500 degrees Celsius` ✅
 - `298` ✅ (if clearly referring to temperature)
-- `heated up` 🚫 → Vague, no value
+- `heated up` 🚫 → Generic term, no value
 - `room temperature` ✅
