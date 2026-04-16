@@ -23,26 +23,24 @@ import loguru
 from instructor.core import InstructorRetryException
 from instructor.core.exceptions import ModeError, ProviderError
 from instructor.core.exceptions import ValidationError as InstructorValidationError
-from llama_index.llms.openai import OpenAI as llamaOpenAI
-from llama_index.llms.openrouter import OpenRouter
 from openai import APIConnectionError, APIError, OpenAI, RateLimitError
 from openai.types.chat import ChatCompletion
 from pydantic import ValidationError as PydanticValidationError
 from pydantic_ai import Agent
 from pydantic_ai.exceptions import UnexpectedModelBehavior
-from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.models.openrouter import OpenRouterModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_core import ValidationError as CoreValidationError
 
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 from mdner_llm.utils.common import (
-    create_logger,
     ensure_dir,
     load_api_key,
     sanitize_filename,
     serialize_response,
 )
+from mdner_llm.utils.logger import create_logger
 
 
 def load_text_and_metadata(
@@ -192,6 +190,11 @@ def annotate_without_framework(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key,
     )
+    no_response = (
+        None,
+        0,
+        {"cost": 0, "input_tokens": 0, "output_tokens": 0},
+    )
     try:
         # Query the LLM and time the inference
         start_time = time.perf_counter()
@@ -208,28 +211,25 @@ def annotate_without_framework(
                 },
             ],
         )
+        elapsed_time = time.perf_counter() - start_time
+
     # Handle common OpenAI API exceptions
     except RateLimitError as exc:
         logger.warning(f"Rate limit exceeded: {exc}")
-        return (
-            None,
-            0,
-            0,
-            {"cost": 0, "input_tokens": 0, "output_tokens": 0},
-        )
-
+        return no_response
     except APIConnectionError as exc:
         logger.warning(f"Connection error: {exc}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
-
+        return no_response
     except APIError as exc:
         logger.warning(f"API error: {exc}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
+        return no_response
+    # If no exception was raised, return the response and usage details
     else:
-        # Only executes if no exception was raised
-        elapsed_time = time.perf_counter() - start_time
+        # Get the cost and token usage from the response
         usage = {
-            "cost": llm_response.usage.cost_details["upstream_inference_cost"],
+            "cost": round(
+                llm_response.usage.cost_details["upstream_inference_cost"], 2
+            ),
             "input_tokens": llm_response.usage.prompt_tokens,
             "output_tokens": llm_response.usage.completion_tokens,
         }
@@ -290,7 +290,11 @@ def annotate_with_instructor(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key,
     )
-
+    no_response = (
+        None,
+        0,
+        {"cost": 0, "input_tokens": 0, "output_tokens": 0},
+    )
     try:
         # Query the LLM
         start_time = time.perf_counter()
@@ -309,104 +313,28 @@ def annotate_with_instructor(
             response_model=response_model,
             max_retries=max_retries,
         )
+        elapsed_time = time.perf_counter() - start_time
 
     except InstructorValidationError as exc:
         # Raised when the LLM output does not conform to the expected schema.
         logger.warning(f"Validation failed: {exc}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
-
+        return no_response
     except InstructorRetryException as exc:
         # Raised when all retry attempts fail.
         logger.warning(f"Failed after {exc.n_attempts} attempts")
         logger.warning(f"Last completion: {exc.last_completion}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
-
+        return no_response
     except (ProviderError, ModeError) as exc:
         # Catch-all for provider-level, mode-related, or parsing errors.
         logger.warning(f"Instructor error: {exc}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
-
+        return no_response
     else:
-        # Only executes if no exception was raised
-        elapsed_time = time.perf_counter() - start_time
         usage = {
-            "cost": completion.usage.cost_details["upstream_inference_cost"],
+            "cost": round(completion.usage.cost_details["upstream_inference_cost"], 2),
             "input_tokens": completion.usage.prompt_tokens,
             "output_tokens": completion.usage.completion_tokens,
         }
         return llm_response, elapsed_time, usage
-
-
-def annotate_with_llamaindex(
-    text: str,
-    model: str,
-    api_key: str | None,
-    prompt: str,
-    response_model: ListOfEntities | ListOfEntitiesPositions | None,
-    logger: "loguru.Logger" = loguru.logger,
-) -> tuple[
-    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions | None, float | int
-]:
-    """
-    Annotate a text using the Llamaindex framework.
-
-    Parameters
-    ----------
-    text : str
-        Input text to annotate.
-    model : str
-        Identifier of the LLM model to use.
-    api_key : str | None
-        API key used to authenticate requests to OpenRouter
-        (typically provided via the ``OPENROUTER_API_KEY`` environment variable).
-    prompt : str
-        Instruction prompt provided to the model.
-    response_model : ListOfEntities | ListOfEntitiesPositions | None
-        Pydantic model used to validate and parse the LLM output.
-        If ``None``, no validation is applied and the raw output is returned.
-
-    Returns
-    -------
-    ChatCompletion | str | ListOfEntities | ListOfEntitiesPositions
-        Annotation result returned by the LLM. The returned type depends on
-        whether validation is enabled and on the chosen response model.
-    float | int:
-        The time elapsed for the inference.
-    """
-    # Instantiate an Llamaindex client
-    # Using openai api key for openai models
-    if model.startswith("openai"):
-        openai_api_key = load_api_key("OPENAI_API_KEY")
-        model_name = model.split("/")[1]
-        base_llm = llamaOpenAI(model=model_name, api_key=openai_api_key)
-    else:
-        # Using openrouter api key for other models
-        base_llm = OpenRouter(model=model, api_key=api_key)
-
-    # Structured response
-    if response_model is not None:
-        try:
-            # Query the LLM
-            start_time = time.time()
-            structured_llm = base_llm.as_structured_llm(output_cls=response_model)
-            llm_response = structured_llm.complete(f"{prompt}\n{text}").raw
-            elapsed_time: int | float = time.time() - start_time
-
-        except (ValueError, PydanticValidationError) as exc:
-            logger.warning(
-                "Structured parsing failed, falling back "
-                f"to the raw llm response: {exc}"
-            )
-        else:
-            # Only executes if no exception was raised
-            elapsed_time: int | float = time.time() - start_time
-            return llm_response, elapsed_time, None
-
-    # Raw LLM response
-    start_time = time.time()
-    raw_response = base_llm.complete(f"{prompt}\n{text}").text
-    elapsed = time.time() - start_time
-    return raw_response, elapsed, None
 
 
 def annotate_with_pydanticai(
@@ -453,8 +381,12 @@ def annotate_with_pydanticai(
         A dictionary containing cost usage and token counts.
     """
     # Instantiate an PydanticAI client for the requested model
-    client = OpenAIChatModel(model, provider=OpenRouterProvider(api_key=api_key))
-
+    client = OpenRouterModel(model, provider=OpenRouterProvider(api_key=api_key))
+    no_response = (
+        None,
+        0,
+        {"cost": 0, "input_tokens": 0, "output_tokens": 0},
+    )
     try:
         # Query the LLM
         start_time = time.perf_counter()
@@ -464,27 +396,24 @@ def annotate_with_pydanticai(
             retries=max_retries,
             system_prompt=("Extract entities as structured JSON."),
         )
-        llm_response = agent.run_sync(f"{prompt}\n{text}").output
+        raw_llm_response = agent.run_sync(f"{prompt}\n{text}")
+        llm_response = raw_llm_response.output
         elapsed_time = time.perf_counter() - start_time
 
     except PydanticValidationError as e:
         logger.error(f"Pydantic validation error: {e}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
-
+        return no_response
     except CoreValidationError as e:
         logger.error(f"Core validation error: {e}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
-
+        return no_response
     except UnexpectedModelBehavior as e:
         logger.error(f"Unexpected model behavior: {e}")
-        return None, 0, 0, {"cost": 0, "input_tokens": 0, "output_tokens": 0}
+        return no_response
     else:
-        # Only executes if no exception was raised
-        elapsed_time: int | float = time.time() - start_time
         return (
             llm_response,
             elapsed_time,
-            {"cost": 0, "input_tokens": 0, "output_tokens": 0},
+            {"cost": None, "input_tokens": None, "output_tokens": None},
         )
 
 
@@ -723,10 +652,7 @@ def extract_entities(
             max_retries,
             logger,
         )
-    elif framework == "llamaindex":
-        raw_llm_response, inference_time, usage = annotate_with_llamaindex(
-            text_to_annotate, model, api_key, prompt, response_model, logger=logger
-        )
+
     elif framework == "pydanticai":
         raw_llm_response, inference_time, usage = annotate_with_pydanticai(
             text_to_annotate,
@@ -747,7 +673,7 @@ def extract_entities(
         logger.debug(f"Inference time: {inference_time:.2f} seconds")
         logger.debug(f"Input tokens: {usage['input_tokens']}")
         logger.debug(f"Output tokens: {usage['output_tokens']}")
-        logger.debug(f"Cost usage: {usage['cost']:.2f} $")
+        logger.debug(f"Cost usage: {usage['cost']} $")
     # Prepare output paths
     model_safe = sanitize_filename(model)
     base_name = f"{text_path.stem}_{model_safe}_{framework}_{timestamp}"
