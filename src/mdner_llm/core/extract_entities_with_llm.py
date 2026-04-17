@@ -513,7 +513,7 @@ def extract_entities(
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
     # Prepare output path
-    ts = datetime.now(UTC).strftime("%Y-%m-%d_%Hh%Mm%Ss")
+    ts = datetime.now(UTC).strftime("YYYY-MM-DDTHH:MM:SS")
     txt_output_path = Path(
         output_dir / f"{text_path.stem}_{sanitize_filename(model)}_{framework}_{ts}.txt"
     )
