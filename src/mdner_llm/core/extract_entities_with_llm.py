@@ -493,7 +493,7 @@ def extract_entities(
     # Retrieve the openrouter api key
     api_key = load_api_key("OPENROUTER_API_KEY")
     # Run annotation and time it
-    formated_llm_response, inference_metadata = annotate_with_llm_and_framework(
+    formatted_llm_response, inference_metadata = annotate_with_llm_and_framework(
         framework,
         text_to_annotate,
         model,
@@ -505,7 +505,7 @@ def extract_entities(
     )
     usage = inference_metadata.get("usage", {})
     logger.debug(f"Response status: {inference_metadata['status']}.")
-    logger.debug(f"Formatted LLM response: {formated_llm_response}")
+    logger.debug(f"Formatted LLM response: {formatted_llm_response}")
     logger.debug(f"Inference time: {usage.get('inference_time_sec')} seconds.")
     logger.debug(f"Input tokens: {usage.get('input_tokens')}.")
     logger.debug(f"Output tokens: {usage.get('output_tokens')}.")
@@ -513,7 +513,7 @@ def extract_entities(
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
     # Prepare output path
-    ts = datetime.now(UTC).strftime("YYYY-MM-DDTHH:MM:SS")
+    ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
     txt_output_path = Path(
         output_dir / f"{text_path.stem}_{sanitize_filename(model)}_{framework}_{ts}.txt"
     )
@@ -532,7 +532,7 @@ def extract_entities(
         "prompt_path": str(prompt_file),
         "groundtruth": groundtruth.model_dump(),
         "status": inference_metadata["status"],
-        "formated_llm_response": formated_llm_response.model_dump(),
+        "formatted_llm_response": formatted_llm_response.model_dump(),
         "inference_time_sec": usage.get("inference_time_sec"),
         "input_tokens": usage.get("input_tokens"),
         "output_tokens": usage.get("output_tokens"),
