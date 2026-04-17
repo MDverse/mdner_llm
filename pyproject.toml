@@ -70,12 +70,13 @@ requires = ["uv_build>=0.9.22,<0.10.0"]
 build-backend = "uv_build"
 
 [project.scripts]
-extract-entities = "mdner_llm.core.extract_entities:main"
-extract-entities-all-texts = "mdner_llm.core.extract_entities_all_texts:main"
-evaluate-llm-and-framework = "mdner_llm.core.evaluate_llm_and_framework:run_main_from_cli"
+extract-entities-with-llm = "mdner_llm.core.extract_entities_with_llm:run_main_from_cli"
+extract-entities-with-llm-all-texts = "mdner_llm.core.extract_entities_with_llm_all_texts:run_main_from_cli"
+extract-entities-all-texts-llms-frameworks = "mdner_llm.core.extract_entities_all_texts_llms_frameworks:run_main_from_cli"
+evaluate-entities-extraction = "mdner_llm.core.evaluate_entities_extraction:run_main_from_cli"
 
 train-gliner = "mdner_llm.gliner.train_gliner:run_main_from_cli"
-evaluate-gliner = "mdner_llm.gliner.evaluate_gliner:run_main_from_cli"
+extract-entities-with-gliner-all-texts = "mdner_llm.core.extract_entities_with_gliner_all_texts:run_main_from_cli"
 
 count-entities = "mdner_llm.utils.count_entities:run_main_from_cli"
 select-annotations = "mdner_llm.utils.select_annotation_files:main"
