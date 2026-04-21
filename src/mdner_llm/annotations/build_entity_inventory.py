@@ -10,14 +10,19 @@ Each output file contains:
 """
 
 import json
+import math
+import os
 from pathlib import Path
 
 import click
+import numpy as np
 import pandas as pd
 from loguru import logger
+from matplotlib import pyplot as plt
 
-from mdner_llm.utils.common import list_json_files_from_txt
-from mdner_llm.utils.logger import create_logger
+from mdner_llm.annotations.colors import COLORS
+from mdner_llm.common import list_json_files_from_txt
+from mdner_llm.logger import create_logger
 
 
 def collect_entities(
@@ -74,7 +79,7 @@ def collect_entities(
 
 
 def write_inventory(
-    entities: list[dict],
+    entities_df: pd.DataFrame,
     out_path: Path,
 ) -> None:
     """
@@ -82,18 +87,80 @@ def write_inventory(
 
     Parameters
     ----------
-    entities : list[dict]
-        Lit of all entities as dictionnaries.
+    entities_df : pd.DataFrame
+        DataFrame containing all entities.
     out_path : Path
         Path where the output TSV file will be written.
     """
     logger.info("Writing entity inventory TSV file.")
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    # Create the dataframe
-    df = pd.DataFrame(entities)
     # Write to TSV
-    df.to_csv(out_path, sep="\t", index=False)
-    logger.success(f"Saved entity inventoryin: {out_path}")
+    entities_df.to_csv(out_path, sep="\t", index=False)
+    logger.success(f"Saved entity inventory in: {out_path}")
+
+
+def plot_category_distribution(df: pd.DataFrame) -> None:
+    """Plot a bar chart showing the total number of entities per category."""
+    total_texts = df["json_file"].nunique()
+    summary = df["category"].value_counts().sort_values(ascending=False)
+    categories = summary.index.tolist()
+    counts = summary.to_numpy()
+    colors = [COLORS.get(cat, "#cccccc") for cat in categories]
+    fig, ax = plt.subplots(figsize=(10, 5))
+    x = np.arange(len(categories))
+    bars = ax.bar(x, counts, color=colors, edgecolor="dimgrey")
+    for bar in bars:
+        height = bar.get_height()
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            height,
+            f"{height:.0f}",
+            ha="center",
+            va="bottom",
+            fontsize=10,
+        )
+    ax.set_title(
+        f"Category distribution ({total_texts} texts / {counts.sum():,} entities)",
+        fontsize=15,
+    )
+    ax.set_ylabel("Total count", fontsize=13)
+    ax.set_xticks(x)
+    ax.set_xticklabels(categories, fontweight="bold")
+    file_path = Path("plots/annotations/entity_distribution.png")
+    os.makedirs(file_path.parent, exist_ok=True)
+    fig.savefig(file_path, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved entity distribution plot in '{file_path}'.")
+
+
+def plot_entity_distribution_by_category(df: pd.DataFrame) -> None:
+    """Plot histograms of entity counts per category from a flat entity DataFrame."""
+    categories = sorted(df["category"].unique())
+    n_cols = 2
+    n_rows = math.ceil(len(categories) / n_cols)
+    fig, axes = plt.subplots(
+        n_rows, n_cols, figsize=(18, 5 * n_rows), constrained_layout=True
+    )
+    axes = axes.flatten()
+
+    for i, cat in enumerate(categories):
+        ax = axes[i]
+        data = df[df["category"] == cat].groupby("json_file").size()
+        ax.hist(data, bins=15, color=COLORS.get(cat, "#cccccc"), edgecolor="black")
+        ax.set_title(
+            f"Category {cat}\nmin: {data.min()} max: {data.max()}",
+            fontsize=13,
+            fontweight="bold",
+        )
+        ax.set_xlabel("Number of entities", fontsize=11)
+        ax.set_ylabel("Number of files", fontsize=11)
+
+    for j in range(i + 1, len(axes)):
+        fig.delaxes(axes[j])
+    fig.suptitle("Entity distributions by category", fontsize=16, fontweight="bold")
+    file_path = Path("plots/annotations/entity_distribution_by_category.png")
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(file_path, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved entities distribution by category plot in '{file_path}'.")
 
 
 @click.command()
@@ -126,7 +193,11 @@ def run_cli(
     logger = create_logger()
     logger.info("Starting entity inventory.")
     entities = collect_entities(annotation_path)
-    write_inventory(entities, out_path)
+    # Create the dataframe
+    df_entities = pd.DataFrame(entities)
+    write_inventory(df_entities, out_path)
+    plot_category_distribution(df_entities)
+    plot_entity_distribution_by_category(df_entities)
     logger.success("Entity inventory completed successfully!")
 
 

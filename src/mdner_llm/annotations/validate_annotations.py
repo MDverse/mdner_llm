@@ -25,45 +25,19 @@ from typing import Any
 
 import click
 import loguru
-import yaml
 
-from mdner_llm.utils.logger import create_logger
-
-
-def load_entities_config(config_path: Path | str) -> dict[str, Any]:
-    """Load entity configuration from a YAML file.
-
-    Parameters
-    ----------
-    config_path : Path or str
-        Path to the YAML configuration file.
-
-    Returns
-    -------
-    dict
-        Parsed configuration dictionary.
-    """
-    with Path(config_path).open("r", encoding="utf-8") as file:
-        return yaml.safe_load(file)
+from mdner_llm.annotations.categories import BLACKLIST
+from mdner_llm.logger import create_logger
 
 
 def remove_unwanted_entities(
     entities: list[dict[str, Any]],
-    config: dict[str, Any],
+    blacklist: dict[str, dict[str, set[str]]],
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[list[dict[str, Any]], int]:
     """Remove entities based on per-category blacklists.
 
     Matching is case-insensitive.
-
-    Parameters
-    ----------
-    entities : list of dict
-        List of entity dictionaries with "category" and "text".
-    config : dict
-        Configuration dictionary containing blacklists for each entity category.
-    logger : loguru.Logger, optional
-        Logger instance.
 
     Returns
     -------
@@ -78,11 +52,10 @@ def remove_unwanted_entities(
     for ent in entities:
         category = ent.get("category")
         text_lower = ent.get("text", "").lower()
-        # Get the blacklist for this category from config (case-insensitive)
-        category_config = config.get(category) or {}
-        blacklist = {text.lower() for text in category_config.get("black_list", [])}
+        # Get the blacklist for this category from the blacklist (case-insensitive)
+        category_blacklist = blacklist.get(category, set())
         # Check if the entity text is in the blacklist
-        if text_lower in blacklist:
+        if text_lower in category_blacklist:
             count_removed += 1
             logger.debug(
                 f"Removed entity '{ent.get('text')}' "
@@ -167,30 +140,10 @@ def fix_text_mismatch_local(
 
 
 def validate_annotations(
-    entities_config_path: Path | str,
     json_path: str,
     logger: "loguru.Logger" = loguru.logger,
 ) -> dict[str, int]:
     """Validate named entity annotations in a JSON file.
-
-    Parameters
-    ----------
-    entities_config_path : Path or str
-        Path to the YAML configuration file containing blacklists for entity categories.
-    json_path : str
-        Path to the JSON file containing annotations.
-        The JSON should have a structure like:
-        {
-            "raw_text": "Some text to annotate.",
-            "entities": [
-                {"start": 0, "end": 4, "text": "Some", "category": "O"},
-                {"start": 5, "end": 9, "text": "text", "category": "O"},
-                ...
-            ]
-        }
-    logger : loguru.Logger, optional
-        Logger instance for logging warnings and info.
-        If None, a default logger will be used.
 
     Returns
     -------
@@ -211,11 +164,8 @@ def validate_annotations(
     entities = data.get("entities", [])
     # Extract raw text
     raw_text = data.get("raw_text", "")
-    # Load entity configuration
-    # it contains blacklists for each entity category
-    config = load_entities_config(entities_config_path)
     # Remove unwanted entities
-    entities, count_removed = remove_unwanted_entities(entities, config, logger)
+    entities, count_removed = remove_unwanted_entities(entities, BLACKLIST, logger)
 
     count_unknown_categories = 0
     count_text_mismatches = 0
@@ -227,7 +177,7 @@ def validate_annotations(
         text = ent.get("text", "")
         category = ent.get("category")
         # Check if category is valid according to config
-        valid_categories = set(config.keys())
+        valid_categories = set(BLACKLIST.keys())
         if category not in valid_categories:
             count_unknown_categories += 1
             logger.warning(
@@ -300,19 +250,9 @@ def validate_annotations(
 
 
 def validate_all_annotations_from_dir(
-    entities_config_path: str | Path, annotations_dir: str, log_path: str | None = None
+    annotations_dir: str, log_path: str | None = None
 ):
-    """Validate all JSON annotation files in a directory.
-
-    Parameters
-    ----------
-    entities_config_path : str or Path
-        Path to the YAML configuration file containing blacklists for entity categories.
-    annotations_dir : str
-        Path to the directory containing JSON annotation files.
-    log_path : str, optional
-        Path to save the validation log. If None, logs will be printed to console.
-    """
+    """Validate all JSON annotation files in a directory."""
     logger = create_logger(log_path)
     logger.info(f"Validating all annotations in directory: {annotations_dir}.")
     # Find all JSON files in the directory
@@ -328,9 +268,7 @@ def validate_all_annotations_from_dir(
 
     # Validate each file and accumulate counts
     for json_file in annotation_files:
-        count_errors = validate_annotations(
-            entities_config_path, str(json_file), logger
-        )
+        count_errors = validate_annotations(str(json_file), logger)
         total_text_mismatches += count_errors["text_mismatches"]
         total_span_mismatches += count_errors["span_mismatches"]
         total_overlaps += count_errors["overlaps"]
@@ -350,25 +288,18 @@ def validate_all_annotations_from_dir(
 @click.command()
 @click.option("--json-path", type=click.Path(exists=True))
 @click.option("--annotations-dir", type=click.Path(exists=True))
-@click.option(
-    "--config-path", type=click.Path(exists=True), default="docs/entities_config.yaml"
-)
-def run_main_from_cli(
-    json_path: str | None, annotations_dir: str | None, config_path: str | Path
-):
+def run_main_from_cli(json_path: str | None, annotations_dir: str | None):
     """Run the annotation validation from the command line."""
     if json_path:
         # Initialize logger
         logger = create_logger()
         logger.info(f"Validating annotations in {json_path}...")
-        validate_annotations(config_path, json_path, logger)
+        validate_annotations(json_path, logger)
         logger.success(f"Sorted entities saved to {json_path} successfully.")
     if annotations_dir:
         timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
         log_path = f"logs/validate_annotations_{timestamp}.log"
-        validate_all_annotations_from_dir(
-            config_path, annotations_dir, log_path=log_path
-        )
+        validate_all_annotations_from_dir(annotations_dir, log_path=log_path)
 
 
 if __name__ == "__main__":

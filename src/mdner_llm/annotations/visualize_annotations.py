@@ -7,18 +7,10 @@ from typing import Any
 from loguru import logger
 from spacy import displacy
 
+from mdner_llm.annotations.colors import COLORS
+from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
-from mdner_llm.utils.logger import create_logger
-
-COLORS = {
-    "TEMP": "#ffb3ba",
-    "SOFTNAME": "#ffffba",
-    "SOFTVERS": "#ffffe4",
-    "STIME": "#baffc9",
-    "MOL": "#bae1ff",
-    "FFM": "#cdb4db",
-}
 
 
 def _convert_annotations_to_displacy(
@@ -29,7 +21,7 @@ def _convert_annotations_to_displacy(
 
     The input JSON file must contain:
         - "raw_text": the original text string
-        - "entities": a list of dictionaries with "start", "end", and "label"
+        - "entities": a list of dictionaries with "start", "end", and "category"
 
     Parameters
     ----------
@@ -178,7 +170,7 @@ def convert_ner_response_to_entities(
         for item in items:
             entities.append(  # noqa: PERF401
                 {
-                    "label": label,
+                    "category": label,
                     "text": item["text"],
                     "start": item["start"],
                     "end": item["end"],
@@ -192,28 +184,17 @@ def convert_annotations_from_llm(response, text_to_annotate):
     Convert custom entity list to spaCy displaCy format.
 
     If response is ListOfEntities → compute spans by locating text occurrences.
-    If response is ListOfEntitiesPositions → use provided start/end positions.
 
     Parameters
     ----------
-    response : ListOfEntities | ListOfEntitiesPositions
+    response : ListOfEntities
 
     Returns
     -------
     list[dict]  (spaCy displaCy manual format)
     """
     ents = []
-
-    # ---------- CASE 1 : response is ListOfEntitiesPositions ----------
-    # Already has (start, end, label)
-    if isinstance(response, ListOfEntitiesPositions):
-        ents.extend(
-            {"start": ent.start, "end": ent.end, "label": ent.label}
-            for ent in response.entities
-        )
-        return [{"text": text_to_annotate, "ents": ents}]
-
-    # ---------- CASE 2 : response is ListOfEntities ----------
+    # If positions are provided, use them directly
     # We must find spans in TEXT_TO_ANNOTATE
     if isinstance(response, ListOfEntities):
         text_lower = text_to_annotate.lower()
@@ -238,7 +219,7 @@ def convert_annotations_from_llm(response, text_to_annotate):
                     for i in range(start, end):
                         consumed[i] = True
 
-                    ents.append({"start": start, "end": end, "label": entity.label})
+                    ents.append({"start": start, "end": end, "label": entity.category})
                     break
                 else:
                     search_pos = start + 1
@@ -249,15 +230,13 @@ def convert_annotations_from_llm(response, text_to_annotate):
         return [{"text": text_to_annotate.replace("\n", " "), "ents": ents}]
 
 
-def visualize_llm_annotation(
-    response: ListOfEntities | ListOfEntitiesPositions, text_to_annotate: str
-):
+def visualize_llm_annotation(response: ListOfEntities, text_to_annotate: str):
     """
     Visualize named entities from LLM annotations using spaCy's displaCy.
 
     Parameters
     ----------
-    response (ListOfEntities | ListOfEntitiesPositions):
+    response: ListOfEntities
         The annotated entities returned by the LLM.
     text_to_annotate (str):
         The original text on which entities were predicted.
