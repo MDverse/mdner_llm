@@ -49,7 +49,6 @@ data/annotations/figshare_11771604.json
 data/annotations/zenodo_6988344.json
 data/annotations/zenodo_4106413.json
 data/annotations/figshare_12661589.json
-data/annotations/zenodo_1167532.json
 data/annotations/zenodo_3228177.json
 data/annotations/zenodo_6970327.json
 data/annotations/zenodo_5912821.json
@@ -85,7 +84,6 @@ data/annotations/zenodo_6478270.json
 data/annotations/figshare_11808396.json
 data/annotations/figshare_21726720.json
 data/annotations/zenodo_6817824.json
-data/annotations/zenodo_7323535.json
 data/annotations/zenodo_17550324.json
 data/annotations/zenodo_3988469.json
 data/annotations/figshare_14225919.json
