@@ -1,109 +1,126 @@
-# Annotation Rules
+# Annotation guidelines
 
 This document outlines the guidelines for manually annotating entities in scientific texts related to molecular simulations.
 
-## Molecule (MOL) 🧬
+## Molecule: MOL
 
 ### Definition
 
-This entity covers all types of molecular compounds, including simple molecules, ions, nucleic acids, proteins, lipids, sugars, polymers, and complexes.
+The **MOL** entity covers molecular compounds, including simple molecules, ions, nucleic acids, proteins, lipids, sugars, polymers, and complexes.
+MOL entities should be uniquely identifiable.
 
 ### Rules
 
 - Exclude whitespaces and punctuation marks around entities
 - Annotate both singular and plural forms
 - Include chemical formulas and abbreviations
-- Include amino acid sequences
+- Include amino acid and nuclei acid sequences
 - Include any identifiers (PDB ID, UniProt ID...)
-- Exclude adjectives or descriptors that modify the molecule (e.g., hydrated, charged, folded, tetrameric).
+- Exclude adjectives or descriptors that modify the molecule (e.g., `hydrated`, `charged`, `folded`, `tetrameric`)
 - Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `ions`...
 - Exclude specific résidues or domains like `Lys-353`...
 
-### Examples
+### Good examples
 
-- `sodium chloride` ✅
-- `ethanol` ✅
-- `ammonia` ✅
-- `Q29537` ✅
-- `Na⁺` ✅
-- `lipids` 🚫 → Generic term
-- `DNA` 🚫 → Generic term
-- `hydrated sodium chloride` 🚫 → Only annotate `sodium chloride` ✅
+- `sodium chloride`
+- `ethanol`
+- `ammonia`
+- `Q29537`
+- `2RH1`
+- `Na⁺`
 
-## Force field and model (FFM) 🛠️
+### Bad examples
+
+- `lipids`
+- `DNA`
+- `hydrated sodium chloride` (only annotate `sodium chloride`)
+- `binding protein`
+- `ions in solvant`
+
+## Force field and model: FFM
 
 ### Definition
 
-This entity refers to any force field or molecular model used to describe the interactions between particles in a simulation. This includes all classical all-atom force fields, coarse-grained models, solvent models, and water models. Both the name and version of the force field/model are considered relevant and should be annotated when available.
+The **FFM** entity refers to any force field or molecular model used to describe the interactions between particles in a simulation.
+This includes all classical all-atom force fields, coarse-grained models, solvent models, and water models.
+Both the name and version of the force field/model are relevant and should be annotated when available.
 
 ### Rules
 
 - Include water models and other specific solvent models (e.g., `TIP3P`, `SPC/E`)
 - Exclude generic terms like `force field` or `model`
 
-### Examples
+### Good examples
 
-- `CHARMM36` ✅
-- `AMBER99SB` ✅
-- `GROMOS53a6` ✅
-- `GROMOS96 43A1` ✅
-- `the force field` 🚫 → Generic term
-- `TIP3P water` 🚫 → Annotate only `TIP3P` as FFM
-- `the CHARMM36 force field` 🚫 → Annotate only `CHARMM36` as FFM
+- `CHARMM36`
+- `AMBER99SB`
+- `GROMOS53a6`
+- `GROMOS96 43A1`
+- `TIP3P`
 
-See also [`ffm.yaml`](ffm.yaml) for a list of force fields and models.
+### Bad examples
 
-## Software name (SOFTNAME) ⚙️
+- `the force field`
+- `TIP3P water` (only annotate `TIP3P`)
+- `the CHARMM36 force field` (only annotate `CHARMM36`)
+
+## Software name: SOFTNAME
 
 ### Definition
 
-This entity refers to the name of any software used for molecular simulation, visualization, or analysis. It includes packages for molecular dynamics, modeling, trajectory processing, and any other computational tasks relevant to the simulation workflow.
+The **SOFTNAME** entity refers to the name of any software used for molecular simulation, visualization, or analysis.
+It includes packages for molecular dynamics, modeling, trajectory processing, and any other computational tasks relevant to the simulation workflow.
 
 ### Rules
 
 - Exclude generic words such as `software`, `tool`, or `program` unless they are part of the official name.
 - Exclude algorithms like `SHAKE`, `RESP`...
 
-### Examples
+### Good examples
 
-- `GROMACS` ✅
-- `VMD` ✅
-- `NAMD` ✅
-- `PyMOL` ✅
-- `PLUMED` ✅
-- `COLVAR` ✅
-- `Python` 🚫 → Generic term
-- `the simulation software` 🚫 → No specific name
-- `GROMACS software` 🚫 → Annotate only `GROMACS` ✅
+- `GROMACS`
+- `VMD`
+- `NAMD`
+- `PyMOL`
+- `PLUMED`
+- `COLVAR`
 
-See also [`softname.yaml`](softname.yaml) for a list of molecular dynamics software.
+### Bad examples
 
-## Software version (SOFTVERS) 🔢
+- `Python`
+- `the simulation software`
+- `GROMACS software` (only annotate `GROMACS`)
+
+## Software version: SOFTVERS
 
 ### Definition
 
-This entity refers to the version identifier of any software used in the simulation process. It includes version numbers, release tags, or labels, regardless of formatting (e.g., numeric, date-based, semantic).
+The **SOFTVERS** entity refers to the version identifier of any software used in the simulation process.
+It includes version numbers, release tags, or labels, regardless of formatting (e.g., numeric, date-based, semantic).
 
 ### Rules
 
-- Must follow a corresponding **SOFTNAME** (software/tool name)
+- Must follow a corresponding **SOFTNAME** entity (software/tool name)
 - Keep numeric and symbolic parts intact (e.g., `1.2.3-beta`)
 - Include any suffixes (e.g., `2020.4`), prefixes (e.g., `v5.1.2`)
 
-### Examples
+### Good examples
 
-- `v5.0` ✅
-- `2020.4` ✅
-- `5.1.4` ✅
-- `latest version` 🚫 → No specific version provided
-- `software (v. 2016.4)` 🚫 → Annotate only `v. 2016.4` ✅
-- `release 2023.1` 🚫 → Annotate only `2023.1` ✅
+- `v5.0`
+- `2020.4`
+- `5.1.4`
 
-## Simulation time (STIME) ⏱️
+### Bad examples
+
+- `latest version`
+- `software (v. 2016.4)` (only annotate `v. 2016.4`)
+- `release 2023.1` (only annotate `2023.1`)
+
+## Simulation time: STIME
 
 ### Definition
 
-This entity refers to the duration for which a production molecular dynamics simulation is run.
+The **STIME** entity refers to the duration for which a production molecular dynamics simulation is run.
 
 ### Rules
 
@@ -111,33 +128,40 @@ This entity refers to the duration for which a production molecular dynamics sim
 - If simulation time is presented as a range, repetition, or multiplier (e.g., `5 × 100`, `10–50`), annotate the entire expression if it refers to time
 - The unit is not mandatory, but the context must unambiguously indicate that the number refers to a simulation time
 
-### Examples
+### Good examples
 
-- `5 × 200` ✅
-- `50 picoseconds` ✅
-- `100 ns` ✅
-- `three runs of 500 each` ✅
-- `4-8 μs` ✅
-- `10 to 50 ns` ✅
-- `for several hours of computation` 🚫 → Computation time, not simulation time
-- `10–50 replicas` 🚫 → Number of replicas, not a time duration
+- `5 × 200`
+- `50 picoseconds`
+- `100 ns`
+- `4-8 μs`
+- `10 to 50 ns`
 
-## Simulation temperature (TEMP) 🌡️
+### Bad examples
+
+- `for several hours of computation`
+- `10–50 replicas`
+
+## Simulation temperature: TEMP
 
 ### Definition
 
-This entity refers to the thermal conditions under which a simulation is conducted. It includes any explicitly stated temperature values, with or without units.
+The **TEMP** entity refers to the thermal conditions under which a simulation is conducted.
+It includes any explicitly stated temperature values, with or without units.
 
 ### Rules
 
 - The unit is not mandatory, but the context must unambiguously indicate that the number refers to temperature
 - Exclude surrounding words like `temperature of` or `heated to`
-- Include `room temperature` as it refers to 300 K
+- Include `room temperature` or `body temperature`
 
-### Examples
+### Good examples
 
-- `300K` ✅
-- `500 degrees Celsius` ✅
-- `298` ✅ (if clearly referring to temperature)
-- `heated up` 🚫 → Generic term, no value
-- `room temperature` ✅
+- `300K`
+- `500 degrees Celsius`
+- `298`
+- `room temperature`
+
+### Bad examples
+
+- `heated up`
+- `at low temperature`
