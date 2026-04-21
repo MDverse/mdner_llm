@@ -76,12 +76,6 @@ class DataConfig(BaseModel):
         le=1.0,
         description="Fraction of dataset used for training split.",
     )
-    val_ratio: float = Field(
-        default=0.2,
-        ge=0.0,
-        le=1.0,
-        description="Fraction of dataset used for validation split.",
-    )
     test_ratio: float = Field(
         default=0.2,
         ge=0.0,
@@ -91,10 +85,6 @@ class DataConfig(BaseModel):
     train_data_path: Path = Field(
         ...,
         description="Output path for serialized training dataset (e.g., JSONL).",
-    )
-    val_data_path: Path = Field(
-        ...,
-        description="Output path for serialized validation dataset (e.g., JSONL).",
     )
     test_data_path: Path = Field(
         ...,
@@ -124,7 +114,7 @@ class DataConfig(BaseModel):
             If the sum of train_ratio, val_ratio, and test_ratio does not equal 1
             within a small numerical tolerance.
         """
-        total = self.train_ratio + self.val_ratio + self.test_ratio
+        total = self.train_ratio + self.test_ratio
 
         if abs(total - 1.0) > 1e-6:
             msg = f"Dataset split ratios must sum to 1.0, got {total}"
@@ -162,6 +152,15 @@ class TrainConfig(BaseModel):
         description=(
             "Number of forward/backward passes before performing an optimizer step. "
             "Used to simulate larger batch sizes under memory constraints."
+        ),
+    )
+    cv_folds: int = Field(
+        default=5,
+        ge=2,
+        description=(
+            "Number of cross-validation folds to use for training. If set to 1, "
+            "no cross-validation is performed and the model is trained on the entire "
+            "training set."
         ),
     )
     encoder_lr: float = Field(

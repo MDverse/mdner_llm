@@ -16,11 +16,10 @@ from gliner2 import GLiNER2
 from gliner2.training.data import InputExample, TrainingDataset
 from gliner2.training.trainer import GLiNER2Trainer, TrainingConfig
 from matplotlib import pyplot as plt
-from matplotlib.ticker import MaxNLocator
 from pydantic import ValidationError
 
 from mdner_llm.gliner.training_models import GLiNERConfig
-from mdner_llm.utils.logger import create_logger
+from mdner_llm.logger import create_logger
 
 
 def load_config(
@@ -50,22 +49,17 @@ def load_config(
         # Load raw config from YAML
         with config_path.open("r", encoding="utf-8") as file:
             raw_config = yaml.safe_load(file)
-
         if raw_config is None:
             logger.warning("Config file is empty.")
             return None
-
         # Validate config through Pydantic model
         validated_config = GLiNERConfig.model_validate(raw_config)
-
     except yaml.YAMLError as exc:
         logger.error(f"Error parsing YAML config: {exc}")
         return None
-
     except ValidationError as exc:
         logger.error(f"Config validation error: {exc}")
         return None
-
     else:
         for field_name, field_value in validated_config.model_dump().items():
             logger.debug(f"Config - {field_name}: {field_value}")
@@ -90,14 +84,6 @@ def filter_entity_descriptions(
     descriptions: dict[str, str] | None,
 ) -> dict[str, str]:
     """Filter entity descriptions to include only those relevant to the entities.
-
-    Parameters
-    ----------
-    entities : dict[str, list[str]]
-        Dictionary of entity categories and their corresponding values in the dataset.
-    descriptions : dict[str, str] | None
-        Optional dictionary mapping entity categories to their descriptions.
-        If None, no filtering is applied and an empty dictionary is returned.
 
     Returns
     -------
@@ -265,7 +251,7 @@ def suppress_stdout():
 def split_randomly(
     elements: list,
     config_data: GLiNERConfig,
-) -> tuple[list, list, list]:
+) -> tuple[list, list]:
     """
     Split a list into train/val/test subsets using deterministic indexing.
 
@@ -279,7 +265,7 @@ def split_randomly(
     Returns
     -------
     tuple
-        The list split into (train, val, test)
+        The list split into (train, test)
         according to the specified ratios and shuffled using the
         provided seed for reproducibility.
     """
@@ -291,13 +277,11 @@ def split_randomly(
 
     n = len(indices)
     train_end = int(n * config_data.train_ratio)
-    val_end = train_end + int(n * config_data.val_ratio)
 
     train_elements = [elements[i] for i in indices[:train_end]]
-    val_elements = [elements[i] for i in indices[train_end:val_end]]
-    test_elements = [elements[i] for i in indices[val_end:]]
+    test_elements = [elements[i] for i in indices[train_end:]]
 
-    return train_elements, val_elements, test_elements
+    return train_elements, test_elements
 
 
 def save_paths_txt(
@@ -349,7 +333,6 @@ def check_alignment(
         try:
             with open(path, encoding="utf-8") as f:
                 data = json.load(f)
-
             raw_text = data["raw_text"]
         except OSError as exc:
             logger.warning(f"I/O error at index {idx} for {path}: {exc}")
@@ -363,7 +346,6 @@ def check_alignment(
             logger.warning(f"Missing 'raw_text' in {path} (index {idx})")
             mismatches.append({"index": idx, "path": path})
             continue
-
         if raw_text != expected_text:
             logger.warning(f"Mismatch at index {idx} for file {path}")
             mismatches.append({"index": idx, "path": path})
@@ -403,26 +385,22 @@ def split_and_save_dataset(
         f"Splitting dataset of {len(dataset)} examples into train/val/test sets"
     )
     logger.info(
-        f"Ratios - Train: {config_data.train_ratio}, "
-        f"Val: {config_data.val_ratio}, "
-        f"Test: {config_data.test_ratio}"
+        f"Ratios - Train: {config_data.train_ratio}, Test: {config_data.test_ratio}"
     )
     # Split the dataset into train/validation/test sets
     # using the specified ratios and seed
-    train_data, val_data, test_data = dataset.split(
+    train_data, _val_data, test_data = dataset.split(
         train_ratio=config_data.train_ratio,
-        val_ratio=config_data.val_ratio,
+        val_ratio=0.0,  # No separate validation set, only train and test
         test_ratio=config_data.test_ratio,
         shuffle=config_data.shuffle,
         seed=config_data.seed,
     )
     # Split the list of annotation paths in the same way
     # to keep track of which examples belong to which set
-    train_paths, val_paths, test_paths = split_randomly(
-        selected_annotation_paths, config_data
-    )
+    train_paths, test_paths = split_randomly(selected_annotation_paths, config_data)
     # Split the list of URLs in the same way (if present)
-    train_urls, val_urls, test_urls = split_randomly(urls, config_data)
+    train_urls, test_urls = split_randomly(urls, config_data)
 
     with suppress_stdout():
         train_data.save(config_data.train_data_path)
@@ -433,13 +411,6 @@ def split_and_save_dataset(
             f"Saved {len(train_data)} training examples to "
             f"{config_data.train_data_path}"
         )
-        val_data.save(config_data.val_data_path)
-        issues = check_alignment(val_data, val_paths, logger)
-        if not issues:
-            save_paths_txt(val_paths, val_urls, config_data.val_data_path, logger)
-        logger.success(
-            f"Saved {len(val_data)} validation examples to {config_data.val_data_path}"
-        )
         test_data.save(config_data.test_data_path)
         issues = check_alignment(test_data, test_paths, logger)
         if not issues:
@@ -447,7 +418,39 @@ def split_and_save_dataset(
         logger.success(
             f"Saved {len(test_data)} test examples to {config_data.test_data_path}"
         )
-    return train_data, val_data, test_data
+    return train_data, test_data
+
+
+def k_fold_split(
+    dataset: TrainingDataset,
+    k: int,
+    seed: int = 42,
+) -> list[tuple[TrainingDataset, TrainingDataset]]:
+    """Split the dataset into K folds for cross-validation.
+
+    Returns
+    -------
+    list[tuple[TrainingDataset, TrainingDataset]]
+        A list of tuples, where each tuple contains the training and validation
+        datasets for one fold. The training dataset is created by combining all
+        folds except the current validation fold.
+    """
+    indices = list(range(len(dataset)))
+    random.seed(seed)
+    random.shuffle(indices)
+    fold_size = len(indices) // k
+    folds = []
+    for i in range(k):
+        val_idx = indices[i * fold_size : (i + 1) * fold_size]
+        train_idx = [idx for idx in indices if idx not in val_idx]
+
+        folds.append(
+            (
+                TrainingDataset([dataset[i] for i in train_idx]),
+                TrainingDataset([dataset[i] for i in val_idx]),
+            )
+        )
+    return folds
 
 
 def load_model_and_config(
@@ -551,127 +554,115 @@ def train_gliner_model(
 
 
 def save_plot_training_curves(
-    results: dict,
+    results_list: list[dict],
     output_dir: Path,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """Plot training and evaluation loss curves with improved styling."""
-    # Extract training history, evaluation history, total epochs and total time
-    train_history = results.get("train_metrics_history", [])
-    eval_history = results.get("eval_metrics_history", [])
-    total_epochs = results.get("total_epochs", "?")
-    total_time = results.get("total_time_seconds", 0)
-    train_epochs = [int(entry["epoch"]) for entry in train_history]
-    train_losses = [entry["loss"] for entry in train_history]
-    eval_epochs = [int(entry["epoch"]) for entry in eval_history]
-    eval_losses = [entry["eval_loss"] for entry in eval_history]
-    # Identify minimum eval loss and corresponding epoch
-    if eval_losses:
-        min_loss = min(eval_losses)
-        min_idx = eval_losses.index(min_loss)
-        min_epoch = eval_epochs[min_idx]
-    else:
-        min_loss = None
-        min_epoch = None
-
-    # Identify minimum train loss and corresponding epoch
-    if train_losses:
-        min_train_loss = min(train_losses)
-        min_train_idx = train_losses.index(min_train_loss)
-        min_train_epoch = train_epochs[min_train_idx]
-    else:
-        min_train_loss = None
-        min_train_epoch = None
-    # Plotting
+    """Plot training and evaluation loss curves for cross-validation folds."""
     plt.style.use("default")
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
     ax.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.6)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
-    # Train
-    if train_losses:
-        ax.plot(
-            train_epochs,
-            train_losses,
-            marker="o",
-            linewidth=2,
-            markersize=4,
-            color="blue",
-            label="Train",
-        )
-        ax.axvline(min_train_epoch, linestyle=":", linewidth=1.5, color="blue")
-        ax.annotate(
-            f"min={min_train_loss:.3f}\nepoch={min_train_epoch}",
-            xy=(min_train_epoch, min_train_loss),
-            xytext=(min_train_epoch + 0.4, min_train_loss * 3),
-            textcoords="data",
-            arrowprops={"arrowstyle": "->", "linewidth": 1, "color": "blue"},
-            fontsize=9,
-            weight="bold",
-            bbox={
-                "boxstyle": "round,pad=0.3",
-                "alpha": 0.4,
-                "facecolor": "blue",
-                "edgecolor": "blue",
-            },
-            color="blue",
-        )
+    blue_shades = ["#0000FF", "#0055CC", "#0099AA", "#00BBBB"]
+    orange_shades = ["#FFA500", "#FF7700", "#FF5500", "#CC4400"]
 
-    # Eval
-    if eval_losses:
-        ax.plot(
-            eval_epochs,
-            eval_losses,
-            marker="o",
-            linewidth=2,
-            markersize=4,
-            color="orange",
-            label="Validation",
-        )
-        ax.axvline(min_epoch, linestyle=":", linewidth=1.5, color="orange")
-        ax.annotate(
-            f"min={min_loss:.3f}\nepoch={min_epoch}",
-            xy=(min_epoch, min_loss),
-            xytext=(min_epoch + 0.4, min_loss - 50),
-            textcoords="data",
-            arrowprops={"arrowstyle": "->", "linewidth": 1, "color": "orange"},
-            fontsize=9,
-            weight="bold",
-            bbox={
-                "boxstyle": "round,pad=0.3",
-                "alpha": 0.4,
-                "facecolor": "orange",
-                "edgecolor": "orange",
-            },
-            color="orange",
-        )
+    for fold_id, results in enumerate(results_list):
+        train_history = results.get("train_metrics_history", [])
+        eval_history = results.get("eval_metrics_history", [])
 
-    ax.set_xlabel("Epoch")
-    ax.set_ylabel("Loss")
+        train_epochs = [int(x["epoch"]) for x in train_history]
+        train_losses = [x["loss"] for x in train_history]
+        eval_epochs = [int(x["epoch"]) for x in eval_history]
+        eval_losses = [x["eval_loss"] for x in eval_history]
+
+        train_color = blue_shades[fold_id % len(blue_shades)]
+        val_color = orange_shades[fold_id % len(orange_shades)]
+        fold_label = f"fold {fold_id + 1}"
+
+        if train_losses:
+            ax.plot(
+                train_epochs,
+                train_losses,
+                color=train_color,
+                linewidth=2,
+                marker="o",
+                markersize=4,
+                label=f"Train {fold_label}",
+            )
+            # Annotate train minimum
+            min_train_loss = min(train_losses)
+            min_train_epoch = train_epochs[train_losses.index(min_train_loss)]
+            ax.axvline(min_train_epoch, color=train_color, linestyle=":", linewidth=1.5)
+            ax.annotate(
+                f"min={min_train_loss:.3f}\nepoch={min_train_epoch}",
+                xy=(min_train_epoch, min_train_loss),
+                xytext=(min_train_epoch + 0.3, min_train_loss + 10),
+                fontsize=9,
+                fontweight="bold",
+                color=train_color,
+                bbox={
+                    "boxstyle": "round,pad=0.3",
+                    "facecolor": "#DDDDFF",
+                    "alpha": 0.8,
+                },
+                arrowprops={"arrowstyle": "->", "color": train_color},
+            )
+
+        if eval_losses:
+            ax.plot(
+                eval_epochs,
+                eval_losses,
+                color=val_color,
+                linewidth=2,
+                marker="o",
+                markersize=4,
+                linestyle="--",
+                label=f"Val {fold_label}",
+            )
+            # Annotate validation minimum
+            min_val_loss = min(eval_losses)
+            min_val_epoch = eval_epochs[eval_losses.index(min_val_loss)]
+            ax.axvline(min_val_epoch, color=val_color, linestyle=":", linewidth=1.5)
+            ax.annotate(
+                f"min={min_val_loss:.3f}\nepoch={min_val_epoch}",
+                xy=(min_val_epoch, min_val_loss),
+                xytext=(min_val_epoch + 0.3, min_val_loss + 20),
+                fontsize=9,
+                fontweight="bold",
+                color=val_color,
+                bbox={
+                    "boxstyle": "round,pad=0.3",
+                    "facecolor": "#FFE8CC",
+                    "alpha": 0.8,
+                },
+                arrowprops={"arrowstyle": "->", "color": val_color},
+            )
+
+    last = results_list[-1]
+    ax.set_xlabel("Epoch", fontsize=12)
+    ax.set_ylabel("Loss", fontsize=12)
     ax.set_xlim(left=0)
     ax.set_ylim(bottom=0)
-    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-    ax.legend()
-
-    # Overall title and layout
+    ax.legend(loc="upper right")
     fig.suptitle(
-        f"Training and Validation Loss (epochs={total_epochs}, "
-        f"duration={total_time:.1f}s)",
+        f"Training and Validation Loss — {len(results_list)}-fold CV "
+        f"(epochs={last.get('total_epochs', '?')}, "
+        f"duration={last.get('total_time_seconds', 0):.1f}s)",
         fontsize=12,
     )
     plt.tight_layout()
-    # Save the plot to the output directory
-    output_path = output_dir / "training_curves.png"
+    output_path = output_dir / "training_curves_cv.png"
     plt.savefig(output_path, dpi=300)
     plt.close()
-    logger.success(f"Saved training curves plot to {output_path}")
+    logger.success(f"Saved CV training curves plot to {output_path}")
 
 
 def main(config_path: str | Path):
     """Train GLINER2 model using the specified training configuration."""
     # Initialize logger
-    timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%d_%H%M%S")
     logger = create_logger(f"logs/train_gliner_{timestamp}.log")
     # Load config
     cfg = load_config(config_path, logger=logger)
@@ -682,6 +673,8 @@ def main(config_path: str | Path):
     # Setup output directory
     output_dir = Path(cfg.model.output_dir) / f"{cfg.model.experiment_name}"
     output_dir.mkdir(parents=True, exist_ok=True)
+    # Build model and configure training parameters
+    model, training_config = load_model_and_config(cfg.model.name, cfg, logger)
     # Create dataset
     # Build training examples from annotation files
     dataset, selected_annotation_paths, urls = build_train_dataset(
@@ -689,23 +682,28 @@ def main(config_path: str | Path):
     )
     # Validate dataset
     validated_dataset = validate_dataset(dataset, logger)
-    # Split dataset into train/val/test
-    train_data, val_data, _test_data = split_and_save_dataset(
+    # Split dataset into train/test
+    train_data, _test_data = split_and_save_dataset(
         validated_dataset, selected_annotation_paths, urls, cfg.data, logger
     )
-    # Build model and configure training parameters
-    model, training_config = load_model_and_config(cfg.model.name, cfg, logger)
-    # Train model
-    results = train_gliner_model(
-        model=model,
-        train_dataset=train_data,
-        eval_dataset=val_data,
-        training_config=training_config,
-        logger=logger,
-    )
+    folds = k_fold_split(train_data, k=cfg.training.cv_folds, seed=cfg.data.seed)
+    # Train model using K-fold cross-validation
+    all_results = []
+    for fold_id, (train_data, val_data) in enumerate(folds, start=1):
+        logger.info(f"Starting fold {fold_id}/{cfg.training.cv_folds}")
+        training_config.output_dir = f"{output_dir}/fold_{fold_id}"
+
+        results = train_gliner_model(
+            model=model,
+            train_dataset=train_data,
+            eval_dataset=val_data,
+            training_config=training_config,
+            logger=logger,
+        )
+        all_results.append(results)
     # Plot training curves
-    save_plot_training_curves(results, output_dir, logger)
-    logger.success(f"✓ Training complete! Model saved to {output_dir}")
+    save_plot_training_curves(all_results, output_dir, logger)
+    logger.success(f"✓ Training complete! Models saved to {output_dir}")
 
 
 @click.command()
