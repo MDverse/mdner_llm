@@ -14,9 +14,9 @@ import pandas as pd
 from loguru import logger
 from pydantic import ValidationError as PydanticValidationError
 
+from mdner_llm.common import ensure_dir, sanitize_filename
+from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
-from mdner_llm.utils.common import ensure_dir
-from mdner_llm.utils.logger import create_logger
 
 
 def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
@@ -41,7 +41,7 @@ def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
             continue
 
         # Parse specific fields with Pydantic
-        for key in ("formated_llm_response", "groundtruth"):
+        for key in ("formatted_response", "groundtruth"):
             if key in data and data[key] is not None:
                 try:
                     data[key] = ListOfEntities.model_validate(data[key])
@@ -142,7 +142,7 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
         # Check hallucination (only if format is valid)
         has_no_hallu_list.append(  # noqa: PERF401
             has_no_hallucination(
-                row.formated_llm_response,
+                row.formatted_response,
                 row.text,
                 is_valid_output_format=row.is_valid_output_format,
             )
@@ -196,7 +196,7 @@ def build_category_level_dataframe(
         # Parse groundtruth
         gt_entities = row["groundtruth"].entities
         # Parse prediction
-        pred_entities = row["formated_llm_response"].entities
+        pred_entities = row["formatted_response"].entities
         # Group by category
         gt_by_label = group_texts_by_label(gt_entities)
         pred_by_label = group_texts_by_label(pred_entities)
@@ -292,11 +292,14 @@ def save_df_to_parquet(
     """Serialize all columns before saving to parquet."""
     df_serialized = df.copy()
 
-    # Serialize pydantic models for row "formated_llm_response" and "groundtruth"
+    # Serialize pydantic models for row "formatted_response" and "groundtruth"
     # by converting them to their JSON representation into mode_dump
-    for col in ["formated_llm_response", "groundtruth"]:
+    for col in df_serialized.columns:
         df_serialized[col] = df_serialized[col].apply(
-            lambda x: json.dumps(x.model_dump()) if hasattr(x, "model_dump") else x
+            lambda x: x.model_dump() if hasattr(x, "model_dump") else x
+        )
+        df_serialized[col] = df_serialized[col].apply(
+            lambda x: list(x) if isinstance(x, set) else x
         )
     df_serialized.to_parquet(
         path,
@@ -315,7 +318,9 @@ def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
     return a / b.replace(0, np.nan)
 
 
-def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
+def compute_grouped_stats(
+    df: pd.DataFrame, df_categories: pd.DataFrame
+) -> pd.DataFrame:
     """
     Compute evaluation metrics per label + OVERALL per (model, framework).
 
@@ -325,9 +330,9 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
         DataFrame with grouped metrics by model, framework, and label,
         including overall metrics.
     """
-    group_cols = ["model_name", "framework_name", "category"]
+    # Group by model, framework, and category to compute metrics per label
     grouped_label = (
-        df.groupby(group_cols)
+        df_categories.groupby(["model_name", "framework_name", "category"])
         .agg(
             nb_of_texts_with_label=("text", "nunique"),
             nb_gt_entities=("groundtruth_by_label", lambda s: sum(len(x) for x in s)),
@@ -343,34 +348,45 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
             false_negatives=("false_negatives", "sum"),
-            average_cost_usd=("inference_cost_usd", "mean"),
-            average_inference_time_sec=("inference_time_sec", "mean"),
             average_input_tokens=("input_tokens", "mean"),
             average_output_tokens=("output_tokens", "mean"),
         )
         .reset_index()
     )
-
-    overall = (
+    # Group by model and framework to compute overall metrics across all categories
+    # First compute text-level metrics (e.g., number of texts, cost, time)
+    # by model+framework
+    per_text_stats = (
         df.groupby(["model_name", "framework_name"])
         .agg(
             nb_of_texts_with_label=("text", "nunique"),
-            nb_gt_entities=("groundtruth_by_label", lambda s: s.map(len).sum()),
-            nb_predicted_entities=("prediction_by_label", lambda s: s.map(len).sum()),
             is_correct_output_format=(
                 "is_valid_output_format",
                 lambda s: 100 * s.mean(),
             ),
             has_no_hallucinations=("has_no_hallucination", lambda s: 100 * s.mean()),
-            true_positives=("true_positives", "sum"),
-            false_positives=("false_positives", "sum"),
-            false_negatives=("false_negatives", "sum"),
-            average_cost_usd=("inference_cost_usd", "mean"),
-            average_inference_time_sec=("inference_time_sec", "mean"),
+            total_cost_usd=("inference_cost_usd", "sum"),
+            total_inference_time_sec=("inference_time_sec", "sum"),
             average_input_tokens=("input_tokens", "mean"),
             average_output_tokens=("output_tokens", "mean"),
         )
         .reset_index()
+    )
+    # Then compute entity-level metrics (TP, FP, FN) by model+framework
+    per_entity_stats = (
+        df_categories.groupby(["model_name", "framework_name"])
+        .agg(
+            nb_gt_entities=("groundtruth_by_label", lambda s: s.map(len).sum()),
+            nb_predicted_entities=("prediction_by_label", lambda s: s.map(len).sum()),
+            true_positives=("true_positives", "sum"),
+            false_positives=("false_positives", "sum"),
+            false_negatives=("false_negatives", "sum"),
+        )
+        .reset_index()
+    )
+    # Merge text-level and entity-level stats to compute overall metrics
+    overall = per_text_stats.merge(
+        per_entity_stats, on=["model_name", "framework_name"]
     )
     overall["category"] = "OVERALL"
     grouped = pd.concat([grouped_label, overall], ignore_index=True)
@@ -391,7 +407,6 @@ def compute_grouped_stats(df: pd.DataFrame) -> pd.DataFrame:
         (1 + beta**2) * grouped["precision_score"] * grouped["recall_score"],
         beta**2 * grouped["precision_score"] + grouped["recall_score"],
     )
-    print(grouped[grouped["category"] == "OVERALL"])
     return grouped
 
 
@@ -419,8 +434,10 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
         Directory where evaluation results, logs, and reports will be written.
     """
     # Configure logging
-    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
-    logger = create_logger(f"logs/eval_llm_and_framework_{timestamp}.log")
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%d")
+    logger = create_logger(
+        f"logs/evaluate_entities_extraction_from_{sanitize_filename(str(annotations_dir))}_{timestamp}.log"
+    )
     logger.info("Starting LLM annotation evaluation.")
     start_time = time.perf_counter()
     # Loading annotations with metadatas
@@ -435,15 +452,14 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
     # Save the detailed evaluation results DataFrame to a Parquet file
     save_df_to_parquet(
         df_with_conf_metrics,
-        results_dir / f"per_text_and_category_confusion_metrics_{timestamp}.parquet",
+        results_dir / "per_text_and_category_confusion_metrics.parquet",
     )
     # Compute grouped stats by model and framework
-    df_grouped_stats = compute_grouped_stats(df_with_conf_metrics)
+    df_grouped_stats = compute_grouped_stats(df, df_with_conf_metrics)
     # Saving into an excel
     save_grouped_stats_to_csv(
         df_grouped_stats,
-        results_dir
-        / f"grouped_evaluation_metrics_by_model_and_framework_{timestamp}.csv",
+        results_dir / "grouped_evaluation_metrics.csv",
     )
     elapsed_time = int(time.perf_counter() - start_time)
     logger.success(f"Evaluation duration: {timedelta(seconds=elapsed_time)} 🎉")
