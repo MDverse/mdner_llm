@@ -1,5 +1,6 @@
 """Common utility functions used across the project."""
 
+import json
 import os
 import re
 from pathlib import Path
@@ -54,6 +55,40 @@ def sanitize_filename(s: str) -> str:
         A sanitized string safe for use as a filename.
     """
     return re.sub(r"[^\w\-_.]", "_", s)
+
+
+def serialize_response(
+    resp: object | str | dict,
+) -> str:
+    """
+    Serialize various response objects into a JSON-safe string representation.
+
+    Parameters
+    ----------
+    resp : ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str | dict
+        The object to serialize. This may be a string, a custom class instance,
+        or a model response object such as ChatCompletion.
+
+    Returns
+    -------
+    str
+        A JSON-compatible string representation of the input object.
+    """
+    # Handle the case where the response is None
+    if resp is None:
+        return ""
+    # If it's already a string, nothing to do.
+    if isinstance(resp, str):
+        return resp
+    # If it's a Pydantic model (like ListOfEntities or ListOfEntitiesPositions),
+    # we can use the model's built-in serialization method
+    if hasattr(resp, "model_dump_json"):
+        return resp.model_dump_json(indent=2)
+    # If it's a dict, we can serialize it to JSON
+    if isinstance(resp, dict):
+        return json.dumps(resp, indent=2)
+    # Otherwise, we can try to convert it to a string directly
+    return str(resp)
 
 
 def load_api_key(key: str) -> str:
