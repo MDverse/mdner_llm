@@ -6,7 +6,7 @@ This project explores methods for automatically annotating dataset descriptions 
 
 ## Annotation dataset
 
-A dataset of about 280 annotated texts is available in the `annotations` folder.
+A dataset of about 374 annotated texts is available in the `annotations` folder.
 These texts are build from the title and description of molecular dynamics simulation datasets scraped from Zenodo and Figshare.
 
 These texts have been manually annotated with [annotation rules](docs/annotation_rules.md).
@@ -22,37 +22,37 @@ classDiagram
     }
 
     class SoftwareVersion {
-        label: str = 'SOFTVERS'
+        category: str = 'SOFTVERS'
         text: str
     }
 
     class Temperature {
-        label: str = 'TEMP'
+        category: str = 'TEMP'
         text: str
     }
 
     class SimulationTime {
-        label: str = 'STIME'
+        category: str = 'STIME'
         text: str
     }
 
     class Molecule {
-        label: str = 'MOL'
+        category: str = 'MOL'
         text: str
     }
 
     class SoftwareName {
-        label: str = 'SOFTNAME'
+        category: str = 'SOFTNAME'
         text: str
     }
 
     class ForceFieldModel {
-        label: str = 'FFM'
+        category: str = 'FFM'
         text: str
     }
 
     class Entity {
-        label: str
+        category: str
         text: str
     }
 
@@ -64,7 +64,7 @@ classDiagram
     ListOfEntities ..> ForceFieldModel
 ```
 
-To assess robustness and accuracy, we benchmark several LLMs (GPT-5, Gemini 3 Pro, etc.) together with extraction libraries such as **Instructor**, **LlamaIndex**, and **Pydantic**. Our goal is to identify the best model–framework combinations for accurate, consistent, and schema-compliant Molecular Dynamics Named Entity Recognition (MDNER).
+To assess robustness and accuracy, we benchmark several LLMs (GPT-5, Gemini 3 Pro, Claude Sonnet 4.6, GLM 5.1, etc.) together with extraction libraries such as **Instructor** and **Pydantic**. Our goal is to identify the best model–framework combinations for accurate, consistent, and schema-compliant Molecular Dynamics Named Entity Recognition (MDNER).
 
 ## Setup environment
 
@@ -102,7 +102,7 @@ Perform quality control on manually annotated entities:
 ```sh
 $ uv run validate-annotations --annotations-dir data/annotations
 2026-04-10 15:36:46 | INFO     | Validating all annotations in directory: data/annotations.
-2026-04-10 15:36:46 | INFO     | Found 372 JSON files to validate.
+2026-04-10 15:36:46 | INFO     | Found 374 JSON files to validate.
 2026-04-10 15:36:47 | INFO     | Total text mismatches: 0
 2026-04-10 15:36:47 | INFO     | Total span mismatches: 0
 2026-04-10 15:36:47 | INFO     | Total overlapping entities: 0
@@ -126,7 +126,7 @@ $ uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --o
 2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
 ```
 
-A list of entities per category can be found in [notebooks/review/explore_entities_from_inventory.ipynb](notebooks/review/explore_entities_from_inventory.ipynb).
+A list of entities per category can be found in [notebooks/explore_entities_from_inventory.ipynb](notebooks/explore_entities_from_inventory.ipynb).
 
 ## Usage
 
@@ -135,89 +135,74 @@ A list of entities per category can be found in [notebooks/review/explore_entiti
 To extract structured entities from a single text using a specified LLM ([from OpenRouter available models]((https://openrouter.ai/models))) and framework, run :
 
 ```sh
-uv run extract-entities \
+uv run extract-entities-with-llm \
     --text-path data/annotations/figshare_121241.json \
     --model openai/gpt-5.2 \
     --framework instructor
+2026-04-22 00:12:22 | INFO     | Starting the extraction of entities.
+2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/annotations/figshare_121241.json.
+2026-04-22 00:12:22 | DEBUG    | Loaded text (1710 chars): Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...
+2026-04-22 00:12:22 | DEBUG    | Loading prompt from json_few_shot.txt.
+2026-04-22 00:12:22 | DEBUG    | Loaded prompt (6685 chars) : # Named-Entity Recognition task  ## Role definition  You are a highly speci...
+2026-04-22 00:12:22 | DEBUG    | Starting annotation with model openai/gpt-4o using instructor.
+2026-04-22 00:12:25 | DEBUG    | Response status: ok.
+2026-04-22 00:12:25 | DEBUG    | Formatted LLM response: 
+                                 entities=[ForceField(category='FFM', text='GAFF'), SoftwareName(category='SOFTNAME', text='AutoDock'), SimulationTime(category='STIME', text='20 ns')]
+2026-04-22 00:12:25 | DEBUG    | Inference time: 2.6673661249951692 seconds.
+2026-04-22 00:12:25 | DEBUG    | Input tokens: 3236.
+2026-04-22 00:12:25 | DEBUG    | Output tokens: 70.
+2026-04-22 00:12:25 | DEBUG    | Cost usage: 0.00623 $.
+2026-04-22 00:12:25 | DEBUG    | Saved raw response successfully.
+2026-04-22 00:12:25 | DEBUG    | Saved formated response with metadata successfully.
+2026-04-22 00:12:25 | SUCCESS  | Completed the extraction of entities successfully!
 ```
 > This command generates two outputs: a `.txt` file containing the raw LLM response, and a `.json` file containing the extracted entities along with metadata about the extraction (model, framework, input file, and run details).
 
-
 ```
-# TXT output example:
+# Output example:
 {
   "entities": [
     {
-      "label": "MOL",
+      "category": "MOL",
       "text": "Phosphatidylcholine"
     },
     {
-      "label": "MOL",
+      "category": "MOL",
       "text": "1,2-diauroyl-sn-glycero-3-phospocholine"
     },
     {
-      "label": "MOL",
+      "category": "MOL",
       "text": "DLPC"
     },
     {
-      "label": "MOL",
+      "category": "MOL",
       "text": "DMPC"
     },
     {
-      "label": "MOL",
+      "category": "MOL",
       "text": "DPPC"
     },
     {
-      "label": "FFM",
+      "category": "FFM",
       "text": "AMBER"
     }
   ]
 }
 ```
-```json
-# JSON output example:
-{
-    "timestamp": "2026-04-10T16:34:26.459776+00:00",
-    "json_path": "data/annotations/figshare_121241.json",
-    "text": "<text content of the dataset description>",
-    "url": "<url of the dataset description page>",
-    "model_name": "openai/gpt-5.2",
-    "framework_name": "none",
-    "prompt_path": "json_few_shot.txt",
-    "prompt_tag": "json",
-    "groundtruth": "<ground-truth entities string>",
-    "raw_llm_response": "<raw LLM response string>",
-    "llm_response": "<Parsed LLM response string>",
-    "inference_time_sec": 2.540970104979351,
-    "inference_cost_usd": 0.003835,
-    "response_file": "results/llm/annotations/figshare_121241_openai_gpt-5.2_none_2026-04-10_T16-34-26.txt"
-}
-```
 
 ### Extract entities for multiple texts 📑
 
-To extract structured entities from multiple dataset descriptions listed in [results/100_selected_md_dataset_description_paths.txt](results/100_selected_md_dataset_description_paths.txt), execute:
+To extract structured entities from multiple dataset descriptions listed in [data/groundtruth_paths.txt](data/groundtruth_paths.txt), execute:
 
 ```sh
-uv run extract-entities-all-texts \
+uv run extract-entities-with-llm-all-texts \
     --texts-path data/groundtruth_paths.txt \
     --model openai/gpt-5.2 \
     --framework instructor
 ```
 
-### Evaluate LLM annotations ⚖️
 
-To evaluate the quality of annotations produced by LLMs and different framework, run:
-
-```sh
-uv run evaluate-llm-and-framework \
-        --annotations-dir results/llm/annotations \
-        --results-dir results/llm/evaluation_stats
-```
-
-> This command loads all LLM-generated JSON files in results/llm/annotations, computes per-annotation metrics against the ground-truth, and saves the results in results/llm/evaluation_stats. It generates an Excel file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each label.
-
-## Train Gliner2 model on Molecular Dynamics annotations
+### Fine-tune Gliner2 on Molecular Dynamics annotations 🚀
 
 To train the Gliner2 model on the Molecular Dynamics annotations, run:
 
@@ -228,16 +213,18 @@ uv run train-gliner --config-path src/mdner_llm/gliner/training_config.yaml
 > This command trains the Gliner2 model using the configuration specified in [src/mdner_llm/gliner/training_config.yaml](src/mdner_llm/gliner/training_config.yaml) and save the trained model with the best validation performance.
 
 
-## Evaluate Gliner2 models
+### Evaluate extraction performance ⚖️
 
-To evaluate the performance of the trained Gliner2 model or on a test set of annotations, run:
+To evaluate the quality of annotations produced by LLMs and different framework, run:
 
 ```sh
-uv run evaluate-gliner \
-    --model-name gliner2_base_large \
-    --model-path fastino/gliner2-large-v1 \
-    --test-dataset data/gliner/test.jsonl \
-    --test-metadata-path data/gliner/test_metadata.txt
+uv run evaluate-entities-extraction \
+        --annotations-dir results/llm/annotations \
+        --results-dir results/llm/evaluation_stats
 ```
 
-> This command evaluates the specified Gliner2 model on the test dataset provided in `data/gliner/test.jsonl`. It computes evaluation metrics such as precision, recall, and F1-score for each entity class. It saves the annotation results (per test sample and per labels) into a parquet file, and generates a summary Excel file with overall metrics for each entity class.
+> This command loads all LLM-generated JSON files in results/llm/annotations, computes per-annotation metrics against the ground-truth, and saves the results in results/llm/evaluation_stats. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
+
+
+A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).
+
