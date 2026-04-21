@@ -32,13 +32,9 @@ dependencies = [
     "instructor>=1.15.1",
     "ipython==8.13.2",
     "jupyterlab>=4.4.4",
-    "llama-index>=0.14.12",
-    "llama-index-llms-openrouter>=0.4.2",
     "loguru>=0.7.3",
     "matplotlib>=3.10.3",
-    "mistralai<2.0.0",
     "openai>=2.15.0",
-    "openpyxl>=3.1.5",
     "pandas>=2.2.3",
     "pydantic>=2.12.3",
     "pydantic-ai-slim[openrouter]>=1.43.0",
@@ -78,10 +74,6 @@ evaluate-entities-extraction = "mdner_llm.core.evaluate_entities_extraction:run_
 train-gliner = "mdner_llm.gliner.train_gliner:run_main_from_cli"
 extract-entities-with-gliner-all-texts = "mdner_llm.core.extract_entities_with_gliner_all_texts:run_main_from_cli"
 
-count-entities = "mdner_llm.utils.count_entities:run_main_from_cli"
-select-annotations = "mdner_llm.utils.select_annotation_files:main"
-transfer-annotations = "mdner_llm.utils.transfer_annotations:main"
-build-entity-inventory = "mdner_llm.utils.build_entity_inventory:run_cli"
-extract-description = "mdner_llm.utils.extract_description_from_parquets:main"
-validate-annotations = "mdner_llm.utils.validate_annotations:run_main_from_cli"
-plot-metrics = "mdner_llm.utils.plot_evaluation_metrics:run_main_from_cli"
+build-entity-inventory = "mdner_llm.annotations.build_entity_inventory:run_cli"
+validate-annotations = "mdner_llm.annotations.validate_annotations:run_main_from_cli"
+
