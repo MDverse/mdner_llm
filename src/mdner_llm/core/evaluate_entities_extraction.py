@@ -136,19 +136,15 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     # Check output format validity
     df["is_valid_output_format"] = df["status"].eq("ok")
-    has_no_hallu_list = []
     # Iterate row-wise to apply checks
-    for row in df.itertuples(index=False):
-        # Check hallucination (only if format is valid)
-        has_no_hallu_list.append(  # noqa: PERF401
-            has_no_hallucination(
-                row.formatted_response,
-                row.text,
-                is_valid_output_format=row.is_valid_output_format,
-            )
+    df["hallucination_rate"] = [
+        not has_no_hallucination(
+            row.formatted_response,
+            row.text,
+            is_valid_output_format=row.is_valid_output_format,
         )
-    # Add results as new columns
-    df["has_no_hallucination"] = has_no_hallu_list
+        for row in df.itertuples(index=False)
+    ]
     return df
 
 
@@ -344,7 +340,7 @@ def compute_grouped_stats(
                 "is_valid_output_format",
                 lambda s: 100 * s.mean(),
             ),
-            has_no_hallucinations=("has_no_hallucination", lambda s: 100 * s.mean()),
+            hallucination_rate=("hallucination_rate", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
             false_negatives=("false_negatives", "sum"),
@@ -364,7 +360,7 @@ def compute_grouped_stats(
                 "is_valid_output_format",
                 lambda s: 100 * s.mean(),
             ),
-            has_no_hallucinations=("has_no_hallucination", lambda s: 100 * s.mean()),
+            hallucination_rate=("hallucination_rate", lambda s: 100 * s.mean()),
             total_cost_usd=("inference_cost_usd", "sum"),
             total_inference_time_sec=("inference_time_sec", "sum"),
             average_input_tokens=("input_tokens", "mean"),
