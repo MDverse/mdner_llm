@@ -14,7 +14,7 @@ from pathlib import Path
 
 import pytest
 
-from mdner_llm.utils.validate_annotations import validate_annotations
+from mdner_llm.annotations.validate_annotations import validate_annotations
 
 
 def write_json(tmp_path: Path, data: dict) -> Path:
@@ -46,61 +46,61 @@ def write_json(tmp_path: Path, data: dict) -> Path:
             {
                 "raw_text": "abcdef",
                 "entities": [
-                    {"text": "xyz", "start": 0, "end": 3, "label": "MOL"},
+                    {"text": "xyz", "start": 0, "end": 3, "category": "MOL"},
                 ],
             },
-            {"text": 1, "span": 0, "overlap": 0, "invalid": 0, "label": 0},
+            {"text": 1, "span": 0, "overlap": 0, "invalid": 0, "category": 0},
         ),
         # Span mismatch
         (
             {
                 "raw_text": "Hello",
                 "entities": [
-                    {"text": "Hello", "start": 0, "end": 10, "label": "MOL"},
+                    {"text": "Hello", "start": 0, "end": 10, "category": "MOL"},
                 ],
             },
-            {"text": 0, "span": 1, "overlap": 0, "invalid": 0, "label": 0},
+            {"text": 0, "span": 1, "overlap": 0, "invalid": 0, "category": 0},
         ),
         # Overlap
         (
             {
                 "raw_text": "abcdef",
                 "entities": [
-                    {"text": "abc", "start": 0, "end": 3, "label": "MOL"},
-                    {"text": "bcd", "start": 1, "end": 4, "label": "MOL"},
+                    {"text": "abc", "start": 0, "end": 3, "category": "MOL"},
+                    {"text": "bcd", "start": 1, "end": 4, "category": "MOL"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 1, "invalid": 0, "label": 0},
+            {"text": 0, "span": 0, "overlap": 1, "invalid": 0, "category": 0},
         ),
         # Invalid boundaries
         (
             {
                 "raw_text": " hello",
                 "entities": [
-                    {"text": " hello", "start": 0, "end": 6, "label": "MOL"},
+                    {"text": " hello", "start": 0, "end": 6, "category": "MOL"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 0, "invalid": 1, "label": 0},
+            {"text": 0, "span": 0, "overlap": 0, "invalid": 1, "category": 0},
         ),
-        # Wrong labels
+        # Wrong categories
         (
             {
                 "raw_text": "abcdef",
                 "entities": [
-                    {"text": "ab", "start": 0, "end": 2, "label": "WRONG"},
+                    {"text": "ab", "start": 0, "end": 2, "category": "WRONG"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 0, "invalid": 0, "label": 1},
+            {"text": 0, "span": 0, "overlap": 0, "invalid": 0, "category": 1},
         ),
         # Clean case
         (
             {
                 "raw_text": "abcdef",
                 "entities": [
-                    {"text": "ab", "start": 0, "end": 2, "label": "MOL"},
+                    {"text": "ab", "start": 0, "end": 2, "category": "MOL"},
                 ],
             },
-            {"text": 0, "span": 0, "overlap": 0, "invalid": 0, "label": 0},
+            {"text": 0, "span": 0, "overlap": 0, "invalid": 0, "category": 0},
         ),
     ],
 )
@@ -108,13 +108,13 @@ def test_validation_counts(tmp_path: Path, data: dict, expected: dict):
     """Test validation counters using parameterized inputs."""
     file_path = write_json(tmp_path, data)
 
-    count_errors = validate_annotations("docs/entities_config.yaml", str(file_path))
+    count_errors = validate_annotations(str(file_path))
 
     assert count_errors["text_mismatches"] == expected["text"]
     assert count_errors["span_mismatches"] == expected["span"]
     assert count_errors["overlaps"] == expected["overlap"]
     assert count_errors["invalid_boundaries"] == expected["invalid"]
-    assert count_errors["unknown_labels"] == expected["label"]
+    assert count_errors["unknown_categories"] == expected["category"]
 
 
 def test_sorting_and_persistence(tmp_path: Path):
@@ -122,14 +122,14 @@ def test_sorting_and_persistence(tmp_path: Path):
     data = {
         "raw_text": "abcdef",
         "entities": [
-            {"text": "cd", "start": 2, "end": 4, "label": "MOL"},
-            {"text": "ab", "start": 0, "end": 2, "label": "MOL"},
+            {"text": "cd", "start": 2, "end": 4, "category": "MOL"},
+            {"text": "ab", "start": 0, "end": 2, "category": "MOL"},
         ],
     }
 
     file_path = write_json(tmp_path, data)
 
-    validate_annotations("docs/entities_config.yaml", str(file_path))
+    validate_annotations(str(file_path))
 
     with file_path.open("r", encoding="utf-8") as f:
         updated = json.load(f)
@@ -147,16 +147,16 @@ def test_multiple_issues_same_entity(tmp_path: Path):
                 "text": " xyz",  # invalid boundary + mismatch
                 "start": 0,
                 "end": 3,
-                "label": "MOL",
+                "category": "MOL",
             },
         ],
     }
 
     file_path = write_json(tmp_path, data)
-    count_errors = validate_annotations("docs/entities_config.yaml", str(file_path))
+    count_errors = validate_annotations(str(file_path))
 
     assert count_errors["text_mismatches"] == 1
     assert count_errors["invalid_boundaries"] == 1
     assert count_errors["span_mismatches"] == 1
     assert count_errors["overlaps"] == 0
-    assert count_errors["unknown_labels"] == 0
+    assert count_errors["unknown_categories"] == 0
