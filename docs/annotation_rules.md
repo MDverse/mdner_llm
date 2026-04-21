@@ -16,7 +16,7 @@ MOL entities should be uniquely identifiable.
 - Include chemical formulas and abbreviations
 - Include amino acid and nuclei acid sequences
 - Include any identifiers (PDB ID, UniProt ID...)
-- Exclude adjectives or descriptors that modify the molecule (e.g., hydrated, charged, folded, tetrameric).
+- Exclude adjectives or descriptors that modify the molecule (e.g., `hydrated`, `charged`, `folded`, `tetrameric`)
 - Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `ions`...
 - Exclude specific résidues or domains like `Lys-353`...
 
@@ -43,7 +43,7 @@ MOL entities should be uniquely identifiable.
 
 The **FFM** entity refers to any force field or molecular model used to describe the interactions between particles in a simulation.
 This includes all classical all-atom force fields, coarse-grained models, solvent models, and water models.
-Both the name and version of the force field/model are considered relevant and should be annotated when available.
+Both the name and version of the force field/model are relevant and should be annotated when available.
 
 ### Rules
 
@@ -56,6 +56,7 @@ Both the name and version of the force field/model are considered relevant and s
 - `AMBER99SB`
 - `GROMOS53a6`
 - `GROMOS96 43A1`
+- `TIP3P`
 
 ### Bad examples
 
