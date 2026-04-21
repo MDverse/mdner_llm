@@ -28,13 +28,9 @@ from pydantic_ai.models.openrouter import OpenRouterModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_core import ValidationError as CoreValidationError
 
+from mdner_llm.common import ensure_dir, load_api_key, sanitize_filename
+from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
-from mdner_llm.utils.common import (
-    ensure_dir,
-    load_api_key,
-    sanitize_filename,
-)
-from mdner_llm.utils.logger import create_logger
 
 
 def load_text_and_metadata(
@@ -139,7 +135,7 @@ def normalize_to_pydantic_model(
         # Attempt to parse the content as JSON
         parsed = json.loads(content)
     # Return empty model if content is not valid JSON
-    except (json.JSONDecodeError, AttributeError, IndexError):
+    except (json.JSONDecodeError, AttributeError, IndexError, TypeError):
         metadata["status"] = "format_error"
         return empty_model, metadata
     # Check Pydantic validation
@@ -213,7 +209,7 @@ def annotate_without_framework(
     except (APIError, RateLimitError, APIConnectionError) as exc:
         logger.warning(f"API error: {exc}")
         metadata["status"] = "api_error"
-        return normalize_to_pydantic_model(llm_response, metadata)
+        return normalize_to_pydantic_model(None, metadata)
     else:
         updated_metadata = update_metadata(metadata, start_time, llm_response)
         return normalize_to_pydantic_model(llm_response, updated_metadata)
@@ -266,7 +262,7 @@ def annotate_with_instructor(
     except (ValidationError, InstructorRetryException, ResponseParsingError) as exc:
         logger.error(f"Validation error: {exc}")
         metadata["status"] = "format_error"
-        return normalize_to_pydantic_model(llm_response, metadata)
+        return normalize_to_pydantic_model(None, metadata)
     # related to API (provider issues, and mode errors)
     except (
         ConfigurationError,
@@ -276,7 +272,7 @@ def annotate_with_instructor(
     ) as exc:
         logger.error(f"API error: {exc}")
         metadata["status"] = "api_error"
-        return normalize_to_pydantic_model(llm_response, metadata)
+        return normalize_to_pydantic_model(None, metadata)
     else:
         updated_metadata = update_metadata(metadata, start_time, completion)
         updated_metadata["status"] = "ok"
@@ -326,7 +322,7 @@ def annotate_with_pydanticai(
     ) as exc:
         logger.error(f"Validation error: {exc}")
         metadata["status"] = "format_error"
-        return normalize_to_pydantic_model(llm_response, metadata)
+        return normalize_to_pydantic_model(None, metadata)
     else:
         updated_metadata = update_metadata(metadata, start_time, raw_llm_response)
         updated_metadata["status"] = "ok"
@@ -532,7 +528,7 @@ def extract_entities(
         "prompt_path": str(prompt_file),
         "groundtruth": groundtruth.model_dump(),
         "status": inference_metadata["status"],
-        "formatted_llm_response": formatted_llm_response.model_dump(),
+        "formatted_response": formatted_llm_response.model_dump(),
         "inference_time_sec": usage.get("inference_time_sec"),
         "input_tokens": usage.get("input_tokens"),
         "output_tokens": usage.get("output_tokens"),
@@ -561,8 +557,7 @@ def extract_entities(
     "--framework",
     default="noframework",
     type=click.Choice(["instructor", "pydanticai", "noframework"]),
-    help="Validation framework to apply to model outputs."
-    "Choices: 'instructor', 'pydanticai', 'noframework'. ",
+    help="Validation framework to apply to model outputs.",
 )
 @click.option(
     "--prompt-file",

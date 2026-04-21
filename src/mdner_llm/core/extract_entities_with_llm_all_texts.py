@@ -7,13 +7,9 @@ from pathlib import Path
 import click
 import loguru
 
+from mdner_llm.common import ensure_dir, list_json_files_from_txt, sanitize_filename
 from mdner_llm.core.extract_entities_with_llm import extract_entities
-from mdner_llm.utils.common import (
-    ensure_dir,
-    list_json_files_from_txt,
-    sanitize_filename,
-)
-from mdner_llm.utils.logger import create_logger
+from mdner_llm.logger import create_logger
 
 
 def extract_entities_all_texts(
@@ -81,10 +77,9 @@ def extract_entities_all_texts(
 )
 @click.option(
     "--framework",
-    default="none",
+    default="noframework",
     type=click.Choice(["instructor", "pydanticai", "noframework"]),
-    help="Validation framework to apply to model outputs."
-    "Choices: 'instructor', 'pydanticai', 'noframework'.",
+    help="Validation framework to apply to model outputs.",
 )
 @click.option(
     "--prompt-file",
@@ -131,4 +126,5 @@ def run_main_from_cli(
 
 if __name__ == "__main__":
     # Run entity extraction on multiple annotation files
+    run_main_from_cli()
     run_main_from_cli()

@@ -11,19 +11,15 @@ This module validates:
 
 import json
 from pathlib import Path
-from types import SimpleNamespace
 from typing import Any
 
 import pytest
 
-from mdner_llm.core.extract_entities import (
-    extract_content,
-    normalize_llm_output,
-    save_json_output,
-    save_txt_output,
+from mdner_llm.common import serialize_response
+from mdner_llm.core.extract_entities_with_llm import (
+    save_formated_response_with_metadata_to_json,
 )
 from mdner_llm.models.entities import ListOfEntities
-from mdner_llm.utils.common import serialize_response
 
 # ---------------------------------------------------------------------------
 # Serialization tests
@@ -84,46 +80,6 @@ def test_double_serialization_stability() -> None:
 
 
 # ---------------------------------------------------------------------------
-# LLM output normalization
-# ---------------------------------------------------------------------------
-
-
-def test_extract_content_valid() -> None:
-    """Ensure extract_content retrieves message content correctly."""
-    fake = SimpleNamespace(
-        choices=[SimpleNamespace(message=SimpleNamespace(content="hello world"))]
-    )
-    result = extract_content(fake)
-    assert result == "hello world"
-
-
-def test_extract_content_missing_choices() -> None:
-    """Ensure extract_content raises when choices are missing."""
-    fake = SimpleNamespace(choices=[])
-
-    with pytest.raises(ValueError, match="ChatCompletion has no choices"):
-        extract_content(fake)
-
-
-def test_normalize_chatcompletion() -> None:
-    """Ensure ChatCompletion-like objects are normalized."""
-    fake = SimpleNamespace(
-        choices=[SimpleNamespace(message=SimpleNamespace(content='{"entities": []}'))]
-    )
-
-    result = normalize_llm_output(fake)
-    assert result == '{"entities": []}'
-
-
-def test_normalize_passthrough() -> None:
-    """Ensure non-ChatCompletion objects are returned unchanged."""
-    data = {"a": 1}
-
-    result = normalize_llm_output(data)
-    assert result == data
-
-
-# ---------------------------------------------------------------------------
 # File persistence
 # ---------------------------------------------------------------------------
 
@@ -134,19 +90,9 @@ def test_save_and_load_json(tmp_path: Path) -> None:
 
     data = {
         "text": "example",
-        "llm_response": serialize_response({"entities": []}),
+        "llm_response": {"entities": []},
     }
 
-    save_json_output(output_path, data)
+    save_formated_response_with_metadata_to_json(output_path, data)
     loaded = json.loads(output_path.read_text(encoding="utf-8"))
     assert loaded == data
-
-
-def test_save_txt_output(tmp_path: Path) -> None:
-    """Ensure text output is saved correctly."""
-    output_path = tmp_path / "output.txt"
-    content = "raw model response"
-
-    save_txt_output(output_path, content)
-    loaded = output_path.read_text(encoding="utf-8")
-    assert loaded == content

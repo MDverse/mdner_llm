@@ -2,16 +2,16 @@
 
 import itertools
 from collections.abc import Iterable
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 import click
 
+from mdner_llm.common import sanitize_filename
 from mdner_llm.core.extract_entities_with_llm_all_texts import (
     extract_entities_all_texts,
 )
-from mdner_llm.utils.common import sanitize_filename
-from mdner_llm.utils.logger import create_logger
+from mdner_llm.logger import create_logger
 
 MODELS = [
     "openai/gpt-4o",
@@ -36,8 +36,8 @@ FRAMEWORKS = [
 ]
 
 PROMPT_FILE = Path("json_few_shot.txt")
-TEXT_PATH = Path("data/groundtruth_5_paths.txt")
-OUTPUT_DIR = Path("results/llm/annotations_new")
+TEXT_PATH = Path("data/groundtruth_paths.txt")
+OUTPUT_DIR = Path("results/llm/annotations")
 MAX_RETRIES = 3
 
 
@@ -51,7 +51,7 @@ def run_job(model: str, framework: str) -> str:
     """
     logger = create_logger(
         f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}.log",
-        level="ERROR",
+        level="CRITICAL",
     )
     extract_entities_all_texts(
         prompt_file=PROMPT_FILE,
@@ -83,8 +83,7 @@ def main(max_workers: int) -> None:
         f"Running {len(jobs)} jobs "
         f"({len(MODELS)} models, {len(FRAMEWORKS)} frameworks) in parallel..."
     )
-
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+    with ProcessPoolExecutor(max_workers=max_workers) as executor:
         futures = [
             executor.submit(run_job, model, framework) for model, framework in jobs
         ]
@@ -95,7 +94,7 @@ def main(max_workers: int) -> None:
 
 
 @click.command()
-@click.option("--max-workers", default=5, type=int, help="Number of parallel jobs.")
+@click.option("--max-workers", default=5, type=int, help="Number of parallel process.")
 def run_main_from_cli(max_workers: int) -> None:
     """Run the main function from the command line."""
     main(max_workers)
