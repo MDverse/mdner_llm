@@ -26,6 +26,7 @@ classifiers = [
 ]
 requires-python = ">=3.10,<3.14"
 dependencies = [
+    "adjusttext>=1.3.0",
     "click>=8.3.0",
     "fastparquet>=2025.12.0",
     "gliner2>=1.2.6",
@@ -72,7 +73,7 @@ extract-entities-all-texts-llms-frameworks = "mdner_llm.core.extract_entities_al
 evaluate-entities-extraction = "mdner_llm.core.evaluate_entities_extraction:run_main_from_cli"
 
 train-gliner = "mdner_llm.gliner.train_gliner:run_main_from_cli"
-extract-entities-with-gliner-all-texts = "mdner_llm.core.extract_entities_with_gliner_all_texts:run_main_from_cli"
+extract-entities-with-gliner-all-texts = "mdner_llm.gliner.extract_entities_with_gliner_all_texts:run_main_from_cli"
 
 build-entity-inventory = "mdner_llm.annotations.build_entity_inventory:run_cli"
 validate-annotations = "mdner_llm.annotations.validate_annotations:run_main_from_cli"
