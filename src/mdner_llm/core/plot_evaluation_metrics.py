@@ -30,14 +30,14 @@ def plot_score(
     total_annotations = int(
         df_filtered.loc[
             df_filtered["category"] == "OVERALL",
-            "nb_of_texts_with_label",
+            "nb_texts_with_category",
         ].iloc[0]
     )
     # Total entities for the test set (overall category)
     total_entities = int(
         df_filtered.loc[
             df_filtered["category"] == "OVERALL",
-            "nb_gt_entities",
+            "nb_groundtruth_entities",
         ].iloc[0]
     )
     # Compute ranking of models per category
@@ -179,9 +179,11 @@ def plot_llm_cost_vs_time(
     texts = [
         ax.text(
             row["total_inference_time_sec"],
-            row["total_cost_usd"],
+            row["total_cost_usd"] * 1.05,
             row["model_short"],
             fontsize=10,
+            fontweight="bold",
+            color="dimgrey",
         )
         for _, row in df_plot.iterrows()
     ]
@@ -189,11 +191,13 @@ def plot_llm_cost_vs_time(
     adjust_text(
         texts,
         ax=ax,
-        arrowprops={"arrowstyle": "-", "color": "gray", "lw": 0.8},
+        autoalign="xy",
+        only_move={"points": "y", "text": "xy"},
     )
 
-    ax.set_xlabel("Inference time (s)", fontsize=12)
-    ax.set_ylabel("Cost (USD)", fontsize=12)
+    ax.set_xlabel("Inference time (seconds, log10 scale)", fontsize=12)
+    ax.set_xscale("log")
+    ax.set_ylabel("Cost ($)", fontsize=12)
     ax.set_title("Cost vs inference time", fontsize=13)
     ax.grid(visible=True, linestyle="--", alpha=0.4)
 
