@@ -1,6 +1,7 @@
 """Extract structured entities from a text using a specified LLM and framework."""
 
 import json
+import re
 import time
 from datetime import UTC, datetime
 from importlib.resources import files
@@ -18,6 +19,7 @@ from instructor.core.exceptions import (
     ResponseParsingError,
     ValidationError,
 )
+from jinja2 import Template
 from openai import APIConnectionError, APIError, OpenAI, RateLimitError
 from openai.types.chat import ChatCompletion
 from openai.types.completion_usage import CompletionUsage
@@ -109,6 +111,25 @@ def load_prompt(prompt_file: Path, logger: "loguru.Logger" = loguru.logger) -> s
         f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
     )
     return prompt
+
+
+def add_guidelines_to_prompt(prompt: str, guidelines_path: Path) -> str:
+    """Add annotation guidelines to the prompt.
+
+    Returns
+    -------
+    str
+        The prompt with added annotation guidelines.
+    """
+    guidelines = guidelines_path.read_text(encoding="utf-8")
+    # Remove everything before first ##
+    idx = guidelines.find("##")
+    if idx != -1:
+        guidelines = guidelines[idx:]
+    # We adjust the headers in the guidelines to fit the prompt structure
+    guidelines = re.sub(r"^(#{2,3} )", r"#\1", guidelines, flags=re.MULTILINE)
+    template = Template(prompt)
+    return template.render(guidelines=guidelines)
 
 
 def normalize_to_pydantic_model(
@@ -361,6 +382,7 @@ def annotate_with_llm_and_framework(
             "output_tokens": None,
         },
         "status": None,
+        "prompt": None,
     }
     # Define the system and user messages for the LLM prompt
     system_msg = "Extract entities as structured JSON."
@@ -369,6 +391,7 @@ def annotate_with_llm_and_framework(
         {"role": "system", "content": system_msg},
         {"role": "user", "content": user_msg},
     ]
+    metadata["prompt"] = user_msg
     # Route to the appropriate annotation function based on the specified framework
     if framework == "noframework":
         return annotate_without_framework(model, api_key, metadata, messages, logger)
@@ -394,25 +417,31 @@ def annotate_with_llm_and_framework(
         )
 
 
-def save_raw_response_to_txt(
+def save_to_txt(
     txt_output_path: Path,
-    content: ChatCompletion | None,
+    content: ChatCompletion | str | None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Save raw LLM response to a text file."""
     try:
-        # Case PydanticAI
-        content = content.output if hasattr(content, "output") else content
-        # Serialize the content to JSON string
-        serialized_content = content.model_dump_json(indent=None) if content else ""
+        # Handle PydanticAI-style objects
+        if hasattr(content, "output"):
+            content = content.output
+            serialized_content = content or ""
+        elif hasattr(content, "model_dump_json"):
+            # Pydantic / OpenAI object
+            serialized_content = content.model_dump_json(indent=None)
+        else:
+            # Fallback: safe string conversion
+            serialized_content = str(content)
+    except FileNotFoundError:
+        logger.error(f"Directory does not exist for output file: {txt_output_path}")
+    except OSError as exc:
+        logger.error(f"Failed to write raw response to {txt_output_path}: {exc}")
+    else:
         # Write the serialized content to the specified text file
         txt_output_path.write_text(serialized_content, encoding="utf-8")
         logger.debug(f"Saved raw response to {txt_output_path} successfully.")
-    except FileNotFoundError:
-        logger.error(f"Directory does not exist for output file: {txt_output_path}")
-
-    except OSError as exc:
-        logger.error(f"Failed to write raw response to {txt_output_path}: {exc}")
 
 
 def save_formated_response_with_metadata_to_json(
@@ -486,6 +515,10 @@ def extract_entities(
     text_to_annotate, groundtruth, url = load_text_and_metadata(text_path, logger)
     # Load prompt from txt file
     prompt = load_prompt(prompt_file, logger)
+    # Add annotation instructions to the prompt
+    prompt_with_instructions = add_guidelines_to_prompt(
+        prompt, Path("docs/annotation_rules.md")
+    )
     # Retrieve the openrouter api key
     api_key = load_api_key("OPENROUTER_API_KEY")
     # Run annotation and time it
@@ -494,7 +527,7 @@ def extract_entities(
         text_to_annotate,
         model,
         api_key,
-        prompt,
+        prompt_with_instructions,
         response_model=ListOfEntities,
         max_retries=max_retries,
         logger=logger,
@@ -514,9 +547,10 @@ def extract_entities(
         output_dir / f"{text_path.stem}_{sanitize_filename(model)}_{framework}_{ts}.txt"
     )
     # Save raw response into a txt file
-    save_raw_response_to_txt(
-        txt_output_path, inference_metadata["raw_llm_response"], logger
-    )
+    save_to_txt(txt_output_path, inference_metadata["raw_llm_response"], logger)
+    # Save the prompt with instructions into a separate txt file for reference
+    prompt_output_path = output_dir / f"{text_path.stem}_prompt.txt"
+    save_to_txt(prompt_output_path, inference_metadata["prompt"], logger)
     # Save formated response with metadata in a JSON file
     response_metadata = {
         "timestamp": ts,
@@ -525,7 +559,7 @@ def extract_entities(
         "url": url,
         "model_name": model,
         "framework_name": framework,
-        "prompt_path": str(prompt_file),
+        "prompt_path": str(prompt_output_path),
         "groundtruth": groundtruth.model_dump(),
         "status": inference_metadata["status"],
         "formatted_response": formatted_llm_response.model_dump(),
@@ -533,7 +567,7 @@ def extract_entities(
         "input_tokens": usage.get("input_tokens"),
         "output_tokens": usage.get("output_tokens"),
         "inference_cost_usd": usage.get("cost"),
-        "raw_llm_response_file": str(txt_output_path),
+        "raw_llm_response_path": str(txt_output_path),
     }
     save_formated_response_with_metadata_to_json(
         txt_output_path.with_suffix(".json"), response_metadata, logger
