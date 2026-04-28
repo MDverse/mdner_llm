@@ -20,8 +20,8 @@ class Entity(BaseModel):
     """
 
     # ... is used to indicate that these fields are required
-    category: str = Field(..., description="Short category identifying the entity type")
-    text: str = Field(..., description="Extracted text content")
+    category: str = Field(..., description="Category identifying the entity type.")
+    text: str = Field(..., description="Extracted text content.")
 
 
 # =====================================================================
@@ -30,14 +30,16 @@ class Entity(BaseModel):
 class Molecule(Entity):
     """Entity representing a molecule, protein, lipid, peptide, or similar object."""
 
-    category: Literal["MOL"] = Field("MOL", description="Label for molecule entities")
+    category: Literal["MOL"] = Field(
+        "MOL", description="Category for molecule entities."
+    )
 
 
 class SimulationTime(Entity):
     """Entity representing a simulation time duration (e.g., 50 ns, 5 ms)."""
 
     category: Literal["STIME"] = Field(
-        "STIME", description="Label for simulation time entities"
+        "STIME", description="Category for simulation time entities."
     )
 
 
@@ -45,7 +47,7 @@ class ForceField(Entity):
     """Entity representing a force field used in the MD simulation."""
 
     category: Literal["FFM"] = Field(
-        "FFM", description="Label for force field entities"
+        "FFM", description="Category for force field or model entities."
     )
 
 
@@ -53,7 +55,7 @@ class Temperature(Entity):
     """Entity representing a temperature value used in the simulation."""
 
     category: Literal["TEMP"] = Field(
-        "TEMP", description="Label for temperature entities"
+        "TEMP", description="Category for simulation temperature entities."
     )
 
 
@@ -61,7 +63,7 @@ class SoftwareName(Entity):
     """Entity representing the name of software used for simulations or analysis."""
 
     category: Literal["SOFTNAME"] = Field(
-        "SOFTNAME", description="Label for software name entities"
+        "SOFTNAME", description="Category for software name entities."
     )
 
 
@@ -69,7 +71,7 @@ class SoftwareVersion(Entity):
     """Entity representing the version of a software package."""
 
     category: Literal["SOFTVERS"] = Field(
-        "SOFTVERS", description="Label for software version entities"
+        "SOFTVERS", description="Category for software version entities."
     )
 
 
@@ -86,4 +88,4 @@ class ListOfEntities(BaseModel):
         | Temperature
         | SoftwareName
         | SoftwareVersion
-    ] = Field(..., description="List of recognized entities extracted from text")
+    ] = Field(..., description="List of recognized entities extracted from text.")
