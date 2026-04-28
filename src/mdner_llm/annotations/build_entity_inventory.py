@@ -21,7 +21,6 @@ from loguru import logger
 from matplotlib import pyplot as plt
 
 from mdner_llm.annotations.colors import COLORS
-from mdner_llm.common import list_json_files_from_txt
 from mdner_llm.logger import create_logger
 
 
@@ -34,7 +33,7 @@ def collect_entities(
     Parameters
     ----------
     texts_path : Path
-        Path to a text file containing a list of JSON annotation files.
+        Path to a directory containing JSON annotation files.
 
     Returns
     -------
@@ -44,7 +43,8 @@ def collect_entities(
     logger = create_logger()
     logger.info("Collecting entities.")
     entities_list = []
-    json_files = list_json_files_from_txt(texts_path=texts_path, logger=logger)
+    json_files = list(texts_path.glob("*.json"))
+    logger.success(f"Found {len(json_files)} JSON files successfully.")
 
     if json_files == []:
         logger.warning(f"No JSON files found in {texts_path}")
@@ -74,7 +74,7 @@ def collect_entities(
                 "json_file": Path(json_file).name,
             }
             entities_list.append(entity_dict)
-    logger.success(f"Collected {len(entities_list)} entities")
+    logger.success(f"Collected {len(entities_list)} entities.")
     return entities_list
 
 
@@ -165,10 +165,10 @@ def plot_entity_distribution_by_category(df: pd.DataFrame) -> None:
 
 @click.command()
 @click.option(
-    "--annotation-path",
-    type=click.Path(exists=True, file_okay=True, path_type=Path),
+    "--annotations-path",
+    type=click.Path(exists=True, dir_okay=True, path_type=Path),
     required=True,
-    help="Text file containing the list of JSON files with annotations.",
+    help="Folder containing the list of JSON files with annotations.",
 )
 @click.option(
     "--out-path",
@@ -177,7 +177,7 @@ def plot_entity_distribution_by_category(df: pd.DataFrame) -> None:
     help="Path of the TSV file with the entities.",
 )
 def run_cli(
-    annotation_path: Path,
+    annotations_path: Path,
     out_path: Path,
 ) -> None:
     """
@@ -185,14 +185,14 @@ def run_cli(
 
     Parameters
     ----------
-    annotation_path : Path
-        Text file containing the list of JSON files with annotations.
+    annotations_path : Path
+        Folder containing the JSON files with annotations.
     out_path : Path
-        Path of the TSV file with the entities..
+        Path of the TSV file with the entities.
     """
     logger = create_logger()
     logger.info("Starting entity inventory.")
-    entities = collect_entities(annotation_path)
+    entities = collect_entities(annotations_path)
     # Create the dataframe
     df_entities = pd.DataFrame(entities)
     write_inventory(df_entities, out_path)
