@@ -27,6 +27,7 @@ MODELS = [
     "openai/gpt-oss-120b",
     "qwen/qwen3.5-122b-a10b",
     "google/gemini-3.1-pro-preview",
+    "moonshotai/kimi-k2.6",
 ]
 
 FRAMEWORKS = [
@@ -36,7 +37,7 @@ FRAMEWORKS = [
 ]
 
 PROMPT_FILE = Path("json_few_shot.txt")
-TEXT_PATH = Path("data/groundtruth_paths.txt")
+TEXT_PATH = Path("data/annotations/groundtruth")
 OUTPUT_DIR = Path("results/llm/annotations")
 MAX_RETRIES = 3
 

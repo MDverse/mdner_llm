@@ -7,7 +7,7 @@ from pathlib import Path
 import click
 import loguru
 
-from mdner_llm.common import ensure_dir, list_json_files_from_txt, sanitize_filename
+from mdner_llm.common import ensure_dir, sanitize_filename
 from mdner_llm.core.extract_entities_with_llm import extract_entities
 from mdner_llm.logger import create_logger
 
@@ -23,7 +23,7 @@ def extract_entities_all_texts(
 ) -> None:
     """Run entity extraction on multiple annotation files."""
     logger.info("Starting batch entity extraction.")
-    selected_files = list_json_files_from_txt(texts_path=texts_path, logger=logger)
+    selected_files = list(texts_path.glob("*.json"))
     total_files = len(selected_files)
     # Process each file and extract entities
     start_time = datetime.now(UTC)
@@ -65,8 +65,8 @@ def extract_entities_all_texts(
 @click.option(
     "--texts-path",
     required=True,
-    type=click.Path(exists=True, file_okay=True, path_type=Path),
-    help="Text file containing annotation JSON files.",
+    type=click.Path(exists=True, dir_okay=True, path_type=Path),
+    help="Folder containing annotation JSON files.",
 )
 @click.option(
     "--model",
@@ -126,5 +126,4 @@ def run_main_from_cli(
 
 if __name__ == "__main__":
     # Run entity extraction on multiple annotation files
-    run_main_from_cli()
     run_main_from_cli()
