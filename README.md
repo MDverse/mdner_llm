@@ -100,9 +100,9 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 Perform quality control on manually annotated entities:
 
 ```sh
-$ uv run validate-annotations --annotations-dir data/annotations
-2026-04-10 15:36:46 | INFO     | Validating all annotations in directory: data/annotations.
-2026-04-10 15:36:46 | INFO     | Found 374 JSON files to validate.
+$ uv run validate-annotations --annotations-dir data/annotations/groundtruth
+2026-04-10 15:36:46 | INFO     | Validating all annotations in directory: data/annotations/groundtruth.
+2026-04-10 15:36:46 | INFO     | Found 113 JSON files to validate.
 2026-04-10 15:36:47 | INFO     | Total text mismatches: 0
 2026-04-10 15:36:47 | INFO     | Total span mismatches: 0
 2026-04-10 15:36:47 | INFO     | Total overlapping entities: 0
@@ -115,14 +115,14 @@ $ uv run validate-annotations --annotations-dir data/annotations
 Make the inventory of all entities:
 
 ```sh
-$ uv run build-entity-inventory --annotation-path data/groundtruth_paths.txt --out-path data/entities.tsv
+$ uv run build-entity-inventory --annotations-path data/annotations/groundtruth --out-path data/entities.tsv
 2026-04-08 15:29:25 | INFO     | Starting entity inventory.
 2026-04-08 15:29:25 | INFO     | Collecting entities.
-2026-04-08 15:29:25 | INFO     | Reading list of JSON files from data/groundtruth_paths.txt.
-2026-04-08 15:29:25 | SUCCESS  | Found 109 JSON files successfully.
-2026-04-08 15:29:25 | SUCCESS  | Collected 1708 entities
+2026-04-08 15:29:25 | INFO     | Reading list of JSON files from data/annotations/groundtruth.
+2026-04-08 15:29:25 | SUCCESS  | Found 115 JSON files successfully.
+2026-04-08 15:29:25 | SUCCESS  | Collected 1801 entities.
 2026-04-08 15:29:25 | INFO     | Writing entity inventory TSV file.
-2026-04-08 15:29:25 | SUCCESS  | Saved entity inventoryin: data/entities.tsv
+2026-04-08 15:29:25 | SUCCESS  | Saved entity inventory in: data/entities.tsv
 2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
 ```
 
@@ -136,11 +136,11 @@ To extract structured entities from a single text using a specified LLM ([from O
 
 ```sh
 uv run extract-entities-with-llm \
-    --text-path data/annotations/figshare_121241.json \
+    --text-path data/groundtruth/annotations/figshare_121241.json \
     --model openai/gpt-5.2 \
     --framework instructor
 2026-04-22 00:12:22 | INFO     | Starting the extraction of entities.
-2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/annotations/figshare_121241.json.
+2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/groundtruth/annotations/figshare_121241.json.
 2026-04-22 00:12:22 | DEBUG    | Loaded text (1710 chars): Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...
 2026-04-22 00:12:22 | DEBUG    | Loading prompt from json_few_shot.txt.
 2026-04-22 00:12:22 | DEBUG    | Loaded prompt (6685 chars) : # Named-Entity Recognition task  ## Role definition  You are a highly speci...
@@ -192,11 +192,11 @@ uv run extract-entities-with-llm \
 
 ### Extract entities for multiple texts 📑
 
-To extract structured entities from multiple dataset descriptions listed in [data/groundtruth_paths.txt](data/groundtruth_paths.txt), execute:
+To extract structured entities from multiple dataset descriptions, execute:
 
 ```sh
 uv run extract-entities-with-llm-all-texts \
-    --texts-path data/groundtruth_paths.txt \
+    --texts-path data/annotations/groundtruth \
     --model openai/gpt-5.2 \
     --framework instructor
 ```
@@ -211,6 +211,14 @@ uv run train-gliner --config-path src/mdner_llm/gliner/training_config.yaml
 ```
 
 > This command trains the Gliner2 model using the configuration specified in [src/mdner_llm/gliner/training_config.yaml](src/mdner_llm/gliner/training_config.yaml) and save the trained model with the best validation performance.
+
+Then, to extract entities from new texts using the raw/fine-tuned Gliner2 model, run:
+
+```sh
+uv run extract-entities-with-gliner-all-texts \
+    --model-path fastino/gliner2-base-v1 \
+    --text-path data/gliner/test.jsonl
+```
 
 
 ### Evaluate extraction performance ⚖️
