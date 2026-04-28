@@ -9,7 +9,13 @@ optimization settings.
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, Field, FilePath, field_validator, model_validator
+from pydantic import (
+    BaseModel,
+    DirectoryPath,
+    Field,
+    field_validator,
+    model_validator,
+)
 
 
 class ModelConfig(BaseModel):
@@ -65,10 +71,9 @@ class ModelConfig(BaseModel):
 class DataConfig(BaseModel):
     """Configuration describing dataset construction and splitting strategy."""
 
-    annotation_paths: FilePath = Field(
+    annotations_path: DirectoryPath = Field(
         ...,
-        description="Path to a text file containing list of annotation file paths "
-        "(one file per line).",
+        description="Path to a directory containing annotation JSON files.",
     )
     train_ratio: float = Field(
         default=0.6,

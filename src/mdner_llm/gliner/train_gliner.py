@@ -146,7 +146,7 @@ def build_example(
 
 
 def build_train_dataset(
-    annotation_paths_file: Path,
+    annotations_path: Path,
     entity_descriptions: dict[str, str] | None = None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[TrainingDataset, list[Path], list[str]]:
@@ -155,8 +155,8 @@ def build_train_dataset(
 
     Parameters
     ----------
-    annotation_paths_file : Path
-        Path to a text file containing paths to annotation JSON files (one per line).
+    annotations_path : Path
+        Path to a directory containing annotation JSON files.
     entity_descriptions : dict[str, str] | None
         Optional mapping from category to description.
 
@@ -169,16 +169,13 @@ def build_train_dataset(
     urls : list[str]
         List of URLs extracted from the annotation files (if present).
     """
-    logger.info(f"Creating dataset from annotation paths file: {annotation_paths_file}")
+    logger.info(f"Creating dataset from annotation paths file: {annotations_path}")
     train_examples = []
     processed_annotation_paths = []
     urls = []
     first_logged = False
-    # Read annotation file paths from the provided text file
-    with annotation_paths_file.open("r", encoding="utf-8") as file:
-        selected_annotation_paths = [
-            Path(line.strip()) for line in file if line.strip()
-        ]
+    # Read annotation file paths
+    selected_annotation_paths = list(annotations_path.glob("*.json"))
     # Process each annotation file to build InputExample objects
     for annotation_path in selected_annotation_paths:
         # Check if the annotation file exists before attempting to read it
@@ -553,107 +550,121 @@ def train_gliner_model(
     return results
 
 
+def save_loss_points(
+    results_list: list[dict],
+    output_dir: Path,
+    logger: "loguru.Logger" = loguru.logger,
+) -> None:
+    """Save training and validation loss points across K-folds to a JSON file."""
+    loss_points = []
+    for fold_id, results in enumerate(results_list, start=1):
+        train_history = results.get("train_metrics_history", [])
+        eval_history = results.get("eval_metrics_history", [])
+        for train_entry, eval_entry in zip(train_history, eval_history, strict=False):
+            loss_points.append(
+                {
+                    "fold": fold_id,
+                    "epoch": int(train_entry["epoch"]),
+                    "train_loss": train_entry["loss"],
+                    "eval_loss": eval_entry["eval_loss"],
+                }
+            )
+    output_path = output_dir / "loss_points.json"
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(loss_points, f, indent=2)
+    logger.success(f"Saved training and validation loss points to {output_path}")
+
+
+def plot_mean_with_annotation(data_by_epoch, color, facecolor, y_offset, ax=None):
+    """Plot mean loss curve with annotation for minimum point."""
+    epochs = sorted(data_by_epoch)
+    losses = [sum(data_by_epoch[ep]) / len(data_by_epoch[ep]) for ep in epochs]
+    label = "Train (mean)" if color == "#0000FF" else "Validation (mean)"
+    ax.plot(
+        epochs,
+        losses,
+        color=color,
+        linewidth=2.5,
+        marker="o",
+        markersize=4,
+        label=label,
+    )
+    min_loss, min_ep = min(losses), epochs[losses.index(min(losses))]
+    ax.axvline(min_ep, color=color, linestyle=":", linewidth=1.5)
+    ax.annotate(
+        f"min={min_loss:.3f}\nepoch={min_ep}",
+        xy=(min_ep, min_loss),
+        xytext=(min_ep + 0.3, min_loss + y_offset),
+        fontsize=9,
+        fontweight="bold",
+        color=color,
+        bbox={"boxstyle": "round,pad=0.3", "facecolor": facecolor, "alpha": 0.8},
+        arrowprops={"arrowstyle": "->", "color": color},
+    )
+
+
 def save_plot_training_curves(
     results_list: list[dict],
     output_dir: Path,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """Plot training and evaluation loss curves for cross-validation folds."""
+    """Save a plot of training and validation loss curves across K-folds."""
     plt.style.use("default")
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.6)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
 
-    blue_shades = ["#0000FF", "#0055CC", "#0099AA", "#00BBBB"]
-    orange_shades = ["#FFA500", "#FF7700", "#FF5500", "#CC4400"]
+    n_folds = len(results_list)
+    all_train, all_eval = {}, {}
 
-    for fold_id, results in enumerate(results_list):
+    for results in results_list:
         train_history = results.get("train_metrics_history", [])
         eval_history = results.get("eval_metrics_history", [])
-
         train_epochs = [int(x["epoch"]) for x in train_history]
         train_losses = [x["loss"] for x in train_history]
         eval_epochs = [int(x["epoch"]) for x in eval_history]
         eval_losses = [x["eval_loss"] for x in eval_history]
+        ax.plot(
+            train_epochs,
+            train_losses,
+            color="#0000FF",
+            alpha=0.3,
+            linewidth=1.5,
+            marker="o",
+            markersize=3,
+        )
+        ax.plot(
+            eval_epochs,
+            eval_losses,
+            color="#FFA500",
+            alpha=0.3,
+            linewidth=1.5,
+            marker="o",
+            markersize=3,
+        )
+        for ep, loss in zip(train_epochs, train_losses, strict=False):
+            all_train.setdefault(ep, []).append(loss)
+        for ep, loss in zip(eval_epochs, eval_losses, strict=False):
+            all_eval.setdefault(ep, []).append(loss)
 
-        train_color = blue_shades[fold_id % len(blue_shades)]
-        val_color = orange_shades[fold_id % len(orange_shades)]
-        fold_label = f"fold {fold_id + 1}"
-
-        if train_losses:
-            ax.plot(
-                train_epochs,
-                train_losses,
-                color=train_color,
-                linewidth=2,
-                marker="o",
-                markersize=4,
-                label=f"Train {fold_label}",
-            )
-            # Annotate train minimum
-            min_train_loss = min(train_losses)
-            min_train_epoch = train_epochs[train_losses.index(min_train_loss)]
-            ax.axvline(min_train_epoch, color=train_color, linestyle=":", linewidth=1.5)
-            ax.annotate(
-                f"min={min_train_loss:.3f}\nepoch={min_train_epoch}",
-                xy=(min_train_epoch, min_train_loss),
-                xytext=(min_train_epoch + 0.3, min_train_loss + 10),
-                fontsize=9,
-                fontweight="bold",
-                color=train_color,
-                bbox={
-                    "boxstyle": "round,pad=0.3",
-                    "facecolor": "#DDDDFF",
-                    "alpha": 0.8,
-                },
-                arrowprops={"arrowstyle": "->", "color": train_color},
-            )
-
-        if eval_losses:
-            ax.plot(
-                eval_epochs,
-                eval_losses,
-                color=val_color,
-                linewidth=2,
-                marker="o",
-                markersize=4,
-                linestyle="--",
-                label=f"Val {fold_label}",
-            )
-            # Annotate validation minimum
-            min_val_loss = min(eval_losses)
-            min_val_epoch = eval_epochs[eval_losses.index(min_val_loss)]
-            ax.axvline(min_val_epoch, color=val_color, linestyle=":", linewidth=1.5)
-            ax.annotate(
-                f"min={min_val_loss:.3f}\nepoch={min_val_epoch}",
-                xy=(min_val_epoch, min_val_loss),
-                xytext=(min_val_epoch + 0.3, min_val_loss + 20),
-                fontsize=9,
-                fontweight="bold",
-                color=val_color,
-                bbox={
-                    "boxstyle": "round,pad=0.3",
-                    "facecolor": "#FFE8CC",
-                    "alpha": 0.8,
-                },
-                arrowprops={"arrowstyle": "->", "color": val_color},
-            )
+    plot_mean_with_annotation(all_train, "#0000FF", "#DDDDFF", 10, ax=ax)
+    plot_mean_with_annotation(all_eval, "#FFA500", "#FFE8CC", 20, ax=ax)
 
     last = results_list[-1]
     ax.set_xlabel("Epoch", fontsize=12)
     ax.set_ylabel("Loss", fontsize=12)
-    ax.set_xlim(left=0)
-    ax.set_ylim(bottom=0)
+    ax.set_xlim(0, 15)
+    ax.xaxis.set_major_locator(plt.MultipleLocator(2))
     ax.legend(loc="upper right")
     fig.suptitle(
-        f"Training and Validation Loss — {len(results_list)}-fold CV "
-        f"(epochs={last.get('total_epochs', '?')}, "
-        f"duration={last.get('total_time_seconds', 0):.1f}s)",
+        f"Training and Validation Loss (kfolds={n_folds}, "
+        f"epochs={last.get('total_epochs', '?')}, "
+        f"duration={last.get('total_time_seconds', 0):.0f}s)",
         fontsize=12,
     )
     plt.tight_layout()
-    output_path = output_dir / "training_curves_cv.png"
+    output_path = output_dir / "training_curves.png"
     plt.savefig(output_path, dpi=300)
     plt.close()
     logger.success(f"Saved CV training curves plot to {output_path}")
@@ -678,7 +689,7 @@ def main(config_path: str | Path):
     # Create dataset
     # Build training examples from annotation files
     dataset, selected_annotation_paths, urls = build_train_dataset(
-        cfg.data.annotation_paths, entity_descriptions=cfg.entities, logger=logger
+        cfg.data.annotations_path, entity_descriptions=cfg.entities, logger=logger
     )
     # Validate dataset
     validated_dataset = validate_dataset(dataset, logger)
@@ -701,6 +712,8 @@ def main(config_path: str | Path):
             logger=logger,
         )
         all_results.append(results)
+    # Save loss points
+    save_loss_points(all_results, output_dir, logger)
     # Plot training curves
     save_plot_training_curves(all_results, output_dir, logger)
     logger.success(f"✓ Training complete! Models saved to {output_dir}")
