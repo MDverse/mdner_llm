@@ -29,19 +29,19 @@ def test_dot_followed_by_digit_not_removed() -> None:
     [
         (
             "A 300K.",
-            {"category": "TEMP", "text": "300K.", "start": 2, "end": 7},
+            {"category": "STEMP", "text": "300K.", "start": 2, "end": 7},
             "300K",
             6,
         ),
         (
             "310 Kelvin.",
-            {"category": "TEMP", "text": "310 Kelvin", "start": 0, "end": 11},
+            {"category": "STEMP", "text": "310 Kelvin", "start": 0, "end": 11},
             "310 Kelvin",
             10,
         ),
         (
             "Temperature is 293.15K.",
-            {"category": "TEMP", "text": "293.15K.", "start": 15, "end": 24},
+            {"category": "STEMP", "text": "293.15K.", "start": 15, "end": 24},
             "293.15K",
             22,
         ),
@@ -54,7 +54,7 @@ def test_clean_temperature_parametrized(
     expected_text: str,
     expected_end: int,
 ) -> None:
-    """Ensure TEMP entities are cleaned correctly (parametrized cases)."""
+    """Ensure STEMP entities are cleaned correctly (parametrized cases)."""
     file_path = tmp_path / "test.json"
 
     data = {
@@ -74,13 +74,13 @@ def test_clean_temperature_parametrized(
 
 
 def test_clean_annotation_no_change(tmp_path: Path) -> None:
-    """Ensure no change when TEMP has no trailing dot."""
+    """Ensure no change when STEMP has no trailing dot."""
     file_path = tmp_path / "test.json"
 
     data = {
         "raw_text": "Simulation at 310K",
         "entities": [
-            {"category": "TEMP", "text": "310K", "start": 14, "end": 18},
+            {"category": "STEMP", "text": "310K", "start": 14, "end": 18},
         ],
     }
 
@@ -100,7 +100,7 @@ def test_misaligned_entity_text(tmp_path: Path) -> None:
         "raw_text": "Temp is 300K.",
         "entities": [
             # incorrect annotation span (too long)
-            {"category": "TEMP", "text": "300K.", "start": 8, "end": 20},
+            {"category": "STEMP", "text": "300K.", "start": 8, "end": 20},
         ],
     }
 

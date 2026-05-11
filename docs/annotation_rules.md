@@ -141,11 +141,11 @@ The **STIME** entity refers to the duration for which a production molecular dyn
 - `for several hours of computation`
 - `10–50 replicas`
 
-## Simulation temperature: TEMP
+## Simulation temperature: STEMP
 
 ### Definition
 
-The **TEMP** entity refers to the thermal conditions under which a simulation is conducted.
+The **STEMP** entity refers to the thermal conditions under which a simulation is conducted.
 It includes any explicitly stated temperature values, with or without units.
 
 ### Rules

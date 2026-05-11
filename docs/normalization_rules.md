@@ -26,7 +26,7 @@ See the [annotation rules](annotation_rules.md) document for the definition of e
 
 - `10 to 50 ns` → not `10-50 ns`
 
-## Simulation temperature (TEMP)
+## Simulation temperature (STEMP)
 
 - Convert all temperatures to Kelvin if standardization is required (`25 °C` → `298K`)
 - Convert `room temperature` to `300 K`

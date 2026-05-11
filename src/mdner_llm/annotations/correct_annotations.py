@@ -215,7 +215,7 @@ def clean_annotation_file_temperatures(file_path: Path) -> None:
     # Clean trailing dots for temperature annotations
     count = 0
     for ent in data.get("entities", []):
-        if ent.get("category") == "TEMP":
+        if ent.get("category") == "STEMP":
             raw_entity = ent["text"]
             ent["text"] = clean_trailing_dot(ent["text"])
             if ent["text"] != raw_entity:

@@ -5,7 +5,7 @@ CATEGORIES = {
     "FFM": "Force field or model used to describe interatomic interactions.",
     "SOFTNAME": "Names of software packages used in molecular dynamics simulations.",
     "SOFTVERS": "Version numbers of software packages.",
-    "TEMP": "Simulation temperature, typically expressed in Kelvin or Celsius",
+    "STEMP": "Simulation temperature, typically expressed in Kelvin or Celsius",
     "STIME": "Total simulation time or duration.",
 }
 
@@ -31,5 +31,5 @@ BLACKLIST = {
     "SOFTVERS": {"version"},
     "FFM": {"ffm", "forcefield"},
     "STIME": {"time", "duration"},
-    "TEMP": {"temperature", "temp"},
+    "STEMP": {"temperature", "temp"},
 }

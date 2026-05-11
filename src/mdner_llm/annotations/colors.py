@@ -1,7 +1,7 @@
 """Module for colors used in annotations visualization."""
 
 COLORS = {
-    "TEMP": "#ffb3ba",
+    "STEMP": "#ffb3ba",
     "SOFTNAME": "#ffffba",
     "SOFTVERS": "#ffffe4",
     "STIME": "#baffc9",
