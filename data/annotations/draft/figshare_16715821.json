@@ -80,7 +80,7 @@
             "end": 1000
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "365 K",
             "start": 1056,
             "end": 1061

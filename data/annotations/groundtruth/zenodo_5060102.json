@@ -62,7 +62,7 @@
             "end": 600
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310 K",
             "start": 655,
             "end": 660

@@ -56,7 +56,7 @@
             "end": 279
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "325K",
             "start": 283,
             "end": 287
@@ -74,7 +74,7 @@
             "end": 303
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310K",
             "start": 307,
             "end": 311
@@ -92,7 +92,7 @@
             "end": 343
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310K",
             "start": 347,
             "end": 351
@@ -110,7 +110,7 @@
             "end": 397
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310K",
             "start": 401,
             "end": 405
@@ -128,7 +128,7 @@
             "end": 421
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310K",
             "start": 425,
             "end": 429
@@ -146,7 +146,7 @@
             "end": 461
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310K",
             "start": 465,
             "end": 469
@@ -164,7 +164,7 @@
             "end": 515
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "303K",
             "start": 519,
             "end": 523

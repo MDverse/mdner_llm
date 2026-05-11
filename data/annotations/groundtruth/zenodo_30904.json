@@ -44,7 +44,7 @@
             "end": 211
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "298.15",
             "start": 233,
             "end": 239

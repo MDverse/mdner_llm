@@ -92,25 +92,25 @@
             "end": 824
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "315.0 K",
             "start": 864,
             "end": 871
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "316.7 K",
             "start": 882,
             "end": 889
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "318.4 K",
             "start": 900,
             "end": 907
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "321.8 K",
             "start": 936,
             "end": 943
@@ -122,31 +122,31 @@
             "end": 951
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "315.0 K",
             "start": 989,
             "end": 996
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "316.0 K",
             "start": 1007,
             "end": 1014
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "317.0 K",
             "start": 1025,
             "end": 1032
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "318.0 K",
             "start": 1043,
             "end": 1050
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "319.1 K",
             "start": 1061,
             "end": 1068
@@ -158,31 +158,31 @@
             "end": 1077
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "315.0 K",
             "start": 1115,
             "end": 1122
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "316.0 K",
             "start": 1133,
             "end": 1140
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "317.0 K",
             "start": 1151,
             "end": 1158
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "318.0 K",
             "start": 1169,
             "end": 1176
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "319.1 K",
             "start": 1187,
             "end": 1194

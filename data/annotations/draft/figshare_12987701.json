@@ -50,13 +50,13 @@
             "end": 495
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "242",
             "start": 513,
             "end": 516
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "210 K",
             "start": 521,
             "end": 526
@@ -74,7 +74,7 @@
             "end": 557
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "273.15 K",
             "start": 628,
             "end": 636

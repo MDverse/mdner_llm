@@ -32,31 +32,31 @@
             "end": 165
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "285",
             "start": 218,
             "end": 221
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "298",
             "start": 223,
             "end": 226
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310",
             "start": 228,
             "end": 231
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "320",
             "start": 233,
             "end": 236
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "333 K",
             "start": 242,
             "end": 247

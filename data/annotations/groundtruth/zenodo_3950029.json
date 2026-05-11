@@ -8,25 +8,25 @@
             "end": 8
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "288K",
             "start": 81,
             "end": 85
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "358K",
             "start": 89,
             "end": 93
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "288K",
             "start": 698,
             "end": 702
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "358K",
             "start": 707,
             "end": 711

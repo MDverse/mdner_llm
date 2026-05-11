@@ -20,7 +20,7 @@
             "end": 50
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "298 K",
             "start": 53,
             "end": 58

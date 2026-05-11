@@ -140,13 +140,13 @@
             "end": 3693
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "303K",
             "start": 4085,
             "end": 4089
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "363K",
             "start": 4093,
             "end": 4097
@@ -158,19 +158,19 @@
             "end": 4440
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "363 K",
             "start": 4460,
             "end": 4465
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "363 K",
             "start": 4987,
             "end": 4992
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "90 ˚C",
             "start": 4994,
             "end": 4999

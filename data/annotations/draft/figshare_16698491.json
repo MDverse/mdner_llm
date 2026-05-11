@@ -8,13 +8,13 @@
             "end": 86
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "283.15",
             "start": 139,
             "end": 145
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "318.15 K",
             "start": 149,
             "end": 157
@@ -44,13 +44,13 @@
             "end": 412
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "283.15",
             "start": 421,
             "end": 427
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "318.15 K",
             "start": 431,
             "end": 439

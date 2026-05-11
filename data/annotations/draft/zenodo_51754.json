@@ -110,7 +110,7 @@
             "end": 690
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "323 K",
             "start": 929,
             "end": 934

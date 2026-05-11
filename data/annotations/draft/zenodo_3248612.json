@@ -38,7 +38,7 @@
             "end": 350
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310K",
             "start": 354,
             "end": 358
@@ -62,7 +62,7 @@
             "end": 407
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310 K",
             "start": 421,
             "end": 426

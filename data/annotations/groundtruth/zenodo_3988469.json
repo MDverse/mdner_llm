@@ -176,13 +176,13 @@
             "end": 1738
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310.15°K",
             "start": 1950,
             "end": 1958
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "37°C",
             "start": 1960,
             "end": 1964

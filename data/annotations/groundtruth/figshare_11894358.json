@@ -68,13 +68,13 @@
             "end": 308
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "human body temperature",
             "start": 352,
             "end": 374
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "310 K",
             "start": 376,
             "end": 381

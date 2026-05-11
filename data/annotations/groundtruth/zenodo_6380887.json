@@ -20,13 +20,13 @@
             "end": 531
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "300 K",
             "start": 603,
             "end": 608
         },
         {
-            "category": "TEMP",
+            "category": "STEMP",
             "text": "340 K",
             "start": 613,
             "end": 618
