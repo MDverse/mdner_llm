@@ -13,7 +13,6 @@ from pydantic import (
     BaseModel,
     DirectoryPath,
     Field,
-    field_validator,
     model_validator,
 )
 
@@ -33,39 +32,6 @@ class ModelConfig(BaseModel):
         ...,
         description="Directory where model checkpoints, logs, and outputs are saved.",
     )
-    chunk_size: int = Field(
-        default=512,
-        ge=64,
-        description="Maximum token length per training chunk before "
-        "truncation or splitting.",
-    )
-    overlap: int = Field(
-        default=64,
-        ge=0,
-        description="Number of overlapping tokens between consecutive chunks "
-        "to preserve context.",
-    )
-
-    @field_validator("overlap")
-    @classmethod
-    def validate_overlap(cls, v: int, info):
-        """Ensure overlap is smaller than chunk size.
-
-        Returns
-        -------
-        int
-            Validated overlap value.
-
-        Raises
-        ------
-        ValueError
-            If overlap is greater than or equal to chunk size.
-        """
-        chunk_size = info.data.get("chunk_size", None)
-        if chunk_size is not None and v >= chunk_size:
-            msg = "overlap must be strictly smaller than chunk_size"
-            raise ValueError(msg)
-        return v
 
 
 class DataConfig(BaseModel):
@@ -81,19 +47,17 @@ class DataConfig(BaseModel):
         le=1.0,
         description="Fraction of dataset used for training split.",
     )
+    val_ratio: float = Field(
+        default=0.2,
+        ge=0.0,
+        le=1.0,
+        description="Fraction of dataset used for validation split.",
+    )
     test_ratio: float = Field(
         default=0.2,
         ge=0.0,
         le=1.0,
         description="Fraction of dataset used for test split.",
-    )
-    train_data_path: Path = Field(
-        ...,
-        description="Output path for serialized training dataset (e.g., JSONL).",
-    )
-    test_data_path: Path = Field(
-        ...,
-        description="Output path for serialized test dataset (e.g., JSONL).",
     )
     shuffle: bool = Field(
         default=True,
@@ -119,7 +83,7 @@ class DataConfig(BaseModel):
             If the sum of train_ratio, val_ratio, and test_ratio does not equal 1
             within a small numerical tolerance.
         """
-        total = self.train_ratio + self.test_ratio
+        total = self.train_ratio + self.val_ratio + self.test_ratio
 
         if abs(total - 1.0) > 1e-6:
             msg = f"Dataset split ratios must sum to 1.0, got {total}"
@@ -161,7 +125,7 @@ class TrainConfig(BaseModel):
     )
     cv_folds: int = Field(
         default=5,
-        ge=2,
+        ge=1,
         description=(
             "Number of cross-validation folds to use for training. If set to 1, "
             "no cross-validation is performed and the model is trained on the entire "
@@ -190,6 +154,51 @@ class TrainConfig(BaseModel):
         default="cosine",
         description="Learning rate scheduler strategy.",
     )
+    weight_decay: float = Field(
+        default=0.01,
+        ge=0.0,
+        description=(
+            "Weight decay coefficient for regularization during AdamW optimization."
+        ),
+    )
+    fp16: bool = Field(
+        default=True,
+        description="Enable mixed precision training using 16-bit floating point.",
+    )
+    use_lora: bool = Field(
+        default=True,
+        description="Enable LoRA (Low-Rank Adaptation) for efficient fine-tuning.",
+    )
+    lora_r: int = Field(
+        default=4,
+        ge=1,
+        description="Rank (4, 8, 16, 32) for LoRA layers.",
+    )
+    lora_alpha: float = Field(
+        default=8.0,
+        gt=0,
+        description="Scaling factor (usually 2*r) for LoRA layers.",
+    )
+    lora_dropout: float = Field(
+        default=0.0,
+        ge=0.0,
+        le=1.0,
+        description="Dropout rate for LoRA layers.",
+    )
+    lora_target_modules: list[str] = Field(
+        default=["encoder"],
+        description=(
+            "List of model submodules to apply LoRA "
+            "to (e.g., ['encoder'] applies to all encoder layers)."
+        ),
+    )
+    save_adapter_only: bool = Field(
+        default=True,
+        description=(
+            "Whether to save only the LoRA adapter weights instead "
+            "of the full model during checkpointing."
+        ),
+    )
     eval_strategy: Literal["epoch", "steps", "no"] = Field(
         default="epoch",
         description="Frequency of evaluation during training.",
@@ -201,17 +210,6 @@ class TrainConfig(BaseModel):
     save_best: bool = Field(
         default=True,
         description="Whether to save the best performing model during training.",
-    )
-    weight_decay: float = Field(
-        default=0.01,
-        ge=0.0,
-        description=(
-            "Weight decay coefficient for regularization during AdamW optimization."
-        ),
-    )
-    fp16: bool = Field(
-        default=True,
-        description="Enable mixed precision training using 16-bit floating point.",
     )
     logging_steps: int = Field(
         default=50,

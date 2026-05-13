@@ -1,12 +1,8 @@
 """Training GLINER2 model to fine-tune on MolecularDynamics-specific NER tasks."""
 
-import io
 import json
-import os
 import random
-import sys
-from contextlib import contextmanager, redirect_stdout
-from datetime import UTC, datetime
+from collections import defaultdict
 from pathlib import Path
 
 import click
@@ -28,22 +24,17 @@ def load_config(
     """
     Load and validate YAML configuration for GLiNER training.
 
-    Parameters
-    ----------
-    config_path : str | Path
-        Path to YAML configuration file.
-
     Returns
     -------
     GLiNERConfig | None
         Validated configuration object or None if loading fails.
     """
-    logger.info(f"Loading config from: {config_path}")
+    logger.info(f"Loading config from: {config_path}.")
     # Ensure config_path is a Path object
     config_path = Path(config_path)
     # Ensure config file exists
     if not config_path.exists():
-        logger.warning(f"Config file not found: {config_path}")
+        logger.warning(f"Config file not found: {config_path}.")
         return None
     try:
         # Load raw config from YAML
@@ -68,45 +59,11 @@ def load_config(
         return validated_config
 
 
-def log_dataset_stats(dataset, logger) -> None:
-    """Log statistics about the training dataset."""
-    buffer = io.StringIO()
-
-    with redirect_stdout(buffer):
-        dataset.print_stats()
-    stats = buffer.getvalue().strip()
-    for line in stats.splitlines():
-        logger.info(line)
-
-
-def filter_entity_descriptions(
-    entities: dict[str, list[str]],
-    descriptions: dict[str, str] | None,
-) -> dict[str, str]:
-    """Filter entity descriptions to include only those relevant to the entities.
-
-    Returns
-    -------
-    dict[str, str]
-        Filtered dictionary of entity descriptions.
-    """
-    if not descriptions:
-        return {}
-    return {key: value for key, value in descriptions.items() if key in entities}
-
-
 def build_example(
     annotation_path: Path,
     entity_descriptions: dict[str, str] | None,
 ) -> tuple[InputExample, str]:
     """Build a single InputExample from a JSON annotation file.
-
-    Parameters
-    ----------
-    annotation_path : Path
-        Path to the JSON annotation file containing raw text and entity annotations.
-    entity_descriptions : dict[str, str] | None
-        Optional dictionary mapping entity categories to their descriptions.
 
     Returns
     -------
@@ -117,18 +74,25 @@ def build_example(
     # Read the annotation JSON file
     with annotation_path.open("r", encoding="utf-8") as f:
         json_data = json.load(f)
-    # Extract raw text and entities from the JSON data
+    # Extract raw text, entities and url from the JSON data
     raw_text = json_data["raw_text"]
     raw_entities = json_data.get("entities", [])
-    url = json_data.get("url")
+    url = json_data.get("url", "")
     # Format entities into the structure expected by InputExample
-    formatted_entities = {}
-    for ent in raw_entities:
-        category = ent["category"]
-        value = ent["text"]
-        formatted_entities.setdefault(category, [])
-        if value not in formatted_entities[category]:
-            formatted_entities[category].append(value)
+    formatted_entities = defaultdict(list)
+    for entity in raw_entities:
+        if entity["text"] not in formatted_entities[entity["category"]]:
+            formatted_entities[entity["category"]].append(entity["text"])
+    # Filter entity descriptions to include only those relevant to the dataset
+    filtered_entity_descriptions = (
+        {
+            key: description
+            for key, description in entity_descriptions.items()
+            if key in formatted_entities
+        }
+        if entity_descriptions
+        else {}
+    )
     # Create an InputExample
     example = InputExample(
         # with the raw text
@@ -137,9 +101,7 @@ def build_example(
         entities=formatted_entities,
         # and the filtered entity descriptions
         # (only for categories present in the dataset)
-        entity_descriptions=filter_entity_descriptions(
-            formatted_entities, entity_descriptions
-        ),
+        entity_descriptions=filtered_entity_descriptions,
     )
 
     return example, url
@@ -153,13 +115,6 @@ def build_train_dataset(
     """
     Build a TrainingDataset from annotation JSON files specified in a text file.
 
-    Parameters
-    ----------
-    annotations_path : Path
-        Path to a directory containing annotation JSON files.
-    entity_descriptions : dict[str, str] | None
-        Optional mapping from category to description.
-
     Returns
     -------
     TrainingDataset
@@ -169,25 +124,23 @@ def build_train_dataset(
     urls : list[str]
         List of URLs extracted from the annotation files (if present).
     """
-    logger.info(f"Creating dataset from annotation paths file: {annotations_path}")
+    logger.info(f"Creating dataset from annotation paths file: {annotations_path}.")
     train_examples = []
     processed_annotation_paths = []
     urls = []
     first_logged = False
-    # Read annotation file paths
-    selected_annotation_paths = list(annotations_path.glob("*.json"))
     # Process each annotation file to build InputExample objects
-    for annotation_path in selected_annotation_paths:
+    for annotation_path in list(annotations_path.glob("*.json")):
         # Check if the annotation file exists before attempting to read it
         if not annotation_path.exists():
-            logger.warning(f"Annotation file not found: {annotation_path}")
+            logger.warning(f"Annotation file not found: {annotation_path}.")
             continue
         # Build an InputExample from the annotation file
         example, url = build_example(annotation_path, entity_descriptions)
         # Add it to the list of training examples
         train_examples.append(example)
         processed_annotation_paths.append(annotation_path)
-        urls.append(url or "")
+        urls.append(url)
         # Log the first example for debugging purposes
         if not first_logged:
             first_logged = True
@@ -204,45 +157,9 @@ def build_train_dataset(
                     logger.info(f"  {category}: {desc}")
     # Instantiate TrainingDataset with the list of InputExample objects
     dataset = TrainingDataset(train_examples)
-    log_dataset_stats(dataset, logger)
+    dataset.print_stats()
     logger.success(f"Created dataset with {len(train_examples)} examples successfully!")
     return dataset, processed_annotation_paths, urls
-
-
-def validate_dataset(
-    dataset: TrainingDataset, logger: "loguru.Logger" = loguru.logger
-) -> TrainingDataset:
-    """
-    Validate the TrainingDataset for consistency and correctness.
-
-    Parameters
-    ----------
-    dataset : TrainingDataset
-        The dataset to validate.
-    logger : loguru.Logger
-        Logger for logging validation results.
-
-    Returns
-    -------
-    TrainingDataset
-        The original dataset if validation passes.
-    """
-    logger.info("Validating training dataset...")
-    dataset.validate(raise_on_error=True)
-    logger.success("Training dataset validation passed successfully!")
-    return dataset
-
-
-@contextmanager
-def suppress_stdout():
-    """Temporarily suppress stdout (used for noisy library prints)."""
-    with open(os.devnull, "w") as devnull:
-        old_stdout = sys.stdout
-        sys.stdout = devnull
-        try:
-            yield
-        finally:
-            sys.stdout = old_stdout
 
 
 def split_randomly(
@@ -360,19 +277,6 @@ def split_and_save_dataset(
     """
     Split dataset into train/validation/test sets and save them to disk.
 
-    Parameters
-    ----------
-    dataset : TrainingDataset
-        Validated GLiNER dataset to split.
-    selected_annotation_paths : list[Path]
-        List of annotation paths that were successfully processed.
-    urls : list[str]
-        List of URLs extracted from the annotation files (if present).
-    config_data : DataConfig
-        Configuration object containing split ratios, paths and seed.
-    logger : loguru.Logger
-        Logger instance.
-
     Returns
     -------
     tuple
@@ -418,36 +322,165 @@ def split_and_save_dataset(
     return train_data, test_data
 
 
+def save_dataset_to_jsonl(
+    dataset: TrainingDataset, path: Path, logger: "loguru.Logger" = loguru.logger
+) -> None:
+    """Serialize a TrainingDataset to a JSONL file (one JSON object per line)."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with path.open("w", encoding="utf-8") as f:
+            for example in dataset:
+                record = {
+                    "input": example.text,
+                    "output": {
+                        "entities": example.entities,
+                        "entity_descriptions": example.entity_descriptions,
+                    },
+                }
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except OSError as exc:
+        logger.error(f"Failed to save dataset to {path}: {exc}.")
+    else:
+        logger.debug(f"Dataset saved to {path} successfully!")
+
+
+def save_metadata(
+    paths: list[Path],
+    urls: list[str],
+    target: Path,
+    logger: "loguru.Logger" = loguru.logger,
+) -> None:
+    """Save paths and urls to a .txt file aligned with the dataset JSONL file."""
+    out = target.with_name(f"{target.stem}_metadata.txt")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as f:
+        f.writelines(f"{path}\t{url}\n" for path, url in zip(paths, urls, strict=False))
+    logger.success(f"Metadata saved → {out} ({len(paths)} entries) successfully!")
+
+
 def k_fold_split(
     dataset: TrainingDataset,
-    k: int,
-    seed: int = 42,
-) -> list[tuple[TrainingDataset, TrainingDataset]]:
-    """Split the dataset into K folds for cross-validation.
+    paths: list[Path],
+    urls: list[str],
+    cfg: GLiNERConfig,
+    output_dir: Path,
+    logger: "loguru.Logger" = loguru.logger,
+) -> list[tuple[TrainingDataset, TrainingDataset, TrainingDataset]]:
+    """
+    Nested cross-validation split on the full dataset.
+
+    For each fold i (outer loop):
+      - fold i          → test
+      - remaining folds → split into train/val using cfg.train_ratio / cfg.val_ratio
+
+    Each fold's splits are saved as JSONL to output_dir/fold_{i}/data/.
 
     Returns
     -------
-    list[tuple[TrainingDataset, TrainingDataset]]
-        A list of tuples, where each tuple contains the training and validation
-        datasets for one fold. The training dataset is created by combining all
-        folds except the current validation fold.
+    list of (fold_train, fold_val, fold_test)
     """
-    indices = list(range(len(dataset)))
+    k = cfg.training.cv_folds
+    seed = cfg.data.seed
+    n = len(dataset)
+
+    idx = list(range(n))
     random.seed(seed)
-    random.shuffle(indices)
-    fold_size = len(indices) // k
+    random.shuffle(idx)
+
+    fold_size = n // k
+    # Build the K index buckets
+    buckets = [idx[i * fold_size : (i + 1) * fold_size] for i in range(k)]
+    # Remaining examples (if n % k != 0) go into the last bucket
+    if n % k:
+        buckets[-1].extend(idx[k * fold_size :])
+
     folds = []
     for i in range(k):
-        val_idx = indices[i * fold_size : (i + 1) * fold_size]
-        train_idx = [idx for idx in indices if idx not in val_idx]
+        fold_dir = output_dir / f"fold_{i + 1}" / "data"
+        fold_dir.mkdir(parents=True, exist_ok=True)
+        # Outer split: bucket i → test, rest → train+val pool
+        test_idx = buckets[i]
+        trainval_idx = [j for b, bucket in enumerate(buckets) if b != i for j in bucket]
+        # Inner split: train+val pool → train / val
+        random.seed(seed)
+        random.shuffle(trainval_idx)
+        tv_n = len(trainval_idx)
+        # Normalise ratios so they sum to 1 over the train+val pool
+        ratio_sum = cfg.data.train_ratio + cfg.data.val_ratio
+        train_end = int(tv_n * cfg.data.train_ratio / ratio_sum)
 
-        folds.append(
-            (
-                TrainingDataset([dataset[i] for i in train_idx]),
-                TrainingDataset([dataset[i] for i in val_idx]),
-            )
+        train_idx = trainval_idx[:train_end]
+        val_idx = trainval_idx[train_end:]
+
+        fold_train = TrainingDataset([dataset[j] for j in train_idx])
+        fold_val = TrainingDataset([dataset[j] for j in val_idx])
+        fold_test = TrainingDataset([dataset[j] for j in test_idx])
+
+        logger.info(
+            f"Fold {i + 1}/{k} — "
+            f"train={len(fold_train)}, val={len(fold_val)}, test={len(fold_test)}"
         )
+
+        # Save each split as JSONL + metadata
+        for split_name, split_ds, split_idx in [
+            ("train", fold_train, train_idx),
+            ("val", fold_val, val_idx),
+            ("test", fold_test, test_idx),
+        ]:
+            save_path = fold_dir / f"{split_name}.jsonl"
+            save_dataset_to_jsonl(split_ds, save_path, logger)
+
+            split_paths = [paths[j] for j in split_idx]
+            split_urls = [urls[j] for j in split_idx]
+            if check_alignment(split_ds, split_paths, logger):
+                save_metadata(split_paths, split_urls, save_path, logger)
+
+            logger.success(f"  {split_name}: {len(split_ds)} examples → {save_path}")
+
+        folds.append((fold_train, fold_val, fold_test))
+
     return folds
+
+
+def load_model(model_name: str, logger: "loguru.Logger" = loguru.logger) -> GLiNER2:
+    """Load a fresh GLiNER2 model (must be called once per fold to reset LoRA state)."""
+    with capture() as buf:
+        model = GLiNER2.from_pretrained(model_name)
+    for line in buf.getvalue().strip().splitlines():
+        logger.info(line.strip())
+    return model
+
+
+def build_training_config(
+    cfg: GLiNERConfig,
+    fold_output_dir: Path,
+) -> TrainingConfig:
+    """Build a TrainingConfig for GLiNER2Trainer.
+
+    Returns
+    -------
+    TrainingConfig
+        Configured TrainingConfig object with parameters
+        from GLiNERConfig and fold output directory.
+    """
+    return TrainingConfig(
+        output_dir=str(fold_output_dir),
+        experiment_name=cfg.model.experiment_name,
+        num_epochs=cfg.training.num_epochs,
+        max_steps=cfg.training.max_steps,
+        batch_size=cfg.training.batch_size,
+        gradient_accumulation_steps=cfg.training.gradient_accumulation_steps,
+        encoder_lr=cfg.training.encoder_lr,
+        task_lr=cfg.training.task_lr,
+        warmup_ratio=cfg.training.warmup_ratio,
+        scheduler_type=cfg.training.scheduler_type,
+        weight_decay=cfg.training.weight_decay,
+        fp16=cfg.training.fp16,
+        eval_strategy=cfg.training.eval_strategy,
+        metric_for_best=cfg.training.metric_for_best,
+        save_best=cfg.training.save_best,
+        logging_steps=cfg.training.logging_steps,
+    )
 
 
 def load_model_and_config(
@@ -458,25 +491,13 @@ def load_model_and_config(
     """
     Load a GLiNER2 model and the trainfing configuation for training.
 
-    Parameters
-    ----------
-    model_name : str
-        Name of the pretrained model.
-    config : GLiNERConfig
-        Training configuration.
-    logger : loguru.Logger
-        Logger instance.
-
     Returns
     -------
     tuple
         (model, training_config)
             The loaded GLiNER2 model and the training configuration.
     """
-    # Capture stdout during model loading
-    buffer = io.StringIO()
-    with redirect_stdout(buffer):
-        model = GLiNER2.from_pretrained(model_name)
+    model = GLiNER2.from_pretrained(model_name)
     # Display captured output in logger
     output = buffer.getvalue().strip()
     if output:
@@ -501,6 +522,12 @@ def load_model_and_config(
         weight_decay=config.training.weight_decay,
         # Precision / hardware
         fp16=config.training.fp16,
+        # LoRa
+        lora_r=config.training.lora_r,
+        lora_alpha=config.training.lora_alpha,
+        lora_dropout=config.training.lora_dropout,
+        lora_target_modules=config.training.lora_target_modules,
+        save_adapter_only=config.training.save_adapter_only,
         # Checkpointing
         eval_strategy=config.training.eval_strategy,
         metric_for_best=config.training.metric_for_best,
@@ -572,7 +599,9 @@ def save_loss_points(
     output_path = output_dir / "loss_points.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(loss_points, f, indent=2)
-    logger.success(f"Saved training and validation loss points to {output_path}")
+    logger.success(
+        f"Saved training and validation loss points to {output_path} successfully!"
+    )
 
 
 def plot_mean_with_annotation(data_by_epoch, color, facecolor, y_offset, ax=None):
@@ -667,14 +696,14 @@ def save_plot_training_curves(
     output_path = output_dir / "training_curves.png"
     plt.savefig(output_path, dpi=300)
     plt.close()
-    logger.success(f"Saved CV training curves plot to {output_path}")
+    logger.success(f"Saved CV training curves plot to {output_path} successfully!")
 
 
 def main(config_path: str | Path):
     """Train GLINER2 model using the specified training configuration."""
     # Initialize logger
-    timestamp = datetime.now(UTC).strftime("%Y-%m-%d_%H%M%S")
-    logger = create_logger(f"logs/train_gliner_{timestamp}.log")
+    logger = create_logger(level="DEBUG")
+    logger.info("Starting GLiNER2 finetuning process.")
     # Load config
     cfg = load_config(config_path, logger=logger)
     if not cfg:
@@ -684,39 +713,43 @@ def main(config_path: str | Path):
     # Setup output directory
     output_dir = Path(cfg.model.output_dir) / f"{cfg.model.experiment_name}"
     output_dir.mkdir(parents=True, exist_ok=True)
-    # Build model and configure training parameters
-    model, training_config = load_model_and_config(cfg.model.name, cfg, logger)
     # Create dataset
     # Build training examples from annotation files
     dataset, selected_annotation_paths, urls = build_train_dataset(
         cfg.data.annotations_path, entity_descriptions=cfg.entities, logger=logger
     )
     # Validate dataset
-    validated_dataset = validate_dataset(dataset, logger)
-    # Split dataset into train/test
-    train_data, _test_data = split_and_save_dataset(
-        validated_dataset, selected_annotation_paths, urls, cfg.data, logger
+    dataset.validate(raise_on_error=True)
+    # K-fold nested CV directly on the full dataset
+    folds = k_fold_split(
+        dataset,
+        selected_annotation_paths,
+        urls,
+        cfg,
+        output_dir,
+        logger,
     )
-    folds = k_fold_split(train_data, k=cfg.training.cv_folds, seed=cfg.data.seed)
     # Train model using K-fold cross-validation
     all_results = []
     for fold_id, (train_data, val_data) in enumerate(folds, start=1):
         logger.info(f"Starting fold {fold_id}/{cfg.training.cv_folds}")
+        model = load_model(cfg.model.name, logger)
+        training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
         training_config.output_dir = f"{output_dir}/fold_{fold_id}"
-
+        logger_fold = create_logger(training_config.output_dir / "training.log")
         results = train_gliner_model(
             model=model,
             train_dataset=train_data,
             eval_dataset=val_data,
             training_config=training_config,
-            logger=logger,
+            logger=logger_fold,
         )
         all_results.append(results)
     # Save loss points
     save_loss_points(all_results, output_dir, logger)
     # Plot training curves
     save_plot_training_curves(all_results, output_dir, logger)
-    logger.success(f"✓ Training complete! Models saved to {output_dir}")
+    logger.success(f"✓ Training complete! Models saved to {output_dir} successfully!")
 
 
 @click.command()

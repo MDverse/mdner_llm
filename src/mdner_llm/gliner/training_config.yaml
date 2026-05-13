@@ -1,38 +1,35 @@
 model:
   name: "fastino/gliner2-base-v1"
-  experiment_name: "gliner2-base-v1-finetuned-batch-4"
+  experiment_name: "gliner2-base-v1-finetuned-lora"
   output_dir: "results/gliner/models"
-  chunk_size: 512
-  overlap: 64
 
 data:
   annotations_path: "data/annotations/groundtruth"
-  train_ratio: 0.8
-  train_data_path: "data/gliner/train.jsonl"
+  train_ratio: 0.6
+  val_ratio: 0.2
   test_ratio: 0.2
-  test_data_path: "data/gliner/test.jsonl"
   shuffle: True
-  seed: 42
+  seed: 1
 
 entities:
   MOL: "Molecule or chemical compound involved in the simulation."
   SOFTNAME: "Molecular dynamics software used for the simulation."
   SOFTVERS: "Version of the molecular dynamics software."
-  TEMP: "Simulation temperature, typically expressed in Kelvin or Celsius."
+  STEMP: "Simulation temperature, typically expressed in Kelvin or Celsius."
   FFM: "Force field or model used to describe interatomic interactions."
   STIME: "Total simulation time or duration."
 
 training:
   # Training schedule
-  num_epochs: 30
+  num_epochs: 10
   batch_size: 4
   max_steps: -1
-  gradient_accumulation_steps: 8
-  cv_folds: 3
+  gradient_accumulation_steps: 2
+  cv_folds: 5
 
   # Learning rates
-  encoder_lr: 5e-6 # Learning rate for encoder
-  task_lr: 1e-4 # Learning rate for task-specific heads
+  encoder_lr: 1e-5 # Learning rate for encoder
+  task_lr: 5e-4 # Learning rate for task-specific heads
   warmup_ratio: 0.05
   scheduler_type: "cosine"
 
@@ -41,6 +38,14 @@ training:
 
   # Precision / hardware
   fp16: True
+
+  # LoRA settings
+  use_lora: True  # Enable LoRA
+  lora_r: 4  # Rank (4, 8, 16, 32)
+  lora_alpha: 8.0  # Scaling factor (usually 2*r)
+  lora_dropout: 0.0  # Dropout for LoRA layers
+  lora_target_modules: ["encoder"]  # Apply to all encoder layers (query, key, value, dense)
+  save_adapter_only: True  # Save only adapter (not full model)
 
   # Checkpointing
   eval_strategy: "epoch"
