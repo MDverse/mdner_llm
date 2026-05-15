@@ -18,7 +18,7 @@ Expected output structure:
   [
     {"category": "MOL", "text": "cholesterol"},
     {"category": "FFM", "text": "MARTINI"},
-    {"category": "MOL", "text": "POPC"},x
+    {"category": "MOL", "text": "POPC"},
     {"category": "MOL", "text": "glycerol"},
     {"category": "SOFTNAME", "text": "Gromacs"}
   ]
@@ -37,7 +37,7 @@ Output:
     {"category": "MOL", "text": "DMPC"},
     {"category": "STIME", "text": "1 ns"},
     {"category": "MOL", "text": "DMPC"},
-    {"category": "TEMP", "text": "310K"},
+    {"category": "STEMP", "text": "310K"},
     {"category": "MOL", "text": "DMPC"},
     {"category": "FFM", "text": "GROMOS 54A7"},
     {"category": "FFM", "text": "SPC"},
@@ -57,7 +57,7 @@ Output:
     {"category": "MOL","text": "Alanine Dipeptide"},
     {"category": "STIME", "text": "87 microsecond"},
     {"category": "MOL", "text": "alanine dipeptide"},
-    {"category": "TEMP", "text": "300 K"},
+    {"category": "STEMP", "text": "300 K"},
     {"category": "FFM", "text": "AMBER99SB-ILDN"},
     {"category": "SOFTNAME", "text": "GROMACS"},
     {"category": "SOFTVERS", "text": "2021.4"},
@@ -76,13 +76,13 @@ Output:
   [
     {"category": "FFM","text": "GROMOS 43A1-S3"},
     {"category": "MOL","text": "POPE"},
-    {"category": "TEMP","text": "313 K"},
+    {"category": "STEMP","text": "313 K"},
     {"category": "FFM","text": "GROMOS 43A1-S3"},
     {"category": "MOL","text": "POPE"},
     {"category": "SOFTNAME","text": "GROMACS"},
     {"category": "SOFTVERS","text": "4.0.7"},
     {"category": "STIME","text": "200 ns"},
-    {"category": "TEMP","text": "313 K"},
+    {"category": "STEMP","text": "313 K"},
     {"category": "STIME","text": "100 ns"},
     {"category": "FFM","text": "GROMOS 43A1-S3"},
     {"category": "MOL","text": "POPC"}
