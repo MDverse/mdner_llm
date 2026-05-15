@@ -53,12 +53,6 @@ class DataConfig(BaseModel):
         le=1.0,
         description="Fraction of dataset used for validation split.",
     )
-    test_ratio: float = Field(
-        default=0.2,
-        ge=0.0,
-        le=1.0,
-        description="Fraction of dataset used for test split.",
-    )
     shuffle: bool = Field(
         default=True,
         description="Whether to shuffle dataset before splitting.",
@@ -70,7 +64,7 @@ class DataConfig(BaseModel):
 
     @model_validator(mode="after")
     def check_split_ratios(self) -> "DataConfig":
-        """Validate that train/val/test split ratios sum to 1.0.
+        """Validate that train/val split ratios sum to 1.0.
 
         Returns
         -------
@@ -80,10 +74,10 @@ class DataConfig(BaseModel):
         Raises
         ------
         ValueError
-            If the sum of train_ratio, val_ratio, and test_ratio does not equal 1
+            If the sum of train_ratio and val_ratio does not equal 1
             within a small numerical tolerance.
         """
-        total = self.train_ratio + self.val_ratio + self.test_ratio
+        total = self.train_ratio + self.val_ratio
 
         if abs(total - 1.0) > 1e-6:
             msg = f"Dataset split ratios must sum to 1.0, got {total}"
@@ -164,6 +158,10 @@ class TrainConfig(BaseModel):
     fp16: bool = Field(
         default=True,
         description="Enable mixed precision training using 16-bit floating point.",
+    )
+    bf16: bool = Field(
+        default=False,
+        description=("Enable bfloat16 precision training."),
     )
     use_lora: bool = Field(
         default=True,

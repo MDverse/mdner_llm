@@ -5,11 +5,9 @@ model:
 
 data:
   annotations_path: "data/annotations/groundtruth"
-  train_ratio: 0.6
+  train_ratio: 0.8
   val_ratio: 0.2
-  test_ratio: 0.2
-  shuffle: True
-  seed: 1
+  seed: 42
 
 entities:
   MOL: "Molecule or chemical compound involved in the simulation."
@@ -38,14 +36,15 @@ training:
 
   # Precision / hardware
   fp16: True
+  bf16: False
 
   # LoRA settings
-  use_lora: True  # Enable LoRA
-  lora_r: 4  # Rank (4, 8, 16, 32)
-  lora_alpha: 8.0  # Scaling factor (usually 2*r)
-  lora_dropout: 0.0  # Dropout for LoRA layers
-  lora_target_modules: ["encoder"]  # Apply to all encoder layers (query, key, value, dense)
-  save_adapter_only: True  # Save only adapter (not full model)
+  use_lora: True # Enable LoRA
+  lora_r: 4 # Rank (4, 8, 16, 32)
+  lora_alpha: 8.0 # Scaling factor (usually 2*r)
+  lora_dropout: 0.0 # Dropout for LoRA layers
+  lora_target_modules: ["encoder"] # Apply to all encoder layers (query, key, value, dense)
+  save_adapter_only: True # Save only adapter (not full model)
 
   # Checkpointing
   eval_strategy: "epoch"
@@ -53,5 +52,5 @@ training:
   save_best: True
 
   # Logging
-  logging_steps: 5
+  logging_steps: 1
   logging_first_step: True
