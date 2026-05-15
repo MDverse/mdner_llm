@@ -20,6 +20,7 @@ from mdner_llm.models.entities import ListOfEntities
 
 def load_model(
     model_path: str | Path,
+    adapter_path: str | Path | None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> GLiNER2:
     """Load a GLiNER2 model from disk.
@@ -30,6 +31,11 @@ def load_model(
     """
     try:
         model = GLiNER2.from_pretrained(model_path)
+        if adapter_path:
+            logger.info(
+                f"Loading LoRA adapter from {adapter_path} and applying to base model."
+            )
+            model.load_adapter(adapter_path)
         logger.success(f"Model loaded from {model_path}")
     except Exception as exc:
         logger.error(f"Model loading failed: {exc}")
@@ -166,6 +172,7 @@ def save_json(
 def extract_entities_with_gliner(
     model: GLiNER2,
     model_path: str | Path,
+    adapter_path: str | Path | None,
     text: str,
     entity_desc: dict[str, str],
     groundtruth: dict,
@@ -201,12 +208,17 @@ def extract_entities_with_gliner(
     json_path = (
         output_dir / f"{text_path.stem}_{sanitize_filename(text_path.stem)}_{ts}.json"
     )
+    if adapter_path:
+        path = Path(adapter_path)
+        model_name = f"{path.parents[1].stem}_{path.parent.stem}"
+    else:
+        model_name = str(model_path)
     response_metadata = {
         "timestamp": ts,
         "input_json_path": str(text_path),
         "text": text,
         "url": url,
-        "model_name": str(model_path),
+        "model_name": model_name,
         "framework_name": "noframework",
         "groundtruth": groundtruth.model_dump(),
         "status": status,
@@ -223,12 +235,13 @@ def extract_entities_with_gliner_all_texts(
     text_path: Path,
     model_path: str,
     output_dir: Path,
+    adapter_path: str | Path | None,
     logger: "create_logger" = loguru.logger,
 ) -> None:
     """Run entity extraction on multiple annotation files."""
     logger.info("Starting batch entity extraction.")
     test_samples = load_sample(text_path, logger=logger)
-    model = load_model(model_path, logger)
+    model = load_model(model_path, adapter_path, logger=logger)
     # Process each file and extract entities
     start_time = datetime.now(UTC)
     for idx, (text, entity_desc, groundtruth, json_path, url) in enumerate(
@@ -238,6 +251,7 @@ def extract_entities_with_gliner_all_texts(
             extract_entities_with_gliner(
                 model=model,
                 model_path=model_path,
+                adapter_path=adapter_path,
                 text=text,
                 entity_desc=entity_desc,
                 groundtruth=groundtruth,
@@ -289,18 +303,30 @@ def extract_entities_with_gliner_all_texts(
     ),
 )
 @click.option(
+    "--adapter-path",
+    type=click.Path(exists=True, path_type=Path),
+    default=None,
+    help=(
+        "Path to the LoRA adapter model. "
+        "The script will attempt to load the adapter and apply it to the base model."
+    ),
+)
+@click.option(
     "--output-dir",
     default="results/gliner/annotations",
     type=click.Path(path_type=Path),
     callback=ensure_dir,
 )
-def run_main_from_cli(text_path: Path, model_path: Path, output_dir: Path) -> None:
+def run_main_from_cli(
+    text_path: Path, model_path: Path, output_dir: Path, adapter_path: str | Path | None
+) -> None:
     """CLI entrypoint."""
     logger = create_logger(level="INFO")
     extract_entities_with_gliner_all_texts(
         text_path=text_path,
         model_path=model_path,
         output_dir=output_dir,
+        adapter_path=adapter_path,
         logger=logger,
     )
 
