@@ -390,7 +390,7 @@ def train_gliner_model(
     """
     trainer = GLiNER2Trainer(model, training_config)
     results = trainer.train(train_data=train_dataset, eval_data=eval_dataset)
-    logger.success("Training complete successfully!")
+    logger.success("✓ Training complete successfully!")
     # Find the epoch with the lowest eval_loss from the results
     best_loss_epoch = min(
         results.get("eval_metrics_history", []),
@@ -400,6 +400,9 @@ def train_gliner_model(
     logger.info(f"Total steps: {results.get('total_steps')}")
     logger.info(f"Total epoch: {results.get('total_epochs')}")
     logger.info(f"Lowest loss: {results.get('best_metric')} at epoch {best_loss_epoch}")
+    logger.success(
+        f"Best model saved to {training_config.output_dir}/best successfully!"
+    )
     return results
 
 
@@ -536,7 +539,7 @@ def save_plot_training_curves(
                 for i in range(n_folds)
             ],
             "Train",
-            (1.00, 1.00),
+            (1.00, 0.95),
             "#0055FF",
         ),
         (
@@ -545,7 +548,7 @@ def save_plot_training_curves(
                 for i in range(n_folds)
             ],
             "Validation",
-            (0.92, 1.00),
+            (0.92, 0.95),
             "#FFAA00",
         ),
     ]:
@@ -561,19 +564,19 @@ def save_plot_training_curves(
         leg.get_title().set_color(hex_color)
         ax.add_artist(leg)
     # Set title and axis labels
-    mean_epoch = np.mean(
-        [
-            int(x["epoch"])
-            for r in results_list
-            for x in r.get("train_metrics_history", [])
-        ]
+    last_epoch = max(
+        int(x["epoch"])
+        for results in results_list
+        for x in results.get("train_metrics_history", [])
     )
+    # compute duration by epoch
     sum_duration = np.sum([r.get("total_time_seconds", 0) for r in results_list])
+    duration_per_epoch = sum_duration / last_epoch if last_epoch > 0 else 0
     ax.set_xlabel("Epoch", fontsize=12)
     ax.set_ylabel("Loss", fontsize=12)
     ax.set_title(
-        f"K-Fold Training Curves (folds={n_folds}, epochs={mean_epoch}, "
-        f"duration={sum_duration}s)",
+        f"K-Fold Training Curves (folds={n_folds}, epochs={last_epoch}, "
+        f"duration={duration_per_epoch:,.0f}s per epoch)",
         fontsize=13,
     )
     plt.tight_layout()
@@ -633,9 +636,6 @@ def main(config_path: str | Path) -> None:
     save_loss_points(all_results, output_dir, logger)
     # Plot training curves
     save_plot_training_curves(all_results, output_dir, logger)
-    logger.success(
-        f"✓ Training complete! {len(folds)} models saved to {output_dir} successfully!"
-    )
 
 
 @click.command()
