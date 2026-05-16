@@ -83,7 +83,7 @@ def extract_entities_all_texts(
 )
 @click.option(
     "--prompt-file",
-    default="json_few_shot.txt",
+    default="few_shot_with_guidelines.txt",
     type=click.Path(path_type=Path, dir_okay=False),
     help="Path to a text file containing the extraction prompt.",
 )
