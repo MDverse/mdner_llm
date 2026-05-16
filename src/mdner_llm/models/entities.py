@@ -51,11 +51,11 @@ class ForceField(Entity):
     )
 
 
-class Temperature(Entity):
+class SimulationTemperature(Entity):
     """Entity representing a temperature value used in the simulation."""
 
-    category: Literal["TEMP"] = Field(
-        "TEMP", description="Category for simulation temperature entities."
+    category: Literal["STEMP"] = Field(
+        "STEMP", description="Category for simulation temperature entities."
     )
 
 
@@ -85,7 +85,7 @@ class ListOfEntities(BaseModel):
         Molecule
         | SimulationTime
         | ForceField
-        | Temperature
+        | SimulationTemperature
         | SoftwareName
         | SoftwareVersion
     ] = Field(..., description="List of recognized entities extracted from text.")
