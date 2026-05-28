@@ -24,7 +24,7 @@ from openai import APIConnectionError, APIError, OpenAI, RateLimitError
 from openai.types.chat import ChatCompletion
 from openai.types.completion_usage import CompletionUsage
 from pydantic import ValidationError as PydanticValidationError
-from pydantic_ai import Agent
+from pydantic_ai import Agent, AgentRunResult, ModelSettings
 from pydantic_ai.exceptions import UnexpectedModelBehavior
 from pydantic_ai.models.openrouter import OpenRouterModel
 from pydantic_ai.providers.openrouter import OpenRouterProvider
@@ -198,6 +198,7 @@ def update_metadata(
 
 def annotate_without_framework(
     model: str,
+    temperature: float | None,
     api_key: str | None,
     metadata: dict,
     messages: list[dict[str, str]],
@@ -238,6 +239,7 @@ def annotate_without_framework(
 
 def annotate_with_instructor(
     model: str,
+    temperature: float | None,
     api_key: str | None,
     metadata: dict,
     messages: list[dict[str, str]],
@@ -274,6 +276,7 @@ def annotate_with_instructor(
         start_time = time.perf_counter()
         llm_response, completion = client.create_with_completion(
             messages=messages,
+            temperature=temperature,
             # The response is validated against the provided Pydantic model.
             response_model=response_model,
             max_retries=max_retries,
@@ -302,6 +305,7 @@ def annotate_with_instructor(
 
 def annotate_with_pydanticai(
     model: str,
+    temperature: float | None,
     api_key: str | None,
     metadata: dict,
     messages: tuple[str, str],
@@ -332,6 +336,7 @@ def annotate_with_pydanticai(
             output_type=response_model,
             retries=max_retries,
             system_prompt=(messages[0]),
+            model_settings=ModelSettings(temperature=temperature),
         )
         raw_llm_response = agent.run_sync(messages[1])
         llm_response = raw_llm_response.output
@@ -354,6 +359,7 @@ def annotate_with_llm_and_framework(
     framework: str,
     text_to_annotate: str,
     model: str,
+    temperature: float | None,
     api_key: str | None,
     prompt: str,
     response_model=ListOfEntities,
@@ -394,10 +400,13 @@ def annotate_with_llm_and_framework(
     metadata["prompt"] = user_msg
     # Route to the appropriate annotation function based on the specified framework
     if framework == "noframework":
-        return annotate_without_framework(model, api_key, metadata, messages, logger)
+        return annotate_without_framework(
+            model, temperature, api_key, metadata, messages, logger
+        )
     if framework == "instructor":
         return annotate_with_instructor(
             model,
+            temperature,
             api_key,
             metadata,
             messages,
@@ -408,6 +417,7 @@ def annotate_with_llm_and_framework(
     if framework == "pydanticai":
         return annotate_with_pydanticai(
             model,
+            temperature,
             api_key,
             metadata,
             (system_msg, user_msg),
@@ -419,16 +429,15 @@ def annotate_with_llm_and_framework(
 
 def save_to_txt(
     txt_output_path: Path,
-    content: ChatCompletion | str | None,
+    content: ChatCompletion | AgentRunResult | str | None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Save raw LLM response to a text file."""
     try:
         # Handle PydanticAI-style objects
-        if hasattr(content, "output"):
-            content = content.output
-            serialized_content = content or ""
-        elif hasattr(content, "model_dump_json"):
+        if isinstance(content, AgentRunResult):
+            content = content.output or ""
+        if hasattr(content, "model_dump_json"):
             # Pydantic / OpenAI object
             serialized_content = content.model_dump_json(indent=None)
         else:
@@ -436,8 +445,13 @@ def save_to_txt(
             serialized_content = str(content)
     except FileNotFoundError:
         logger.error(f"Directory does not exist for output file: {txt_output_path}")
+        return
     except OSError as exc:
         logger.error(f"Failed to write raw response to {txt_output_path}: {exc}")
+        return
+    except TypeError as exc:
+        logger.error(f"Invalid content type for serialization: {exc}")
+        return
     else:
         # Write the serialized content to the specified text file
         txt_output_path.write_text(serialized_content, encoding="utf-8")
@@ -483,6 +497,7 @@ def save_formated_response_with_metadata_to_json(
 def extract_entities(
     prompt_file: Path,
     model: str,
+    temperature: float | None,
     text_path: Path,
     framework: str,
     output_dir: Path,
@@ -498,6 +513,8 @@ def extract_entities(
         Path to a text file containing the extraction prompt.
     model : str
         Model name to use for extraction.
+    temperature : float | None
+        Sampling temperature to use for the LLM.
     text_path : str
         Path to the JSON text to process.
     framework : str
@@ -526,6 +543,7 @@ def extract_entities(
         framework,
         text_to_annotate,
         model,
+        temperature,
         api_key,
         prompt_with_instructions,
         response_model=ListOfEntities,
@@ -543,9 +561,8 @@ def extract_entities(
     output_dir.mkdir(parents=True, exist_ok=True)
     # Prepare output path
     ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
-    txt_output_path = Path(
-        output_dir / f"{text_path.stem}_{sanitize_filename(model)}_{framework}_{ts}.txt"
-    )
+    sanitized_model = sanitize_filename(f"{model}_t_{temperature}_{framework}")
+    txt_output_path = Path(output_dir / f"{text_path.stem}_{sanitized_model}_{ts}.txt")
     # Save raw response into a txt file
     save_to_txt(txt_output_path, inference_metadata["raw_llm_response"], logger)
     # Save the prompt with instructions into a separate txt file for reference
@@ -558,6 +575,7 @@ def extract_entities(
         "text": text_to_annotate,
         "url": url,
         "model_name": model,
+        "temperature": temperature,
         "framework_name": framework,
         "prompt_path": str(prompt_output_path),
         "groundtruth": groundtruth.model_dump(),
@@ -588,6 +606,13 @@ def extract_entities(
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
 @click.option(
+    "--temperature",
+    default=None,
+    type=float,
+    help="Sampling temperature to use for the LLM."
+    " Higher values lead to creative outputs.",
+)
+@click.option(
     "--framework",
     default="noframework",
     type=click.Choice(["instructor", "pydanticai", "noframework"]),
@@ -595,7 +620,7 @@ def extract_entities(
 )
 @click.option(
     "--prompt-file",
-    default="json_few_shot.txt",
+    default="few_shot_with_guidelines.txt",
     type=click.Path(path_type=Path, dir_okay=False),
     help="Path to a text file containing the extraction prompt.",
 )
@@ -615,6 +640,7 @@ def extract_entities(
 def run_main_from_cli(
     prompt_file: Path,
     model: str,
+    temperature: float | None,
     text_path: Path,
     framework: str,
     output_dir: Path,
@@ -626,6 +652,7 @@ def run_main_from_cli(
     extract_entities(
         prompt_file=prompt_file,
         model=model,
+        temperature=temperature,
         text_path=text_path,
         framework=framework,
         output_dir=output_dir,
