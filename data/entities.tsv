@@ -12,8 +12,8 @@ tmao	MOL	zenodo_6791876.json
 urea	MOL	zenodo_6791876.json
 basket-type dna g-quadruplex	MOL	zenodo_6791876.json
 2kf7	MOL	zenodo_6791876.json
-300 k	TEMP	zenodo_6791876.json
-360 k	TEMP	zenodo_6791876.json
+300 k	STEMP	zenodo_6791876.json
+360 k	STEMP	zenodo_6791876.json
 tmao	MOL	zenodo_6791876.json
 urea	MOL	zenodo_6791876.json
 tmao	MOL	zenodo_6791876.json
@@ -27,7 +27,7 @@ gromacs	SOFTNAME	zenodo_13814.json
 4.5	SOFTVERS	zenodo_13814.json
 berger	FFM	zenodo_13814.json
 60ns	STIME	zenodo_13814.json
-298k	STIME	zenodo_13814.json
+298k	STEMP	zenodo_13814.json
 popc	MOL	zenodo_13814.json
 nh3+	MOL	figshare_22213635.json
 h2	MOL	figshare_22213635.json
@@ -35,7 +35,7 @@ nh4+	MOL	figshare_22213635.json
 nh3+	MOL	figshare_22213635.json
 h2	MOL	figshare_22213635.json
 nh4+	MOL	figshare_22213635.json
-130 k	TEMP	figshare_22213635.json
+130 k	STEMP	figshare_22213635.json
 nh3+	MOL	figshare_22213635.json
 h2	MOL	figshare_22213635.json
 nitrile butadiene rubber	MOL	figshare_3556404.json
@@ -67,7 +67,7 @@ lipid14	FFM	zenodo_34415.json
 gromacs	SOFTNAME	zenodo_34415.json
 5.0.3	SOFTVERS	zenodo_34415.json
 amber99sb-ildn	FFM	zenodo_34415.json
-298.15	TEMP	zenodo_34415.json
+298.15	STEMP	zenodo_34415.json
 popc	MOL	zenodo_34415.json
 tip3p	FFM	zenodo_34415.json
 ca	MOL	zenodo_34415.json
@@ -77,7 +77,7 @@ cl	MOL	zenodo_34415.json
 dmpc	MOL	figshare_8046437.json
 1 ns	STIME	figshare_8046437.json
 dmpc	MOL	figshare_8046437.json
-310k	TEMP	figshare_8046437.json
+310k	STEMP	figshare_8046437.json
 dmpc	MOL	figshare_8046437.json
 gromos 54a7	FFM	figshare_8046437.json
 spc	FFM	figshare_8046437.json
@@ -99,13 +99,6 @@ pedot	MOL	figshare_14766557.json
 gaff	FFM	figshare_14766557.json
 pedot	MOL	figshare_14766557.json
 pedot	MOL	figshare_14766557.json
-entf*	MOL	figshare_20485059.json
-entf*	MOL	figshare_20485059.json
-amber99sb-ildb	FFM	figshare_20485059.json
-tip3p	FFM	figshare_20485059.json
-nacl	MOL	figshare_20485059.json
-298 k	TEMP	figshare_20485059.json
-1 microsecond	STIME	figshare_20485059.json
 nitrogen oxyanions	MOL	figshare_11771604.json
 oxyacids	MOL	figshare_11771604.json
 nitrogen oxyanions	MOL	figshare_11771604.json
@@ -130,7 +123,7 @@ etidocaine	MOL	zenodo_6988344.json
 popc	MOL	zenodo_6988344.json
 charmm36	FFM	zenodo_6988344.json
 paramchem	SOFTNAME	zenodo_6988344.json
-298 k	TEMP	zenodo_6988344.json
+298 k	STEMP	zenodo_6988344.json
 gromacs	SOFTNAME	zenodo_6988344.json
 gromacs	SOFTNAME	zenodo_6988344.json
 neon	MOL	zenodo_4106413.json
@@ -139,8 +132,8 @@ neon	MOL	zenodo_4106413.json
 clathrate hydrate	MOL	zenodo_4106413.json
 neon	MOL	zenodo_4106413.json
 neon clathrate	MOL	zenodo_4106413.json
-200	TEMP	zenodo_4106413.json
-225 k	TEMP	zenodo_4106413.json
+200	STEMP	zenodo_4106413.json
+225 k	STEMP	zenodo_4106413.json
 0.5 μs	STIME	zenodo_4106413.json
 neon	MOL	zenodo_4106413.json
 neon	MOL	zenodo_4106413.json
@@ -153,49 +146,49 @@ gromacs	SOFTNAME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 gromacs	SOFTNAME	zenodo_1009027.json
 charmm36	FFM	zenodo_1009027.json
-315	TEMP	zenodo_1009027.json
-338 k	TEMP	zenodo_1009027.json
+315	STEMP	zenodo_1009027.json
+338 k	STEMP	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-315k	TEMP	zenodo_1009027.json
+315k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-320k	TEMP	zenodo_1009027.json
+320k	STEMP	zenodo_1009027.json
 700ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-320k	TEMP	zenodo_1009027.json
+320k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-322k	TEMP	zenodo_1009027.json
+322k	STEMP	zenodo_1009027.json
 700ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-325k	TEMP	zenodo_1009027.json
+325k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-325k	TEMP	zenodo_1009027.json
+325k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-325k	TEMP	zenodo_1009027.json
+325k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-325k	TEMP	zenodo_1009027.json
-338k	TEMP	zenodo_1009027.json
+325k	STEMP	zenodo_1009027.json
+338k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 dppc	MOL	zenodo_1009027.json
 nacl	MOL	zenodo_1009027.json
-338k	TEMP	zenodo_1009027.json
+338k	STEMP	zenodo_1009027.json
 500ns	STIME	zenodo_1009027.json
 cer160	MOL	zenodo_1219494.json
 popc	MOL	zenodo_1219494.json
 nacl	MOL	zenodo_1219494.json
-310k	TEMP	zenodo_1219494.json
+310k	STEMP	zenodo_1219494.json
 ceramide	MOL	zenodo_1219494.json
 late endosomal protein	MOL	zenodo_1219494.json
 laptm4b	MOL	zenodo_1219494.json
@@ -203,11 +196,11 @@ popc	MOL	zenodo_1219494.json
 ceramide	MOL	zenodo_1219494.json
 cer160	MOL	zenodo_1219494.json
 charmm36	FFM	zenodo_1219494.json
-310k	TEMP	zenodo_1219494.json
+310k	STEMP	zenodo_1219494.json
 gromacs	SOFTNAME	zenodo_1219494.json
 2016.2-dev-20170105-4feb0be	SOFTVERS	zenodo_1219494.json
 charmm36	FFM	zenodo_1219494.json
-310 k	TEMP	zenodo_1219494.json
+310 k	STEMP	zenodo_1219494.json
 1069 ns	STIME	zenodo_1219494.json
 popc	MOL	zenodo_1219494.json
 cer160	MOL	zenodo_1219494.json
@@ -261,14 +254,14 @@ charmm c36	FFM	zenodo_3988469.json
 charmm tip3p	FFM	zenodo_3988469.json
 amber	SOFTNAME	zenodo_3988469.json
 16	SOFTVERS	zenodo_3988469.json
-310.15°k	TEMP	zenodo_3988469.json
-37°c	TEMP	zenodo_3988469.json
+310.15°k	STEMP	zenodo_3988469.json
+37°c	STEMP	zenodo_3988469.json
 at1r	MOL	zenodo_3988469.json
 150 ns	STIME	zenodo_3988469.json
 popc	MOL	zenodo_1167532.json
-298k	TEMP	zenodo_1167532.json
+298k	STEMP	zenodo_1167532.json
 popc	MOL	zenodo_1167532.json
-298 k	TEMP	zenodo_1167532.json
+298 k	STEMP	zenodo_1167532.json
 tip3p	FFM	zenodo_1167532.json
 opls	FFM	zenodo_1167532.json
 200 ns	STIME	zenodo_1167532.json
@@ -283,20 +276,20 @@ gromacs	SOFTNAME	zenodo_13853.json
 4.5	SOFTVERS	zenodo_13853.json
 gafflipid	FFM	zenodo_13853.json
 40ns	STIME	zenodo_13853.json
-303k	TEMP	zenodo_13853.json
+303k	STEMP	zenodo_13853.json
 popc	MOL	zenodo_13853.json
 popc	MOL	zenodo_3228177.json
 nacl	MOL	zenodo_3228177.json
-310k	TEMP	zenodo_3228177.json
+310k	STEMP	zenodo_3228177.json
 ceramide	MOL	zenodo_3228177.json
 late endosomal protein	MOL	zenodo_3228177.json
 laptm4b	MOL	zenodo_3228177.json
 popc	MOL	zenodo_3228177.json
 charmm36	FFM	zenodo_3228177.json
-310k	TEMP	zenodo_3228177.json
+310k	STEMP	zenodo_3228177.json
 2016.1	SOFTVERS	zenodo_3228177.json
 charmm36	FFM	zenodo_3228177.json
-310 k	TEMP	zenodo_3228177.json
+310 k	STEMP	zenodo_3228177.json
 4200 ns	STIME	zenodo_3228177.json
 popc	MOL	zenodo_3228177.json
 cl-	MOL	zenodo_3228177.json
@@ -320,7 +313,7 @@ gromacs	SOFTNAME	zenodo_51750.json
 3.x	SOFTVERS	zenodo_51750.json
 110 ns	STIME	zenodo_51750.json
 11 ns	STIME	zenodo_51750.json
-323 k	TEMP	zenodo_51750.json
+323 k	STEMP	zenodo_51750.json
 t cell receptor	MOL	zenodo_6970327.json
 peptide major histocompatibility complex	MOL	zenodo_6970327.json
 t cell receptor	MOL	zenodo_6970327.json
@@ -381,11 +374,11 @@ cholesterol	MOL	zenodo_2653735.json
 cholesterol	MOL	zenodo_2653735.json
 dapc	MOL	zenodo_2653735.json
 cholesterol	MOL	zenodo_2653735.json
-285	TEMP	zenodo_2653735.json
-298	TEMP	zenodo_2653735.json
-310	TEMP	zenodo_2653735.json
-320	TEMP	zenodo_2653735.json
-333 k	TEMP	zenodo_2653735.json
+285	STEMP	zenodo_2653735.json
+298	STEMP	zenodo_2653735.json
+310	STEMP	zenodo_2653735.json
+320	STEMP	zenodo_2653735.json
+333 k	STEMP	zenodo_2653735.json
 cholesterol	MOL	zenodo_2653735.json
 charmm36	FFM	zenodo_2653735.json
 charmm-gui	SOFTNAME	zenodo_2653735.json
@@ -399,7 +392,7 @@ microsecond	STIME	figshare_21121417.json
 dppc	MOL	zenodo_838635.json
 charmm36	FFM	zenodo_838635.json
 opc	FFM	zenodo_838635.json
-298 k	TEMP	zenodo_838635.json
+298 k	STEMP	zenodo_838635.json
 dppc	MOL	zenodo_838635.json
 charmm36	FFM	zenodo_838635.json
 opc	FFM	zenodo_838635.json
@@ -468,7 +461,7 @@ md-2	MOL	figshare_11704443.json
 ibuprofen	MOL	figshare_2615170.json
 methanol	MOL	figshare_2615170.json
 ethanol	MOL	figshare_2615170.json
-300 k	TEMP	figshare_2615170.json
+300 k	STEMP	figshare_2615170.json
 ibuprofen	MOL	figshare_2615170.json
 glp-1r	MOL	zenodo_5226209.json
 g protein	MOL	zenodo_5226209.json
@@ -514,8 +507,8 @@ nacl	MOL	figshare_4508975.json
 amber03	FFM	figshare_4508975.json
 tip3p	FFM	figshare_4508975.json
 200ns	STIME	figshare_4508975.json
-300 k	TEMP	figshare_4508975.json
-300 k	TEMP	figshare_4508975.json
+300 k	STEMP	figshare_4508975.json
+300 k	STEMP	figshare_4508975.json
 gromacs	SOFTNAME	figshare_4508975.json
 v4.5.3	SOFTVERS	figshare_4508975.json
 bromodomains	MOL	figshare_5546158.json
@@ -543,7 +536,7 @@ cholesterol	MOL	figshare_4806544.json
 gromacs	SOFTNAME	figshare_4806544.json
 3.3.3	SOFTVERS	figshare_4806544.json
 gromos54a7	FFM	figshare_4806544.json
-300 k	TEMP	figshare_4806544.json
+300 k	STEMP	figshare_4806544.json
 200 ns	STIME	figshare_4806544.json
 3g5u	MOL	figshare_4806544.json
 4m1m	MOL	figshare_4806544.json
@@ -553,7 +546,7 @@ prody	SOFTNAME	figshare_4806544.json
 cholesterol	MOL	figshare_4806544.json
 charmm36	FFM	zenodo_1198158.json
 popc	MOL	zenodo_1198158.json
-310k	TEMP	zenodo_1198158.json
+310k	STEMP	zenodo_1198158.json
 gromacs	SOFTNAME	zenodo_1198158.json
 5.1.4	SOFTVERS	zenodo_1198158.json
 popc	MOL	zenodo_1198158.json
@@ -676,17 +669,17 @@ entf*	MOL	figshare_20485017.json
 amber99sb-ildb	FFM	figshare_20485017.json
 tip3p	FFM	figshare_20485017.json
 nacl	MOL	figshare_20485017.json
-298 k	TEMP	figshare_20485017.json
+298 k	STEMP	figshare_20485017.json
 1 microsecond	STIME	figshare_20485017.json
 slipids	FFM	zenodo_1293813.json
 pope	MOL	zenodo_1293813.json
-310 k	TEMP	zenodo_1293813.json
+310 k	STEMP	zenodo_1293813.json
 slipids	FFM	zenodo_1293813.json
 pope	MOL	zenodo_1293813.json
 gromacs	SOFTNAME	zenodo_1293813.json
 5.0.6	SOFTVERS	zenodo_1293813.json
 200 ns	STIME	zenodo_1293813.json
-310 k	TEMP	zenodo_1293813.json
+310 k	STEMP	zenodo_1293813.json
 martini	FFM	zenodo_1293813.json
 pope	MOL	zenodo_1293813.json
 insane	SOFTNAME	zenodo_1293813.json
@@ -720,8 +713,8 @@ poly­(ethylene glycol)	MOL	figshare_11894358.json
 peg	MOL	figshare_11894358.json
 go	MOL	figshare_11894358.json
 peggo	MOL	figshare_11894358.json
-human body temperature	TEMP	figshare_11894358.json
-310 k	TEMP	figshare_11894358.json
+human body temperature	STEMP	figshare_11894358.json
+310 k	STEMP	figshare_11894358.json
 dox	MOL	figshare_11894358.json
 peggo	MOL	figshare_11894358.json
 peg	MOL	figshare_11894358.json
@@ -789,8 +782,8 @@ gromacs	SOFTNAME	figshare_6575438.json
 malate dehydrogenase	MOL	zenodo_6380887.json
 malate dehydrogenase	MOL	zenodo_6380887.json
 maldh	MOL	zenodo_6380887.json
-300 k	TEMP	zenodo_6380887.json
-340 k	TEMP	zenodo_6380887.json
+300 k	STEMP	zenodo_6380887.json
+340 k	STEMP	zenodo_6380887.json
 gromos87	FFM	zenodo_6380887.json
 gromacs	SOFTNAME	zenodo_6380887.json
 n‑octacosane	MOL	figshare_13836577.json
@@ -799,7 +792,7 @@ n-octacosane	MOL	figshare_13836577.json
 n-c28	MOL	figshare_13836577.json
 graphene	MOL	figshare_13836577.json
 graphene oxide	MOL	figshare_13836577.json
-473.15 k	TEMP	figshare_13836577.json
+473.15 k	STEMP	figshare_13836577.json
 graphene	MOL	figshare_13836577.json
 alcohols	MOL	figshare_13836577.json
 dodecan-1-ol	MOL	figshare_13836577.json
@@ -854,7 +847,7 @@ ulmschneider	FFM	zenodo_30904.json
 popc	MOL	zenodo_30904.json
 gromacs	SOFTNAME	zenodo_30904.json
 5.0.3	SOFTVERS	zenodo_30904.json
-298.15	TEMP	zenodo_30904.json
+298.15	STEMP	zenodo_30904.json
 popc	MOL	zenodo_30904.json
 tip3p	FFM	zenodo_30904.json
 200ns	STIME	zenodo_30904.json
@@ -887,7 +880,7 @@ gromacs	SOFTNAME	zenodo_1118682.json
 openmm	SOFTNAME	zenodo_1118682.json
 7	SOFTVERS	zenodo_1118682.json
 200 ns	STIME	zenodo_1118682.json
-313 k	TEMP	zenodo_1118682.json
+313 k	STEMP	zenodo_1118682.json
 sars-cov-2 mpro	MOL	zenodo_3975394.json
 hiv inhibitors	MOL	zenodo_3975394.json
 gromacs	SOFTNAME	zenodo_3975394.json
@@ -903,7 +896,7 @@ saquinavir	MOL	zenodo_3975394.json
 tipranavir	MOL	zenodo_3975394.json
 200ns	STIME	zenodo_3975394.json
 sars-cov-2 main protease	MOL	zenodo_3975394.json
-310k	TEMP	zenodo_3975394.json
+310k	STEMP	zenodo_3975394.json
 6lu7	MOL	zenodo_3975394.json
 amber14sb	FFM	zenodo_3975394.json
 10 microseconds	STIME	zenodo_3975394.json
@@ -969,7 +962,7 @@ gromacs	SOFTNAME	zenodo_14591.json
 4.0.7	SOFTVERS	zenodo_14591.json
 poger gromos 53a6_l	FFM	zenodo_14591.json
 100ns	STIME	zenodo_14591.json
-323k	TEMP	zenodo_14591.json
+323k	STEMP	zenodo_14591.json
 dppc	MOL	zenodo_14591.json
 patched 1	MOL	zenodo_6144286.json
 smoothened	MOL	zenodo_6144286.json
@@ -1045,7 +1038,7 @@ antechamber	SOFTNAME	zenodo_6755131.json
 amber	SOFTNAME	zenodo_6755131.json
 2018	SOFTVERS	zenodo_6755131.json
 100 ns	STIME	zenodo_6755131.json
-310 k	TEMP	zenodo_6755131.json
+310 k	STEMP	zenodo_6755131.json
 y198n	MOL	zenodo_6755131.json
 y204f	MOL	zenodo_6755131.json
 pah	MOL	zenodo_6755131.json
@@ -1067,7 +1060,7 @@ gromacs	SOFTNAME	zenodo_15550.json
 4.5	SOFTVERS	zenodo_15550.json
 gafflipid	FFM	zenodo_15550.json
 50ns	STIME	zenodo_15550.json
-323k	TEMP	zenodo_15550.json
+323k	STEMP	zenodo_15550.json
 dppc	MOL	zenodo_15550.json
 mitochondrial anion channel	MOL	figshare_14511885.json
 vdac1	MOL	figshare_14511885.json
@@ -1099,8 +1092,8 @@ pnipaam-co-acrylamide	MOL	figshare_4541035.json
 pnipaam-co-dimethylacrylamide	MOL	figshare_4541035.json
 dma	MOL	figshare_4541035.json
 pnipaam	MOL	figshare_4541035.json
-295 k	TEMP	figshare_4541035.json
-310 k	TEMP	figshare_4541035.json
+295 k	STEMP	figshare_4541035.json
+310 k	STEMP	figshare_4541035.json
 dma	MOL	figshare_4541035.json
 phenytoin	MOL	figshare_4541035.json
 ma-ca-sp	MOL	figshare_8003306.json
@@ -1113,7 +1106,7 @@ gromacs	SOFTNAME	figshare_8003306.json
 2018.1	SOFTVERS	figshare_8003306.json
 gromos 53a6	FFM	figshare_8003306.json
 spc/e	FFM	figshare_8003306.json
-310 k	TEMP	figshare_8003306.json
+310 k	STEMP	figshare_8003306.json
 organic structure-directing agents	MOL	figshare_11916468.json
 fluoride	MOL	figshare_11916468.json
 silicalite‑1	MOL	figshare_11916468.json
@@ -1132,8 +1125,8 @@ alkylammonium	MOL	figshare_11916468.json
 osdas	MOL	figshare_11916468.json
 fluoride	MOL	figshare_11916468.json
 fluoride	MOL	figshare_11916468.json
-room temperature	TEMP	figshare_11916468.json
-373 k	TEMP	figshare_11916468.json
+room temperature	STEMP	figshare_11916468.json
+373 k	STEMP	figshare_11916468.json
 osdas	MOL	figshare_11916468.json
 osda	MOL	figshare_11916468.json
 fluoride	MOL	figshare_11916468.json
@@ -1156,7 +1149,7 @@ gromacs	SOFTNAME	zenodo_1488094.json
 2018.0	SOFTVERS	zenodo_1488094.json
 1000 ns	STIME	zenodo_1488094.json
 1 microsecond	STIME	zenodo_1488094.json
-298 k	TEMP	zenodo_1488094.json
+298 k	STEMP	zenodo_1488094.json
 gromacs	SOFTNAME	zenodo_1488094.json
 gromacs	SOFTNAME	zenodo_3610470.json
 amber lipid17	FFM	zenodo_3610470.json
@@ -1188,7 +1181,6 @@ arylamide	MOL	figshare_121241.json
 p53	MOL	figshare_121241.json
 hdm2	MOL	figshare_121241.json
 gaff	FFM	figshare_121241.json
-autodock	FFM	figshare_121241.json
 arylamide	MOL	figshare_121241.json
 arylamide	MOL	figshare_121241.json
 arylamides	MOL	figshare_121241.json
@@ -1226,7 +1218,7 @@ cps	MOL	figshare_3207154.json
 coronavirus 2019-ncov protease	MOL	figshare_11808396.json
 lopinavir	MOL	figshare_11808396.json
 500 ps	STIME	figshare_11808396.json
-310 k	TEMP	figshare_11808396.json
+310 k	STEMP	figshare_11808396.json
 coronavirus 2019-ncov protease	MOL	figshare_11808396.json
 mpro	MOL	figshare_11808396.json
 lopinavir	MOL	figshare_11808396.json
@@ -1237,7 +1229,7 @@ gromacs	SOFTNAME	zenodo_6349893.json
 amber ff99sb-ildn	FFM	zenodo_6349893.json
 amber ff99sb	FFM	zenodo_6349893.json
 tip3p	FFM	zenodo_6349893.json
-300 k	TEMP	zenodo_6349893.json
+300 k	STEMP	zenodo_6349893.json
 gromacs	SOFTNAME	zenodo_6349893.json
 2020.6	SOFTVERS	zenodo_6349893.json
 mannose	MOL	zenodo_17550324.json
@@ -1252,13 +1244,13 @@ mannose	MOL	zenodo_17550324.json
 mannose	MOL	zenodo_17550324.json
 mrc1	MOL	zenodo_17550324.json
 tip3p	FFM	zenodo_17550324.json
-295.15 k	TEMP	zenodo_17550324.json
+295.15 k	STEMP	zenodo_17550324.json
 charmm36	FFM	zenodo_17550324.json
 500 ns	STIME	zenodo_17550324.json
 1500 ns	STIME	zenodo_17550324.json
 popc	MOL	zenodo_247386.json
 cholesterol	MOL	zenodo_247386.json
-303k	TEMP	zenodo_247386.json
+303k	STEMP	zenodo_247386.json
 charmm36	FFM	zenodo_247386.json
 100 ns	STIME	zenodo_247386.json
 gromacs	SOFTNAME	zenodo_247386.json
@@ -1266,7 +1258,7 @@ v5	SOFTVERS	zenodo_247386.json
 gromacs	SOFTNAME	zenodo_247386.json
 v5	SOFTVERS	zenodo_247386.json
 charmm36	FFM	zenodo_247386.json
-303	TEMP	zenodo_247386.json
+303	STEMP	zenodo_247386.json
 popc	MOL	zenodo_247386.json
 cholesterol	MOL	zenodo_247386.json
 tip3p	FFM	zenodo_247386.json
@@ -1324,10 +1316,10 @@ gromacs	SOFTNAME	zenodo_5153261.json
 300 nanoseconds	STIME	zenodo_5153261.json
 1 microsecond	STIME	zenodo_5153261.json
 dppc	MOL	zenodo_3950029.json
-288k	TEMP	zenodo_3950029.json
-358k	TEMP	zenodo_3950029.json
-288k	TEMP	zenodo_3950029.json
-358k	TEMP	zenodo_3950029.json
+288k	STEMP	zenodo_3950029.json
+358k	STEMP	zenodo_3950029.json
+288k	STEMP	zenodo_3950029.json
+358k	STEMP	zenodo_3950029.json
 dppc	MOL	zenodo_3950029.json
 gromacs	SOFTNAME	zenodo_3950029.json
 v. 2016.4	SOFTVERS	zenodo_3950029.json
@@ -1337,7 +1329,7 @@ tip3p	FFM	zenodo_3950029.json
 alanine dipeptide	MOL	zenodo_7323535.json
 87 microsecond	STIME	zenodo_7323535.json
 alanine dipeptide	MOL	zenodo_7323535.json
-300 k	TEMP	zenodo_7323535.json
+300 k	STEMP	zenodo_7323535.json
 amber99sb-ildn	FFM	zenodo_7323535.json
 gromacs	SOFTNAME	zenodo_7323535.json
 2021.4	SOFTVERS	zenodo_7323535.json
@@ -1354,7 +1346,7 @@ gromacs	SOFTNAME	figshare_13135976.json
 v.4.6.5	SOFTVERS	figshare_13135976.json
 amber99sb-ildn	FFM	figshare_13135976.json
 tip3p	FFM	figshare_13135976.json
-310 k	TEMP	figshare_13135976.json
+310 k	STEMP	figshare_13135976.json
 gtp	MOL	figshare_13135976.json
 mg	MOL	figshare_13135976.json
 g-domain	MOL	figshare_13135976.json
@@ -1375,7 +1367,7 @@ tricaproin	MOL	zenodo_5060102.json
 ani2x	SOFTNAME	zenodo_5060102.json
 torchani	SOFTNAME	zenodo_5060102.json
 ase	SOFTNAME	zenodo_5060102.json
-310 k	TEMP	zenodo_5060102.json
+310 k	STEMP	zenodo_5060102.json
 mdanalysis	SOFTNAME	zenodo_5060102.json
 vmd	SOFTNAME	zenodo_5060102.json
 unitymol	SOFTNAME	zenodo_5060102.json
@@ -1468,25 +1460,25 @@ popc	MOL	zenodo_1009607.json
 gromacs	SOFTNAME	zenodo_1009607.json
 charmm36	FFM	zenodo_1009607.json
 dppc	MOL	zenodo_1009607.json
-325k	TEMP	zenodo_1009607.json
+325k	STEMP	zenodo_1009607.json
 500ns	STIME	zenodo_1009607.json
 dppc	MOL	zenodo_1009607.json
-310k	TEMP	zenodo_1009607.json
+310k	STEMP	zenodo_1009607.json
 500ns	STIME	zenodo_1009607.json
 dppc	MOL	zenodo_1009607.json
-310k	TEMP	zenodo_1009607.json
+310k	STEMP	zenodo_1009607.json
 500ns	STIME	zenodo_1009607.json
 popc	MOL	zenodo_1009607.json
-310k	TEMP	zenodo_1009607.json
+310k	STEMP	zenodo_1009607.json
 500ns	STIME	zenodo_1009607.json
 popc	MOL	zenodo_1009607.json
-310k	TEMP	zenodo_1009607.json
+310k	STEMP	zenodo_1009607.json
 500ns	STIME	zenodo_1009607.json
 popc	MOL	zenodo_1009607.json
-310k	TEMP	zenodo_1009607.json
+310k	STEMP	zenodo_1009607.json
 550ns	STIME	zenodo_1009607.json
 popc	MOL	zenodo_1009607.json
-303k	TEMP	zenodo_1009607.json
+303k	STEMP	zenodo_1009607.json
 550ns	STIME	zenodo_1009607.json
 lysine	MOL	zenodo_7007107.json
 pep-synthase	MOL	zenodo_7007107.json
@@ -1511,12 +1503,12 @@ cd-nbd	MOL	zenodo_7007107.json
 ppsa	MOL	zenodo_7007107.json
 125 ns	STIME	zenodo_7007107.json
 500 ns	STIME	zenodo_7007107.json
-303k	TEMP	zenodo_7007107.json
-363k	TEMP	zenodo_7007107.json
+303k	STEMP	zenodo_7007107.json
+363k	STEMP	zenodo_7007107.json
 80 ns	STIME	zenodo_7007107.json
-363 k	TEMP	zenodo_7007107.json
-363 k	TEMP	zenodo_7007107.json
-90 ˚c	TEMP	zenodo_7007107.json
+363 k	STEMP	zenodo_7007107.json
+363 k	STEMP	zenodo_7007107.json
+90 ˚c	STEMP	zenodo_7007107.json
 ppsa	MOL	zenodo_7007107.json
 lysine	MOL	zenodo_7007107.json
 sirah	FFM	zenodo_7007107.json
@@ -1540,9 +1532,9 @@ ppsa	MOL	zenodo_7007107.json
 na+	MOL	zenodo_259443.json
 ca2+	MOL	zenodo_259443.json
 dopc	MOL	zenodo_259443.json
-310 k	TEMP	zenodo_259443.json
+310 k	STEMP	zenodo_259443.json
 dppc	MOL	zenodo_259443.json
-293 k	TEMP	zenodo_259443.json
+293 k	STEMP	zenodo_259443.json
 nacl	MOL	zenodo_259443.json
 cacl_2	MOL	zenodo_259443.json
 slipids	FFM	zenodo_259443.json
@@ -1560,7 +1552,7 @@ dppc	MOL	zenodo_259443.json
 dopc	MOL	zenodo_259443.json
 cholesterol	MOL	zenodo_259443.json
 nacl	MOL	zenodo_259443.json
-310 k	TEMP	zenodo_259443.json
+310 k	STEMP	zenodo_259443.json
 dppc	MOL	zenodo_259443.json
 cholesterol	MOL	zenodo_259443.json
 dopc	MOL	zenodo_259443.json
@@ -1694,18 +1686,18 @@ ace2	MOL	figshare_14156828.json
 hoomd-blue	SOFTNAME	zenodo_6957888.json
 gromos 43a1-s3	FFM	zenodo_1293762.json
 pope	MOL	zenodo_1293762.json
-313 k	TEMP	zenodo_1293762.json
+313 k	STEMP	zenodo_1293762.json
 gromos 43a1-s3	FFM	zenodo_1293762.json
 pope	MOL	zenodo_1293762.json
 gromacs	SOFTNAME	zenodo_1293762.json
 4.0.7	SOFTVERS	zenodo_1293762.json
 200 ns	STIME	zenodo_1293762.json
 43a1-s3	FFM	zenodo_1293762.json
-313 k	TEMP	zenodo_1293762.json
+313 k	STEMP	zenodo_1293762.json
 gromos 43a1-s3	FFM	zenodo_1293762.json
 popc	MOL	zenodo_1293762.json
 popc	MOL	zenodo_51185.json
-310k	TEMP	zenodo_51185.json
+310k	STEMP	zenodo_51185.json
 cacl_2	MOL	zenodo_51185.json
 charmm36	FFM	zenodo_51185.json
 charmm	FFM	zenodo_51185.json
@@ -1793,7 +1785,7 @@ spc	FFM	zenodo_53212.json
 gromacs	SOFTNAME	zenodo_53212.json
 3.x	SOFTVERS	zenodo_53212.json
 190 ns	STIME	zenodo_53212.json
-323 k	TEMP	zenodo_53212.json
+323 k	STEMP	zenodo_53212.json
 dlipc	MOL	zenodo_4445375.json
 dppc	MOL	zenodo_4445375.json
 cholesterol	MOL	zenodo_4445375.json
