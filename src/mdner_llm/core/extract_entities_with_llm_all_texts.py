@@ -16,9 +16,9 @@ def extract_entities_all_texts(
     texts_path: Path,
     prompt_file: Path,
     model: str,
-    temperature: float,
+    temperature: float | None,
     guidelines_path: Path,
-    examples_path: Path,
+    examples_path: Path | None,
     framework: str,
     output_dir: Path,
     max_retries: int,
@@ -97,18 +97,18 @@ def extract_entities_all_texts(
 @click.option(
     "--prompt-file",
     required=True,
-    type=click.Path(path_type=Path, dir_okay=False),
-    help="Path to a text file containing the extraction prompt.",
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Prompt template filename from mdner_llm.prompt_templates (md_ner_task.txt).",
 )
 @click.option(
     "--guidelines-path",
     required=True,
-    type=click.Path(path_type=Path, dir_okay=False),
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
     help="Path to a text file containing annotation guidelines to add to the prompt.",
 )
 @click.option(
     "--examples-path",
-    type=click.Path(path_type=Path, dir_okay=False),
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
     help="Path to a text file containing output format examples to add to the prompt.",
 )
 @click.option(
@@ -130,8 +130,8 @@ def run_main_from_cli(
     framework: str,
     prompt_file: Path,
     guidelines_path: Path,
-    examples_path: Path,
-    temperature: float,
+    examples_path: Path | None,
+    temperature: float | None,
     output_dir: Path,
     max_retries: int,
 ) -> None:
