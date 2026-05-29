@@ -469,6 +469,7 @@ def save_formated_response_with_metadata_to_json(
 def extract_entities(
     prompt_path: Path,
     model: str,
+    tag: str,
     temperature: float | None,
     text_path: Path,
     guidelines_path: Path,
@@ -530,7 +531,7 @@ def extract_entities(
         "input_json_path": str(text_path),
         "text": text_to_annotate,
         "url": url,
-        "model_name": model,
+        "model_name": f"{model}{tag}",
         "temperature": temperature,
         "framework_name": framework,
         "prompt_path": str(prompt_output_path),
@@ -561,12 +562,13 @@ def extract_entities(
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
+@click.option("--tag", default="", type=str, help="Tag to add to the model name.")
 @click.option(
     "--temperature",
     default=None,
-    type=float,
+    type=click.FloatRange(min=0.0, max=2.0),
     help="Sampling temperature to use for the LLM."
-    " Higher values lead to creative outputs.",
+    " Higher values lead to more creative outputs.",
 )
 @click.option(
     "--framework",
@@ -607,6 +609,7 @@ def extract_entities(
 def run_main_from_cli(
     prompt_path: Path,
     model: str,
+    tag: str,
     temperature: float | None,
     text_path: Path,
     framework: str,
@@ -621,6 +624,7 @@ def run_main_from_cli(
     extract_entities(
         prompt_path=prompt_path,
         model=model,
+        tag=tag,
         temperature=temperature,
         text_path=text_path,
         guidelines_path=guidelines_path,
