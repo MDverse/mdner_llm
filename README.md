@@ -136,13 +136,19 @@ To extract structured entities from a single text using a specified LLM ([from O
 
 ```sh
 uv run extract-entities-with-llm \
-    --text-path data/groundtruth/annotations/figshare_121241.json \
+    --text-path data/annotations/groundtruth/figshare_121241.json \
     --model openai/gpt-5.2 \
-    --framework instructor
+    --temperature 0.5 \
+    --prompt-file md_ner_task.txt \
+    --guidelines-path docs/annotation_rules.md \
+    --examples-path docs/ner_few_shot_examples.md \
+    --framework instructor \
+    --output-dir results/llm/annotations
+
 2026-04-22 00:12:22 | INFO     | Starting the extraction of entities.
-2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/groundtruth/annotations/figshare_121241.json.
+2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/annotations/groundtruth/figshare_121241.json.
 2026-04-22 00:12:22 | DEBUG    | Loaded text (1710 chars): Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...
-2026-04-22 00:12:22 | DEBUG    | Loading prompt from json_few_shot.txt.
+2026-04-22 00:12:22 | DEBUG    | Loading prompt from md_ner_task.txt.
 2026-04-22 00:12:22 | DEBUG    | Loaded prompt (6685 chars) : # Named-Entity Recognition task  ## Role definition  You are a highly speci...
 2026-04-22 00:12:22 | DEBUG    | Starting annotation with model openai/gpt-4o using instructor.
 2026-04-22 00:12:25 | DEBUG    | Response status: ok.
@@ -198,7 +204,12 @@ To extract structured entities from multiple dataset descriptions, execute:
 uv run extract-entities-with-llm-all-texts \
     --texts-path data/annotations/groundtruth \
     --model openai/gpt-5.2 \
-    --framework instructor
+    --temperature 0.5 \
+    --prompt-file md_ner_task.txt \
+    --guidelines-path docs/annotation_rules.md \
+    --examples-path docs/ner_few_shot_examples.md \
+    --framework instructor \
+    --output-dir results/llm/annotations
 ```
 
 
