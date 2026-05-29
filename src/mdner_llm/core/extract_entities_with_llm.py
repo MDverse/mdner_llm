@@ -114,7 +114,7 @@ def load_prompt(prompt_file: Path, logger: "loguru.Logger" = loguru.logger) -> s
 
 
 def add_guidelines_and_examples_to_prompt(
-    prompt: str, guidelines_path: Path, examples_path: Path
+    prompt: str, guidelines_path: Path, examples_path: Path | None
 ) -> str:
     """Add annotation guidelines and examples to the prompt.
 
@@ -223,14 +223,17 @@ def annotate_without_framework(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key,
     )
+    # Define arguments for the API call
+    kwargs = {
+        "model": model,
+        "messages": messages,
+    }
+    if temperature is not None:
+        kwargs["temperature"] = temperature
     try:
         # Query the LLM and time the inference
         start_time = time.perf_counter()
-        llm_response = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            temperature=temperature,
-        )
+        llm_response = client.chat.completions.create(**kwargs)
     # Handle common OpenAI API exceptions
     except (APIError, RateLimitError, APIConnectionError) as exc:
         logger.warning(f"API error: {exc}")
@@ -504,7 +507,7 @@ def extract_entities(
     temperature: float | None,
     text_path: Path,
     guidelines_path: Path,
-    examples_path: Path,
+    examples_path: Path | None,
     framework: str,
     output_dir: Path,
     max_retries: int,
@@ -605,24 +608,24 @@ def extract_entities(
 @click.option(
     "--prompt-file",
     required=True,
-    type=click.Path(path_type=Path, dir_okay=False),
-    help="Path to a text file containing the extraction prompt.",
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Prompt template filename from mdner_llm.prompt_templates (md_ner_task.txt).",
 )
 @click.option(
     "--guidelines-path",
     required=True,
-    type=click.Path(path_type=Path, dir_okay=False),
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
     help="Path to a text file containing annotation guidelines to add to the prompt.",
 )
 @click.option(
     "--examples-path",
-    type=click.Path(path_type=Path, dir_okay=False),
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
     help="Path to a text file containing output format examples to add to the prompt.",
 )
 @click.option(
     "--output-dir",
     required=True,
-    type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
+    type=click.Path(exists=False, dir_okay=True, file_okay=False),
     help="Directory to save output files.",
     callback=ensure_dir,
 )
@@ -641,7 +644,7 @@ def run_main_from_cli(
     output_dir: Path,
     max_retries: int,
     guidelines_path: Path,
-    examples_path: Path,
+    examples_path: Path | None,
 ) -> None:
     """CLI entrypoint."""
     logger = create_logger(level="DEBUG")
