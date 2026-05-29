@@ -4,7 +4,6 @@ import json
 import re
 import time
 from datetime import UTC, datetime
-from importlib.resources import files
 from pathlib import Path
 
 import click
@@ -77,40 +76,6 @@ def load_text_and_metadata(
     ]
     logger.debug(f"Loaded text ({len(text)} chars): {text[:75].replace('\n', ' ')}...")
     return text, ListOfEntities(entities=normalized), data.get("url")
-
-
-def load_prompt(prompt_file: Path, logger: "loguru.Logger" = loguru.logger) -> str:
-    """Load the JSON few-shot prompt from the mdner_llm package.
-
-    Returns
-    -------
-    str
-        The prompt content.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the prompt file does not exist in the package resources.
-    """
-    logger.debug(f"Loading prompt from {prompt_file}.")
-    # Ensure the prompt file path is a Path object
-    prompt_file = Path(prompt_file)
-    # Load prompt content
-    # from the specified file within the package resources
-    try:
-        prompt = (
-            files("mdner_llm.prompt_templates")
-            .joinpath(prompt_file)
-            .read_text(encoding="utf-8")
-        )
-    # Handle when the prompt file is not found in the package resources
-    except FileNotFoundError:
-        logger.error("Prompt file not found in mdner_llm.prompt_templates")
-        raise
-    logger.debug(
-        f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
-    )
-    return prompt
 
 
 def add_guidelines_and_examples_to_prompt(
@@ -502,7 +467,7 @@ def save_formated_response_with_metadata_to_json(
 
 
 def extract_entities(
-    prompt_file: Path,
+    prompt_path: Path,
     model: str,
     temperature: float | None,
     text_path: Path,
@@ -517,8 +482,12 @@ def extract_entities(
     # Load info from the JSON file:
     # raw text, ground truth entities and URL if available
     text_to_annotate, groundtruth, url = load_text_and_metadata(text_path, logger)
-    # Load prompt from txt file
-    prompt = load_prompt(prompt_file, logger)
+    # Load prompt from text file
+    logger.debug(f"Loading prompt from {prompt_path}.")
+    prompt = prompt_path.read_text(encoding="utf-8")
+    logger.debug(
+        f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
+    )
     # Add annotation instructions to the prompt
     prompt_with_instructions = add_guidelines_and_examples_to_prompt(
         prompt, guidelines_path, examples_path
@@ -606,10 +575,10 @@ def extract_entities(
     help="Validation framework to apply to model outputs.",
 )
 @click.option(
-    "--prompt-file",
+    "--prompt-path",
     required=True,
     type=click.Path(path_type=Path, dir_okay=False, exists=True),
-    help="Prompt template filename from mdner_llm.prompt_templates (md_ner_task.txt).",
+    help="Path to the prompt template file to use for the LLM.",
 )
 @click.option(
     "--guidelines-path",
@@ -625,7 +594,7 @@ def extract_entities(
 @click.option(
     "--output-dir",
     required=True,
-    type=click.Path(exists=False, dir_okay=True, file_okay=False),
+    type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
     help="Directory to save output files.",
     callback=ensure_dir,
 )
@@ -636,7 +605,7 @@ def extract_entities(
     help="Maximum number of retries in case of API or validation failure.",
 )
 def run_main_from_cli(
-    prompt_file: Path,
+    prompt_path: Path,
     model: str,
     temperature: float | None,
     text_path: Path,
@@ -650,7 +619,7 @@ def run_main_from_cli(
     logger = create_logger(level="DEBUG")
     logger.info("Starting the extraction of entities.")
     extract_entities(
-        prompt_file=prompt_file,
+        prompt_path=prompt_path,
         model=model,
         temperature=temperature,
         text_path=text_path,

@@ -14,7 +14,7 @@ from mdner_llm.logger import create_logger
 
 def extract_entities_all_texts(
     texts_path: Path,
-    prompt_file: Path,
+    prompt_path: Path,
     model: str,
     temperature: float | None,
     guidelines_path: Path,
@@ -33,7 +33,7 @@ def extract_entities_all_texts(
     for idx, file_path in enumerate(selected_files, start=1):
         try:
             extract_entities(
-                prompt_file=prompt_file,
+                prompt_path=prompt_path,
                 model=model,
                 temperature=temperature,
                 text_path=file_path,
@@ -77,7 +77,6 @@ def extract_entities_all_texts(
 @click.option(
     "--model",
     required=True,
-    type=str,
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
@@ -95,10 +94,10 @@ def extract_entities_all_texts(
     help="Validation framework to apply to model outputs.",
 )
 @click.option(
-    "--prompt-file",
+    "--prompt-path",
     required=True,
     type=click.Path(path_type=Path, dir_okay=False, exists=True),
-    help="Prompt template filename from mdner_llm.prompt_templates (md_ner_task.txt).",
+    help="Path to the prompt template file to use for the LLM.",
 )
 @click.option(
     "--guidelines-path",
@@ -128,7 +127,7 @@ def run_main_from_cli(
     texts_path: Path,
     model: str,
     framework: str,
-    prompt_file: Path,
+    prompt_path: Path,
     guidelines_path: Path,
     examples_path: Path | None,
     temperature: float | None,
@@ -144,7 +143,7 @@ def run_main_from_cli(
         texts_path=texts_path,
         model=model,
         framework=framework,
-        prompt_file=prompt_file,
+        prompt_path=prompt_path,
         guidelines_path=guidelines_path,
         examples_path=examples_path,
         temperature=temperature,
