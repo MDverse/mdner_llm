@@ -4,7 +4,6 @@ import json
 import re
 import time
 from datetime import UTC, datetime
-from importlib.resources import files
 from pathlib import Path
 
 import click
@@ -79,47 +78,15 @@ def load_text_and_metadata(
     return text, ListOfEntities(entities=normalized), data.get("url")
 
 
-def load_prompt(prompt_file: Path, logger: "loguru.Logger" = loguru.logger) -> str:
-    """Load the JSON few-shot prompt from the mdner_llm package.
+def add_guidelines_and_examples_to_prompt(
+    prompt: str, guidelines_path: Path, examples_path: Path | None
+) -> str:
+    """Add annotation guidelines and examples to the prompt.
 
     Returns
     -------
     str
-        The prompt content.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the prompt file does not exist in the package resources.
-    """
-    logger.debug(f"Loading prompt from {prompt_file}.")
-    # Ensure the prompt file path is a Path object
-    prompt_file = Path(prompt_file)
-    # Load prompt content
-    # from the specified file within the package resources
-    try:
-        prompt = (
-            files("mdner_llm.prompt_templates")
-            .joinpath(prompt_file)
-            .read_text(encoding="utf-8")
-        )
-    # Handle when the prompt file is not found in the package resources
-    except FileNotFoundError:
-        logger.error("Prompt file not found in mdner_llm.prompt_templates")
-        raise
-    logger.debug(
-        f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
-    )
-    return prompt
-
-
-def add_guidelines_to_prompt(prompt: str, guidelines_path: Path) -> str:
-    """Add annotation guidelines to the prompt.
-
-    Returns
-    -------
-    str
-        The prompt with added annotation guidelines.
+        The prompt with added annotation guidelines and examples.
     """
     guidelines = guidelines_path.read_text(encoding="utf-8")
     # Remove everything before first ##
@@ -128,8 +95,9 @@ def add_guidelines_to_prompt(prompt: str, guidelines_path: Path) -> str:
         guidelines = guidelines[idx:]
     # We adjust the headers in the guidelines to fit the prompt structure
     guidelines = re.sub(r"^(#{2,3} )", r"#\1", guidelines, flags=re.MULTILINE)
+    examples = examples_path.read_text(encoding="utf-8") if examples_path else ""
     template = Template(prompt)
-    return template.render(guidelines=guidelines)
+    return template.render(guidelines=guidelines, examples=examples)
 
 
 def normalize_to_pydantic_model(
@@ -220,13 +188,17 @@ def annotate_without_framework(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key,
     )
+    # Define arguments for the API call
+    kwargs = {
+        "model": model,
+        "messages": messages,
+    }
+    if temperature is not None:
+        kwargs["temperature"] = temperature
     try:
         # Query the LLM and time the inference
         start_time = time.perf_counter()
-        llm_response = client.chat.completions.create(
-            model=model,
-            messages=messages,
-        )
+        llm_response = client.chat.completions.create(**kwargs)
     # Handle common OpenAI API exceptions
     except (APIError, RateLimitError, APIConnectionError) as exc:
         logger.warning(f"API error: {exc}")
@@ -495,46 +467,30 @@ def save_formated_response_with_metadata_to_json(
 
 
 def extract_entities(
-    prompt_file: Path,
+    prompt_path: Path,
     model: str,
     temperature: float | None,
     text_path: Path,
+    guidelines_path: Path,
+    examples_path: Path | None,
     framework: str,
     output_dir: Path,
     max_retries: int,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """
-    Extract structured entities from a text using a specified LLM and framework.
-
-    Parameters
-    ----------
-    prompt_file : Path
-        Path to a text file containing the extraction prompt.
-    model : str
-        Model name to use for extraction.
-    temperature : float | None
-        Sampling temperature to use for the LLM.
-    text_path : str
-        Path to the JSON text to process.
-    framework : str
-        Validation framework.
-    output_dir : str
-        Directory to save output files.
-    max_retries : int (Default is 3)
-        Maximum number of retries in case of API or validation failure.
-        If either the text file or prompt file does not exist.
-    logger : loguru.Logger
-        Logger instance for logging messages.
-    """
+    """Extract structured entities from a text using a specified LLM and framework."""
     # Load info from the JSON file:
     # raw text, ground truth entities and URL if available
     text_to_annotate, groundtruth, url = load_text_and_metadata(text_path, logger)
-    # Load prompt from txt file
-    prompt = load_prompt(prompt_file, logger)
+    # Load prompt from text file
+    logger.debug(f"Loading prompt from {prompt_path}.")
+    prompt = prompt_path.read_text(encoding="utf-8")
+    logger.debug(
+        f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
+    )
     # Add annotation instructions to the prompt
-    prompt_with_instructions = add_guidelines_to_prompt(
-        prompt, Path("docs/annotation_rules.md")
+    prompt_with_instructions = add_guidelines_and_examples_to_prompt(
+        prompt, guidelines_path, examples_path
     )
     # Retrieve the openrouter api key
     api_key = load_api_key("OPENROUTER_API_KEY")
@@ -619,14 +575,25 @@ def extract_entities(
     help="Validation framework to apply to model outputs.",
 )
 @click.option(
-    "--prompt-file",
-    default="few_shot_with_guidelines.txt",
-    type=click.Path(path_type=Path, dir_okay=False),
-    help="Path to a text file containing the extraction prompt.",
+    "--prompt-path",
+    required=True,
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Path to the prompt template file to use for the LLM.",
+)
+@click.option(
+    "--guidelines-path",
+    required=True,
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Path to a text file containing annotation guidelines to add to the prompt.",
+)
+@click.option(
+    "--examples-path",
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Path to a text file containing output format examples to add to the prompt.",
 )
 @click.option(
     "--output-dir",
-    default="results/llm/annotations",
+    required=True,
     type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
     help="Directory to save output files.",
     callback=ensure_dir,
@@ -638,22 +605,26 @@ def extract_entities(
     help="Maximum number of retries in case of API or validation failure.",
 )
 def run_main_from_cli(
-    prompt_file: Path,
+    prompt_path: Path,
     model: str,
     temperature: float | None,
     text_path: Path,
     framework: str,
     output_dir: Path,
     max_retries: int,
+    guidelines_path: Path,
+    examples_path: Path | None,
 ) -> None:
     """CLI entrypoint."""
     logger = create_logger(level="DEBUG")
     logger.info("Starting the extraction of entities.")
     extract_entities(
-        prompt_file=prompt_file,
+        prompt_path=prompt_path,
         model=model,
         temperature=temperature,
         text_path=text_path,
+        guidelines_path=guidelines_path,
+        examples_path=examples_path,
         framework=framework,
         output_dir=output_dir,
         max_retries=max_retries,

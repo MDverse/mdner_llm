@@ -14,8 +14,11 @@ from mdner_llm.logger import create_logger
 
 def extract_entities_all_texts(
     texts_path: Path,
-    prompt_file: Path,
+    prompt_path: Path,
     model: str,
+    temperature: float | None,
+    guidelines_path: Path,
+    examples_path: Path | None,
     framework: str,
     output_dir: Path,
     max_retries: int,
@@ -30,9 +33,12 @@ def extract_entities_all_texts(
     for idx, file_path in enumerate(selected_files, start=1):
         try:
             extract_entities(
-                prompt_file=prompt_file,
+                prompt_path=prompt_path,
                 model=model,
+                temperature=temperature,
                 text_path=file_path,
+                guidelines_path=guidelines_path,
+                examples_path=examples_path,
                 framework=framework,
                 output_dir=output_dir,
                 max_retries=max_retries,
@@ -71,9 +77,15 @@ def extract_entities_all_texts(
 @click.option(
     "--model",
     required=True,
-    type=str,
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
+)
+@click.option(
+    "--temperature",
+    default=None,
+    type=float,
+    help="Sampling temperature to use for the LLM."
+    " Higher values lead to creative outputs.",
 )
 @click.option(
     "--framework",
@@ -82,14 +94,25 @@ def extract_entities_all_texts(
     help="Validation framework to apply to model outputs.",
 )
 @click.option(
-    "--prompt-file",
-    default="few_shot_with_guidelines.txt",
-    type=click.Path(path_type=Path, dir_okay=False),
-    help="Path to a text file containing the extraction prompt.",
+    "--prompt-path",
+    required=True,
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Path to the prompt template file to use for the LLM.",
+)
+@click.option(
+    "--guidelines-path",
+    required=True,
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Path to a text file containing annotation guidelines to add to the prompt.",
+)
+@click.option(
+    "--examples-path",
+    type=click.Path(path_type=Path, dir_okay=False, exists=True),
+    help="Path to a text file containing output format examples to add to the prompt.",
 )
 @click.option(
     "--output-dir",
-    default="results/llm/annotations",
+    required=True,
     type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
     help="Directory to save output files.",
     callback=ensure_dir,
@@ -104,7 +127,10 @@ def run_main_from_cli(
     texts_path: Path,
     model: str,
     framework: str,
-    prompt_file: Path,
+    prompt_path: Path,
+    guidelines_path: Path,
+    examples_path: Path | None,
+    temperature: float | None,
     output_dir: Path,
     max_retries: int,
 ) -> None:
@@ -117,7 +143,10 @@ def run_main_from_cli(
         texts_path=texts_path,
         model=model,
         framework=framework,
-        prompt_file=prompt_file,
+        prompt_path=prompt_path,
+        guidelines_path=guidelines_path,
+        examples_path=examples_path,
+        temperature=temperature,
         output_dir=output_dir,
         max_retries=max_retries,
         logger=logger,

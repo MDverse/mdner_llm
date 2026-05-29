@@ -24,6 +24,8 @@ Expected output structure:
   ]
 }
 
+{{ examples }}
+
 ## Task to Execute
 
 Identify and extract Molecular Dynamics simulation entities in the following text:
