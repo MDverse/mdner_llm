@@ -16,6 +16,7 @@ def extract_entities_all_texts(
     texts_path: Path,
     prompt_path: Path,
     model: str,
+    tag: str,
     temperature: float | None,
     guidelines_path: Path,
     examples_path: Path | None,
@@ -35,6 +36,7 @@ def extract_entities_all_texts(
             extract_entities(
                 prompt_path=prompt_path,
                 model=model,
+                tag=tag,
                 temperature=temperature,
                 text_path=file_path,
                 guidelines_path=guidelines_path,
@@ -80,6 +82,7 @@ def extract_entities_all_texts(
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
+@click.option("--tag", default="", type=str, help="Tag to add to the model name.")
 @click.option(
     "--temperature",
     default=None,
@@ -126,6 +129,7 @@ def extract_entities_all_texts(
 def run_main_from_cli(
     texts_path: Path,
     model: str,
+    tag: str,
     framework: str,
     prompt_path: Path,
     guidelines_path: Path,
@@ -142,6 +146,7 @@ def run_main_from_cli(
     extract_entities_all_texts(
         texts_path=texts_path,
         model=model,
+        tag=tag,
         framework=framework,
         prompt_path=prompt_path,
         guidelines_path=guidelines_path,

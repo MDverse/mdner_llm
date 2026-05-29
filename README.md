@@ -137,7 +137,8 @@ To extract structured entities from a single text using a specified LLM ([from O
 ```sh
 uv run extract-entities-with-llm \
     --text-path data/annotations/groundtruth/figshare_121241.json \
-    --model openai/gpt-5.2 \
+    --model google/gemma-4-31b-it \
+    --tag "_run1" \
     --temperature 0.5 \
     --prompt-path docs/prompt_template.md \
     --guidelines-path docs/annotation_rules.md \
@@ -150,7 +151,7 @@ uv run extract-entities-with-llm \
 2026-04-22 00:12:22 | DEBUG    | Loaded text (1710 chars): Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...
 2026-04-22 00:12:22 | DEBUG    | Loading prompt from docs/prompt_template.md.
 2026-04-22 00:12:22 | DEBUG    | Loaded prompt (6685 chars) : # Named-Entity Recognition task  ## Role definition  You are a highly speci...
-2026-04-22 00:12:22 | DEBUG    | Starting annotation with model openai/gpt-4o using instructor.
+2026-04-22 00:12:22 | DEBUG    | Starting annotation with model google/gemma-4-31b-it using instructor.
 2026-04-22 00:12:25 | DEBUG    | Response status: ok.
 2026-04-22 00:12:25 | DEBUG    | Formatted LLM response: 
                                  entities=[ForceField(category='FFM', text='GAFF'), SoftwareName(category='SOFTNAME', text='AutoDock'), SimulationTime(category='STIME', text='20 ns')]
@@ -203,7 +204,8 @@ To extract structured entities from multiple dataset descriptions, execute:
 ```sh
 uv run extract-entities-with-llm-all-texts \
     --texts-path data/annotations/groundtruth \
-    --model openai/gpt-5.2 \
+    --model google/gemma-4-31b-it \
+    --tag "_run1" \
     --temperature 0.5 \
     --prompt-path docs/prompt_template.md \
     --guidelines-path docs/annotation_rules.md \

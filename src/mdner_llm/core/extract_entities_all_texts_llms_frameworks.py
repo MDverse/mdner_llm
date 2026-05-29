@@ -15,36 +15,40 @@ from mdner_llm.logger import create_logger
 
 MODELS = [
     "openai/gpt-4o",
-    "anthropic/claude-sonnet-4.6",
-    "z-ai/glm-5.1",
-    "openai/gpt-5.5",
-    "deepseek/deepseek-v4-pro",
-    "google/gemma-4-31b-it",
-    "meta-llama/llama-4-maverick",
-    "meta-llama/llama-3.1-8b-instruct",
-    "meta-llama/llama-3.1-70b-instruct",
-    # "nvidia/nemotron-3-super-120b-a12b",
-    "mistralai/mistral-large-2512",
-    "minimax/minimax-m2.7",
-    "openai/gpt-oss-120b",
-    "qwen/qwen3.6-27b",
-    "google/gemini-3.1-pro-preview",
-    "moonshotai/kimi-k2.6",
+    # "anthropic/claude-sonnet-4.6",
+    # "z-ai/glm-5.1",
+    # "openai/gpt-5.5",
+    # "deepseek/deepseek-v4-pro",
+    # "google/gemma-4-31b-it",
+    # "meta-llama/llama-4-maverick",
+    # "meta-llama/llama-3.1-8b-instruct",
+    # "meta-llama/llama-3.1-70b-instruct",
+    # "mistralai/mistral-large-2512",
+    # "minimax/minimax-m2.7",
+    # "openai/gpt-oss-120b",
+    # "qwen/qwen3.6-27b",
+    # "google/gemini-3.1-pro-preview",
+    # "moonshotai/kimi-k2.6",
 ]
 
 FRAMEWORKS = [
     "noframework",
-    "instructor",
-    "pydanticai",
+    # "instructor",
+    # "pydanticai",
 ]
 
-PROMPT_FILE = Path("json_few_shot.txt")
-TEXT_PATH = Path("data/annotations/groundtruth")
-OUTPUT_DIR = Path("results/llm/annotations")
+# TEMPERATURE = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.5, 2.0]
+TEMPERATURE = [0.0, 0.2]
+
+PROMPT_FILE = Path("docs/prompt_template.md")
+TEXTS_PATH = Path("data/annotations/groundtruth")
+GUIDELINES_PATH = Path("docs/annotation_rules.md")
+EXAMPLES_PATH = Path("docs/few_shot_examples.md")
+OUTPUT_DIR = Path("results/llm/annotations_test_")
 MAX_RETRIES = 3
 
 
-def run_job(model: str, framework: str) -> str:
+def run_job(model: str, framework: str, temperature: float) -> str:
     """Execute a single extraction job.
 
     Returns
@@ -53,30 +57,37 @@ def run_job(model: str, framework: str) -> str:
         A message indicating completion of the job with the model and framework used.
     """
     logger = create_logger(
-        f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}.log",
+        f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}_{temperature}.log",
         level="CRITICAL",
     )
     extract_entities_all_texts(
-        prompt_file=PROMPT_FILE,
+        prompt_path=PROMPT_FILE,
         model=model,
-        texts_path=TEXT_PATH,
+        tag="",
+        texts_path=TEXTS_PATH,
+        guidelines_path=GUIDELINES_PATH,
+        examples_path=EXAMPLES_PATH,
         framework=framework,
+        temperature=temperature,
         output_dir=OUTPUT_DIR,
         max_retries=MAX_RETRIES,
         logger=logger,
     )
-    return f"Extraction completed for model '{model}' with '{framework}'."
+    return (
+        f"Extraction completed for model '{model}' with '{framework}' "
+        f"and temperature {temperature}."
+    )
 
 
-def generate_jobs() -> Iterable[tuple[str, str]]:
-    """Generate all (model, framework) combinations.
+def generate_jobs() -> Iterable[tuple[str, str, float]]:
+    """Generate all (model, framework, temperature) combinations.
 
     Returns
     -------
-    Iterable[tuple[str, str]]:
-        An iterable of (model, framework) tuples.
+    Iterable[tuple[str, str, float]]:
+        An iterable of (model, framework, temperature) tuples.
     """
-    return itertools.product(MODELS, FRAMEWORKS)
+    return itertools.product(MODELS, FRAMEWORKS, TEMPERATURE)
 
 
 def main(max_workers: int) -> None:
@@ -84,11 +95,13 @@ def main(max_workers: int) -> None:
     jobs = list(generate_jobs())
     print(
         f"Running {len(jobs)} jobs "
-        f"({len(MODELS)} models, {len(FRAMEWORKS)} frameworks) in parallel..."
+        f"({len(MODELS)} models, {len(FRAMEWORKS)} frameworks, "
+        f"{len(TEMPERATURE)} temperatures) in parallel..."
     )
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
         futures = [
-            executor.submit(run_job, model, framework) for model, framework in jobs
+            executor.submit(run_job, model, framework, temperature)
+            for model, framework, temperature in jobs
         ]
 
         for future in as_completed(futures):
