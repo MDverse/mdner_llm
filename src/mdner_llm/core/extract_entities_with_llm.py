@@ -469,7 +469,6 @@ def save_formated_response_with_metadata_to_json(
 def extract_entities(
     prompt_path: Path,
     model: str,
-    tag: str,
     temperature: float | None,
     text_path: Path,
     guidelines_path: Path,
@@ -477,6 +476,7 @@ def extract_entities(
     framework: str,
     output_dir: Path,
     max_retries: int,
+    tag: str = "",
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Extract structured entities from a text using a specified LLM and framework."""
@@ -518,7 +518,7 @@ def extract_entities(
     output_dir.mkdir(parents=True, exist_ok=True)
     # Prepare output path
     ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
-    sanitized_model = sanitize_filename(f"{model}_t_{temperature}_{framework}")
+    sanitized_model = sanitize_filename(f"{model}{tag}_t_{temperature}_{framework}")
     txt_output_path = Path(output_dir / f"{text_path.stem}_{sanitized_model}_{ts}.txt")
     # Save raw response into a txt file
     save_to_txt(txt_output_path, inference_metadata["raw_llm_response"], logger)
@@ -566,6 +566,8 @@ def extract_entities(
 @click.option(
     "--temperature",
     default=None,
+    # Temperature must be between 0 and 2 according to OpenRouter documentation
+    # Doc: https://openrouter.ai/docs/api/reference/parameters#temperature
     type=click.FloatRange(min=0.0, max=2.0),
     help="Sampling temperature to use for the LLM."
     " Higher values lead to more creative outputs.",

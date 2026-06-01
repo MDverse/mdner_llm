@@ -16,13 +16,13 @@ def extract_entities_all_texts(
     texts_path: Path,
     prompt_path: Path,
     model: str,
-    tag: str,
     temperature: float | None,
     guidelines_path: Path,
     examples_path: Path | None,
     framework: str,
     output_dir: Path,
     max_retries: int,
+    tag: str = "",
     logger: "create_logger" = loguru.logger,
 ) -> None:
     """Run entity extraction on multiple annotation files."""
@@ -140,8 +140,9 @@ def run_main_from_cli(
 ) -> None:
     """CLI entrypoint."""
     # Initialize logger with a unique log file for this run
+    run_id = f"{model}{tag}_{temperature}_{framework}"
     logger = create_logger(
-        f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}.log"
+        f"logs/extract_entities_all_texts_{sanitize_filename(run_id)}.log"
     )
     extract_entities_all_texts(
         texts_path=texts_path,
