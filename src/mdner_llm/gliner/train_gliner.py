@@ -347,6 +347,7 @@ def build_training_config(
         max_steps=config.training.max_steps,
         batch_size=config.training.batch_size,
         gradient_accumulation_steps=config.training.gradient_accumulation_steps,
+        deterministic=config.training.deterministic,
         # Learning rates
         encoder_lr=config.training.encoder_lr,
         task_lr=config.training.task_lr,
@@ -607,19 +608,54 @@ def main(config_path: str | Path) -> None:
     )
     # Validate dataset
     dataset.validate(raise_on_error=True)
-    # K-fold nested CV directly on the full dataset
-    folds = k_fold_split(
-        dataset,
-        selected_annotation_paths,
-        urls,
-        cfg,
-        output_dir,
-        logger,
-    )
+    if cfg.training.use_cv:
+        # K-fold nested CV directly on the full dataset
+        folds = k_fold_split(
+            dataset,
+            selected_annotation_paths,
+            urls,
+            cfg,
+            output_dir,
+            logger,
+        )
+    else:
+        logger.info("Cross-validation disabled. Performing a single standard split.")
+        single_dir = output_dir / "data"
+        single_dir.mkdir(parents=True, exist_ok=True)
+        # Split using standard ratio from configuration
+        train_data, val_data, test_data = dataset.split(
+            train_ratio=cfg.data.train_ratio,
+            val_ratio=cfg.data.val_ratio,
+            test_ratio=cfg.data.test_ratio,
+            shuffle=True,
+            seed=cfg.data.seed,
+        )
+        # Save split datasets to the target output directory
+        save_dataset_to_jsonl(train_data, single_dir / "train.jsonl", logger)
+        save_dataset_to_jsonl(val_data, single_dir / "val.jsonl", logger)
+        save_dataset_to_jsonl(test_data, single_dir / "test.jsonl", logger)
+        # Save metadata for each split
+        save_metadata_to_txt(
+            selected_annotation_paths,
+            urls,
+            single_dir / "train.jsonl",
+        )
+        save_metadata_to_txt(
+            selected_annotation_paths,
+            urls,
+            single_dir / "val.jsonl",
+        )
+        save_metadata_to_txt(
+            selected_annotation_paths,
+            urls,
+            single_dir / "test.jsonl",
+        )
+        folds = [(train_data, val_data)]
+
     # Train a separate model for each fold
     all_results = []
     for fold_id, (train_data, val_data) in enumerate(folds, start=1):
-        logger.info(f"Starting training of fold {fold_id}/{cfg.training.cv_folds}.")
+        logger.info(f"Starting training of fold {fold_id}/{len(folds)}.")
         model = GLiNER2.from_pretrained(cfg.model.name)
         training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
         training_config.output_dir = f"{output_dir}/fold_{fold_id}"

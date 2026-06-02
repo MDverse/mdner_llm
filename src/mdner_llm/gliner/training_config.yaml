@@ -1,12 +1,13 @@
 model:
-  name: "fastino/gliner2-large-v1"
-  experiment_name: "gliner2-large-v1-finetuned-lora-test-30epochs"
-  output_dir: "results/gliner/models"
+  name: "fastino/gliner2-base-v1"
+  experiment_name: "gliner2-base-v1-finetuned-no-kfold-run1"
+  output_dir: "results/gliner/models/no_determinism"
 
 data:
   annotations_path: "data/annotations/groundtruth"
-  train_ratio: 0.8
+  train_ratio: 0.6
   val_ratio: 0.2
+  test_ratio: 0.2
   seed: 42
 
 entities:
@@ -19,10 +20,12 @@ entities:
 
 training:
   # Training schedule
-  num_epochs: 30
+  num_epochs: 10
   batch_size: 2
   max_steps: -1
   gradient_accumulation_steps: 4
+  deterministic: False
+  use_cv: false
   cv_folds: 5
 
   # Learning rates
@@ -39,7 +42,7 @@ training:
   bf16: False
 
   # LoRA settings
-  use_lora: True # Enable LoRA
+  use_lora: False # Enable LoRA
   lora_r: 8 # Rank (4, 8, 16, 32)
   lora_alpha: 16.0 # Scaling factor (usually 2*r)
   lora_dropout: 0.2 # Dropout for LoRA layers
