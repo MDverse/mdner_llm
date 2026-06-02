@@ -135,19 +135,25 @@ def build_aggregated_metadata(annotations: list[dict]) -> dict:
     # Process all annotations
     for ann in annotations:
         for key, val in ann.items():
-            if key in res and key not in {"model_name", "temperature"}:
-                # Sum performance metrics safely
+            # Sum numerical metrics
+            if key in {
+                "inference_time_sec",
+                "input_tokens",
+                "output_tokens",
+                "inference_cost_usd",
+            }:
                 if isinstance(val, (int, float)):
                     res[key] += val
+            # Merge custom metadata fields, skipping reserved keys
             elif key not in {"model_name", "temperature", "formatted_response"}:
-                # Merge custom metadata keys into single values or deduplicated lists
                 if key not in res:
                     res[key] = val
-                elif res[key] != val:
-                    current = res[key] if isinstance(res[key], list) else [res[key]]
-                    if val not in current:
-                        current.append(val)
-                    res[key] = current
+                else:
+                    if isinstance(res[key], list):
+                        if val not in res[key]:
+                            res[key].append(val)
+                    elif res[key] != val:
+                        res[key] = [res[key], val]
     return res
 
 
@@ -173,17 +179,10 @@ def build_consensus_output(
             dumped = entity_objects[key].model_dump()
             dumped["score"] = details["score"]
             entities_with_scores.append(dumped)
-    # Strip score property temporarily to pass baseline Pydantic schema validation
-    filtered = ListOfEntities.model_validate(
-        {
-            "entities": [
-                {key: value for key, value in entity.items() if key != "score"}
-                for entity in entities_with_scores
-            ]
-        }
-    )
-    # Append scores back post-validation
-    formatted_response = filtered.model_dump()
+    # Validate and format the final list of entities using the ListOfEntities model
+    formatted_response = ListOfEntities.model_validate(
+        {"entities": entities_with_scores}
+    ).model_dump()
     for entity_dict, score_dict in zip(
         formatted_response["entities"], entities_with_scores, strict=False
     ):
@@ -309,9 +308,8 @@ def aggregate_consensus_entities(
 @click.option(
     "--annotations-dir",
     required=True,
-    type=click.Path(exists=False, dir_okay=True, file_okay=False, path_type=Path),
+    type=click.Path(exists=True, dir_okay=True, file_okay=False, path_type=Path),
     help="Directory containing the per-run LLM annotation JSON files.",
-    callback=ensure_dir,
 )
 @click.option(
     "--threshold",
