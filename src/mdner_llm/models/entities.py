@@ -22,6 +22,13 @@ class Entity(BaseModel):
     # ... is used to indicate that these fields are required
     category: str = Field(..., description="Category identifying the entity type.")
     text: str = Field(..., description="Extracted text content.")
+    score: float | None = Field(
+        default=None,
+        description=(
+            "Confidence score for the entity extraction, between 0 and 1. "
+            "1 indicates high confidence, while 0 indicates low confidence."
+        ),
+    )
 
 
 # =====================================================================
