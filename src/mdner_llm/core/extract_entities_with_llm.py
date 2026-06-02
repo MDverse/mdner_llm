@@ -476,6 +476,7 @@ def extract_entities(
     framework: str,
     output_dir: Path,
     max_retries: int,
+    tag: str = "",
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Extract structured entities from a text using a specified LLM and framework."""
@@ -517,7 +518,7 @@ def extract_entities(
     output_dir.mkdir(parents=True, exist_ok=True)
     # Prepare output path
     ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
-    sanitized_model = sanitize_filename(f"{model}_t_{temperature}_{framework}")
+    sanitized_model = sanitize_filename(f"{model}{tag}_t_{temperature}_{framework}")
     txt_output_path = Path(output_dir / f"{text_path.stem}_{sanitized_model}_{ts}.txt")
     # Save raw response into a txt file
     save_to_txt(txt_output_path, inference_metadata["raw_llm_response"], logger)
@@ -530,7 +531,7 @@ def extract_entities(
         "input_json_path": str(text_path),
         "text": text_to_annotate,
         "url": url,
-        "model_name": model,
+        "model_name": f"{model}{tag}",
         "temperature": temperature,
         "framework_name": framework,
         "prompt_path": str(prompt_output_path),
@@ -561,12 +562,15 @@ def extract_entities(
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
+@click.option("--tag", default="", type=str, help="Tag to add to the model name.")
 @click.option(
     "--temperature",
     default=None,
-    type=float,
+    # Temperature must be between 0 and 2 according to OpenRouter documentation
+    # Doc: https://openrouter.ai/docs/api/reference/parameters#temperature
+    type=click.FloatRange(min=0.0, max=2.0),
     help="Sampling temperature to use for the LLM."
-    " Higher values lead to creative outputs.",
+    " Higher values lead to more creative outputs.",
 )
 @click.option(
     "--framework",
@@ -607,6 +611,7 @@ def extract_entities(
 def run_main_from_cli(
     prompt_path: Path,
     model: str,
+    tag: str,
     temperature: float | None,
     text_path: Path,
     framework: str,
@@ -621,6 +626,7 @@ def run_main_from_cli(
     extract_entities(
         prompt_path=prompt_path,
         model=model,
+        tag=tag,
         temperature=temperature,
         text_path=text_path,
         guidelines_path=guidelines_path,

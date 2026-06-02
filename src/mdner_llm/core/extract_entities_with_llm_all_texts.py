@@ -22,6 +22,7 @@ def extract_entities_all_texts(
     framework: str,
     output_dir: Path,
     max_retries: int,
+    tag: str = "",
     logger: "create_logger" = loguru.logger,
 ) -> None:
     """Run entity extraction on multiple annotation files."""
@@ -35,6 +36,7 @@ def extract_entities_all_texts(
             extract_entities(
                 prompt_path=prompt_path,
                 model=model,
+                tag=tag,
                 temperature=temperature,
                 text_path=file_path,
                 guidelines_path=guidelines_path,
@@ -80,6 +82,7 @@ def extract_entities_all_texts(
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
+@click.option("--tag", default="", type=str, help="Tag to add to the model name.")
 @click.option(
     "--temperature",
     default=None,
@@ -126,6 +129,7 @@ def extract_entities_all_texts(
 def run_main_from_cli(
     texts_path: Path,
     model: str,
+    tag: str,
     framework: str,
     prompt_path: Path,
     guidelines_path: Path,
@@ -136,12 +140,14 @@ def run_main_from_cli(
 ) -> None:
     """CLI entrypoint."""
     # Initialize logger with a unique log file for this run
+    run_id = f"{model}{tag}_{temperature}_{framework}"
     logger = create_logger(
-        f"logs/extract_entities_all_texts_{sanitize_filename(model)}_{framework}.log"
+        f"logs/extract_entities_all_texts_{sanitize_filename(run_id)}.log"
     )
     extract_entities_all_texts(
         texts_path=texts_path,
         model=model,
+        tag=tag,
         framework=framework,
         prompt_path=prompt_path,
         guidelines_path=guidelines_path,
