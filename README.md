@@ -212,19 +212,6 @@ uv run extract-entities-with-llm-all-texts \
     --examples-path docs/few_shot_examples.md \
     --framework instructor \
     --output-dir results/llm/annotations
-
-
-uv run extract-entities-with-llm-all-texts \
-    --texts-path data/annotations/groundtruth \
-    --prompt-path docs/prompt_template.md \
-    --guidelines-path docs/annotation_rules.md \
-    --examples-path docs/few_shot_examples.md \
-    --framework instructor \
-    --output-dir results/llm/annotations_different_llm --model google/gemini-3.1-pro-preview
-
-
-
-
 ```
 
 ### Aggregate consensus entities across multiple annotations 📦
