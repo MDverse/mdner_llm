@@ -132,7 +132,7 @@ A list of entities per category can be found in [notebooks/explore_entities_from
 
 ### Extract entities of one text 📃
 
-To extract structured entities from a single text using a specified LLM ([from OpenRouter available models](https://openrouter.ai/models))) and framework, run :
+To extract structured entities from a single text using a specified LLM ([from OpenRouter available models](https://openrouter.ai/models)) and framework, run :
 
 ```sh
 uv run extract-entities-with-llm \
