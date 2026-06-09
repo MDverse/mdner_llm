@@ -18,7 +18,7 @@ MOL entities should be uniquely identifiable.
 5. Include amino acid and nucleic acid sequences
 6. Include any identifiers (PDB ID, UniProt ID...)
 7. Exclude adjectives or descriptors that modify the molecule (e.g., `hydrated`, `charged`, `folded`, `tetrameric`)
-8. Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `ions`, `compounds`...
+8. Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `alcohols`, `ions`, `compounds`...
 9. Exclude specific résidues or domains like `Lys-353`...
 
 ### Good examples
@@ -29,6 +29,9 @@ MOL entities should be uniquely identifiable.
 - `Q29537`
 - `2RH1`
 - `Na⁺`
+- `carbon`
+- `L-alanine`
+- `POPC`
 
 ### Bad examples
 
@@ -81,7 +84,7 @@ It includes packages for molecular dynamics, modeling, trajectory processing, an
 
 1. Exclude generic words such as `software`, `tool`, or `program` unless they are part of the official name.
 2. Exclude algorithms like `SHAKE`, `RESP`...
-3. Exclude languages like `Python`, `C++`, `Fortran`...
+3. Exclude programming languages like `Python`, `C++`, `Fortran`...
 
 ### Good examples
 
@@ -98,6 +101,8 @@ It includes packages for molecular dynamics, modeling, trajectory processing, an
 
 - `the simulation software` (Rule 1)
 - `GROMACS software` (only annotate `GROMACS`, Rule 1)
+- `Anton` (it is a supercomputer, not a software, Rule 1)
+- `SHAKE` (it is an algorithm, not a software, Rule 2)
 - `Python` (Rule 3)
 
 ## Software version: SOFTVERS
@@ -136,12 +141,13 @@ The **STIME** entity refers to the duration for which a production molecular dyn
 ### Rules
 
 1. Exclude minimization or equilibration time
-2. If simulation time is presented as a range, repetition, or multiplier (e.g., `5 × 100`, `10–50`), annotate the entire expression if it refers to time
-3. The unit is not mandatory, but the context must unambiguously indicate that the number refers to a simulation time
+2. If simulation time is presented as a range (e.g. `10–50`), annotate the entire expression if it refers to time
+3. Exclude vague expressions like `several hours` or `long simulations`
+4. The unit is not mandatory, but the context must unambiguously indicate that the number refers to a simulation time
 
 ### Good examples
 
-- `5 × 200`
+- `200ns`
 - `50 picoseconds`
 - `100 ns`
 - `4-8 μs`
