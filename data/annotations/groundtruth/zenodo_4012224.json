@@ -51,18 +51,6 @@
         },
         {
             "category": "MOL",
-            "text": "transmembrane domains",
-            "start": 171,
-            "end": 192
-        },
-        {
-            "category": "MOL",
-            "text": "TMDs",
-            "start": 194,
-            "end": 198
-        },
-        {
-            "category": "MOL",
             "text": "POPC",
             "start": 205,
             "end": 209

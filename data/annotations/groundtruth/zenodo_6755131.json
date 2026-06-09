@@ -15,18 +15,6 @@
         },
         {
             "category": "MOL",
-            "text": "Y198N",
-            "start": 151,
-            "end": 156
-        },
-        {
-            "category": "MOL",
-            "text": "Y204F",
-            "start": 163,
-            "end": 168
-        },
-        {
-            "category": "MOL",
             "text": "Phenylalanine-4-hydroxylase",
             "start": 218,
             "end": 245
@@ -66,30 +54,6 @@
             "text": "KCl",
             "start": 475,
             "end": 478
-        },
-        {
-            "category": "MOL",
-            "text": "Y198N",
-            "start": 543,
-            "end": 548
-        },
-        {
-            "category": "MOL",
-            "text": "Y204F",
-            "start": 580,
-            "end": 585
-        },
-        {
-            "category": "MOL",
-            "text": "E353",
-            "start": 626,
-            "end": 630
-        },
-        {
-            "category": "MOL",
-            "text": "E422",
-            "start": 635,
-            "end": 639
         },
         {
             "category": "SOFTNAME",
@@ -138,18 +102,6 @@
             "text": "310 K",
             "start": 1147,
             "end": 1152
-        },
-        {
-            "category": "MOL",
-            "text": "Y198N",
-            "start": 1522,
-            "end": 1527
-        },
-        {
-            "category": "MOL",
-            "text": "Y204F",
-            "start": 1532,
-            "end": 1537
         },
         {
             "category": "MOL",

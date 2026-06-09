@@ -6,6 +6,12 @@
             "text": "HOOMD-blue",
             "start": 126,
             "end": 136
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "jupyter",
+            "start": 996,
+            "end": 1003
         }
     ],
     "url": "https://zenodo.org/records/6957888"

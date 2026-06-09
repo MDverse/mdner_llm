@@ -138,6 +138,12 @@
             "text": "PknG",
             "start": 1421,
             "end": 1425
+        },
+        {
+            "category": "MOL",
+            "text": "PknB",
+            "start": 1520,
+            "end": 1524
         }
     ],
     "url": "https://acs.figshare.com/articles/dataset/Specificity_and_Reactivity_of_Mycobacterium_tuberculosis_Serine_Threonine_Kinases_PknG_and_PknB/19405967"
