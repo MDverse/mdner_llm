@@ -8,12 +8,6 @@
             "end": 23
         },
         {
-            "category": "MOL",
-            "text": "Li-/Na-ion",
-            "start": 140,
-            "end": 150
-        },
-        {
             "category": "FFM",
             "text": "TraPPE",
             "start": 580,

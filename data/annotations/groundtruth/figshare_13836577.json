@@ -92,6 +92,12 @@
             "end": 1417
         },
         {
+            "category": "MOL",
+            "text": "alcohols",
+            "start": 1426,
+            "end": 1434
+        },
+        {
             "category": "FFM",
             "text": "TIP4P/2005",
             "start": 1443,

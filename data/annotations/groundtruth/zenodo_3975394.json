@@ -110,6 +110,12 @@
             "end": 1093
         },
         {
+            "category": "MOL",
+            "text": "dimeric main protease",
+            "start": 1234,
+            "end": 1255
+        },
+        {
             "category": "STIME",
             "text": "10 microseconds",
             "start": 1288,
@@ -126,6 +132,18 @@
             "text": "amber99sb-ildn",
             "start": 1362,
             "end": 1376
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1642,
+            "end": 1649
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1718,
+            "end": 1725
         },
         {
             "category": "STIME",

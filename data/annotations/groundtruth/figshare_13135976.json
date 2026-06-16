@@ -9,12 +9,6 @@
         },
         {
             "category": "MOL",
-            "text": "G domain",
-            "start": 56,
-            "end": 64
-        },
-        {
-            "category": "MOL",
             "text": "K-Ras4B",
             "start": 68,
             "end": 75
@@ -24,12 +18,6 @@
             "text": "one hundred nanosecond",
             "start": 156,
             "end": 178
-        },
-        {
-            "category": "MOL",
-            "text": "G domain",
-            "start": 197,
-            "end": 205
         },
         {
             "category": "MOL",

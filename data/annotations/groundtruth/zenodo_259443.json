@@ -194,10 +194,22 @@
             "end": 1422
         },
         {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 2149,
+            "end": 2156
+        },
+        {
             "category": "MOL",
             "text": "NaCl",
             "start": 2331,
             "end": 2335
+        },
+        {
+            "category": "MOL",
+            "text": "Calcium",
+            "start": 2506,
+            "end": 2513
         }
     ],
     "url": "https://zenodo.org/records/259443"

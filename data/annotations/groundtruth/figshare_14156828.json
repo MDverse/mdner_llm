@@ -15,27 +15,9 @@
         },
         {
             "category": "MOL",
-            "text": "SARS-CoV‑2",
-            "start": 103,
-            "end": 113
-        },
-        {
-            "category": "MOL",
             "text": "RNA virus",
             "start": 124,
             "end": 133
-        },
-        {
-            "category": "MOL",
-            "text": "SARS-CoV-2",
-            "start": 185,
-            "end": 195
-        },
-        {
-            "category": "MOL",
-            "text": "anti-SARS-CoV-2",
-            "start": 580,
-            "end": 595
         },
         {
             "category": "MOL",
@@ -48,12 +30,6 @@
             "text": "ACE2",
             "start": 664,
             "end": 668
-        },
-        {
-            "category": "MOL",
-            "text": "SARS-CoV-2",
-            "start": 735,
-            "end": 745
         },
         {
             "category": "MOL",
@@ -162,12 +138,6 @@
             "text": "ACE2",
             "start": 1958,
             "end": 1962
-        },
-        {
-            "category": "MOL",
-            "text": "SARS-CoV-2",
-            "start": 2047,
-            "end": 2057
         },
         {
             "category": "MOL",

@@ -3,12 +3,6 @@
     "entities": [
         {
             "category": "MOL",
-            "text": "Lysine",
-            "start": 23,
-            "end": 29
-        },
-        {
-            "category": "MOL",
             "text": "PEP-synthase",
             "start": 113,
             "end": 125
@@ -27,27 +21,9 @@
         },
         {
             "category": "MOL",
-            "text": "lysine",
-            "start": 1035,
-            "end": 1041
-        },
-        {
-            "category": "MOL",
-            "text": "lysine",
-            "start": 1130,
-            "end": 1136
-        },
-        {
-            "category": "MOL",
             "text": "PPSA",
             "start": 1513,
             "end": 1517
-        },
-        {
-            "category": "MOL",
-            "text": "lysines",
-            "start": 1659,
-            "end": 1666
         },
         {
             "category": "FFM",
@@ -180,12 +156,6 @@
             "text": "PPSA",
             "start": 5061,
             "end": 5065
-        },
-        {
-            "category": "MOL",
-            "text": "Lysine",
-            "start": 5610,
-            "end": 5616
         },
         {
             "category": "FFM",

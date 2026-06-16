@@ -162,6 +162,78 @@
             "text": "100 ns",
             "start": 683,
             "end": 689
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 843,
+            "end": 847
+        },
+        {
+            "category": "MOL",
+            "text": "AB40",
+            "start": 848,
+            "end": 852
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 943,
+            "end": 947
+        },
+        {
+            "category": "MOL",
+            "text": "AB40",
+            "start": 948,
+            "end": 952
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 1043,
+            "end": 1047
+        },
+        {
+            "category": "MOL",
+            "text": "AB40",
+            "start": 1048,
+            "end": 1052
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 1143,
+            "end": 1147
+        },
+        {
+            "category": "MOL",
+            "text": "AB42",
+            "start": 1148,
+            "end": 1152
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 1243,
+            "end": 1247
+        },
+        {
+            "category": "MOL",
+            "text": "AB42",
+            "start": 1248,
+            "end": 1252
+        },
+        {
+            "category": "MOL",
+            "text": "ChAT",
+            "start": 1343,
+            "end": 1347
+        },
+        {
+            "category": "MOL",
+            "text": "AB42",
+            "start": 1348,
+            "end": 1352
         }
     ],
     "url": "https://zenodo.org/records/5912821"
