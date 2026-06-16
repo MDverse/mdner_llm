@@ -19,7 +19,7 @@ MOL entities should be uniquely identifiable.
 6. Include any identifiers (PDB ID, UniProt ID...)
 7. Exclude adjectives or descriptors that modify the molecule (e.g., `hydrated`, `charged`, `folded`, `tetrameric`)
 8. Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `alcohols`, `ions`, `compounds`...
-9. Exclude specific résidues or domains like `Lys-353`...
+9. Exclude specific residues or domains like `Lys-353`...
 
 ### Good examples
 
@@ -186,6 +186,6 @@ It includes any explicitly stated temperature values, with or without units.
 
 - "measured as a function of temperature" `293.15–313.15 K` (not a simulation temperature, Rule 1)
 - "temperature of fusion" `70°C` (not a simulation temperature, Rule 1)
-- `heated up`   (too generic, Rule 3)
-- `at low temperature` (Rule 3)
+- `heated up` (too generic, Rule 3)
+- `at low temperature` (too generic, Rule 3)
   
