@@ -9,15 +9,9 @@
         },
         {
             "category": "MOL",
-            "text": "α-amylase",
-            "start": 240,
-            "end": 249
-        },
-        {
-            "category": "MOL",
-            "text": "maltopentose",
-            "start": 250,
-            "end": 262
+            "text": "human pancreatic α-amylase:maltopentose complex",
+            "start": 223,
+            "end": 270
         },
         {
             "category": "STIME",

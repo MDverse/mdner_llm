@@ -33,6 +33,12 @@
         },
         {
             "category": "MOL",
+            "text": "Late Endosomal Protein",
+            "start": 108,
+            "end": 130
+        },
+        {
+            "category": "MOL",
             "text": "LAPTM4B",
             "start": 131,
             "end": 138

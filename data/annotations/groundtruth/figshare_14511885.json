@@ -45,15 +45,9 @@
         },
         {
             "category": "MOL",
-            "text": "HKII",
+            "text": "HKII/VDAC1 complex",
             "start": 1254,
-            "end": 1258
-        },
-        {
-            "category": "MOL",
-            "text": "VDAC1",
-            "start": 1259,
-            "end": 1264
+            "end": 1272
         },
         {
             "category": "MOL",
@@ -66,12 +60,6 @@
             "text": "VMD",
             "start": 1322,
             "end": 1325
-        },
-        {
-            "category": "MOL",
-            "text": "VDAC1",
-            "start": 1370,
-            "end": 1375
         },
         {
             "category": "MOL",
