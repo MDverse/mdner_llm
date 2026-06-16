@@ -11,9 +11,9 @@ MOL entities should be uniquely identifiable.
 
 ### Rules
 
-1. Exclude whitespaces and punctuation marks around entities
-2. It should be at least 2 characters long
-3. Annotate always both singular and plural forms (e.g., `alkane` and `alkanes`)
+1. Exclude whitespace and punctuation marks around entities
+2. The molecule name should be at least 2 characters long
+3. Treat singular and plural forms equivalently and annotate both (e.g., `alkane` and `alkanes`)
 4. Annotate chemical formulas and abbreviations separately from full molecule names.
 5. Include amino acid and nucleic acid sequences
 6. Include any identifiers (PDB ID, UniProt ID...)
@@ -23,7 +23,7 @@ MOL entities should be uniquely identifiable.
 
 ### Good examples
 
-- `sodium chloride` 
+- `sodium chloride`
 - `ethanol`
 - `ammonia`
 - `Q29537`
@@ -41,7 +41,7 @@ MOL entities should be uniquely identifiable.
 - `lipids` (Rule 8)
 - `DNA` (Rule 8)
 - `binding protein` (Rule 8)
-- `ions in solvant` (Rule 8)
+- `ions in solvent` (Rule 8)
 
 ## Force field and model: FFM
 
@@ -141,9 +141,8 @@ The **STIME** entity refers to the duration for which a production molecular dyn
 ### Rules
 
 1. Exclude minimization or equilibration time
-2. If simulation time is presented as a range (e.g. `10–50`), annotate the entire expression if it refers to time
+2. If simulation time is presented as a range (e.g. `3 × 200ns`), annotate only the simulation time (e.g. `200ns`)
 3. Exclude vague expressions like `several hours` or `long simulations`
-4. The unit is not mandatory, but the context must unambiguously indicate that the number refers to a simulation time
 
 ### Good examples
 
@@ -152,11 +151,15 @@ The **STIME** entity refers to the duration for which a production molecular dyn
 - `100 ns`
 - `4-8 μs`
 - `10 to 50 ns`
+- `Microsecond`
 
 ### Bad examples
 
-- `10–50 replicas` (not a simulation time, Rule 2)
+- `10–50 replicas` (not a simulation time)
+- `100 ns of equilibration` (not a production simulation time, Rule 1)
+- `3 × 200ns` (only annotate `200ns`, Rule 2)
 - `for several hours of computation` (too vague, Rule 3)
+  
 
 ## Simulation temperature: STEMP
 
@@ -167,20 +170,22 @@ It includes any explicitly stated temperature values, with or without units.
 
 ### Rules
 
-1. The unit is not mandatory, but the context must unambiguously indicate that the number refers to temperature
-2. Exclude surrounding words like `temperature of` or `heated to`
-3. Include `room temperature` or `body temperature`
+1. Do not annotate temperatures reported as experimental measurements, observed values, or results. Only annotate temperatures that define or control the simulation conditions
+2. The unit is not mandatory, but the context must unambiguously indicate that the number refers to temperature used as simulation conditions
+3. Exclude surrounding words like `temperature of` or `heated to`
+4. Include `room temperature` or `body temperature`
 
 ### Good examples
 
 - `300K`
 - `500 degrees Celsius`
-- `298`
-- `room temperature`
+- `298` (Rule 2)
+- `room temperature` (Rule 4)
 
 ### Bad examples
 
 - "measured as a function of temperature" `293.15–313.15 K` (not a simulation temperature, Rule 1)
-- `heated up`   (too generic, Rule 2)
-- `at low temperature` (Rule 2)
+- "temperature of fusion" `70°C` (not a simulation temperature, Rule 1)
+- `heated up`   (too generic, Rule 3)
+- `at low temperature` (Rule 3)
   
