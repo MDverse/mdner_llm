@@ -53,6 +53,11 @@ class DataConfig(BaseModel):
         le=1.0,
         description="Fraction of dataset used for validation split.",
     )
+    test_ratio: float | None = Field(
+        ge=0.0,
+        le=1.0,
+        description="Fraction of dataset used for test split.",
+    )
     shuffle: bool = Field(
         default=True,
         description="Whether to shuffle dataset before splitting.",
@@ -64,7 +69,7 @@ class DataConfig(BaseModel):
 
     @model_validator(mode="after")
     def check_split_ratios(self) -> "DataConfig":
-        """Validate that train/val split ratios sum to 1.0.
+        """Validate that train/val/test split ratios sum to 1.0.
 
         Returns
         -------
@@ -74,10 +79,10 @@ class DataConfig(BaseModel):
         Raises
         ------
         ValueError
-            If the sum of train_ratio and val_ratio does not equal 1
+            If the sum of train_ratio, val_ratio, and test_ratio does not equal 1
             within a small numerical tolerance.
         """
-        total = self.train_ratio + self.val_ratio
+        total = self.train_ratio + self.val_ratio + (self.test_ratio or 0.0)
 
         if abs(total - 1.0) > 1e-6:
             msg = f"Dataset split ratios must sum to 1.0, got {total}"
@@ -115,6 +120,18 @@ class TrainConfig(BaseModel):
         description=(
             "Number of forward/backward passes before performing an optimizer step. "
             "Used to simulate larger batch sizes under memory constraints."
+        ),
+    )
+    deterministic: bool = Field(
+        default=True,
+        description=("Whether to enable deterministic training for reproducibility."),
+    )
+    use_cv: bool = Field(
+        default=False,
+        description=(
+            "Whether to perform cross-validation during training. "
+            "If true, the training dataset will be split into cv_folds "
+            "and the model will be trained and evaluated on each fold."
         ),
     )
     cv_folds: int = Field(
