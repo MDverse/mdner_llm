@@ -113,7 +113,7 @@ def plot_score(
                 ha="left",
                 color=color,
                 fontweight=weight,
-                fontsize=12,
+                fontsize=18,
             )
             # Score value (inside the bar)
             ax.text(
@@ -122,20 +122,20 @@ def plot_score(
                 f"{x:.2f}" if x > 0 else "0",
                 va="center",
                 ha="right",
-                fontsize=12,
+                fontsize=20,
                 color="dimgrey",
                 fontweight=weight,
             )
     # Axes
-    ax.set_yticks(labels_index, categories, fontsize=12, weight="bold", color="#3D3D3D")
+    ax.set_yticks(labels_index, categories, fontsize=18, weight="bold", color="#3D3D3D")
     ax.set_xlim(0, 1)
-    ax.set_xlabel(metric_capitalized, fontsize=12, fontweight="bold", color="#3D3D3D")
+    ax.set_xlabel(metric_capitalized, fontsize=20, fontweight="bold", color="#3D3D3D")
     # Title
     fig.suptitle(
         f"{metric_capitalized} comparison across models "
         f"({total_annotations} samples / "
         f"{total_entities} entities)",
-        fontsize=23,
+        fontsize=25,
         fontweight="bold",
         color="#3D3D3D",
         y=0.92,
