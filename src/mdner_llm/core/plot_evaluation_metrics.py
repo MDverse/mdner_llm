@@ -49,20 +49,6 @@ def plot_score(
         df_filtered = df_filtered[df_filtered["model_name"].isin(models)]
     else:
         models = df_filtered["model_name"].unique()
-    # Total annotations for the test set (overall category)
-    total_annotations = int(
-        df_filtered.loc[
-            df_filtered["category"] == "OVERALL",
-            "nb_texts_with_category",
-        ].iloc[0]
-    )
-    # Total entities for the test set (overall category)
-    total_entities = int(
-        df_filtered.loc[
-            df_filtered["category"] == "OVERALL",
-            "nb_groundtruth_entities",
-        ].iloc[0]
-    )
     # Compute ranking of models per category
     top_models_per_label = {}
     for cat, group in df_filtered.groupby("category"):
@@ -72,7 +58,7 @@ def plot_score(
     bar_height = (1.2 - 0.2) / len(models)
     group_spacing = 1.2
     labels_index = np.arange(len(categories)) * group_spacing
-    colors = [COLORS.get(label, "#272727") for label in categories]
+    colors = [COLORS.get(label, "#BAB7BA") for label in categories]
     metric_capitalized = metric.replace("_", " ").title()
     # Plot bars for each model
     for model_idx, model_name in enumerate(models):
@@ -113,7 +99,7 @@ def plot_score(
                 ha="left",
                 color=color,
                 fontweight=weight,
-                fontsize=18,
+                fontsize=24,
             )
             # Score value (inside the bar)
             ax.text(
@@ -122,19 +108,18 @@ def plot_score(
                 f"{x:.2f}" if x > 0 else "0",
                 va="center",
                 ha="right",
-                fontsize=20,
+                fontsize=24,
                 color="dimgrey",
                 fontweight=weight,
             )
     # Axes
     ax.set_yticks(labels_index, categories, fontsize=18, weight="bold", color="#3D3D3D")
     ax.set_xlim(0, 1)
+    ax.tick_params(axis="x", labelsize=18, labelcolor="#3D3D3D")
     ax.set_xlabel(metric_capitalized, fontsize=20, fontweight="bold", color="#3D3D3D")
     # Title
     fig.suptitle(
-        f"{metric_capitalized} comparison across models "
-        f"({total_annotations} samples / "
-        f"{total_entities} entities)",
+        f"{metric_capitalized} comparison across models ",
         fontsize=25,
         fontweight="bold",
         color="#3D3D3D",
