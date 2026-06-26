@@ -105,27 +105,51 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
     summary = df["category"].value_counts().sort_values(ascending=False)
     categories = summary.index.tolist()
     counts = summary.to_numpy()
+
+    # Non-redundant counts: unique entity text (case-insensitive) per category.
+    df_norm = df.assign(entity_norm=df["entity"].str.lower().str.strip())
+    unique_counts = (
+        df_norm.groupby("category")["entity_norm"]
+        .nunique()
+        .reindex(categories)
+        .to_numpy()
+    )
+
     colors = [COLORS.get(cat, "#cccccc") for cat in categories]
     fig, ax = plt.subplots(figsize=(10, 5))
     x = np.arange(len(categories))
+
     bars = ax.bar(x, counts, color=colors, edgecolor="dimgrey")
-    for bar in bars:
-        height = bar.get_height()
+    ax.bar(
+        x,
+        unique_counts,
+        color=colors,
+        edgecolor="dimgrey",
+        hatch="///",
+        alpha=0.7,
+        label="Non-redundant entities",
+    )
+
+    for bar, total, unique in zip(bars, counts, unique_counts, strict=False):
         ax.text(
             bar.get_x() + bar.get_width() / 2,
-            height,
-            f"{height:.0f}",
+            total,
+            f"{total:.0f}\n({unique:.0f})",
             ha="center",
             va="bottom",
             fontsize=10,
         )
+
+    total_entities = counts.sum()
     ax.set_title(
-        f"Category distribution ({total_texts} texts / {counts.sum():,} entities)",
+        f"Category distribution ({total_texts} texts / {total_entities:,} entities)",
         fontsize=15,
     )
     ax.set_ylabel("Total count", fontsize=13)
+    ax.set_ylim(0, max(counts) * 1.2)
     ax.set_xticks(x)
     ax.set_xticklabels(categories, fontweight="bold")
+    ax.legend(loc="upper right", fontsize=9)
     file_path = Path("plots/annotations/entity_distribution.png")
     os.makedirs(file_path.parent, exist_ok=True)
     fig.savefig(file_path, bbox_inches="tight", dpi=200)
