@@ -102,7 +102,7 @@ Perform quality control on manually annotated entities:
 ```sh
 $ uv run validate-annotations --annotations-dir data/annotations/groundtruth
 2026-04-10 15:36:46 | INFO     | Validating all annotations in directory: data/annotations/groundtruth.
-2026-04-10 15:36:46 | INFO     | Found 113 JSON files to validate.
+2026-04-10 15:36:46 | INFO     | Found 112 JSON files to validate.
 2026-04-10 15:36:47 | INFO     | Total text mismatches: 0
 2026-04-10 15:36:47 | INFO     | Total span mismatches: 0
 2026-04-10 15:36:47 | INFO     | Total overlapping entities: 0
@@ -119,8 +119,8 @@ $ uv run build-entity-inventory --annotations-path data/annotations/groundtruth 
 2026-04-08 15:29:25 | INFO     | Starting entity inventory.
 2026-04-08 15:29:25 | INFO     | Collecting entities.
 2026-04-08 15:29:25 | INFO     | Reading list of JSON files from data/annotations/groundtruth.
-2026-04-08 15:29:25 | SUCCESS  | Found 115 JSON files successfully.
-2026-04-08 15:29:25 | SUCCESS  | Collected 1801 entities.
+2026-04-08 15:29:25 | SUCCESS  | Found 112 JSON files successfully.
+2026-04-08 15:29:25 | SUCCESS  | Collected 1793 entities.
 2026-04-08 15:29:25 | INFO     | Writing entity inventory TSV file.
 2026-04-08 15:29:25 | SUCCESS  | Saved entity inventory in: data/entities.tsv
 2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
@@ -138,6 +138,7 @@ To extract structured entities from a single text using a specified LLM ([from O
 uv run extract-entities-with-llm \
     --text-path data/annotations/groundtruth/figshare_121241.json \
     --model google/gemma-4-31b-it \
+    --provider venice/bf16 \
     --tag "_run1" \
     --temperature 0.5 \
     --prompt-path docs/prompt_template.md \
@@ -152,6 +153,7 @@ uv run extract-entities-with-llm \
 2026-04-22 00:12:22 | DEBUG    | Loaded prompt (6685 chars) : # Named-Entity Recognition task  ## Role definition  You are a highly speci...
 2026-04-22 00:12:22 | DEBUG    | Starting annotation with model google/gemma-4-31b-it using instructor.
 2026-04-22 00:12:25 | DEBUG    | Response status: ok.
+2026-04-22 00:12:25 | DEBUG    | Provider used: Venice.
 2026-04-22 00:12:25 | DEBUG    | Formatted LLM response: 
                                  entities=[ForceField(category='FFM', text='GAFF'), SoftwareName(category='SOFTNAME', text='AutoDock'), SimulationTime(category='STIME', text='20 ns')]
 2026-04-22 00:12:25 | DEBUG    | Inference time: 2.6673661249951692 seconds.
@@ -205,6 +207,7 @@ To extract structured entities from multiple dataset descriptions, execute:
 uv run extract-entities-with-llm-all-texts \
     --texts-path data/annotations/groundtruth \
     --model google/gemma-4-31b-it \
+    --provider venice/bf16 \
     --tag "_run1" \
     --temperature 0.5 \
     --prompt-path docs/prompt_template.md \

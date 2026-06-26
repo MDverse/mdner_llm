@@ -16,6 +16,7 @@ def extract_entities_all_texts(
     texts_path: Path,
     prompt_path: Path,
     model: str,
+    provider: str | None,
     temperature: float | None,
     guidelines_path: Path,
     examples_path: Path | None,
@@ -36,6 +37,7 @@ def extract_entities_all_texts(
             extract_entities(
                 prompt_path=prompt_path,
                 model=model,
+                provider=provider,
                 tag=tag,
                 temperature=temperature,
                 text_path=file_path,
@@ -81,6 +83,15 @@ def extract_entities_all_texts(
     required=True,
     help="LLM model name to use for extraction."
     "Find available models in OpenRouter (https://openrouter.ai/models).",
+)
+@click.option(
+    "--provider",
+    default=None,
+    type=str,
+    help=(
+        "Enforce a specific routing provider on OpenRouter (e.g., 'wandb/fp8'). "
+        "See available providers at https://openrouter.ai/providers"
+    ),
 )
 @click.option("--tag", default="", type=str, help="Tag to add to the model name.")
 @click.option(
@@ -129,6 +140,7 @@ def extract_entities_all_texts(
 def run_main_from_cli(
     texts_path: Path,
     model: str,
+    provider: str | None,
     tag: str,
     framework: str,
     prompt_path: Path,
@@ -147,6 +159,7 @@ def run_main_from_cli(
     extract_entities_all_texts(
         texts_path=texts_path,
         model=model,
+        provider=provider,
         tag=tag,
         framework=framework,
         prompt_path=prompt_path,

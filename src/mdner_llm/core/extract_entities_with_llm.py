@@ -155,7 +155,8 @@ def update_metadata(
     metadata["usage"]["inference_time_sec"] = time.perf_counter() - start_time
     # Store the raw LLM response in metadata for later reference
     metadata["raw_llm_response"] = raw_llm_response
-    usage = getattr(raw_llm_response, "usage", None)
+    metadata["provider"] = raw_llm_response.provider
+    usage = raw_llm_response.usage
     if isinstance(usage, CompletionUsage):
         # Get the token and cost usage from the response
         metadata["usage"]["input_tokens"] = usage.prompt_tokens
@@ -165,11 +166,9 @@ def update_metadata(
 
 
 def annotate_without_framework(
-    model: str,
-    temperature: float | None,
     api_key: str | None,
+    kwargs: dict,
     metadata: dict,
-    messages: list[dict[str, str]],
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[ListOfEntities, dict[str, ChatCompletion | float | None]]:
     """
@@ -188,13 +187,6 @@ def annotate_without_framework(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key,
     )
-    # Define arguments for the API call
-    kwargs = {
-        "model": model,
-        "messages": messages,
-    }
-    if temperature is not None:
-        kwargs["temperature"] = temperature
     try:
         # Query the LLM and time the inference
         start_time = time.perf_counter()
@@ -210,13 +202,9 @@ def annotate_without_framework(
 
 
 def annotate_with_instructor(
-    model: str,
-    temperature: float | None,
     api_key: str | None,
+    kwargs: dict,
     metadata: dict,
-    messages: list[dict[str, str]],
-    response_model: ListOfEntities | None,
-    max_retries: int = 3,
     logger: "loguru.Logger" = loguru.logger,
 ) -> tuple[
     ListOfEntities,
@@ -233,6 +221,7 @@ def annotate_with_instructor(
         The updated metadata dictionary with inference details and status.
     """
     # Instantiate an Instructor client for the requested model.
+    model = kwargs.get("model")
     model_entry_point = (
         f"openrouter/{model}" if not model.startswith("openai") else model
     )
@@ -246,13 +235,7 @@ def annotate_with_instructor(
     try:
         # Query the LLM
         start_time = time.perf_counter()
-        llm_response, completion = client.create_with_completion(
-            messages=messages,
-            temperature=temperature,
-            # The response is validated against the provided Pydantic model.
-            response_model=response_model,
-            max_retries=max_retries,
-        )
+        llm_response, completion = client.create_with_completion(**kwargs)
     # Handle common Instructor exceptions
     # related to validation (format errors, retries, and response parsing issues)
     except (ValidationError, InstructorRetryException, ResponseParsingError) as exc:
@@ -277,6 +260,7 @@ def annotate_with_instructor(
 
 def annotate_with_pydanticai(
     model: str,
+    provider: str | None,
     temperature: float | None,
     api_key: str | None,
     metadata: dict,
@@ -331,6 +315,7 @@ def annotate_with_llm_and_framework(
     framework: str,
     text_to_annotate: str,
     model: str,
+    provider: str | None,
     temperature: float | None,
     api_key: str | None,
     prompt: str,
@@ -365,30 +350,39 @@ def annotate_with_llm_and_framework(
     # Define the system and user messages for the LLM prompt
     system_msg = "Extract entities as structured JSON."
     user_msg = f"{prompt}\n{text_to_annotate}"
-    messages = [
-        {"role": "system", "content": system_msg},
-        {"role": "user", "content": user_msg},
-    ]
     metadata["prompt"] = user_msg
+    # Define arguments for the API call
+    kwargs = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system_msg},
+            {"role": "user", "content": user_msg},
+        ],
+    }
+    if temperature:
+        kwargs["temperature"] = temperature
+    if provider:
+        kwargs["extra_body"] = {
+            "provider": {"order": [provider], "allow_fallbacks": False}
+        }
+    if response_model and framework != "noframework":
+        # The response is validated against the provided Pydantic model.
+        kwargs["response_model"] = response_model
+        kwargs["max_retries"] = max_retries
     # Route to the appropriate annotation function based on the specified framework
     if framework == "noframework":
-        return annotate_without_framework(
-            model, temperature, api_key, metadata, messages, logger
-        )
+        return annotate_without_framework(api_key, kwargs, metadata, logger)
     if framework == "instructor":
         return annotate_with_instructor(
-            model,
-            temperature,
             api_key,
+            kwargs,
             metadata,
-            messages,
-            response_model,
-            max_retries,
             logger,
         )
     if framework == "pydanticai":
         return annotate_with_pydanticai(
             model,
+            provider,
             temperature,
             api_key,
             metadata,
@@ -469,6 +463,7 @@ def save_formated_response_with_metadata_to_json(
 def extract_entities(
     prompt_path: Path,
     model: str,
+    provider: str | None,
     temperature: float | None,
     text_path: Path,
     guidelines_path: Path,
@@ -500,6 +495,7 @@ def extract_entities(
         framework,
         text_to_annotate,
         model,
+        provider,
         temperature,
         api_key,
         prompt_with_instructions,
@@ -509,6 +505,7 @@ def extract_entities(
     )
     usage = inference_metadata.get("usage", {})
     logger.debug(f"Response status: {inference_metadata['status']}.")
+    logger.debug(f"Provider used: {inference_metadata.get('provider')}.")
     logger.debug(f"Formatted LLM response: {formatted_llm_response}")
     logger.debug(f"Inference time: {usage.get('inference_time_sec')} seconds.")
     logger.debug(f"Input tokens: {usage.get('input_tokens')}.")
@@ -532,6 +529,7 @@ def extract_entities(
         "text": text_to_annotate,
         "url": url,
         "model_name": f"{model}{tag}",
+        "provider": inference_metadata.get("provider"),
         "temperature": temperature,
         "framework_name": framework,
         "prompt_path": str(prompt_output_path),
@@ -563,6 +561,15 @@ def extract_entities(
     "Find available models in OpenRouter (https://openrouter.ai/models).",
 )
 @click.option("--tag", default="", type=str, help="Tag to add to the model name.")
+@click.option(
+    "--provider",
+    default=None,
+    type=str,
+    help=(
+        "Enforce a specific routing provider on OpenRouter (e.g., 'wandb/fp8'). "
+        "See available providers at https://openrouter.ai/providers"
+    ),
+)
 @click.option(
     "--temperature",
     default=None,
@@ -611,6 +618,7 @@ def extract_entities(
 def run_main_from_cli(
     prompt_path: Path,
     model: str,
+    provider: str | None,
     tag: str,
     temperature: float | None,
     text_path: Path,
@@ -626,6 +634,7 @@ def run_main_from_cli(
     extract_entities(
         prompt_path=prompt_path,
         model=model,
+        provider=provider,
         tag=tag,
         temperature=temperature,
         text_path=text_path,
