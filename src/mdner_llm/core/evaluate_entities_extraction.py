@@ -144,11 +144,6 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
 def group_texts_by_category(entities: list) -> dict[str, list[str]]:
     """Group entity texts by their categories.
 
-    Parameters
-    ----------
-    entities : list
-        List of entities with "category" and "text" fields.
-
     Returns
     -------
     dict[str, list[str]]
@@ -168,11 +163,6 @@ def build_category_level_dataframe(
     df: pd.DataFrame,
 ) -> pd.DataFrame:
     """Build a category-level DataFrame from the original DataFrame.
-
-    Parameters
-    ----------
-    df : pd.DataFrame
-        Original DataFrame with one row per annotation file.
 
     Returns
     -------
@@ -380,26 +370,26 @@ def compute_grouped_stats(
     return grouped
 
 
-def main(annotations_dir: Path, results_dir: Path) -> None:
+def main(inferences_dir: Path, results_dir: Path) -> None:
     """
     Evaluate the quality of JSON entity annotations.
 
     Parameters
     ----------
-    annotations_dir : Path
-        Directory containing the JSON annotation files to evaluate.
+    inferences_dir : Path
+        Directory containing the JSON inference files to evaluate.
     results_dir : Path
         Directory where evaluation results, logs, and reports will be written.
     """
     # Configure logging
     timestamp = datetime.now(UTC).strftime("%Y-%m-%d")
     logger = create_logger(
-        f"logs/evaluate_entities_extraction_from_{sanitize_filename(str(annotations_dir))}_{timestamp}.log"
+        f"logs/evaluate_entities_extraction_from_{sanitize_filename(str(inferences_dir))}_{timestamp}.log"
     )
     logger.info("Starting LLM annotation evaluation.")
     start_time = time.perf_counter()
     # Loading annotations with metadatas
-    df = load_json_annotations_as_dataframe(annotations_dir)
+    df = load_json_annotations_as_dataframe(inferences_dir)
     # Checking that the output format is correct
     # and the absence of hallucination
     df = add_quality_columns(df)
@@ -424,27 +414,27 @@ def main(annotations_dir: Path, results_dir: Path) -> None:
 
 @click.command()
 @click.option(
-    "--annotations-dir",
+    "--inferences-dir",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/llm/annotations"),
+    default=Path("results/llm/inferences"),
     show_default=True,
     help="Directory containing the JSON annotation files to evaluate.",
 )
 @click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/llm/evaluation_stats"),
+    default=Path("results/llm/evaluation"),
     show_default=True,
     help="Target directory where evaluation results will be saved.",
     callback=ensure_dir,
 )
 def run_main_from_cli(
-    annotations_dir: Path,
+    inferences_dir: Path,
     results_dir: Path,
 ) -> None:
     """Evaluate the quality of JSON entity annotations from CLI."""
     main(
-        annotations_dir=annotations_dir,
+        inferences_dir=inferences_dir,
         results_dir=results_dir,
     )
 

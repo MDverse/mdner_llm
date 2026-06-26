@@ -100,30 +100,31 @@ OPENROUTER_API_KEY=<your-openrouter-api-key>
 Perform quality control on manually annotated entities:
 
 ```sh
-$ uv run validate-annotations --annotations-dir data/annotations/groundtruth
-2026-04-10 15:36:46 | INFO     | Validating all annotations in directory: data/annotations/groundtruth.
-2026-04-10 15:36:46 | INFO     | Found 112 JSON files to validate.
-2026-04-10 15:36:47 | INFO     | Total text mismatches: 0
-2026-04-10 15:36:47 | INFO     | Total span mismatches: 0
-2026-04-10 15:36:47 | INFO     | Total overlapping entities: 0
-2026-04-10 15:36:47 | INFO     | Total removed entities: 0
-2026-04-10 15:36:47 | INFO     | Total entities with invalid boundaries: 0
-2026-04-10 15:36:47 | INFO     | Total unknown categories: 0
-2026-04-10 15:36:47 | SUCCESS  | Validation completed successfully!
+$ uv run validate-annotations --inferences-dir data/groundtruth
+2026-06-26 23:41:56 | INFO     | Validating all annotations in directory: data/groundtruth.
+2026-06-26 23:41:56 | INFO     | Found 112 JSON files to validate.
+2026-06-26 23:41:56 | INFO     | Total text mismatches: 0
+2026-06-26 23:41:56 | INFO     | Total span mismatches: 0
+2026-06-26 23:41:56 | INFO     | Total overlapping entities: 0
+2026-06-26 23:41:56 | INFO     | Total removed entities: 0
+2026-06-26 23:41:56 | INFO     | Total entities with invalid boundaries: 0
+2026-06-26 23:41:56 | INFO     | Total unknown categories: 0
+2026-06-26 23:41:56 | SUCCESS  | Validation completed successfully!
 ```
 
 Make the inventory of all entities:
 
 ```sh
-$ uv run build-entity-inventory --annotations-path data/annotations/groundtruth --out-path data/entities.tsv
-2026-04-08 15:29:25 | INFO     | Starting entity inventory.
-2026-04-08 15:29:25 | INFO     | Collecting entities.
-2026-04-08 15:29:25 | INFO     | Reading list of JSON files from data/annotations/groundtruth.
-2026-04-08 15:29:25 | SUCCESS  | Found 112 JSON files successfully.
-2026-04-08 15:29:25 | SUCCESS  | Collected 1793 entities.
-2026-04-08 15:29:25 | INFO     | Writing entity inventory TSV file.
-2026-04-08 15:29:25 | SUCCESS  | Saved entity inventory in: data/entities.tsv
-2026-04-08 15:29:25 | SUCCESS  | Entity inventory completed successfully!
+$ uv run build-entity-inventory --annotations-path data/groundtruth --out-path data/entities.tsv
+2026-06-26 23:43:21 | INFO     | Starting entity inventory.
+2026-06-26 23:43:21 | INFO     | Collecting entities.
+2026-06-26 23:43:21 | SUCCESS  | Found 112 JSON files successfully.
+2026-06-26 23:43:21 | SUCCESS  | Collected 1795 entities.
+2026-06-26 23:43:21 | INFO     | Writing entity inventory TSV file.
+2026-06-26 23:43:21 | SUCCESS  | Saved entity inventory in: data/entities.tsv
+2026-06-26 23:43:22 | SUCCESS  | Saved entity distribution plot in 'plots/annotations/entity_distribution.png'.
+2026-06-26 23:43:22 | SUCCESS  | Saved entities distribution by category plot in 'plots/annotations/entity_distribution_by_category.png'.
+2026-06-26 23:43:22 | SUCCESS  | Entity inventory completed successfully!
 ```
 
 A list of entities per category can be found in [notebooks/explore_entities_from_inventory.ipynb](notebooks/explore_entities_from_inventory.ipynb).
@@ -136,7 +137,7 @@ To extract structured entities from a single text using a specified LLM ([from O
 
 ```sh
 uv run extract-entities-with-llm \
-    --text-path data/annotations/groundtruth/figshare_121241.json \
+    --text-path data/groundtruth/figshare_121241.json \
     --model google/gemma-4-31b-it \
     --provider venice/bf16 \
     --tag "_run1" \
@@ -145,9 +146,9 @@ uv run extract-entities-with-llm \
     --guidelines-path docs/annotation_rules.md \
     --examples-path docs/few_shot_examples.md \
     --framework instructor \
-    --output-dir results/llm/annotations
+    --output-dir results/llm/inferences
 2026-04-22 00:12:22 | INFO     | Starting the extraction of entities.
-2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/annotations/groundtruth/figshare_121241.json.
+2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/groundtruth/figshare_121241.json.
 2026-04-22 00:12:22 | DEBUG    | Loaded text (1710 chars): Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...
 2026-04-22 00:12:22 | DEBUG    | Loading prompt from docs/prompt_template.md.
 2026-04-22 00:12:22 | DEBUG    | Loaded prompt (6685 chars) : # Named-Entity Recognition task  ## Role definition  You are a highly speci...
@@ -205,7 +206,7 @@ To extract structured entities from multiple dataset descriptions, execute:
 
 ```sh
 uv run extract-entities-with-llm-all-texts \
-    --texts-path data/annotations/groundtruth \
+    --texts-path data/groundtruth \
     --model google/gemma-4-31b-it \
     --provider venice/bf16 \
     --tag "_run1" \
@@ -214,7 +215,7 @@ uv run extract-entities-with-llm-all-texts \
     --guidelines-path docs/annotation_rules.md \
     --examples-path docs/few_shot_examples.md \
     --framework instructor \
-    --output-dir results/llm/annotations
+    --output-dir results/llm/inferences
 ```
 
 ### Aggregate consensus entities across multiple annotations 📦
@@ -223,12 +224,12 @@ To aggregate consensus entities across multiple annotations, run:
 
 ```sh
 uv run aggregate-consensus-entities \
-    --annotations-dir results/llm/annotations \
+    --inferences-dir results/llm/inferences \
     --threshold 0.5 \
-    --output-dir results/llm/consensus
+    --output-dir results/llm/inferences_consensus
 ```
 
-> This command loads all LLM-generated JSON files in `results/llm/annotations`, computes per-entity consensus scores across all annotations, and saves the consensus entities with scores above the specified threshold in `results/llm/consensus`.
+> This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-entity consensus scores across all annotations, and saves the consensus entities with scores above the specified threshold in `results/llm/inferences_consensus`.
 
 ### Fine-tune Gliner2 on Molecular Dynamics annotations 🚀
 
@@ -250,14 +251,14 @@ uv run extract-entities-with-gliner-all-texts \
 
 ### Evaluate extraction performance ⚖️
 
-To evaluate the quality of annotations produced by LLMs and different framework, run:
+To evaluate the quality of annotations produced by both LLM and Gliner2 models, run:
 
 ```sh
 uv run evaluate-entities-extraction \
-        --annotations-dir results/llm/annotations \
-        --results-dir results/llm/evaluation_stats
+        --inferences-dir results/llm/inferences \
+        --results-dir results/llm/evaluation
 ```
 
-> This command loads all LLM-generated JSON files in `results/llm/annotations`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation_stats`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
+> This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
 
 A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).

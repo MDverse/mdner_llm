@@ -4,7 +4,7 @@ model:
   output_dir: "results/gliner/models"
 
 data:
-  annotations_path: "data/annotations/groundtruth"
+  annotations_path: "data/groundtruth"
   train_ratio: 0.8
   val_ratio: 0.2
   seed: 42

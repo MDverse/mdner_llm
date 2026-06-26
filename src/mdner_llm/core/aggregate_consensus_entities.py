@@ -239,19 +239,19 @@ def write_consensus_details_csv(
 
 
 def aggregate_consensus_entities(
-    annotations_dir: Path,
+    inferences_dir: Path,
     threshold: float,
     output_dir: Path,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Compute consensus score by source and save as one consensus annotation."""
-    # Load all JSON annotation files
-    json_files = sorted(annotations_dir.glob("*.json"))
+    # Load all JSON inference files
+    json_files = sorted(inferences_dir.glob("*.json"))
     if not json_files:
-        logger.error(f"No JSON files found in {annotations_dir}. Exiting.")
+        logger.error(f"No JSON files found in {inferences_dir}. Exiting.")
         return
     else:
-        logger.info(f"Found {len(json_files)} JSON files in {annotations_dir}.")
+        logger.info(f"Found {len(json_files)} JSON files in {inferences_dir}.")
     # Group files by source name
     groups = defaultdict(list)
     for path in json_files:
@@ -306,10 +306,10 @@ def aggregate_consensus_entities(
 
 @click.command()
 @click.option(
-    "--annotations-dir",
+    "--inferences-dir",
     required=True,
     type=click.Path(exists=True, dir_okay=True, file_okay=False, path_type=Path),
-    help="Directory containing the per-run LLM annotation JSON files.",
+    help="Directory containing the per-run LLM inference JSON files.",
 )
 @click.option(
     "--threshold",
@@ -325,16 +325,14 @@ def aggregate_consensus_entities(
     help="Directory where consensus outputs will be written.",
     callback=ensure_dir,
 )
-def run_main_from_cli(
-    annotations_dir: Path, threshold: float, output_dir: Path
-) -> None:
+def run_main_from_cli(inferences_dir: Path, threshold: float, output_dir: Path) -> None:
     """CLI entry point for consensus aggregation."""
     logger = create_logger(
         f"logs/aggregate_{datetime.now(UTC).strftime('%Y-%m-%d_%Hh%Mm%Ss')}.log"
     )
     logger.info("Starting consensus aggregation.")
     aggregate_consensus_entities(
-        annotations_dir=annotations_dir,
+        inferences_dir=inferences_dir,
         threshold=threshold,
         output_dir=output_dir,
         logger=logger,

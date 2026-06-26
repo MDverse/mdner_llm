@@ -287,8 +287,8 @@ def validate_all_annotations_from_dir(
 
 @click.command()
 @click.option("--json-path", type=click.Path(exists=True))
-@click.option("--annotations-dir", type=click.Path(exists=True))
-def run_main_from_cli(json_path: str | None, annotations_dir: str | None):
+@click.option("--inferences-dir", type=click.Path(exists=True))
+def run_main_from_cli(json_path: str | None, inferences_dir: str | None):
     """Run the annotation validation from the command line."""
     if json_path:
         # Initialize logger
@@ -296,10 +296,10 @@ def run_main_from_cli(json_path: str | None, annotations_dir: str | None):
         logger.info(f"Validating annotations in {json_path}...")
         validate_annotations(json_path, logger)
         logger.success(f"Sorted entities saved to {json_path} successfully.")
-    if annotations_dir:
+    if inferences_dir:
         timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
         log_path = f"logs/validate_annotations_{timestamp}.log"
-        validate_all_annotations_from_dir(annotations_dir, log_path=log_path)
+        validate_all_annotations_from_dir(inferences_dir, log_path=log_path)
 
 
 if __name__ == "__main__":
