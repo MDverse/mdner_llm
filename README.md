@@ -18,7 +18,7 @@ Because Large Language Models (LLMs) are inherently non-deterministic, we aim to
 ```mermaid
 classDiagram
     class ListOfEntities {
-        entities: list[Molecule | SimulationTime | ForceFieldModel | Temperature | SoftwareName | SoftwareVersion]
+        entities: list[Molecule | SimulationTime | ForceFieldModel | SimulationTemperature | SoftwareName | SoftwareVersion]
     }
 
     class SoftwareVersion {
@@ -26,8 +26,8 @@ classDiagram
         text: str
     }
 
-    class Temperature {
-        category: str = 'TEMP'
+    class SimulationTemperature {
+        category: str = 'STEMP'
         text: str
     }
 
@@ -59,7 +59,7 @@ classDiagram
     ListOfEntities ..> Molecule
     ListOfEntities ..> SoftwareVersion
     ListOfEntities ..> SimulationTime
-    ListOfEntities ..> Temperature
+    ListOfEntities ..> SimulationTemperature
     ListOfEntities ..> SoftwareName
     ListOfEntities ..> ForceFieldModel
 ```
@@ -132,7 +132,7 @@ A list of entities per category can be found in [notebooks/explore_entities_from
 
 ### Extract entities of one text 📃
 
-To extract structured entities from a single text using a specified LLM ([from OpenRouter available models]((https://openrouter.ai/models))) and framework, run :
+To extract structured entities from a single text using a specified LLM ([from OpenRouter available models](https://openrouter.ai/models)) and framework, run :
 
 ```sh
 uv run extract-entities-with-llm \
@@ -145,7 +145,6 @@ uv run extract-entities-with-llm \
     --examples-path docs/few_shot_examples.md \
     --framework instructor \
     --output-dir results/llm/annotations
-
 2026-04-22 00:12:22 | INFO     | Starting the extraction of entities.
 2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/annotations/groundtruth/figshare_121241.json.
 2026-04-22 00:12:22 | DEBUG    | Loaded text (1710 chars): Modeling of Arylamide Helix Mimetics in the p53 Peptide Binding Site...
@@ -163,6 +162,7 @@ uv run extract-entities-with-llm \
 2026-04-22 00:12:25 | DEBUG    | Saved formated response with metadata successfully.
 2026-04-22 00:12:25 | SUCCESS  | Completed the extraction of entities successfully!
 ```
+
 > This command generates two outputs: a `.txt` file containing the raw LLM response, and a `.json` file containing the extracted entities along with metadata about the extraction (model, framework, input file, and run details).
 
 ```
@@ -214,6 +214,18 @@ uv run extract-entities-with-llm-all-texts \
     --output-dir results/llm/annotations
 ```
 
+### Aggregate consensus entities across multiple annotations 📦
+
+To aggregate consensus entities across multiple annotations, run:
+
+```sh
+uv run aggregate-consensus-entities \
+    --annotations-dir results/llm/annotations \
+    --threshold 0.5 \
+    --output-dir results/llm/consensus
+```
+
+> This command loads all LLM-generated JSON files in `results/llm/annotations`, computes per-entity consensus scores across all annotations, and saves the consensus entities with scores above the specified threshold in `results/llm/consensus`.
 
 ### Fine-tune Gliner2 on Molecular Dynamics annotations 🚀
 
@@ -233,7 +245,6 @@ uv run extract-entities-with-gliner-all-texts \
     --text-path data/gliner/test.jsonl
 ```
 
-
 ### Evaluate extraction performance ⚖️
 
 To evaluate the quality of annotations produced by LLMs and different framework, run:
@@ -244,8 +255,6 @@ uv run evaluate-entities-extraction \
         --results-dir results/llm/evaluation_stats
 ```
 
-> This command loads all LLM-generated JSON files in results/llm/annotations, computes per-annotation metrics against the ground-truth, and saves the results in results/llm/evaluation_stats. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
-
+> This command loads all LLM-generated JSON files in `results/llm/annotations`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation_stats`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
 
 A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).
-

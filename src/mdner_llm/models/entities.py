@@ -22,6 +22,15 @@ class Entity(BaseModel):
     # ... is used to indicate that these fields are required
     category: str = Field(..., description="Category identifying the entity type.")
     text: str = Field(..., description="Extracted text content.")
+    score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=1.0,
+        description=(
+            "Confidence score for the entity extraction, between 0 and 1. "
+            "1 indicates high confidence, while 0 indicates low confidence."
+        ),
+    )
 
 
 # =====================================================================
@@ -43,7 +52,7 @@ class SimulationTime(Entity):
     )
 
 
-class ForceField(Entity):
+class ForceFieldModel(Entity):
     """Entity representing a force field used in the MD simulation."""
 
     category: Literal["FFM"] = Field(
@@ -84,7 +93,7 @@ class ListOfEntities(BaseModel):
     entities: list[
         Molecule
         | SimulationTime
-        | ForceField
+        | ForceFieldModel
         | SimulationTemperature
         | SoftwareName
         | SoftwareVersion
