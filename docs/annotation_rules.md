@@ -96,6 +96,7 @@ It includes packages for molecular dynamics, modeling, trajectory processing, an
 - `COLVAR`
 - `CHARMM-Gui`
 - `Jupyter`
+- `Autodock`
 
 ### Bad examples
 
