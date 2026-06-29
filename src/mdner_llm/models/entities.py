@@ -2,7 +2,8 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from loguru import logger
+from pydantic import BaseModel, Field, ValidationInfo, model_validator
 
 
 # =====================================================================
@@ -98,3 +99,118 @@ class ListOfEntities(BaseModel):
         | SoftwareName
         | SoftwareVersion
     ] = Field(..., description="List of recognized entities extracted from text.")
+
+
+# =====================================================================
+# Normalized Entity Models
+# =====================================================================
+class NormalizedEntity(Entity):
+    """Represents an entity with additional normalization and validation fields."""
+
+    text_normalized: str = Field(
+        ..., description="Normalized version of the extracted text."
+    )
+    is_hallucinated: bool = Field(
+        ..., description="True if the entity text is absent from the source text."
+    )
+
+    @model_validator(mode="before")
+    @classmethod
+    def normalize_and_validate(
+        cls, data: BaseModel | dict, info: ValidationInfo
+    ) -> dict[str, BaseModel | dict]:
+        """
+        Validate entity presence in the source text and normalizes its text field.
+
+        Returns
+        -------
+            dict[str, BaseModel | dict]: The updated dictionary matching the schema fields.
+        """
+        # Convert a Pydantic model to a dictionary
+        if isinstance(data, BaseModel):
+            data = data.model_dump()
+        elif not isinstance(data, dict):
+            data = dict(data)
+        text = data.get("text", "")
+        # First, we normalize the text (lowercase & strip whitespace)
+        data["text_normalized"] = text.strip().lower()
+        # Then, we check if the normalized text is present in the source text
+        source_text = (info.context or {}).get("source_text", "")
+        data["is_hallucinated"] = data["text_normalized"] not in source_text.lower()
+        if data["is_hallucinated"]:
+            logger.warning(
+                f"Entity '{text}' not found in source text "
+                f"(url: {info.context.get('url', 'N/A')})."
+            )
+            logger.warning("Marked as hallucinated.")
+        return data
+
+
+# =====================================================================
+# Entity subclasses for each specific annotation type
+# =====================================================================
+class MoleculeNormalized(NormalizedEntity):
+    """Entity representing a normalized molecule, protein, lipid, or similar object."""
+
+    category: Literal["MOL"] = Field(
+        "MOL", description="Category for molecule entities."
+    )
+
+
+class SimulationTimeNormalized(NormalizedEntity):
+    """Entity representing a normalized simulation time duration (e.g., 50 ns, 5 ms)."""
+
+    category: Literal["STIME"] = Field(
+        "STIME", description="Category for simulation time entities."
+    )
+
+
+class ForceFieldModelNormalized(NormalizedEntity):
+    """Entity representing a normalized force field used in the MD simulation."""
+
+    category: Literal["FFM"] = Field(
+        "FFM", description="Category for force field or model entities."
+    )
+
+
+class SimulationTemperatureNormalized(NormalizedEntity):
+    """Entity representing a normalized temperature value used in the simulation."""
+
+    category: Literal["STEMP"] = Field(
+        "STEMP", description="Category for simulation temperature entities."
+    )
+
+
+class SoftwareNameNormalized(NormalizedEntity):
+    """Entity representing the normalized name of software used for simulations."""
+
+    category: Literal["SOFTNAME"] = Field(
+        "SOFTNAME", description="Category for software name entities."
+    )
+
+
+class SoftwareVersionNormalized(NormalizedEntity):
+    """Entity representing the normalized version of a software package."""
+
+    category: Literal["SOFTVERS"] = Field(
+        "SOFTVERS", description="Category for software version entities."
+    )
+
+
+# =====================================================================
+# Container class for all extracted entities
+# =====================================================================
+class ListOfEntitiesNormalized(BaseModel):
+    """Structured list of all extracted and normalized entities."""
+
+    entities: list[
+        MoleculeNormalized
+        | SimulationTimeNormalized
+        | ForceFieldModelNormalized
+        | SimulationTemperatureNormalized
+        | SoftwareNameNormalized
+        | SoftwareVersionNormalized,
+    ] = Field(
+        ...,
+        description="List of recognized and normalized entities extracted from text.",
+    )
