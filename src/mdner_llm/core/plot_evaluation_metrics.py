@@ -59,7 +59,7 @@ def plot_score(
     bar_height = (1.2 - 0.2) / len(models)
     group_spacing = 1.2
     labels_index = np.arange(len(categories)) * group_spacing
-    colors = [COLORS.get(label, "#868586") for label in categories]
+    colors = [COLORS.get(label, "#D3D3D3") for label in categories]
     metric_capitalized = metric.replace("_", " ").title()
     # Plot bars for each model
     for model_idx, model_name in enumerate(models):
@@ -80,9 +80,7 @@ def plot_score(
             color=colors,
         )
         # Add legends
-        for label, y, x in zip(categories, positions, values, strict=False):
-            is_top = model_name in top_models_per_label[label]
-            weight = "bold" if is_top else "normal"
+        for _label, y, x in zip(categories, positions, values, strict=False):
             color = (
                 "red"
                 if model_name.startswith("fastino/gliner2")
@@ -99,7 +97,7 @@ def plot_score(
                 va="center",
                 ha="left",
                 color=color,
-                fontweight=weight,
+                fontweight="bold",
                 fontsize=24,
             )
             # Score value (inside the bar)
@@ -109,14 +107,21 @@ def plot_score(
                 f"{x:.2f}" if x > 0 else "0",
                 va="center",
                 ha="right",
-                fontsize=24,
+                fontsize=30,
                 color="dimgrey",
-                fontweight=weight,
+                fontweight="bold",
             )
     # Axes
-    ax.set_yticks(labels_index, categories, fontsize=18, weight="bold", color="#3D3D3D")
+    ax.set_yticks(
+        labels_index,
+        categories,
+        fontsize=22,
+        weight="bold",
+        color="#3D3D3D",
+        rotation=90,
+    )
     ax.set_xlim(0, 1)
-    ax.tick_params(axis="x", labelsize=18, labelcolor="#3D3D3D")
+    ax.tick_params(axis="x", labelsize=22, labelcolor="#3D3D3D")
     ax.set_xlabel(metric_capitalized, fontsize=20, fontweight="bold", color="#3D3D3D")
     # Title
     fig.suptitle(
