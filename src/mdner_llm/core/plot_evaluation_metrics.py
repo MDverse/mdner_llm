@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from adjustText import adjust_text
 
 from mdner_llm.annotations.visualize_annotations import COLORS
@@ -58,7 +59,7 @@ def plot_score(
     bar_height = (1.2 - 0.2) / len(models)
     group_spacing = 1.2
     labels_index = np.arange(len(categories)) * group_spacing
-    colors = [COLORS.get(label, "#BAB7BA") for label in categories]
+    colors = [COLORS.get(label, "#868586") for label in categories]
     metric_capitalized = metric.replace("_", " ").title()
     # Plot bars for each model
     for model_idx, model_name in enumerate(models):
@@ -244,8 +245,8 @@ def plot_mean_model_performance(csv_path, score_column) -> None:
     # Filter rows where category is exactly 'OVERALL'
     df = df[df["category"] == "OVERALL"]
     # Sort models by run number to keep the Y-axis clean
-    df["sort_key"] = df["model_name"].str.extract(r"run(\d+)").astype(int)
-    df = df.sort_values("sort_key")
+    df["sort_key"] = df["model_name"].str.extract(r"run(\d+)").astype(float)
+    df = df.sort_values(by=["sort_key", "model_name"])
     # Compute statistics
     mean_val = df[score_column].mean()
     std_val = df[score_column].std()
@@ -306,4 +307,75 @@ def plot_mean_model_performance(csv_path, score_column) -> None:
         marker_color="#262626",
     )
     # Display the chart
+    fig.show()
+
+
+def plot_model_evolution_timeline(
+    csv_path: str, score_column: str, model_release_dates: dict
+) -> None:
+    """Plot the performance evolution of GPT models from oldest to newest."""
+    # 1. Load, filter, map dates and sort
+    df = pd.read_csv(csv_path)
+    df = df[
+        (df["category"] == "OVERALL")
+        & (df["model_name"].isin(model_release_dates.keys()))
+    ].copy()
+    df["release_date"] = pd.to_datetime(
+        df["model_name"].map(model_release_dates), format="%Y-%m-%d"
+    )
+    df = df.sort_values("release_date").reset_index(drop=True)
+    # 2. Identify best model for custom title & styling
+    best_idx = df[score_column].idxmax()
+    # 3. Build plot with line + markers combined in one trace
+    fig = go.Figure(
+        go.Scatter(
+            x=df["release_date"],
+            y=df[score_column],
+            mode="lines+markers",
+            line={"color": "rgba(38, 38, 38, 0.15)", "width": 2, "dash": "dot"},
+            marker={
+                "size": [16 if i == best_idx else 12 for i in df.index],
+                "color": ["#E63946" if i == best_idx else "#262626" for i in df.index],
+                "line": {"width": 1, "color": "white"},
+            },
+            hovertext=df["model_name"],
+        )
+    )
+    # 4. Generate clean alternating text labels via layout annotations
+    model_labels = [
+        {
+            "x": r["release_date"],
+            "y": r[score_column],
+            "text": f"<span style='color:#E63946'>{r['model_name']}</span>"
+            if i == best_idx
+            else r["model_name"],
+            "showarrow": False,
+            "yshift": 30 if i % 2 == 1 else -24,
+            "font": {"size": 13},
+        }
+        for i, r in df.iterrows()
+    ]
+    # 5. Finalize layout with title, axes, and annotations
+    clean_score = score_column.replace("_", " ").title()
+    fig.update_layout(
+        title=f"Model Performance Evolution Over Time ({clean_score})",
+        xaxis={
+            "tickformat": "%b %Y",
+            "dtick": "M3",
+            "tickangle": -30,
+            "title": "Release Timeline",
+        },
+        yaxis={
+            "range": [
+                max(0.0, df[score_column].min() - 0.06),
+                min(1.0, df[score_column].max() + 0.06),
+            ],
+            "tickformat": ".2f",
+            "title": clean_score,
+        },
+        template="plotly_white",
+        annotations=model_labels,
+        height=600,
+        width=950,
+    )
     fig.show()
