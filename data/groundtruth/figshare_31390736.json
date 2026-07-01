@@ -1,5 +1,42 @@
 {
     "raw_text": "Temperature-Induced Lipid Remodeling Underpins Thermal Resilience in Marine Macroalgae via Homeoviscous Membrane Adaptation: Bridging Experiments and Atomistic Simulations\nMarine macroalgae are vital primary producers of coastal ecosystems and natural sources of industrially-important bioactive compounds. Temperature governs their productivity, while ocean warming and extreme marine heatwaves amid climate change threaten their survival. Integrating experiments and molecular dynamics (MD) simulations, this study for the first time unravels how lipid remodeling contributes to the thermal acclimation mechanism of Kappaphycus alvareziia carrageenan-producing marine macroalga widely cultivated in tropics and subtropics. We have elucidated the adaptive rearrangement in fatty acid compositions across temperatures and its consequence on the stability of thylakoid membranes, the primary photosynthesis sites, in tight correlation with macroalgal physiological traits. Upon exposure to 20–34 °C, K. alvarezii exhibits steady growth and photosynthetic performances but rapidly loses biomass and pigments at 41 °C. Consequently, its fatty acid composition shows strong temperature responsiveness, clearly transiting from the highest polyunsaturated fatty acids (PUFAs) (∼52% of TFA) at lowest to nearly complete saturation (∼97%) at highest temperature. Within the acclimation range of 20–34 °C, the unsaturation index gradually and linearly decreases with temperature. Atomistic simulations reveal that such lipidomic restructuring efficiently enforces identical fluidity and lipid packing in thylakoid membranes despite altered growth temperatures, providing the first compelling evidence of homeoviscous adaptation in marine macroalgae. However, at 41 °C, the drastic loss of 20:4(n-6) and 20:5(n-3) PUFAs leads to membrane rigidification and gel phase formation, coinciding with halted growth and photosynthesis. We propose that sustaining adequate PUFA levels may restore collective membrane properties at elevated temperatures. Our study suggests cellular membranes as a critical interface in macroalgal thermotolerance, whose homeostatic tuning ensures the cellular functionality across shifting thermal regimes.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "polyunsaturated fatty acids",
+            "start": 1235,
+            "end": 1262
+        },
+        {
+            "category": "MOL",
+            "text": "PUFAs",
+            "start": 1264,
+            "end": 1269
+        },
+        {
+            "category": "MOL",
+            "text": "20:4(n-6)",
+            "start": 1781,
+            "end": 1790
+        },
+        {
+            "category": "MOL",
+            "text": "20:5(n-3)",
+            "start": 1795,
+            "end": 1804
+        },
+        {
+            "category": "MOL",
+            "text": "PUFAs",
+            "start": 1805,
+            "end": 1810
+        },
+        {
+            "category": "MOL",
+            "text": "PUFA",
+            "start": 1955,
+            "end": 1959
+        }
+    ],
     "url": "https://acs.figshare.com/articles/dataset/Temperature-Induced_Lipid_Remodeling_Underpins_Thermal_Resilience_in_Marine_Macroalgae_via_Homeoviscous_Membrane_Adaptation_Bridging_Experiments_and_Atomistic_Simulations/31390736"
 }

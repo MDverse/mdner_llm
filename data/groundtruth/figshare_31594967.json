@@ -1,5 +1,66 @@
 {
     "raw_text": "Automated Force Field Developer and Optimizer Platform: Torsion Reparameterization\nGeneral force fields such as General Amber Force Field (GAFF) have been designed for broad applicability and are widely used in protein–ligand binding simulations in structure-based drug discovery. However, the force field parameters are not always transferable across ligand molecules, and custom reparameterization is sometimes necessary for accurate binding free energy simulations. This is especially true for torsion parameters, which are highly dependent on stereoelectronic and steric effects. Here, we report a novel, flexible, and user-friendly computational tool called the Automated Force Field Developer and Optimizer (AFFDO) platform that allows generating accurate, tailored GAFF2 torsion parameters for drug-like molecules. For a given ligand, AFFDO selects the most important torsions, carries out GPU-accelerated density functional theory calculations to collect reference data and fits torsion terms using a fast gradient-based optimizer that leverages automated differentiation. We benchmark AFFDO by parametrizing a series of drug-like molecules and carrying out protein–ligand relative binding free energy (RBFE) simulations. The results show that AFFDO can significantly improve GAFF2 torsion parameters against QM reference data, which in some cases translates into better agreement with experimental RBFE values within a reasonable computational time.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "SOFTNAME",
+            "text": "Automated Force Field Developer and Optimizer",
+            "start": 0,
+            "end": 45
+        },
+        {
+            "category": "FFM",
+            "text": "General Amber Force Field",
+            "start": 112,
+            "end": 137
+        },
+        {
+            "category": "FFM",
+            "text": "GAFF",
+            "start": 139,
+            "end": 143
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Automated Force Field Developer and Optimizer",
+            "start": 667,
+            "end": 712
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "AFFDO",
+            "start": 714,
+            "end": 719
+        },
+        {
+            "category": "FFM",
+            "text": "GAFF2",
+            "start": 772,
+            "end": 777
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "AFFDO",
+            "start": 842,
+            "end": 847
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "AFFDO",
+            "start": 1094,
+            "end": 1099
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "AFFDO",
+            "start": 1252,
+            "end": 1257
+        },
+        {
+            "category": "FFM",
+            "text": "GAFF2",
+            "start": 1284,
+            "end": 1289
+        }
+    ],
     "url": "https://acs.figshare.com/articles/dataset/Automated_Force_Field_Developer_and_Optimizer_Platform_Torsion_Reparameterization/31594967"
 }
