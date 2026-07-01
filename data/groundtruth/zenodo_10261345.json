@@ -1,0 +1,5 @@
+{
+    "raw_text": "MD simulation of POPI-POPE (40:60) bilayer with CHARMM36 force field\nDataset contains simulation files MD simulation of of POPI-POPE(40:60) bilayer with CHARMM36 force field with neutralizing NH4+ ions \nSystem: POPI-POPE (40:60) bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 10000\nSalt: Neutralizing NH4+\nNumber of cations: 80\nSimulation time: 500 ns\nSampling rate: every 10 ps\nSimulation engine: GROMACS 2022.4\nForce field: CHARMM36 (parameters as charmm-gui input files 2.11.2023)\nTemperature: 310 K\nEquilibration: 100 ns (equilibration period in the uploaded trajectory, evaluated based on area per lipid)\nPre-equilibration: 2.8 ns",
+    "entities": [],
+    "url": "https://zenodo.org/records/10261345"
+}
