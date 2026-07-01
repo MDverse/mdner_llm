@@ -1,5 +1,48 @@
 {
     "raw_text": "Molecular dynamics simulation data for S100A8-O₃ and MARCO-O₃ complexes in ozone-induced coronary artery disease study\nThis dataset contains the molecular dynamics simulation trajectory files (.gro) for the S100A8–O₃ and MARCO–O₃ complexes, generated using GROMACS 2021.1 over 100 ns production runs. Data support the findings reported in the manuscript \"S100A8 and MARCO as Key Mediators of Ozone-Induced Coronary Artery Disease: A Network Toxicology and Molecular Dynamics Study.\"",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "S100A8-O₃ and MARCO-O₃ complexes",
+            "start": 39,
+            "end": 71
+        },
+        {
+            "category": "MOL",
+            "text": "S100A8–O₃ and MARCO–O₃ complexes",
+            "start": 207,
+            "end": 239
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 257,
+            "end": 264
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2021.1",
+            "start": 265,
+            "end": 271
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 277,
+            "end": 283
+        },
+        {
+            "category": "MOL",
+            "text": "S100A8",
+            "start": 355,
+            "end": 361
+        },
+        {
+            "category": "MOL",
+            "text": "MARCO",
+            "start": 366,
+            "end": 371
+        }
+    ],
     "url": "https://figshare.com/articles/dataset/Molecular_dynamics_simulation_data_for_S100A8-O_and_MARCO-O_complexes_in_ozone-induced_coronary_artery_disease_study/31436845"
 }

@@ -1,5 +1,132 @@
 {
     "raw_text": "Mechanical response of the RecA nucleoprotein filament to increasing D-loop length\nThis repository contains the files and data associated with the article: Mechanical response of the RecA nucleoprotein filament to increasing D-loop length by Afra Sabei, Chantal Prévost, Mara Prentiss, Claudia Danilowicz, Sébastien Neukirch, and Alexandre Détruit.\nDESCRIPTION\n\n\nTrajectories: Contains the structural files for the RecA nucleoprotein filaments (NPFs) with varying D-loop sizes (9bp, 12bp, 15bp, 21bp, 36bp, 45bp, and 54bp). Initial structures were derived from the CryoEM structure (PDB: 7jy9). Filament expansion was performed by replicating subunits using the Heligeom module of the PTools library. Models are named based on the number of stable heteroduplex base pairs(replicas are uploaded separately).\n\n\nParameters: All-atom Molecular Dynamics (MD) simulations were prepared using the VMD auto PSF builder (VMD 1.9.2). Systems were solvated in a TIP3P water model with a physiological ionic concentration of 0.15 mol/l. Simulations were performed using NAMD (versions 2.12 and 2.13) and the CHARMM36m force field including CMAP corrections. Conditions included periodic boundary conditions via PME, 2 fs time steps (SHAKE algorithm), and temperature/pressure regulation via Nosé-Hoover-Langevin piston.\n\n\nScripts: Contains the following Python scripts for modeling and analysis:\n\n\nconstruction_bioarxiv.py: Script for the construction of the NPF models.\n\n\ncmap_bioarxiv.py: Post-processing script for generating contact maps.\n\n\nsite_II_bioarxiv.py: Post-processing script for site II distance calculations.\n\n\n\n\nREFERENCES\n[1] H. Yang, C. Zhou, A. Dhar, and N. P. Pavletich. Mechanism of strand exchange from RecA-DNA synaptic and D-loop structures. Nature, 586(7831):801–806, 2020.\n[2] A. J. Conover, C. Danilowicz, R. Gunaratne, V. W. Coljee, N. Kleckner, and M. Prentiss. Changes in the tension in dsDNA alter the conformation of RecA bound to dsDNA-RecA filaments. Nucleic Acids Res, 39(20):8833–43, 2011.\n[3] J. C. Bell and S. C. Kowalczykowski. Mechanics and single-molecule interrogation of DNA recombination. Annu Rev Biochem, 85:193–226, 2016.\n[4] A. Saladin, S. Fiorucci, P. Poulain, C. Prévost, and M. Zacharias. PTools: An opensource molecular docking library. BMC Struct. Biol., 9:27–37, 2009.\n[5] B. Boyer et al. An integrative approach to the study of filamentous oligomeric assemblies, with application to RecA. PLoS One, 10(3):e0116414, 2015.\n[6] B. Boyer, B. Laurent, C. H. Robert, and C. Prévost. Modeling Perturbations in Protein Filaments at the Micro and Meso Scale Using NAMD and PTools/Heligeom. Bio Protoc, 11(14):e4097, 2021.\n[7] A. D. Mackerell Jr, M. Feig, and C. L. Brooks 3rd. Extending the treatment of backbone energetics in protein force fields... J Comput Chem, 25:1400–1415, 2004.\n[8] J. C. Phillips et al. Scalable molecular dynamics with NAMD. J Comput Chem, 26:1781–1802, 2005.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 27,
+            "end": 31
+        },
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 183,
+            "end": 187
+        },
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 415,
+            "end": 419
+        },
+        {
+            "category": "MOL",
+            "text": "7jy9",
+            "start": 588,
+            "end": 592
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "PTools",
+            "start": 685,
+            "end": 691
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "VMD",
+            "start": 890,
+            "end": 893
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "VMD",
+            "start": 912,
+            "end": 915
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "1.9.2",
+            "start": 916,
+            "end": 921
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 951,
+            "end": 956
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "NAMD",
+            "start": 1058,
+            "end": 1062
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2.12",
+            "start": 1073,
+            "end": 1077
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2.13",
+            "start": 1082,
+            "end": 1086
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 1096,
+            "end": 1105
+        },
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 1713,
+            "end": 1717
+        },
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 1937,
+            "end": 1941
+        },
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 1957,
+            "end": 1961
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "PTools",
+            "start": 2228,
+            "end": 2234
+        },
+        {
+            "category": "MOL",
+            "text": "RecA",
+            "start": 2426,
+            "end": 2430
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "NAMD",
+            "start": 2598,
+            "end": 2602
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "PTools",
+            "start": 2607,
+            "end": 2613
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "NAMD",
+            "start": 2879,
+            "end": 2883
+        }
+    ],
     "url": "https://zenodo.org/records/18377475"
 }
