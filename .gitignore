@@ -200,13 +200,12 @@ cython_debug/
 # Folder contents
 results/*
 plots/*
-data/gliner/*
 
 
 # Ignore common data files
 *.parquet
 *.xtcx
-annotations/v3/*.txt
+*.csv
 
 # Exclude specific files
 !data/*
