@@ -209,3 +209,4 @@ plots/*
 
 # Exclude specific files
 !data/*
+data/gt_annotation_tracker.csv

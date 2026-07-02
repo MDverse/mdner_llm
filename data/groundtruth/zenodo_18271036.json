@@ -1,5 +1,84 @@
 {
     "raw_text": "Conformational Preferences for N-Glycans at the Surface of CEACAM1-Ig1 (Trajectories)\nSupplementary Information for CEACAM-Ig1 Gaussian Accelerated MD Trajectories\nThree 1 us MD trajectories were prepared to allow glycan structures to be screened for\nconsistency with NMR data. They were generated using Pep-GaMD in AMBER22. The starting\npoint for MD calculations was a minimum energy structure for the glycosylated protein selected\nfrom MD trajectories used in our previous work. The system was solvated in TIP5P water in a\nrectangular box with a minimum distance between the glycans and the edge of the box of 10 Å.\nThe ff14SB forcefield was used for amino acids and the GLYCAM_06j-1 forcefield was used for\nglycans. After minimization, the system was heated to 300 K and allowed to equilibrate. The\npotential energy for each of three N-glycans (beginning with GlcNac residues 125, 132 and 139)\nwere boosted along with the remaining system potential energy in a dual-boost Pep-GaMD\nsimulation, which began with a 4 ns conventional MD run and then 16 ns Pep-GaMD\nequilibration. In each of three 1000 ns Pep-GaMD production runs, simulation frames and\nenergies were saved every 2 ps, resulting in 500,000 frames. The standard deviation of the\nboosts was set to 8.0 kcal/mol for all systems. It is important to note that probabilities assigned\nto these structures are ultimately dependent on the accuracy of forcefields for glycans, protein\nand the particular water model used.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "N-Glycans",
+            "start": 31,
+            "end": 40
+        },
+        {
+            "category": "MOL",
+            "text": "CEACAM1-Ig1",
+            "start": 59,
+            "end": 70
+        },
+        {
+            "category": "MOL",
+            "text": "CEACAM-Ig1",
+            "start": 116,
+            "end": 126
+        },
+        {
+            "category": "STIME",
+            "text": "1 us",
+            "start": 170,
+            "end": 174
+        },
+        {
+            "category": "FFM",
+            "text": "AMBER22",
+            "start": 316,
+            "end": 323
+        },
+        {
+            "category": "FFM",
+            "text": "TIP5P",
+            "start": 508,
+            "end": 513
+        },
+        {
+            "category": "MOL",
+            "text": "glycans",
+            "start": 577,
+            "end": 584
+        },
+        {
+            "category": "FFM",
+            "text": "ff14SB",
+            "start": 622,
+            "end": 628
+        },
+        {
+            "category": "MOL",
+            "text": "glycans",
+            "start": 710,
+            "end": 717
+        },
+        {
+            "category": "STEMP",
+            "text": "300 K",
+            "start": 764,
+            "end": 769
+        },
+        {
+            "category": "MOL",
+            "text": "N-glycans",
+            "start": 837,
+            "end": 846
+        },
+        {
+            "category": "STIME",
+            "text": "1000 ns",
+            "start": 1096,
+            "end": 1103
+        },
+        {
+            "category": "MOL",
+            "text": "glycans",
+            "start": 1423,
+            "end": 1430
+        }
+    ],
     "url": "https://zenodo.org/records/18271036"
 }
