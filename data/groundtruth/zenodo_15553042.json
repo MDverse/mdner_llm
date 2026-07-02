@@ -1,0 +1,54 @@
+{
+    "raw_text": "AlphaFold models, alanine scannings and MD simulations of RAD51 BRC-repeats complexes\nIn this repository, we provide the Alphafold simulations of the N-terminal truncated and FL-RAD51 in complex with the BRC-repeats utilized for both computational and experimental (SAXS and XL-MS) studies. Here we also provide Calvados simulations of the BRC repeats connecting regions, the AlphaFold3 model of the RAD51-CAM833 complex. Input files to perform the MD simulations of RAD51's C-ter in complex with BRC4, 2, 7 and 5, through the Desmond MD engine are shared alongside the respective generated trajectories in the xtc format and after removing the solvent to limit file size. Input structures used for the residue scanning (extracted from the MD simulations with BRC4), the commands to perform it, and output files are also shared. We provide a Jupyter notebook to reproduce all the analyses of the MD simulations and residue scanning as well as the respective plots.",
+    "entities": [
+        {
+            "category": "SOFTNAME",
+            "text": "AlphaFold",
+            "start": 0,
+            "end": 9
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Alphafold",
+            "start": 121,
+            "end": 130
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "AlphaFold",
+            "start": 376,
+            "end": 385
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "3",
+            "start": 385,
+            "end": 386
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "3",
+            "start": 410,
+            "end": 411
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "3",
+            "start": 411,
+            "end": 412
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Desmond",
+            "start": 527,
+            "end": 534
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Jupyter notebook",
+            "start": 842,
+            "end": 858
+        }
+    ],
+    "url": "https://zenodo.org/records/15553042"
+}

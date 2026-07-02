@@ -1,0 +1,66 @@
+{
+    "raw_text": "Pure POPC membrane simulations with 1000 mM NaCl with the CHARMM-Drude2023 force field (OpenMM)\n220.14 ns MD simulation of pure POPC membrane using Charmm-Drude2023 polarizable force field (\nDrude Polarizable Lipid Force Field with Explicit Treatment of LongRange Dispersion:\nParametrization and Validation for Saturated and Monounsaturated Zwitterionic Lipids\n)\n.The system contains 128 POPC lipids, 115 NaCl, and 6400 SWM4 water molecules.\nBefore running the Drude simulation, the system has been equilibriated using Charmm36 force field for 200 ns. The last frame of that simulation was used to generate Drude polarizable model. Frame saving frequency is 10ps. There are 22014 frames in this trajectory.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 5,
+            "end": 9
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 44,
+            "end": 48
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM-Drude2023",
+            "start": 58,
+            "end": 74
+        },
+        {
+            "category": "STIME",
+            "text": "220.14 ns",
+            "start": 96,
+            "end": 105
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 128,
+            "end": 132
+        },
+        {
+            "category": "FFM",
+            "text": "Charmm-Drude2023",
+            "start": 148,
+            "end": 164
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 388,
+            "end": 392
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 405,
+            "end": 409
+        },
+        {
+            "category": "FFM",
+            "text": "SWM4",
+            "start": 420,
+            "end": 424
+        },
+        {
+            "category": "FFM",
+            "text": "Charmm36",
+            "start": 519,
+            "end": 527
+        }
+    ],
+    "url": "https://zenodo.org/records/8000133"
+}

@@ -1,0 +1,54 @@
+{
+    "raw_text": "DPPC_Berger_OPLS06\nMD simulation trajectory and related files for fully hydrated DPPC bilayer. The OPLSAA-compatible Berger-DPPC-06 force field (DOI:10.1088/0953--8984/18/28/S07) was used with Gromacs 5.1-beta. Conditions: T=323K, 72 lipids, 2880 SPC waters. 120 ns trajectory, last 60 ns analyzed.\n ",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "category": "FFM",
+            "text": "Berger_OPLS06",
+            "start": 5,
+            "end": 18
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 81,
+            "end": 85
+        },
+        {
+            "category": "FFM",
+            "text": "OPLSAA-compatible Berger-DPPC-06",
+            "start": 99,
+            "end": 131
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 193,
+            "end": 200
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "5.1-beta",
+            "start": 201,
+            "end": 209
+        },
+        {
+            "category": "STEMP",
+            "text": "323K",
+            "start": 225,
+            "end": 229
+        },
+        {
+            "category": "STIME",
+            "text": "120 ns",
+            "start": 259,
+            "end": 265
+        }
+    ],
+    "url": "https://zenodo.org/records/17237"
+}
