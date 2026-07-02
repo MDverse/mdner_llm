@@ -44,23 +44,30 @@ def build_entry(row: pd.Series) -> dict:
     }
 
 
-def process_file(
+def is_processed_file(
     file_name: str,
     raw_datasets: pd.DataFrame,
     groundtruth_dir: Path = Path("data/groundtruth"),
     draft_dir: Path = Path("data/draft"),
-) -> None:
-    """Ensure a single groundtruth file exists, creating or moving it if needed."""
+) -> bool:
+    """Ensure a single groundtruth file exists, creating or moving it if needed.
+
+    Returns
+    -------
+    bool
+        True if the file was found, moved, or created; False if it could not be
+        created from the raw datasets.
+    """
     groundtruth_path = groundtruth_dir / file_name
     if groundtruth_path.exists():
         logger.info(f"{file_name} already in {groundtruth_dir}")
-        return
+        return True
 
     draft_path = draft_dir / file_name
     if draft_path.exists():
         shutil.move(str(draft_path), str(groundtruth_path))
         logger.warning(f"{file_name} moved from {draft_dir} to {groundtruth_dir}")
-        return
+        return True
 
     stem = Path(file_name).stem
     repository_name, dataset_id = stem.split("_", 1)
@@ -70,11 +77,12 @@ def process_file(
     ]
     if match.empty:
         logger.error(f"{file_name} not found in raw datasets, skipping")
-        return
+        return False
 
     entry = build_entry(match.iloc[0])
     groundtruth_path.write_text(json.dumps(entry, ensure_ascii=False, indent=4))
     logger.warning(f"{file_name} created in {groundtruth_dir} from raw datasets")
+    return True
 
 
 @click.command()
@@ -88,11 +96,20 @@ def main(csv_path: Path) -> None:
     logger.info("Building groundtruth files...")
     df = pd.read_csv(csv_path)
     logger.success(f"Loaded {len(df)} file names from {csv_path}.")
+    # Check for unexpected files in data/groundtruth
+    csv_files = set(df["file_name"])
+    groundtruth_dir = Path("data/groundtruth")
+    draft_dir = Path("data/draft")
+    existing_files = {f.name: f for f in groundtruth_dir.glob("*.json")}
+    for file_name in existing_files.keys() - csv_files:
+        shutil.move(existing_files[file_name], draft_dir / file_name)
+        logger.warning(f"Moved {file_name} to {draft_dir} (not in CSV).")
+    # Check for missing files in data/groundtruth
     raw_datasets = load_raw_datasets()
     counter = 0
     for file_name in df["file_name"]:
-        process_file(file_name, raw_datasets)
-        counter += 1
+        if is_processed_file(file_name, raw_datasets, groundtruth_dir, draft_dir):
+            counter += 1
     logger.success(f"Successfully processed {counter}/{len(df)} groundtruth files.")
 
 
