@@ -1,5 +1,30 @@
 {
     "raw_text": "Simulation data for rg-rich-regions (CALVADOS v3): RG/RGG tract grammar analyses\nThis record contains simulation trajectories and derived analysis outputs of [XRGG]7 peptides, with and without RNA ([UG]12), generated with the CALVADOS v3 coarse-grained model to support RG/RGG tract grammar analyses and figure panels in the associated study.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "CALVADOS v3",
+            "start": 37,
+            "end": 48
+        },
+        {
+            "category": "MOL",
+            "text": "[XRGG]7 peptides",
+            "start": 158,
+            "end": 174
+        },
+        {
+            "category": "MOL",
+            "text": "RNA ([UG]12)",
+            "start": 193,
+            "end": 205
+        },
+        {
+            "category": "FFM",
+            "text": "CALVADOS v3",
+            "start": 226,
+            "end": 237
+        }
+    ],
     "url": "https://zenodo.org/records/18414614"
 }

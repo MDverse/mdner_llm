@@ -1,5 +1,60 @@
 {
     "raw_text": "DFT Geometry Optimizations of Phosphorylated Amino Acid Analogs (Ethylphosphate (ep)) with Different Counterions in Water\nPhosphorylated amino acid analogs cut off at the C alpha, solved in CHARMM TIP3p and either methylammonium, sodium, or guanidinium, were simulated in CHARMM using the CHARMM36m force field. The phosphate groups bear the charges 0, -1, and -2. From these simulations, 50 conformations were picked using clustering. From each of the 50 conformations, smaller water boxes were sliced which were then used in the geometry optimizaions. The water was restrained during the optimization to preserve force field compatibility. Optmizations were run in cp2k using TZV2P-MOLOPT-PBE-GTH, PBE, and DFTD3. ",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "phosphate",
+            "start": 70,
+            "end": 79
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM",
+            "start": 190,
+            "end": 196
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3p",
+            "start": 197,
+            "end": 202
+        },
+        {
+            "category": "MOL",
+            "text": "methylammonium",
+            "start": 214,
+            "end": 228
+        },
+        {
+            "category": "MOL",
+            "text": "sodium",
+            "start": 230,
+            "end": 236
+        },
+        {
+            "category": "MOL",
+            "text": "guanidinium",
+            "start": 241,
+            "end": 252
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM",
+            "start": 272,
+            "end": 278
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 289,
+            "end": 298
+        },
+        {
+            "category": "MOL",
+            "text": "phosphate",
+            "start": 316,
+            "end": 325
+        }
+    ],
     "url": "https://zenodo.org/records/18338018"
 }

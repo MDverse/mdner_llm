@@ -1,5 +1,78 @@
 {
     "raw_text": "All-atom molecular dynamics (MD) simulation of the interaction between compounds XLZ87, XLZ85 and EGFR protein\nThis is a molecular dynamics simulation dataset for investigating the interactions between compounds XLZ87, XLZ85 and the EGFR protein. All data were generated using the simulation engine GROMACS 2023.3 with GPU acceleration (NVIDIA A30). The label \"4hjo_xlz85\" denotes the interaction of compound XLZ85 with the EGFR protein, and \"4hjo_xlz87\" denotes the interaction of compound XLZ87 with the EGFR protein.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "XLZ87",
+            "start": 81,
+            "end": 86
+        },
+        {
+            "category": "MOL",
+            "text": "XLZ85",
+            "start": 88,
+            "end": 93
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 98,
+            "end": 102
+        },
+        {
+            "category": "MOL",
+            "text": "XLZ87",
+            "start": 212,
+            "end": 217
+        },
+        {
+            "category": "MOL",
+            "text": "XLZ85",
+            "start": 219,
+            "end": 224
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 233,
+            "end": 237
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 299,
+            "end": 306
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2023.3",
+            "start": 307,
+            "end": 313
+        },
+        {
+            "category": "MOL",
+            "text": "XLZ85",
+            "start": 409,
+            "end": 414
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 424,
+            "end": 428
+        },
+        {
+            "category": "MOL",
+            "text": "XLZ87",
+            "start": 491,
+            "end": 496
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 506,
+            "end": 510
+        }
+    ],
     "url": "https://zenodo.org/records/18437736"
 }

@@ -1,5 +1,120 @@
 {
     "raw_text": "Dataset for Molecular Dynamics Simulation of TLR4/MD-2 Complex with β-Sesquiphellandrene\nDataset Overview\nThis dataset contains the input and processed molecular dynamics (MD) simulation data supporting the computational findings of our study. The simulations modeled the interaction between the TLR4/MD-2 receptor complex and the lead bioactive ligand β-sesquiphellandrene from Aframomum Melegueta over a 100-nanosecond trajectory.\n---\nAssociated Project: \"Integrated In Vivo and In Silico Analysis Reveals Aframomum Melegueta Neuroprotection Against LPS-Induced Memory Impairment Through TLR4/MD-2 Modulation\"\nLicense: Creative Commons Attribution 4.0 International (CC-BY 4.0)\n---\nFile Inventory & Description\n\nSimulation Inputs (Topology & Structure)* complex_solvated.gro`: The final solvated system coordinates (Protein + Ligand + Water + Ions).* topol.top: GROMACS system topology file.* ligand.itp: Ligand topology parameters generated via CGenFF.* index.ndx: Index file defining groups (System, Protein, Ligand, Solvent).* md_input files: .edr, .nvt, .npt, .cpt, .gro files, etc.\nProduction Outputs* md_01 xtc file: Compressed trajectory file (100 ns simulation, frames saved every 10 ps).* md_01 tpr file: The run input file used to generate the trajectory.* md_01 log file: GROMACS log file containing energy and performance data.\nAnalysis Outputs (Processed Data)* rmsd.xvg, rmsf.xvg, potential.xvg, \n\n---\nMethodology Summary\nSoftware: GROMACS (Version 2025.2)Force Field: CHARMM36m (Protein) / CGenFF (Ligand)Water Model: TIP3PEnsemble: NPT (Isothermal-Isobaric)Temperature: 300 K (V-rescale thermostat)Pressure: 1 bar (Parrinello-Rahman barostat)Duration: 100 nsTime Step: 2 fs\n---\nCitation\nIf you use this dataset, please cite both the dataset DOI and the associated publication:\nDataset: Oladele, T. S., Iteire, K. A., Ogunmiluyi, O. E., Adebisi, K. A., Siyanbade, A. J., Sulaiman, K. A., Leko, B. J., & Ijomone, O. M. (2026). Dataset for Molecular Dynamics Simulation of TLR4/MD-2 Complex with β-Sesquiphellandrene (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18468770",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "TLR4/MD-2 Complex",
+            "start": 45,
+            "end": 62
+        },
+        {
+            "category": "MOL",
+            "text": "β-Sesquiphellandrene",
+            "start": 68,
+            "end": 88
+        },
+        {
+            "category": "MOL",
+            "text": "TLR4/MD-2 receptor complex",
+            "start": 296,
+            "end": 322
+        },
+        {
+            "category": "MOL",
+            "text": "β-sesquiphellandrene",
+            "start": 353,
+            "end": 373
+        },
+        {
+            "category": "STIME",
+            "text": "100-nanosecond",
+            "start": 406,
+            "end": 420
+        },
+        {
+            "category": "MOL",
+            "text": "TLR4/MD-2",
+            "start": 590,
+            "end": 599
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 864,
+            "end": 871
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CGenFF",
+            "start": 948,
+            "end": 954
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 1153,
+            "end": 1159
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1285,
+            "end": 1292
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 1448,
+            "end": 1455
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2025.2",
+            "start": 1465,
+            "end": 1471
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 1485,
+            "end": 1494
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CGenFF",
+            "start": 1507,
+            "end": 1513
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 1535,
+            "end": 1540
+        },
+        {
+            "category": "STEMP",
+            "text": "300 K",
+            "start": 1588,
+            "end": 1593
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 1670,
+            "end": 1676
+        },
+        {
+            "category": "MOL",
+            "text": "TLR4/MD-2 Complex",
+            "start": 1988,
+            "end": 2005
+        },
+        {
+            "category": "MOL",
+            "text": "β-Sesquiphellandrene",
+            "start": 2011,
+            "end": 2031
+        }
+    ],
     "url": "https://zenodo.org/records/18468770"
 }

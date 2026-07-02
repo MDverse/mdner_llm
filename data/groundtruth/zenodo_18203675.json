@@ -1,5 +1,168 @@
 {
     "raw_text": "MD dataset for EGFR TMJM dimer in ordered membrane with GM3\nEGFR Molecular Dynamics Trajectories\n \n## Dataset Description\n \nThis dataset contains molecular dynamics simulation trajectories investigating the inhibitory mechanism of GM3 ganglioside on EGFR (Epidermal Growth Factor Receptor) activation. This trajectory is a control.  The starting structure is a dimer.\n## File Contents\n \n### Trajectory Files\n- `EGFR_dimer_in_ordered_membrane.xtc` - Trajectory of EGFR TM-JM dimer peptides in GM3-containing membrane (10 μs)\n \n \n### Structure Files\n- `step5_assembly.psf` - Protein structure file for GM3-containing system\n \n \n## Simulation Details\n \n### System Composition\n- **Membrane dimensions**: 40 × 40 nm\n- **Proteins**: 4 EGFR TM-JM peptides (residues 610-659; two dimers)\n- **ordered membrane system**: CHOL:DLiPC:SM = 33:33:33 mol% (upper leaflet); CHOL:DLiPC:DOPS = 33:33:33 mol% (lower leaflet)\n \n \n### Simulation Parameters\n- **Force field**: MARTINI 2.2 coarse-grained\n- **Software**: GROMACS 2023.3\n- **Temperature**: 298 K\n- **Pressure**: 1 bar (semi-isotropic coupling)\n- **Salt concentration**: 150 mM NaCl\n- **Duration**: 10 μs per system\n \n## Usage\n \nThese trajectories can be analyzed using standard molecular dynamics analysis tools:\n \n```bash\n# Example: Load with MDAnalysis (Python)\nimport MDAnalysis as mda\n \n# Load GM3-containing system\nu_gm3 = mda.Universe('with_GM3.psf', 'with_GM3.xtc')\n \n# Load GM3-free system\nu_free = mda.Universe('without_GM3.psf', 'without_GM3.xtc')\n \n# Codes for analyses on the manuscript by Sato and Tamagaki-Asahina\n \nCodes for analyses are available on github, https://github.com/takeshi-sato-dev/",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 15,
+            "end": 19
+        },
+        {
+            "category": "MOL",
+            "text": "GM3",
+            "start": 56,
+            "end": 59
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 60,
+            "end": 64
+        },
+        {
+            "category": "MOL",
+            "text": "GM3 ganglioside",
+            "start": 231,
+            "end": 246
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 250,
+            "end": 254
+        },
+        {
+            "category": "MOL",
+            "text": "Epidermal Growth Factor Receptor",
+            "start": 256,
+            "end": 288
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 463,
+            "end": 467
+        },
+        {
+            "category": "MOL",
+            "text": "GM3",
+            "start": 492,
+            "end": 495
+        },
+        {
+            "category": "STIME",
+            "text": "10 μs",
+            "start": 517,
+            "end": 522
+        },
+        {
+            "category": "MOL",
+            "text": "GM3",
+            "start": 600,
+            "end": 603
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 729,
+            "end": 733
+        },
+        {
+            "category": "MOL",
+            "text": "CHOL",
+            "start": 811,
+            "end": 815
+        },
+        {
+            "category": "MOL",
+            "text": "DLiPC",
+            "start": 816,
+            "end": 821
+        },
+        {
+            "category": "MOL",
+            "text": "SM",
+            "start": 822,
+            "end": 824
+        },
+        {
+            "category": "MOL",
+            "text": "CHOL",
+            "start": 858,
+            "end": 862
+        },
+        {
+            "category": "MOL",
+            "text": "DLiPC",
+            "start": 863,
+            "end": 868
+        },
+        {
+            "category": "MOL",
+            "text": "DOPS",
+            "start": 869,
+            "end": 873
+        },
+        {
+            "category": "FFM",
+            "text": "MARTINI 2.2",
+            "start": 955,
+            "end": 966
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 998,
+            "end": 1005
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2023.3",
+            "start": 1006,
+            "end": 1012
+        },
+        {
+            "category": "STEMP",
+            "text": "298 K",
+            "start": 1032,
+            "end": 1037
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 1119,
+            "end": 1123
+        },
+        {
+            "category": "STIME",
+            "text": "10 μs",
+            "start": 1140,
+            "end": 1145
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "MDAnalysis",
+            "start": 1286,
+            "end": 1296
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "MDAnalysis",
+            "start": 1313,
+            "end": 1323
+        },
+        {
+            "category": "MOL",
+            "text": "GM3",
+            "start": 1340,
+            "end": 1343
+        },
+        {
+            "category": "MOL",
+            "text": "GM3",
+            "start": 1424,
+            "end": 1427
+        }
+    ],
     "url": "https://zenodo.org/records/18203675"
 }

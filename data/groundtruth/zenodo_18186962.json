@@ -1,5 +1,72 @@
 {
     "raw_text": "CpHMD simulations and electrophysiology of sTeLIC\n# Trajectories* 3 replicate 2-microsecond trajectories (1 ns/frame) for each of 2 systems under each of 2 pH conditions (12 total), with file names: ['open' (PDB ID: 9F5N) or 'closed' (PDB ID: 9EX6) starting structure]_['6.5' (resting) or '10' (activating) system pH]_[replicate ID '1', '2' or '3'].xtc\n# 'preparation.zip'* Topology, force field and GROMACS parameter files for preparing the simulations, as well as a script for updating lambda coordinates between equilibration steps\n# 'startingmodels.zip'* Starting models for each simulation system, with file names: ['open' (PDB ID: 9F5N) or 'closed' (PDB ID: 9EX6) starting structure]_['6.5' (resting) or '10' (activating) system pH].pdb\n# 'lambdavalues.zip'* Values of each of 496 lambda coordinates during each simulation of each system, with directory names: ['open' (PDB ID: 9F5N) or 'closed' (PDB ID: 9EX6) starting structure]_['6.5' (resting) or '10' (activating) system pH]_[replicate ID '1', '2' or '3']_lambdavalues\n# 'analysis.zip'* Data and relevant scripts for the analyses done in the paper * 'rmsd_data' contains rmsd values for C-alpha atoms in the ECD* 'interaction_data' contains interactions made by titratable residues in the system* 'domain_data' contains time-dependent geometric properties for each subunit across a given trajectory \n# 'sTeLIC_ephys.xlsx'* Individual peak current values with mean and standard-error calculations for electrophysiology data presented in the accompanying manuscript",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "CpHMD",
+            "start": 0,
+            "end": 5
+        },
+        {
+            "category": "MOL",
+            "text": "sTeLIC",
+            "start": 43,
+            "end": 49
+        },
+        {
+            "category": "STIME",
+            "text": "2-microsecond",
+            "start": 78,
+            "end": 91
+        },
+        {
+            "category": "MOL",
+            "text": "9F5N",
+            "start": 216,
+            "end": 220
+        },
+        {
+            "category": "MOL",
+            "text": "9EX6",
+            "start": 243,
+            "end": 247
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 400,
+            "end": 407
+        },
+        {
+            "category": "MOL",
+            "text": "9F5N",
+            "start": 637,
+            "end": 641
+        },
+        {
+            "category": "MOL",
+            "text": "9EX6",
+            "start": 664,
+            "end": 668
+        },
+        {
+            "category": "MOL",
+            "text": "9F5N",
+            "start": 884,
+            "end": 888
+        },
+        {
+            "category": "MOL",
+            "text": "9EX6",
+            "start": 911,
+            "end": 915
+        },
+        {
+            "category": "MOL",
+            "text": "sTeLIC",
+            "start": 1364,
+            "end": 1370
+        }
+    ],
     "url": "https://zenodo.org/records/18186962"
 }
