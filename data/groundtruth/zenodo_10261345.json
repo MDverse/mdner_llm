@@ -1,5 +1,114 @@
 {
     "raw_text": "MD simulation of POPI-POPE (40:60) bilayer with CHARMM36 force field\nDataset contains simulation files MD simulation of of POPI-POPE(40:60) bilayer with CHARMM36 force field with neutralizing NH4+ ions \nSystem: POPI-POPE (40:60) bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 10000\nSalt: Neutralizing NH4+\nNumber of cations: 80\nSimulation time: 500 ns\nSampling rate: every 10 ps\nSimulation engine: GROMACS 2022.4\nForce field: CHARMM36 (parameters as charmm-gui input files 2.11.2023)\nTemperature: 310 K\nEquilibration: 100 ns (equilibration period in the uploaded trajectory, evaluated based on area per lipid)\nPre-equilibration: 2.8 ns",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPI",
+            "start": 17,
+            "end": 21
+        },
+        {
+            "category": "MOL",
+            "text": "POPE",
+            "start": 22,
+            "end": 26
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 48,
+            "end": 56
+        },
+        {
+            "category": "MOL",
+            "text": "POPI",
+            "start": 123,
+            "end": 127
+        },
+        {
+            "category": "MOL",
+            "text": "POPE",
+            "start": 128,
+            "end": 132
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 153,
+            "end": 161
+        },
+        {
+            "category": "MOL",
+            "text": "NH4+",
+            "start": 192,
+            "end": 196
+        },
+        {
+            "category": "MOL",
+            "text": "POPI",
+            "start": 211,
+            "end": 215
+        },
+        {
+            "category": "MOL",
+            "text": "POPE",
+            "start": 216,
+            "end": 220
+        },
+        {
+            "category": "MOL",
+            "text": "NH4+",
+            "start": 325,
+            "end": 329
+        },
+        {
+            "category": "STIME",
+            "text": "500 ns",
+            "start": 369,
+            "end": 375
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 422,
+            "end": 429
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2022.4",
+            "start": 430,
+            "end": 436
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 450,
+            "end": 458
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "charmm-gui",
+            "start": 474,
+            "end": 484
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2.11.2023",
+            "start": 497,
+            "end": 506
+        },
+        {
+            "category": "STEMP",
+            "text": "310 K",
+            "start": 521,
+            "end": 526
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 542,
+            "end": 548
+        }
+    ],
     "url": "https://zenodo.org/records/10261345"
 }

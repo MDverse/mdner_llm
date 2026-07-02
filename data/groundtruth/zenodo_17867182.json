@@ -1,5 +1,120 @@
 {
     "raw_text": "Fully hydrated bilayer of POPC and cholesterol (6.7 mol-%) at 298 K simulated using CHARMM36\nAll-atom MD simulation trajectory of a POPC:CHOL (15:1) lipid bilayer. 30 POPC (1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine) and 2 cholesterol (CHOL) molecules per leaflet. Simulated with GROMACS 2023.3 using the CHARMM36 force field as obtained from CHARMM-GUI on 08.12.2025. Temperature 298 K. Full hydration: 2832 molecules of CHARMM TIP3P water. The uploaded 200 ns trajectory, saved every 10 ps, was preceded by a 50 ns equilibration (not included in the upload); the included plot shows area-per-lipid over the whole 250 ns.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 26,
+            "end": 30
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 35,
+            "end": 46
+        },
+        {
+            "category": "STEMP",
+            "text": "298 K",
+            "start": 62,
+            "end": 67
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 84,
+            "end": 92
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 132,
+            "end": 136
+        },
+        {
+            "category": "MOL",
+            "text": "CHOL",
+            "start": 137,
+            "end": 141
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 167,
+            "end": 171
+        },
+        {
+            "category": "MOL",
+            "text": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine",
+            "start": 173,
+            "end": 221
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 229,
+            "end": 240
+        },
+        {
+            "category": "MOL",
+            "text": "CHOL",
+            "start": 242,
+            "end": 246
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 286,
+            "end": 293
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2023.3",
+            "start": 294,
+            "end": 300
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 311,
+            "end": 319
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 349,
+            "end": 359
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "08.12.2025",
+            "start": 363,
+            "end": 373
+        },
+        {
+            "category": "STEMP",
+            "text": "298 K",
+            "start": 387,
+            "end": 392
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM",
+            "start": 428,
+            "end": 434
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 435,
+            "end": 440
+        },
+        {
+            "category": "STIME",
+            "text": "200 ns",
+            "start": 461,
+            "end": 467
+        }
+    ],
     "url": "https://zenodo.org/records/17867182"
 }

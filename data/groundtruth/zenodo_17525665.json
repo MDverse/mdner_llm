@@ -1,5 +1,66 @@
 {
     "raw_text": "Supplementary all-atom MD simulations for the work \"Uncovering the flexibility of CDR loops in antibodies and TCRs through large-scale molecular dynamics\" (Cagiada M, Spoendlin F.C - 2025)\nThis repository contains all-atom molecular dynamics (MD) simulation data associated with the publication \"Uncovering the flexibility of CDR loops in antibodies and TCRs through large-scale molecular dynamics\" (Cagiada M, Spoendlin F.C - 2025).\nThe data provided here include MD trajectories and topologies files used to characterize the conformational flexibility and dynamics of complementarity-determining region (CDR) loops in antibodies and T-cell receptors (TCRs). \nSimulations were performed in three or four replicates for each system (three for antibody systems and four for TCR systems), consisting of 500 ns MD production simulations under NPT conditions (298 K, 1 atm) using AMBER24 with the ff19SB force field and the OPC3 water model. Please refer to the manuscript for additional methodological details.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "TCRs",
+            "start": 110,
+            "end": 114
+        },
+        {
+            "category": "MOL",
+            "text": "TCRs",
+            "start": 354,
+            "end": 358
+        },
+        {
+            "category": "MOL",
+            "text": "T-cell receptors",
+            "start": 635,
+            "end": 651
+        },
+        {
+            "category": "MOL",
+            "text": "TCRs",
+            "start": 653,
+            "end": 657
+        },
+        {
+            "category": "MOL",
+            "text": "TCR",
+            "start": 773,
+            "end": 776
+        },
+        {
+            "category": "STIME",
+            "text": "500 ns",
+            "start": 801,
+            "end": 807
+        },
+        {
+            "category": "STEMP",
+            "text": "298 K",
+            "start": 856,
+            "end": 861
+        },
+        {
+            "category": "FFM",
+            "text": "AMBER24",
+            "start": 876,
+            "end": 883
+        },
+        {
+            "category": "FFM",
+            "text": "ff19SB",
+            "start": 893,
+            "end": 899
+        },
+        {
+            "category": "FFM",
+            "text": "OPC3",
+            "start": 920,
+            "end": 924
+        }
+    ],
     "url": "https://zenodo.org/records/17525665"
 }

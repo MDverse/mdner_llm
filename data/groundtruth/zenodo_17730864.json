@@ -1,5 +1,114 @@
 {
     "raw_text": "MD simulation trajectory of Ternary mixture of POPC/PSM/Chol (35:35:30) at 295 K: Slipids, GROMACS 5.1.4.\nMD simulation trajectory files for Ternary mixture of POPC/PSM/Chol [360 POPC, 352 PSM, 304 Chol and 35840 SOL]. The Slipids (2013 version) force field was used with Gromacs 5.1.4. Conditions: T=295K. Data saved every 20 ps. 100 ns trajectory.\n \nPREEQTIME: 100 ns\nTIMELEFTOUT: 300 ns",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "category": "MOL",
+            "text": "PSM",
+            "start": 52,
+            "end": 55
+        },
+        {
+            "category": "MOL",
+            "text": "Chol",
+            "start": 56,
+            "end": 60
+        },
+        {
+            "category": "STEMP",
+            "text": "295 K",
+            "start": 75,
+            "end": 80
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 82,
+            "end": 89
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 91,
+            "end": 98
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "5.1.4",
+            "start": 99,
+            "end": 104
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 160,
+            "end": 164
+        },
+        {
+            "category": "MOL",
+            "text": "PSM",
+            "start": 165,
+            "end": 168
+        },
+        {
+            "category": "MOL",
+            "text": "Chol",
+            "start": 169,
+            "end": 173
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 179,
+            "end": 183
+        },
+        {
+            "category": "MOL",
+            "text": "PSM",
+            "start": 189,
+            "end": 192
+        },
+        {
+            "category": "MOL",
+            "text": "Chol",
+            "start": 198,
+            "end": 202
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids (2013 version)",
+            "start": 223,
+            "end": 245
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "5.1.4",
+            "start": 280,
+            "end": 285
+        },
+        {
+            "category": "STEMP",
+            "text": "295K",
+            "start": 301,
+            "end": 305
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 331,
+            "end": 337
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 363,
+            "end": 369
+        }
+    ],
     "url": "https://zenodo.org/records/17730864"
 }

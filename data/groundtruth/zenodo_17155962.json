@@ -1,5 +1,84 @@
 {
     "raw_text": "AMOEBA force field parameters for choline chloride–based deep eutectic solvents\nThis dataset contains AMOEBA polarizable force field parameter files developed for choline chloride–based deep eutectic solvents (DESs). Parameters were generated for choline chloride, urea, malonic acid, ethylene glycol, and glycerol following the standard AMOEBA parameterization protocol with targeted charge scaling, as described in the associated JPCL manuscript. These files enable molecular dynamics simulations of DESs with improved accuracy in reproducing experimental self-diffusion coefficients.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "AMOEBA",
+            "start": 0,
+            "end": 6
+        },
+        {
+            "category": "MOL",
+            "text": "choline",
+            "start": 34,
+            "end": 41
+        },
+        {
+            "category": "MOL",
+            "text": "chloride",
+            "start": 42,
+            "end": 50
+        },
+        {
+            "category": "FFM",
+            "text": "AMOEBA",
+            "start": 102,
+            "end": 108
+        },
+        {
+            "category": "MOL",
+            "text": "choline",
+            "start": 163,
+            "end": 170
+        },
+        {
+            "category": "MOL",
+            "text": "chloride",
+            "start": 171,
+            "end": 179
+        },
+        {
+            "category": "MOL",
+            "text": "choline",
+            "start": 247,
+            "end": 254
+        },
+        {
+            "category": "MOL",
+            "text": "chloride",
+            "start": 255,
+            "end": 263
+        },
+        {
+            "category": "MOL",
+            "text": "urea",
+            "start": 265,
+            "end": 269
+        },
+        {
+            "category": "MOL",
+            "text": "malonic acid",
+            "start": 271,
+            "end": 283
+        },
+        {
+            "category": "MOL",
+            "text": "ethylene glycol",
+            "start": 285,
+            "end": 300
+        },
+        {
+            "category": "MOL",
+            "text": "glycerol",
+            "start": 306,
+            "end": 314
+        },
+        {
+            "category": "FFM",
+            "text": "AMOEBA",
+            "start": 338,
+            "end": 344
+        }
+    ],
     "url": "https://zenodo.org/records/17155962"
 }
