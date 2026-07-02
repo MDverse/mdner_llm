@@ -1,5 +1,114 @@
 {
     "raw_text": "Lipopeptides from Bacillus Probiotics Can Target Transmem-brane Receptors NOX4, EGFR, PDGFR, and OCTN2 Involved in Oxidative Stress and Oncogenesis\nThis dataset contains the output files from 200-nanosecond Molecular Dynamics (MD) simulations of Bacillus lipopeptide complexes with the NOX4 receptor (Q9NPH5), as described in the associated study. The simulations were performed for three key ligand-receptor complexes: NOX4–Iturin C, NOX4–Iturin D, and NOX4–Plipastatin. For each complex, the provided files include the complete simulation trajectory, energy and parameter logs (e.g., system energy, temperature, pressure, volume, protein and ligand RMSD), final structural coordinates, and detailed protein-ligand interaction profiles (hydrogen bonds, hydrophobic contacts, ionic interactions, and water bridges). These files, generated using the Desmond MD system (Schrödinger Suite 2023-4) with the OPLS4 force field and TIP3P water model, allow for independent verification of complex stability, conformational dynamics, and binding interactions reported in the manuscript. The data directly supports the results presented in Section 3.5 (MD simulations) and Figure 9 of the article.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "NOX4",
+            "start": 74,
+            "end": 78
+        },
+        {
+            "category": "MOL",
+            "text": "EGFR",
+            "start": 80,
+            "end": 84
+        },
+        {
+            "category": "MOL",
+            "text": "PDGFR",
+            "start": 86,
+            "end": 91
+        },
+        {
+            "category": "MOL",
+            "text": "OCTN2",
+            "start": 97,
+            "end": 102
+        },
+        {
+            "category": "STIME",
+            "text": "200-nanosecond",
+            "start": 192,
+            "end": 206
+        },
+        {
+            "category": "MOL",
+            "text": "NOX4",
+            "start": 286,
+            "end": 290
+        },
+        {
+            "category": "MOL",
+            "text": "Q9NPH5",
+            "start": 301,
+            "end": 307
+        },
+        {
+            "category": "MOL",
+            "text": "NOX4",
+            "start": 420,
+            "end": 424
+        },
+        {
+            "category": "MOL",
+            "text": "Iturin C",
+            "start": 425,
+            "end": 433
+        },
+        {
+            "category": "MOL",
+            "text": "NOX4",
+            "start": 435,
+            "end": 439
+        },
+        {
+            "category": "MOL",
+            "text": "Iturin D",
+            "start": 440,
+            "end": 448
+        },
+        {
+            "category": "MOL",
+            "text": "NOX4",
+            "start": 454,
+            "end": 458
+        },
+        {
+            "category": "MOL",
+            "text": "Plipastatin",
+            "start": 459,
+            "end": 470
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Desmond",
+            "start": 849,
+            "end": 856
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Schrödinger Suite",
+            "start": 868,
+            "end": 885
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2023-4",
+            "start": 886,
+            "end": 892
+        },
+        {
+            "category": "FFM",
+            "text": "OPLS4",
+            "start": 903,
+            "end": 908
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 925,
+            "end": 930
+        }
+    ],
     "url": "https://zenodo.org/records/18094800"
 }

@@ -1,5 +1,96 @@
 {
     "raw_text": "Trajectories and other input/output files of Molecular Dynamics Simulations of DPPS lipidic bilayers with salted water (0.25M NaCl) and hydration Number=18\n\nTrajectories and other input/output files of Molecular Dynamics Simulations of  DPPS lipidic bilayers with salted water (0.25M NaCl) and hydration Number=18\nForce Field = CHARMM36 and mTIP3P\nComposition :   200 DPPS, 3600 water, 208 Na+, 08 Cl- \nSimulation time : 1000 ns\nTemperatures : 333.15, 338.15, 343.15, 348.15 and 353.15 K\nPressure  : 1 Bar, no surface tension, semi-isotropic barostat\ntime lag between conformations in the trajectory : 0.1 ns\n",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DPPS",
+            "start": 79,
+            "end": 83
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 126,
+            "end": 130
+        },
+        {
+            "category": "MOL",
+            "text": "DPPS",
+            "start": 237,
+            "end": 241
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 284,
+            "end": 288
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36",
+            "start": 328,
+            "end": 336
+        },
+        {
+            "category": "FFM",
+            "text": "mTIP3P",
+            "start": 341,
+            "end": 347
+        },
+        {
+            "category": "MOL",
+            "text": "DPPS",
+            "start": 368,
+            "end": 372
+        },
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 390,
+            "end": 393
+        },
+        {
+            "category": "MOL",
+            "text": "Cl-",
+            "start": 398,
+            "end": 401
+        },
+        {
+            "category": "STIME",
+            "text": "1000 ns",
+            "start": 421,
+            "end": 428
+        },
+        {
+            "category": "STEMP",
+            "text": "333.15",
+            "start": 444,
+            "end": 450
+        },
+        {
+            "category": "STEMP",
+            "text": "338.15",
+            "start": 452,
+            "end": 458
+        },
+        {
+            "category": "STEMP",
+            "text": "343.15",
+            "start": 460,
+            "end": 466
+        },
+        {
+            "category": "STEMP",
+            "text": "348.15",
+            "start": 468,
+            "end": 474
+        },
+        {
+            "category": "STEMP",
+            "text": "353.15 K",
+            "start": 479,
+            "end": 487
+        }
+    ],
     "url": "https://zenodo.org/records/17106761"
 }

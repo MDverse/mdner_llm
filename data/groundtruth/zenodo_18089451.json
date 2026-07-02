@@ -1,5 +1,114 @@
 {
     "raw_text": "Molecular dynamics trajectories of selected protein-glycosaminoglycan systems with ff14SB/GLYCAM06j and CHARMM36m force fields\nThe following repository contains trajectory data from 1-microsecond MD simulations of the Fibroblast Growth Factor 2-heparin hexamer (PDB ID: 1BFC), Fibroblast Growth Factor 1-heparin hexamer (PDB ID: 2AXM) and Cathepsin K-chondroitin 4-sulfate hexamer (PDB ID: 4N8W) complexes using the ff14SB/GLYCAM06j and CHARMM36m force fields. For each system and each force field, three independend runs are provided. For ff14SB/GLYCAM06j files in AMBER format are provided, while for CHARMM36m in GROMACS format.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "ff14SB",
+            "start": 83,
+            "end": 89
+        },
+        {
+            "category": "FFM",
+            "text": "GLYCAM06j",
+            "start": 90,
+            "end": 99
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 104,
+            "end": 113
+        },
+        {
+            "category": "STIME",
+            "text": "1-microsecond",
+            "start": 182,
+            "end": 195
+        },
+        {
+            "category": "MOL",
+            "text": "Fibroblast Growth Factor 2-heparin hexamer",
+            "start": 218,
+            "end": 260
+        },
+        {
+            "category": "MOL",
+            "text": "1BFC",
+            "start": 270,
+            "end": 274
+        },
+        {
+            "category": "MOL",
+            "text": "Fibroblast Growth Factor 1-heparin hexamer",
+            "start": 277,
+            "end": 319
+        },
+        {
+            "category": "MOL",
+            "text": "2AXM",
+            "start": 329,
+            "end": 333
+        },
+        {
+            "category": "MOL",
+            "text": "Cathepsin K-chondroitin 4-sulfate hexamer",
+            "start": 339,
+            "end": 380
+        },
+        {
+            "category": "MOL",
+            "text": "4N8W",
+            "start": 390,
+            "end": 394
+        },
+        {
+            "category": "FFM",
+            "text": "ff14SB",
+            "start": 416,
+            "end": 422
+        },
+        {
+            "category": "FFM",
+            "text": "GLYCAM06j",
+            "start": 423,
+            "end": 432
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 437,
+            "end": 446
+        },
+        {
+            "category": "FFM",
+            "text": "ff14SB",
+            "start": 540,
+            "end": 546
+        },
+        {
+            "category": "FFM",
+            "text": "GLYCAM06j",
+            "start": 547,
+            "end": 556
+        },
+        {
+            "category": "FFM",
+            "text": "AMBER",
+            "start": 566,
+            "end": 571
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 603,
+            "end": 612
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 616,
+            "end": 623
+        }
+    ],
     "url": "https://zenodo.org/records/18089451"
 }
