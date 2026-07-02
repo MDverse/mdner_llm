@@ -1,0 +1,5 @@
+{
+    "raw_text": "DPPC_512_NaCl_150mM_320K\nSystem description\n-------------------\n- Title: Simulation DPPC_512_NaCl_150mM_320K bilayer\n\n- MD engine: gromacs 5.0.4\n\n- Force field: charmm36\n\n- Temperature: 320K\n\n- Simulation time: 700ns\n\n- Saving frequency: 100ps  \n\n- Molecular content:\n DPPC          512\n water         20480\n Cl-           55\n Na+           55\n\n- Other information:\n * Center of mass motion removed independently for bilayer and water+ions\n ",
+    "entities": [],
+    "url": "https://zenodo.org/records/16258"
+}
