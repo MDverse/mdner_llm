@@ -87,7 +87,7 @@ def is_processed_file(
 
 @click.command()
 @click.option(
-    "--csv_path",
+    "--csv-path",
     type=click.Path(exists=True, path_type=Path),
     help="Path to CSV file containing a list of groundtruth JSON file names to build.",
 )
