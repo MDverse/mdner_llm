@@ -10,7 +10,6 @@ from spacy import displacy
 from mdner_llm.annotations.colors import COLORS
 from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
-from mdner_llm.models.entities_with_positions import ListOfEntitiesPositions
 
 
 def _convert_annotations_to_displacy(
@@ -151,7 +150,7 @@ def visualize_all_annotations_from_dir(
 
 def convert_ner_response_to_entities(
     response: dict[str, list[dict]],
-) -> ListOfEntitiesPositions:
+) -> ListOfEntities:
     """Convert raw NER response into ListOfEntitiesPositions.
 
     Parameters
@@ -176,7 +175,7 @@ def convert_ner_response_to_entities(
                     "end": item["end"],
                 }
             )
-    return ListOfEntitiesPositions(entities=entities)
+    return ListOfEntities(entities=entities)
 
 
 def convert_annotations_from_llm(response, text_to_annotate):
