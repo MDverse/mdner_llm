@@ -1,5 +1,90 @@
 {
     "raw_text": "DPPC_512_NaCl_150mM_320K\nSystem description\n-------------------\n- Title: Simulation DPPC_512_NaCl_150mM_320K bilayer\n\n- MD engine: gromacs 5.0.4\n\n- Force field: charmm36\n\n- Temperature: 320K\n\n- Simulation time: 700ns\n\n- Saving frequency: 100ps  \n\n- Molecular content:\n DPPC          512\n water         20480\n Cl-           55\n Na+           55\n\n- Other information:\n * Center of mass motion removed independently for bilayer and water+ions\n ",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 9,
+            "end": 13
+        },
+        {
+            "category": "STEMP",
+            "text": "320K",
+            "start": 20,
+            "end": 24
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 84,
+            "end": 88
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 93,
+            "end": 97
+        },
+        {
+            "category": "STEMP",
+            "text": "320K",
+            "start": 104,
+            "end": 108
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "gromacs",
+            "start": 131,
+            "end": 138
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "5.0.4",
+            "start": 139,
+            "end": 144
+        },
+        {
+            "category": "FFM",
+            "text": "charmm36",
+            "start": 161,
+            "end": 169
+        },
+        {
+            "category": "STEMP",
+            "text": "320K",
+            "start": 186,
+            "end": 190
+        },
+        {
+            "category": "STIME",
+            "text": "700ns",
+            "start": 211,
+            "end": 216
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 269,
+            "end": 273
+        },
+        {
+            "category": "MOL",
+            "text": "Cl-",
+            "start": 309,
+            "end": 312
+        },
+        {
+            "category": "MOL",
+            "text": "Na+",
+            "start": 327,
+            "end": 330
+        }
+    ],
     "url": "https://zenodo.org/records/16258"
 }

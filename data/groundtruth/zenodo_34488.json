@@ -1,5 +1,78 @@
 {
     "raw_text": "MD simulation trajectory for POPC bilayer (Orange, Gromacs 4.5.)\nEquilibrated POPC lipid bilayer simulation ran with Gromacs 4.5, Orange, 50ns, T=298K, 72 POPC molecules, 2880 water molecules. This data is used in the NMRLipids II project (nmrlipids.blospot.fi, https://github.com/NMRLipids/lipid_ionINTERACTION).\n \nThe Orange model is unpublished lipid model developed by Luca Monticelli et al. http://perso.ibcp.fr/luca.monticelli/research/index.html. Beta version of the model is used here, thus only trajectory is shared.\n ",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 29,
+            "end": 33
+        },
+        {
+            "category": "FFM",
+            "text": "Orange",
+            "start": 43,
+            "end": 49
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 51,
+            "end": 58
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "4.5",
+            "start": 59,
+            "end": 62
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 78,
+            "end": 82
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 117,
+            "end": 124
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "4.5",
+            "start": 125,
+            "end": 128
+        },
+        {
+            "category": "FFM",
+            "text": "Orange",
+            "start": 130,
+            "end": 136
+        },
+        {
+            "category": "STIME",
+            "text": "50ns",
+            "start": 138,
+            "end": 142
+        },
+        {
+            "category": "STEMP",
+            "text": "298K",
+            "start": 146,
+            "end": 150
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 155,
+            "end": 159
+        },
+        {
+            "category": "FFM",
+            "text": "Orange",
+            "start": 320,
+            "end": 326
+        }
+    ],
     "url": "https://zenodo.org/records/34488"
 }

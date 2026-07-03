@@ -1,5 +1,54 @@
 {
     "raw_text": "DPPC_Slipids\nMD simulation trajectory and related files for fully hydrated DPPC bilayer. Slipids force field (doi:10.1021/jp212503e) was used with Gromacs 4.6.6. Conditions: T=323K, 128 lipids, 3840 tip3p waters.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 5,
+            "end": 12
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 75,
+            "end": 79
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 89,
+            "end": 96
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 147,
+            "end": 154
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "4.6.6",
+            "start": 155,
+            "end": 160
+        },
+        {
+            "category": "STEMP",
+            "text": "323K",
+            "start": 176,
+            "end": 180
+        },
+        {
+            "category": "FFM",
+            "text": "tip3p",
+            "start": 199,
+            "end": 204
+        }
+    ],
     "url": "https://zenodo.org/records/13287"
 }

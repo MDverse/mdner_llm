@@ -1,5 +1,90 @@
 {
     "raw_text": "DPPC_Berger_NaCl\nMD simulation trajectory and related files for fully hydrated DPPC bilayer with 150 mM NaCl. Berger-DPPC-98 force field delivered by Peter Tieleman (http://wcm.ucalgary.ca/tieleman/downloads) was used with Gromacs 5.0.4. Ions were described by the gromos force field. Conditions: T=323K, 72 lipids, 2880 SPC waters, 8 Na, 8 Cl. 120 ns trajectory, last 60 ns analyzed.",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 0,
+            "end": 4
+        },
+        {
+            "category": "FFM",
+            "text": "Berger",
+            "start": 5,
+            "end": 11
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 12,
+            "end": 16
+        },
+        {
+            "category": "MOL",
+            "text": "DPPC",
+            "start": 79,
+            "end": 83
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 104,
+            "end": 108
+        },
+        {
+            "category": "FFM",
+            "text": "Berger-DPPC-98",
+            "start": 110,
+            "end": 124
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 223,
+            "end": 230
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "5.0.4",
+            "start": 231,
+            "end": 236
+        },
+        {
+            "category": "FFM",
+            "text": "gromos",
+            "start": 265,
+            "end": 271
+        },
+        {
+            "category": "STEMP",
+            "text": "323K",
+            "start": 299,
+            "end": 303
+        },
+        {
+            "category": "FFM",
+            "text": "SPC",
+            "start": 321,
+            "end": 324
+        },
+        {
+            "category": "MOL",
+            "text": "Na",
+            "start": 335,
+            "end": 337
+        },
+        {
+            "category": "MOL",
+            "text": "Cl",
+            "start": 341,
+            "end": 343
+        },
+        {
+            "category": "STIME",
+            "text": "120 ns",
+            "start": 345,
+            "end": 351
+        }
+    ],
     "url": "https://zenodo.org/records/16319"
 }
