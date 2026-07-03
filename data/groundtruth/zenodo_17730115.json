@@ -1,0 +1,126 @@
+{
+    "raw_text": "MD simulation trajectory of Ternary mixture of POPC/PSM/Ergo (2:2:1) at 295 K: Slipids, GROMACS 2019.6\n\nMD simulation trajectory files for Ternary mixture of POPC/PSM/Ergo [408 POPC, 408 SM16, 208 Ergo and 35840 SOL]. The Slipids (2013 version) force field was used with Gromacs 2019.6. Ergosterol parameters from https://doi.org/10.1002/bit.25845 . Conditions: T=295K. Data saved every 20 ps. 100 ns trajectory.\n \nPREEQTIME: 100 nsTIMELEFTOUT: 6.4 μs\n",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 47,
+            "end": 51
+        },
+        {
+            "category": "MOL",
+            "text": "PSM",
+            "start": 52,
+            "end": 55
+        },
+        {
+            "category": "MOL",
+            "text": "Ergo",
+            "start": 56,
+            "end": 60
+        },
+        {
+            "category": "STEMP",
+            "text": "295 K",
+            "start": 72,
+            "end": 77
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids",
+            "start": 79,
+            "end": 86
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "GROMACS",
+            "start": 88,
+            "end": 95
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2019.6",
+            "start": 96,
+            "end": 102
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 158,
+            "end": 162
+        },
+        {
+            "category": "MOL",
+            "text": "PSM",
+            "start": 163,
+            "end": 166
+        },
+        {
+            "category": "MOL",
+            "text": "Ergo",
+            "start": 167,
+            "end": 171
+        },
+        {
+            "category": "MOL",
+            "text": "POPC",
+            "start": 177,
+            "end": 181
+        },
+        {
+            "category": "MOL",
+            "text": "SM16",
+            "start": 187,
+            "end": 191
+        },
+        {
+            "category": "MOL",
+            "text": "Ergo",
+            "start": 197,
+            "end": 201
+        },
+        {
+            "category": "FFM",
+            "text": "Slipids (2013 version)",
+            "start": 222,
+            "end": 244
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 271,
+            "end": 278
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2019.6",
+            "start": 279,
+            "end": 285
+        },
+        {
+            "category": "MOL",
+            "text": "Ergosterol",
+            "start": 287,
+            "end": 297
+        },
+        {
+            "category": "STEMP",
+            "text": "295K",
+            "start": 364,
+            "end": 368
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 394,
+            "end": 400
+        },
+        {
+            "category": "STIME",
+            "text": "100 ns",
+            "start": 426,
+            "end": 432
+        }
+    ],
+    "url": "https://zenodo.org/records/17730115"
+}

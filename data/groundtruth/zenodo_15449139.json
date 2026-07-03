@@ -1,5 +1,90 @@
 {
     "raw_text": "All-atom simulation of DMPC bilayer with 20 mol% cholesterol\nFully hydrated all-atom bilayer of 1,2-dimyristoyl-sn-glycero-3-phosphocholine (DMPC) with 20 mol% cholesterol (Chol). The bilayer was constructed with CHARMM-GUI and has 100 lipids per leaflet and no added salt ions. After equilibration in NAMD following CHARMM-GUI's 7-step protocol, the system was simulated at 44C (317K) with OpenMM for 2.34 microseconds.\nUploaded are the structure file (.psf), trajectory centered on the bilayer midplane with output frequency 40 ps (58,608 frames total, .dcd) and a sample OpenMM input parameter file (.txt).",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "DMPC",
+            "start": 23,
+            "end": 27
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 49,
+            "end": 60
+        },
+        {
+            "category": "MOL",
+            "text": "1,2-dimyristoyl-sn-glycero-3-phosphocholine",
+            "start": 96,
+            "end": 139
+        },
+        {
+            "category": "MOL",
+            "text": "DMPC",
+            "start": 141,
+            "end": 145
+        },
+        {
+            "category": "MOL",
+            "text": "cholesterol",
+            "start": 160,
+            "end": 171
+        },
+        {
+            "category": "MOL",
+            "text": "Chol",
+            "start": 173,
+            "end": 177
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 213,
+            "end": 223
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "NAMD",
+            "start": 302,
+            "end": 306
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 317,
+            "end": 327
+        },
+        {
+            "category": "STEMP",
+            "text": "44C",
+            "start": 375,
+            "end": 378
+        },
+        {
+            "category": "STEMP",
+            "text": "317K",
+            "start": 380,
+            "end": 384
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "OpenMM",
+            "start": 391,
+            "end": 397
+        },
+        {
+            "category": "STIME",
+            "text": "2.34 microseconds",
+            "start": 402,
+            "end": 419
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "OpenMM",
+            "start": 574,
+            "end": 580
+        }
+    ],
     "url": "https://zenodo.org/records/15449139"
 }

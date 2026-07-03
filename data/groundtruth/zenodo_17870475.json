@@ -1,0 +1,108 @@
+{
+    "raw_text": "Transient Occupancy and Pore Dynamics: IP6 behavior in HIV-1 T=4 Capsids\nThis dataset contains input and output files from molecular dynamics (MD) simulations of the T4 system and its variants: wild type (WT), WT complexed with inositol hexakisphosphate (IP6), and the R18L mutant. Each system directory includes initial coordinate and topology files (inside input_structures folder), CHARMM parameters (topdir), NAMD config files (prod_run),  production trajectories (250 ns - trimmed without water and ions) and PDB files for visualization in the trajectory folders.\nAll simulations were performed using NAMD 2.14 with the CHARMM36m force field in explicit TIP3P water with 0.15 M NaCl under NPT ensemble conditions at 310 K and 1 atm. A 2 fs integration step was used, and each trajectory represents a 250 ns production run.\n The files are directly compatible with VMD, facilitating visualization, trajectory analysis, or further simulation.",
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "IP6",
+            "start": 39,
+            "end": 42
+        },
+        {
+            "category": "MOL",
+            "text": "HIV-1 T=4 Capsids",
+            "start": 55,
+            "end": 72
+        },
+        {
+            "category": "MOL",
+            "text": "T4",
+            "start": 166,
+            "end": 168
+        },
+        {
+            "category": "MOL",
+            "text": "inositol hexakisphosphate",
+            "start": 228,
+            "end": 253
+        },
+        {
+            "category": "MOL",
+            "text": "IP6",
+            "start": 255,
+            "end": 258
+        },
+        {
+            "category": "MOL",
+            "text": "R18L mutant",
+            "start": 269,
+            "end": 280
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM",
+            "start": 385,
+            "end": 391
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "NAMD",
+            "start": 413,
+            "end": 417
+        },
+        {
+            "category": "STIME",
+            "text": "250 ns",
+            "start": 469,
+            "end": 475
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "NAMD",
+            "start": 606,
+            "end": 610
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2.14",
+            "start": 611,
+            "end": 615
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36m",
+            "start": 625,
+            "end": 634
+        },
+        {
+            "category": "FFM",
+            "text": "TIP3P",
+            "start": 659,
+            "end": 664
+        },
+        {
+            "category": "MOL",
+            "text": "NaCl",
+            "start": 683,
+            "end": 687
+        },
+        {
+            "category": "STEMP",
+            "text": "310 K",
+            "start": 721,
+            "end": 726
+        },
+        {
+            "category": "STIME",
+            "text": "250 ns",
+            "start": 805,
+            "end": 811
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "VMD",
+            "start": 868,
+            "end": 871
+        }
+    ],
+    "url": "https://zenodo.org/records/17870475"
+}

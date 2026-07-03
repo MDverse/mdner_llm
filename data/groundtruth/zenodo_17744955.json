@@ -1,5 +1,132 @@
 {
     "raw_text": "Molecular dynamics simulation of PTE variants containing starting structure, topology and trajectory files\nMolecular dynamics (MD) simulation trajectories for R0, R6, R8, R22, revR6 and revR12 variants of PTE and AE variants. It contains the starting structure of the simulation and MD trajectory for the simulation with truncated water atoms and including the topology files.\nPDB IDs: 4PCP (R0), 4XAG (R6), 4XAY (R8), 4PCN(R22), 4PBE (revR6), 4PBF (revR12)",
-    "entities": [],
+    "entities": [
+        {
+            "category": "MOL",
+            "text": "PTE",
+            "start": 33,
+            "end": 36
+        },
+        {
+            "category": "MOL",
+            "text": "R0",
+            "start": 159,
+            "end": 161
+        },
+        {
+            "category": "MOL",
+            "text": "R6",
+            "start": 163,
+            "end": 165
+        },
+        {
+            "category": "MOL",
+            "text": "R8",
+            "start": 167,
+            "end": 169
+        },
+        {
+            "category": "MOL",
+            "text": "R22",
+            "start": 171,
+            "end": 174
+        },
+        {
+            "category": "MOL",
+            "text": "revR6",
+            "start": 176,
+            "end": 181
+        },
+        {
+            "category": "MOL",
+            "text": "revR12",
+            "start": 186,
+            "end": 192
+        },
+        {
+            "category": "MOL",
+            "text": "PTE",
+            "start": 205,
+            "end": 208
+        },
+        {
+            "category": "MOL",
+            "text": "AE",
+            "start": 213,
+            "end": 215
+        },
+        {
+            "category": "MOL",
+            "text": "4PCP",
+            "start": 386,
+            "end": 390
+        },
+        {
+            "category": "MOL",
+            "text": "R0",
+            "start": 392,
+            "end": 394
+        },
+        {
+            "category": "MOL",
+            "text": "4XAG",
+            "start": 397,
+            "end": 401
+        },
+        {
+            "category": "MOL",
+            "text": "R6",
+            "start": 403,
+            "end": 405
+        },
+        {
+            "category": "MOL",
+            "text": "4XAY",
+            "start": 408,
+            "end": 412
+        },
+        {
+            "category": "MOL",
+            "text": "R8",
+            "start": 414,
+            "end": 416
+        },
+        {
+            "category": "MOL",
+            "text": "4PCN",
+            "start": 419,
+            "end": 423
+        },
+        {
+            "category": "MOL",
+            "text": "R22",
+            "start": 424,
+            "end": 427
+        },
+        {
+            "category": "MOL",
+            "text": "4PBE",
+            "start": 430,
+            "end": 434
+        },
+        {
+            "category": "MOL",
+            "text": "revR6",
+            "start": 436,
+            "end": 441
+        },
+        {
+            "category": "MOL",
+            "text": "4PBF",
+            "start": 444,
+            "end": 448
+        },
+        {
+            "category": "MOL",
+            "text": "revR12",
+            "start": 450,
+            "end": 456
+        }
+    ],
     "url": "https://zenodo.org/records/17744955"
 }
