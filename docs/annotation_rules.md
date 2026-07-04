@@ -20,6 +20,7 @@ MOL entities should be uniquely identifiable.
 7. Exclude adjectives or descriptors that modify the molecule (e.g., `hydrated`, `charged`, `folded`, `tetrameric`)
 8. Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `alcohols`, `ions`, `compounds`...
 9. Exclude specific residues or domains like `Lys-353`...
+10. Annotate individual components of a molecular complex or mixture separately, excluding connectors (`/`, `-`) and generic assembly terms (`complex`, `dimer`, `mixture`).
 
 ### Good examples
 
@@ -42,6 +43,7 @@ MOL entities should be uniquely identifiable.
 - `DNA` (Rule 8)
 - `binding protein` (Rule 8)
 - `ions in solvent` (Rule 8)
+- `TLR4/MD-2 complex` (annotate `TLR4` and `MD-2` separately, Rule 10)
 
 ## Force field and model: FFM
 
@@ -53,8 +55,9 @@ Both the name and version of the force field/model are relevant and should be an
 
 ### Rules
 
-1. Include water models and other specific solvent models (e.g., `TIP3P`, `SPC/E`)
-2. Exclude generic terms like `force field` or `model`
+1. Include water models and other specific solvent models (e.g., `TIP3P`, `SPC/E`).
+2. Exclude generic terms like `force field` or `model`.
+3. Include the force field name when directly combined with a specific water or solvent model as a single block (e.g., `CHARMM TIP3P`).
 
 ### Good examples
 
@@ -72,6 +75,7 @@ Both the name and version of the force field/model are relevant and should be an
 - `TIP3P water` (only annotate `TIP3P`) (Rule 1 and Rule 2)
 - `the force field` (Rule 2)
 - `the CHARMM36 force field` (only annotate `CHARMM36`) (Rule 2)
+- `CHARMM TIP3P water model` (only annotate `CHARMM TIP3P`, Rule 2 and Rule 3)
 
 ## Software name: SOFTNAME
 
