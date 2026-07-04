@@ -27,6 +27,24 @@
         },
         {
             "category": "MOL",
+            "text": "Cadherin-23",
+            "start": 222,
+            "end": 233
+        },
+        {
+            "category": "MOL",
+            "text": "CDH23",
+            "start": 235,
+            "end": 240
+        },
+        {
+            "category": "MOL",
+            "text": "cadherin",
+            "start": 276,
+            "end": 284
+        },
+        {
+            "category": "MOL",
             "text": "calcium",
             "start": 323,
             "end": 330
@@ -36,6 +54,18 @@
             "text": "5TFK",
             "start": 357,
             "end": 361
+        },
+        {
+            "category": "MOL",
+            "text": "CDH23",
+            "start": 391,
+            "end": 396
+        },
+        {
+            "category": "MOL",
+            "text": "CDH23",
+            "start": 426,
+            "end": 431
         },
         {
             "category": "SOFTNAME",

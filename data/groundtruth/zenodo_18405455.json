@@ -3,9 +3,15 @@
     "entities": [
         {
             "category": "MOL",
-            "text": "phosphate",
-            "start": 73,
+            "text": "p-tolyl phosphate",
+            "start": 65,
             "end": 82
+        },
+        {
+            "category": "MOL",
+            "text": "pt",
+            "start": 84,
+            "end": 86
         },
         {
             "category": "FFM",
@@ -48,12 +54,6 @@
             "text": "CHARMM36m",
             "start": 292,
             "end": 301
-        },
-        {
-            "category": "MOL",
-            "text": "phosphate",
-            "start": 319,
-            "end": 328
         },
         {
             "category": "SOFTNAME",

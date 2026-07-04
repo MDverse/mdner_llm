@@ -45,9 +45,9 @@
         },
         {
             "category": "FFM",
-            "text": "Charmm",
+            "text": "Charmm TIP3P",
             "start": 324,
-            "end": 330
+            "end": 336
         },
         {
             "category": "SOFTNAME",

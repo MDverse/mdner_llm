@@ -51,9 +51,21 @@
         },
         {
             "category": "MOL",
+            "text": "NaW",
+            "start": 2538,
+            "end": 2541
+        },
+        {
+            "category": "MOL",
             "text": "Na+",
             "start": 2543,
             "end": 2546
+        },
+        {
+            "category": "MOL",
+            "text": "ClW",
+            "start": 2557,
+            "end": 2560
         },
         {
             "category": "MOL",
@@ -75,9 +87,21 @@
         },
         {
             "category": "MOL",
+            "text": "NaW",
+            "start": 2794,
+            "end": 2797
+        },
+        {
+            "category": "MOL",
             "text": "Na+",
             "start": 2799,
             "end": 2802
+        },
+        {
+            "category": "MOL",
+            "text": "ClW",
+            "start": 2813,
+            "end": 2816
         },
         {
             "category": "MOL",

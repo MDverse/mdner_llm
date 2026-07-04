@@ -32,12 +32,6 @@
             "end": 258
         },
         {
-            "category": "MOL",
-            "text": "R18L mutant",
-            "start": 269,
-            "end": 280
-        },
-        {
             "category": "FFM",
             "text": "CHARMM",
             "start": 385,

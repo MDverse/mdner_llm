@@ -15,12 +15,6 @@
         },
         {
             "category": "MOL",
-            "text": "RNA virus",
-            "start": 124,
-            "end": 133
-        },
-        {
-            "category": "MOL",
             "text": "angiotensin converting enzyme II",
             "start": 630,
             "end": 662

@@ -75,12 +75,6 @@
         },
         {
             "category": "MOL",
-            "text": "G-domain",
-            "start": 1065,
-            "end": 1073
-        },
-        {
-            "category": "MOL",
             "text": "GppNHp",
             "start": 1077,
             "end": 1083
