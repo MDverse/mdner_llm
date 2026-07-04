@@ -20,6 +20,12 @@
             "end": 74
         },
         {
+            "category": "SOFTNAME",
+            "text": "OpenMM",
+            "start": 88,
+            "end": 94
+        },
+        {
             "category": "STIME",
             "text": "220.14 ns",
             "start": 96,

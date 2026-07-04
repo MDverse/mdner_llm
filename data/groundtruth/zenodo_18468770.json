@@ -3,9 +3,15 @@
     "entities": [
         {
             "category": "MOL",
-            "text": "TLR4/MD-2 Complex",
+            "text": "TLR4",
             "start": 45,
-            "end": 62
+            "end": 49
+        },
+        {
+            "category": "MOL",
+            "text": "MD-2",
+            "start": 50,
+            "end": 54
         },
         {
             "category": "MOL",
@@ -15,9 +21,15 @@
         },
         {
             "category": "MOL",
-            "text": "TLR4/MD-2 receptor complex",
+            "text": "TLR4",
             "start": 296,
-            "end": 322
+            "end": 300
+        },
+        {
+            "category": "MOL",
+            "text": "MD-2",
+            "start": 301,
+            "end": 305
         },
         {
             "category": "MOL",
@@ -33,8 +45,14 @@
         },
         {
             "category": "MOL",
-            "text": "TLR4/MD-2",
+            "text": "TLR4",
             "start": 590,
+            "end": 594
+        },
+        {
+            "category": "MOL",
+            "text": "MD-2",
+            "start": 595,
             "end": 599
         },
         {
@@ -105,9 +123,15 @@
         },
         {
             "category": "MOL",
-            "text": "TLR4/MD-2 Complex",
+            "text": "TLR4",
             "start": 1988,
-            "end": 2005
+            "end": 1992
+        },
+        {
+            "category": "MOL",
+            "text": "MD-2",
+            "start": 1993,
+            "end": 1997
         },
         {
             "category": "MOL",

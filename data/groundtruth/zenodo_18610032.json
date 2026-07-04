@@ -3,9 +3,21 @@
     "entities": [
         {
             "category": "MOL",
+            "text": "α, β-epoxyketone synthase",
+            "start": 43,
+            "end": 68
+        },
+        {
+            "category": "MOL",
             "text": "EpnF",
             "start": 69,
             "end": 73
+        },
+        {
+            "category": "MOL",
+            "text": "α, β-epoxyketone synthase",
+            "start": 244,
+            "end": 269
         },
         {
             "category": "MOL",
@@ -27,12 +39,6 @@
         },
         {
             "category": "MOL",
-            "text": "FAD",
-            "start": 594,
-            "end": 597
-        },
-        {
-            "category": "MOL",
             "text": "N-acyl-dipeptidyl β-ketoacid",
             "start": 630,
             "end": 658
@@ -51,21 +57,15 @@
         },
         {
             "category": "MOL",
-            "text": "enone",
-            "start": 764,
-            "end": 769
-        },
-        {
-            "category": "MOL",
-            "text": "FAD",
+            "text": "FADH-",
             "start": 808,
-            "end": 811
+            "end": 813
         },
         {
             "category": "MOL",
-            "text": "FAD",
+            "text": "FADHO2-",
             "start": 832,
-            "end": 835
+            "end": 839
         },
         {
             "category": "FFM",

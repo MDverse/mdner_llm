@@ -9,6 +9,12 @@
         },
         {
             "category": "MOL",
+            "text": "TMJM",
+            "start": 20,
+            "end": 24
+        },
+        {
+            "category": "MOL",
             "text": "GM3",
             "start": 56,
             "end": 59
@@ -45,6 +51,12 @@
         },
         {
             "category": "MOL",
+            "text": "TM-JM",
+            "start": 468,
+            "end": 473
+        },
+        {
+            "category": "MOL",
             "text": "GM3",
             "start": 492,
             "end": 495
@@ -66,6 +78,12 @@
             "text": "EGFR",
             "start": 729,
             "end": 733
+        },
+        {
+            "category": "MOL",
+            "text": "TM-JM",
+            "start": 734,
+            "end": 739
         },
         {
             "category": "MOL",

@@ -44,12 +44,6 @@
             "end": 326
         },
         {
-            "category": "SOFTNAME",
-            "text": "Schrödinger",
-            "start": 328,
-            "end": 339
-        },
-        {
             "category": "STIME",
             "text": "200 ns",
             "start": 426,
@@ -68,9 +62,9 @@
             "end": 704
         },
         {
-            "category": "FFM",
-            "text": "OPC",
-            "start": 731,
+            "category": "MOL",
+            "text": "POPC",
+            "start": 730,
             "end": 734
         },
         {
@@ -86,7 +80,7 @@
             "end": 838
         },
         {
-            "category": "FFM",
+            "category": "SOFTNAME",
             "text": "CHARMM",
             "start": 887,
             "end": 893
@@ -129,14 +123,8 @@
         },
         {
             "category": "FFM",
-            "text": "CHARMM",
+            "text": "CHARMM TIP3P",
             "start": 1127,
-            "end": 1133
-        },
-        {
-            "category": "FFM",
-            "text": "TIP3P",
-            "start": 1134,
             "end": 1139
         },
         {

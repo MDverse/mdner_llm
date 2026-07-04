@@ -3,9 +3,15 @@
     "entities": [
         {
             "category": "MOL",
-            "text": "TCR",
+            "text": "FlAbDab",
+            "start": 0,
+            "end": 7
+        },
+        {
+            "category": "MOL",
+            "text": "TCRDab",
             "start": 10,
-            "end": 13
+            "end": 16
         },
         {
             "category": "MOL",
@@ -45,9 +51,15 @@
         },
         {
             "category": "MOL",
-            "text": "TCR",
-            "start": 583,
-            "end": 586
+            "text": "FlAbDab",
+            "start": 570,
+            "end": 577
+        },
+        {
+            "category": "MOL",
+            "text": "FTCRDab",
+            "start": 582,
+            "end": 589
         },
         {
             "category": "SOFTNAME",

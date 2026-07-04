@@ -9,8 +9,14 @@
         },
         {
             "category": "FFM",
-            "text": "Berger_OPLS06",
+            "text": "Berger",
             "start": 5,
+            "end": 11
+        },
+        {
+            "category": "FFM",
+            "text": "OPLS06",
+            "start": 12,
             "end": 18
         },
         {
@@ -21,8 +27,14 @@
         },
         {
             "category": "FFM",
-            "text": "OPLSAA-compatible Berger-DPPC-06",
+            "text": "OPLSAA",
             "start": 99,
+            "end": 105
+        },
+        {
+            "category": "FFM",
+            "text": "Berger-DPPC-06",
+            "start": 117,
             "end": 131
         },
         {
@@ -42,6 +54,12 @@
             "text": "323K",
             "start": 225,
             "end": 229
+        },
+        {
+            "category": "FFM",
+            "text": "SPC",
+            "start": 247,
+            "end": 250
         },
         {
             "category": "STIME",

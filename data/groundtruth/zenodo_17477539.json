@@ -141,15 +141,27 @@
         },
         {
             "category": "FFM",
-            "text": "CHARMM36",
+            "text": "CHARMM36m",
             "start": 1044,
-            "end": 1052
+            "end": 1053
         },
         {
             "category": "FFM",
             "text": "TIP3",
             "start": 1080,
             "end": 1084
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "stride",
+            "start": 1166,
+            "end": 1172
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "4",
+            "start": 1173,
+            "end": 1174
         }
     ],
     "url": "https://zenodo.org/records/17477539"

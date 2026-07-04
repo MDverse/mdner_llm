@@ -1,0 +1,60 @@
+{
+    "raw_text": "CHARMM36-UA DOPS simulations (versions 1 and 2) 303 K 1.0 nm LJ switching\nCHARMM36-UA DOPS simulations (303 K, starting structure from the CHARMM-GUI with appropriate hydrogen atoms removed) performed with a 1.0 nm point at which to switch off the van der Waals interactions. Two different simulations generated with different starting velocities are provided (the files are named v1 and v2 for these different simulations). The trajectories contain only the data from 400-500 ns of the simulations (as per the analysis provided on the nmrlipids blog) and additionally they have been processed with trjconv -skip 10 to keep the upload small.",
+    "entities": [
+        {
+            "category": "FFM",
+            "text": "CHARMM36-UA",
+            "start": 0,
+            "end": 11
+        },
+        {
+            "category": "MOL",
+            "text": "DOPS",
+            "start": 12,
+            "end": 16
+        },
+        {
+            "category": "STEMP",
+            "text": "303 K",
+            "start": 48,
+            "end": 53
+        },
+        {
+            "category": "FFM",
+            "text": "CHARMM36-UA",
+            "start": 74,
+            "end": 85
+        },
+        {
+            "category": "MOL",
+            "text": "DOPS",
+            "start": 86,
+            "end": 90
+        },
+        {
+            "category": "STEMP",
+            "text": "303 K",
+            "start": 104,
+            "end": 109
+        },
+        {
+            "category": "SOFTNAME",
+            "text": "CHARMM-GUI",
+            "start": 139,
+            "end": 149
+        },
+        {
+            "category": "MOL",
+            "text": "hydrogen",
+            "start": 167,
+            "end": 175
+        },
+        {
+            "category": "STIME",
+            "text": "400-500 ns",
+            "start": 469,
+            "end": 479
+        }
+    ],
+    "url": "https://zenodo.org/records/1129456"
+}
