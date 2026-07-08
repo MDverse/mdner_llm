@@ -15,14 +15,8 @@
         },
         {
             "category": "FFM",
-            "text": "CHARMM",
+            "text": "CHARMM TIP3P",
             "start": 193,
-            "end": 199
-        },
-        {
-            "category": "FFM",
-            "text": "TIP3P",
-            "start": 200,
             "end": 205
         },
         {
@@ -44,7 +38,7 @@
             "end": 255
         },
         {
-            "category": "FFM",
+            "category": "SOFTNAME",
             "text": "CHARMM",
             "start": 275,
             "end": 281

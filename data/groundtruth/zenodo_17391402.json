@@ -15,8 +15,14 @@
         },
         {
             "category": "SOFTNAME",
-            "text": "AlphaFold 3",
+            "text": "AlphaFold",
             "start": 133,
+            "end": 142
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "3",
+            "start": 143,
             "end": 144
         },
         {
