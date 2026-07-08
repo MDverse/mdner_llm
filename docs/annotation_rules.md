@@ -101,6 +101,8 @@ It includes packages for molecular dynamics, modeling, trajectory processing, an
 - `CHARMM-Gui`
 - `Jupyter`
 - `Autodock`
+- `CHARMM`
+- `AMBER22`
 
 ### Bad examples
 
