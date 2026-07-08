@@ -101,30 +101,30 @@ Perform quality control on manually annotated entities:
 
 ```sh
 $ uv run validate-annotations --inferences-dir data/groundtruth
-2026-06-26 23:41:56 | INFO     | Validating all annotations in directory: data/groundtruth.
-2026-06-26 23:41:56 | INFO     | Found 112 JSON files to validate.
-2026-06-26 23:41:56 | INFO     | Total text mismatches: 0
-2026-06-26 23:41:56 | INFO     | Total span mismatches: 0
-2026-06-26 23:41:56 | INFO     | Total overlapping entities: 0
-2026-06-26 23:41:56 | INFO     | Total removed entities: 0
-2026-06-26 23:41:56 | INFO     | Total entities with invalid boundaries: 0
-2026-06-26 23:41:56 | INFO     | Total unknown categories: 0
-2026-06-26 23:41:56 | SUCCESS  | Validation completed successfully!
+2026-07-08 17:05:29 | INFO     | Validating all annotations in directory: data/groundtruth.
+2026-07-08 17:05:29 | INFO     | Found 160 JSON files to validate.
+2026-07-08 17:05:29 | INFO     | Total text mismatches: 0
+2026-07-08 17:05:29 | INFO     | Total span mismatches: 0
+2026-07-08 17:05:29 | INFO     | Total overlapping entities: 0
+2026-07-08 17:05:29 | INFO     | Total removed entities: 0
+2026-07-08 17:05:29 | INFO     | Total entities with invalid boundaries: 0
+2026-07-08 17:05:29 | INFO     | Total unknown categories: 0
+2026-07-08 17:05:29 | SUCCESS  | Validation completed successfully!
 ```
 
 Make the inventory of all entities:
 
 ```sh
 $ uv run build-entity-inventory --annotations-path data/groundtruth --out-path data/entities.tsv
-2026-06-26 23:43:21 | INFO     | Starting entity inventory.
-2026-06-26 23:43:21 | INFO     | Collecting entities.
-2026-06-26 23:43:21 | SUCCESS  | Found 112 JSON files successfully.
-2026-06-26 23:43:21 | SUCCESS  | Collected 1795 entities.
-2026-06-26 23:43:21 | INFO     | Writing entity inventory TSV file.
-2026-06-26 23:43:21 | SUCCESS  | Saved entity inventory in: data/entities.tsv
-2026-06-26 23:43:22 | SUCCESS  | Saved entity distribution plot in 'plots/annotations/entity_distribution.png'.
-2026-06-26 23:43:22 | SUCCESS  | Saved entities distribution by category plot in 'plots/annotations/entity_distribution_by_category.png'.
-2026-06-26 23:43:22 | SUCCESS  | Entity inventory completed successfully!
+2026-07-08 17:05:51 | INFO     | Starting entity inventory.
+2026-07-08 17:05:51 | INFO     | Collecting entities.
+2026-07-08 17:05:51 | SUCCESS  | Found 160 JSON files successfully.
+2026-07-08 17:05:51 | SUCCESS  | Collected 2519 entities.
+2026-07-08 17:05:51 | INFO     | Writing entity inventory TSV file.
+2026-07-08 17:05:51 | SUCCESS  | Saved entity inventory in: data/entities.tsv
+2026-07-08 17:05:51 | SUCCESS  | Saved entity distribution plot in 'plots/annotations/entity_distribution.png'.
+2026-07-08 17:05:52 | SUCCESS  | Saved entities distribution by category plot in 'plots/annotations/entity_distribution_by_category.png'.
+2026-07-08 17:05:52 | SUCCESS  | Entity inventory completed successfully!
 ```
 
 A list of entities per category can be found in [notebooks/explore_entities_from_inventory.ipynb](notebooks/explore_entities_from_inventory.ipynb).
