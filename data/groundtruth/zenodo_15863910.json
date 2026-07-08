@@ -39,9 +39,21 @@
         },
         {
             "category": "SOFTNAME",
-            "text": "Alphafold2",
+            "text": "Alphafold",
             "start": 415,
+            "end": 424
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 424,
             "end": 425
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 481,
+            "end": 482
         },
         {
             "category": "SOFTNAME",
@@ -60,6 +72,12 @@
             "text": "POPC",
             "start": 688,
             "end": 692
+        },
+        {
+            "category": "MOL",
+            "text": "KCl",
+            "start": 786,
+            "end": 789
         },
         {
             "category": "SOFTNAME",
@@ -92,16 +110,58 @@
             "end": 1193
         },
         {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 1199,
+            "end": 1200
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 1302,
+            "end": 1303
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 1752,
+            "end": 1753
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 1995,
+            "end": 1996
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 2436,
+            "end": 2437
+        },
+        {
             "category": "MOL",
             "text": "ADAM10",
             "start": 2516,
             "end": 2522
         },
         {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 2602,
+            "end": 2603
+        },
+        {
             "category": "STIME",
             "text": "50 ns",
             "start": 2640,
             "end": 2645
+        },
+        {
+            "category": "SOFTVERS",
+            "text": "2",
+            "start": 2763,
+            "end": 2764
         }
     ],
     "url": "https://zenodo.org/records/15863910"

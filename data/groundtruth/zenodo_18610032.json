@@ -39,6 +39,12 @@
         },
         {
             "category": "MOL",
+            "text": "FAD",
+            "start": 594,
+            "end": 597
+        },
+        {
+            "category": "MOL",
             "text": "N-acyl-dipeptidyl β-ketoacid",
             "start": 630,
             "end": 658

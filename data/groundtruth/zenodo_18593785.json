@@ -105,6 +105,12 @@
         },
         {
             "category": "MOL",
+            "text": "intercellular adhesion molecule 1",
+            "start": 1755,
+            "end": 1788
+        },
+        {
+            "category": "MOL",
             "text": "ICAM-1",
             "start": 1790,
             "end": 1796

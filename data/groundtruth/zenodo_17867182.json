@@ -99,14 +99,8 @@
         },
         {
             "category": "FFM",
-            "text": "CHARMM",
+            "text": "CHARMM TIP3P",
             "start": 428,
-            "end": 434
-        },
-        {
-            "category": "FFM",
-            "text": "TIP3P",
-            "start": 435,
             "end": 440
         },
         {
