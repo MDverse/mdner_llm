@@ -86,40 +86,41 @@ def normalize_text(text: str) -> str:
     return text_normalized.strip()
 
 
-def has_hallucination(
-    response: ListOfEntities | None,
-    original_text: str,
+def count_hallucinated_entities(
+    data_row,
     *,
     is_valid_output_format: bool,
-) -> bool:
-    """
-    Check that all predicted entities appear in the original text.
+) -> tuple[int, int]:
+    """Count hallucinated entities using pre-computed flags from normalization step.
 
     Returns
     -------
-    bool
-        True if all entities appear in the original text.
+    tuple[int, int]
+        (number of hallucinated entities, number of predicted entities)
     """
-    if not is_valid_output_format:
-        return True
-    if response is None or not hasattr(response, "entities"):
-        return True
+    if not is_valid_output_format or not isinstance(
+        data_row.get("normalized_entities"), dict
+    ):
+        return 0, 0
 
-    norm_text = normalize_text(original_text)
-    for entity in response.entities:
-        if normalize_text(entity.text) not in norm_text:
-            return True
-    return False
+    entities = data_row["normalized_entities"].get("entities", [])
+    nb_predicted = len(entities)
+    # Count where is_hallucinated is explicitly True
+    nb_hallucinated = sum(1 for ent in entities if ent.get("is_hallucinated", False))
+
+    return nb_hallucinated, nb_predicted
 
 
 def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Add columns of quality checks to the DataFrame.
 
-    Adds two boolean columns:
+    Adds the following columns:
     - `is_valid_output_format`:
         True if the LLM response matches the expected JSON format.
-    - `pct_hallucinations`:
-        Percentage of hallucinated entities in the LLM response.
+    - `nb_hallucinated_entities`:
+        Number of predicted entities not found in the original text.
+    - `nb_predicted_entities_raw`:
+        Total number of predicted entities.
 
     Returns
     -------
@@ -127,17 +128,18 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
         DataFrame with additional quality check columns.
     """
     df = df.copy()
-    # Check output format validity
     df["is_valid_output_format"] = df["status"].eq("ok")
-    # Iterate row-wise to apply checks
-    df["has_hallucinations"] = [
-        has_hallucination(
-            row.formatted_response,
-            row.text,
-            is_valid_output_format=row.is_valid_output_format,
+    # Pass the dictionary row to read normalized_entities
+    hallucination_counts = [
+        count_hallucinated_entities(
+            row,
+            is_valid_output_format=row["is_valid_output_format"],
         )
-        for row in df.itertuples(index=False)
+        for _, row in df.iterrows()
     ]
+    df["nb_hallucinated_entities"], df["nb_predicted_entities_raw"] = zip(
+        *hallucination_counts, strict=True
+    )
     return df
 
 
@@ -155,8 +157,33 @@ def group_texts_by_category(entities: list) -> dict[str, list[str]]:
         text = getattr(ent, "text", None)
         # Only group if both category and text are present and non-empty
         if category and text:
-            grouped[category].append(text)
+            grouped[category].append(normalize_text(text))
     return dict(grouped)
+
+
+def split_predictions_by_category_and_hallucination(
+    normalized_entities: list[dict], category: str
+) -> tuple[set[str], set[str]]:
+    """Extract hallucinated and grounded entities for a specific category.
+
+    Returns
+    -------
+    tuple[set[str], set[str]]
+        (set of hallucinated entity texts, set of grounded entity texts)
+    """
+    hallucinated = set()
+    grounded = set()
+
+    for ent in normalized_entities:
+        if ent.get("category") == category:
+            text = normalize_text(ent.get("text", ""))
+            if text:
+                if ent.get("is_hallucinated", False):
+                    hallucinated.add(text)
+                else:
+                    grounded.add(text)
+
+    return hallucinated, grounded
 
 
 def build_category_level_dataframe(
@@ -171,25 +198,41 @@ def build_category_level_dataframe(
         for each line in the original DataFrame.
     """
     rows = []
+    rows = []
     for _, row in df.iterrows():
-        # Parse groundtruth
         gt_entities = row["groundtruth"].entities
-        # Parse prediction
-        pred_entities = row["formatted_response"].entities
-        # Group by category
         gt_by_category = group_texts_by_category(gt_entities)
-        pred_by_category = group_texts_by_category(pred_entities)
-        all_categories = set(gt_by_category) | set(pred_by_category)
-        # Create one row per category with all relevant info and metrics
+
+        # Get the list of normalized entities dicts
+        norm_data = row.get("normalized_entities", {})
+        pred_entities = (
+            norm_data.get("entities", []) if isinstance(norm_data, dict) else []
+        )
+
+        # Collect all unique categories present in GT or Preds
+        pred_categories = {
+            ent.get("category") for ent in pred_entities if ent.get("category")
+        }
+        all_categories = set(gt_by_category) | pred_categories
+
         for category in all_categories:
-            # Start with the original row data
             new_row = row.to_dict()
-            # Add category-specific info
+
+            # Use our new helper to get pre-calculated split sets
+            hallucinated, grounded = split_predictions_by_category_and_hallucination(
+                pred_entities, category
+            )
+
+            # Reconstruction of all predicted texts for this category
+            pred_texts = hallucinated | grounded
+
             new_row.update(
                 {
                     "category": category,
                     "groundtruth_by_category": set(gt_by_category.get(category, [])),
-                    "prediction_by_category": set(pred_by_category.get(category, [])),
+                    "prediction_by_category": pred_texts,
+                    "hallucinated_by_category": hallucinated,
+                    "grounded_prediction_by_category": grounded,
                 }
             )
             rows.append(new_row)
@@ -200,37 +243,25 @@ def build_category_level_dataframe(
 def compute_confusion_metrics_by_row(row):
     """Compute confusion metrics (TP, FP, FN) for a single row at entity level.
 
-    Parameters
-    ----------
-    row : pd.Series
-        A row of the DataFrame containing at least the following columns:
-        - "groundtruth_by_category": list of ground-truth entity texts for the category
-        - "prediction_by_category": list of predicted entity texts for the category
-
     Returns
     -------
     pd.Series
-        A Series containing the following metrics:
-        - "true_positives": count of correctly predicted entities
-        - "false_positives": count of incorrectly predicted entities
-        - "false_negatives": count of missed entities
-        - "tp_entities": list of correctly predicted entity texts
-        - "fp_entities": list of incorrectly predicted entity texts
-        - "fn_entities": list of missed entity texts
+        Series with TP, FP, FN, hallucination-free FP, entity lists, and counts.
     """
-    # Convert lists of entities to sets
     gt = set(row.get("groundtruth_by_category", []))
     pred = set(row.get("prediction_by_category", []))
-    # Compute true positives, false positives, and false negatives
+    hallucinated = set(row.get("hallucinated_by_category", []))
+
     tp = gt & pred
     fp = pred - gt
     fn = gt - pred
-    # Return metrics as a Series
-    # to be added as new columns in the DataFrame
+    fp_no_hallucination = fp - hallucinated
+
     return pd.Series(
         {
             "true_positives": len(tp),
             "false_positives": len(fp),
+            "false_positives_no_hallucination": len(fp_no_hallucination),
             "false_negatives": len(fn),
             "tp_entities": list(tp),
             "fp_entities": list(fp),
@@ -294,13 +325,20 @@ def compute_grouped_stats(
                 "prediction_by_category",
                 lambda s: sum(len(x) for x in s),
             ),
+            nb_hallucinated_entities=(
+                "hallucinated_by_category",
+                lambda s: sum(len(x) for x in s),
+            ),
             pct_correct_format=(
                 "is_valid_output_format",
                 lambda s: 100 * s.mean(),
             ),
-            pct_hallucinations=("has_hallucinations", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
+            false_positives_no_hallucination=(
+                "false_positives_no_hallucination",
+                "sum",
+            ),
             false_negatives=("false_negatives", "sum"),
             average_input_tokens=("input_tokens", "mean"),
             average_output_tokens=("output_tokens", "mean"),
@@ -318,7 +356,8 @@ def compute_grouped_stats(
                 "is_valid_output_format",
                 lambda s: 100 * s.mean(),
             ),
-            pct_hallucinations=("has_hallucinations", lambda s: 100 * s.mean()),
+            nb_hallucinated_entities=("nb_hallucinated_entities", "sum"),
+            nb_predicted_entities_raw=("nb_predicted_entities_raw", "sum"),
             total_cost_usd=("inference_cost_usd", "sum"),
             total_inference_time_sec=("inference_time_sec", "sum"),
             average_input_tokens=("input_tokens", "mean"),
@@ -340,6 +379,10 @@ def compute_grouped_stats(
             ),
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
+            false_positives_no_hallucination=(
+                "false_positives_no_hallucination",
+                "sum",
+            ),
             false_negatives=("false_negatives", "sum"),
         )
         .reset_index()
@@ -350,20 +393,24 @@ def compute_grouped_stats(
     )
     overall["category"] = "OVERALL"
     grouped = pd.concat([grouped_category, overall], ignore_index=True)
+    grouped["pct_hallucinations"] = 100 * safe_divide(
+        grouped["nb_hallucinated_entities"], grouped["nb_predicted_entities"]
+    )
+
     tp = grouped["true_positives"]
     fp = grouped["false_positives"]
+    fp_clean = grouped["false_positives_no_hallucination"]
     fn = grouped["false_negatives"]
 
     grouped["precision_score"] = safe_divide(tp, tp + fp)
+    grouped["precision_score_no_hallucination"] = safe_divide(tp, tp + fp_clean)
     grouped["recall_score"] = safe_divide(tp, tp + fn)
-
     grouped["f1_score"] = safe_divide(
         2 * grouped["precision_score"] * grouped["recall_score"],
         grouped["precision_score"] + grouped["recall_score"],
     )
-
     beta = 0.5
-    grouped["fbeta_0.5_score"] = safe_divide(
+    grouped[f"fbeta_{beta}_score"] = safe_divide(
         (1 + beta**2) * grouped["precision_score"] * grouped["recall_score"],
         beta**2 * grouped["precision_score"] + grouped["recall_score"],
     )
@@ -416,15 +463,11 @@ def main(inferences_dir: Path, results_dir: Path) -> None:
 @click.option(
     "--inferences-dir",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/llm/inferences"),
-    show_default=True,
     help="Directory containing the JSON annotation files to evaluate.",
 )
 @click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/llm/evaluation"),
-    show_default=True,
     help="Target directory where evaluation results will be saved.",
     callback=ensure_dir,
 )
