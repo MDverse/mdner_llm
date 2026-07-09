@@ -11,10 +11,6 @@ from loguru import logger
 def norm_temp(temp_str: str) -> tuple:
     """Normalize the value of a temperature.
 
-    Parameters
-    ----------
-    temp_str (str): The raw value of the temperature
-
     Returns
     -------
     str: The normalized value of the temp_str
@@ -33,7 +29,7 @@ def norm_temp(temp_str: str) -> tuple:
     #   an optional unit because of the "?" symbol at the end of the group.
     #   This group consists of zero or more spaces, because of the "*" symbol,
     #   an optional degree symbol, then zero or more spaces, and zero or more letters.
-    logger.info("Normalising temperature entities...")
+    # logger.info("Normalising temperature entities...")
     # If the temperatue is anotated as room temperature or body temperature
     # we normalize it to the standard value
     if temp_str == "room temperature":
@@ -42,8 +38,9 @@ def norm_temp(temp_str: str) -> tuple:
         return (310, "K")
     temperature_match = re.search(r"([0-9]+)(\.?[0-9]+)?( *˚? *[a-z]*)?", temp_str)
     if temperature_match is None:
+        logger.warning(f"STEMP: Could not extract temperature from '{temp_str}'.")
         return None, None
-    logger.info("Found temperature entity...")
+    # logger.info("Found temperature entity...")
     temperature_integer_part = temperature_match.group(1)
     temperature_decimal_part = temperature_match.group(2)
     temperature_unit = temperature_match.group(3)
@@ -60,11 +57,11 @@ def norm_temp(temp_str: str) -> tuple:
         temperature_unit = temperature_unit.strip(" ")  # We remove the spaces
         temperature_unit = temperature_unit.strip("°")  # We remove the degree
         if temperature_unit == "":  # if there is no unit we assume it's kelvin
-            temperature_unit = "k"
+            temperature_unit = "K"
         elif "c" in temperature_unit:
             # if the unit is in celsius we convert it to kelvin
             temperature_value += 273.15
-            temperature_unit = "k"
+            temperature_unit = "K"
 
     return temperature_value, temperature_unit
 
