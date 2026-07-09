@@ -87,31 +87,27 @@ def normalize_text(text: str) -> str:
 
 
 def count_hallucinated_entities(
-    response: ListOfEntities | None,
-    original_text: str,
+    data_row,
     *,
     is_valid_output_format: bool,
 ) -> tuple[int, int]:
-    """
-    Count hallucinated entities (whose text does not appear in the original text).
+    """Count hallucinated entities using pre-computed flags from normalization step.
 
     Returns
     -------
     tuple[int, int]
-        (number of hallucinated entities, total number of predicted entities).
+        (number of hallucinated entities, number of predicted entities)
     """
-    if (
-        not is_valid_output_format
-        or response is None
-        or not hasattr(response, "entities")
+    if not is_valid_output_format or not isinstance(
+        data_row.get("normalized_entities"), dict
     ):
         return 0, 0
 
-    norm_text = normalize_text(original_text)
-    nb_predicted = len(response.entities)
-    nb_hallucinated = sum(
-        normalize_text(entity.text) not in norm_text for entity in response.entities
-    )
+    entities = data_row["normalized_entities"].get("entities", [])
+    nb_predicted = len(entities)
+    # Count where is_hallucinated is explicitly True
+    nb_hallucinated = sum(1 for ent in entities if ent.get("is_hallucinated", False))
+
     return nb_hallucinated, nb_predicted
 
 
@@ -133,13 +129,13 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
     df["is_valid_output_format"] = df["status"].eq("ok")
+    # Pass the dictionary row to read normalized_entities
     hallucination_counts = [
         count_hallucinated_entities(
-            row.formatted_response,
-            row.text,
-            is_valid_output_format=row.is_valid_output_format,
+            row,
+            is_valid_output_format=row["is_valid_output_format"],
         )
-        for row in df.itertuples(index=False)
+        for _, row in df.iterrows()
     ]
     df["nb_hallucinated_entities"], df["nb_predicted_entities_raw"] = zip(
         *hallucination_counts, strict=True
@@ -165,20 +161,28 @@ def group_texts_by_category(entities: list) -> dict[str, list[str]]:
     return dict(grouped)
 
 
-def split_predictions_by_hallucination(
-    pred_texts: list[str], original_text: str
+def split_predictions_by_category_and_hallucination(
+    normalized_entities: list[dict], category: str
 ) -> tuple[set[str], set[str]]:
-    """Split predicted entity texts into hallucinated and grounded sets.
+    """Extract hallucinated and grounded entities for a specific category.
 
     Returns
     -------
     tuple[set[str], set[str]]
-        (hallucinated texts, grounded texts) for a single category.
+        (set of hallucinated entity texts, set of grounded entity texts)
     """
-    hallucinated = {
-        text for text in pred_texts if text not in normalize_text(original_text)
-    }
-    grounded = set(pred_texts) - hallucinated
+    hallucinated = set()
+    grounded = set()
+
+    for ent in normalized_entities:
+        if ent.get("category") == category:
+            text = normalize_text(ent.get("text", ""))
+            if text:
+                if ent.get("is_hallucinated", False):
+                    hallucinated.add(text)
+                else:
+                    grounded.add(text)
+
     return hallucinated, grounded
 
 
@@ -194,27 +198,39 @@ def build_category_level_dataframe(
         for each line in the original DataFrame.
     """
     rows = []
+    rows = []
     for _, row in df.iterrows():
-        # Parse groundtruth
         gt_entities = row["groundtruth"].entities
-        # Parse prediction
-        pred_entities = row["formatted_response"].entities
-        # Group by category
         gt_by_category = group_texts_by_category(gt_entities)
-        pred_by_category = group_texts_by_category(pred_entities)
-        all_categories = set(gt_by_category) | set(pred_by_category)
-        # Create one row per category with all relevant info and metrics
+
+        # Get the list of normalized entities dicts
+        norm_data = row.get("normalized_entities", {})
+        pred_entities = (
+            norm_data.get("entities", []) if isinstance(norm_data, dict) else []
+        )
+
+        # Collect all unique categories present in GT or Preds
+        pred_categories = {
+            ent.get("category") for ent in pred_entities if ent.get("category")
+        }
+        all_categories = set(gt_by_category) | pred_categories
+
         for category in all_categories:
             new_row = row.to_dict()
-            pred_texts = pred_by_category.get(category, [])
-            hallucinated, grounded = split_predictions_by_hallucination(
-                pred_texts, row["text"]
+
+            # Use our new helper to get pre-calculated split sets
+            hallucinated, grounded = split_predictions_by_category_and_hallucination(
+                pred_entities, category
             )
+
+            # Reconstruction of all predicted texts for this category
+            pred_texts = hallucinated | grounded
+
             new_row.update(
                 {
                     "category": category,
                     "groundtruth_by_category": set(gt_by_category.get(category, [])),
-                    "prediction_by_category": set(pred_texts),
+                    "prediction_by_category": pred_texts,
                     "hallucinated_by_category": hallucinated,
                     "grounded_prediction_by_category": grounded,
                 }
@@ -447,15 +463,11 @@ def main(inferences_dir: Path, results_dir: Path) -> None:
 @click.option(
     "--inferences-dir",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/llm/inferences"),
-    show_default=True,
     help="Directory containing the JSON annotation files to evaluate.",
 )
 @click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default=Path("results/llm/evaluation"),
-    show_default=True,
     help="Target directory where evaluation results will be saved.",
     callback=ensure_dir,
 )
