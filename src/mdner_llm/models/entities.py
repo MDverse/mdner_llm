@@ -2,8 +2,7 @@
 
 from typing import Literal
 
-from loguru import logger
-from pydantic import BaseModel, Field, ValidationInfo, model_validator
+from pydantic import BaseModel, Field
 
 
 # =====================================================================
@@ -113,37 +112,6 @@ class NormalizedEntity(Entity):
     is_hallucinated: bool = Field(
         ..., description="True if the entity text is absent from the source text."
     )
-
-    @model_validator(mode="before")
-    @classmethod
-    def normalize_and_validate(
-        cls, data: BaseModel | dict, info: ValidationInfo
-    ) -> dict[str, BaseModel | dict]:
-        """
-        Validate entity presence in the source text and normalizes its text field.
-
-        Returns
-        -------
-            dict[str, BaseModel | dict]: The updated dictionary matching the schema fields.
-        """
-        # Convert a Pydantic model to a dictionary
-        if isinstance(data, BaseModel):
-            data = data.model_dump()
-        elif not isinstance(data, dict):
-            data = dict(data)
-        text = data.get("text", "")
-        # First, we normalize the text (lowercase & strip whitespace)
-        data["text_normalized"] = text.strip().lower()
-        # Then, we check if the normalized text is present in the source text
-        source_text = (info.context or {}).get("source_text", "")
-        data["is_hallucinated"] = data["text_normalized"] not in source_text.lower()
-        if data["is_hallucinated"]:
-            logger.warning(
-                f"Entity '{text}' not found in source text "
-                f"(url: {info.context.get('url', 'N/A')})."
-            )
-            logger.warning("Marked as hallucinated.")
-        return data
 
 
 # =====================================================================
