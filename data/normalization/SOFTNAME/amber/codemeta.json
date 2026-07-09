@@ -1,0 +1,115 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "author": [
+        {
+            "id": "https://orcid.org/0000-0002-2574-6066",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Vertex Pharmaceuticals, 40 Allston Street, Cambridge, MA 02138, USA"
+            },
+            "familyName": "Pearlman",
+            "givenName": "David A.  "
+        },
+        {
+            "id": "_:author_2",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Molecular Biology and Chemistry, Scripps Research Institute, La Jolla, CA 92037, USA"
+            },
+            "familyName": "Case",
+            "givenName": "David A.  "
+        },
+        {
+            "id": "_:author_3",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Pharmaceutical Chemistry, University of California, San Francisco, CA 94143, USA"
+            },
+            "familyName": "Caldwell",
+            "givenName": "James W.  "
+        },
+        {
+            "id": "_:author_4",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Pharmaceutical Chemistry, University of California, San Francisco, CA 94143, USA"
+            },
+            "familyName": "Ross",
+            "givenName": "Wilson S. "
+        },
+        {
+            "id": "https://orcid.org/0000-0003-0298-3904",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Pharmaceutical Chemistry, University of California, San Francisco, CA 94143, USA"
+            },
+            "familyName": "Cheatham III",
+            "givenName": "Thomas E. "
+        },
+        {
+            "id": "_:author_6",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Molecular Biology and Chemistry, Scripps Research Institute, La Jolla, CA 92037, USA"
+            },
+            "familyName": "DeBolt",
+            "givenName": " Steve "
+        },
+        {
+            "id": "https://orcid.org/0000-0001-6294-8057",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "    Department of Medicinal Chemistry, University of Minnesota, Minneapolis, MN 9055455, USA"
+            },
+            "familyName": "Ferguson",
+            "givenName": "David "
+        },
+        {
+            "id": "_:author_8",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Smith Kline Beecham Pharmaceuticals, 709 Swedeland Road, King of Prussia, PA 19406, USA"
+            },
+            "familyName": "Seibel",
+            "givenName": "George "
+        },
+        {
+            "id": "_:author_9",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Pharmaceutical Chemistry, University of California, San Francisco, CA 94143, USA"
+            },
+            "familyName": "Kollman",
+            "givenName": " Peter  "
+        }
+    ],
+    "codeRepository": "https://github.com/Amber-MD/AmberClassic.git",
+    "dateModified": "2024-12-21",
+    "description": "Amber is a suite of biomolecular simulation programs. It began in the late 1970's, and is maintained by an active development community; see our history page and our contributors page for more information.\nThe term \"Amber\" refers to two things. First, it is a set of molecular mechanical force fields for the simulation of biomolecules; these force fields are in the public domain, and are used in a variety of simulation programs. Second, it is a package of molecular simulation programs which includes source code and demos.\nAmber is distributed in two parts: AmberTools25 and Amber24. ",
+    "downloadUrl": "https://github.com/Amber-MD/AmberClassic/archive/refs/tags/v1.0.tar.gz",
+    "keywords": "molecular-dynamics",
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "name": "  amber",
+    "programmingLanguage": [
+        "C++",
+        "C",
+        "Fortran",
+        "Makefile",
+        "HTML",
+        "Shell"
+    ],
+    "relatedLink": "https://ambermd.org/",
+    "version": "1.0",
+    "referencePublication": "https://doi.org/10.1016/0010-4655(95)00041-D"
+}

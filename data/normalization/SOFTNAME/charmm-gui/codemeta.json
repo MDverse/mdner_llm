@@ -1,0 +1,54 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "author": [
+        {
+            "id": "https://orcid.org/0000-0002-4104-6473",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Chemistry, The University of Kansas, 2030 Becker Drive, Lawrence, Kansas 66047"
+            },
+            "familyName": "Jo",
+            "givenName": "Sunhwan "
+        },
+        {
+            "id": "_:author_2",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Molecular Biosciences and Center for Bioinformatics, The University of Kansas, 2030 Becker Drive, Lawrence, Kansas 66047"
+            },
+            "familyName": "Kim",
+            "givenName": "Taehoon "
+        },
+        {
+            "id": "_:author_3",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Chemistry, The University of Kansas, 2030 Becker Drive, Lawrence, Kansas 66047"
+            },
+            "familyName": "Iyer",
+            "givenName": "Vidyashankara G. "
+        },
+        {
+            "id": "_:author_4",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Department of Molecular Biosciences and Center for Bioinformatics, The University of Kansas, 2030 Becker Drive, Lawrence, Kansas 66047"
+            },
+            "familyName": "Im",
+            "givenName": "Wonpil "
+        }
+    ],
+    "codeRepository": "https://github.com/charmm-gui",
+    "dateModified": "2022-07-00",
+    "description": "Since its original development in 2006, CHARMM-GUI has proven to be an ideal web-based platform to interactively build complex systems and prepare their inputs with well-established and reproducible simulation protocols for state-of-the-art molecular simulations using widely used simulation packages such as CHARMM, NAMD, GROMACS, AMBER, GENESIS, Tinker, LAMMPS, Desmond, and OpenMM. The CHARMM-GUI development project has been widely adopted for various purposes and now contains a number of different modules designed to set up a broad range of molecular simulation systems in Input Generator. Many original modules were developed as an in-house effort, but we have established close collaborations with the developers of CHARMM and other MD simulation packages for addition of newer modules.",
+    "name": "charmm-gui",
+    "relatedLink": "https://www.charmm-gui.org/",
+    "version": "Version 3.8",
+    "referencePublication": "https://doi.org/10.1002/jcc.20945"
+}
