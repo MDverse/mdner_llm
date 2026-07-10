@@ -13,7 +13,8 @@ from loguru import logger
 from pydantic import ValidationError
 
 from mdner_llm.logger import create_logger
-from mdner_llm.models.entities import ListOfEntities, ListOfEntitiesNormalized
+from mdner_llm.models.entities import ListOfEntities
+from mdner_llm.models.entities_normalized import ListOfEntitiesNormalized
 from mdner_llm.normalization.normalize_stemp import norm_temp
 from mdner_llm.normalization.normalize_stime_with_regex import norm_stime_regex
 
@@ -151,7 +152,7 @@ def norm_ffm(ffm_db: dict[str, Any], predicted_entity: str) -> dict[str, Any]:
         logger.warning(f"FFM: No match found for '{predicted_entity}'.")
     return {
         "text_normalized": entry.get("name") or predicted_entity,
-        "nature": entry.get("category"),
+        "tag": entry.get("category"),
         "family": entry.get("family"),
         "aliases": entry.get("aliases"),
         "resolution": entry.get("resolution"),
@@ -256,6 +257,8 @@ def normalize_json_content(
             )
         elif entity.category == "STIME":
             ent_dict.update(norm_stime_regex(predicted_entity_cleaned))
+        elif entity.category == "MOL":
+            pass
         normalized_entities.append(ent_dict)
     # Create a new ListOfEntitiesNormalized instance and validate it
     try:
