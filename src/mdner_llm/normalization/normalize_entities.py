@@ -291,27 +291,6 @@ def save_json_data(
         return False
 
 
-@click.command()
-@click.option(
-    "--input-dir",
-    type=click.Path(exists=True, file_okay=False, path_type=Path),
-    help="Directory containing the input inference JSON files.",
-)
-@click.option(
-    "--ffm-db-path",
-    type=click.Path(exists=True, file_okay=True, path_type=Path),
-    help="Path to the force field database JSON file.",
-)
-@click.option(
-    "--softname-codemeta-dir",
-    type=click.Path(exists=True, file_okay=False, path_type=Path),
-    help="Directory containing the software name codemeta files.",
-)
-@click.option(
-    "--output-dir",
-    type=click.Path(file_okay=False, path_type=Path),
-    help="Directory where normalized JSON files will be saved.",
-)
 def main(
     input_dir: Path, ffm_db_path: Path, softname_codemeta_dir: Path, output_dir: Path
 ) -> None:
@@ -363,5 +342,33 @@ def main(
     logger.success(f"Total successfully processed: {processed_count}/{total_files}")
 
 
+@click.command()
+@click.option(
+    "--input-dir",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    help="Directory containing the input inference JSON files.",
+)
+@click.option(
+    "--ffm-db-path",
+    type=click.Path(exists=True, file_okay=True, path_type=Path),
+    help="Path to the force field database JSON file.",
+)
+@click.option(
+    "--softname-codemeta-dir",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    help="Directory containing the software name codemeta files.",
+)
+@click.option(
+    "--output-dir",
+    type=click.Path(file_okay=False, path_type=Path),
+    help="Directory where normalized JSON files will be saved.",
+)
+def run_main_from_cli(
+    input_dir: Path, ffm_db_path: Path, softname_codemeta_dir: Path, output_dir: Path
+) -> None:
+    """Run the normalization process from the command line."""
+    main(input_dir, ffm_db_path, softname_codemeta_dir, output_dir)
+
+
 if __name__ == "__main__":
-    main()
+    run_main_from_cli()

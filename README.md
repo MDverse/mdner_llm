@@ -218,6 +218,20 @@ uv run extract-entities-with-llm-all-texts \
     --output-dir results/llm/inferences
 ```
 
+### Normalize extracted entities across multiple annotations 🧹
+
+To normalize extracted entities across multiple annotations, run:
+
+```sh
+uv run normalize-entities \
+    --inferences-dir results/llm/inferences \
+    --ffm-db-path data/normalization/md_forcefields_registry.json \
+    --softname-codemeta-dir data/normalization/software_names \
+    --output-dir results/llm/inferences_normalized
+```
+
+> This command normalizes metadata structure across extracted categories, detects hallucinated entities by checking alignment with original text footprints.
+
 ### Aggregate consensus entities across multiple annotations 📦
 
 To aggregate consensus entities across multiple annotations, run:
