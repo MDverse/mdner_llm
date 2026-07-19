@@ -1,11 +1,20 @@
 """Script to get llm normalisation results."""
 
 import json
+import os
 from pathlib import Path
 
 import click
+import instructor
 import pandas as pd
-from mdverse_entity_norm.scripts.evaluate_llm_models import (
+from instructor.core import InstructorRetryException
+from loguru import logger
+from openai import OpenAI
+from pydantic import ValidationError
+
+from mdner_llm.normalization.evaluate_llm_models import (
+    NormSimuTime,
+    SimulationTime,
     normalize_simulation_time,
 )
 
@@ -17,6 +26,64 @@ UNITS_TO_NS = {
     "ms": 1e6,
     "s": 1e9,
 }
+
+PROMPT_TEMPLATE = """
+You are a unit normalization assistant for molecular dynamics simulation times.
+Your tasks:
+- Convert all time units to standard time abbreviations (ps, ns, μs, ms, s)
+- Separate numerical values from time units
+
+Rules:
+- No markdown, no explanation
+- Use only standard time units: ps (picoseconds), ns (nanoseconds), μs (microseconds), ms (milliseconds), s (seconds)
+- Always separate value and unit (e.g. "500ns" → value: 500, unit: "ns")
+- Take in consideration values written in letter (e.g. "one hundred"), and convert it to numeric value
+- If the simulation time is an interval or contains multiple values, separate each simulation time.
+- If the unit is missing or the unit is not a time unit, output the normalized unit to "None"
+- If the numerical value is missing, output the normalized value to "None"
+
+Examples:
+- Input: "0.03 and 3 μs" → Extract multiple outputs: [{{value: 0.03, unit: "μs"}}, {{value: 3.0, unit: "μs"}}]
+"""
+
+
+def norm_stime(raw_simulation_time: str, model_name: str) -> list[SimulationTime]:
+    """Query the LLM backend and return the complete list of structured time objects.
+
+    Returns
+    -------
+    list[SimulationTime]
+        A list of extracted simulation time sub-entities containing values and units.
+    """
+    client = instructor.from_openai(
+        OpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+        )
+    )
+
+    formatted_prompt = PROMPT_TEMPLATE.format(raw_simulation_time=raw_simulation_time)
+
+    try:
+        completion_pydantic, _ = client.chat.completions.create_with_completion(
+            model=model_name,
+            max_retries=3,
+            response_model=NormSimuTime,
+            messages=[
+                {"role": "system", "content": formatted_prompt},
+                {"role": "user", "content": f"{raw_simulation_time}"},
+            ],
+        )
+
+        if completion_pydantic.output:
+            return completion_pydantic.output
+
+    except (InstructorRetryException, ValidationError) as exc:
+        logger.error(
+            f"LLM normalization parsing failed for '{raw_simulation_time}': {exc}"
+        )
+
+    return []
 
 
 def get_stime_entities(entities_file: Path) -> pd.DataFrame:

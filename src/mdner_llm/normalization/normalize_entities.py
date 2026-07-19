@@ -16,7 +16,7 @@ from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_normalized import ListOfEntitiesNormalized
 from mdner_llm.normalization.normalize_stemp import norm_temp
-from mdner_llm.normalization.normalize_stime_with_regex import norm_stime_regex
+from mdner_llm.normalization.normalize_stime_wth_llm import norm_stime
 
 STIME_RE = re.compile(r"([0-9]+)(\.?[0-9]+)? *(ps|ns|μs|ms|s)", re.IGNORECASE)
 STEMP_RE = re.compile(r"([0-9]+)(\.?[0-9]+)?( *˚? *[a-z]*)?", re.IGNORECASE)
@@ -216,6 +216,7 @@ def normalize_json_content(
     data: dict[str, Any],
     ffm_db: dict[str, Any],
     softname_codemeta_dir: Path,
+    model_name: str,
     logger: "loguru.Logger" = loguru.logger,
 ) -> dict[str, Any] | None:
     """Normalize entities in the JSON content and check for hallucinations.
@@ -256,9 +257,17 @@ def normalize_json_content(
                 norm_softname(predicted_entity_cleaned, softname_codemeta_dir)
             )
         elif entity.category == "STIME":
-            ent_dict.update(norm_stime_regex(predicted_entity_cleaned))
+            outputs = norm_stime(predicted_entity_cleaned, model_name)
+            # Use the first extraction for the main entry, or set to None if empty
+            ent_dict["value"] = outputs[0].value if outputs else None
+            ent_dict["unit"] = outputs[0].unit if outputs else None
+            # Handle extra values dynamically if the list contains multiple splits
+            for output in outputs[1:]:
+                split_dict = {**ent_dict, "value": output.value, "unit": output.unit}
+                normalized_entities.append(split_dict)
         elif entity.category == "MOL":
             pass
+            # ent_dict.update(norm_mol(predicted_entity_cleaned))
         normalized_entities.append(ent_dict)
     # Create a new ListOfEntitiesNormalized instance and validate it
     try:
@@ -292,19 +301,23 @@ def save_json_data(
 
 
 def main(
-    input_dir: Path, ffm_db_path: Path, softname_codemeta_dir: Path, output_dir: Path
+    inferences_dir: Path,
+    ffm_db_path: Path,
+    softname_codemeta_dir: Path,
+    model_name: str,
+    output_dir: Path,
 ) -> None:
     """Load JSON files, normalize their entities, and save the updated data."""
-    logger = create_logger(f"logs/normalize_{input_dir.name}.log")
+    logger = create_logger(f"logs/normalize_{inferences_dir.name}.log")
     # Create the output directory if it doesn't exist
     output_dir.mkdir(parents=True, exist_ok=True)
     # Load all JSON files from the input directory
-    json_files = list(input_dir.glob("*.json"))
+    json_files = list(inferences_dir.glob("*.json"))
     total_files = len(json_files)
     if total_files == 0:
-        logger.warning(f"No JSON files found in {input_dir}")
+        logger.warning(f"No JSON files found in {inferences_dir}")
         return
-    logger.info(f"Found {total_files} JSON file(s) to process from {input_dir}.")
+    logger.info(f"Found {total_files} JSON file(s) to process from {inferences_dir}.")
 
     # Load the force field database for normalization
     try:
@@ -324,7 +337,7 @@ def main(
             continue
         # Normalize the entities in the JSON content
         updated_data = normalize_json_content(
-            data, ffm_db, softname_codemeta_dir, logger
+            data, ffm_db, softname_codemeta_dir, model_name, logger
         )
         if updated_data is None:
             continue
@@ -344,7 +357,7 @@ def main(
 
 @click.command()
 @click.option(
-    "--input-dir",
+    "--inferences-dir",
     type=click.Path(exists=True, file_okay=False, path_type=Path),
     help="Directory containing the input inference JSON files.",
 )
@@ -359,15 +372,30 @@ def main(
     help="Directory containing the software name codemeta files.",
 )
 @click.option(
+    "--model-name",
+    type=str,
+    help="Name of the LLM model to use for simulation time normalization.",
+)
+@click.option(
     "--output-dir",
     type=click.Path(file_okay=False, path_type=Path),
     help="Directory where normalized JSON files will be saved.",
 )
 def run_main_from_cli(
-    input_dir: Path, ffm_db_path: Path, softname_codemeta_dir: Path, output_dir: Path
+    inferences_dir: Path,
+    ffm_db_path: Path,
+    softname_codemeta_dir: Path,
+    model_name: str,
+    output_dir: Path,
 ) -> None:
     """Run the normalization process from the command line."""
-    main(input_dir, ffm_db_path, softname_codemeta_dir, output_dir)
+    main(
+        inferences_dir,
+        ffm_db_path,
+        softname_codemeta_dir,
+        model_name,
+        output_dir,
+    )
 
 
 if __name__ == "__main__":

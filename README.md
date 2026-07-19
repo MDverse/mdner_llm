@@ -223,10 +223,11 @@ uv run extract-entities-with-llm-all-texts \
 To normalize extracted entities across multiple annotations, run:
 
 ```sh
-uv run normalize-entities \
+uv run normalize-extracted-entities \
     --inferences-dir results/llm/inferences \
     --ffm-db-path data/normalization/md_forcefields_registry.json \
     --softname-codemeta-dir data/normalization/software_names \
+    --model-name "deepseek/deepseek-v4-pro" \
     --output-dir results/llm/inferences_normalized
 ```
 
