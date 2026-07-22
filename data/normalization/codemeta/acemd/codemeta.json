@@ -1,0 +1,39 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "ACEMD",
+    "description": "ACEMD is a highly optimized molecular dynamics simulation engine designed specifically for graphics processing units (GPUs), supporting CHARMM and AMBER force fields.",
+    "relatedLink": "https://www.acellera.com/products/molecular-dynamics-software-gpu-acemd/",
+    "keywords": [
+        "molecular-dynamics",
+        "gpu-acceleration",
+        "cuda",
+        "biomolecular-simulation"
+    ],
+    "license": "https://software.acellera.com/acemd/reference/license.html",
+    "programmingLanguage": [
+        "CUDA",
+        "Python"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Harvey",
+            "givenName": "Matt J"
+        },
+        {
+            "type": "Person",
+            "familyName": "De Fabritiis",
+            "givenName": "Gianni",
+            "id": "https://orcid.org/0000-0003-3913-4877"
+        },
+        {
+            "type": "Person",
+            "familyName": "Giovanni",
+            "givenName": "Giupponi"
+        }
+        
+    ],
+    "referencePublication": "https://doi.org/10.1021/ct9000685"
+}
