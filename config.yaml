@@ -1,0 +1,55 @@
+# --- Global Paths ---
+texts_path: "data/groundtruth"
+prompt_path: "docs/prompt_template.md"
+guidelines_path: "docs/annotation_rules.md"
+minimal_guidelines_path: "docs/minimal_annotation_rules.md"
+examples_path: "docs/few_shot_examples.md"
+ffm_db_path: "data/normalization/md_forcefields_registry.json"
+softname_db_path: "data/normalization/software_names_registry.json"
+
+# --- Global Parameters ---
+max_samples: 3
+normalization_model: "deepseek/deepseek-v4-pro"
+
+# --- Scenario 1: Benchmark strategies with few models ---
+benchmark_strategies:
+  no_instructor_no_guidelines:
+    framework: "noframework"
+    guidelines: "docs/minimal_annotation_rules.md"
+  with_instructor_no_guidelines:
+    framework: "instructor"
+    guidelines: "docs/minimal_annotation_rules.md"
+  with_instructor_with_guidelines:
+    framework: "instructor"
+    guidelines: "docs/annotation_rules.md"
+
+benchmark_models:
+  - "deepseek/deepseek-v4-pro"
+  - "anthropic/claude-sonnet-5"
+  - "openai/gpt-5.6-sol"
+  - "moonshotai/kimi-k3"
+
+# --- Scenario 2: Benchmark SoT LLM models ---
+full_eval_models:
+  - "meta-llama/llama-3.1-8b-instruct"
+  - "xiaomi/mimo-v2.5"
+  - "deepseek/deepseek-v4-flash"
+  - "deepseek/deepseek-v4-pro"
+  - "minimax/minimax-m3"
+  - "z-ai/glm-5.2"
+  - "anthropic/claude-sonnet-5"
+  - "google/gemini-3.6-flash"
+  - "openai/gpt-5.6-sol"
+  - "openai/gpt-5.6-terra"
+  - "openai/gpt-oss-120b"
+  - "x-ai/grok-4.5"
+  - "google/gemma-4-31b-it"
+  - "moonshotai/kimi-k3"
+  - "mistralai/mistral-medium-3-5"
+  - "qwen/qwen3.7-max"
+  - "nvidia/nemotron-3-ultra-550b-a55b"
+  - "meta-llama/llama-4-maverick"
+  - "sakana/fugu-ultra"
+
+# --- Output Directory ---
+output_dir_base: "results/llms"
