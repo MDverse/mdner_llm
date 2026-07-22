@@ -409,10 +409,20 @@ def compute_grouped_stats(
         2 * grouped["precision_score"] * grouped["recall_score"],
         grouped["precision_score"] + grouped["recall_score"],
     )
+    grouped["f1_score_no_hallucination"] = safe_divide(
+        2 * grouped["precision_score_no_hallucination"] * grouped["recall_score"],
+        grouped["precision_score_no_hallucination"] + grouped["recall_score"],
+    )
     beta = 0.5
     grouped[f"fbeta_{beta}_score"] = safe_divide(
         (1 + beta**2) * grouped["precision_score"] * grouped["recall_score"],
         beta**2 * grouped["precision_score"] + grouped["recall_score"],
+    )
+    grouped[f"fbeta_{beta}_score_no_hallucination"] = safe_divide(
+        (1 + beta**2)
+        * grouped["precision_score_no_hallucination"]
+        * grouped["recall_score"],
+        beta**2 * grouped["precision_score_no_hallucination"] + grouped["recall_score"],
     )
     return grouped
 

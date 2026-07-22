@@ -1,0 +1,33 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "CHARMM",
+    "description": "CHARMM (Chemistry at Harvard Macromolecular Mechanics) is a versatile and widely used molecular simulation program with comprehensive academic development focused on macromolecular systems, including energy minimization, molecular dynamics, and vibrational analysis.",
+    "relatedLink": "https://www.charmm.org/",
+    "keywords": [
+        "molecular-dynamics",
+        "molecular-simulation",
+        "free-energy",
+        "macromolecular-mechanics"
+    ],
+    "programmingLanguage": [
+        "Fortran",
+        "C",
+        "Makefile"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Karplus",
+            "givenName": "Martin"
+        },
+        {
+            "type": "Person",
+            "familyName": "Brooks",
+            "givenName": "Bernard R."
+        }
+    ],
+    "version": "c48b1",
+    "referencePublication": "https://doi.org/10.1021/acs.jpcb.4c04100"
+}

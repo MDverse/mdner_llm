@@ -1,0 +1,39 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "author": [
+        {
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Theoretical Biophysics Group, University of Illinois and Beckman Institute, Urbana, Illinois 61801, USA"
+            },
+            "familyName": "Humphrey",
+            "givenName": "William "
+        },
+        {
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Theoretical Biophysics Group, University of Illinois and Beckman Institute, Urbana, Illinois 61801, USA"
+            },
+            "familyName": "Dalke",
+            "givenName": " Andrew "
+        },
+        {
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Theoretical Biophysics Group, University of Illinois and Beckman Institute, Urbana, Illinois 61801, USA"
+            },
+            "familyName": "Schulten",
+            "givenName": " Klaus "
+        }
+    ],
+    "dateModified": "2026-03-25",
+    "description": "VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting. VMD supports computers running MacOS X, Unix, or Windows, is distributed free of charge, and includes source code. ",
+    "name": "VMD",
+    "version": "2.0.0",
+    "referencePublication": "https://doi.org/10.1016/0263-7855(96)00018-5"
+}

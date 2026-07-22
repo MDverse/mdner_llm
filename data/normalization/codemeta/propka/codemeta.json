@@ -1,0 +1,17 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "PROPKA",
+    "description": "PROPKA predicts the pKa values of ionizable groups in proteins and protein-ligand complexes based on empirical structural features.",
+    "codeRepository": "https://github.com/jensengroup/propka",
+    "keywords": [
+        "pka-prediction",
+        "electrostatics",
+        "protein-structure"
+    ],
+    "programmingLanguage": [
+        "Python"    ],
+    "version": "3.5.1",
+    "referencePublication": "https://doi.org/10.1021/ct200133y"
+}

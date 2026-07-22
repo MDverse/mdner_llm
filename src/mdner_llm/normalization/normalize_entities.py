@@ -13,7 +13,16 @@ from loguru import logger
 from pydantic import ValidationError
 
 from mdner_llm.logger import create_logger
-from mdner_llm.models.entities import ListOfEntities, ListOfEntitiesNormalized
+from mdner_llm.models.entities import ListOfEntities
+from mdner_llm.models.entities_normalized import ListOfEntitiesNormalized
+from mdner_llm.normalization.ground_molecule_from_all_database import (
+    call_pdb,
+    call_uniprot,
+    get_type,
+    query_chebi_by_name,
+)
+from mdner_llm.normalization.normalize_stemp import norm_temp
+from mdner_llm.normalization.normalize_stime_wth_llm import norm_stime
 
 STIME_RE = re.compile(r"([0-9]+)(\.?[0-9]+)? *(ps|ns|μs|ms|s)", re.IGNORECASE)
 STEMP_RE = re.compile(r"([0-9]+)(\.?[0-9]+)?( *˚? *[a-z]*)?", re.IGNORECASE)
@@ -130,8 +139,106 @@ def check_hallucination(
     return True
 
 
+def norm_from_db(db_path: Path, category: str, predicted_entity: str) -> dict[str, Any]:
+    """Normalize an entity using a JSON inventory file (matching names or aliases).
+
+    Returns
+    -------
+    dict[str, Any]
+        Dictionary containing the normalized text name.
+    """
+    if not db_path.exists():
+        logger.warning(f"{category}: Database file not found at {db_path}.")
+        return {"text_normalized": predicted_entity}
+
+    try:
+        data = json.loads(db_path.read_text(encoding="utf-8"))
+        records = next(iter(data.values()))
+    except (JSONDecodeError, StopIteration, OSError) as e:
+        logger.error(f"{category}: Failed to read database {db_path.name}: {e}")
+        return {"text_normalized": predicted_entity}
+
+    for record in records:
+        names = [record.get("name", ""), *record.get("aliases", [])]
+        if predicted_entity in [n.lower().strip() for n in names if n]:
+            return {"text_normalized": record.get("name") or predicted_entity}
+
+    logger.warning(f"{category}: No match found for '{predicted_entity}'.")
+    return {"text_normalized": predicted_entity}
+
+
+def clean_molecule_name(entity_name: str) -> str:
+    """Remove generic biological/chemical stop-words from entity names.
+
+    Returns
+    -------
+    str
+        Cleaned name with generic terms stripped and whitespace normalized.
+    """
+    blacklist = (
+        r"compound?|protein?|enzyme?|ligand?|receptor?|peptide?|"
+        r"antibodies?|antigen?|hormone?|substrate?|cofactor?|inhibitor|"
+        r"activator?|agonist?|antagonist?|modulator?|complexe?|oligomer"
+    )
+    pattern = re.compile(rf"^\b({blacklist})s?\b|\b({blacklist})s?\b$", re.IGNORECASE)
+    return pattern.sub("", entity_name)
+
+
+def norm_mol(predicted_entity: str) -> dict[str, Any]:
+    """Normalize a molecular entity using PDB, UniProt, ChEBI, or pattern fallbacks.
+
+    Returns
+    -------
+    dict[str, Any]
+        Dictionary containing normalized fields matching MoleculeNormalized model.
+    """
+    detected_type = get_type(predicted_entity)
+    # 1. PDB Accessions
+    if detected_type == "PDB":
+        pdb_data = call_pdb(predicted_entity)
+        pdb_id = pdb_data.get("id")
+        return {
+            "text_normalized": pdb_data.get("name") or predicted_entity,
+            "molecular_type": "PDB",
+            "url_from_normalization": f"https://www.rcsb.org/structure/{pdb_id}"
+            if pdb_id
+            else None,
+        }
+    # 2. UniProt Accessions
+    if detected_type == "UNIPROT":
+        uniprot_data = call_uniprot(predicted_entity)
+        uniprot_id = uniprot_data.get("id")
+        return {
+            "text_normalized": uniprot_data.get("name") or predicted_entity,
+            "molecular_type": "UNIPROT",
+            "url_from_normalization": f"https://www.uniprot.org/uniprotkb/{uniprot_id}/entry"
+            if uniprot_id
+            else None,
+        }
+    # 3. Small Molecules
+    if detected_type == "SMALL_MOLECULE":
+        cleaned_predicted_entity = clean_molecule_name(predicted_entity)
+        chebi_id, chebi_name = query_chebi_by_name(cleaned_predicted_entity)
+        return {
+            "text_normalized": chebi_name or cleaned_predicted_entity,
+            "molecular_type": "SMALL_MOLECULE",
+            "url_from_normalization": f"https://www.ebi.ac.uk/chebi/CHEBI:{chebi_id}"
+            if chebi_id
+            else None,
+        }
+    # 4. Other sequence types (DNA, RNA, LIPID, etc.)
+    return {
+        "text_normalized": cleaned_predicted_entity,
+        "molecular_type": detected_type,
+    }
+
+
 def normalize_json_content(
-    data: dict[str, Any], logger: "loguru.Logger" = loguru.logger
+    data: dict[str, Any],
+    ffm_db_path: Path,
+    softname_db_path: Path,
+    model_name: str,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> dict[str, Any] | None:
     """Normalize entities in the JSON content and check for hallucinations.
 
@@ -162,6 +269,20 @@ def normalize_json_content(
             data.get("input_json_path", "NA"),
             data.get("url", "NA"),
         )
+        if entity.category == "STEMP":
+            ent_dict["value"], ent_dict["unit"] = norm_temp(entity.text)
+        elif entity.category == "FFM":
+            ent_dict.update(norm_from_db(ffm_db_path, "FFM", predicted_entity_cleaned))
+        elif entity.category == "SOFTNAME":
+            ent_dict.update(
+                norm_from_db(softname_db_path, "SOFTNAME", predicted_entity_cleaned)
+            )
+        elif entity.category == "STIME":
+            items = norm_stime(predicted_entity_cleaned, model_name)
+            normalized_entities.extend({**ent_dict, **item} for item in items)
+            continue
+        elif entity.category == "MOL":
+            ent_dict.update(norm_mol(predicted_entity_cleaned))
         normalized_entities.append(ent_dict)
     # Create a new ListOfEntitiesNormalized instance and validate it
     try:
@@ -194,38 +315,35 @@ def save_json_data(
         return False
 
 
-@click.command()
-@click.option(
-    "--input-dir",
-    type=click.Path(exists=True, file_okay=False, path_type=Path),
-    help="Directory containing the input inference JSON files.",
-)
-@click.option(
-    "--output-dir",
-    type=click.Path(file_okay=False, path_type=Path),
-    help="Directory where normalized JSON files will be saved.",
-)
-def main(input_dir: Path, output_dir: Path) -> None:
+def main(
+    inferences_dir: Path,
+    ffm_db_path: Path,
+    softname_db_path: Path,
+    model_name: str,
+    output_dir: Path,
+) -> None:
     """Load JSON files, normalize their entities, and save the updated data."""
-    logger = create_logger(f"logs/normalize_{input_dir.name}.log")
+    logger = create_logger(f"logs/normalize_{inferences_dir.name}.log")
     # Create the output directory if it doesn't exist
     output_dir.mkdir(parents=True, exist_ok=True)
     # Load all JSON files from the input directory
-    json_files = list(input_dir.glob("*.json"))
+    json_files = list(inferences_dir.glob("*.json"))
     total_files = len(json_files)
     if total_files == 0:
-        logger.warning(f"No JSON files found in {input_dir}")
+        logger.warning(f"No JSON files found in {inferences_dir}")
         return
-    logger.info(f"Found {total_files} JSON file(s) to process from {input_dir}.")
+    logger.info(f"Found {total_files} JSON file(s) to process from {inferences_dir}.")
 
     processed_count = 0
     for file_path in json_files:
-        # Load the json file
+        # Load the json inference file
         data = load_json_data(file_path)
         if data is None:
             continue
         # Normalize the entities in the JSON content
-        updated_data = normalize_json_content(data, logger)
+        updated_data = normalize_json_content(
+            data, ffm_db_path, softname_db_path, model_name, logger
+        )
         if updated_data is None:
             continue
         # Save the updated data to the output directory
@@ -238,9 +356,51 @@ def main(input_dir: Path, output_dir: Path) -> None:
                 f"Processed {processed_count}/{total_files} files ({percent_done:.1f}%)"
             )
 
-    logger.success("Normalization processing complete.")
-    logger.success(f"Total successfully processed: {processed_count}/{total_files}")
+    logger.success(f"Normalization processing complete and saved to {output_dir}.")
+
+
+@click.command()
+@click.option(
+    "--inferences-dir",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    help="Directory containing the input inference JSON files.",
+)
+@click.option(
+    "--ffm-db-path",
+    type=click.Path(exists=True, file_okay=True, path_type=Path),
+    help="Path to the force field database JSON file.",
+)
+@click.option(
+    "--softname-db-path",
+    type=click.Path(exists=True, file_okay=True, path_type=Path),
+    help="Path to the software name database JSON file.",
+)
+@click.option(
+    "--model-name",
+    type=str,
+    help="Name of the LLM model to use for simulation time normalization.",
+)
+@click.option(
+    "--output-dir",
+    type=click.Path(file_okay=False, path_type=Path),
+    help="Directory where normalized JSON files will be saved.",
+)
+def run_main_from_cli(
+    inferences_dir: Path,
+    ffm_db_path: Path,
+    softname_db_path: Path,
+    model_name: str,
+    output_dir: Path,
+) -> None:
+    """Run the normalization process from the command line."""
+    main(
+        inferences_dir,
+        ffm_db_path,
+        softname_db_path,
+        model_name,
+        output_dir,
+    )
 
 
 if __name__ == "__main__":
-    main()
+    run_main_from_cli()

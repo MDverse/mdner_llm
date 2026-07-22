@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "PySteMoDA",
+    "description": "PySteMoDA is a Python implementation and analysis package based on the SteMoDA framework, designed for tracking stereochemical properties, local conformations, and structural dynamics from molecular trajectories.",
+    "codeRepository": "https://gitlab.com/fm4b_lab/pystemoda",
+    "keywords": [
+        "molecular-dynamics",
+        "stereochemistry",
+        "conformation-analysis",
+        "trajectory-mining"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "referencePublication": "https://doi.org/10.64898/2026.01.26.699872"
+
+}

@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "data-science",
+    "name": "seaborn",
+    "description": "Seaborn is a Python data visualization library based on matplotlib that provides a high-level interface for drawing attractive statistical graphics.",
+    "codeRepository": "https://github.com/mwaskom/seaborn",
+    "relatedLink": "https://seaborn.pydata.org/",
+    "keywords": [
+        "data-visualization",
+        "statistical-graphics",
+        "python-library"
+    ],
+    "license": "https://spdx.org/licenses/BSD-3-Clause",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "0.13.2",
+    "referencePublication": "https://doi.org/10.21105/joss.03021"
+}

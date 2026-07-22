@@ -1,0 +1,41 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "Colvars",
+    "description": "Colvars is a software module for molecular simulation and analysis that provides a high-performance implementation of collective variables to perform enhanced sampling methods, free-energy calculations, and biased dynamics.",
+    "codeRepository": "https://github.com/Colvars/colvars",
+    "relatedLink": "https://colvars.github.io/",
+    "keywords": [
+        "molecular-dynamics",
+        "collective-variables",
+        "enhanced-sampling",
+        "free-energy-calculations",
+        "metadynamics"
+    ],
+    "license": "https://spdx.org/licenses/LGPL-3.0",
+    "programmingLanguage": [
+        "C++",
+        "Tcl"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Fiorin",
+            "givenName": "Giacomo",
+            "id": "https://orcid.org/0000-0002-8793-8645"
+        },
+        {
+            "type": "Person",
+            "familyName": "Henin",
+            "givenName": "Jerome",
+            "id": "https://orcid.org/0000-0003-2540-4098"
+        },
+        {
+            "type": "Person",
+            "familyName": "Bernardi",
+            "givenName": "Rafael C.",
+            "id": "https://orcid.org/0000-0002-3860-9321"
+        }
+    ]
+}

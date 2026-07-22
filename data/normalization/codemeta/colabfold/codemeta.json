@@ -1,0 +1,37 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "ColabFold",
+    "description": "ColabFold offers accelerated protein structure and complex predictions by combining the fast homology search of MMseqs2 with AlphaFold2 or RoseTTAFold.",
+    "codeRepository": "https://github.com/sokrypton/ColabFold",
+    "relatedLink": "https://colabfold.mmseqs.com/",
+    "keywords": [
+        "protein-structure",
+        "structure-prediction",
+        "alphafold",
+        "mmseqs2",
+        "bioinformatics"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python",
+        "Shell"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Mirdita",
+            "givenName": "Milot"        },
+        {
+            "type": "Person",
+            "familyName": "Ovchinnikov",
+            "givenName": "Sergey"        },
+        {
+            "type": "Person",
+            "familyName": "Steinegger",
+            "givenName": "Martin"        }
+    ],
+    "version": "1.6.2",
+    "referencePublication": "https://doi.org/10.1038/s41592-022-01488-1"
+}

@@ -1,0 +1,44 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "AlphaFold",
+    "description": "AlphaFold is an AI system developed by DeepMind that predicts a protein's 3D structure from its amino acid sequence with atomic accuracy.",
+    "codeRepository": "https://github.com/google-deepmind/alphafold.git",
+    "relatedLink": "https://www.deepmind.com/research/highlighted-research/alphafold",
+    "keywords": [
+        "protein-folding",
+        "structure-prediction",
+        "deep-learning",
+        "bioinformatics"
+    ],
+    "license": "https://spdx.org/licenses/Apache-2.0",
+    "programmingLanguage": [
+        "Python",
+        "C++"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Jumper",
+            "givenName": "John",
+            "id": "https://orcid.org/0000-0001-6140-5347"
+        },
+        {
+            "type": "Person",
+            "familyName": "Evans",
+            "givenName": "Richard"
+        },
+        {
+            "type": "Person",
+            "familyName": "Pritzel",
+            "givenName": "Alexander"
+        },
+        {
+            "type": "Person",
+            "familyName": "Hassabis",
+            "givenName": "Demis"
+        }
+    ],
+    "referencePublication": "https://doi.org/10.1038/s41586-021-03819-2"
+}

@@ -1,0 +1,35 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "Binding Free Energy Estimator",
+    "description": "Binding Free Energy Estimator 2 (BFEE2) is an automated Python-based tool designed to streamline and standardize absolute binding free-energy calculations using alchemical or geometric routes in molecular dynamics engines.",
+    "codeRepository": "https://github.com/fhh2626/BFEE2",
+    "relatedLink": "https://github.com/fhh2626/BFEE2",
+    "keywords": [
+        "molecular-dynamics",
+        "free-energy-calculations",
+        "binding-affinity",
+        "alchemical-route",
+        "collective-variables"
+    ],
+    "license": "https://spdx.org/licenses/GPL-3.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Fu",
+            "givenName": "Haohao",
+            "id": "https://orcid.org/0000-0003-0908-0046"
+        },
+        {
+            "type": "Person",
+            "familyName": "Chipot",
+            "givenName": "Christophe",
+            "id": "https://orcid.org/0000-0002-9122-1698"
+        }
+    ],
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.1c00269"
+}

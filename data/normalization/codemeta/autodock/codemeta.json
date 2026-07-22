@@ -1,0 +1,91 @@
+ {
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "name": "AutoDock",
+    "description": "A suite of automated docking tools designed to predict how small molecules, such as substrates or drug candidates, bind to a receptor of known 3D structure.",
+    "applicationCategory": "Bioinformatics / Molecular Modeling",
+    "license": "https://spdx.org/licenses/GPL-3.0-or-later.html",
+    "programmingLanguage": [
+        "C",
+        "C++"
+    ],
+    "keywords": [
+        "molecular docking",
+        "virtual screening",
+        "protein-ligand binding",
+        "bioinformatics",
+        "molecular dynamics"
+    ],
+    "codeRepository": "https://github.com/ccsb-scripps/AutoDock4",
+    "downloadUrl": "https://autodock.scripps.edu/downloads/",
+    "relatedLink": [
+        "https://autodock.scripps.edu/"
+    ],
+    "referencePublication": "https://doi.org/10.1002/jcc.21256",
+    "author": [
+        {
+            "@type": "Person",
+            "givenName": "Garrett M.",
+            "familyName": "Morris",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "The Scripps Research Institute"
+            },
+            "id": "https://orcid.org/0000-0003-1731-8405"
+        },
+        {
+            "@type": "Person",
+            "givenName": "Ruth",
+            "familyName": "Huey",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "The Scripps Research Institute"
+            }
+        },
+        {
+            "@type": "Person",
+            "givenName": "William",
+            "familyName": "Lindstrom",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "The Scripps Research Institute"
+            }
+        },
+        {
+            "@type": "Person",
+            "givenName": "Michel F.",
+            "familyName": "Sanner",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "The Scripps Research Institute"
+            }
+        },
+        {
+            "@type": "Person",
+            "givenName": "Richard K.",
+            "familyName": "Belew",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "University of California, San Diego"
+            }
+        },
+        {
+            "@type": "Person",
+            "givenName": "David S.",
+            "familyName": "Goodsell",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "The Scripps Research Institute"
+            }
+        },
+        {
+            "@type": "Person",
+            "givenName": "Arthur J.",
+            "familyName": "Olson",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "The Scripps Research Institute"
+            }
+        }
+    ]
+}

@@ -1,0 +1,1214 @@
+{
+    "force_fields": [
+        {
+            "name": "AMBER",
+            "aliases": [
+                "amber"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff03",
+            "aliases": [
+                "amberff03",
+                "ff03",
+                "amber03"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001442",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff03 w",
+            "aliases": [
+                "amberff03w",
+                "ff03w",
+                "amber03w"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff03*",
+            "aliases": [
+                "amberff03*",
+                "ff03*"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff14SB",
+            "aliases": [
+                "amber ff14sb",
+                "amber-ff14sb",
+                "amber14sb",
+                "amberff14SB",
+                "ff14sb",
+                "ff14sb force field"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "protein",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000021",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "Amber ff15ipq",
+            "aliases": [
+                "amberff15ipq",
+                "ff15ipq",
+                "amber ff15ipq"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff19SB",
+            "aliases": [
+                "amber-ff19sb",
+                "ff19sb",
+                "amber ff19sb",
+                "ff19sb force field"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff96",
+            "aliases": [
+                "amber96",
+                "ff96",
+                "amberff96"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000745",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff99",
+            "aliases": [
+                "amberff99",
+                "ff99", 
+                "amber99"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff99SB",
+            "aliases": [
+                "amberff99sb",
+                "amber99sb",
+                "ff99sb"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field",
+            "publication": "https://doi.org/10.1002/prot.21123"
+        },
+        {
+            "name": "AMBER ff99sb*",
+            "aliases": [
+                "amber99sb*",
+                "ff99sb*",
+                "amberff99sb*"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff99SB-disp",
+            "aliases": [
+                "amberff99sb-disp",
+                "ff99sb-disp",
+                "a99sb-disp",
+                "amber99sb-disp"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field",
+            "publication": "https://doi.org/10.1073/pnas.1800690115"
+        },
+        {
+            "name": "AMBER ff99SB-ILDN",
+            "aliases": [
+                "amber99sb-ildb",
+                "amber99sb-ildn",
+                "amberff99sb-ildn",
+                "ff99sb-ildn"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000750",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff99SB-ILDN-nmr",
+            "aliases": [
+                "amberff99sb-ildn-nmr",
+                "ff99sb-ildn-nmr",
+                "amber99sb-ildn-nmr",
+                "amber99sb ildn nmr"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMBER ff99SB-ILDN-phi",
+            "aliases": [
+                "amberff99sb-ildn-phi",
+                "ff99sb-ildn-phi",
+                "amber99sb-ildn-phi",
+                "amber99sb ildn phi"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "amber OL15",
+            "aliases": [
+                "amberol15",
+                "ol15",
+                "amber ol15"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "category": "force field"
+        },
+        {
+            "name": "amber10:extended huckel theory (eht)",
+            "aliases": [
+                "amber10extendedhuckeltheory(eht)",
+                "amber10"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000745",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "AMOEBA",
+            "aliases": [
+                "amoeba",
+                "amoeba-bio"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "general",
+            "ontology_link": null,
+            "family": "amoeba",
+            "category": "force field"
+        },
+        {
+            "name": "Berger Lipids (1997)",
+            "aliases": [
+                "berger-dppc-97",
+                "berger",
+                "berger lipids",
+                "berger dppc",
+                "berger-dppc"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": "lipid",
+            "ontology_link": null,
+            "family": "berger",
+            "category": "force field",
+            "publication": "https://doi.org/10.1016/S0006-3495(97)78845-3"
+        },
+        {
+            "name": "Berger Lipids (2006)",
+            "aliases": [
+                "berger-dppc-06",
+                "berger 2006",
+                "berger lipids 2006",
+                "berger-dppc-2006"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": "lipid",
+            "ontology_link": null,
+            "family": "berger",
+            "category": "force field"
+        },
+        {
+            "name": "BPY1,3-TFSI",
+            "aliases": [
+                "bpy1,3-tfsi"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "CALVADOS 2",
+            "aliases": [
+                "calvados 2",
+                "calvados2",
+                "cv2"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": "calvados",
+            "category": "model",
+            "publication": "https://doi.org/10.12688/openreseurope.14967.2"
+        },
+        {
+            "name": "CALVADOS 3",
+            "aliases": [
+                "cv3fv",
+                "calvados 3",
+                "calvados3",
+                "cv3",
+                "calvados v3"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": "calvados",
+            "category": "model"
+        },
+        {
+            "name": "CGenFF",
+            "aliases": [
+                "cgenff",
+                "charmm general force field",
+                "charmm generic force field"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field",
+            "publication": "https://doi.org/10.1002/jcc.21367"
+        },
+        {
+            "name": "Charmm",
+            "aliases": [
+                "charmm"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000248",
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "Charmm 19",
+            "aliases": [
+                "charmm19",
+                "charmm 19",
+                "c19"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "Charmm 22",
+            "aliases": [
+                "charmm22",
+                "charmm 22",
+                "c22"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field",
+            "publication": "https://doi.org/10.1021/jp973084f"
+        },
+        {
+            "name": "Charmm 22*",
+            "aliases": [
+                "charmm22*",
+                "c22*",
+                "charmm 22*"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "Charmm 27",
+            "aliases": [
+                "charmm27",
+                "charmm c27",
+                "c27"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000753",
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "Charmm 36",
+            "aliases": [
+                "charmm36",
+                "charmmc36",
+                "c36",
+                "charmm c36"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000132",
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "Charmm 36 CUFIX",
+            "aliases": [
+                "charmm36cufix",
+                "c36mcu",
+                "charmm 36 cufix"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field",
+            "publication": "https://doi.org/10.1021/acs.jctc.5b00967"
+        },
+        {
+            "name": "Charmm 36m",
+            "aliases": [
+                "charmm36m",
+                "c36m",
+                "charmm 36m"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field",
+            "publication": "https://doi.org/10.1038/nmeth.4067"
+        },
+        {
+            "name": "CHARMM36-UA",
+            "aliases": [
+                "charmm36-ua",
+                "c36-ua",
+                "charmm36 ua",
+                "c36 ua"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": "lipid",
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "CHARMM36-WYF",
+            "aliases": [
+                "charmm36-wyf",
+                "c36-wyf",
+                "charmm 36 wyf"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field",
+            "publication": "https://doi.org/10.1021/acs.jctc.8b00839"
+        },
+        {
+            "name": "COMPASS",
+            "aliases": [
+                "compass"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "DANG",
+            "aliases": [
+                "dang"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "Drude2013",
+            "aliases": [
+                "charmm-drude2013",
+                "drude2013",
+                "charmm drude 2013",
+                "drude protein force field"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field",
+            "publication": "https://doi.org/10.1021/ct400781b"
+        },
+        {
+            "name": "Drude2023",
+            "aliases": [
+                "charmm-drude2023",
+                "drude2023",
+                "charmm drude 2023",
+                "drude lipid 2023"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "lipid",
+            "ontology_link": null,
+            "family": "charmm",
+            "category": "force field"
+        },
+        {
+            "name": "ECC-ions",
+            "aliases": [
+                "ecc-ions",
+                "ecc ions"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "category": "variation"
+        },
+        {
+            "name": "ECC-lipids",
+            "aliases": [
+                "ecc-lipids",
+                "ecc lipids"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "category": "variation"
+        },
+        {
+            "name": "ECC-popc",
+            "aliases": [
+                "ecc-popc",
+                "ecc popc",
+                "ecc popc lipids"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "category": "variation"
+        },
+        {
+            "name": "GAFF",
+            "aliases": [
+                "generalamberforcefield",
+                "generalizedamberforcefield",
+                "generalized amber force field",
+                "general amber force field",
+                "gaff"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000023",
+            "family": "amber",
+            "category": "force field",
+            "publication": "https://doi.org/10.1002/jcc.20035"
+        },
+        {
+            "name": "GAFFLipid",
+            "aliases": [
+                "gafflipid",
+                "gaff-lipid",
+                "gaff lipid"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "lipid",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001450",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "GLYCAM06j",
+            "aliases": [
+                "glycam06j",
+                "glycam06",
+                "glycam 06j"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "glycan",
+            "ontology_link": null,
+            "family": "glycam",
+            "category": "force field"
+        },
+        {
+            "name": "Gromos 43a1-s3",
+            "aliases": [
+                "gromos43a1-s3",
+                "43a1-s3",
+                "gromos 43a1-s3",
+                "gromos_43a1s3",
+                "gromos-43a1-s3"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "gromos",
+            "category": "force field"
+        },
+        {
+            "name": "Gromos 53a6",
+            "aliases": [
+                "gromos53a6",
+                "53a6",
+                "gromos_53a6",
+                "gromos-53a6"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001974",
+            "family": "gromos",
+            "category": "force field"
+        },
+        {
+            "name": "Gromos 54a7",
+            "aliases": [
+                "gromos54a7",
+                "54a7",
+                "gromos_54a7",
+                "gromos-54a7"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "gromos",
+            "category": "force field"
+        },
+        {
+            "name": "Gromos 56a6carbo/carbo_r",
+            "aliases": [
+                "gromos56a6carbo/carbo_r"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "gromos",
+            "category": "force field"
+        },
+        {
+            "name": "Gromos 87",
+            "aliases": [
+                "gromos87",
+                "gromos_87",
+                "gromos-87"
+            ],
+            "resolution": "united-atom",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001977",
+            "family": "gromos",
+            "category": "force field"
+        },
+        {
+            "name": "Joung-Cheatham ions",
+            "aliases": [
+                "joung-cheatham",
+                "jc ions",
+                "joung cheatham ions"
+            ],
+            "resolution": null,
+            "molecular_type": "ion",
+            "ontology_link": null,
+            "family": null,
+            "category": "variation",
+            "publication": "https://doi.org/10.1021/jp8001614"
+        },
+        {
+            "name": "Lipid 14",
+            "aliases": [
+                "lipid14",
+                "amber lipid14",
+                "lipid_14"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "lipid",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000019",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "Lipid 17",
+            "aliases": [
+                "lipid17",
+                "amber lipid17",
+                "lipid_17"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "lipid",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000020",
+            "family": "amber",
+            "category": "force field"
+        },
+        {
+            "name": "Lipid 21",
+            "aliases": [
+                "lipid21",
+                "amber lipid21",
+                "lipid_21"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "lipid",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000018",
+            "family": "amber",
+            "publication": "https://doi.org/10.1021/acs.jctc.1c01217",
+            "category": "force field"
+        },
+        {
+            "name": "Martini",
+            "aliases": [
+                "martini"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001982",
+            "publication": "https://doi.org/10.1021/jp071097f",
+            "family": "martini",
+            "category": "force field"
+        },
+        {
+            "name": "Martini 2",
+            "aliases": [
+                "martini2",
+                "martini2.0",
+                "martini 2.0"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": null,
+            "ontology_link": null,
+            "publication": "https://doi.org/10.1021/ct700324x",
+            "family": "martini",
+            "category": "force field"
+        },
+        {
+            "name": "Martini 3",
+            "aliases": [
+                "martini3",
+                "martini3.0",
+                "martini 3.0"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": null,
+            "ontology_link": null,
+            "publication": "https://doi.org/10.1038/s41592-021-01098-3",
+            "family": "martini",
+            "category": "force field"
+        },
+        {
+            "name": "MMFF94",
+            "aliases": [
+                "mmff94",
+                "merck molecular force field"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "category": "force field",
+            "publication": "https://doi.org/10.1002/(SICI)1096-987X(199604)17:5/6<490::AID-JCC1>3.0.CO;2-P"
+        },
+        {
+            "name": "Mpipi",
+            "aliases": [
+                "mpipi"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": null,
+            "category": "model",
+            "publication": "https://doi.org/10.1038/s43588-021-00155-3"
+        },
+        {
+            "name": "NB-FIX",
+            "aliases": [
+                "nbfix"
+            ],
+            "resolution": null,
+            "molecular_type": "variation",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001545",
+            "family": null,
+            "category": "variation"
+        },
+        {
+            "name": "OL3",
+            "aliases": [
+                "ol3",
+                "chiol3",
+                "amber ol3",
+                "ff99-ol3"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "nucleic acid",
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field",
+            "publication": "https://doi.org/10.1021/ct200162x"
+        },
+        {
+            "name": "OPC",
+            "aliases": [
+                "opc"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000031",
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "OPLS",
+            "aliases": [
+                "opls"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000758",
+            "family": null,
+            "category": "force field"
+        },
+        {
+            "name": "OPLS-AA",
+            "aliases": [
+                "opls06",
+                "opls-aa/06",
+                "opls aa 06",
+                "opls-06",
+                "oplsaa"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000759",
+            "family": null,
+            "category": "force field"
+        },
+        {
+            "name": "OPLS-AA/L",
+            "aliases": [
+                "l-opls"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001984",
+            "family": null,
+            "category": "force field"
+        },
+        {
+            "name": "OPLS-AA/M",
+            "aliases": [
+                "opls-aa/m",
+                "oplsaam"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": null,
+            "category": "force field",
+            "publication": "https://doi.org/10.1021/acs.jctc.5b00356"
+        },
+        {
+            "name": "OPLS3e",
+            "aliases": [
+                "opls3e",
+                "opls3e force field",
+                "schrodinger opls3e"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "general",
+            "ontology_link": null,
+            "family": "opls",
+            "category": "force field"
+        },
+        {
+            "name": "OPLS4",
+            "aliases": [
+                "opls4",
+                "opls4 force field",
+                "schrodinger opls4"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "general",
+            "ontology_link": null,
+            "family": "opls",
+            "category": "force field"
+        },
+        {
+            "name": "ORANGE",
+            "aliases": [
+                "orange"            ],
+            "resolution": "all-atom",
+            "molecular_type": "general",
+            "ontology_link": null,
+            "family": "orange",
+            "category": "force field"
+        },
+        {
+            "name": "PARM99LNA",
+            "aliases": [
+                "parm99lna",
+                "parm99_lna",
+                "parm99-lna"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber"
+        },
+        {
+            "name": "PARMBSC0",
+            "aliases": [
+                "parmbsc0",
+                "parm bsc0"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": "amber"
+        },
+        {
+            "name": "parmbsc1",
+            "aliases": [
+                "parmbsc1",
+                "parm bsc1"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "nucleic acid",
+            "ontology_link": null,
+            "family": "amber",
+            "category": "force field",
+            "publication": "https://doi.org/10.1038/nmeth.3658"
+        },
+        {
+            "name": "PLAFF3",
+            "aliases": [
+                "plaff3",
+                "plaff 3"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "poger gromos 53a6_l",
+            "aliases": [
+                "pogergromos53a6_l",
+                "gromos 53a6_l",
+                "53a6_l"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "PYS",
+            "aliases": [
+                "pys"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "RSFF1",
+            "aliases": [
+                "rsff1"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "publication": null,
+            "category": "force field"
+        },
+        {
+            "name": "RSFF2",
+            "aliases": [
+                "rsff2"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "publication": "https://doi.org/10.1021/jp5064676",
+            "category": "force field"
+        },
+        {
+            "name": "SIRAH",
+            "aliases": [
+                "sirah"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": null,
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000645",
+            "family": "sirah",
+            "category": "force field"
+        },
+        {
+            "name": "Slipids",
+            "aliases": [
+                "slipids",
+                "sl"
+            ],
+            "resolution": null,
+            "molecular_type": "lipid",
+            "ontology_link": null,
+            "family": null,
+            "category": "force field"
+        },
+        {
+            "name": "SPC",
+            "aliases": [
+                "spc"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000769",
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "SPC/E",
+            "aliases": [
+                "spc/e"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000771",
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "SWM4",
+            "aliases": [
+                "swm4",
+                "swm4-ndp",
+                "swm4 ndp",
+                "swm4 water"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": null,
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "TIP3P",
+            "aliases": [
+                "tip3p",
+                "charmm tip3p",
+                "tip3",
+                "mtip3p"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000022",
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "TIP4P",
+            "aliases": [
+                "tip4p",
+                "tip4p water"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": null,
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "TIP4P-D",
+            "aliases": [
+                "tip4p-d",
+                "tip4pd"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": null,
+            "family": "water",
+            "category": "model",
+            "publication": "https://doi.org/10.1021/jp508971m"
+        },
+        {
+            "name": "TIP4P-Ew",
+            "aliases": [
+                "tip4p-ew",
+                "tip4pew"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": null,
+            "family": "water",
+            "category": "model",
+            "publication": "https://doi.org/10.1063/1.1683075"
+        },
+        {
+            "name": "TIP4P/2005",
+            "aliases": [
+                "tip4p/2005"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_000766",
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "TIP5P",
+            "aliases": [
+                "tip5p",
+                "tip5p water",
+                "tip5p model",
+                "charmm tip5p"
+            ],
+            "resolution": "all-atom",
+            "molecular_type": "water",
+            "ontology_link": null,
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "Trappe",
+            "aliases": [
+                "trappe"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null,
+            "category": "force field"
+        },
+        {
+            "name": "trappe-ua",
+            "aliases": [
+                "trappe-ua"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "Ulmschneider",
+            "aliases": [
+                "ulmschneider"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        },
+        {
+            "name": "UNRES",
+            "aliases": [
+                "unres",
+                "united residue"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": "protein",
+            "ontology_link": null,
+            "family": null,
+            "category": "force field",
+            "publication": "https://doi.org/10.1039/c1cp20752k"
+        },
+        {
+            "name": "WatFour",
+            "aliases": [
+                "watfour",
+                "WT4"
+            ],
+            "resolution": "coarse-grain",
+            "molecular_type": "water",
+            "ontology_link": "http://purl.obolibrary.org/obo/MOLSIM_001493",
+            "family": "water",
+            "category": "model"
+        },
+        {
+            "name": "Williams",
+            "aliases": [
+                "williams"
+            ],
+            "resolution": null,
+            "molecular_type": "variation",
+            "ontology_link": null,
+            "family": null,
+            "category": "variation"
+        },
+        {
+            "name": "Williams 7B",
+            "aliases": [
+                "williams7b"
+            ],
+            "resolution": null,
+            "molecular_type": "variation",
+            "ontology_link": null,
+            "family": null,
+            "category": "variation"
+        },
+        {
+            "name": "βol15",
+            "aliases": [
+                "βol15"
+            ],
+            "resolution": null,
+            "molecular_type": null,
+            "ontology_link": null,
+            "family": null
+        }
+    ]
+}
