@@ -14,7 +14,6 @@ from pydantic import ValidationError
 
 from mdner_llm.normalization.evaluate_llm_models import (
     NormSimuTime,
-    SimulationTime,
     normalize_simulation_time,
 )
 
@@ -47,13 +46,15 @@ Examples:
 """
 
 
-def norm_stime(raw_simulation_time: str, model_name: str) -> list[SimulationTime]:
-    """Query the LLM backend and return the complete list of structured time objects.
+def norm_stime(
+    raw_simulation_time: str, model_name: str
+) -> list[dict[str, float | str]]:
+    """Query LLM backend and return normalized simulation time dictionaries.
 
     Returns
     -------
-    list[SimulationTime]
-        A list of extracted simulation time sub-entities containing values and units.
+    list[dict[str, Any]]
+        List of dictionaries with value, unit, and formatted text_normalized.
     """
     client = instructor.from_openai(
         OpenAI(
@@ -61,9 +62,7 @@ def norm_stime(raw_simulation_time: str, model_name: str) -> list[SimulationTime
             api_key=os.getenv("OPENROUTER_API_KEY"),
         )
     )
-
     formatted_prompt = PROMPT_TEMPLATE.format(raw_simulation_time=raw_simulation_time)
-
     try:
         completion_pydantic, _ = client.chat.completions.create_with_completion(
             model=model_name,
@@ -74,15 +73,21 @@ def norm_stime(raw_simulation_time: str, model_name: str) -> list[SimulationTime
                 {"role": "user", "content": f"{raw_simulation_time}"},
             ],
         )
-
-        if completion_pydantic.output:
-            return completion_pydantic.output
-
+        # Convert Pydantic objects directly into target dictionary format
+        return [
+            {
+                "value": item.value,
+                "unit": item.unit,
+                "text_normalized": f"{item.value} {item.unit}".strip()
+                if item.value or item.unit
+                else raw_simulation_time,
+            }
+            for item in completion_pydantic.output
+        ]
     except (InstructorRetryException, ValidationError) as exc:
         logger.error(
             f"LLM normalization parsing failed for '{raw_simulation_time}': {exc}"
         )
-
     return []
 
 

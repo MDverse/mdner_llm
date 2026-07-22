@@ -30,8 +30,6 @@ def get_type(entry: str) -> str:
     """
     entry = entry.replace("`", "'")
     entry = entry.replace("\u2019", "'")
-    logger.info(entry)
-
     # PDB codes are 4 characters starting with a number
     if re.search(r"^[1-9]([a-z]|[1-9]){3}$", entry) is not None:
         return "PDB"
@@ -353,8 +351,8 @@ def query_kegg_by_name(
         return None, None
 
 
-def query_chebi_by_name(entity_name: str) -> str | None:
-    """Return the CHEBI ID linked to the molecule name.
+def query_chebi_by_name(entity_name: str) -> tuple[str | None, str | None]:
+    """Return the CHEBI ID and name linked to the molecule name.
 
     Parameters
     ----------
@@ -366,28 +364,37 @@ def query_chebi_by_name(entity_name: str) -> str | None:
     str | None
         The CHEBI ID returned by CHEBI.
     """
-    logger.info(f"ChEBI: searching {entity_name}")
     try:
         chebi_response = httpx.get(API_CHEBI, params={"term": entity_name}, timeout=200)
         if chebi_response is not None and chebi_response.status_code == 200:
             results = chebi_response.json().get("results", [])
             if not results:
                 logger.warning(f"ChEBI: No ChEBI entry found for {entity_name}")
-                return None
+                return None, None
             chebi_id = results[0]["_id"]
-            logger.info(f"ChEBI: Found CHEBI ID for {chebi_id}")
-            return chebi_id
+            chebi_name = results[0]["_source"]["name"]
+            reject_chebi_roles = re.compile(
+                r"\b(inhibitor|agonist|antagonist|agent|activator|blocker|substrate|derivative)s?\b",
+                re.IGNORECASE,
+            )
+            if chebi_name and reject_chebi_roles.search(chebi_name):
+                logger.warning(
+                    f"ChEBI: Found CHEBI ID {chebi_id} for {entity_name}, but the name"
+                    f" contains a rejected role."
+                )
+                chebi_id, chebi_name = None, None
+            return chebi_id, chebi_name
         logger.warning(f"ChEBI: Failed to retrieve CHEBI ID for {entity_name}")
-        return None
+        return None, None
     except httpx.RemoteProtocolError as e:
         logger.warning(f"RemoteProtocolError on {API_CHEBI} for {entity_name}: {e}")
-        return None
+        return None, None
     except httpx.TimeoutException as e:
         logger.warning(f"Timeout on {API_CHEBI} for {entity_name}: {e}")
-        return None
+        return None, None
     except httpx.RequestError as e:
         logger.warning(f"Request error on {API_CHEBI} for {entity_name}: {e}")
-        return None
+        return None, None
 
 
 def query_pubchem_by_name(entity_name: str) -> str | None:
@@ -859,7 +866,7 @@ def get_chebi_id_for_molecule(mol: str) -> tuple[str | None, str | None, str | N
         (chebi_id_direct, chebi_id_from_pubchem, chebi_id_from_kegg)
     """
     logger.info("Looking for direct Chebi and Pubchem ID")
-    chebi_id = query_chebi_by_name(mol)
+    chebi_id, _chebi_name = query_chebi_by_name(mol)
     logger.info(f"direct ChEBI ID: {chebi_id!r}")
 
     pubchem_cid = query_pubchem_by_name(mol)

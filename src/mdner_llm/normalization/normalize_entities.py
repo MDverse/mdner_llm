@@ -15,6 +15,12 @@ from pydantic import ValidationError
 from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 from mdner_llm.models.entities_normalized import ListOfEntitiesNormalized
+from mdner_llm.normalization.ground_molecule_from_all_database import (
+    call_pdb,
+    call_uniprot,
+    get_type,
+    query_chebi_by_name,
+)
 from mdner_llm.normalization.normalize_stemp import norm_temp
 from mdner_llm.normalization.normalize_stime_wth_llm import norm_stime
 
@@ -133,89 +139,104 @@ def check_hallucination(
     return True
 
 
-def norm_ffm(ffm_db: dict[str, Any], predicted_entity: str) -> dict[str, Any]:
-    """Normalize a force field model entity using the provided database entry.
+def norm_from_db(db_path: Path, category: str, predicted_entity: str) -> dict[str, Any]:
+    """Normalize an entity using a JSON inventory file (matching names or aliases).
 
     Returns
     -------
-        dict[str, Any]: A dictionary containing normalized fields
-        for the force field model.
+    dict[str, Any]
+        Dictionary containing the normalized text name.
     """
-    entry = {}
-    for ffm in ffm_db:
-        # Create a list of names and aliases for comparison
-        names = [ffm.get("name", ""), *ffm.get("aliases", [])]
-        if predicted_entity in [name.lower().strip() for name in names]:
-            entry = ffm
-            break
-    if not entry:
-        logger.warning(f"FFM: No match found for '{predicted_entity}'.")
-    return {
-        "text_normalized": entry.get("name") or predicted_entity,
-        "tag": entry.get("category"),
-        "family": entry.get("family"),
-        "aliases": entry.get("aliases"),
-        "resolution": entry.get("resolution"),
-        "molecular_type": entry.get("molecular_type"),
-        "ontology_link": entry.get("ontology_link"),
-        "publication_link": entry.get("publication"),
-    }
+    if not db_path.exists():
+        logger.warning(f"{category}: Database file not found at {db_path}.")
+        return {"text_normalized": predicted_entity}
+
+    try:
+        data = json.loads(db_path.read_text(encoding="utf-8"))
+        records = next(iter(data.values()))
+    except (JSONDecodeError, StopIteration, OSError) as e:
+        logger.error(f"{category}: Failed to read database {db_path.name}: {e}")
+        return {"text_normalized": predicted_entity}
+
+    for record in records:
+        names = [record.get("name", ""), *record.get("aliases", [])]
+        if predicted_entity in [n.lower().strip() for n in names if n]:
+            return {"text_normalized": record.get("name") or predicted_entity}
+
+    logger.warning(f"{category}: No match found for '{predicted_entity}'.")
+    return {"text_normalized": predicted_entity}
 
 
-def norm_softname(predicted_entity: str, base_dir: Path) -> dict[str, Any]:
-    """Normalize a software name entity using its local codemeta.json file.
+def clean_molecule_name(entity_name: str) -> str:
+    """Remove generic biological/chemical stop-words from entity names.
 
     Returns
     -------
-        dict[str, Any]: A dictionary containing normalized fields
-        for the software name, or defaults if not found.
+    str
+        Cleaned name with generic terms stripped and whitespace normalized.
     """
-    # Path to the expected codemeta.json file
-    meta_path = base_dir / predicted_entity / "codemeta.json"
-    # Load data if file exists, otherwise use an empty dictionary
-    meta = {}
-    if meta_path.exists():
-        try:
-            with open(meta_path, encoding="utf-8") as json_file:
-                meta = json.load(json_file)
-        except json.JSONDecodeError:
-            logger.warning(
-                f"SOFTNAME: Failed to parse codemeta.json for '{predicted_entity}'."
-            )
-    else:
-        logger.warning(f"SOFTNAME: codemeta.json not found for '{predicted_entity}'.")
-    # Map CodeMeta keys to Pydantic model attributes
-    raw_authors = meta.get("author", [])
-    formatted_authors = [
-        {
-            "id": a.get("id"),
-            "type": a.get("type", "Person"),
-            "first_name": a.get("givenName", "").strip(),
-            "last_name": a.get("familyName", "").strip(),
-            "affiliation": a.get("affiliation"),
+    blacklist = (
+        r"compound?|protein?|enzyme?|ligand?|receptor?|peptide?|"
+        r"antibodies?|antigen?|hormone?|substrate?|cofactor?|inhibitor|"
+        r"activator?|agonist?|antagonist?|modulator?|complexe?|oligomer"
+    )
+    pattern = re.compile(rf"^\b({blacklist})s?\b|\b({blacklist})s?\b$", re.IGNORECASE)
+    return pattern.sub("", entity_name)
+
+
+def norm_mol(predicted_entity: str) -> dict[str, Any]:
+    """Normalize a molecular entity using PDB, UniProt, ChEBI, or pattern fallbacks.
+
+    Returns
+    -------
+    dict[str, Any]
+        Dictionary containing normalized fields matching MoleculeNormalized model.
+    """
+    detected_type = get_type(predicted_entity)
+    # 1. PDB Accessions
+    if detected_type == "PDB":
+        pdb_data = call_pdb(predicted_entity)
+        pdb_id = pdb_data.get("id")
+        return {
+            "text_normalized": pdb_data.get("name") or predicted_entity,
+            "molecular_type": "PDB",
+            "url_from_normalization": f"https://www.rcsb.org/structure/{pdb_id}"
+            if pdb_id
+            else None,
         }
-        for a in raw_authors
-    ]
+    # 2. UniProt Accessions
+    if detected_type == "UNIPROT":
+        uniprot_data = call_uniprot(predicted_entity)
+        uniprot_id = uniprot_data.get("id")
+        return {
+            "text_normalized": uniprot_data.get("name") or predicted_entity,
+            "molecular_type": "UNIPROT",
+            "url_from_normalization": f"https://www.uniprot.org/uniprotkb/{uniprot_id}/entry"
+            if uniprot_id
+            else None,
+        }
+    # 3. Small Molecules
+    if detected_type == "SMALL_MOLECULE":
+        cleaned_predicted_entity = clean_molecule_name(predicted_entity)
+        chebi_id, chebi_name = query_chebi_by_name(cleaned_predicted_entity)
+        return {
+            "text_normalized": chebi_name or cleaned_predicted_entity,
+            "molecular_type": "SMALL_MOLECULE",
+            "url_from_normalization": f"https://www.ebi.ac.uk/chebi/CHEBI:{chebi_id}"
+            if chebi_id
+            else None,
+        }
+    # 4. Other sequence types (DNA, RNA, LIPID, etc.)
     return {
-        "name": meta.get("name", predicted_entity).strip(),
-        "authors": formatted_authors,
-        "description": meta.get("description"),
-        "version": meta.get("version"),
-        "date_last_modification": meta.get("dateModified"),
-        "code_repository_link": meta.get("codeRepository"),
-        "download_url": meta.get("downloadUrl"),
-        "related_link": meta.get("relatedLink"),
-        "publication_link": meta.get("referencePublication"),
-        "license": meta.get("license"),
-        "keywords": meta.get("keywords"),
-        "programming_language": meta.get("programmingLanguage"),
+        "text_normalized": cleaned_predicted_entity,
+        "molecular_type": detected_type,
     }
 
 
 def normalize_json_content(
     data: dict[str, Any],
-    ffm_db: dict[str, Any],
-    softname_codemeta_dir: Path,
+    ffm_db_path: Path,
+    softname_db_path: Path,
     model_name: str,
     logger: "loguru.Logger" = loguru.logger,
 ) -> dict[str, Any] | None:
@@ -251,23 +272,17 @@ def normalize_json_content(
         if entity.category == "STEMP":
             ent_dict["value"], ent_dict["unit"] = norm_temp(entity.text)
         elif entity.category == "FFM":
-            ent_dict.update(norm_ffm(ffm_db, predicted_entity_cleaned))
+            ent_dict.update(norm_from_db(ffm_db_path, "FFM", predicted_entity_cleaned))
         elif entity.category == "SOFTNAME":
             ent_dict.update(
-                norm_softname(predicted_entity_cleaned, softname_codemeta_dir)
+                norm_from_db(softname_db_path, "SOFTNAME", predicted_entity_cleaned)
             )
         elif entity.category == "STIME":
-            outputs = norm_stime(predicted_entity_cleaned, model_name)
-            # Use the first extraction for the main entry, or set to None if empty
-            ent_dict["value"] = outputs[0].value if outputs else None
-            ent_dict["unit"] = outputs[0].unit if outputs else None
-            # Handle extra values dynamically if the list contains multiple splits
-            for output in outputs[1:]:
-                split_dict = {**ent_dict, "value": output.value, "unit": output.unit}
-                normalized_entities.append(split_dict)
+            items = norm_stime(predicted_entity_cleaned, model_name)
+            normalized_entities.extend({**ent_dict, **item} for item in items)
+            continue
         elif entity.category == "MOL":
-            pass
-            # ent_dict.update(norm_mol(predicted_entity_cleaned))
+            ent_dict.update(norm_mol(predicted_entity_cleaned))
         normalized_entities.append(ent_dict)
     # Create a new ListOfEntitiesNormalized instance and validate it
     try:
@@ -303,7 +318,7 @@ def save_json_data(
 def main(
     inferences_dir: Path,
     ffm_db_path: Path,
-    softname_codemeta_dir: Path,
+    softname_db_path: Path,
     model_name: str,
     output_dir: Path,
 ) -> None:
@@ -319,16 +334,6 @@ def main(
         return
     logger.info(f"Found {total_files} JSON file(s) to process from {inferences_dir}.")
 
-    # Load the force field database for normalization
-    try:
-        with open(ffm_db_path, encoding="utf-8") as f:
-            json_data = json.load(f)
-            ffm_db = json_data.get("force_fields", [])
-        logger.info(f"Loaded force field database from {ffm_db_path}.")
-    except (FileNotFoundError, JSONDecodeError) as e:
-        logger.error(f"Failed to load force field database: {e}")
-        return
-
     processed_count = 0
     for file_path in json_files:
         # Load the json inference file
@@ -337,7 +342,7 @@ def main(
             continue
         # Normalize the entities in the JSON content
         updated_data = normalize_json_content(
-            data, ffm_db, softname_codemeta_dir, model_name, logger
+            data, ffm_db_path, softname_db_path, model_name, logger
         )
         if updated_data is None:
             continue
@@ -351,8 +356,7 @@ def main(
                 f"Processed {processed_count}/{total_files} files ({percent_done:.1f}%)"
             )
 
-    logger.success("Normalization processing complete.")
-    logger.success(f"Total successfully processed: {processed_count}/{total_files}")
+    logger.success(f"Normalization processing complete and saved to {output_dir}.")
 
 
 @click.command()
@@ -367,9 +371,9 @@ def main(
     help="Path to the force field database JSON file.",
 )
 @click.option(
-    "--softname-codemeta-dir",
-    type=click.Path(exists=True, file_okay=False, path_type=Path),
-    help="Directory containing the software name codemeta files.",
+    "--softname-db-path",
+    type=click.Path(exists=True, file_okay=True, path_type=Path),
+    help="Path to the software name database JSON file.",
 )
 @click.option(
     "--model-name",
@@ -384,7 +388,7 @@ def main(
 def run_main_from_cli(
     inferences_dir: Path,
     ffm_db_path: Path,
-    softname_codemeta_dir: Path,
+    softname_db_path: Path,
     model_name: str,
     output_dir: Path,
 ) -> None:
@@ -392,7 +396,7 @@ def run_main_from_cli(
     main(
         inferences_dir,
         ffm_db_path,
-        softname_codemeta_dir,
+        softname_db_path,
         model_name,
         output_dir,
     )
