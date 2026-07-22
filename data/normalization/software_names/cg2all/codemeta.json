@@ -1,0 +1,19 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "cg2all",
+    "description": "A deep learning tool designed for the conversion of coarse-grained structural representations of proteins back into full atomistic coordinate systems.",
+    "codeRepository": "https://github.com/huhlim/cg2all",
+    "keywords": [
+        "coarse-grained",
+        "backmapping",
+        "deep-learning",
+        "atomistic-reconstruction"
+    ],
+    "license": "https://spdx.org/licenses/Apache-2.0.html",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "referencePublication": "https://doi.org/10.1101/2023.05.22.541652"
+}

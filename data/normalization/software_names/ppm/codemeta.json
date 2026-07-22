@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "PPM",
+    "description": "Positioning of Proteins in Membranes (PPM) server/method calculates the rotational and translational positions of transmembrane and peripheral proteins in lipid bilayers.",
+    "relatedLink": "https://opm.phar.umich.edu/ppm_server3",
+    "keywords": [
+        "membrane-proteins",
+        "spatial-positioning",
+        "free-energy-evaluation"
+    ],
+    "license": "https://spdx.org/licenses/CC-BY-3.0",
+    "programmingLanguage": [
+        "C++",
+        "C"
+    ],
+    "version": "3.0",
+    "referencePublication": "https://doi.org/10.1093/bioinformatics/bti308"
+}

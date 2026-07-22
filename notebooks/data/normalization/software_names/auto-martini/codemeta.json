@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "auto-martini",
+    "description": "The historical automated generation script for building Martini 2 coarse-grained topologies and chemical models from atomistic structures.",
+    "relatedLink": "http://cgmartini.nl/",
+    "keywords": [
+        "molecular-dynamics",
+        "coarse-grained",
+        "martini-2",
+        "topology-generation"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "1.2",
+    "referencePublication": "https://doi.org/10.1021/ct500210v"
+}

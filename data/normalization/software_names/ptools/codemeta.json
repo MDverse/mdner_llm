@@ -1,0 +1,21 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "PTools",
+    "description": "A fully pythonic library for building and analysing macromolecular assemblies.",
+    "codeRepository": "https://github.com/ptools/ptools",
+    "keywords": [
+        "molecular-modeling",
+        "structural-analysis",
+        "protein-conformation"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Red",
+        "Tcl",
+        "Python"
+    ],
+    "version": "1.0.0",
+    "referencePublication": "https://link.springer.com/article/10.1186/1472-6807-9-27"
+}

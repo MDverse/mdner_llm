@@ -1,0 +1,27 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "gaussian09",
+    "description": "Gaussian 09 is a comprehensive electronic structure program used to model molecular structures, energies, and vibrational frequencies.",
+    "relatedLink": "https://gaussian.com/",
+    "keywords": [
+        "quantum-chemistry",
+        "dft",
+        "electronic-structure",
+        "ab-initio"
+    ],
+    "license": "https://spdx.org/licenses/LicenseRef-Gaussian-Commercial",
+    "programmingLanguage": [
+        "Fortran",
+        "C"
+    ],
+    "author": [
+        {
+            "type": "Organization",
+            "name": "Gaussian, Inc."
+        }
+    ],
+    "version": "E.01",
+    "referencePublication": "https://gaussian.com/g09citation/"
+}

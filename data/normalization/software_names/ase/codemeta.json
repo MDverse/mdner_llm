@@ -1,0 +1,19 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "ase",
+    "description": "The Atomic Simulation Environment (ASE) is a set of Python modules for manipulating, setting up, steering, and analyzing atomistic simulations.",
+    "codeRepository": "https://gitlab.com/ase/ase",
+    "relatedLink": "https://wiki.fysik.dtu.dk/ase/",
+    "keywords": [
+        "atomistic-simulation",
+        "quantum-chemistry",
+        "python-library"
+    ],
+    "license": "https://spdx.org/licenses/LGPL-2.1-or-later",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "referencePublication": "https://doi.org/10.1088/1361-648X/aa680e"
+}

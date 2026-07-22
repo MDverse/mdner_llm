@@ -1,0 +1,19 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "BRIDGE",
+    "description": "A trajectory transformation framework or utility mapping library connecting diverse structure file schemas across different simulation suites.",
+    "keywords": [
+        "data-conversion",
+        "interoperability",
+        "trajectory-mapping"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "codeRepository": "https://github.com/scientificomputing/bridge-docker",
+    "relatedLink": "https://galaxyproject.org/use/bridge/",
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.0c00206"
+}

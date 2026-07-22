@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "PyMOL",
+    "description": "PyMOL is a user-sponsored molecular visualization system on an open-source foundation, maintained by Schrödinger. It is widely used for creating high-quality 3D images of proteins, nucleic acids, and other biomolecules.",
+    "codeRepository": "https://github.com/schrodinger/pymol-open-source",
+    "relatedLink": "https://pymol.org/",
+    "keywords": [
+        "molecular-visualization",
+        "3d-rendering",
+        "protein-structure",
+        "graphics"
+    ],
+    "programmingLanguage": [
+        "Python",
+        "C++",
+        "C"
+    ]
+}

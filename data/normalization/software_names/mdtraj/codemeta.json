@@ -1,0 +1,38 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "MDTraj",
+    "description": "MDTraj is a modern, fast, and lightweight Python library for loading, writing, and analyzing molecular dynamics trajectories, supporting a wide range of topology and trajectory formats.",
+    "codeRepository": "https://github.com/mdtraj/mdtraj.git",
+    "relatedLink": "https://mdtraj.org/",
+    "keywords": [
+        "molecular-dynamics",
+        "trajectory-analysis",
+        "python-library",
+        "bioinformatics"
+    ],
+    "license": "https://spdx.org/licenses/LGPL-2.1",
+    "programmingLanguage": [
+        "Python",
+        "C"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "McGibbon",
+            "givenName": "Robert T."        },
+        {
+            "type": "Person",
+            "familyName": "Beauchamp",
+            "givenName": "Kyle A."
+        },
+        {
+            "type": "Person",
+            "familyName": "Pande",
+            "givenName": "Vijay S."        
+        }
+    ],
+    "version": "1.11.1",
+    "referencePublication": "https://doi.org/10.1016/j.bpj.2015.08.015"
+}

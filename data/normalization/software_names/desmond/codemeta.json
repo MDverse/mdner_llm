@@ -1,0 +1,14 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "DESMOND",
+    "description": "High-performance molecular dynamics (MD) engine providing high scalability, throughput, and scientific accuracy",
+    "relatedLink": "https://www.schrodinger.com/platform/products/desmond/",
+    "keywords": [
+        "molecular-dynamics",
+        "gpu-acceleration",
+        "drug-discovery",
+        "biomolecular-simulation"
+    ]
+}

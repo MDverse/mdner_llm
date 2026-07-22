@@ -1,0 +1,22 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "prody",
+    "description": "ProDy is a free and open-source Python package for protein structural dynamics analysis, featuring anisotropic network models and sequence ensemble analysis.",
+    "codeRepository": "https://github.com/prody/ProDy",
+    "relatedLink": "https://prody.csb.pitt.edu/",
+    "keywords": [
+        "protein-dynamics",
+        "structural-bioinformatics",
+        "normal-mode-analysis",
+        "python-library"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python",
+        "C"
+    ],
+    "version": "2.4.1",
+    "referencePublication": "https://doi.org/10.1093/bioinformatics/btr168"
+}

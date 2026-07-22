@@ -1,0 +1,18 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "Gaussian",
+    "description": "Gaussian is a series of electronic structure programs, used by chemists, chemical engineers, biochemists, physicists and other scientists worldwide.",
+    "relatedLink": "https://gaussian.com/",
+    "keywords": [
+        "quantum-chemistry",
+        "dft",
+        "electronic-structure",
+        "ab-initio"
+    ],
+    "programmingLanguage": [
+        "Fortran",
+        "C"
+    ]
+}

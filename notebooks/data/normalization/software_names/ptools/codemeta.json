@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "ptools",
+    "description": "A light-weight molecular software library and application suite designed for the structural analysis of proteins and low-resolution molecular modeling.",
+    "codeRepository": "https://github.com/ptools/ptools",
+    "keywords": [
+        "molecular-modeling",
+        "structural-analysis",
+        "protein-conformation"
+    ],
+    "license": "https://spdx.org/licenses/GPL-3.0",
+    "programmingLanguage": [
+        "C++",
+        "Python"
+    ],
+    "version": "1.0.0",
+    "referencePublication": "https://doi.org/10.1002/jcc.20906"
+}

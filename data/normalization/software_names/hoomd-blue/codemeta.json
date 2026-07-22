@@ -1,0 +1,23 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "HOOMD-blue",
+    "description": "HOOMD-blue is a general-purpose particle simulation toolkit optimized for execution on GPUs, covering hard particle and molecular dynamics models.",
+    "codeRepository": "https://github.com/glotzerlab/hoomd-blue",
+    "relatedLink": "https://glotzerlab.engin.umich.edu/hoomd-blue/",
+    "keywords": [
+        "gpu-acceleration",
+        "particle-simulation",
+        "molecular-dynamics",
+        "active-matter"
+    ],
+    "license": "https://spdx.org/licenses/BSD-3-Clause",
+    "programmingLanguage": [
+        "C++",
+        "Python",
+        "CUDA"
+    ],
+    "version": "7.1.0",
+    "referencePublication": "https://doi.org/10.1016/j.commatsci.2019.109363"
+}

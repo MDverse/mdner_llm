@@ -1,0 +1,17 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "STRIDE",
+    "description": "STRIDE is a program for secondary structure assignment from protein three-dimensional atomic coordinates based on hydrogen bond energy and torsion angles.",
+    "relatedLink": "http://webclu.bio.wzw.tum.de/stride/",
+    "keywords": [
+        "secondary-structure",
+        "protein-structure",
+        "structural-bioinformatics"
+    ],
+    "programmingLanguage": [
+        "C"
+    ],
+    "referencePublication": "https://doi.org/10.1093/nar/gkh429"
+}

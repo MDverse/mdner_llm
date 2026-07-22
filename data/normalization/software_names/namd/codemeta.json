@@ -1,0 +1,18 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "NAMD",
+    "description": "NAMD is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems.",
+    "relatedLink": "https://www.ks.uiuc.edu/Research/namd/",
+    "keywords": "molecular-dynamics",
+    "programmingLanguage": ["C++"],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Phillips",
+            "givenName": "James C."
+        }
+    ],
+    "referencePublication": "https://doi.org/10.1002/jcc.20289"
+}
