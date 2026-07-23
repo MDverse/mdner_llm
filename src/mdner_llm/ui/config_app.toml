@@ -1,0 +1,17 @@
+# config.default.toml
+app_name = "MDNER-LLM"
+app_description = "MDNER-LLM is a language model for named entity recognition."
+app_version = "1.0"
+# css_path = "assets/style.css"
+
+[llm]
+model_name = "anthropic/claude-sonnet-4.6"
+framework = "instructor"
+prompt_path = "docs/prompt_template.md"
+guidelines_path = "docs/annotation_rules.md"
+examples_path = "docs/few_shot_examples.md"
+
+[normalization]
+llm_model_name = "deepseek/deepseek-v4-pro"
+ffm_db_path = "data/normalization/md_forcefields_registry.json"
+softname_db_path = "data/normalization/software_names_registry.json"
