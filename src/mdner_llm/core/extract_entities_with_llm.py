@@ -78,8 +78,11 @@ def load_text_and_metadata(
     return text, ListOfEntities(entities=normalized), data.get("url")
 
 
-def add_guidelines_and_examples_to_prompt(
-    prompt: str, guidelines_path: Path, examples_path: Path | None
+def load_prompt(
+    prompt_path: Path,
+    guidelines_path: Path,
+    examples_path: Path | None,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> str:
     """Add annotation guidelines and examples to the prompt.
 
@@ -88,6 +91,12 @@ def add_guidelines_and_examples_to_prompt(
     str
         The prompt with added annotation guidelines and examples.
     """
+    # Load prompt from text file
+    logger.debug(f"Loading prompt from {prompt_path}.")
+    prompt = prompt_path.read_text(encoding="utf-8")
+    logger.debug(
+        f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
+    )
     guidelines = guidelines_path.read_text(encoding="utf-8")
     # Remove everything before first ##
     idx = guidelines.find("##")
@@ -478,15 +487,9 @@ def extract_entities(
     # Load info from the JSON file:
     # raw text, ground truth entities and URL if available
     text_to_annotate, groundtruth, url = load_text_and_metadata(text_path, logger)
-    # Load prompt from text file
-    logger.debug(f"Loading prompt from {prompt_path}.")
-    prompt = prompt_path.read_text(encoding="utf-8")
-    logger.debug(
-        f"Loaded prompt ({len(prompt)} chars) : {prompt[:75].replace('\n', ' ')}..."
-    )
     # Add annotation instructions to the prompt
-    prompt_with_instructions = add_guidelines_and_examples_to_prompt(
-        prompt, guidelines_path, examples_path
+    prompt_with_instructions = load_prompt(
+        prompt_path, guidelines_path, examples_path, logger
     )
     # Retrieve the openrouter api key
     api_key = load_api_key("OPENROUTER_API_KEY")
