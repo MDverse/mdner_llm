@@ -277,3 +277,12 @@ uv run evaluate-entities-extraction \
 > This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
 
 A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).
+
+
+## Usage (web interface)
+
+```sh
+uv run streamlit run src/mdner_llm/ui/streamlit_app.py
+```
+
+This will run the Streamlit app in your web browser at http://localhost:8501
