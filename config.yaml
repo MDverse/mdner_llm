@@ -51,5 +51,15 @@ full_eval_models:
   - "meta-llama/llama-4-maverick"
   - "sakana/fugu-ultra"
 
+# --- Scenario 3: Consensus & Temperature Runs ---
+consensus_models:
+  - "google/gemma-4-31b-it"
+  - "deepseek/deepseek-v4-pro"
+  - "qwen/qwen3.7-max"
+  - "openai/gpt-oss-120b"
+
+consensus_temperatures: [1, 2]
+consensus_threshold: 0.5
+
 # --- Output Directory ---
 output_dir_base: "results/llms"
