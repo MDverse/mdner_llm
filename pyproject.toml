@@ -58,6 +58,8 @@ dev = [
     "pysankeybeta>=1.4.2",
     "pytest>=9.0.2",
     "ruff>=0.15.1",
+    "scikit-learn>=1.7.2",
+    "statsmodels>=0.14.6",
     "upsetplot>=0.9.0",
     "watermark>=2.5.0",
 ]
