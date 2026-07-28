@@ -173,7 +173,6 @@ def split_predictions_by_category_and_hallucination(
     """
     hallucinated = set()
     grounded = set()
-
     for ent in normalized_entities:
         if ent.get("category") == category:
             text = normalize_text(ent.get("text", ""))
@@ -198,34 +197,27 @@ def build_category_level_dataframe(
         for each line in the original DataFrame.
     """
     rows = []
-    rows = []
     for _, row in df.iterrows():
         gt_entities = row["groundtruth"].entities
         gt_by_category = group_texts_by_category(gt_entities)
-
         # Get the list of normalized entities dicts
         norm_data = row.get("normalized_entities", {})
         pred_entities = (
             norm_data.get("entities", []) if isinstance(norm_data, dict) else []
         )
-
         # Collect all unique categories present in GT or Preds
         pred_categories = {
             ent.get("category") for ent in pred_entities if ent.get("category")
         }
         all_categories = set(gt_by_category) | pred_categories
-
         for category in all_categories:
             new_row = row.to_dict()
-
-            # Use our new helper to get pre-calculated split sets
+            # Split predictions into hallucinated and grounded for this category
             hallucinated, grounded = split_predictions_by_category_and_hallucination(
                 pred_entities, category
             )
-
             # Reconstruction of all predicted texts for this category
             pred_texts = hallucinated | grounded
-
             new_row.update(
                 {
                     "category": category,
@@ -297,17 +289,54 @@ def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
     return a / b.replace(0, np.nan)
 
 
+def _compute_scores(
+    tp: pd.Series, fp: pd.Series, fn: pd.Series, fp_clean: pd.Series
+) -> dict[str, pd.Series]:
+    """Compute precision/recall/F1/F-beta scores from confusion counts.
+
+    Returns
+    -------
+    dict[str, pd.Series]
+        Mapping of metric names to their computed Series.
+    """
+    beta = 0.5
+    precision = safe_divide(tp, tp + fp)
+    precision_clean = safe_divide(tp, tp + fp_clean)
+    recall = safe_divide(tp, tp + fn)
+    f1 = safe_divide(2 * precision * recall, precision + recall)
+    f1_clean = safe_divide(2 * precision_clean * recall, precision_clean + recall)
+    fbeta = safe_divide(
+        (1 + beta**2) * precision * recall, beta**2 * precision + recall
+    )
+    fbeta_clean = safe_divide(
+        (1 + beta**2) * precision_clean * recall, beta**2 * precision_clean + recall
+    )
+    return {
+        "precision": precision,
+        "precision_no_hallucination": precision_clean,
+        "recall": recall,
+        "f1": f1,
+        "f1_no_hallucination": f1_clean,
+        f"fbeta_{beta}": fbeta,
+        f"fbeta_{beta}_no_hallucination": fbeta_clean,
+    }
+
+
 def compute_grouped_stats(
     df: pd.DataFrame, df_categories: pd.DataFrame
 ) -> pd.DataFrame:
     """
-    Compute evaluation metrics per category + OVERALL per (model, framework).
+    Compute per-category, MICRO, and MACRO evaluation metrics.
+
+    Rows are stacked by (model, framework, category), where `category` is either an
+    actual entity category, "OVERALL_MICRO" (TP/FP/FN pooled across all categories
+    before scoring, so frequent categories dominate), or "OVERALL_MACRO" (per-category
+    scores averaged unweighted, so rare and frequent categories count equally).
 
     Returns
     -------
     pd.DataFrame
-        DataFrame with grouped metrics by model, framework, and category,
-        including overall metrics.
+        Long-format DataFrame with one row per (model, framework, category).
     """
     # Group by model, framework, and category to compute metrics per category
     grouped_category = (
@@ -345,9 +374,18 @@ def compute_grouped_stats(
         )
         .reset_index()
     )
-    # Group by model and framework to compute overall metrics across all categories
-    # First compute text-level metrics (e.g., number of texts, cost, time)
-    # by model+framework
+    grouped_category["pct_hallucinations"] = 100 * safe_divide(
+        grouped_category["nb_hallucinated_entities"],
+        grouped_category["nb_predicted_entities"],
+    )
+    tp, fp, fp_clean, fn = (
+        grouped_category["true_positives"],
+        grouped_category["false_positives"],
+        grouped_category["false_positives_no_hallucination"],
+        grouped_category["false_negatives"],
+    )
+    grouped_category = grouped_category.assign(**_compute_scores(tp, fp, fn, fp_clean))
+    # OVERALL MICRO row: pool text/entity counts and TP/FP/FN across all categories
     per_text_stats = (
         df.groupby(["model_name", "framework_name"])
         .agg(
@@ -365,7 +403,6 @@ def compute_grouped_stats(
         )
         .reset_index()
     )
-    # Then compute entity-level metrics (TP, FP, FN) by model+framework
     per_entity_stats = (
         df_categories.groupby(["model_name", "framework_name"])
         .agg(
@@ -387,44 +424,37 @@ def compute_grouped_stats(
         )
         .reset_index()
     )
-    # Merge text-level and entity-level stats to compute overall metrics
-    overall = per_text_stats.merge(
-        per_entity_stats, on=["model_name", "framework_name"]
+    micro = per_text_stats.merge(per_entity_stats, on=["model_name", "framework_name"])
+    micro["pct_hallucinations"] = 100 * safe_divide(
+        micro["nb_hallucinated_entities"], micro["nb_predicted_entities"]
     )
-    overall["category"] = "OVERALL"
-    grouped = pd.concat([grouped_category, overall], ignore_index=True)
-    grouped["pct_hallucinations"] = 100 * safe_divide(
-        grouped["nb_hallucinated_entities"], grouped["nb_predicted_entities"]
+    tp, fp, fp_clean, fn = (
+        micro["true_positives"],
+        micro["false_positives"],
+        micro["false_positives_no_hallucination"],
+        micro["false_negatives"],
+    )
+    micro = micro.assign(
+        **_compute_scores(tp, fp, fn, fp_clean), category="OVERALL_MICRO"
+    )
+    # MACRO row: unweighted mean of the per-category scores
+    score_cols = [
+        "precision",
+        "precision_no_hallucination",
+        "recall",
+        "f1",
+        "f1_no_hallucination",
+        "fbeta_0.5",
+        "fbeta_0.5_no_hallucination",
+    ]
+    macro = (
+        grouped_category.groupby(["model_name", "framework_name"])[score_cols]
+        .mean()
+        .reset_index()
+        .assign(category="OVERALL_MACRO")
     )
 
-    tp = grouped["true_positives"]
-    fp = grouped["false_positives"]
-    fp_clean = grouped["false_positives_no_hallucination"]
-    fn = grouped["false_negatives"]
-
-    grouped["precision_score"] = safe_divide(tp, tp + fp)
-    grouped["precision_score_no_hallucination"] = safe_divide(tp, tp + fp_clean)
-    grouped["recall_score"] = safe_divide(tp, tp + fn)
-    grouped["f1_score"] = safe_divide(
-        2 * grouped["precision_score"] * grouped["recall_score"],
-        grouped["precision_score"] + grouped["recall_score"],
-    )
-    grouped["f1_score_no_hallucination"] = safe_divide(
-        2 * grouped["precision_score_no_hallucination"] * grouped["recall_score"],
-        grouped["precision_score_no_hallucination"] + grouped["recall_score"],
-    )
-    beta = 0.5
-    grouped[f"fbeta_{beta}_score"] = safe_divide(
-        (1 + beta**2) * grouped["precision_score"] * grouped["recall_score"],
-        beta**2 * grouped["precision_score"] + grouped["recall_score"],
-    )
-    grouped[f"fbeta_{beta}_score_no_hallucination"] = safe_divide(
-        (1 + beta**2)
-        * grouped["precision_score_no_hallucination"]
-        * grouped["recall_score"],
-        beta**2 * grouped["precision_score_no_hallucination"] + grouped["recall_score"],
-    )
-    return grouped
+    return pd.concat([grouped_category, micro, macro], ignore_index=True)
 
 
 def main(inferences_dir: Path, results_dir: Path) -> None:
