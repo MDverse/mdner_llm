@@ -1,6 +1,6 @@
 model:
-  name: "fastino/gliner2-large-v1"
-  experiment_name: "gliner2-large-v1-finetuned-lora-test-30epochs"
+  name: "fastino/gliner2-base-v1"
+  experiment_name: "gliner2-base-v1-finetuned"
   output_dir: "results/gliner/models"
 
 data:
@@ -10,19 +10,19 @@ data:
   seed: 42
 
 entities:
-  MOL: "Molecule or chemical compound involved in the simulation."
-  SOFTNAME: "Molecular dynamics software used for the simulation."
-  SOFTVERS: "Version of the molecular dynamics software."
-  STEMP: "Simulation temperature, typically expressed in Kelvin or Celsius."
-  FFM: "Force field or model used to describe interatomic interactions."
-  STIME: "Total simulation time or duration."
+  MOL: "Molecular compounds, including simple molecules, ions, nucleic acids, proteins, lipids, sugars, polymers, and complexes. MOL entities must be uniquely identifiable."
+  SOFTNAME: "Name of any software used for simulation, visualization, or analysis, including packages for MD, modeling, trajectory processing, and other computational tasks in the simulation workflow."
+  SOFTVERS: "Version identifier of any software used in the simulation process, regardless of formatting (numeric, date-based, or semantic versioning)."
+  STEMP: "Thermal conditions under which a simulation is conducted, including any explicitly stated temperature value, with or without units."
+  FFM: "Any force field or molecular model used to describe interatomic or intermolecular interactions, including all-atom force fields, coarse-grained models, and solvent/water models. Both the name and, when available, the version are annotated."
+  STIME: "Duration for which a production MD simulation is run."
 
 training:
   # Training schedule
   num_epochs: 30
   batch_size: 2
   max_steps: -1
-  gradient_accumulation_steps: 4
+  gradient_accumulation_steps: 8
   cv_folds: 5
 
   # Learning rates
@@ -39,9 +39,9 @@ training:
   bf16: False
 
   # LoRA settings
-  use_lora: True # Enable LoRA
-  lora_r: 8 # Rank (4, 8, 16, 32)
-  lora_alpha: 16.0 # Scaling factor (usually 2*r)
+  use_lora: False # Enable LoRA
+  lora_r: 16 # Rank (4, 8, 16, 32)
+  lora_alpha: 32.0 # Scaling factor (usually 2*r)
   lora_dropout: 0.2 # Dropout for LoRA layers
   lora_target_modules: ["encoder"] # Apply to all encoder layers (query, key, value, dense)
   save_adapter_only: True # Save only adapter (not full model)
