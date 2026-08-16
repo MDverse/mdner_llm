@@ -1,0 +1,41 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "data-science",
+    "name": "Jupyter",
+    "description": "Jupyter is a multi-language software suite for open-source interactive computing, widely used for data analysis, scientific computing, and computational notebooks.",
+    "codeRepository": "https://github.com/jupyter/notebook",
+    "relatedLink": "https://jupyter.org/",
+    "keywords": [
+        "interactive-computing",
+        "notebooks",
+        "data-analysis",
+        "reproducible-research"
+    ],
+    "license": "https://spdx.org/licenses/BSD-3-Clause",
+    "programmingLanguage": [
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "HTML",
+        "CSS"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Kluyver",
+            "givenName": "Thomas"
+        },
+        {
+            "type": "Person",
+            "familyName": "Pérez",
+            "givenName": "Fernando"
+        },
+        {
+            "type": "Person",
+            "familyName": "Granger",
+            "givenName": "Brian E."        }
+    ],
+    "version": "7.6.0",
+    "referencePublication": "https://doi.org/10.3233/978-1-61499-649-1-87"
+}

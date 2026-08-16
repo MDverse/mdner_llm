@@ -1,0 +1,38 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "author": [
+        {
+            "id": "https://orcid.org/0000-0003-0160-3375",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "National Institute of Chemistry, Hajdrihova 19, 1000 Ljubljana, Slovenia"
+            },
+            "familyName": "Konc",
+            "givenName": "Janez   "
+        },
+        {
+            "id": "https://orcid.org/0000-0003-4067-0116",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "National Institute of Chemistry, Hajdrihova 19, 1000 Ljubljana, Slovenia"
+            },
+            "familyName": "Janezic",
+            "givenName": "Dusanka "
+        }
+    ],
+    "codeRepository": "https://gitlab.com/janezkonc/probis.git",
+    "description": "ProBiS algorithm aligns and superimposes complete protein surfaces, surface motifs, or protein binding sites. It enables pairwise alignments of entire protein structures or selected binding sites as well as fast database searches for similar protein binding sites. The algorithm can find similar binding sites even in proteins with different folds and without prior knowledge of their location. ProBiS algorithm is parallel for single or multiple CPU platforms. ",
+    "downloadUrl": "https://gitlab.com/janezkonc/probis/-/archive/master/probis-master.tar.gz?ref_type=heads",
+    "license": "https://spdx.org/licenses/BSD-3-Clause",
+    "name": "ProBiS",
+    "operatingSystem": [
+        "Linux",
+        "Ubuntu"
+    ],
+    "relatedLink": "http://probis.cmm.ki.si/",
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.5b00534"
+}

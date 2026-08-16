@@ -1,0 +1,44 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "codeRepository": "https://github.com/ChemBioHTP/LassoHTP.git",
+    "contributor": [
+        {
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Vanderbilt University "
+            },
+            "familyName": "Juarez ",
+            "givenName": "Reecan J"
+        },
+        {
+            "type": "Person",
+            "familyName": "Yang",
+            "givenName": "Zhongyue John"
+        },
+        {
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Vanderbilt University"
+            },
+            "familyName": "Shao",
+            "givenName": "Qianzhen"
+        },
+        {
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Vanderbilt University"
+            },
+            "familyName": "Yang",
+            "givenName": "Zhongyue J."
+        }
+    ],
+    "description": "LassoHTP is a computational tool geared towards lasso peptide design and discovery. Major functionalities include the high throughput (HTP) construction of lasso peptides as well as HTP molecular dynamics (MD) simulations to predict lasso peptide thermodynamic parameters.",
+    "name": "LassoHTP",
+    "programmingLanguage": "Python",
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.2c00945"
+}

@@ -1,0 +1,35 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "ChimeraX",
+    "description": "UCSF ChimeraX is the next-generation molecular visualization program from the Resource for Biocomputing, Visualization, and Informatics (RBVI), providing advanced interactive visualization and analysis for molecular structures and dynamics.",
+    "codeRepository": "https://github.com/RBVI/ChimeraX",
+    "relatedLink": "https://www.rbvi.ucsf.edu/chimerax/",
+    "keywords": [
+        "molecular-visualization",
+        "3d-rendering",
+        "cryo-em-analysis",
+        "protein-structure"
+    ],
+    "programmingLanguage": [
+        "Python",
+        "C++"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Goddard",
+            "givenName": "Thomas D."        },
+        {
+            "type": "Person",
+            "familyName": "Huang",
+            "givenName": "Conrad C."        },
+        {
+            "type": "Person",
+            "familyName": "Ferrin",
+            "givenName": "Thomas E."        }
+    ],
+    "version": "1.10.1",
+    "referencePublication": "https://doi.org/10.1002/pro.4792"
+}

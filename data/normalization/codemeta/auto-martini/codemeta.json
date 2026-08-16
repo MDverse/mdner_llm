@@ -1,0 +1,19 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "auto-martini",
+    "description": "A toolkit that enables automatic generation of Martini forcefields for small organic molecules.",
+    "codeRepository": "https://github.com/tbereau/auto_martini",
+    "keywords": [
+        "molecular-dynamics",
+        "coarse-grained",
+        "martini-2",
+        "topology-generation"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "referencePublication": "https://doi.org/10.1021/acs.jctc.5b00056"
+}

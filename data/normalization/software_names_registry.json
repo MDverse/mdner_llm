@@ -1,0 +1,299 @@
+{
+    "software_names": [
+        {
+            "name": "acemd",
+            "aliases": ["acemd3", "acemd4"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "affdo",
+            "aliases": ["affdo-optimizer", "Automated Force Field Developer and Optimizer"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "alphafold",
+            "aliases": ["af"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "amber",
+            "aliases": ["ambermd", "pmemd"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "ambertools",
+            "aliases": ["amber-tools", "antechamber", "cpptraj", "pytraj", "tleap", "parmed", "pbsa", "sander"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "ase",
+            "aliases": ["atomic simulation environment", "ase-python"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Auto_Martini",
+            "aliases": ["automartini", "auto_martini", "auto-martini"],
+            "is_codemeta_exists": true
+        },   
+        {
+            "name": "Auto_MartiniM3",
+            "aliases": ["automartinim3", "auto_martini_m3", "automartini3", "auto-martini-m3"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "autodock",
+            "aliases": ["autodock4", "autodock-gpu", "ad4", "autodock-vina", "autodock vina"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "automated_force_field_developer_and_optimizer",
+            "aliases": ["affdo"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Binding Free Energy Estimator",
+            "aliases": ["bfee2", "bfee3", "binding-free-energy-estimator", "bfee"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "BRIDGE",
+            "aliases": ["bridge-md"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "bumpy",
+            "aliases": ["bumpy-grid"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "cg2all",
+            "aliases": ["cg-to-all"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "CGenFF",
+            "aliases": ["charmm general force field", "cgenff program", "paramchem"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "CHARMM",
+            "aliases": ["c49b1", "c50a1"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "CHARMM-GUI",
+            "aliases": ["charmmgui", "charmm_gui"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "ChimeraX",
+            "aliases": ["ucsf chimerax", "chimera-x"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "ColabFold",
+            "aliases": ["colab fold"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Colvars",
+            "aliases": ["colvars", "collective variables module"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "CP2K",
+            "aliases": ["cp2k-code"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "DESMOND",
+            "aliases": ["schrodinger desmond", "desmond md"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "espresso++",
+            "aliases": ["espresso plus plus", "espresso_pp", "espresso ++"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Galaxy",
+            "aliases": ["galaxy-platform", "galaxy project"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Gaussian",
+            "aliases": ["g09", "gaussian09", "gaussian"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "gromacs",
+            "aliases": ["gmx", "grompp", "mdrun", "gmx_mpi"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "HOOMD-blue",
+            "aliases": ["hoomd", "hoomdblue", "hoomd blue"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Insane",
+            "aliases": ["INSert membrANE"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Jupyter",
+            "aliases": ["jupyter notebook", "jupyterlab", "ipynb"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "LAMMPS",
+            "aliases": ["lmp", "lammps-gui"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "LassoHTP",
+            "aliases": ["lasso-htp", "lasso htp"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Maestro",
+            "aliases": ["schrodinger maestro"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Martinize2",
+            "aliases": ["vermouth-martinize", "martinize 2"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Matplotlib",
+            "aliases": ["plt", "pyplot"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "MDAnalysis",
+            "aliases": ["mda", "MD Analysis", "md-analysis"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "MDTraj",
+            "aliases": ["md-traj", "MD traj"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "MODELLER",
+            "aliases": ["mod9.25", "mod10.1"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "MOE",
+            "aliases": ["molecular operating environment", "chemcomp moe"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "NAMD",
+            "aliases": ["namd2", "namd3", "namd-multicore"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "OpenMM",
+            "aliases": ["openmm-gpu", "openmm-cuda", "openmm-opencl"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "OPTIM",
+            "aliases": ["wales optim"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PATHSAMPLE",
+            "aliases": ["wales pathsample"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PLUMED",
+            "aliases": ["The community-developed PLUgin for MolEcular Dynamics"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PPM",
+            "aliases": ["ppm server", "opm ppm"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "ProBiS",
+            "aliases": ["ProBiS-CHARMMing"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "ProDy",
+            "aliases": [],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PROPKA",
+            "aliases": ["propka3", "propka31"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PTools",
+            "aliases": [],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "pydock",
+            "aliases": ["pyDockWeb", "pydock-web"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PyMOL",
+            "aliases": ["pymol-open-source", "open-pymol"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "PySteMoDA",
+            "aliases": ["pystem-oda"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Schrödinger suite",
+            "aliases": ["schrodinger", "schrödinger", "schrodinger software suite"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "Seaborn",
+            "aliases": ["sns"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "statannotations",
+            "aliases": ["statannot"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "STRIDE",
+            "aliases": ["stride web server"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "SuAVE",
+            "aliases": ["Surface Assessment Via grid Evaluation"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "TorchANI",
+            "aliases": ["torch-ani", "ani-1x"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "UnityMol",
+            "aliases": ["umol", "unity-mol"],
+            "is_codemeta_exists": true
+        },
+        {
+            "name": "VMD",
+            "aliases": ["visual molecular dynamics"],
+            "is_codemeta_exists": true
+        }
+    ]
+}

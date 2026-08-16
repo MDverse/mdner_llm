@@ -1,0 +1,28 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "antechamber",
+    "description": "Antechamber is a foundational package inside AmberTools designed to automate parameter generation for small molecules using diverse force fields like GAFF.",
+    "relatedLink": "https://ambermd.org/AmberTools.php",
+    "keywords": [
+        "parameter-generation",
+        "gaff",
+        "small-molecules",
+        "ambertools"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "programmingLanguage": [
+        "C",
+        "Python"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Wang",
+            "givenName": "Junmei"
+        }
+    ],
+    "version": "24.0",
+    "referencePublication": "https://doi.org/10.1016/j.jmgm.2003.11.002"
+}

@@ -1,0 +1,38 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "Galaxy",
+    "description": "Galaxy is an open, web-based platform for accessible, reproducible, and transparent computational research, supporting data-intensive biomedical and molecular simulation workflows.",
+    "codeRepository": "https://github.com/galaxyproject/galaxy",
+    "relatedLink": "https://galaxyproject.org/",
+    "keywords": [
+        "bioinformatics",
+        "workflow-management",
+        "reproducible-research",
+        "molecular-dynamics"
+    ],
+    "license": "https://spdx.org/licenses/MIT.html",
+    "programmingLanguage": [
+        "Python",
+        "JavaScript",
+        "TypeScript"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Goecks",
+            "givenName": "Jeremy"        },
+        {
+            "type": "Person",
+            "familyName": "Nekrutenko",
+            "givenName": "Anton"        },
+        {
+            "type": "Person",
+            "familyName": "Taylor",
+            "givenName": "James"
+        }
+    ],
+    "version": "26.0.1",
+    "referencePublication": "https://doi.org/10.1186/gb-2010-11-8-r86"
+}

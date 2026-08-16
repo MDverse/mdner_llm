@@ -1,0 +1,22 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "CP2K",
+    "description": "CP2K is a quantum chemistry and solid-state physics software package that can perform atomistic simulations of solid-state, liquid, molecular, and biological systems.",
+    "codeRepository": "https://github.com/cp2k/cp2k",
+    "relatedLink": "https://www.cp2k.org/",
+    "keywords": [
+        "quantum-chemistry",
+        "dft",
+        "ab-initio-md",
+        "solid-state-physics"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0-or-later",
+    "programmingLanguage": [
+        "Fortran",
+        "C",
+        "C++"
+    ],
+    "referencePublication": "https://doi.org/10.1063/5.0020475"
+}

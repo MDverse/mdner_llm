@@ -1,0 +1,21 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "paramchem",
+    "description": "An online web platform and background engine automating small molecule parameterization tasks based on the CGenFF engine architecture.",
+    "relatedLink": "https://www.paramchem.org/",
+    "keywords": [
+        "parameterization",
+        "charmm",
+        "cgenff",
+        "web-service"
+    ],
+    "license": "https://spdx.org/licenses/LicenseRef-ParamChem-Academic",
+    "programmingLanguage": [
+        "Python",
+        "PHP"
+    ],
+    "version": "2.0.0",
+    "referencePublication": "https://doi.org/10.1002/jcc.21367"
+}

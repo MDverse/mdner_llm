@@ -1,0 +1,27 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "moe",
+    "description": "Molecular Operating Environment (MOE) is an integrated computer-aided molecular design platform covering visualization, modeling, and simulations.",
+    "relatedLink": "https://www.chemcomp.com/Products.htm",
+    "keywords": [
+        "molecular-design",
+        "cheminformatics",
+        "docking",
+        "molecular-visualization"
+    ],
+    "license": "https://spdx.org/licenses/LicenseRef-Commercial",
+    "programmingLanguage": [
+        "SVL",
+        "C++"
+    ],
+    "author": [
+        {
+            "type": "Organization",
+            "name": "Chemical Computing Group"
+        }
+    ],
+    "version": "2024",
+    "referencePublication": "https://www.chemcomp.com/Citations.htm"
+}

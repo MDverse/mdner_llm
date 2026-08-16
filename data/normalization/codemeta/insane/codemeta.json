@@ -1,0 +1,30 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "Insane",
+    "description": "Insane (INSert membrANE) is a building tool for molecular dynamics simulations that allows for the generation of complex lipid bilayers and the setup of coarse-grained systems, specifically tailored for the Martini force field.",
+    "codeRepository": "https://github.com/Tsjerk/Insane",
+    "keywords": [
+        "molecular-dynamics",
+        "membrane-builder",
+        "coarse-grained",
+        "martini-force-field",
+        "system-setup"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Wassenaar",
+            "givenName": "Tsjerk A."        },
+        {
+            "type": "Person",
+            "familyName": "Marrink",
+            "givenName": "Siewert J."        }
+    ],
+    "referencePublication": "https://doi.org/10.1021/acs.jctc.5b00209"
+}

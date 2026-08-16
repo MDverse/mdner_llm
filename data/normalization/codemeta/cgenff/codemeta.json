@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "CGenFF",
+    "description": "CHARMM General Force Field (CGenFF) program automates the generation of force field parameters and topologies for small organic drug-like molecules.",
+    "relatedLink": "https://cgenff.com/",
+    "keywords": [
+        "force-field-parameters",
+        "charmm",
+        "topology-generation",
+        "small-molecules"
+    ],
+    "license": "https://spdx.org/licenses/LicenseRef-ParamChem-Academic",
+    "programmingLanguage": [
+        "C",
+        "Perl"
+    ],
+    "referencePublication": "https://doi.org/10.1002/jcc.21367"
+}

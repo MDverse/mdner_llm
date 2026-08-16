@@ -1,0 +1,18 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "pyDock",
+    "description": "pyDock is a structural bioinformatics tool for protein-protein docking scoring based on electrostatics, desolvation energy, and van der Waals interactions.",
+    "relatedLink": "https://life.bsc.es/pid/pydock",
+    "keywords": [
+        "protein-docking",
+        "structural-bioinformatics",
+        "scoring-function"
+    ],
+    "programmingLanguage": [
+        "Python",
+        "C"
+    ],
+    "referencePublication": "https://doi.org/10.1002/prot.21419"
+}

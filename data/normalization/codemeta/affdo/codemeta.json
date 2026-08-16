@@ -1,0 +1,29 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "AFFDO",
+    "description": "AFFDO (Automated Force Field Developer and Optimizer) is a computational platform designed to automate the generation of accurate GAFF2 torsion parameters for small drug-like molecules using GPU-accelerated quantum chemistry reference data and gradient-based optimization.",
+    "codeRepository": "https://github.com/ATTMOS/AFFDOWS",
+    "relatedLink": "https://affdo.attmosdiscovery.com/",
+    "keywords": [
+        "force-field-development",
+        "torsion-reparameterization",
+        "gaff2",
+        "quantum-chemistry",
+        "automated-differentiation"
+    ],
+    "license": "https://github.com/ATTMOS/AFFDOWS?tab=License-1-ov-file",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Blanco-González",
+            "givenName": "Alejandro",
+            "id": "https://orcid.org/0000-0001-7379-2588"
+        }
+    ],
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.6c00528"
+}

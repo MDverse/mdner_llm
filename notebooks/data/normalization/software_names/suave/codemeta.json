@@ -1,0 +1,17 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "suave",
+    "description": "An automated pipeline or auxiliary script used for custom molecular profile extraction or coarse-grained mapping alignments.",
+    "keywords": [
+        "molecular-dynamics",
+        "utility",
+        "bioinformatics"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "1.0.0"
+}

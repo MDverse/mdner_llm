@@ -1,0 +1,19 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "automated force field developer and optimizer",
+    "description": "An alias/full descriptor for AFFDO, a tool for automated reparameterization and optimization of GAFF2 torsion profiles utilizing GPU QM data.",
+    "relatedLink": "https://pubmed.ncbi.nlm.nih.gov/41802224/",
+    "keywords": [
+        "force-field-development",
+        "torsion-reparameterization",
+        "gaff2"
+    ],
+    "license": "https://spdx.org/licenses/LicenseRef-Proprietary",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "1.0",
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.6c00528"
+}

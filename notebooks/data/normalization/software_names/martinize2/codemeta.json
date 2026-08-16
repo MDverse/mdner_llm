@@ -1,0 +1,22 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "martinize2",
+    "description": "The modern next-generation translation pipeline creating coarse-grained Martini 3 topologies from atomistic coordinates via the Vermouth graph network.",
+    "codeRepository": "https://github.com/marrink-lab/vermouth-martinize",
+    "relatedLink": "http://cgmartini.nl/",
+    "keywords": [
+        "molecular-dynamics",
+        "coarse-grained",
+        "martini-3",
+        "topology-generation",
+        "vermouth"
+    ],
+    "license": "https://spdx.org/licenses/Apache-2.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "0.3.0",
+    "referencePublication": "https://doi.org/10.1038/s41592-021-01098-3"
+}

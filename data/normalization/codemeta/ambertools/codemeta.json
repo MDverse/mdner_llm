@@ -1,0 +1,44 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "ambertools",
+    "description": "AmberTools consists of several independently developed packages that work together, and can be used to carry out complete molecular dynamics simulations and analysis on their own, or in conjunction with the main Amber package.",
+    "codeRepository": "https://github.com/Amber-MD/AmberClassic.git",
+    "relatedLink": "https://ambermd.org/AmberTools.php",
+    "keywords": [
+        "molecular-dynamics",
+        "system-preparation",
+        "trajectory-analysis",
+        "force-field-tools"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "programmingLanguage": [
+        "C++",
+        "C",
+        "Fortran",
+        "Python",
+        "Shell"
+    ],
+    "author": [
+         {
+            "type": "Person",
+            "familyName": "Pearlman",
+            "givenName": "David A.",
+            "id": "https://orcid.org/0000-0002-2574-6066"
+        },
+        {
+            "type": "Person",
+            "familyName": "Case",
+            "givenName": "David Andrew",
+            "id": "https://orcid.org/0000-0003-2314-2346"
+        },
+        {
+            "type": "Person",
+            "familyName": "Cheatham III",
+            "givenName": "Thomas E.",
+            "id": "https://orcid.org/0000-0003-0298-3904"
+        }
+    ],
+    "referencePublication": "https://doi.org/10.1021/acs.jctc.0c00521"
+}

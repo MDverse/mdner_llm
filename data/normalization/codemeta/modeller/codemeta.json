@@ -1,0 +1,31 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "MODELLER",
+    "description": "MODELLER is used for homology or comparative modeling of protein three-dimensional structures. The user provides an alignment of a sequence to be modeled with known related structures and MODELLER automatically calculates a model with all non-hydrogen atoms.",
+    "relatedLink": "https://salilab.org/modeller/",
+    "keywords": [
+        "homology-modeling",
+        "protein-structure",
+        "comparative-modeling",
+        "bioinformatics"
+    ],
+    "programmingLanguage": [
+        "Python",
+        "Fortran",
+        "C"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Šali",
+            "givenName": "Andrejs"        },
+        {
+            "type": "Person",
+            "familyName": "Wrbb",
+            "givenName": "Benjamin"        }
+    ],
+    "version": "10.8",
+    "referencePublication": "https://doi.org/10.1002/cpbi.3"
+}

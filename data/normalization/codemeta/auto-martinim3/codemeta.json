@@ -1,0 +1,19 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "auto_martinim3",
+    "description": "A toolkit that enables automatic generation of Martini force field for small organic molecules up to 25 heavy atoms, now in agreement with Martini 3 Force Field parameters.",
+    "codeRepository": "https://github.com/Martini-Force-Field-Initiative/Automartini_M3",
+    "keywords": [
+        "molecular-dynamics",
+        "coarse-grained",
+        "martini-3",
+        "topology-generation"
+    ],
+    "license": "https://spdx.org/licenses/GPL-2.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "referencePublication": "https://doi.org/10.1021/acs.jctc.5c01178"
+}

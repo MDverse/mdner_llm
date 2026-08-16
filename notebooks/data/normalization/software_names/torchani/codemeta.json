@@ -1,0 +1,21 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "torchani",
+    "description": "TorchANI is a PyTorch-based implementation of ANI (Anisomorphic Neural Network Potential) capable of accelerating molecular potential energy calculations.",
+    "codeRepository": "https://github.com/aiqm/torchani",
+    "keywords": [
+        "machine-learning-potential",
+        "neural-network",
+        "pytorch",
+        "quantum-chemistry"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python",
+        "C++"
+    ],
+    "version": "2.2",
+    "referencePublication": "https://doi.org/10.1021/acs.jcim.0c00451"
+}

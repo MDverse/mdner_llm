@@ -1,0 +1,20 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "auto-martinim3",
+    "description": "An automated pipeline tool tailored for generating Martini 3 coarse-grained topologies and system inputs for small molecules.",
+    "relatedLink": "http://cgmartini.nl/",
+    "keywords": [
+        "molecular-dynamics",
+        "coarse-grained",
+        "martini-3",
+        "topology-generation"
+    ],
+    "license": "https://spdx.org/licenses/GPL-3.0",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "1.0",
+    "referencePublication": "https://doi.org/10.1038/s41592-021-01098-3"
+}

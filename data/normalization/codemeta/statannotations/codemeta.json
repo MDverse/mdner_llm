@@ -1,0 +1,18 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "data-science",
+    "name": "statannotations",
+    "description": "A Python library designed to add statistical annotations (like p-values and significance stars) onto plots generated using seaborn.",
+    "codeRepository": "https://github.com/trevismd/statannotations",
+    "keywords": [
+        "statistical-analysis",
+        "data-visualization",
+        "plotting-extension"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "0.6.0"
+}

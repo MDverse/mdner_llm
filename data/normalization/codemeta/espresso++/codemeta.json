@@ -1,0 +1,124 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "author": [
+        {
+            "id": "_:author_1",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Max Planck Institute for Polymer Research, Ackermannweg 10, 55128 Mainz, Germany"
+            },
+            "familyName": "Halverson",
+            "givenName": "Jonathan D."
+        },
+        {
+            "id": "_:author_2",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Fraunhofer Institute for Algorithms and Scientific Computing, Schloss Birlinghoven, 53754 Sankt Augustin, Germany"
+            },
+            "familyName": "Brandes",
+            "givenName": "Thomas"
+        },
+        {
+            "id": "https://orcid.org/0000-0002-0189-7935",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Fraunhofer Institute for Algorithms and Scientific Computing, Schloss Birlinghoven, 53754 Sankt Augustin, Germany"
+            },
+            "familyName": "Lenz",
+            "givenName": "Olaf"
+        },
+        {
+            "id": "_:author_4",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Fraunhofer Institute for Algorithms and Scientific Computing, Schloss Birlinghoven, 53754 Sankt Augustin, Germany"
+            },
+            "familyName": "Arnold",
+            "givenName": "Axel "
+        },
+        {
+            "id": "https://orcid.org/0000-0003-2313-7379",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Max Planck Institute for Polymer Research, Ackermannweg 10, 55128 Mainz, Germany"
+            },
+            "familyName": "Starchenko",
+            "givenName": " Vitaliy  "
+        },
+        {
+            "id": "_:author_6",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Max Planck Institute for Polymer Research, Ackermannweg 10, 55128 Mainz, Germany"
+            },
+            "familyName": "Kremer",
+            "givenName": "Kurt"
+        },
+        {
+            "id": "_:author_7",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "National Institute of Chemistry, Hajdrihova 19, 1000 Ljubljana, Slovenia"
+            },
+            "familyName": "Bevc",
+            "givenName": "Staš  "
+        },
+        {
+            "id": "_:author_8",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Max Planck Institute for Polymer Research, Ackermannweg 10, 55128 Mainz, Germany"
+            },
+            "familyName": "Stuehn",
+            "givenName": "Torsten"
+        },
+        {
+            "id": "https://orcid.org/0000-0003-1480-6745",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Fraunhofer Institute for Algorithms and Scientific Computing, Schloss Birlinghoven, 53754 Sankt Augustin, Germany"
+            },
+            "familyName": "Reith",
+            "givenName": "Dirk  "
+        }
+    ],
+    "codeRepository": "https://github.com/espressopp/espressopp.git",
+    "dateModified": "2024-01-25",
+    "description": "codecov\n\nESPResSo++ is an extensible, flexible, fast and parallel simulation software for soft matter research. It is a highly versatile software package for the scientific simulation and analysis of coarse-grained atomistic or bead-spring models as they are used in soft matter research. ESPResSo and ESPResSo++ have common roots and share parts of the developer/user community. However their development is independent and they are different software packages. ",
+    "downloadUrl": "https://github.com/espressopp/espressopp/archive/refs/tags/v3.1.0.tar.gz",
+    "keywords": [
+        "python",
+        "c-plus-plus",
+        "analysis",
+        "devtools",
+        "espresso",
+        "method",
+        "algorithm-challenges",
+        "adress",
+        "hpc-applications",
+        "lattice-boltzmann",
+        "algorithmic"
+    ],
+    "license": "https://spdx.org/licenses/GPL-3.0",
+    "name": " espressopp ",
+    "programmingLanguage": [
+        "C++",
+        "Python"
+    ],
+    "relatedLink": "http://www.espresso-pp.de/",
+    "version": "v3.1.0",
+    "issueTracker": "https://github.com/espressopp/espressopp/issues",
+    "referencePublication": "https://doi.org/10.1016/j.cpc.2012.12.004"
+}

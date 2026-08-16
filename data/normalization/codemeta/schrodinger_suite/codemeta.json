@@ -1,0 +1,25 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "Schrödinger suite",
+    "description": "A comprehensive corporate suite of scientific software platforms covering molecular modeling, lead optimization, and high-performance physics simulations.",
+    "relatedLink": "https://www.schrodinger.com/",
+    "keywords": [
+        "molecular-simulation",
+        "drug-discovery",
+        "cheminformatics",
+        "corporate-platform"
+    ],
+    "programmingLanguage": [
+        "C++",
+        "Python",
+        "Fortran"
+    ],
+    "author": [
+        {
+            "type": "Organization",
+            "name": "Schrödinger, Inc."
+        }
+    ]
+}

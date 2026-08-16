@@ -1,0 +1,42 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "OpenMM",
+    "description": "OpenMM is a high-performance toolkit for molecular simulation. It can be used as a standalone application for running simulations, or as a library called from other code, featuring extensive GPU acceleration and a flexible Python interface.",
+    "codeRepository": "https://github.com/openmm/openmm",
+    "relatedLink": "https://openmm.org/",
+    "keywords": [
+        "molecular-dynamics",
+        "gpu-acceleration",
+        "open-source",
+        "cuda",
+        "api"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "C++",
+        "Python",
+        "CUDA",
+        "OpenCL"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Eastman",
+            "givenName": "Peter"
+        },
+        {
+            "type": "Person",
+            "familyName": "Pande",
+            "givenName": "Vijay S."
+        },
+        {
+            "type": "Person",
+            "familyName": "Chodera",
+            "givenName": "John D."
+        }
+    ],
+    "version": "8.5.2",
+    "referencePublication": "https://doi.org/10.1371/journal.pcbi.1005659"
+}

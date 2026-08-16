@@ -1,0 +1,17 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "bridge",
+    "description": "A trajectory transformation framework or utility mapping library connecting diverse structure file schemas across different simulation suites.",
+    "keywords": [
+        "data-conversion",
+        "interoperability",
+        "trajectory-mapping"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "version": "1.0.0"
+}

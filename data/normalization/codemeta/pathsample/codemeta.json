@@ -1,0 +1,25 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "PATHSAMPLE",
+    "description": "A software package for finding transition states, pathways, and executing discrete path sampling to explore energy landscapes.",
+    "relatedLink": "https://www-wales.ch.cam.ac.uk/software.html",
+    "keywords": [
+        "energy-landscapes",
+        "discrete-path-sampling",
+        "transition-states"
+    ],
+    "license": "https://spdx.org/licenses/GPL-3.0",
+    "programmingLanguage": [
+        "Fortran",
+        "C++"
+    ],
+    "author": [
+        {
+            "type": "Person",
+            "familyName": "Wales",
+            "givenName": "David J."
+        }
+    ]
+}

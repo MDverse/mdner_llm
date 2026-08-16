@@ -1,0 +1,18 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "molecular dynamics",
+    "name": "BUMPy",
+    "description": "A Python framework or auxiliary package frequently used for spatial clustering, topology management, or specific lipid mesh manipulations in membrane builders.",
+    "keywords": [
+        "molecular-dynamics",
+        "utility",
+        "bioinformatics"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "programmingLanguage": [
+        "Python"
+    ],
+    "codeRepository": "https://github.com/MayLab-UConn/BUMPy",
+    "referencePublication": "https://doi.org/10.1021/acs.jctc.8b00765"
+}
