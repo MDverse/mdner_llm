@@ -675,8 +675,7 @@ def main(config_path: str | Path) -> None:
 @click.command()
 @click.option(
     "--config-path",
-    type=click.Path(exists=True, dir_okay=False, readable=True),
-    default="src/mdner_llm/gliner/training_config.yaml",
+    type=click.Path(exists=True, dir_okay=False),
     help="Path to the training config YAML file.",
 )
 def run_main_from_cli(config_path: str | Path) -> None:
