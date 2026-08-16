@@ -9,7 +9,7 @@ resolution-markers = [
 
 [[package]]
 name = "accelerate"
-version = "1.13.0"
+version = "1.14.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "huggingface-hub" },
@@ -21,9 +21,9 @@ dependencies = [
     { name = "safetensors" },
     { name = "torch" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ca/14/787e5498cd062640f0f3d92ef4ae4063174f76f9afd29d13fc52a319daae/accelerate-1.13.0.tar.gz", hash = "sha256:d631b4e0f5b3de4aff2d7e9e6857d164810dfc3237d54d017f075122d057b236", size = 402835, upload-time = "2026-03-04T19:34:12.359Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8d/75/94cd5d389649578aca399e5aa822637eec18319a1dadc400ffe2f9a7493f/accelerate-1.14.0.tar.gz", hash = "sha256:41b9c4377a54e0b460a959b0defa1b736e4ca0a2373252d9a539964c2afe3c8d", size = 412167, upload-time = "2026-06-11T13:45:52.326Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7e/46/02ac5e262d4af18054b3e922b2baedbb2a03289ee792162de60a865defc5/accelerate-1.13.0-py3-none-any.whl", hash = "sha256:cf1a3efb96c18f7b152eb0fa7490f3710b19c3f395699358f08decca2b8b62e0", size = 383744, upload-time = "2026-03-04T19:34:10.313Z" },
+    { url = "https://files.pythonhosted.org/packages/a8/db/253133d7e7cb40d3af384bb2f5c0b4a2b7fdcffbc95c688cc67a20a3c103/accelerate-1.14.0-py3-none-any.whl", hash = "sha256:e94390c2863b873be18f623f9df48a0d8fe5eff13ea7f1a00092b0a7904888c6", size = 389246, upload-time = "2026-06-11T13:45:50.477Z" },
 ]
 
 [[package]]
@@ -1478,18 +1478,17 @@ wheels = [
 
 [[package]]
 name = "gliner2"
-version = "1.3.1"
+version = "1.3.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "gliner" },
     { name = "peft" },
     { name = "pydantic" },
     { name = "requests" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c9/1c/5e7e30213e8d917c14cefa3c060457bfa6a1e21304f852f02400dba91715/gliner2-1.3.1.tar.gz", hash = "sha256:c22f496afb2c87640005f5f49f83bb42610e85e544e3170cff7ea1ba69925ffa", size = 132379, upload-time = "2026-05-06T16:15:59.58Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/06/ea/d6091c70ba05d5611e49520198f40c11e5df3b0f5cedc629e4ec01c496ea/gliner2-1.3.2.tar.gz", hash = "sha256:0c07befb66c031d288c7fe0398880885a6a4016f14ff3f6e17568439fe6019d8", size = 133808, upload-time = "2026-06-30T15:04:44.889Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6a/48/00e07c5f36e328017e072b2fc9106215eb3557ea8baabe12f095e2f24fad/gliner2-1.3.1-py3-none-any.whl", hash = "sha256:8af0e84a61e04f2bb491de10ef9509f7b45b4a72eb678b85e06b745e85087291", size = 95218, upload-time = "2026-05-06T16:15:57.702Z" },
+    { url = "https://files.pythonhosted.org/packages/5e/e5/ce58a45306747714072179d24f9a6c59d642a588cededf35132bdbfd74f8/gliner2-1.3.2-py3-none-any.whl", hash = "sha256:d4e5e2f76a2eec1da5e4d6c205b6fc99dfc6c3c82ff29ea07a27565040730802", size = 96814, upload-time = "2026-06-30T15:04:41.967Z" },
 ]
 
 [[package]]
@@ -2384,6 +2383,7 @@ dependencies = [
     { name = "anyascii" },
     { name = "click" },
     { name = "fastparquet" },
+    { name = "gliner" },
     { name = "gliner2" },
     { name = "instructor" },
     { name = "ipython" },
@@ -2424,7 +2424,8 @@ requires-dist = [
     { name = "anyascii", specifier = ">=0.3.3" },
     { name = "click", specifier = ">=8.3.0" },
     { name = "fastparquet", specifier = ">=2025.12.0" },
-    { name = "gliner2", specifier = ">=1.3.1" },
+    { name = "gliner", specifier = ">=0.2.26" },
+    { name = "gliner2", specifier = ">=1.3.2" },
     { name = "instructor", specifier = ">=1.15.1" },
     { name = "ipython", specifier = "==8.13.2" },
     { name = "jupyterlab", specifier = ">=4.4.4" },
@@ -3209,7 +3210,7 @@ wheels = [
 
 [[package]]
 name = "peft"
-version = "0.19.1"
+version = "0.20.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
@@ -3224,9 +3225,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "transformers" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/86/cf/037f1e3d5186496c05513a6754639e2dab3038a05f384284d49a9bd06a2d/peft-0.19.1.tar.gz", hash = "sha256:0d97542fe96dcdaa20d3b81c06f26f988618f416a73544ab23c3618ccb674a40", size = 763738, upload-time = "2026-04-16T15:46:45.105Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b4/08/02541a2c29be7c78698f73d438bc0e733b214f3f35ec5db79fca8da8fc61/peft-0.20.0.tar.gz", hash = "sha256:4769c8093a4ca145fd6fb3fd4dd50449675f5fe46434ad1e98b285a132d4b1d0", size = 880503, upload-time = "2026-07-28T13:46:01.85Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e8/b6/f54d676ed93cc2dd2234c3b172ea9c8c3d7d29361e66b1b23dec57a67465/peft-0.19.1-py3-none-any.whl", hash = "sha256:2113f72a81621b5913ef28f9022204c742df111890c5f49d812716a4a301e356", size = 680692, upload-time = "2026-04-16T15:46:42.886Z" },
+    { url = "https://files.pythonhosted.org/packages/28/79/13bcabb8048126422d5c4b880575d40886c726f354db88cfeed4325525bb/peft-0.20.0-py3-none-any.whl", hash = "sha256:0fbba16ffebfad3de96e06f2da6860fd860292324b85b6141909fa1e26ea9233", size = 775777, upload-time = "2026-07-28T13:45:59.809Z" },
 ]
 
 [[package]]
