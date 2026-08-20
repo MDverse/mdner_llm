@@ -1,5 +1,4 @@
-
-"""Sakefile to run gliner and LLM-based NER benchmarks."""
+# Sakefile to run gliner and LLM-based NER benchmarks.
 
 include: "workflow/rules/gliner.smk"
 include: "workflow/rules/llm.smk"

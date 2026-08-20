@@ -1,4 +1,4 @@
-"""Snakefile for LLM benchmark strategies, models, and consensus evaluation."""
+# Snakefile for LLM benchmark strategies, models, and consensus evaluation.
 
 import json
 import shutil

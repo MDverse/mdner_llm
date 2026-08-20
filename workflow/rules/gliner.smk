@@ -1,4 +1,4 @@
-"""Snakefile for training and evaluating GLiNER models."""
+# Snakefile for training and evaluating GLiNER models.
 
 import shutil
 from pathlib import Path
