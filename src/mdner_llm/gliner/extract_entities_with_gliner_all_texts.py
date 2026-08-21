@@ -1,4 +1,4 @@
-"""Extract structured entities from a text using GLINER2 model."""
+"""Extract structured entities from text using GLiNER / GLiNER2 models."""
 
 import json
 import time
@@ -7,6 +7,7 @@ from pathlib import Path
 
 import click
 import loguru
+from gliner import GLiNER
 from gliner2 import GLiNER2
 from gliner2.processor import WhitespaceTokenSplitter
 
@@ -22,34 +23,34 @@ def load_model(
     model_path: str | Path,
     adapter_path: str | Path | None,
     logger: "loguru.Logger" = loguru.logger,
-) -> GLiNER2:
-    """Load a GLiNER2 model from disk.
-
-    Returns
-    -------
-        GLiNER2: The loaded model instance.
-    """
+):
+    """Load GLiNER or GLiNER2 checkpoint with optional adapter."""
+    model_str = str(model_path)
     try:
-        model = GLiNER2.from_pretrained(model_path)
-        if adapter_path:
-            logger.info(
-                f"Loading LoRA adapter from {adapter_path} and applying to base model."
-            )
-            model.load_adapter(adapter_path)
+        try:
+            model = GLiNER2.from_pretrained(model_str)
+        except Exception as err_g2:
+            if GLiNER is not None:
+                try:
+                    model = GLiNER.from_pretrained(model_str)
+                except Exception:
+                    raise err_g2
+            else:
+                raise err_g2
+
+        if adapter_path and hasattr(model, "load_adapter"):
+            logger.info(f"Loading LoRA adapter from {adapter_path}")
+            model.load_adapter(str(adapter_path))
+
         logger.success(f"Model loaded from {model_path}")
+        return model
     except Exception as exc:
         logger.error(f"Model loading failed: {exc}")
         raise
-    return model
 
 
-def load_metadata(path: Path) -> list[tuple[str, str]]:
-    """Load metadata file mapping json_path -> url.
-
-    Returns
-    -------
-        list[tuple[str, str]]: List of (json_path, url) tuples.
-    """
+def load_metadata(path: Path) -> list[tuple[Path, str]]:
+    """Load metadata mapping."""
     metadata = []
     with path.open(encoding="utf-8") as f:
         for line in f:
@@ -63,16 +64,10 @@ def load_metadata(path: Path) -> list[tuple[str, str]]:
 
 def load_sample(
     jsonl_path: Path,
-    metadata_path: Path = Path("data/gliner/test_metadata.txt"),
+    metadata_path: Path,
     logger: "loguru.Logger" = loguru.logger,
-) -> list[tuple[str, dict[str, str], dict[str, list[str]], str, str]]:
-    """Load samples + metadata.
-
-    Returns
-    -------
-        list[tuple[str, dict[str, str], dict[str, list[str]], str, str]]:
-        List of tuples containing (text, entity_desc, groundtruth, json_path, url).
-    """
+) -> list[tuple[str, dict[str, str], ListOfEntities, Path, str]]:
+    """Load samples and ground truth."""
     samples = []
     metadata = load_metadata(metadata_path)
 
@@ -89,104 +84,57 @@ def load_sample(
                 normalized_gt = ListOfEntities.model_validate(
                     {
                         "entities": [
-                            {"category": category, "text": text}
+                            {"category": category, "text": t}
                             for category, texts in groundtruth.items()
-                            for text in texts
+                            for t in texts
                         ]
                     }
                 )
             except ValueError as exc:
-                logger.error(
-                    f"Failed to normalize groundtruth in {metadata[idx][0].name}: {exc}"
-                )
+                logger.error(f"Failed to normalize groundtruth: {exc}")
                 normalized_gt = ListOfEntities(entities=[])
             entity_desc = output.get("entity_descriptions", {})
             json_path, url = metadata[idx]
             samples.append((text, entity_desc, normalized_gt, json_path, url))
 
-    logger.info(f"Loaded {len(samples)} samples with metadata.")
     return samples
 
 
-def run_gliner(
-    model: GLiNER2,
-    text: str,
-    entity_desc: dict,
-) -> tuple[list[dict], float, int, int]:
-    """Run GLiNER inference.
-
-    Returns
-    -------
-        tuple: A tuple containing the list of predicted entities with confidence scores,
-        the time taken for inference in seconds and the input/output tokens counts.
-    """
+def run_gliner(model, text: str, entity_desc: dict) -> tuple[dict, float, int, int]:
+    """Run extraction using appropriate API."""
     start = time.perf_counter()
-    predictions = model.extract_entities(
-        text,
-        entity_desc,
-        include_confidence=True,
-    )
+    if hasattr(model, "extract_entities"):
+        predictions = model.extract_entities(text, entity_desc, include_confidence=True)
+    else:
+        labels = list(entity_desc.keys())
+        ents = model.predict_entities(text, labels, threshold=0.5)
+        entities_by_cat: dict[str, list[dict]] = {}
+        for ent in ents:
+            entities_by_cat.setdefault(ent["label"], []).append(
+                {"text": ent["text"], "confidence": ent.get("score", 1.0)}
+            )
+        predictions = {"entities": entities_by_cat}
+
     elapsed = time.perf_counter() - start
-    # Count output tokens using a simple whitespace tokenizer
     tokenizer = WhitespaceTokenSplitter()
     input_tokens = len(list(tokenizer(text)))
     output_tokens = len(list(tokenizer(json.dumps(predictions))))
     return predictions, elapsed, input_tokens, output_tokens
 
 
-def save_json(
-    json_output_path: Path,
-    json_data: dict,
-    logger: "loguru.Logger" = loguru.logger,
-) -> None:
-    """Save structured output with metadata.
-
-    Raises
-    ------
-    FileNotFoundError
-        If the parent directory does not exist.
-    OSError
-        If a system-level error occurs during writing.
-    ValueError
-        If the data cannot be serialized to JSON.
-    """
-    try:
-        json_output_path.write_text(
-            json.dumps(json_data, indent=4, ensure_ascii=False),
-            encoding="utf-8",
-        )
-        logger.success(
-            f"Saved formated response with metadata to {json_output_path} successfully."
-        )
-    except FileNotFoundError as exc:
-        msg = f"Directory does not exist for output file: {json_output_path}"
-        raise FileNotFoundError(msg) from exc
-    except OSError as exc:
-        msg = f"Failed to write JSON to {json_output_path}: {exc}"
-        raise OSError(msg) from exc
-    except TypeError as exc:
-        msg = f"Invalid data provided for JSON serialization: {exc}"
-        raise ValueError(msg) from exc
-
-
 def extract_entities_with_gliner(
-    model: GLiNER2,
-    model_path: str | Path,
-    adapter_path: str | Path | None,
+    model,
+    model_name_id: str,
     text: str,
     entity_desc: dict[str, str],
-    groundtruth: dict,
+    groundtruth: ListOfEntities,
     text_path: Path,
-    json_path: Path,
     url: str,
     output_dir: Path,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """Extract entities using GLiNER."""
-    logger = create_logger()
-    predictions, inference_time, in_tokens, out_tokens = run_gliner(
-        model, text, entity_desc
-    )
+    """Run inference on one document and write output JSON."""
+    predictions, inference_time, in_tokens, out_tokens = run_gliner(model, text, entity_desc)
     try:
         formatted_response = ListOfEntities.model_validate(
             {
@@ -198,27 +146,22 @@ def extract_entities_with_gliner(
             }
         )
     except ValueError as exc:
-        logger.error(f"Failed to format GLiNER response: {exc}")
+        logger.error(f"Failed to format response: {exc}")
         formatted_response = ListOfEntities(entities=[])
         status = "format_error"
     else:
         status = "ok"
+
     output_dir.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
-    json_path = (
-        output_dir / f"{text_path.stem}_{sanitize_filename(text_path.stem)}_{ts}.json"
-    )
-    if adapter_path:
-        path = Path(adapter_path)
-        model_name = f"{path.parents[1].stem}_{path.parent.stem}"
-    else:
-        model_name = str(model_path)
+    out_file = output_dir / f"{text_path.stem}_{sanitize_filename(text_path.stem)}_{ts}.json"
+
     response_metadata = {
         "timestamp": ts,
         "input_json_path": str(text_path),
         "text": text,
         "url": url,
-        "model_name": model_name,
+        "model_name": model_name_id,
         "framework_name": "noframework",
         "groundtruth": groundtruth.model_dump(),
         "status": status,
@@ -228,105 +171,73 @@ def extract_entities_with_gliner(
         "inference_time_sec": inference_time,
         "inference_cost_usd": 0.0,
     }
-    save_formated_response_with_metadata_to_json(json_path, response_metadata, logger)
+    save_formated_response_with_metadata_to_json(out_file, response_metadata, logger)
 
 
 def extract_entities_with_gliner_all_texts(
     text_path: Path,
+    metadata_path: Path,
     model_path: str,
     output_dir: Path,
     adapter_path: str | Path | None,
-    logger: "create_logger" = loguru.logger,
+    model_name_id: str | None = None,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """Run entity extraction on multiple annotation files."""
+    """Run batch entity extraction."""
     logger.info("Starting batch entity extraction.")
-    test_samples = load_sample(text_path, logger=logger)
+    test_samples = load_sample(text_path, metadata_path, logger=logger)
     model = load_model(model_path, adapter_path, logger=logger)
-    # Process each file and extract entities
+
+    canonical_name = model_name_id or str(model_path)
     start_time = datetime.now(UTC)
-    for idx, (text, entity_desc, groundtruth, json_path, url) in enumerate(
-        test_samples, start=1
-    ):
+
+    for idx, (text, entity_desc, groundtruth, json_path, url) in enumerate(test_samples, start=1):
         try:
             extract_entities_with_gliner(
                 model=model,
-                model_path=model_path,
-                adapter_path=adapter_path,
+                model_name_id=canonical_name,
                 text=text,
                 entity_desc=entity_desc,
                 groundtruth=groundtruth,
-                text_path=Path(json_path),
+                text_path=json_path,
                 output_dir=output_dir,
-                json_path=json_path,
                 url=url,
                 logger=logger,
             )
+        except Exception as exc:
+            logger.error(f"Error processing {json_path.name}: {exc}")
 
-        except KeyError as exc:
-            logger.error(f"Missing required field {exc} in {json_path.name}")
-        except ValueError as exc:
-            logger.error(
-                f"Invalid configuration while processing {json_path.name}: {exc}"
-            )
-        except RuntimeError as exc:
-            logger.error(f"Runtime failure while processing {json_path.name}: {exc}")
-
-        # Log progress
         total_files = len(test_samples)
-        percent_done = (idx / total_files) * 100
-        logger.info(f"Processed {idx}/{total_files} files ({percent_done:.1f}%)")
+        logger.info(f"Processed {idx}/{total_files} files ({(idx / total_files) * 100:.1f}%)")
 
     elapsed_time = int((datetime.now(UTC) - start_time).total_seconds())
-    logger.success(
-        f"Batch extraction completed successfully in {timedelta(seconds=elapsed_time)}!"
-    )
+    logger.success(f"Batch extraction completed in {timedelta(seconds=elapsed_time)}!")
 
 
 @click.command()
-@click.option(
-    "--text-path",
-    type=click.Path(exists=True, path_type=Path),
-    default="data/gliner/test.jsonl",
-    help=(
-        "Path to a text file containing paths to JSON files with input texts. "
-        "Each line in the text file should be a valid path to a JSON file. "
-    ),
-)
-@click.option(
-    "--model-path",
-    type=click.Path(),
-    default="fastino/gliner2-base-v1",
-    help=(
-        "Path to the trained model file or model identifier from Hugging Face Hub. "
-        "Hugging Face example: 'fastino/gliner2-base-v1', 'fastino/gliner2-large-v1'."
-        "Local file example: 'results/gliner/models/gliner2-finetuned-small/best'."
-    ),
-)
-@click.option(
-    "--adapter-path",
-    type=click.Path(exists=True, path_type=Path),
-    default=None,
-    help=(
-        "Path to the LoRA adapter model. "
-        "The script will attempt to load the adapter and apply it to the base model."
-    ),
-)
-@click.option(
-    "--output-dir",
-    default="results/gliner/annotations",
-    type=click.Path(path_type=Path),
-    callback=ensure_dir,
-)
+@click.option("--text-path", type=click.Path(exists=True, path_type=Path), required=True)
+@click.option("--metadata-path", type=click.Path(exists=True, path_type=Path), required=True)
+@click.option("--model-path", type=click.Path(), required=True)
+@click.option("--adapter-path", type=click.Path(path_type=Path), default=None)
+@click.option("--model-name-id", type=str, default=None, help="Explicit label for model in metadata CSV.")
+@click.option("--output-dir", type=click.Path(path_type=Path), callback=ensure_dir, required=True)
 def run_main_from_cli(
-    text_path: Path, model_path: Path, output_dir: Path, adapter_path: str | Path | None
+    text_path: Path,
+    metadata_path: Path,
+    model_path: Path,
+    output_dir: Path,
+    adapter_path: str | Path | None,
+    model_name_id: str | None,
 ) -> None:
     """CLI entrypoint."""
     logger = create_logger(level="INFO")
     extract_entities_with_gliner_all_texts(
         text_path=text_path,
-        model_path=model_path,
+        metadata_path=metadata_path,
+        model_path=str(model_path),
         output_dir=output_dir,
         adapter_path=adapter_path,
+        model_name_id=model_name_id,
         logger=logger,
     )
 

@@ -86,29 +86,59 @@ def normalize_text(text: str) -> str:
     return text_normalized.strip()
 
 
+def extract_predicted_entities_from_row(data_row) -> list[dict]:
+    """Fallback from normalized_entities to formatted_response."""
+    if isinstance(data_row.get("normalized_entities"), dict):
+        return data_row["normalized_entities"].get("entities", [])
+    
+    formatted = data_row.get("formatted_response")
+    if formatted and hasattr(formatted, "entities"):
+        return [
+            {"category": ent.category, "text": ent.text, "is_hallucinated": False}
+            for ent in formatted.entities
+        ]
+    elif isinstance(formatted, dict) and "entities" in formatted:
+        return [
+            {"category": ent.get("category"), "text": ent.get("text"), "is_hallucinated": False}
+            for ent in formatted["entities"]
+        ]
+    return []
+
+
+def count_predicted_entities(data_row) -> int:
+    """Count the number of predicted entities in a data row.
+
+    Returns
+    -------
+    int
+        Number of predicted entities in the data_row.
+    """
+    entities = extract_predicted_entities_from_row(data_row)
+    return len(entities)
+
+
 def count_hallucinated_entities(
     data_row,
     *,
     is_valid_output_format: bool,
-) -> tuple[int, int]:
+) -> int:
     """Count hallucinated entities using pre-computed flags from normalization step.
 
     Returns
     -------
-    tuple[int, int]
-        (number of hallucinated entities, number of predicted entities)
+    int
+        Number of hallucinated entities in the normalized_entities field of the data_row.
     """
     if not is_valid_output_format or not isinstance(
         data_row.get("normalized_entities"), dict
     ):
-        return 0, 0
-
+        return 0
     entities = data_row["normalized_entities"].get("entities", [])
-    nb_predicted = len(entities)
-    # Count where is_hallucinated is explicitly True
-    nb_hallucinated = sum(1 for ent in entities if ent.get("is_hallucinated", False))
-
-    return nb_hallucinated, nb_predicted
+    return sum(
+        1
+        for ent in entities
+        if isinstance(ent, dict) and ent.get("is_hallucinated", False)
+    )
 
 
 def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -129,16 +159,17 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
     df["is_valid_output_format"] = df["status"].eq("ok")
-    # Pass the dictionary row to read normalized_entities
-    hallucination_counts = [
-        count_hallucinated_entities(
-            row,
-            is_valid_output_format=row["is_valid_output_format"],
-        )
-        for _, row in df.iterrows()
-    ]
-    df["nb_hallucinated_entities"], df["nb_predicted_entities_raw"] = zip(
-        *hallucination_counts, strict=True
+    # Count the number of predicted entities
+    df["nb_predicted_entities_raw"] = df.apply(
+        lambda row: count_predicted_entities(row),
+        axis=1
+    )
+    # Count the number of hallucinated entities
+    df["nb_hallucinated_entities"] = df.apply(
+        lambda row: count_hallucinated_entities(
+            row, is_valid_output_format=row["is_valid_output_format"]
+        ),
+        axis=1,
     )
     return df
 
@@ -185,6 +216,7 @@ def split_predictions_by_category_and_hallucination(
     return hallucinated, grounded
 
 
+
 def build_category_level_dataframe(
     df: pd.DataFrame,
 ) -> pd.DataFrame:
@@ -200,11 +232,9 @@ def build_category_level_dataframe(
     for _, row in df.iterrows():
         gt_entities = row["groundtruth"].entities
         gt_by_category = group_texts_by_category(gt_entities)
-        # Get the list of normalized entities dicts
-        norm_data = row.get("normalized_entities", {})
-        pred_entities = (
-            norm_data.get("entities", []) if isinstance(norm_data, dict) else []
-        )
+        # Get the list of predicted entities
+        # Normalized entities or 
+        pred_entities = extract_predicted_entities_from_row(row)
         # Collect all unique categories present in GT or Preds
         pred_categories = {
             ent.get("category") for ent in pred_entities if ent.get("category")
@@ -400,6 +430,7 @@ def compute_grouped_stats(
             total_inference_time_sec=("inference_time_sec", "sum"),
             average_input_tokens=("input_tokens", "mean"),
             average_output_tokens=("output_tokens", "mean"),
+            inference_date=("timestamp", "max"),
         )
         .reset_index()
     )
