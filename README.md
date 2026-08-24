@@ -290,7 +290,6 @@ uv run evaluate-entities-extraction \
 
 A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).
 
-
 ## Workflow Orchestration with Snakemake 🚀
 
 We provide end-to-end reproducible pipelines orchestrated with [Snakemake](https://snakemake.readthedocs.io/).
@@ -302,7 +301,6 @@ uv run snakemake all --cores all --resources gpu=1         # all
 ```
 
 All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/plot_ner_performance.ipynb](notebooks/plot_ner_performance.ipynb).
-
 
 ## Usage (web interface)
 
