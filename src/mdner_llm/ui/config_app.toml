@@ -1,0 +1,15 @@
+# config.default.toml
+app_name = "MetaMD"
+app_description = "Web-based tool for annotating and normalizing metadata in molecular dynamics simulation dataset descriptions."
+app_version = "1.0"
+
+[llm]
+model_name = "x-ai/grok-4.5"
+framework = "instructor"
+prompt_path = "docs/prompt_template.md"
+guidelines_path = "docs/annotation_rules.md"
+examples_path = "docs/few_shot_examples.md"
+
+[normalization]
+ffm_db_path = "data/normalization/md_forcefields_registry.json"
+softname_db_path = "data/normalization/software_names_registry.json"

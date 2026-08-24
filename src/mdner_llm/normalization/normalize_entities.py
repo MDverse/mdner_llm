@@ -281,8 +281,8 @@ def normalize_json_content(
             items = norm_stime(predicted_entity_cleaned, model_name)
             normalized_entities.extend({**ent_dict, **item} for item in items)
             continue
-        elif entity.category == "MOL":
-            ent_dict.update(norm_mol(predicted_entity_cleaned))
+        # elif entity.category == "MOL":
+        #     ent_dict.update(norm_mol(predicted_entity_cleaned))
         normalized_entities.append(ent_dict)
     # Create a new ListOfEntitiesNormalized instance and validate it
     try:
