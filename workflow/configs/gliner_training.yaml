@@ -5,6 +5,7 @@ model:
 
 data:
   annotations_path: "data/groundtruth"
+  cv_folds: 5
   train_ratio: 0.8
   val_ratio: 0.2
   seed: 42
@@ -23,7 +24,6 @@ training:
   batch_size: 2
   max_steps: -1
   gradient_accumulation_steps: 8
-  cv_folds: 5
 
   # Learning rates
   encoder_lr: 1e-5 # Learning rate for encoder

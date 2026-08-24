@@ -144,7 +144,7 @@ rule train_gliner:
         meta = MODELS[wildcards.model]
         cfg.model.name = meta["base_model"]
         cfg.model.experiment_name = wildcards.model
-        cfg.training.cv_folds = N_FOLDS
+        cfg.data.cv_folds = N_FOLDS
         cfg.training.use_lora = meta["use_lora"]
         cfg.training.save_adapter_only = meta["use_lora"]
         cfg.training.encoder_lr = meta["encoder_lr"]

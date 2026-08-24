@@ -248,7 +248,7 @@ def k_fold_split(
     -------
     list of (fold_train, fold_val)
     """
-    total_folds = cfg.training.cv_folds
+    total_folds = cfg.data.cv_folds
     seed = cfg.data.seed
     num_samples = len(dataset)
     sample_indices = list(range(num_samples))
@@ -261,7 +261,9 @@ def k_fold_split(
         logger.info("Single split mode (cv_folds == 1).")
         # Reserve a test partition corresponding to val_ratio.
         test_size = int(num_samples * cfg.data.val_ratio)
-        trainval_indices = sample_indices[:-test_size] if test_size > 0 else sample_indices
+        trainval_indices = (
+            sample_indices[:-test_size] if test_size > 0 else sample_indices
+        )
         test_indices = sample_indices[-test_size:] if test_size > 0 else []
         # Split remaining data into train and validation partitions.
         train_end_idx = int(len(trainval_indices) * cfg.data.train_ratio)
@@ -609,9 +611,11 @@ def save_plot_training_curves(
     logger.success(f"Saved CV training curves plot to {output_path} successfully!")
 
 
-def train_all_folds(cfg: GLiNERConfig, logger: "loguru.Logger" = loguru.logger) -> list[dict]:
+def train_all_folds(
+    cfg: GLiNERConfig, logger: "loguru.Logger" = loguru.logger
+) -> list[dict]:
     """Execute complete nested K-fold training pipeline from a GLiNERConfig object.
-    
+
     Returns
     -------
     list[dict]
@@ -638,7 +642,7 @@ def train_all_folds(cfg: GLiNERConfig, logger: "loguru.Logger" = loguru.logger) 
     # Train a separate model for each fold and collect results.
     all_results = []
     for fold_id, (train_data, val_data) in enumerate(folds, start=1):
-        logger.info(f"Starting training of fold {fold_id}/{cfg.training.cv_folds}.")
+        logger.info(f"Starting training of fold {fold_id}/{cfg.data.cv_folds}.")
         model = GLiNER2.from_pretrained(cfg.model.name)
         training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
         training_config.output_dir = f"{output_dir}/fold_{fold_id}"
