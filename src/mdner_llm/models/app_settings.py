@@ -16,9 +16,6 @@ from pydantic_settings import (
 class NormalizationConfig(BaseModel):
     """Configuration model for normalization database paths."""
 
-    llm_model_name: str = Field(
-        ..., description="LLM model name to use for normalization tasks."
-    )
     ffm_db_path: FilePath = Field(
         ..., description="Path to the FFM normalization database file."
     )
@@ -31,7 +28,7 @@ class LLMConfig(BaseModel):
     """Configuration model for Large Language Model (LLM) parameters."""
 
     model_name: str = Field(
-        ..., description="Default LLM model name to use if none is provided."
+        ..., description="Name of the LLM model to use for generating responses."
     )
     framework: Literal["instructor", "noframework", "pydanticai"] = Field(
         ..., description="Framework to use for validating the LLM response format."
