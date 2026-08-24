@@ -1,0 +1,56 @@
+model:
+  name: "fastino/gliner2-base-v1"
+  experiment_name: "gliner2-base-v1-finetuned"
+  output_dir: "results/gliner/models"
+
+data:
+  annotations_path: "data/groundtruth"
+  cv_folds: 5
+  train_ratio: 0.8
+  val_ratio: 0.2
+  seed: 42
+
+entities:
+  MOL: "Molecular compounds, including simple molecules, ions, nucleic acids, proteins, lipids, sugars, polymers, and complexes. MOL entities must be uniquely identifiable."
+  SOFTNAME: "Name of any software used for simulation, visualization, or analysis, including packages for MD, modeling, trajectory processing, and other computational tasks in the simulation workflow."
+  SOFTVERS: "Version identifier of any software used in the simulation process, regardless of formatting (numeric, date-based, or semantic versioning)."
+  STEMP: "Thermal conditions under which a simulation is conducted, including any explicitly stated temperature value, with or without units."
+  FFM: "Any force field or molecular model used to describe interatomic or intermolecular interactions, including all-atom force fields, coarse-grained models, and solvent/water models. Both the name and, when available, the version are annotated."
+  STIME: "Duration for which a production MD simulation is run."
+
+training:
+  # Training schedule
+  num_epochs: 30
+  batch_size: 2
+  max_steps: -1
+  gradient_accumulation_steps: 8
+
+  # Learning rates
+  encoder_lr: 1e-5 # Learning rate for encoder
+  task_lr: 5e-5 # Learning rate for task-specific heads
+  warmup_ratio: 0.15
+  scheduler_type: "cosine"
+
+  # Optimization
+  weight_decay: 0.05
+
+  # Precision / hardware
+  fp16: True
+  bf16: False
+
+  # LoRA settings
+  use_lora: False # Enable LoRA
+  lora_r: 16 # Rank (4, 8, 16, 32)
+  lora_alpha: 32.0 # Scaling factor (usually 2*r)
+  lora_dropout: 0.2 # Dropout for LoRA layers
+  lora_target_modules: ["encoder"] # Apply to all encoder layers (query, key, value, dense)
+  save_adapter_only: True # Save only adapter (not full model)
+
+  # Checkpointing
+  eval_strategy: "epoch"
+  metric_for_best: "eval_loss"
+  save_best: True
+
+  # Logging
+  logging_steps: 10
+  logging_first_step: True

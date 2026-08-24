@@ -147,7 +147,7 @@ The **STIME** entity refers to the duration for which a production molecular dyn
 
 ### Rules
 
-1. Exclude minimization or equilibration time
+1. Exclude minimization or equilibration time or any analysis time. Only annotate the production simulation time.
 2. If simulation time is presented as a range (e.g. `3 × 200ns`), annotate only the simulation time (e.g. `200ns`)
 3. Exclude vague expressions like `several hours` or `long simulations`
 

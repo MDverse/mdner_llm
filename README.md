@@ -256,12 +256,24 @@ uv run train-gliner --config-path src/mdner_llm/gliner/training_config.yaml
 
 > This command trains the Gliner2 model using the configuration specified in [src/mdner_llm/gliner/training_config.yaml](src/mdner_llm/gliner/training_config.yaml) and save the trained model with the best validation performance.
 
-Then, to extract entities from new texts using the raw/fine-tuned Gliner2 model, run:
+Then, to extract entities from new texts using the fine-tuned Gliner2 model, run:
 
 ```sh
 uv run extract-entities-with-gliner-all-texts \
-    --model-path fastino/gliner2-base-v1 \
-    --text-path data/gliner/test.jsonl
+        --model-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/best \
+        --text-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test.jsonl \
+        --metadata-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test_metadata.txt \
+        --output-dir results/gliner/inferences
+```
+
+And for the baseline Gliner2 model, run:
+
+```sh
+uv run extract-entities-with-gliner-all-texts \
+        --model-path fastino/gliner2-base-v1 \
+        --text-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test.jsonl \
+        --metadata-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test_metadata.txt \
+        --output-dir results/gliner/inferences
 ```
 
 ### Evaluate extraction performance ⚖️
@@ -270,13 +282,26 @@ To evaluate the quality of annotations produced by both LLM and Gliner2 models, 
 
 ```sh
 uv run evaluate-entities-extraction \
-        --inferences-dir results/llm/inferences \
-        --results-dir results/llm/evaluation
+        --inferences-dir results/llm/inferences \   # or results/gliner/inferences
+        --results-dir results/llm/evaluation        # or results/gliner/evaluation
 ```
 
 > This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
 
 A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).
+
+
+## Workflow Orchestration with Snakemake 🚀
+
+We provide end-to-end reproducible pipelines orchestrated with [Snakemake](https://snakemake.readthedocs.io/).
+
+```sh
+uv run snakemake gliner_all --cores all --resources gpu=1  # only gliner
+uv run snakemake llm_all --cores all                       # only llm
+uv run snakemake all --cores all --resources gpu=1         # all
+```
+
+All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/plot_ner_performance.ipynb](notebooks/plot_ner_performance.ipynb).
 
 
 ## Usage (web interface)

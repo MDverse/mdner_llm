@@ -41,6 +41,15 @@ class DataConfig(BaseModel):
         ...,
         description="Path to a directory containing annotation JSON files.",
     )
+    cv_folds: int = Field(
+        default=5,
+        ge=1,
+        description=(
+            "Number of cross-validation folds to use for training. If set to 1, "
+            "no cross-validation is performed and the model is trained on the entire "
+            "training set."
+        ),
+    )
     train_ratio: float = Field(
         default=0.6,
         ge=0.0,
@@ -115,15 +124,6 @@ class TrainConfig(BaseModel):
         description=(
             "Number of forward/backward passes before performing an optimizer step. "
             "Used to simulate larger batch sizes under memory constraints."
-        ),
-    )
-    cv_folds: int = Field(
-        default=5,
-        ge=1,
-        description=(
-            "Number of cross-validation folds to use for training. If set to 1, "
-            "no cross-validation is performed and the model is trained on the entire "
-            "training set."
         ),
     )
     encoder_lr: float = Field(

@@ -242,87 +242,111 @@ def k_fold_split(
     logger: "loguru.Logger" = loguru.logger,
 ) -> list[tuple[TrainingDataset, TrainingDataset]]:
     """
-    Split the full dataset into K folds for nested cross-validation.
-
-    For each fold:
-      - one bucket is used as the test set
-      - all remaining buckets are merged into a train/validation pool
-      - train, validation and test splits are saved as JSONL with metadata
+    Split dataset into folds for cross-validation or a single train/val/test split.
 
     Returns
     -------
     list of (fold_train, fold_val)
     """
-    k = cfg.training.cv_folds
+    total_folds = cfg.data.cv_folds
     seed = cfg.data.seed
-    logger.info(f"Splitting dataset into {k} folds for nested CV.")
-    indices = list(range(len(dataset)))
+    num_samples = len(dataset)
+    sample_indices = list(range(num_samples))
     random.seed(seed)
-    random.shuffle(indices)
-    # Split shuffled indices into K buckets.
-    fold_size = len(indices) // k
-    buckets = [indices[i * fold_size : (i + 1) * fold_size] for i in range(k)]
-    # If the dataset size is not divisible by K, remaining examples are added
-    # to the last bucket.
-    buckets[-1].extend(indices[k * fold_size :])
+    random.shuffle(sample_indices)
 
     folds = []
-    for fold_id, test_idx in enumerate(buckets, start=1):
-        # Create the output folder for the current fold.
+    # Handle single train/val/test split (no cross-validation).
+    if total_folds == 1:
+        logger.info("Single split mode (cv_folds == 1).")
+        # Reserve a test partition corresponding to val_ratio.
+        test_size = int(num_samples * cfg.data.val_ratio)
+        trainval_indices = (
+            sample_indices[:-test_size] if test_size > 0 else sample_indices
+        )
+        test_indices = sample_indices[-test_size:] if test_size > 0 else []
+        # Split remaining data into train and validation partitions.
+        train_end_idx = int(len(trainval_indices) * cfg.data.train_ratio)
+        split_indices_list = [
+            (
+                1,
+                {
+                    "train": trainval_indices[:train_end_idx],
+                    "val": trainval_indices[train_end_idx:],
+                    "test": test_indices,
+                },
+            )
+        ]
+    else:
+        # Standard K-fold nested cross-validation.
+        logger.info(f"Splitting dataset into {total_folds} folds for nested CV.")
+        fold_size = num_samples // total_folds
+        fold_buckets = [
+            sample_indices[fold_idx * fold_size : (fold_idx + 1) * fold_size]
+            for fold_idx in range(total_folds)
+        ]
+        # Add remaining examples to the last bucket.
+        fold_buckets[-1].extend(sample_indices[total_folds * fold_size :])
+        # Prepare split indices for each fold: one bucket as test, others as train/val.
+        split_indices_list = []
+        for fold_id, test_indices in enumerate(fold_buckets, start=1):
+            trainval_indices = [
+                sample_idx
+                for bucket in fold_buckets
+                if bucket is not test_indices
+                for sample_idx in bucket
+            ]
+            random.shuffle(trainval_indices)
+            train_end_idx = int(len(trainval_indices) * cfg.data.train_ratio)
+            split_indices_list.append(
+                (
+                    fold_id,
+                    {
+                        "train": trainval_indices[:train_end_idx],
+                        "val": trainval_indices[train_end_idx:],
+                        "test": test_indices,
+                    },
+                )
+            )
+
+    # Process and save splits for each fold.
+    for fold_id, split_indices in split_indices_list:
         fold_dir = output_dir / f"fold_{fold_id}" / "data"
         fold_dir.mkdir(parents=True, exist_ok=True)
-        # Use the current bucket as test set.
-        # All other buckets are merged into the train/validation pool.
-        trainval_idx = [
-            j for bucket in buckets if bucket is not test_idx for j in bucket
-        ]
-        # Shuffle the train/validation pool before splitting it.
-        random.shuffle(trainval_idx)
-        # Compute where the train split ends.
-        train_end = int(len(trainval_idx) * cfg.data.train_ratio)
-        # Store split indices
-        split_indices = {
-            "train": trainval_idx[:train_end],
-            "val": trainval_idx[train_end:],
-            "test": test_idx,
-        }
-        # Build actual TrainingDataset objects from the selected indices.
+        # Create TrainingDataset objects for each split.
         splits = {
-            name: TrainingDataset([dataset[j] for j in idxs])
-            for name, idxs in split_indices.items()
+            split_name: TrainingDataset([dataset[sample_idx] for sample_idx in idxs])
+            for split_name, idxs in split_indices.items()
         }
         logger.info(
-            f"Fold {fold_id}/{k} — "
+            f"Fold {fold_id}/{max(total_folds, 1)} — "
             f"train={len(splits['train'])}, "
             f"val={len(splits['val'])}, "
             f"test={len(splits['test'])}"
         )
-        # Save each split and its metadata.
-        for name, split_ds in splits.items():
-            save_path = fold_dir / f"{name}.jsonl"
-            split_idx = split_indices[name]
-            # Save the dataset split as JSONL.
-            save_dataset_to_jsonl(split_ds, save_path, logger)
-            # Select the source paths and URLs matching the examples in this split.
-            split_paths = [paths[j] for j in split_idx]
-            split_urls = [urls[j] for j in split_idx]
-            # Check that dataset examples and source paths are still aligned
-            issues = check_alignment(split_ds, split_paths, logger)
-            if issues:
+        # Save each split to JSONL and check alignment with annotation files.
+        for split_name, split_dataset in splits.items():
+            save_path = fold_dir / f"{split_name}.jsonl"
+            current_split_indices = split_indices[split_name]
+            # Save dataset split as JSONL.
+            save_dataset_to_jsonl(split_dataset, save_path, logger)
+            # Retrieve corresponding paths and URLs.
+            split_paths = [paths[sample_idx] for sample_idx in current_split_indices]
+            split_urls = [urls[sample_idx] for sample_idx in current_split_indices]
+            # Check alignment between dataset and annotations.
+            alignment_issues = check_alignment(split_dataset, split_paths, logger)
+            if alignment_issues:
                 logger.warning(
-                    f"Alignment check failed for {name} split of fold {fold_id}. "
+                    f"Alignment check failed for {split_name} split of fold {fold_id}. "
                     f"Metadata file will not be saved for this split."
                 )
-                for issue in issues:
-                    logger.debug(
-                        f"  Mismatch at index {issue['index']} for file {issue['path']}"
-                    )
                 continue
-            # Save metadata only when the alignment check succeeds.
+            # Save metadata when alignment succeeds.
             save_metadata_to_txt(split_paths, split_urls, save_path)
         folds.append((splits["train"], splits["val"]))
+
     logger.success(
-        f"Completed {k}-fold splitting and saving into {fold_dir} successfully!"
+        f"Completed splitting and saving datasets to {output_dir} successfully!"
     )
     return folds
 
@@ -587,25 +611,24 @@ def save_plot_training_curves(
     logger.success(f"Saved CV training curves plot to {output_path} successfully!")
 
 
-def main(config_path: str | Path) -> None:
-    """Train GLINER2 model using the specified training configuration."""
-    # Initialize logger
-    logger = create_logger(level="DEBUG")
-    logger.info("Starting GLiNER2 finetuning process.")
-    # Load config
-    cfg = load_config(config_path, logger=logger)
-    if not cfg:
-        logger.error("Failed to load training configuration.")
-        logger.error("Exiting training process.")
-        return
-    # Setup output directory
+def train_all_folds(
+    cfg: GLiNERConfig, logger: "loguru.Logger" = loguru.logger
+) -> list[dict]:
+    """Execute complete nested K-fold training pipeline from a GLiNERConfig object.
+
+    Returns
+    -------
+    list[dict]
+        List of training results for each fold, containing metrics and loss history.
+    """
+    # Setup output directory.
     output_dir = Path(cfg.model.output_dir) / f"{cfg.model.experiment_name}"
     output_dir.mkdir(parents=True, exist_ok=True)
     # Create dataset from annotation files
     dataset, selected_annotation_paths, urls = build_train_dataset(
         cfg.data.annotations_path, entity_descriptions=cfg.entities, logger=logger
     )
-    # Validate dataset
+    # Validate dataset.
     dataset.validate(raise_on_error=True)
     # K-fold nested CV directly on the full dataset
     folds = k_fold_split(
@@ -616,10 +639,10 @@ def main(config_path: str | Path) -> None:
         output_dir,
         logger,
     )
-    # Train a separate model for each fold
+    # Train a separate model for each fold and collect results.
     all_results = []
     for fold_id, (train_data, val_data) in enumerate(folds, start=1):
-        logger.info(f"Starting training of fold {fold_id}/{cfg.training.cv_folds}.")
+        logger.info(f"Starting training of fold {fold_id}/{cfg.data.cv_folds}.")
         model = GLiNER2.from_pretrained(cfg.model.name)
         training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
         training_config.output_dir = f"{output_dir}/fold_{fold_id}"
@@ -632,17 +655,31 @@ def main(config_path: str | Path) -> None:
             logger=logger_fold,
         )
         all_results.append(results)
-    # Save loss points
+    # Save loss points and plot training curves after all folds are trained.
     save_loss_points(all_results, output_dir, logger)
-    # Plot training curves
     save_plot_training_curves(all_results, output_dir, logger)
+    return all_results
+
+
+def main(config_path: str | Path) -> None:
+    """Train GLINER2 model using the specified training configuration file."""
+    # Initialize logger.
+    logger = create_logger(level="DEBUG")
+    logger.info("Starting GLiNER2 finetuning process.")
+    # Load config.
+    cfg = load_config(config_path, logger=logger)
+    if not cfg:
+        logger.error("Failed to load training configuration.")
+        logger.error("Exiting training process.")
+        return
+    # Execute the training pipeline.
+    train_all_folds(cfg, logger=logger)
 
 
 @click.command()
 @click.option(
     "--config-path",
-    type=click.Path(exists=True, dir_okay=False, readable=True),
-    default="src/mdner_llm/gliner/training_config.yaml",
+    type=click.Path(exists=True, dir_okay=False),
     help="Path to the training config YAML file.",
 )
 def run_main_from_cli(config_path: str | Path) -> None:
