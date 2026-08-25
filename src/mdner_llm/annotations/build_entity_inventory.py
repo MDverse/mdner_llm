@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 
 import click
+import matplotlib.patches as mpatches
 import numpy as np
 import pandas as pd
 from loguru import logger
@@ -127,7 +128,6 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
         edgecolor="dimgrey",
         hatch="///",
         alpha=0.7,
-        label="Non-redundant entities",
     )
 
     for bar, total, unique in zip(bars, counts, unique_counts, strict=False):
@@ -149,7 +149,18 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
     ax.set_ylim(0, max(counts) * 1.2)
     ax.set_xticks(x)
     ax.set_xticklabels(categories, fontweight="bold")
-    ax.legend(loc="upper right", fontsize=9)
+    ax.legend(
+        handles=[
+            mpatches.Patch(
+                facecolor="white",
+                edgecolor="dimgrey",
+                hatch="///",
+                label="Non-redundant entities",
+            )
+        ],
+        loc="upper right",
+        fontsize=9,
+    )
     file_path = Path("plots/annotations/entity_distribution.png")
     os.makedirs(file_path.parent, exist_ok=True)
     fig.savefig(file_path, bbox_inches="tight", dpi=200)
