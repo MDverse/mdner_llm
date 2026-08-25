@@ -20,8 +20,10 @@ import numpy as np
 import pandas as pd
 from loguru import logger
 from matplotlib import pyplot as plt
+from openai import OpenAI
 
 from mdner_llm.annotations.colors import COLORS
+from mdner_llm.common import load_api_key
 from mdner_llm.logger import create_logger
 
 
@@ -43,6 +45,7 @@ def collect_entities(
     """
     logger = create_logger()
     logger.info("Collecting entities.")
+    texts_dict = {}
     entities_list = []
     json_files = list(texts_path.glob("*.json"))
     logger.success(f"Found {len(json_files)} JSON files successfully.")
@@ -61,6 +64,10 @@ def collect_entities(
             logger.error(f"Failed to parse JSON file {json_file.name}: {exc}")
             continue
 
+        raw_text = data.get("raw_text", "")
+        if raw_text:
+            texts_dict[json_file.name] = raw_text
+
         for entity in data.get("entities", []):
             # Extract category and text
             category = entity.get("category")
@@ -76,7 +83,7 @@ def collect_entities(
             }
             entities_list.append(entity_dict)
     logger.success(f"Collected {len(entities_list)} entities.")
-    return entities_list
+    return entities_list, texts_dict
 
 
 def write_inventory(
@@ -198,6 +205,157 @@ def plot_entity_distribution_by_category(df: pd.DataFrame) -> None:
     logger.success(f"Saved entities distribution by category plot in '{file_path}'.")
 
 
+def plot_categories_per_text_distribution(df: pd.DataFrame) -> None:
+    """Plot distribution of unique entity categories per text."""
+    cat_per_file = df.groupby("json_file")["category"].nunique()
+    total_texts = df["json_file"].nunique()
+    total_categories = df["category"].nunique()
+    # Outlier alert for texts covering very few categories
+    for filename, count in cat_per_file.items():
+        if count <= 1:
+            logger.warning(
+                f"Text with low category coverage in '{filename}': {count} category"
+            )
+    counts = cat_per_file.to_numpy()
+    fig, axis = plt.subplots(figsize=(10, 5))
+    _, _, bars = axis.hist(
+        counts,
+        bins=np.arange(1, total_categories + 2) - 0.5,
+        rwidth=0.8,
+        color="#B873C9",
+        edgecolor="black",
+    )
+    axis.bar_label(bars, padding=2)
+    axis.set(
+        title="Category diversity distribution "
+        f"({total_texts} texts / {total_categories} total categories)",
+        xlabel="Unique categories per text",
+        ylabel="Total count",
+    )
+    axis.set_xticks(range(1, total_categories + 1))
+    # Save the plot
+    out_file = Path("plots/annotations/categories_per_text_distribution.png")
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out_file, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved categories per text distribution plot in '{out_file}'.")
+
+
+def plot_text_length_distribution(texts_dict: dict[str, str]) -> None:
+    """Plot histogram of text word lengths."""
+    # Compute word counts for each text
+    counts = []
+    for name, text in texts_dict.items():
+        length = len(text.split())
+        counts.append(length)
+        # Log a warning for outlier text lengths
+        if length < 10 or length > 500:
+            logger.warning(f"Outlier text length in '{name}': {length} words")
+    # Plot histogram of text lengths
+    fig, axis = plt.subplots(figsize=(10, 5))
+    axis.hist(counts, bins=20, color="#4C6EF5", edgecolor="black")
+    axis.set(
+        title="Text length distribution in words "
+        f"({len(counts)} texts/ {sum(counts):,} words)",
+        xlabel="Word count",
+        ylabel="Total count",
+    )
+    # Add median, min, and max statistics to the plot
+    stats = f"Median: {int(np.median(counts))}\nMin: {min(counts)}\nMax: {max(counts)}"
+    axis.text(
+        0.85,
+        0.95,
+        stats,
+        transform=axis.transAxes,
+        ha="left",
+        va="top",
+        fontsize=10,
+        bbox={
+            "boxstyle": "round,pad=0.5",
+            "facecolor": "whitesmoke",
+            "edgecolor": "lightgrey",
+            "alpha": 0.8,
+        },
+    )
+    # Save the plot
+    out_file = Path("plots/annotations/text_length_distribution.png")
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out_file, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved text length distribution plot in '{out_file}'.")
+
+
+def plot_text_similarity_distribution(texts_dict: dict[str, str]) -> None:
+    """Compute embeddings via OpenRouter and plot pairwise cosine similarities."""
+    filenames = list(texts_dict.keys())
+    text_list = list(texts_dict.values())
+    # Initialize OpenAI client with OpenRouter API key
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=load_api_key("OPENROUTER_API_KEY"),
+    )
+    # Compute embeddings for all texts using OpenRouter
+    response = client.embeddings.create(
+        model="openai/text-embedding-3-large",
+        input=text_list,
+    )
+    embeddings = np.array([item.embedding for item in response.data])
+    # Normalize the embeddings
+    normalized_embeddings = embeddings / np.linalg.norm(
+        embeddings, axis=1, keepdims=True
+    )
+    # Compute pairwise cosine similarity matrix
+    similarity_matrix = np.dot(normalized_embeddings, normalized_embeddings.T)
+    row_indices, col_indices = np.triu_indices(len(text_list), k=1)
+    pair_similarities = similarity_matrix[row_indices, col_indices]
+
+    # Outlier alerts for identical/near-duplicate texts
+    for r_idx, c_idx, sim in zip(
+        row_indices, col_indices, pair_similarities, strict=False
+    ):
+        if sim >= 0.98:
+            logger.warning(
+                f"Near-duplicate text pair ({sim:.3f}): "
+                f"'{filenames[r_idx]}' and '{filenames[c_idx]}'"
+            )
+    # Plot histogram of pairwise cosine similarities
+    fig, axis = plt.subplots(figsize=(10, 5))
+    axis.hist(
+        pair_similarities,
+        bins=25,
+        color="#7048E8",
+        edgecolor="black",
+    )
+    axis.set_xlim(0, 1)
+    axis.set(
+        title=f"Text similarity distribution ({len(text_list)} texts / "
+        f"{len(pair_similarities):,} pairs)",
+        xlabel="Cosine similarity (0 = dissimilar, 1 = identical)",
+        ylabel="Total count",
+    )
+    # Add median, min, and max statistics to the plot
+    stats = f"Median: {np.median(pair_similarities):.2f}\n"
+    stats += f"Min: {pair_similarities.min():.2f}\nMax: {pair_similarities.max():.2f}"
+    axis.text(
+        0.85,
+        0.95,
+        stats,
+        transform=axis.transAxes,
+        ha="left",
+        va="top",
+        fontsize=10,
+        bbox={
+            "boxstyle": "round,pad=0.5",
+            "facecolor": "whitesmoke",
+            "edgecolor": "lightgrey",
+            "alpha": 0.8,
+        },
+    )
+    # Save the plot
+    out_file = Path("plots/annotations/text_similarity_distribution.png")
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(out_file, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved text similarity distribution plot in '{out_file}'.")
+
+
 @click.command()
 @click.option(
     "--annotations-path",
@@ -227,12 +385,16 @@ def run_cli(
     """
     logger = create_logger()
     logger.info("Starting entity inventory.")
-    entities = collect_entities(annotations_path)
+    entities, texts_dict = collect_entities(annotations_path)
     # Create the dataframe
     df_entities = pd.DataFrame(entities)
     write_inventory(df_entities, out_path)
+    # Generate plots
     plot_category_distribution(df_entities)
     plot_entity_distribution_by_category(df_entities)
+    plot_categories_per_text_distribution(df_entities)
+    plot_text_length_distribution(texts_dict)
+    plot_text_similarity_distribution(texts_dict)
     logger.success("Entity inventory completed successfully!")
 
 
