@@ -97,7 +97,7 @@
         },
         {
             "name": "Colvars",
-            "aliases": ["colvars", "collective variables module"],
+            "aliases": ["colvar", "colvars", "collective variables module"],
             "is_codemeta_exists": true
         },
         {
