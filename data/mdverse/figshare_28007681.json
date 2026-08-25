@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular dynamics simulations of 12-bp ApT and GpC with and without H-NS DNA binding domain bound\nWe used two systems in this study, the DNA binding domain of H-NS (later referred to as H-NS) in complex with two different 12-mer nucleotide sequences: 5’-ATATATATATAT-3’ and 5’-GCGCGCGCGCGC-3’.  We performed Molecular Dynamics (MD) simulations of these systems in explicit water with 50 mM potassium chloride. The initial structure of H-NS was taken from the solution NMR structure of the DNA-binding region of \\textit{Salmonella typhimurium} of H-NS (residues 91-139, PDB code 2L93). An acetyl cap was placed on the N-terminus to neutralize its charge since this domain is connected to a linker in the full-length protein at the N-terminal end. We used GROMACS as the MD engine to perform the simulations.",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/Molecular_dynamics_simulations_of_12-bp_ApT_and_GpC_with_and_without_H-NS_DNA_binding_domain_bound/28007681"
+}

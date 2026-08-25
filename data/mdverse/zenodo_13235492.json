@@ -1,0 +1,5 @@
+{
+  "raw_text": "Calmodulin simulation with amber99SB-ILDN (5 replicas)\nMD simulations of calmodulin with amber99SB-ILDN force field. Five replicas from different starting structures from taken from RCSB PDB: 1CFC (model 1, 5, 10, 15 and 20). Simulations were run wtih 100 mM KCl at 296 K. The trajectory has a saving frequency of 10 ps.",
+  "entities": [],
+  "url": "https://zenodo.org/records/13235492"
+}

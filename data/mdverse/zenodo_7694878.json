@@ -1,0 +1,5 @@
+{
+  "raw_text": "Cas12j-RNA simulations in ff19SB+OL3, ff14SB+OL3, OPLS4 and AMOEBA force fields\nMD simulations of Cas12j-RNA complex in different force fields. AMOEBA 10*100ns (in a single file), Amber simulations (ff19sb+ff14sb+amberpol) 4*500 ns and Desmond simulations (opls4) 4*500ns.",
+  "entities": [],
+  "url": "https://zenodo.org/records/7694878"
+}

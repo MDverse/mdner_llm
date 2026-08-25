@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset for the computational results on the article \"Specific chemical determinants are central for achieving ligands for selective detection of amyloid-β deposits in Alzheimer's disease\"\nThis dataset contains the relevant MD trajectories and MD input files (topologies, force field, etc) related to the article: \"Specific chemical determinants are central for achieving ligands for selective detection of amyloid-β deposits in Alzheimer’s disease\". The published article can be found at []. \nThe relevant scripts and all input files necessary to reproduce the computational results presented in this paper can be found in https://github.com/DavidCdeB/amyloid-paper",
+  "entities": [],
+  "url": "https://zenodo.org/records/17398236"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Computational Exploration in Search for Novel Natural Product-Derived EZH2 Inhibitors for Advancing Anti-Cancer Therapy.\nThis repository is an supplementory material for \"Computational Exploration in Search for Novel Natural Product-Derived EZH2 Inhibitors for Advancing Anti-Cancer Therapy\".\nThe repository consists of:\n\nThe docked protein ligand complexes of the best natural product hits with EZH2 protein.\nMD raw files for the best performing hit LTS0131784 and Tazemetostat are also attached.\nFEL data in CSV and its 3D surface ploting in jupyter notebook",
+  "entities": [],
+  "url": "https://zenodo.org/records/14725627"
+}

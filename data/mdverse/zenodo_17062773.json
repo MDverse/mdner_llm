@@ -1,0 +1,5 @@
+{
+  "raw_text": "trypsin-benzamidine MD\nThis dataset includes files to reproduce the Gromacs MD simulation of trypsin-benzamidine (probe.tpr, initial.gro, final.gro, topol.top, conf.pdb) and the parameter files used for the REPPTIS simulation of trypsin-benzamidine (repptis.rst, restart.toml).\nMD simulation:\n\ntopol.top : the topology\ninitial.gro : the initial structure\nfinal.gro : the final structure (after 500 ns of simulation)\nprobe.tpr : the run-input file to reproduce the MD simulation\nconf.pdb : PDB format of solvated trypsin-benzamidine\n\nREPPTIS simulation:\n\nrepptis.rst : the REPPTIS simulation parameters\nrestart.toml : parameters to run REPPTIS sampling in multiple ensembles in parallel",
+  "entities": [],
+  "url": "https://zenodo.org/records/17062773"
+}

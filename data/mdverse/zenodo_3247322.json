@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulation POPC_512_WALP23_10_5up_5down_NaCl_150mM_310K membrane\nTitle publication: A Ceramide-Regulated Element in the Late Endosomal Protein LAPTM4B Controls Amino Acid Transporter Interaction\nYear publication: 2018\nDOI publication: 10.1021/acscentsci.7b00582\nDescription: Simulation POPC membrane containing ten WALP23 peptides ausing charmm36 at 310K.\nMD engine: gromacs 5.0.4\nForce field: charmm36\nTemperature: 310 K\nPressure: 1 bar\nSimulation time: 2000 ns\nSaving frequency: 100 ps\nMolecular content:\nWALP23       10\nPOPC         512\nSOL        20480\nNA               55\nCL                55\nAdditional information:\n    * Membrane containing WALP23 peptides (Ac-GWWLALALALALALALALALWWA-NH2).",
+  "entities": [],
+  "url": "https://zenodo.org/records/3247322"
+}

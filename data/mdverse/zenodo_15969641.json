@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset of the MD simulations in the Conformational Plasticity of Disordered Regions Enables Sequence-Diverse DNA Recognition by Transcription Factor AflR\nThe initial coordinate file (pdb and gro), complete topology (.top) and parameter files (.itp), molecular dynamics parameter file (.mdp) containing the simulation settings, and the final output coordinate file (.pdb)",
+  "entities": [],
+  "url": "https://zenodo.org/records/15969641"
+}

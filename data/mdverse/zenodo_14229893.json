@@ -1,0 +1,5 @@
+{
+  "raw_text": "Refining ligand poses in RNA/ligand complexes of pharmaceutical relevance: a perspective by QM/MM simulations and NMR measurements\nThis directory contains files for the project:\nTitle: Refining ligand poses in RNA/ligand complexes of pharmaceutical relevance: a perspective by QM/MM simulations and NMR measurements\nAuthors: Gia Linh Hoang, Manuel Röck, Aldo Tancredi, Thomas Magauer, Davide Mandelli, Jörg B. Schulz, Sybille Krauss, Giulia Rossetti, Martin Tollinger, Paolo Carloni\nThere are two folders containing input and parameter files of the classical MD simulations with GROMACS and QM/MM simulation with MiMiC, and an input file for NMR Chemical Shifts calculation with ORCA.",
+  "entities": [],
+  "url": "https://zenodo.org/records/14229893"
+}

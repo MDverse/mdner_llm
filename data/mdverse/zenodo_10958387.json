@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of POPC bilayer with OPLS4 force field. Full hydration\nMD simulation of POPC bilayer with OPLS4 force field. Full hydration\nDataset contains trajectories (_trj), topologies (-out.cms), input files and converted gromacs format files\nFor the ease of the upload, trajectory file (_trj) is divided into 3 pieces and tarred (named desmond_md_popc_fullhydr_opls4_x-xns.tar.gz)\nSystem: POPC bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 9000\nSimulation time: 500 ns\nSimulation engine: Desmond 2021-3\nTemperature: 300 K",
+  "entities": [],
+  "url": "https://zenodo.org/records/10958387"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulation files and trajectories for: Dynamical buffering of reconfiguration dynamics in intrinsically disordered proteins\nAll-atom explicit solvent simulations of linkers with and without dyes, including simulation inputs, solvent-removed trajectories, Bayesian weights, and inputs used to create FRET chromophores.\n\nlinkers_without_dyes.tgz  All-atom simulations of linkers with dyes, and input files.\nlinkers_with_dyes.tgz All-atom simulations of linkers without dyes, and input files.\nmd.mdp Gromacs simulation parameters for running all-atom simulations\namber99sbws_amberdye_star.ff.tgz Force fields in gromacs format for running all-atom simulations.\ndye_ff.tgz Files relating to parameterization of dyes (NOT final dye parameters usable for simulation)\nresiduetypes.dat Gromacs residuetypes.dat required to consider the dyes as 'protein' \nbaesian_weights.tgz Weights from Bayesian reweighting to match experiment\nlinker_diff.tgz 1D diffusion analysis of end-end distances.",
+  "entities": [],
+  "url": "https://zenodo.org/records/13381447"
+}

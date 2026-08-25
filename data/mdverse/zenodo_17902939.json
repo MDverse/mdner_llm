@@ -1,0 +1,5 @@
+{
+  "raw_text": "ThermoUhL molecular dynamics\nThe molecular dynamics simulations XTC trajectories are raw, available as Gromacs produced them, ie, no PCB correction or frame alignment was done. The PDB correspondent files are also available.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17902939"
+}

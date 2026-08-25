@@ -1,0 +1,5 @@
+{
+  "raw_text": "Data for Sun et al. 2024: GNN codon adjacency regulates protein translation\nSource files for Sun et al. 2024 GNN codon adjacency regulates protein translation.ORF_sequence_analysis folder:orf_nt_freq_yeast.ipynborf_nt_freq_cross_species.ipynbweight_matrix_bootstrap (folder)Ribosome_profiling_data_code folder:Sun_et_al_ribo_profile_code.py21_nt_footprint_data.xlsx28_nt_footprint_data.xlsxfootprint_collation.xlsxprofile_files_and_code (folder)MD experiment restart structure and topology files in folders:UG, AG, CG, UC, CC_G34, GG_I34, UU (folder names show nucleotides 1 and 2 of A-site codon)MD_analysis folder:Sun_et_al_MD_code.pdfSun_et_al_H-bond_data.xlsxSun_et_al_stacking_data (folder)",
+  "entities": [],
+  "url": "https://figshare.wesleyan.edu/articles/dataset/Data_for_Sun_et_al_2024_b_GNN_codon_adjacency_regulates_protein_translation_b_/25328632"
+}

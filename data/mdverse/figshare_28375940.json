@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular Dynamics trajectory for ADK double mutant (V135G, V142G) - chain A in XTC format\nMolecular Dynamics trajectory in XTC format. Original wild-type structure from PDBID 4AKE. Mutations were inserted using PyRosetta. Simulation was run using GROMACS 2022.4 with the AMBER ff99SB*-ILDN force field. The file contains 50000 frames recorded every 20 ps.",
+  "entities": [],
+  "url": "https://brunel.figshare.com/articles/dataset/Molecular_Dynamics_trajectory_for_ADK_double_mutant_V135G_V142G_-_chain_A_in_XTC_format/28375940"
+}

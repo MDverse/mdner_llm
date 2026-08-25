@@ -1,0 +1,5 @@
+{
+  "raw_text": "MDNA filament_dataset: H-NS filament molecular dynamics trajectories (s1s1, s2s2, FI)\nFull trajectory dataset used by the MDNA filament tutorial for constructing H-NS protein filaments and fitting DNA along assembled structures. The dataset contains three trajectory groups: 0_s1s1, 1_s2s2, and FI (DNA-complex trajectories), with matching dry_*.xtc and dry_*.pdb files. This archive supports full-trajectory tutorial mode; a compact filament_minimal dataset is bundled in-package for default lightweight usage.s1s1: H-NS dimer trajectories in the s1–s1 interface configuration (used as one source of segment conformations).s2s2: H-NS dimer trajectories in the s2–s2 interface configuration (complementary source of segment conformations).FI: trajectories of the fully inserted H-NS DNA-binding-domain (DBD) in the DNA minor groove used when placing/aligning DNA onto the assembled filament.",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/MDNA_filament_dataset_H-NS_filament_molecular_dynamics_trajectories_s1s1_s2s2_FI_/31423193"
+}

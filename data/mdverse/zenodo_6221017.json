@@ -1,0 +1,5 @@
+{
+  "raw_text": "Project files provided as supporting information to the manuscript \"Coarse-grained Mori-Zwanzig dynamics in a time-non-local stationary-action framework\"\nProject files provided as supporting information to the manuscript \"Coarse-grained Mori-Zwanzig dynamics in a time-non-local stationary-action framework\"\n\nGLE Optimization: Optimizator of GLE parameters. Uses Matlab\nMD_GLE:           CG GLE and LE simulator. Uses Matlab\nWater_simulation: Folders for atomistic water system simulation with GROMACS. It requires to be run on Linux with GROMACS \n                  and VOTCA packages installed.",
+  "entities": [],
+  "url": "https://zenodo.org/records/6221017"
+}

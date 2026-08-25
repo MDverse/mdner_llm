@@ -1,0 +1,5 @@
+{
+  "raw_text": "CG simulations of eVP40-Membrane systems\nThis list contains the .xtc (compressed trajectory) and .gro (coordinate) files for five different coarse-grained systems: \n1) eVP40 & membrane (without PA) \n2) eVP40 & membrane (with 2% PA)\n3) eVP40 & membrane (with 7% PA)\n4) membrane only (without PA)\n5) membrane only (with 7% PA)\nThe trajectories uploaded here are saved at 0.006 microseconds/frame (i.e., 3335 frames = 20.01 microseconds). The trajectories for the protein-membrane systems are compacted and centered. \nTo load the trajectories on VMD, type the following in Tk console (7% PA trajectory for example):\n$ mol new eVP40_7%PA_coords.gro \n $ mol addfile eVP40_7%PA_traj.xtc waitfor all",
+  "entities": [],
+  "url": "https://zenodo.org/records/10501253"
+}

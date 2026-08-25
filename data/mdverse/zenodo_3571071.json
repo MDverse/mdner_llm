@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulation of a POPE bilayer, lipid model based on OPLS-aa by Rog et al.\nA 500 ns-long simulation of a bilayer consisting of 144 POPE lipids and 40 water molecules per lipid. All GROMACS-compatible input and output files are required. Topologies are provided by their original authors.\nIf you use the topologies, please cite the papers indicated in the POPE.itp file.",
+  "entities": [],
+  "url": "https://zenodo.org/records/3571071"
+}

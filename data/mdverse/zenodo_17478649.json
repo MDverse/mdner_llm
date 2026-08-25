@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular Basis of Signal Transduction in a Cortisol-Binding Aptamer\nThis dataset contains input files, structure coordinates, and representative output data supporting the study “Molecular Basis of Signal Transduction in a Cortisol-Binding Aptamer.”The archive includes GROMACS input and topology files, analysis scripts, and processed data used to generate the figures in the manuscript.Raw MD trajectories are not included due to size constraints but are available upon request.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17478649"
+}

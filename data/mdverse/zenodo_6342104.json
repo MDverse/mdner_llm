@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of POPC bilayer with CHARMM36 force field, 100 mM NaCl\nMD simulation of POPC bilayer with CHARMM36 force field, 100 mM NaCl\nDataset contains simulation files including centered and equilibrated trajectory Nacl100-25-500ns.xtc.\nSystem: POPC bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 8880\nSalt: NaCl\nConcentration: 100 mM\nNumber of cations: 16\nSimulation time: 500 ns\nSimulation engine: GROMACS 2019.5\nTemperature: 300 K",
+  "entities": [],
+  "url": "https://zenodo.org/records/6342104"
+}

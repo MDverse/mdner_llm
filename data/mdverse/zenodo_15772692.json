@@ -1,0 +1,5 @@
+{
+  "raw_text": "Supporting data for \"Selective ubiquitination of drug-like small molecules by the ubiquitin ligase HUWE1\"\n\nForce Field parameters for BI8626\n\nCompatible with CHARMM36 (tested with release jul21 & jul22)\n\n\nMain bound poses of BI8626 identified from MD simulations\nAlphafold3 predictions of a restrained BI8626 complex with the HUWE1 HECT domain and ubiquitin",
+  "entities": [],
+  "url": "https://zenodo.org/records/15772692"
+}

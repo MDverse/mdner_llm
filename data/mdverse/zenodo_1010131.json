@@ -1,0 +1,5 @@
+{
+  "raw_text": "Set simulations small pure bilayers with cholesterol (max 128 lipids) using charmm36 ff in gromacs (DPPC)\nCollection simulations of small pure bilayers (max 128 phospholipids) with cholesterol in gromacs using the charmm36 force field. The list of systems describing their particular simulation conditions can be found below:\n\nDPPC_128_CHL1_32_310K\n\nFor further information read the Readme file provided for each simulation.",
+  "entities": [],
+  "url": "https://zenodo.org/records/1010131"
+}

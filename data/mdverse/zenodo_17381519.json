@@ -1,0 +1,5 @@
+{
+  "raw_text": "Weighted Ensemble Simulations Reveal Novel Conformations and Modulator Effects in Hepatitis B Virus Capsid Assembly\nThese are the inputs, data, and scripts necessary to carry out WE molecular dynamics simulations of the Hepatitis B Virus Cp tetramer. MD simulations were run with Westpa and NAMD. Version 2 contains updated analysis.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17381519"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Protein-RNA complex simulation\nSimulation trajectory of TSEN/pre-tRNAArgTCT generated with GROMACS. \n \nA hybrid model of truncated TSEN/pre-tRNAArgTCT with the additional TSEN2 domain from AlphaFold Jumper et al, 2021\nand in silico modeled intron bases 37 to 43 was subjected to all-atom molecular dynamics simulations\nfor assessment of flexibility. Simulation trajectory can be visualised with PyMOL or VMD.\n \nThe protein was described by the AMBER14ff (Maier, et al 2015), and the RNA with the OL3 force field (Zgarbova et al, 2011)\nand the TIP3P water model was employed (Jorgensen et al, 1983).",
+  "entities": [],
+  "url": "https://zenodo.org/records/6513519"
+}

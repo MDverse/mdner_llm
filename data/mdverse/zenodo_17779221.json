@@ -1,0 +1,5 @@
+{
+  "raw_text": "Discriminating extracellular vesicles by their membranes\n\nMD trajectories of the eight systems discussed in the paper are provided and can be visualized using molecular visualization programs such as Pymol or VMD uploading the GRO file and then the XTC.\n\nEach folder contains the following files:\n\ntopology (.top);\ntrajectory files (.xtc) numbered progressively;\natomic coordinate (.gro);\nindex of the structure (.ndx);\nthe toppar folder;\nportable binary run input file (.tpr).\n\nFor the system M1_310K the GRO file has a different name due to the fact that the simulation started from the last frame of the system M1_303.15K.\n\nAn example of input file used for the production step of the dynamics has been provided (Production.mdp).",
+  "entities": [],
+  "url": "https://zenodo.org/records/17779221"
+}

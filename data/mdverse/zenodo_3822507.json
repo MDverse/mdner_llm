@@ -1,0 +1,5 @@
+{
+  "raw_text": "Replica exchange molecular dynamics simulation data of designed β-hairpins (implicit solvent, AMBER ff96)\nRaw REMD simulation data (protein only) of designed β-hairpins. AMBER ff96 and implicit solvent model is used. More details can be found in this paper: \nYunhui Ge, Brandon Kier, Niels H. Andersen and Vincent A. Voelz. Computational and experimental evaluation of designed beta-cap hairpins using molecular simulations and kinetic network models. J. Chem. Inf. Model., 2017, 57 (7), pp 1609–1620",
+  "entities": [],
+  "url": "https://zenodo.org/records/3822507"
+}

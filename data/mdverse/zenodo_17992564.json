@@ -1,0 +1,5 @@
+{
+  "raw_text": "Steered MD production runs for 3 compounds crossing an endothelial cell membrane model.\nRepository of GROMACS steered MD production trajectories (.xtc) of ethanol, caffeine and temozolomide crossing an endothelial cell membrane model. System .tpr, .mdp and initial .pdb files are included for rendering and reproduction.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17992564"
+}

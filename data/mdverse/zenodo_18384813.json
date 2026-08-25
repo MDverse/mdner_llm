@@ -1,0 +1,5 @@
+{
+  "raw_text": "Polyunsaturated 1-stearoyl-2-docosahexaenoyl-sn-glycero-3-phosphocholine (SDPC) (18:0/22:6) lipid bilayer, 303K, CHARMM36m-WYF forcefield, NAMD 3.0.2, 2* 500 ns\n1-stearoyl-2-docosahexaenoyl-sn-glycero-3-phosphocholine (SDPC) (18:0/22:6) lipid bilayer.\n200 lipid molecules (100 lipids per each leaflet) and no ions.\nLipid for a total water conctent of 50 wt% >>> Hydration: 46\nTemperature: 303.15\nSystem was prepared using CHARMM-GUI.\nCHARMM36m-WYF forcefield was used.\nSimulation was performed with NAMD 3.0.2.\ntimestep: 2.0 fs\n500 ns production after 150 ns equilibration\ndcd saving freq: 10000\n2 replicates",
+  "entities": [],
+  "url": "https://zenodo.org/records/18384813"
+}

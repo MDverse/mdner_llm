@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulations of bilayers containing POPC and Cholesterol: 64POPC_64CHL_31Nwat_neutral (lipid14)\nNMRLipids III CholXray project (nmrlipids.blogspot.fi)\nGromacs 5.0.4, lipid14 FF (Madej et al. JPCB 2015, 119, 12424), 1 atm, 303K, 200ns\n128 lipids (64 POPC, 64 CHL), N_wat/lipid = 31, 25216 Atoms",
+  "entities": [],
+  "url": "https://zenodo.org/records/3871006"
+}

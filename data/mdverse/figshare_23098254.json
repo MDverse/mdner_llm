@@ -1,0 +1,5 @@
+{
+  "raw_text": "The OpenMolcas Web: A Community-Driven Approach to Advancing Computational Chemistry\nThe developments of the open-source OpenMolcas chemistry software environment since spring 2020 are described, with a focus on novel functionalities accessible in the stable branch of the package or via interfaces with other packages. These developments span a wide range of topics in computational chemistry and are presented in thematic sections: electronic structure theory, electronic spectroscopy simulations, analytic gradients and molecular structure optimizations, ab initio molecular dynamics, and other new features. This report offers an overview of the chemical phenomena and processes OpenMolcas can address, while showing that OpenMolcas is an attractive platform for state-of-the-art atomistic computer simulations.",
+  "entities": [],
+  "url": "https://acs.figshare.com/articles/dataset/The_OpenMolcas_i_Web_i_A_Community-Driven_Approach_to_Advancing_Computational_Chemistry/23098254"
+}

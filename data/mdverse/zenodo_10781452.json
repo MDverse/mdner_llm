@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset II related to publication: Beyond KRAS(G12C): biochemical and computational characterization of sotorasib and adagrasib binding specificity and the critical role of H95 and Y96\nMD simulation data (KRAS(G12C) and KRAS(G12C/Y96D)) related to publication: \"Beyond KRAS(G12C): biochemical and computational characterization of sotorasib and adagrasib binding specificity and the critical role of H95 and Y96\". \nACS Chem. Biol. 2024, XXXX, XXX, XXX-XXX\nhttps://pubs.acs.org/doi/10.1021/acschembio.4c00315\n\nThe .zip files contain raw Desmond simulation trajectories of KRAS(G12C) and KRAS(G12C/Y96D) with apo SII-P or in complex with sotorasib [5 replicas; each 4 us]\n\n(-out.cms files and trajectories).\n\n\n\nRelated datasets: 10.5281/zenodo.10812233",
+  "entities": [],
+  "url": "https://zenodo.org/records/10781452"
+}

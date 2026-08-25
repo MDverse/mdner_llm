@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular characterization of the MT-Bound N-Clamp complex interface via atomistic Molecular Dynamics simulations\nThis repository includes:\n\n\nGROMACS input files for reproducing the atomistic molecular dynamics simulations of the MT-bound N-clamp complex, including configuration and topology files (.itp, .tpr, .top, .mdp, .ndx, .cpt, .edr, .xtc), as well as trajectory data.\n\n\nBest-ranked structural models predicted by AlphaFold2.\n\n\nThe analysis script used for the quantitative evaluation and plotting of the tubulin co-sedimentation assays. This script is also available with version control at: https://github.com/gt-biomodel/tubulin-co-sedimentation-plots",
+  "entities": [],
+  "url": "https://zenodo.org/records/16452427"
+}

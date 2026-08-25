@@ -1,0 +1,5 @@
+{
+  "raw_text": "DMPS monolayer (50A2, 61A2), 50 mM\nFF: CHARMM36Engine: GROMACS 5.1.4\n61A^2\nPreequilibration: 250 ns.Trajectory length: 736 ns\nSystem: 100 DMPS + 10,000 SOL + 15KCl\n50A^2\nPreequilibration: 270 ns.Trajectory length: 278 ns.\nSystem: 100 DMPS + 10,000 SOL + 20KCl",
+  "entities": [],
+  "url": "https://zenodo.org/records/10940529"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Computational studies on the structure of peroxidasin (PXDN) and its interactions\nThis repository contains computational analyses on peroxidasin (PXDN).\n\nStructural model of homo-trimeric PXDN complex (generated applying AlphaFold2)\nMolecular dynamics simulations on putative protein-protein interactions of PXDN\n\nAll data in this repository was generated in relation to the folowing publication.\n\nSung, Hsu-Min et al. Peroxidasin controls melanoma aggressiveness by modulating NK cell-mediated cytotoxicity. Manuscript under revision. 2024",
+  "entities": [],
+  "url": "https://zenodo.org/records/15133145"
+}

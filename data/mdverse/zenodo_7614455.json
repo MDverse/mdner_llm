@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulation data for: \"Unique Amphipathic a-helix Drives Membrane Insertion and Enzymatic Activity of ATG3\"\nSimulation data from Nishimura et al. (2023), \"Unique Amphipathic a-helix Drives Membrane Insertion and Enzymatic Activity of ATG3\".\nThe dataset contains the MD simulations executed for the Atg3/LC3/lipid membrane system, both in the WT and 5W-mutated variants.\nMore information can be found in the README file and in Table 1 of the cited paper.",
+  "entities": [],
+  "url": "https://zenodo.org/records/7614455"
+}

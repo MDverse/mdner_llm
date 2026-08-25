@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD trajectories of lipidated fluorescent proteins constructs cleGFP and dleGFP\nMD trajectories of lipidated fluorescent proteins.\nForce field: Martini2.2p\nFile formats: Gromacs 2018\ncleGFP 200µs, c-terminal lipidation\ndleGFP 85.46µs, c-terminal and internal lipidation (i.e. \"d\" doubly-lipidated)",
+  "entities": [],
+  "url": "https://zenodo.org/records/13835215"
+}

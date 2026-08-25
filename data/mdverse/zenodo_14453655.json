@@ -1,0 +1,5 @@
+{
+  "raw_text": "CD36 phosphorylation alters the thrombospondin binding site and decreases accessibility to the internal cavity\nThe data is provided as part of the manuscript \"CD36 phosphorylation alters the thrombospondin binding site and decreases accessibility to the internal cavity\".\nThis repository includes an archive with folders:\nFeature_selection(Contains the MD trajectories of the CD36 receptor used for MSM construction, along with the Jupyter notebook containing the data refinement protocol.) MSM(Contains Jupyter notebooks for MSM construction.)",
+  "entities": [],
+  "url": "https://zenodo.org/records/14453655"
+}

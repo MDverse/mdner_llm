@@ -1,0 +1,5 @@
+{
+  "raw_text": "CG model for axolemma membrane\nModel for axolemma membrane (preprint in \"Molecular dynamics study of stiffness and rupture of axonal membranes\" Majdolhosseini et al. 2024 https://doi.org/10.1101/2024.04.08.588595). See supplementary material for details on the bilayer composition. GROMACS (www.gromacs.org) input files:\nequilibrated axolemma bilayer in GROMACS coordinate format (axolemma.gro)\ntopology files (topol.top and top.zip directory) for MARTINI 2.2 force field (from MARTINI webpage http://www.cgmartini.nl/)\nexample of GROMACS parameter file (relax.mpd)\nAxolemma model has been designed by Maryam Majdolhosseini and Alessandra Villa",
+  "entities": [],
+  "url": "https://zenodo.org/records/11581475"
+}

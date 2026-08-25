@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of POPC bilayer with OPLS4 force field. 7.5 w/l.\nMD simulation of POPC (1-palmitoyl-2-oleoyl-phosphatidylcholine) bilayer with OPLS4 force field. 7.5 w/l\nDataset contains original desmond trajectories (_trj), topologies (-out.cms), input files (.cfg, .msj, .cms), and other files\nFor the ease of the upload, trajectory files (_trj) are divided to 250ns pieces and tarred (named desmond_md_popc7.5wl_opls4_x-xns_trj.tar.gz)\nDataset also contains Gromacs converted files (.xtc, .gro and .top) \nSystem: POPC bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 1500\nSimulation time: 500 ns\nSimulation engine: Desmond 2022-2\nTemperature: 300 K",
+  "entities": [],
+  "url": "https://zenodo.org/records/10948670"
+}

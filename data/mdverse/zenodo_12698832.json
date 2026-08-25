@@ -1,0 +1,5 @@
+{
+  "raw_text": "SOPC bilayer, CHARMM36\nSimulation of SOPC bilayer with 32 lipids per leavlet for 500ns after minimization and 200ns equilibration. The CHARRM36 forcefield was used.",
+  "entities": [],
+  "url": "https://zenodo.org/records/12698832"
+}

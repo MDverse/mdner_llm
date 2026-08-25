@@ -1,0 +1,5 @@
+{
+  "raw_text": "Models of the chloroquine resistance transporter from the human malaria parasite Plasmodium falciparum\nThe directory contains models of the chloroquine resistance transporter from the human malaria parasite Plasmodium falciparum (PfCRT) in three different conformations (open-to-vacuole, occluded and open-to-cytosol), the systems used to start molecular dynamics simulations with these models and the raw data obtained from the molecular dynamics simulations.\nDetails about the modeling and simulations can be found in the paper:\npH-dependence of the Plasmodium falciparum chloroquine resistance transporter is linked to the transport cycle\nFiona Berger, Guillermo Gomez, Cecilia P. Sanchez, Britta Posch, Gabrielle Planelles, Farzin Sohraby, Ariane Nunes-Alves, and Michael Lanzer\n(to be available soon)",
+  "entities": [],
+  "url": "https://zenodo.org/records/8042801"
+}

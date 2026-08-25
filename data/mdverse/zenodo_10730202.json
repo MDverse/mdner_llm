@@ -1,0 +1,5 @@
+{
+  "raw_text": "Input files and setup for simulations of Ancestral GH19 chitinases and their mutants\n**DESCRIPTION**\nTopologies and molecular dynamics files to run simulations of Ancestral GH19 chitinases and their mutants.\nparameters file: muout.mdpTopologies: topol.topFinal outouts: md_out.tprInitial structures: Protein_name.PDB\n****",
+  "entities": [],
+  "url": "https://zenodo.org/records/10730202"
+}

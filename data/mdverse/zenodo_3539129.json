@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulations of a DPPC bilayer at different temperatures\nSimulations aimed to estimate the melting point of pure DPPC membranes in the Slipids force field. Simulations performed at 300, 305, and 310 K. The simulations were 500 ns (300 K & 305 K) or 300 ns (310 K) long. Full details of simulations available in the related manuscript, where they are also carefully analyzed:\nNanoscale Membrane Domain Formation Driven by Cholesterol\nby Matti Javanainen, Hector Martinez-Seara, and Ilpo Vattulainen\nScientific Reports 7: 1143 (2017)",
+  "entities": [],
+  "url": "https://zenodo.org/records/3539129"
+}

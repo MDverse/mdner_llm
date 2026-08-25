@@ -1,0 +1,5 @@
+{
+  "raw_text": "Nucleotide asymmetry and flexible linker dynamics orchestrate drug efflux cycle of P-glycoprotein; a computational study\nThis dataset contains coordinate files and input parameters to run and analyse molecular dynamics simulations of membrane bound P-glycoprotein.\n \nThe associated study is described in: \ninput_MD_{system}.zip - containes input data for all of the described MD simulations \nCAVER.zip - contains output data from CAVER analysis described in the manuscript\noutput_MD_{system}.zip - contains .pdb files of all last frame coordinates of MD simulations described in the manuscript",
+  "entities": [],
+  "url": "https://zenodo.org/records/15479648"
+}

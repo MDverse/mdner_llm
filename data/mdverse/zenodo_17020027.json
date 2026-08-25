@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular Simulation Data for \"In Situ structure of a gap junction- stomatin complex\"\nThis repository contains raw data related to \"Molecular Simulation Data for \"In Situ structure of a gap junction- stomatatin complex\"\" by Rosenkranz et al.\n\nIncluded are molecular dynamics parameter files, initial structures after system equilibration and production trajectories. Trajectories are subsampled with one frame every 1 ns.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17020027"
+}

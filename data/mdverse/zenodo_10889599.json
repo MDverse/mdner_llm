@@ -1,0 +1,5 @@
+{
+  "raw_text": "Isomerization pathways of a mismatched base pair of A:8OG in free duplex DNA\nplumed.dat  --> input file for OPES simulation.\nstr0.pdb ~ str19.pdb --> initial structures for OPES simulation.\ntraj.xtc --> sample output trajectory of OPES simulation.",
+  "entities": [],
+  "url": "https://zenodo.org/records/10889599"
+}

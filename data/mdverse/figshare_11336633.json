@@ -1,0 +1,5 @@
+{
+  "raw_text": "Hydrostatic Pressure-Induced Spectral Variation of Reichardt’s Dye: A Polarity/Pressure Dual Indicator\nThese data contains:1) Ground state optimisation: \t\t\t\t\tGS-optimisation.out2) Single point calculation at the ground state geometry: \tAbsorption-SP.out3) ab initio molecular dynamics input:\t\t\t\tAIMD.inp4) ab initio molecular dynamics output:\t\t\t\tAIMD.out5) ab initio molecular dynamics trajectory\t\t\tAIMD.xyz6) Single points for the optimal tuning scheme:\t\t\t???-?.out7) Single points for each of the 30 snapshots:\t\t\t1 to 30.out",
+  "entities": [],
+  "url": "https://data.ncl.ac.uk/articles/dataset/Hydrostatic_Pressure-Induced_Spectral_Variation_of_Reichardt_s_Dye_A_Polarity_Pressure_Dual_Indicator/11336633"
+}

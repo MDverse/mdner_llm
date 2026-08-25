@@ -1,0 +1,5 @@
+{
+  "raw_text": "Protein dimerization in 2D vs 3D, Jhaveri et al, 2025. MD simulation inputs/outputs\nFrom the paper: Jhaveri, A. et al, Protein dimerization in 2D vs 3D: Geometric allostery enhances binding affinity\nJ. Chem. Phys. 163, 000000 (2025); doi: 10.1063/5.0275282\nThis repository contains the MD simulation inputs to execute our 6 systems. It also contains short output files that do not exceed filesize restrictions. Please see README for annotation. Contact margaret.johnson@jhu.edu for access to all the data files used in the paper.",
+  "entities": [],
+  "url": "https://zenodo.org/records/15849814"
+}

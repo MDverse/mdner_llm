@@ -1,0 +1,5 @@
+{
+  "raw_text": "CHARMM-DYES: Fluorescent dye parameters for use with the CHARMM forcefield\nThe residues and parameters that make up the CHARMM-DYES force field, in machine readable GROMACS format. These files are used in molecular dynamics simulations that include the dyes typically used in Förster resonance energy transfer (FRET) experiments.",
+  "entities": [],
+  "url": "https://orda.shef.ac.uk/articles/dataset/CHARMM-DYES_Fluorescent_dye_parameters_for_use_with_the_CHARMM_forcefield/12593681"
+}

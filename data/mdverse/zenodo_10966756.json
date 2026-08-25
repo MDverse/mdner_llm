@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulation of DMPS monolayer (CHARMM36, apl 36/45 A2, 50 mM)\nFF: CHARMM36Engine: GROMACS 5.1.4\n36A^2\nPreequilibration: 300 ns.Trajectory length: 200 ns\nSystem: 100 DMPS + 10,000 SOL + 15KCl\n45A^2\nPreequilibration: 300 ns.Trajectory length: 250 ns.\nSystem: 100 DMPS + 10,000 SOL + 20KCl",
+  "entities": [],
+  "url": "https://zenodo.org/records/10966756"
+}

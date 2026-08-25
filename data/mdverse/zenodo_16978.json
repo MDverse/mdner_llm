@@ -1,0 +1,5 @@
+{
+  "raw_text": "Hydrated DPPC, MD simulation trajectory and related files for UA charmm36 model by Lee et al 2014\nMD simulation files\n72 hydrated DPPC  + 2189 water TIP3P \nNPgT\nP=1atm, gamma=0, T=323K (liquid crystalline phase)\n20 ns equilibration (not here)\n50 ns trajectory (dcd file)\nModel : Lee S, Tran A, Allsopp M, Lim JB, Hénin J, Klauda JB. CHARMM36 United Atom Chain Model for Lipids and Surfactants. J Phys Chem B. 2014;118(2):547-556. doi:10.1021/jp410344g.\n----\n* bilayer-72DPPC-c36-AU.psf : NAMD2.10 structure file Obtained with psfgen utility, using\n1) topology from Lee et al.  2014\n2) positions from J. Klauda.\nhttp://terpconnect.umd.edu/~jbklauda/research/download.html\n----\n* dppc_c36_AU.equil.2.dcd : trajectory file of 2635 frames every 20 ps.\n---\n* measure_SCD_heads.tcl : file used to measure order parameters for the head hydrogens using vmd-1.9\n---\n*namd_input.tar files usefull to launch the simulations using NAMD(2.10).",
+  "entities": [],
+  "url": "https://zenodo.org/records/16978"
+}

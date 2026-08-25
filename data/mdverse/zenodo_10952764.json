@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of DMPC bilayer with CHARMM36 force field. 10 w/l.\nMD simulation of DMPC bilayer with CHARMM36 force field. 10 w/l.\nDataset contains simulation files including trajectories (.xtc) (original production.xtc, and equilibrated and centered centered_pbcmol-50-500ns.xtc).\nSystem: DMPC bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 2000\nSimulation time: 500 ns\nSimulation engine: GROMACS 2019.5\nTemperature: 314 K",
+  "entities": [],
+  "url": "https://zenodo.org/records/10952764"
+}

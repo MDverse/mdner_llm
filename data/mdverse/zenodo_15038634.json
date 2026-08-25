@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular Docking and Dynamics data for the MdtF efflux pump\nThe dataset consists of:\na) Molecular dynamics (MD) simulation trajectories (.nc format) for three replicas of each system, generated using Amber24 software. These trajectories, along with topology files (.parm), were used to investigate the conformational preferences and other analyses (hydration, h-bond) in AcrB and MdtF (WT and V610F). \nb) Molecular docking poses for the distal binding pocket (DP) and entrance channels CH2 and CH3 at neutral (pH 7.4) and acidic (pH 5.7) conditions.\nDetails of ZIP files:\n\nTrajectories_AcrB\nTrajectories_MdtF_WT\nTrajectories_MdtF_V610F\nDocking poses CH2\nDocking poses CH3\nDocking poses DP",
+  "entities": [],
+  "url": "https://zenodo.org/records/15038634"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Unraveling the Ligand-binding Sites of CYP3A4 by Molecular Dynamics Simulations with Solvent Probes\nThis directory contains files for the project:\nUnraveling the Ligand-binding Sites of CYP3A4 by Molecular Dynamics Simulations with Solvent Probes\n \nAll the input files (topologies, parameters, and initial configurations) required to reproduce the results and the output trajectory files are available here. Snapshots were taken at 1 ns intervals from the last 100 ns trajectory from MixMD, as well as the entire 200 ns trajectory from cMD.",
+  "entities": [],
+  "url": "https://zenodo.org/records/10516277"
+}

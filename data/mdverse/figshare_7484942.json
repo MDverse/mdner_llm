@@ -1,0 +1,5 @@
+{
+  "raw_text": "SI: MD and QM/MM data for publication \"Ammonium complexes of orthoester cryptands are inherently dynamic and adaptive\"\nSuporting MD and QM/MM setup data and analysis for \"Ammonium complexes of orthoester cryptands are inherently dynamic and adaptive\"- MD-QMMM-InputStructuresandTopologies:containing all topologies (*.top), starting coordinates (*.crd), toplogy creation files ([xleap].in), and structures including atomic point charges (*.mol) for all simulations- MDcontainingtruncated trajectories (.nc), ptraj analysis files: average structures (.pdb), rmsd, rmsf, hbonding, energetic analysis files- umbrellacontaining truncated trajectories, output, and analysis files (wham etc) for umbrella sampling - QMMMumbrellacontaining truncated trajectories, output, and analysis files (wham etc) for QM/MM umbrella sampling",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/SI_MD_and_QM_MM_data_for_publication_Ammonium_complexes_of_orthoester_cryptands_are_inherently_dynamic_and_adaptive_/7484942"
+}

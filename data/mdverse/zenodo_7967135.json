@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulation Datasets of 5HT3AR Bound to Two Partial Agonists\nSimulation Datasets Reported in the manuscript Structural Basis for Partial Agonism in 5HT3AR Receptors:\n1. SMP100 PDB and MOL2 files: SMP.pdb (4.7 KB) and SMP.mol2 (4.7 KB)\n2. SMP100 topology and parameter files: SMP.top (2.8 KB) and SMP.prm (4.7 KB)\n3. SMP-bound 5-HT3AR  initial conformation from cryo-EM and prepared in Maestro: 5HT3AR-SMP_init.pdb (2.7 MB)\n4. SMP-bound 5-HT3AR system PDB file and trajectory: 5HT3AR-SMP.pdb (14.4 MB) and 5HT3AR-SMP.xtc (135.7 MB)\n5. ALB148471 PDB and MOL2 files: ALB.pdb (4.7 KB) and ALB.mol2 (4.7 KB)\n6. ALB148471 topology and parameter files: ALB.top (2.8 KB) and ALB.prm (4.7 KB)\n7. ALB-bound 5-HT3AR  initial conformation from cryo-EM and prepared in Maestro: 5HT3AR-ALB_init.pdb (2.7 MB)\n8. ALB-bound 5-HT3AR system PDB file and trajectory: 5HT3AR-ALB.pdb (14.4 MB) and 5HT3AR-ALB.xtc (135.7 MB)",
+  "entities": [],
+  "url": "https://zenodo.org/records/7967135"
+}

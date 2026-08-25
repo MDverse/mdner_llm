@@ -1,0 +1,5 @@
+{
+  "raw_text": "Exploring Tubulin-Paclitaxel Binding Modes through Extensive Molecular Dynamics Simulations\nMolecular dynamics trajectories and reference structures:\n\n3j6g.zip\n6ew0.zip\n5syf.zip\n5syf_restr.zip - the 5syf system with positional restraints\n\ntopologies.zip - molecular dynamics topologies (including paclitaxel, GDP/GTP), starting conformations, and MD parameters (mdp files)\nclusters.zip - representative structures of identified clusters (centeral structure, structure with minimal energy, structure with the energy decomposition in the B-factor)",
+  "entities": [],
+  "url": "https://zenodo.org/records/12513444"
+}

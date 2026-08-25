@@ -1,0 +1,5 @@
+{
+  "raw_text": "Pure POPC Membrane Simulation Using Charmm-Drude Force Field with OpenMM\n400 ns MD simulation of pure POPC membrane using Charmm-Drude polarizable force field. The system contains 72 POPC lipids and 2809 SWM4 water molecules.\nThe simulation have been performed using OpenMM 7.4.1\nBefore running the Drude simulation, the system has been equilibriated using Charmm36 force field for 200 ns. The last frame of that simulation was used to generate Drude polarizable model. The first 100 ns of the Drude simulation has been discarded from this dataset.\nThis dataset does not contain the water molecules.\nPlease note that the trajectories might need to be realigned.",
+  "entities": [],
+  "url": "https://zenodo.org/records/3865283"
+}

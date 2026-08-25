@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulations of bilayers containing PC/PG mixtures and CaCl_2: 400POPC_100POPG_1MCaCl_2\nNMRLipids IVb project (nmrlipids.blogspot.fi)\nGromacs, CHARMM36 FF, 1 atm, 298K, 200ns (no pre-equilibration)\n400 POPC lipids, 100 POPG lipids, 123398 Atoms",
+  "entities": [],
+  "url": "https://zenodo.org/records/3483785"
+}

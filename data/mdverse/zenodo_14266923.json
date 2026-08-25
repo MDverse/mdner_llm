@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset of \"Neutron imaging and molecular simulation of systems from methane and p‑xylene\"\nThe dataset contains parameterizations, and input files for molecular dynamics simulations used in the study of methane dissolution in p-xylene. For selected conditions, full simulation data, i.e., trajectories and energetics are provided. All used simulation results data are provided in the table, along with the measured experimental data.",
+  "entities": [],
+  "url": "https://zenodo.org/records/14266923"
+}

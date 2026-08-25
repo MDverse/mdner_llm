@@ -1,0 +1,5 @@
+{
+  "raw_text": "AI-guided transition path sampling reveals distinct dimerization pathways of STIM1 transmembrane helices\n\nThe notebook TPS.ipynb contains code and files to reproduce TPS training and crossvaliation.\nFor gromacs input files, see the directory gmx_files.\nTransition state ensemble (TSE) and bound state ensemble (BSE) clusters are deposited in the corresponding directories.\nExample transition path trajectories are deposted in Example_trajectories.",
+  "entities": [],
+  "url": "https://zenodo.org/records/10996949"
+}

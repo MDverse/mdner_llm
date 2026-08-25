@@ -1,0 +1,5 @@
+{
+  "raw_text": "Data from \"Development of AMBER-Compliant Transferable Force Field Parameters for Polytetrafluoroethylene\"\nThis dataset contains data related to the publication \"Development of AMBER-Compliant Transferable Force Field Parameters for Polytetrafluoroethylene,\" by Orhan Kaya et al., 2024. In this work, we introduce a new force field parameter set for Polytetrafluoroethylene (PTFE). We have converted the AMBER parameter set to parameters compatible with two industrial-level simulation codes, GROMACS and LAMMPS. The parameter sets represent a significant improvement over existing models in the literature, offering high accuracy and reliability for simulating PTFE and facilitating a better understanding of its behavior at the molecular level.",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/Data_from_Development_of_an_AMBER-Compliant_Transferable_Force_Field_Parameters_for_Polytetrafluoroethylene_/26197325"
+}

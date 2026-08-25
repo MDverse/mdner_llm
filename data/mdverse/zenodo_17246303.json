@@ -1,0 +1,5 @@
+{
+  "raw_text": "Supporting Information for: Computational Evaluation of Statin Analogues Targeting HMG-CoA Reductase for Coronary Artery Disease Treatment\nSupporting Information for: Computational Evaluation of Statin Analogues\nTargeting HMG-CoA Reductase for Coronary Artery Disease Treatment.\n \nBy Yoshua B. Mtulo, Geradius Deogratias, James E. Mgaya, Andrew S. Paluch, and Lucas Paul*\n \n*lucas.paul@udsm.ac.tz\n \nPublished in ChemistryOpen, DOI:10.1002/open.202500533\n \nADMET\nThis folder includes five files, each containing the SMILES string used for ADMET analysis.\n \ndocking\nThis directory includes all the required files for docking. It contains four folders, \n    each representing a different statin derivative with its corresponding analogues.\n \nMD Simulation\nThis folder contains three subfolders with the input files for MD simulations of the \nApo protein, the Simvastatin complex, and the Lovastatin complex, respectively.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17246303"
+}

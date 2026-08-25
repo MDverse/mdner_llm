@@ -1,0 +1,5 @@
+{
+  "raw_text": "Supplementary File 1: Raw and processed data for network pharmacology and molecular dynamics study on IBD treatment by Bletilla striata and Rhizoma coptidis\nThis dataset contains all raw and processed data from the molecular dynamics (MD) simulations and network pharmacology analysis described in the associated manuscript. It includes: (1) The initial complex structures from molecular docking; (2) Complete data for two independent MD simulation replicates (trajectories, topologies, etc.); (3) Analysis scripts; (4) A summary statistics table. This comprehensive archive ensures the full reproducibility of the computational findings.",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/Supplementary_File_1_Raw_and_processed_data_for_network_pharmacology_and_molecular_dynamics_study_on_IBD_treatment_by_Bletilla_striata_and_Rhizoma_coptidis/29947734"
+}

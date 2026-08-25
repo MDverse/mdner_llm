@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular Dynamics Data for: The dynamic lateral gate of the mitochondrial β-barrel biogenesis machinery is blocked by darobactin A\nThis dataset contains simulation input, output, and processed analysis files that support the manuscript. \nSimulation outputs: Reduced molecular dynamics trajectory files (.dcd) and system topology files (.psf).\nSimulation inputs: NAMD configuration files (.conf), MDFF input files (*pdb) (.namd) used for production runs.\nProcessed data: Numerical datasets used to generate figure panels.",
+  "entities": [],
+  "url": "https://zenodo.org/records/17479556"
+}

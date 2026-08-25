@@ -1,0 +1,5 @@
+{
+  "raw_text": "Solvent sites detection from molecular dynamics in mixed solvents\nIn this zip file, you will find 3 molecular dynamics (MDs) that were run using the AMBER molecular dynamics package (https://ambermd.org/), and the necessary scripts to obtain the solvent sites.\nThe MDs correspond to the kinase and rubredoxin domains of protein kinase G from Mycobacterium tuberculosis.",
+  "entities": [],
+  "url": "https://zenodo.org/records/5647767"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular dynamics simulation based analysis of celecoxib-polymer interactions\nThis dataset contains scripts and coordinate files for running and analysing molecular dynamics simulations to investigate celecoxib-polymer interactions in aqueous solution.  Trajectory files (stripped of water and ions) are included.\nThe associated study is described in:\n\" Comparative analysis of drug-salt-polymer interactions by experiment and molecular simulation improves biopharmaceutical performance\", Sumit Mukesh, Goutam Mukherjee, Ridhima Singh, Nathan Steenbuck, Carolina Demidova, Prachi Joshi, Abhay T. Sangamwar, Rebecca C. Wade, submitted.",
+  "entities": [],
+  "url": "https://zenodo.org/records/8228709"
+}

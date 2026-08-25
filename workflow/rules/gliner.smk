@@ -37,7 +37,26 @@ MODELS = {
         "adapter_path": None,
         "is_trainable": False,
     },
-    # 3. GLiNER2 Full Fine-tuned
+    # 3. Zero-shot GLiNER2.5 Models
+    "gliner2.5-small-v1": {
+        "display_name": "fastino/gliner2.5-small-v1",
+        "model_path": "fastino/gliner2.5-small-v1",
+        "adapter_path": None,
+        "is_trainable": False,
+    },
+    "gliner2.5-base-v1": {
+        "display_name": "fastino/gliner2.5-base-v1",
+        "model_path": "fastino/gliner2.5-base-v1",
+        "adapter_path": None,
+        "is_trainable": False,
+    },
+    "gliner2.5-large-v1": {
+        "display_name": "fastino/gliner2.5-large-v1",
+        "model_path": "fastino/gliner2.5-large-v1",
+        "adapter_path": None,
+        "is_trainable": False,
+    },
+    # 4. GLiNER2 Full Fine-tuned
     "gliner2-base-v1-finetuned": {
         "display_name": "fastino/gliner2-base-v1-finetuned",
         "base_model": "fastino/gliner2-base-v1",
@@ -60,28 +79,39 @@ MODELS = {
        "task_lr": 2e-5,
       "warmup_ratio": 0.08,
     },
-    # 4. GLiNER2 LoRA Fine-tuned
-    "gliner2-base-v1-finetuned-lora": {
-        "display_name": "fastino/gliner2-base-v1-finetuned-lora",
-        "base_model": "fastino/gliner2-base-v1",
-        "model_path": "fastino/gliner2-base-v1",
-        "adapter_path": "results/gliner/models/gliner2-base-v1-finetuned-lora/fold_{fold}/best",
-        "use_lora": True,
+    # 5. GLiNER2.5 Full Fine-tuned
+    "gliner2.5-small-v1-finetuned": {
+        "display_name": "fastino/gliner2.5-small-v1-finetuned",
+        "base_model": "fastino/gliner2.5-small-v1",
+        "model_path": "results/gliner/models/gliner2.5-small-v1-finetuned/fold_{fold}/best",
+        "adapter_path": None,
+        "use_lora": False,
         "is_trainable": True,
-        "encoder_lr": 1e-5,
-        "task_lr": 5e-5,
-        "warmup_ratio": 0.15,
+        "encoder_lr": 2e-6,
+        "task_lr": 2e-5,
+        "warmup_ratio": 0.08,
     },
-    "gliner2-large-v1-finetuned-lora": {
-       "display_name": "fastino/gliner2-large-v1-finetuned-lora",
-       "base_model": "fastino/gliner2-large-v1",
-       "model_path": "fastino/gliner2-large-v1",
-       "adapter_path": "results/gliner/models/gliner2-large-v1-finetuned-lora/fold_{fold}/best",
-       "use_lora": True,
-       "is_trainable": True,
-       "encoder_lr": 1e-5,
-       "task_lr": 5e-5,
-       "warmup_ratio": 0.15,
+    "gliner2.5-base-v1-finetuned": {
+        "display_name": "fastino/gliner2.5-base-v1-finetuned",
+        "base_model": "fastino/gliner2.5-base-v1",
+        "model_path": "results/gliner/models/gliner2.5-base-v1-finetuned/fold_{fold}/best",
+        "adapter_path": None,
+        "use_lora": False,
+        "is_trainable": True,
+        "encoder_lr": 2e-6,
+        "task_lr": 2e-5,
+        "warmup_ratio": 0.08,
+    },
+    "gliner2.5-multi-v1-finetuned": {
+        "display_name": "fastino/gliner2.5-multi-v1-finetuned",
+        "base_model": "fastino/gliner2.5-multi-v1",
+        "model_path": "results/gliner/models/gliner2.5-multi-v1-finetuned/fold_{fold}/best",
+        "adapter_path": None,
+        "use_lora": False,
+        "is_trainable": True,
+        "encoder_lr": 2e-6,
+        "task_lr": 2e-5,
+        "warmup_ratio": 0.08,
     },
 }
 ALL_MODELS = list(MODELS.keys())

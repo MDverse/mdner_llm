@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD Simulation of AtALMT9 TMD Using Martini3 and charmm36 Force Field\nThis dataset contains the MD simulation data associated with the article:\n\"Structural basis for malate-driven, pore lipid-regulated activation of the Arabidopsis vacuolar anion channel ALMT9\"\n(Not published yet)\n \nFolder\nAA : All-atom simulation files.\nCG : Coarse-grained simulation files.\ntoppar : parameter files.\n \nFile Description\nconf.pdb : Initial structure of the simulation.\nall.fit.10ns.now.zen.xtc  : trajectory file without water. \nnow.pdb : coordinate file of corresponding trajectory.\ntopol.top : GROMACS topology file.",
+  "entities": [],
+  "url": "https://zenodo.org/records/14177701"
+}

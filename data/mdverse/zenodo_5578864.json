@@ -1,0 +1,5 @@
+{
+  "raw_text": "\"Structural and Functional Diversity among Agonist-Bound States of the GLP-1 Receptor\" - MD trajectories\nTopology (.psf) and coordinates (.xtc) files of:\n- Ex4 WT,  D-Ala Ex4, and L-Ala Ex4 (all simulated in water - without receptor)\n- Partial unbinding and binding simulations of Ex4 WT, D-Ala Ex4 and L-Ala Ex4 from GLP-1R \nWater molecules, lipids, and ions have been removed.",
+  "entities": [],
+  "url": "https://zenodo.org/records/5578864"
+}

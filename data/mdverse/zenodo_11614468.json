@@ -1,0 +1,5 @@
+{
+  "raw_text": "Test Dataset for calculation of order parameters and form factors\nTrajectories and geometries from MD simulations downloaded from NMR lipids databank. Trajectories were processed with gmx trjconv -novel -dt 500 -pbc mol to reduze them in size",
+  "entities": [],
+  "url": "https://zenodo.org/records/11614468"
+}

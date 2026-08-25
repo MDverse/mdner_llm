@@ -1,0 +1,5 @@
+{
+  "raw_text": "Data files for computational electrophysiology simulations on HcKCR1_C110A\nStructures and input files used for performing computational electrophysiology simulations on HcKCR1_C110A. The description of each folder is as follows:input-structures - models of dark-adapted and laser-flash-illuminated structurestopology - forcefield parameters of retinal, protein, lipids, water, potassium, and chloride ionstrajectory-mdp-files - input files used to run computational electrophysiology simulationstrajectory-output-files - representative trajectories showing ion permeation through the channel (monitor POT8698 and POT387 for outward and inward permeations, respectively)RMSD - data files and script to analyze RMSD variation of the protein backbone atoms",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/Data_files_for_computational_electrophysiology_simulations_on_HcKCR1_C110A/27292005"
+}

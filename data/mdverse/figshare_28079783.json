@@ -1,0 +1,5 @@
+{
+  "raw_text": "GaMD simulations for the NECA-bound WT-A2AR-mini-Gs\nTopology file: sys.prm (AMBER format)Initial coordinate file: sys.pdb Initial coordinate file without lipid, ions and water: sys-protein.pdbGaMD equilibration input file: md.inGaMD production input file: md-restart.inFinal snapshot of GaMD simulations (2000ns):run1-2us.pdb (simulation 1);run2-2us.pdb (simulation 2);run3-2us.pdb (simulation 3).",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/GaMD_simulations_for_the_NECA-bound_WT-A2AR-mini-Gs/28079783"
+}

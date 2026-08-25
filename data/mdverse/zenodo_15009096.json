@@ -1,0 +1,5 @@
+{
+  "raw_text": "OpenFF Sage 2.2.0 3 Replicates\nHMR, 0.9 rvdw, 0.8 switch, 300K. Trajectories have been modified to remove the first 100 ns, remove PBC jumps, center the system, and make molecules whole.",
+  "entities": [],
+  "url": "https://zenodo.org/records/15009096"
+}

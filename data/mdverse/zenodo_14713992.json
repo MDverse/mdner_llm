@@ -1,0 +1,5 @@
+{
+  "raw_text": "PSM aux force field validation\nPSM simulation parameterized with Sage2.2.1.aux.offxml \nLipids: PSMLipid count: 128 (64 per leaflet)Solvent: TIP3PSolvent count: 5120 (40 w/l)Ions: noIon Count: n/aTemperature: 328KLength of equilibration: 100ns (40 NVT - 60 NPT)Length of production: 500ns\n\nHMR w/ 4fs timestep\n0.9 rvdw/rcouloumb cutoff\n0.8 rvdw-switch\n\nSMILES string: [C@](COP(=O)([O-])OCC[N+](C)(C)C)([H])(NC(CCCCCCCCCCCCCCC)=O)[C@]([H])(O)/C=C/CCCCCCCCCCCCC",
+  "entities": [],
+  "url": "https://zenodo.org/records/14713992"
+}

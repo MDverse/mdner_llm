@@ -1,0 +1,5 @@
+{
+  "raw_text": "All-atom molecular dynamics simulations of Synechocystis halorhodopsin (SyHR)\nThe trajectories of all-atom MD simulations of:\n1) Cl--bound SyHR in the ground (GR) state (SyHR_monomer_GR_POPC_CHARMM36_200ns)\n2) Cl--bound SyHR in the K state (SyHR_monomer_K_POPC_CHARMM36_200ns)\n in the monomeric form in a POPC bilayer.\n3) SO42--bound SyHR in the GR state (SyHR_trimer_GR_POPC_CHARMM36_500ns)\nin the trimeric form in a POPC bilayer.\nSimulations have been performed using the CHARMM36 force field, running with the GROMACS 2022 package.",
+  "entities": [],
+  "url": "https://zenodo.org/records/6526421"
+}

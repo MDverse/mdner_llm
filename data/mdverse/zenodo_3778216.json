@@ -1,0 +1,5 @@
+{
+  "raw_text": "EN2(143-259) simulation with Amber ff03ws\nMD simulation of a protein EN2(143-259) with Amber ff03ws forcefield.\nForce field parameters for proteins and counterions are dowloaded from https://github.com/bestlab/force_fields, for NaCl from https://bitbucket.org/hseara/ions\nThe trajectory files with solvent have a saving frequency 100 ps.\nThe trajectory file EN2_1000ns_protein.xtc has a saving frequency 10 ps.",
+  "entities": [],
+  "url": "https://zenodo.org/records/3778216"
+}

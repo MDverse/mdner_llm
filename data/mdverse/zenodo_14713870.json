@@ -1,0 +1,5 @@
+{
+  "raw_text": "Chol 50% POPC aux force field validation\nChol 50% POPC parameterized with Sage2.2.1.aux.offxml \nLipids: POPC/CHOLLipid count: 64 POPC (64 per leaflet) / 64 CHOL (64 per leaflet)Solvent: TIP3PSolvent count: 5120Ions: noIon Count: n/aTemperature: 300KLength of equilibration: 100ns (40 NVT - 60 NPT)Length of production: 500ns\n\nHMR w/ 4fs timestep\n0.9 rvdw/rcouloumb cutoff\n0.8 rvdw-switch\n\nSMILES strings: POPC: [C@](COP(=O)([O-])OCC[N+](C)(C)C)([H])(OC(CCCCCCC/C=C\\CCCCCCCC)=O)COC(CCCCCCCCCCCCCCC)=OCHOL: [C@]12(CC=C3C[C@@H](O)CC[C@]3(C)[C@@]1([H])CC[C@]1(C)[C@@]([H])([C@@](C)([H])CCCC(C)C)CC[C@@]21[H])[H]",
+  "entities": [],
+  "url": "https://zenodo.org/records/14713870"
+}

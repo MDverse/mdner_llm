@@ -1,0 +1,5 @@
+{
+  "raw_text": "DMPC core force field validation\nDMPC simulation parameterized with Sage2.2.1.core.offxml\nLipids: DMPCLipid count: 128 (64 per leaflet)Solvent: TIP3PSolvent count: 5120 (40 w/l)Ions: noIon Count: n/a Temperature: 314KLength of equilibration: 100ns (40 NVT - 60 NPT)Length of production: 500ns\n\nHMR w/ 4fs timestep\n0.9 rvdw/rcouloumb cutoff\n0.8 rvdw-switch\n\nSMILES string: CCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCCCCCCCCC",
+  "entities": [],
+  "url": "https://zenodo.org/records/14713912"
+}

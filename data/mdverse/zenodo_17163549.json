@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD Simulation Data for the protein and RNA-Polymerase-peptide complexes\nThis dataset contains:\n \n1. Modelled structures of RNA polymerase catalytic domain.\n2. The input and output files from MD simulations performed on protein and protein-peptide complexes.\n \nEach folder includes:\nmd_0_100.xtc - Trajectory file coordinates\nstructure of protein and docked protein-peptide complexes - initial model protein used for simulation\ntopol.top - Topology parameter",
+  "entities": [],
+  "url": "https://zenodo.org/records/17163549"
+}

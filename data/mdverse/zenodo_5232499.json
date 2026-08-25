@@ -1,0 +1,5 @@
+{
+  "raw_text": "Coarse-grained molecular dynamics simulations of SARS-CoV-2 envelope protein E in the pentameric form\nThe trajectories of coarse-grained (CG) molecular dynamics (MD) simulations of\n1) unmodified (FeigLab_NMR; FeigLab_PentamerNoPTM_POPC_Martini3b: 5 μs; 5 μs); \n2) palmitoylated (FeigLab_PentamerCYSP43; PentamerCYSP44_POPC_Martini3b: 5 μs; 5 μs); \nSARS-CoV-2 E protein pentamer in a POPC bilayer.\nThe trajectory of CG MD of system containing 2 pentamers in the membrane buckled in a single direction (BuckledMembrane_FeigLab_2xPentamerNoPTM_POPC_Martini3b: 1 μs).\nFeigLab_Pentamer: https://github.com/feiglab/sars-cov-2-proteins/blob/master/Membrane/E_protein.pdb\nFeigLab_NMR_Pentamer is assembled based on the transmembrane domain determined by NMR (PDB ID: 7K3G) and FeigLab model for the rest.",
+  "entities": [],
+  "url": "https://zenodo.org/records/5232499"
+}

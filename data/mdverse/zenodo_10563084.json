@@ -1,0 +1,5 @@
+{
+  "raw_text": "Data for manuscript: Functional Protein Dynamics in a Crystal\nThe data is provided as a part of the manuscript \"Functional Protein Dynamics in a Crystal\".  This repository includes an archive with folders:\n\nmd_data\n\ncontains various simulation systems (crystal supercell, apo and ligand-bound solution) built from the crystal structure of the PDZ domain (PDB ID: 5E11) and carried out using three force fields: Amber ff14SB, CHARMM36m, Amber ff94. The details of the simulations are provided in the Methods and Supplementary methods sections of the manuscript. \n\nfig_data\n\ncontains the data sets underlying Figures 1-5 of the manuscript's main text.",
+  "entities": [],
+  "url": "https://zenodo.org/records/10563084"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation trajectories of the AcrB complexes with Minocycline and Chloramphenicol\nThis dataset contains molecular dynamics (MD) simulation trajectories of AcrB transporter complexes bound to two antibiotics: Minocycline (MIN) and Chloramphenicol (CAM). It includes a total of six systems, organized into six zip folders, representing the wild-type (WT) AcrB and two mutants (V612F and V612W), each in complex with either MIN or CAM.\nEach zip folder contains three subdirectories (rep1, rep2, and rep3), representing three independent simulation replicas.\nEach rep subdirectory includes\n\n\nAMBER parameter file (.prm7)\n\n\nTrajectory file (.nc) (250ns, 1ns/frame, excluding lipid and water)\n\n\nThese simulations were performed to investigate ligand stability, conformational rearrangements, and adaptive binding-site changes resulting from mutations in the drug-binding pocket of AcrB.",
+  "entities": [],
+  "url": "https://zenodo.org/records/15489434"
+}

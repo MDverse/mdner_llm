@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of POPC bilayer with OPLS3e force field, 100 mM CaCl2 part 2\nMD simulation of POPC bilayer with OPLS3e force field, 100 mM CaCl2 part 2 (500-1000ns)\nDataset contains trajectories (_trj) for the last 500ns of the 1000ns trajectory, topology (-out.cms) and other files.\nFor the ease of the upload, trajectory files (_trj) are divided to 100ns pieces and tarred (named desmond_md_cacl100_x-xns.tar.gz)\nSystem: POPC bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 8880\nSalt: CaCl2\nConcentration: 100 mM\nNumber of cations: 16\nSimulation time: 1000 ns (in this dataset 500-1000ns)\nSimulation engine: Desmond 2019-4\nTemperature: 300 K\nRelated dataset: MD simulation of POPC bilayer with OPLS3e force field, 100 mM CaCl2 part 1",
+  "entities": [],
+  "url": "https://zenodo.org/records/6347982"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Cation‑π Interactions between Methylated Ammonium Groups and Tryptophan in the CHARMM36 Additive Force Field\nCation-π interactions between tryptophan and choline or trimethylated lysines are vital for many biological processes. The performance of the additive CHARMM36 force field against target quantum mechanical data is shown to reproduce QM equilibrium geometries but required modified Lennard-Jones potentials to accurately reproduce the QM interaction energies. The modified parameter set allows accurate modeling, including free energies, of cation-π indole-choline and indole-trimethylated lysines interactions relevant for protein–ligand, protein–membrane, and protein–protein interfaces.",
+  "entities": [],
+  "url": "https://acs.figshare.com/articles/dataset/Cation_Interactions_between_Methylated_Ammonium_Groups_and_Tryptophan_in_the_CHARMM36_Additive_Force_Field/7528538"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Data of resulting velocity and anisotropic models, and Moho depth of the Tanlu fault zone\nOur dataset includes velocity model, anisotropic model, Moho depth data, core drawing codes, and color files.\n \n1. ani_vel_model.txt  \nData of our resulting velocity and anisotropic models.\n         Format: longitude, latitude, vel_value (km/s), ani_value (km/s), azimuth_anisotropy (degree),\n \n2. moho.txt  \nData of our resulting Moho depth.\n         Format:  longitude, latitude, moho_depth (km)\n \n3. core_code_plot_picture.sh\nThe core codes for plotting velocity model, anisotropy model, and Moho depth map.\n \n3. moho.cpt\nColor files required for plotting Moho depth.\n \n4. vel.cpt\n Color files required for plotting velocity model.",
+  "entities": [],
+  "url": "https://zenodo.org/records/10809363"
+}

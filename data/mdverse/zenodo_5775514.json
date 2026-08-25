@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dry trajectories of SARS-CoV-2 RBD from accelerated molecular dynamics simulation\nThese are supplementary files to the preprint/paper \"SARS-CoV-2 spike protein unlikely to bind to integrins via the Arg-Gly-Asp (RGD) motif of the Receptor Binding Domain: evidence from structural analysis and microscale accelerated molecular dynamics\" (http://dx.doi.org/10.1101/2021.05.24.445335).\nThe attached code in Jupyter notebook can be run after installing the virtual environment using the `environment.yml `\nThe file `data.zip` needs to be extracted to the same path where the notebook is run from",
+  "entities": [],
+  "url": "https://zenodo.org/records/5775514"
+}

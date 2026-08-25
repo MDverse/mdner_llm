@@ -1,0 +1,5 @@
+{
+  "raw_text": "Peptide Drug Design using Alchemical Free Energy Calculation: an Application and Validation on agonists of Ghrelin Receptor: input, parameter and coordinate files of MD, TI and metadynamics simulations\nThis includes all the input, parameter (topology) and coordinate (inpcrd) files of all the MD, TI and metadynamic simulations ran in Amber. PDB structures are also included.",
+  "entities": [],
+  "url": "https://zenodo.org/records/10780924"
+}

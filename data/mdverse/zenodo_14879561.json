@@ -1,0 +1,5 @@
+{
+  "raw_text": "POPC Sage2.2.0 replicate 1\n\nParameterized with OpenFF sage2.2.0\n \nLipids: POPCLipid count: 128 (64 per leaflet)Solvent: TIP3PSolvent count: 5120 (40 w/l)Ions: noIon Count: n/aTemperature: 300KLength of equilibration: 100ns (40 NVT - 60 NPT)Length of production: 500ns\n\nHMR w/ 4fs timestep\n0.9 rvdw/rcouloumb cutoff\n0.8 rvdw-switch\n\nSMILES string: [C@](COP(=O)([O-])OCC[N+](C)(C)C)([H])(OC(CCCCCCC/C=C\\CCCCCCCC)=O)COC(CCCCCCCCCCCCCCC)=O",
+  "entities": [],
+  "url": "https://zenodo.org/records/14879561"
+}

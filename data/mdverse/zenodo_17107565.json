@@ -1,0 +1,5 @@
+{
+  "raw_text": "Trajectories and other input/output files of Molecular Dynamics Simulations of DPPS lipidic bilayers with salted water (0.25M NaCl) and hydration Number=11 water per lipid\nTrajectories and other input/output files of Molecular Dynamics Simulations of  DPPS lipidic bilayers with salted water (0.25M NaCl) and hydration Number=11 water per lipid\nForce Field = CHARMM36 and mTIP3P\nComposition :   200 DPPS, 2200 water, 201 Na+, 01 Cl- \nSimulation time : 1000 ns\nTemperatures : 333.15, 338.15, 343.15, 348.15 and 353.15 K\nPressure  : 1 Bar, no surface tension, semi-isotropic barostat\ntime lag between conformations in the trajectory : 0.1 ns",
+  "entities": [],
+  "url": "https://zenodo.org/records/17107565"
+}

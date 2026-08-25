@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular dynamics simulations of lipid bilayers containing POPC and POPS with the lipid17 force field, only counterions, and CaCl2 concentrations\nClassical molecular dynamics simulations of various mixtures of POPC:POPS lipid bilayers in water solution at various NaCl, KCl and CaCl2 concentrations, with Na+ counterions (and K+ counterions when noted with \"_KCl\" suffix).\nLipid17 force field parameters used for lipids, TIP3p water model and Dang ions.\nThe file names report the number of additional cations.\nsimulations performed with Gromacs 2018.0 (*.xtc files)\nsimulation length 1000 ns = 1 microsecond\ntemperature 298 K\nGromacs simulation setting is in the file npt_lipid_bilayer.mdp",
+  "entities": [],
+  "url": "https://zenodo.org/records/1487761"
+}

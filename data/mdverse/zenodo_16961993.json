@@ -1,0 +1,5 @@
+{
+  "raw_text": "Architecture-Encoded Mechanics and Communication in Microtubules: A Multiscale Computational Study\nThis repository contains the original data necessary to replicate the findings of the paper \"Architecture-Encoded Mechanics and Communication in Microtubules: A Multiscale Computational Study\". The following files are provided:\n\nsystem topologies, starting structures and parameter files for the MD simulations (file 01-MDSimulations.zip)\nstarting files and templates to reconstruct the MT rings for the ENM-NMA analysis (file 02-ENM.zip)",
+  "entities": [],
+  "url": "https://zenodo.org/records/16961993"
+}

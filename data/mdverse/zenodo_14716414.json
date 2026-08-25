@@ -1,0 +1,5 @@
+{
+  "raw_text": "Raw data to: Biochemical Analyses of Cystatin-C Dimers and Cathepsin-B reveals a Trypsin-Driven Feedback Mechanism in Acute Pancreatitis\nThis repository contains the initial structures, full conformational ensembles sampled using the TIGER2hPE replica-exchange MD simulation technique, and clusters resulting from subsequent ccPCA analysis, to extract major complex structures between proteins. Also attached are the initial structures of mCTSB and mCST3 predicted by AlphaFold2.\n\n\n\n\nSimulation Nr.\n\n\nComponents simulated\n\n\n\n\n1\n\n\nCTSB\n\n\n\n\n2\n\n\nCTSB\n\n\n\n\n3\n\n\nCTSB + mCST3\n\n\n\n\n4\n\n\nCTSL + mCST3\n\n\n\n\n5\n\n\nCTSB + mCST3-R71\n\n\n\n\n6\n\n\nCTSB + mCST3-R45\n\n\n\n\n7\n\n\nCTSB + dCST3-R45\n\n\n\n\n8\n\n\nCTSB + dCST3-R28",
+  "entities": [],
+  "url": "https://zenodo.org/records/14716414"
+}

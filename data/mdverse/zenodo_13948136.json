@@ -1,0 +1,5 @@
+{
+  "raw_text": "Free Energy-based Refinement of DNA Force Field via Modification of Multiple Non-bonding Energy Terms\nRelevant files of the benchmark DNA simulations.\n*.xtc --> truncated OPESE trajectory file.\n*.tar --> compressed initial structures.\n*.mdp --> GROMACS molecular dynamics parameter file.\n*.dat --> PLUMED input file for OPESE simulation.",
+  "entities": [],
+  "url": "https://zenodo.org/records/13948136"
+}

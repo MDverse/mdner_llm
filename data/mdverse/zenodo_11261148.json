@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular basis of human norepinephrine transporter reuptake and inhibition - MD simulation files\nMolecular Simulation Data Associated with the Manuscript\nThe \"simulation system\" folder contains the simulation parameters for the LDP and LNR small molecules, as well as the construction files for the two simulation systems.\nThe \"equilibrium\" and \"production\" folders contain the coordinates and parameters related to the pre-equilibrium and production of the two simulation systems.\nLDP: NET-DA\nLNR: NET-NE",
+  "entities": [],
+  "url": "https://zenodo.org/records/11261148"
+}

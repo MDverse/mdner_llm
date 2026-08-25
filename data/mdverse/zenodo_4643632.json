@@ -1,0 +1,5 @@
+{
+  "raw_text": "POPC-SMALL-POSRES (3642 POPC @ 310K, 20 us)\nNeat lipid membrane of 3642 POPC @ 310K, 20 us long. 25% of the upper leaflet lipids is weakly positions-restrained along the Z axis to suppress membrane undulations.\nRelated flat simulations:\n\nPOPC-LARGE-POSRES\nPOPC-LARGE-WALL\nPOPC-SMALL-POSRES\nPOPC-SMALL-WALL\n\nCurved simulations:\n\nBUD / WAVE-LONG / WAVE-SHORT",
+  "entities": [],
+  "url": "https://zenodo.org/records/4643632"
+}

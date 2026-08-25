@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset from \"Molecular Dynamics of Lys49 PLA2-Like Toxins: Insights into Solution and Membrane-Bound Conformations\"\nDataset from \"Molecular Dynamics of Lys49 PLA2-Like Toxins: Insights into Solution and Membrane-Bound Conformations\", containing the most relevant all-atom output trajectories and input files ran with GROMACS 2021:\n1) Membrane.zip - molecular dynamics simulations of Lys49 PLA2-like proteins in a membrane environment;\n2) Solution.zip - molecular dynamics simulations of Lys49 PLA2-like proteins in solution;\nWe have included the input files (.mdp), system topology (.top and .itp), initial and final structure files (.gro), the index file (.ndx), and the (subsampled) output trajectories in .xtc format.\nMore details can be found in the related publication.",
+  "entities": [],
+  "url": "https://zenodo.org/records/15801176"
+}

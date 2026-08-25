@@ -251,10 +251,10 @@ uv run aggregate-consensus-entities \
 To train the Gliner2 model on the Molecular Dynamics annotations, run:
 
 ```sh
-uv run train-gliner --config-path src/mdner_llm/gliner/training_config.yaml
+uv run train-gliner --config-path workflow/configs/gliner_training.yaml
 ```
 
-> This command trains the Gliner2 model using the configuration specified in [src/mdner_llm/gliner/training_config.yaml](src/mdner_llm/gliner/training_config.yaml) and save the trained model with the best validation performance.
+> This command trains the Gliner2 model using the configuration specified in [workflow/configs/gliner_training.yaml](workflow/configs/gliner_training.yaml) and save the trained model with the best validation performance.
 
 Then, to extract entities from new texts using the fine-tuned Gliner2 model, run:
 

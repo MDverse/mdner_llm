@@ -1,0 +1,5 @@
+{
+  "raw_text": "Structural Insights into Antagonist Recognition by the Vasopressin V2 Receptor\nThese files contain the molecular dynamics (MD) simulation trajectories, initial coordinate files, and simulation input files for the V2R–tolvaptan and V2R–conivaptan systems. For each system, three independent 1000-ns trajectories were generated.\nTo facilitate storage and uploading, each trajectory was divided into five 200-ns segments and compressed separately. Scripts for decompressing and merging the segments into continuous trajectories are provided in the traj_un7z_merge_scripts folder.\nPlease use the corresponding TVP.dry.prmtop and CVP.dry.prmtop topology files for analysis and visualization.",
+  "entities": [],
+  "url": "https://zenodo.org/records/16275945"
+}

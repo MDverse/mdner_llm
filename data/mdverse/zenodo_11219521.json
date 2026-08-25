@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulations of POPC, SOPC, DOPC, and OMPC monolayers at three different sizes\nSimulations of lipid monolayers with the CHARMM36 force field and TIP3P water. Three system sizes are used: small (\"s\", 64 lipids), medium (\"m\", 256 lipids), and large (\"l\", 1024 lipids). All simulations are 1 µs long. The simulations are performed using GROMACS, and for each system the following are provided:\n\nindex file (ndx)\ntopology file (top)\nrun input file (tpr)\nenergy file (edr)\ntrajectory file (xtc)\ncheckpoint file (cpt) \nfinal structure (gro)\n\nThe simulation parameter file (mdp) is common for all simulations. The molecular topologies (top) are included in TOP.tar.\nThe CHARMM36 force field is obtained from http://mackerell.umaryland.edu/charmm_ff.shtml",
+  "entities": [],
+  "url": "https://zenodo.org/records/11219521"
+}

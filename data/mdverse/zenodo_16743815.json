@@ -1,0 +1,5 @@
+{
+  "raw_text": "Simulations of Aciniform (wrapping) Silk Repetitive Domain (AcSp1)\nSimulations of AcSp1 using the primary sequence of a single unit of the repetitive domain from the following publication aiming to compare simulated and experimental spin relaxation times:\n \nTremblay, M., Xu, L., Sarker, M., Liu, X., & Rainey, J. (2016). Characterizing Aciniform silk repetitive domain backbone dynamics and hydrodynamic modularity. International Journal of Molecular Sciences, 17(8), 1305. https://doi.org/10.3390/ijms17081305\n \nSimulations were run using 5 models generated with IDPconfGen (Teixeira et al. (2022)) and 5 force fields:\n \n\n\n\n\nForce field\nWater model\n\n\nAMBER03WS\nTIP4P/2005s\n\n\nAMBER99SBWS\nTIP4P/2005s\n\n\n AMBER99SB-DISP   \n a99SB-disp\n\n\nCHARMM36M\nTIP4P\n\n\nDESAMBER\nTIP4P-D\n\n\n\n\n \nModel03, model04 and model05 are included here. Model01,02 are in 10.5281/zenodo.15966816.",
+  "entities": [],
+  "url": "https://zenodo.org/records/16743815"
+}

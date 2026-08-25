@@ -1,0 +1,5 @@
+{
+  "raw_text": "OpenMM simulations of POPC using the CHARMM Drude2023 force field\nPSF, single CRD file, and DCD format trajectories for the final 200 ns of triplicate POPC simulations, from the publication\nDrude Polarizable Lipid Force Field with Explicit Treatment of LongRange Dispersion: Parametrization and Validation for Saturated and Monounsaturated Zwitterionic Lipids\nYalun Yu, Richard M. Venable, Jonathan Thirman, Payal Chatterjee, Anmol Kumar, Richard W. Pastor,*\nBenoît Roux,* Alexander D. MacKerell, Jr.,* and Jeffery B. Klauda*\n https://doi.org/10.1021/acs.jctc.3c00203\nDCD file names indicate the lipid, replica number, and the time point of the final coordinate set in the file; each file has frames spaced at 10 ps over a 50 ns interval.",
+  "entities": [],
+  "url": "https://zenodo.org/records/7871949"
+}

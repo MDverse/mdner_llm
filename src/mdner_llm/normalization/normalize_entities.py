@@ -21,8 +21,6 @@ from mdner_llm.normalization.ground_molecule_from_all_database import (
     get_type,
     query_chebi_by_name,
 )
-from mdner_llm.normalization.normalize_stemp import norm_temp
-from mdner_llm.normalization.normalize_stime_wth_llm import norm_stime
 
 STIME_RE = re.compile(r"([0-9]+)(\.?[0-9]+)? *(ps|ns|μs|ms|s)", re.IGNORECASE)
 STEMP_RE = re.compile(r"([0-9]+)(\.?[0-9]+)?( *˚? *[a-z]*)?", re.IGNORECASE)
@@ -281,8 +279,8 @@ def normalize_json_content(
             items = norm_stime(predicted_entity_cleaned, model_name)
             normalized_entities.extend({**ent_dict, **item} for item in items)
             continue
-        # elif entity.category == "MOL":
-        #     ent_dict.update(norm_mol(predicted_entity_cleaned))
+        elif entity.category == "MOL":
+            ent_dict.update(norm_mol(predicted_entity_cleaned))
         normalized_entities.append(ent_dict)
     # Create a new ListOfEntitiesNormalized instance and validate it
     try:

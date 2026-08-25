@@ -1,0 +1,5 @@
+{
+  "raw_text": "Structural dynamics of DNA depending on methylation pattern: Simulation dataset\nDataset of molecular dynamics simulations of double-stranded DNA\n(repeats of CpG dinucleotides with regular patterns of methylation).\n- Input: Parameters and initial structures\n- Output: Trajectories\nNAMD 2.13 (multi-core with CUDA) was used for the simulations.",
+  "entities": [],
+  "url": "https://zenodo.org/records/3992686"
+}

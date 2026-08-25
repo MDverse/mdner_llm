@@ -1,0 +1,5 @@
+{
+  "raw_text": "ATP binding affinity with HER2 WT and the mutants\nThese  are the trajectory and the parameter files from the MD simulation for HER2 with ATP bound state. After 1 us of MD simulation for three times, for each of the mutant markov modeling was applied and the most probable states from the markov modeling was used for the MMPBSA simulation. This trajectory included here were taken from the markov modeling and then used for the binding affinity and per residue decomposition analysis using MMPBSA.py module in amber.",
+  "entities": [],
+  "url": "https://figshare.com/articles/dataset/ATP_binding_affinity_with_HER2_WT_and_the_mutants/21534789"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset - Exploring Ligand Binding to Calcitonin Gene-Related Peptide Receptors\nSpervised molecular dynamics simulations (SuMD) of:\n-  CGRP binding to CGRPR TMD\n-  telcagepant binding to CGRPR ECD\n-  telcagepant unbinding from CGRPR ECD\n(Water molecules, POPC and ions removed)",
+  "entities": [],
+  "url": "https://zenodo.org/records/5109537"
+}

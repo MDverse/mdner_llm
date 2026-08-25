@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of POPC bilayer with OPLS3e force field. Full hydration 44 w/l\nMD simulation of POPC (1-palmitoyl-2-oleoyl-phosphatidylcholine) bilayer with OPLS3e force field. Full hydration 44 w/l.\nDataset contains trajectories (_trj), topologies (-out.cms) and input files (.cfg, .msj, .cms), and other files.\nFor the ease of the upload, trajectory files (_trj) are divided to 100ns pieces and tarred (named popc44_x-xns_trj.tar.gz)\nGromacs converted files are also included: popchydr44_0-500ns.xtc, desmond_md_popc200lip500ns-in_converted.gro desmond_md_popc200lip500ns-in_converted.top\nSystem: POPC bilayer in water\nNumber of lipids: 200 (100/leaflet)\nNumber of waters: 8859\nSimulation engine: Desmond 2019-4\n(This version includes fixed time stamps in converted .xtc file)",
+  "entities": [],
+  "url": "https://zenodo.org/records/10183982"
+}

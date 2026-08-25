@@ -1,0 +1,5 @@
+{
+  "raw_text": "Split the Charge Difference in Two! A Rule of Thumb for Adding Proper Amounts of Ions in MD Simulations\nDespite the relevance of properly setting ionic concentrations in Molecular Dynamics (MD) simulations, methods or practical rules to set ionic strength are scarce and rarely documented. Based on a recently proposed thermodynamics method we provide an accurate rule of thumb to define the electrolytic content in simulation boxes. Extending the use of good practices in setting up MD systems is promptly needed to ensure reproducibility and consistency in molecular simulations.",
+  "entities": [],
+  "url": "https://acs.figshare.com/articles/dataset/Split_the_Charge_Difference_in_Two_A_Rule_of_Thumb_for_Adding_Proper_Amounts_of_Ions_in_MD_Simulations/11803314"
+}

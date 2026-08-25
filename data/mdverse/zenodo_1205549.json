@@ -1,0 +1,5 @@
+{
+  "raw_text": "(TM3_D2A-CIS) Simulation POPC_512_TM3_D2A_10_5up_5down_NaCl_150mM_310K membrane (rep1)\nTitle: (TM3_D2A-CIS) Simulation POPC_512_TM3_D2A_10_5up_5down_NaCl_150mM_310K membrane (rep1)\nDescription: Simulation of a POPC membrane containing ten LAPTM4B-TM3_D2A peptides using charmm36 at 310K. (TM3_D2A peptides have cis peptides bonds by mistake)\nMD engine: gromacs 2016.1\nForce field: charmm36\nTemperature: 310K\nSimulation time: 1000ns\nSaving frequency: 100ps\nMolecular content:\nTM3_D2A           10\nPOPC                512\nSOL               20470\nNA                       55\nCL                       55\nOther information:\n  * Membrane containing LAPTM4B TM3 peptides.\n  * The peptide presents the D202A mutation.\n  * 5 peptides pointing up/ 5 peptides pointing down.\n \n- Problems\n  * By mistake some peptides bonds in TM3 are in CIS configuration",
+  "entities": [],
+  "url": "https://zenodo.org/records/1205549"
+}

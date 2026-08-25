@@ -1,0 +1,5 @@
+{
+  "raw_text": "LIPAC Test Dataset - MD Simulation Trajectories\nTest dataset for LIPAC (Lipid-Protein Analysis with Causal Inference).\nThis dataset can be used for  test for other codes.\n  Contains coarse-grained MD simulation trajectories of transmembrane peptide (EGFR TM sequence) in complex membrane\n  with DIPC, DOPS, CHOL, SM, and GM3 lipids.\n \n  Files included:\n  - test_system.psf: System topology (62MB)\n  - test_trajectory.xtc: MD trajectory (345MB)\n  - README.md: Documentation",
+  "entities": [],
+  "url": "https://zenodo.org/records/16891479"
+}

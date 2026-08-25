@@ -1,0 +1,5 @@
+{
+  "raw_text": "Dataset for \"FANAzyme catalysed RNA cleavage is based on a two-state transition\"\nData set for publication on simulation of small FANAzyme:RNA cleavage\n01_Setup: setup with LEAP and AMBER ff library files\n02_MDtrajectories: MD trajectories for complex\n03_ELdatabase: Files composing the energy landscape database created with discrete pathsampling\n04_Analysis: Analysis scripts used for the computational data analysis\n05_SAXS: SAXS data and comparison with simulated SAXS curves",
+  "entities": [],
+  "url": "https://zenodo.org/records/18173800"
+}

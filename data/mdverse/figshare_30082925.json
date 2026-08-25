@@ -1,0 +1,5 @@
+{
+  "raw_text": "Development of an AMBER-Compatible Force Field for Gold Nanoclusters Protected by N‑Heterocyclic Carbenes\nN-Heterocyclic carbene (NHC)-protected gold nanoclusters (AuNCs) have emerged as promising candidates for biomedical applications due to their high stability and strong photoluminescence. However, their integration into atomistic molecular dynamics (MD) simulations, which facilitates an understanding of their behavior in biological environments, has been hindered by the lack of reliable force field parameters. Here, we present a new set of parameters for classical MD simulations of NHC-protected AuNCs, fully compatible with the AMBER force field. Validated through density functional theory (DFT)-based analyses and applied in a case study correlating ligand rigidity to optical properties, this work opens the door to predictive modeling and rational design of NHC-protected AuNCs for biomedical uses.",
+  "entities": [],
+  "url": "https://acs.figshare.com/articles/dataset/Development_of_an_AMBER-Compatible_Force_Field_for_Gold_Nanoclusters_Protected_by_i_N_i_Heterocyclic_Carbenes/30082925"
+}

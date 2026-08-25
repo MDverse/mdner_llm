@@ -1,0 +1,5 @@
+{
+  "raw_text": "Molecular dynamics simulations of the interaction of wild type human CYP2J2 with arachidonic acid (POSES 5 and 6)\nDescription of files in this dataset:\nMD_wt_CYP2J2_AA_StateX_repeatY.zip : Series of zipped directories for molecular dynamics simulations of arachidonic acid in the active site of wild type CYP2J2. X is the docking pose number that constitutes the starting point of the simulation (the 6 lowest-energy poses from docking were selected as the starting points of the simulations - this dataset is State(pose) 1). Y is the repeat (each simulation was repeated 4 times, hence there are 4 repeats per pose).  \nEach directory contains the following sub-directories:\n001.leap : Amber parameter and coordinate files; PDBs; ligands; leap commands\n002.min : Minimisation stage\n003.heat : Heating stage\n004.equil: Equilibration stage\n005.md : Production stage\n006.analysis : Basic energy graphs\n007.cpptraj: Contains only the file strip.md.nc (Amber trajectories stripped of water in netCDF format)",
+  "entities": [],
+  "url": "https://zenodo.org/records/3473886"
+}

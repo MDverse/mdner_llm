@@ -1,0 +1,5 @@
+{
+  "raw_text": "Decoding pH-Driven Phase Transition of Lipid Nanoparticles\nThis repository contains data for the publication \"Decoding pH-Driven Phase Transition of Lipid Nanoparticles\" by Trollmann and Böckmann published in Small (2026).\nFile Organization:\n1) parameters        - Molecular dynamics parameters for GROMACS using constant-pH\n2) simulation        - Snapshots from simulations important for main results of the paper        3) topol        - Topologies used in the simulations important for main results of the paper",
+  "entities": [],
+  "url": "https://zenodo.org/records/18236393"
+}

@@ -1,0 +1,5 @@
+{
+  "raw_text": "TPP binding to POPC membrane, CHARMM36-QMcharges-Literature, 416 mM, 298 K\nSystem info in README.yaml, including basic analysis - headgroup OP,  averaged APL and repead distance, analysis performed only from eqilibrated part of the simulation, marked as \"BINDINGEQ\"\nhere:\nFILES:\n  xtc:\n    NAME: [name]\n    SIZE: [MB]\n    MODIFIED: [yyyy-mm-dd time]\n    LENGTH: [ps]\n    SAVING_FREQUENCY: [ps]\n    BEGIN: [ps] - how much of the simulation was simulated before and is excluded",
+  "entities": [],
+  "url": "https://zenodo.org/records/7000483"
+}

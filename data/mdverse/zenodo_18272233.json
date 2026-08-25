@@ -1,0 +1,5 @@
+{
+  "raw_text": "Input files, parameters and scripts used in the analysis of the Identification of 14-3-3 and TRP interactions\nIn this File we provide a folder containing all data necessary to replicate the results obtained regarding TRP and 14-3-3 interactions.\nFour subfolders are contained:\n\nScripts: Contains all the python scripts used in the generation and analysis of data.\nCoevolution_input: Contains the multiple sequence alignments used for coevolution analysis.\nInput_docking: Contains the files required to generate the Lightdock molecular dockings\nInput_MD: Contains the necessary files to replicate the molecular dynamics through NAMD.",
+  "entities": [],
+  "url": "https://zenodo.org/records/18272233"
+}

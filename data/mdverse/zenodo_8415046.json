@@ -1,0 +1,5 @@
+{
+  "raw_text": "MD simulation of a model Gram-positive bilayer membrane (60% PG, 35% lysyl-PG, 5% CL)\nComposition:\nModel bilayer composition aimed at replicating the behavior of the Staphylococcus aureus membrane (See also Mohanan et al. Chem Sci 2020, 11, 4669: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8159255/)\nPer leaflet we have 48 POPG (16:0 / 18:1; -1 net charge), 28 DPPGK (16:0 / 16:0; +1 net charge), 4 TOCL1 (18:1,18:1 / 18:1,18:1; -1 net charge), giving 60% PG, 35% lysyl-PG, 5% CL. Bilayer is symmetric. \nTechnical details:\nOpenMM 7.5.1\nCHARMM36m force field\n6,712 TIP3P waters\n150 mM KCl (64 K+, 16 Cl-)\nTemperature = 303.15 K\nTrajectory output every 100 ps\nTrajectory length = 500 ns ( = 5,000 frames)\n(Standard CHARMM-GUI relaxation protocol)",
+  "entities": [],
+  "url": "https://zenodo.org/records/8415046"
+}
