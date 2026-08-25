@@ -1050,6 +1050,7 @@
             "aliases": [
                 "tip3p",
                 "charmm tip3p",
+                "charmm-specific tip3p",
                 "tip3",
                 "mtip3p"
             ],
