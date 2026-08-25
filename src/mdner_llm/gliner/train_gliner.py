@@ -10,9 +10,9 @@ import click
 import loguru
 import numpy as np
 import yaml
-from gliner2 import GLiNER2
+from gliner2 import AutoExtractor, GLiNER2
 from gliner2.training.data import InputExample, TrainingDataset
-from gliner2.training.trainer import GLiNER2Trainer, TrainingConfig
+from gliner2.training.trainer import ExtractorTrainer, TrainingConfig
 from matplotlib import pyplot as plt
 from matplotlib.colors import to_rgba
 from matplotlib.lines import Line2D
@@ -412,7 +412,7 @@ def train_gliner_model(
     dict
         Dictionary containing training results and metrics.
     """
-    trainer = GLiNER2Trainer(model, training_config)
+    trainer = ExtractorTrainer(model, training_config)
     results = trainer.train(train_data=train_dataset, eval_data=eval_dataset)
     logger.success("✓ Training complete successfully!")
     # Find the epoch with the lowest eval_loss from the results
@@ -643,7 +643,7 @@ def train_all_folds(
     all_results = []
     for fold_id, (train_data, val_data) in enumerate(folds, start=1):
         logger.info(f"Starting training of fold {fold_id}/{cfg.data.cv_folds}.")
-        model = GLiNER2.from_pretrained(cfg.model.name)
+        model = AutoExtractor.from_pretrained(cfg.model.name)
         training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
         training_config.output_dir = f"{output_dir}/fold_{fold_id}"
         logger_fold = create_logger(f"{training_config.output_dir}/logs/training.log")
