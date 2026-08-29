@@ -10,16 +10,15 @@ Each output file contains:
 """
 
 import json
-import math
-import os
 from pathlib import Path
 
 import click
+import loguru
 import matplotlib.patches as mpatches
 import numpy as np
 import pandas as pd
-from loguru import logger
 from matplotlib import pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from openai import OpenAI
 
 from mdner_llm.annotations.colors import COLORS
@@ -29,33 +28,26 @@ from mdner_llm.logger import create_logger
 
 def collect_entities(
     texts_path: Path,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> list[dict]:
     """
     Collect normalized entity counts per class from annotation files.
-
-    Parameters
-    ----------
-    texts_path : Path
-        Path to a directory containing JSON annotation files.
 
     Returns
     -------
     list[dict]
         List of entities.
     """
-    logger = create_logger()
     logger.info("Collecting entities.")
     texts_dict = {}
     entities_list = []
+    # Scan the directory for JSON files.
     json_files = list(texts_path.glob("*.json"))
     logger.success(f"Found {len(json_files)} JSON files successfully.")
-
-    if json_files == []:
-        logger.warning(f"No JSON files found in {texts_path}")
-    # Handle relative paths if the text file is located in a different directory
+    # Handle relative paths.
     if str(texts_path).startswith("../../"):
         json_files = [Path("../../") / json_file for json_file in json_files]
-
+    # Process each JSON file.
     for json_file in json_files:
         try:
             with json_file.open(encoding="utf-8") as handle:
@@ -63,18 +55,13 @@ def collect_entities(
         except json.JSONDecodeError as exc:
             logger.error(f"Failed to parse JSON file {json_file.name}: {exc}")
             continue
-
-        raw_text = data.get("raw_text", "")
-        if raw_text:
-            texts_dict[json_file.name] = raw_text
-
+        # Extract raw text for similarity analysis.
+        texts_dict[json_file.name] = data.get("raw_text", "")
+        # Extract entities and normalize them.
         for entity in data.get("entities", []):
             # Extract category and text
             category = entity.get("category")
             text = entity.get("text")
-            # Skip if either category or text is missing
-            if not category or not text:
-                continue
             # Create entity dictionnary
             entity_dict = {
                 "entity": text.lower(),
@@ -86,34 +73,14 @@ def collect_entities(
     return entities_list, texts_dict
 
 
-def write_inventory(
-    entities_df: pd.DataFrame,
-    out_path: Path,
+def plot_category_distribution(
+    df: pd.DataFrame, logger: "loguru.Logger" = loguru.logger
 ) -> None:
-    """
-    Write a single TSV file containing all entity counts.
-
-    Parameters
-    ----------
-    entities_df : pd.DataFrame
-        DataFrame containing all entities.
-    out_path : Path
-        Path where the output TSV file will be written.
-    """
-    logger.info("Writing entity inventory TSV file.")
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    # Write to TSV
-    entities_df.to_csv(out_path, sep="\t", index=False)
-    logger.success(f"Saved entity inventory in: {out_path}")
-
-
-def plot_category_distribution(df: pd.DataFrame) -> None:
     """Plot a bar chart showing the total number of entities per category."""
     total_texts = df["json_file"].nunique()
     summary = df["category"].value_counts().sort_values(ascending=False)
     categories = summary.index.tolist()
     counts = summary.to_numpy()
-
     # Non-redundant counts: unique entity text (case-insensitive) per category.
     df_norm = df.assign(entity_norm=df["entity"].str.lower().str.strip())
     unique_counts = (
@@ -122,11 +89,10 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
         .reindex(categories)
         .to_numpy()
     )
-
     colors = [COLORS.get(cat, "#cccccc") for cat in categories]
+    # Plot distribution with total counts and non-redundant counts.
     fig, ax = plt.subplots(figsize=(10, 5))
     x = np.arange(len(categories))
-
     bars = ax.bar(x, counts, color=colors, edgecolor="dimgrey")
     ax.bar(
         x,
@@ -136,7 +102,7 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
         hatch="///",
         alpha=0.7,
     )
-
+    # Annotate bars with total and non-redundant counts
     for bar, total, unique in zip(bars, counts, unique_counts, strict=False):
         ax.text(
             bar.get_x() + bar.get_width() / 2,
@@ -146,7 +112,7 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
             va="bottom",
             fontsize=10,
         )
-
+    # Set title, labels, and legend.
     total_entities = counts.sum()
     ax.set_title(
         f"Category distribution ({total_texts} texts / {total_entities:,} entities)",
@@ -168,107 +134,135 @@ def plot_category_distribution(df: pd.DataFrame) -> None:
         loc="upper right",
         fontsize=9,
     )
+    # Save the plot.
     file_path = Path("plots/annotations/entity_distribution.png")
-    os.makedirs(file_path.parent, exist_ok=True)
     fig.savefig(file_path, bbox_inches="tight", dpi=200)
     logger.success(f"Saved entity distribution plot in '{file_path}'.")
 
 
-def plot_entity_distribution_by_category(df: pd.DataFrame) -> None:
+def plot_entity_distribution_by_category(
+    df: pd.DataFrame, logger: "loguru.Logger" = loguru.logger
+) -> None:
     """Plot histograms of entity counts per category from a flat entity DataFrame."""
-    categories = sorted(df["category"].unique())
-    n_cols = 2
-    n_rows = math.ceil(len(categories) / n_cols)
-    fig, axes = plt.subplots(
-        n_rows, n_cols, figsize=(18, 5 * n_rows), constrained_layout=True
-    )
-    axes = axes.flatten()
-
-    for i, cat in enumerate(categories):
-        ax = axes[i]
-        data = df[df["category"] == cat].groupby("json_file").size()
-        ax.hist(data, bins=15, color=COLORS.get(cat, "#cccccc"), edgecolor="black")
-        ax.set_title(
-            f"Category {cat}\nmin: {data.min()} max: {data.max()}",
-            fontsize=13,
-            fontweight="bold",
-        )
-        ax.set_xlabel("Number of entities", fontsize=11)
-        ax.set_ylabel("Number of files", fontsize=11)
-
-    for j in range(i + 1, len(axes)):
-        fig.delaxes(axes[j])
-    fig.suptitle("Entity distributions by category", fontsize=16, fontweight="bold")
-    file_path = Path("plots/annotations/entity_distribution_by_category.png")
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(file_path, bbox_inches="tight", dpi=200)
-    logger.success(f"Saved entities distribution by category plot in '{file_path}'.")
-
-
-def plot_categories_per_text_distribution(df: pd.DataFrame) -> None:
-    """Plot distribution of unique entity categories per text."""
-    cat_per_file = df.groupby("json_file")["category"].nunique()
-    total_texts = df["json_file"].nunique()
-    total_categories = df["category"].nunique()
-    # Outlier alert for texts covering very few categories
-    for filename, count in cat_per_file.items():
-        if count <= 1:
-            logger.warning(
-                f"Text with low category coverage in '{filename}': {count} category"
+    # Normalize entity text to lower case and strip whitespace.
+    df_norm = df.assign(entity_norm=df["entity"].str.lower().str.strip())
+    # Define setup tuples for total and unique entity distributions.
+    configs = [
+        (
+            df.groupby(["category", "json_file"]).size(),
+            "Entity distributions by category",
+            "plots/annotations/entity_distribution_by_category.png",
+            None,
+        ),
+        (
+            df_norm.groupby(["category", "json_file"])["entity_norm"].nunique(),
+            "Non-redundant entity distributions by category",
+            "plots/annotations/unique_entity_distribution_by_category.png",
+            "//",
+        ),
+    ]
+    # Generate and export both histogram figures.
+    for counts, suptitle, out_file, hatch_pattern in configs:
+        # Initialize grid layout for subplots.
+        fig, axes = plt.subplots(3, 2, figsize=(18, 15), constrained_layout=True)
+        # Plot distribution per category.
+        for axis, (category, data) in zip(
+            axes.flat, counts.groupby(level="category"), strict=False
+        ):
+            # Compute integer bins based on maximum entity count.
+            max_val = int(data.max())
+            bins = np.arange(0, max_val + 2) - 0.5
+            _, _, bars = axis.hist(
+                data,
+                bins=bins,
+                color=COLORS.get(category, "#cccccc"),
+                edgecolor="black",
+                hatch=hatch_pattern,
             )
-    counts = cat_per_file.to_numpy()
-    fig, axis = plt.subplots(figsize=(10, 5))
-    _, _, bars = axis.hist(
-        counts,
-        bins=np.arange(1, total_categories + 2) - 0.5,
+            # Add frequency labels on top of bars.
+            labels = [int(v) if v > 0 else "" for v in bars.datavalues]
+            axis.bar_label(bars, labels=labels, padding=2)
+            axis.yaxis.set_major_locator(MaxNLocator(integer=True))
+            axis.set(
+                title=f"Category {category}\nmin: {data.min()} max: {max_val}",
+                xlabel="Number of entities",
+                ylabel="Number of files",
+                xlim=(-0.5, max_val + 0.5),
+                xticks=range(max_val + 1),
+            )
+        # Configure global figure title.
+        fig.suptitle(suptitle, fontsize=16, fontweight="bold")
+        # Save figure to disk and close plot instance.
+        out_path = Path(out_file)
+        fig.savefig(out_path, bbox_inches="tight", dpi=200)
+        plt.close(fig)
+        logger.success(f"Saved plot in '{out_path}'.")
+
+
+def plot_categories_per_text_distribution(
+    df: pd.DataFrame, logger: "loguru.Logger" = loguru.logger
+) -> None:
+    """Plot distribution of unique entity categories per text."""
+    # Count the number of unique categories per text.
+    cat_per_file = df.groupby("json_file")["category"].nunique()
+    n_texts, n_cats = len(cat_per_file), df["category"].nunique()
+    # Outlier alerts for texts with low category coverage.
+    for fn, count in cat_per_file[cat_per_file <= 1].items():
+        logger.warning(f"Text with low category coverage ({count}) in '{fn}'")
+    # Plot histogram of unique categories per text.
+    fig, ax = plt.subplots(figsize=(10, 5))
+    _, _, bars = ax.hist(
+        cat_per_file,
+        bins=np.arange(1, n_cats + 2) - 0.5,
         rwidth=0.8,
         color="#B873C9",
         edgecolor="black",
     )
-    axis.bar_label(bars, padding=2)
-    axis.set(
-        title="Category diversity distribution "
-        f"({total_texts} texts / {total_categories} total categories)",
+    ax.bar_label(bars, padding=2)
+    ax.set(
+        title=f"Category diversity distribution ({n_texts} texts / "
+        f"{n_cats} total categories)",
         xlabel="Unique categories per text",
         ylabel="Total count",
+        xticks=range(1, n_cats + 1),
     )
-    axis.set_xticks(range(1, total_categories + 1))
-    # Save the plot
-    out_file = Path("plots/annotations/categories_per_text_distribution.png")
-    out_file.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_file, bbox_inches="tight", dpi=200)
-    logger.success(f"Saved categories per text distribution plot in '{out_file}'.")
+    # Save the plot.
+    out = Path("plots/annotations/categories_per_text_distribution.png")
+    fig.savefig(out, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved categories per text distribution plot in '{out}'.")
 
 
-def plot_text_length_distribution(texts_dict: dict[str, str]) -> None:
+def plot_text_length_distribution(
+    texts_dict: dict[str, str], logger: "loguru.Logger" = loguru.logger
+) -> None:
     """Plot histogram of text word lengths."""
-    # Compute word counts for each text
-    counts = []
-    for name, text in texts_dict.items():
-        length = len(text.split())
-        counts.append(length)
-        # Log a warning for outlier text lengths
-        if length < 10 or length > 500:
-            logger.warning(f"Outlier text length in '{name}': {length} words")
-    # Plot histogram of text lengths
+    # Compute word counts for all texts
+    counts = pd.Series(
+        {
+            doc_name: len(text_content.split())
+            for doc_name, text_content in texts_dict.items()
+        }
+    )
+    # Log warning for length outliers.
+    for doc_name, word_count in counts[(counts < 10) | (counts > 500)].items():
+        logger.warning(f"Outlier text length in '{doc_name}': {word_count} words")
+    # Initialize and populate histogram plot.
     fig, axis = plt.subplots(figsize=(10, 5))
     axis.hist(counts, bins=20, color="#4C6EF5", edgecolor="black")
     axis.set(
-        title="Text length distribution in words "
-        f"({len(counts)} texts/ {sum(counts):,} words)",
+        title=f"Text length distribution in words ({len(counts)} texts / "
+        f"{counts.sum():,} words)",
         xlabel="Word count",
         ylabel="Total count",
     )
-    # Add median, min, and max statistics to the plot
-    stats = f"Median: {int(np.median(counts))}\nMin: {min(counts)}\nMax: {max(counts)}"
+    # Add summary statistics box.
+    stats = f"Median: {int(counts.median())}\nMin: {counts.min()}\nMax: {counts.max()}"
     axis.text(
         0.85,
         0.95,
         stats,
         transform=axis.transAxes,
-        ha="left",
         va="top",
-        fontsize=10,
         bbox={
             "boxstyle": "round,pad=0.5",
             "facecolor": "whitesmoke",
@@ -276,72 +270,73 @@ def plot_text_length_distribution(texts_dict: dict[str, str]) -> None:
             "alpha": 0.8,
         },
     )
-    # Save the plot
-    out_file = Path("plots/annotations/text_length_distribution.png")
-    out_file.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_file, bbox_inches="tight", dpi=200)
-    logger.success(f"Saved text length distribution plot in '{out_file}'.")
+    # Save the plot.
+    output_path = Path("plots/annotations/text_length_distribution.png")
+    fig.savefig(output_path, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved text length distribution plot in '{output_path}'.")
 
 
-def plot_text_similarity_distribution(texts_dict: dict[str, str]) -> None:
+def plot_text_similarity_distribution(
+    texts_dict: dict[str, str], logger: "loguru.Logger" = loguru.logger
+) -> None:
     """Compute embeddings via OpenRouter and plot pairwise cosine similarities."""
-    filenames = list(texts_dict.keys())
-    text_list = list(texts_dict.values())
-    # Initialize OpenAI client with OpenRouter API key
+    # Fetch normalized embeddings via API.
+    filenames, text_list = list(texts_dict.keys()), list(texts_dict.values())
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=load_api_key("OPENROUTER_API_KEY"),
     )
-    # Compute embeddings for all texts using OpenRouter
     response = client.embeddings.create(
-        model="openai/text-embedding-3-large",
-        input=text_list,
+        model="openai/text-embedding-3-large", input=text_list
     )
-    embeddings = np.array([item.embedding for item in response.data])
-    # Normalize the embeddings
-    normalized_embeddings = embeddings / np.linalg.norm(
-        embeddings, axis=1, keepdims=True
-    )
-    # Compute pairwise cosine similarity matrix
-    similarity_matrix = np.dot(normalized_embeddings, normalized_embeddings.T)
+    raw_embeds = np.array([item.embedding for item in response.data])
+    norm_embeds = raw_embeds / np.linalg.norm(raw_embeds, axis=1, keepdims=True)
+    # Extract pairwise upper-triangle cosine similarities.
     row_indices, col_indices = np.triu_indices(len(text_list), k=1)
-    pair_similarities = similarity_matrix[row_indices, col_indices]
-
-    # Outlier alerts for identical/near-duplicate texts
-    for r_idx, c_idx, sim in zip(
-        row_indices, col_indices, pair_similarities, strict=False
-    ):
-        if sim >= 0.98:
-            logger.warning(
-                f"Near-duplicate text pair ({sim:.3f}): "
-                f"'{filenames[r_idx]}' and '{filenames[c_idx]}'"
-            )
-    # Plot histogram of pairwise cosine similarities
-    fig, axis = plt.subplots(figsize=(10, 5))
-    axis.hist(
-        pair_similarities,
-        bins=25,
-        color="#7048E8",
-        edgecolor="black",
+    similarities = (norm_embeds @ norm_embeds.T)[row_indices, col_indices]
+    # Identify representative pair indices for extremes and median.
+    min_pair_idx = int(np.argmin(similarities))
+    max_pair_idx = int(np.argmax(similarities))
+    med_pair_idx = int(np.abs(similarities - np.median(similarities)).argmin())
+    # Log representative similarity examples.
+    pair_reports = (
+        ("Most dissimilar", min_pair_idx),
+        ("Median similarity", med_pair_idx),
+        ("Most similar", max_pair_idx),
     )
-    axis.set_xlim(0, 1)
+    for label, pair_index in pair_reports:
+        first_doc = filenames[row_indices[pair_index]]
+        second_doc = filenames[col_indices[pair_index]]
+        score = similarities[pair_index]
+        logger.info(f"{label} pair ({score:.3f}): '{first_doc}' and '{second_doc}'")
+    # Log alerts for near-duplicate texts.
+    for row_idx, col_idx, sim_score in zip(
+        row_indices, col_indices, similarities, strict=False
+    ):
+        if sim_score >= 0.98:
+            logger.warning(
+                f"Near-duplicate text pair ({sim_score:.3f}): '{filenames[row_idx]}' "
+                f"and '{filenames[col_idx]}'"
+            )
+    # Initialize and populate histogram.
+    fig, axis = plt.subplots(figsize=(10, 5))
+    axis.hist(similarities, bins=25, color="#7048E8", edgecolor="black")
     axis.set(
+        xlim=(0, 1),
         title=f"Text similarity distribution ({len(text_list)} texts / "
-        f"{len(pair_similarities):,} pairs)",
+        f"{len(similarities):,} pairs)",
         xlabel="Cosine similarity (0 = dissimilar, 1 = identical)",
         ylabel="Total count",
     )
-    # Add median, min, and max statistics to the plot
-    stats = f"Median: {np.median(pair_similarities):.2f}\n"
-    stats += f"Min: {pair_similarities.min():.2f}\nMax: {pair_similarities.max():.2f}"
+    # Add summary statistics text box.
+    stats = f"Median: {np.median(similarities):.2f}\nMin: {similarities.min():.2f}"
+    stats += f"\nMax: {similarities.max():.2f}"
     axis.text(
         0.85,
         0.95,
         stats,
         transform=axis.transAxes,
-        ha="left",
         va="top",
-        fontsize=10,
         bbox={
             "boxstyle": "round,pad=0.5",
             "facecolor": "whitesmoke",
@@ -349,11 +344,10 @@ def plot_text_similarity_distribution(texts_dict: dict[str, str]) -> None:
             "alpha": 0.8,
         },
     )
-    # Save the plot
-    out_file = Path("plots/annotations/text_similarity_distribution.png")
-    out_file.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_file, bbox_inches="tight", dpi=200)
-    logger.success(f"Saved text similarity distribution plot in '{out_file}'.")
+    # Save the plot.
+    output_path = Path("plots/annotations/text_similarity_distribution.png")
+    fig.savefig(output_path, bbox_inches="tight", dpi=200)
+    logger.success(f"Saved text similarity distribution plot in '{output_path}'.")
 
 
 @click.command()
@@ -373,28 +367,22 @@ def run_cli(
     annotations_path: Path,
     out_path: Path,
 ) -> None:
-    """
-    Run the QC entity inventory process.
-
-    Parameters
-    ----------
-    annotations_path : Path
-        Folder containing the JSON files with annotations.
-    out_path : Path
-        Path of the TSV file with the entities.
-    """
+    """Run the QC entity inventory process."""
     logger = create_logger()
     logger.info("Starting entity inventory.")
-    entities, texts_dict = collect_entities(annotations_path)
-    # Create the dataframe
+    entities, texts_dict = collect_entities(annotations_path, logger=logger)
+    # Create the dataframe.
     df_entities = pd.DataFrame(entities)
-    write_inventory(df_entities, out_path)
-    # Generate plots
-    plot_category_distribution(df_entities)
-    plot_entity_distribution_by_category(df_entities)
-    plot_categories_per_text_distribution(df_entities)
-    plot_text_length_distribution(texts_dict)
-    plot_text_similarity_distribution(texts_dict)
+    # Write to TSV.
+    df_entities.to_csv(out_path, sep="\t", index=False)
+    logger.success(f"Saved entity inventory in: {out_path}")
+    # Generate plots.
+    Path("plots/annotations/").mkdir(parents=True, exist_ok=True)
+    plot_category_distribution(df_entities, logger=logger)
+    plot_entity_distribution_by_category(df_entities, logger=logger)
+    plot_categories_per_text_distribution(df_entities, logger=logger)
+    plot_text_length_distribution(texts_dict, logger=logger)
+    # plot_text_similarity_distribution(texts_dict, logger=logger)
     logger.success("Entity inventory completed successfully!")
 
 
