@@ -3,7 +3,7 @@
 import json
 import re
 import time
-from datetime import UTC, datetime
+from datetime import datetime
 from pathlib import Path
 
 import click
@@ -514,7 +514,7 @@ def extract_entities(
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
     # Prepare output path
-    ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
+    ts = datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S")
     sanitized_model = sanitize_filename(f"{model}{tag}_t_{temperature}_{framework}")
     txt_output_path = Path(output_dir / f"{text_path.stem}_{sanitized_model}_{ts}.txt")
     # Save raw response into a txt file
@@ -529,8 +529,8 @@ def extract_entities(
         "text": text_to_annotate,
         "url": url,
         "model_name": f"{model}{tag}",
-        "provider": inference_metadata.get("provider"),
-        "temperature": temperature,
+        "provider": [inference_metadata.get("provider")],
+        "temperature": [temperature],
         "framework_name": framework,
         "prompt_path": str(prompt_output_path),
         "groundtruth": groundtruth.model_dump(),
