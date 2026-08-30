@@ -394,6 +394,10 @@ def build_training_config(
         save_best=config.training.save_best,
         # Logging
         logging_steps=config.training.logging_steps,
+        # Use allow_invalid_samples to skip samples
+        # with misaligned text and raw_text during training
+        # Necessary for gliner2.5 training
+        allow_invalid_samples=True,
     )
 
 

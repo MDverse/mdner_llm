@@ -3,6 +3,7 @@
 import shutil
 from pathlib import Path
 import pandas as pd
+import numpy as np
 
 # Global parameters.
 CONFIG_PATH = Path("workflow/configs/gliner_training.yaml")
@@ -50,9 +51,9 @@ MODELS = {
         "adapter_path": None,
         "is_trainable": False,
     },
-    "gliner2.5-large-v1": {
-        "display_name": "fastino/gliner2.5-large-v1",
-        "model_path": "fastino/gliner2.5-large-v1",
+    "gliner2.5-multi-v1": {
+        "display_name": "fastino/gliner2.5-multi-v1",
+        "model_path": "fastino/gliner2.5-multi-v1",
         "adapter_path": None,
         "is_trainable": False,
     },
@@ -68,44 +69,11 @@ MODELS = {
         "task_lr": 2e-5,
         "warmup_ratio": 0.08,
     },
-    "gliner2-large-v1-finetuned": {
-       "display_name": "fastino/gliner2-large-v1-finetuned",
-       "base_model": "fastino/gliner2-large-v1",
-       "model_path": "results/gliner/models/gliner2-large-v1-finetuned/fold_{fold}/best",
-       "adapter_path": None,
-       "use_lora": False,
-       "is_trainable": True,
-       "encoder_lr": 2e-6,
-       "task_lr": 2e-5,
-      "warmup_ratio": 0.08,
-    },
     # 5. GLiNER2.5 Full Fine-tuned
-    "gliner2.5-small-v1-finetuned": {
-        "display_name": "fastino/gliner2.5-small-v1-finetuned",
-        "base_model": "fastino/gliner2.5-small-v1",
-        "model_path": "results/gliner/models/gliner2.5-small-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
     "gliner2.5-base-v1-finetuned": {
         "display_name": "fastino/gliner2.5-base-v1-finetuned",
         "base_model": "fastino/gliner2.5-base-v1",
         "model_path": "results/gliner/models/gliner2.5-base-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
-    "gliner2.5-multi-v1-finetuned": {
-        "display_name": "fastino/gliner2.5-multi-v1-finetuned",
-        "base_model": "fastino/gliner2.5-multi-v1",
-        "model_path": "results/gliner/models/gliner2.5-multi-v1-finetuned/fold_{fold}/best",
         "adapter_path": None,
         "use_lora": False,
         "is_trainable": True,
@@ -144,9 +112,19 @@ def get_adapter_arg(wildcards) -> str:
     return f"--adapter-path {adapter.format(fold=wildcards.fold)}" if adapter else ""
 
 
+def format_seconds_to_hhmmss(total_seconds: float) -> str:
+    """Convert a duration in seconds into hh:mm:ss format."""
+    total_seconds = int(round(total_seconds))
+    hours = total_seconds // 3600
+    minutes = (total_seconds % 3600) // 60
+    seconds = total_seconds % 60
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+
 rule gliner_all:
     input:
         "results/gliner/evaluation/models_benchmark_mean_std_summary.csv",
+        "results/gliner/evaluation/benchmark_models_grouped_metrics.csv",
         "results/gliner/evaluation/all_folds_grouped_metrics.parquet",
         "results/gliner/evaluation/all_folds_per_text_and_category_confusion_metrics.parquet",
 
@@ -169,8 +147,7 @@ rule train_gliner:
         cfg = load_config(input.config, logger=logger)
         if cfg is None:
             raise ValueError(f"Could not load configuration from {input.config}.")
-        # Depending on the model,
-        # configure training parameters.
+        # Configure training parameters
         meta = MODELS[wildcards.model]
         cfg.model.name = meta["base_model"]
         cfg.model.experiment_name = wildcards.model
@@ -270,7 +247,7 @@ rule merge_all_folds_evaluations:
             shutil.rmtree(folds_dir)
 
 
-# Aggregate benchmark metrics across folds.
+# Aggregate benchmark metrics across folds (Mean / Std summary).
 rule generate_summary_csv:
     input:
         all_grouped_parquet="results/gliner/evaluation/all_folds_grouped_metrics.parquet",
@@ -327,20 +304,64 @@ rule generate_summary_csv:
                     "Inference_time_by_entity_std (s)": float(df_f["time_per_ent"].std(ddof=1)),
                 }
         # Compute delta F1 against corresponding base models.
-        summary_rows = []
-        for model_key, row_dict in models_metrics.items():
+        name_to_metrics = {m["Model_name"]: m for m in models_metrics.values()} | models_metrics
+        for model_key, row in models_metrics.items():
             meta = MODELS[model_key]
-            delta_f1 = None
             if meta.get("is_trainable"):
-                base_identifier = meta.get("base_model")
-                # Look up base model metrics by key or display name.
-                base_entry = None
-                for candidate_key, candidate_metrics in models_metrics.items():
-                    if candidate_key == base_identifier or candidate_metrics["Model_name"] == base_identifier:
-                        base_entry = candidate_metrics
-                        break
-                if base_entry is not None:
-                    delta_f1 = float(row_dict["Micro_F1_mean"] - base_entry["Micro_F1_mean"])
-            row_dict["Delta_F1"] = delta_f1
-            summary_rows.append(row_dict)
-        pd.DataFrame(summary_rows).to_csv(output.summary_csv, index=False)
+                base = name_to_metrics.get(meta.get("base_model"))
+                if base:
+                    row["Delta_Micro_F1"] = float(row["Micro_F1_mean"] - base["Micro_F1_mean"])
+                    row["Delta_Macro_F1"] = float(row["Macro_F1_mean"] - base["Macro_F1_mean"])
+
+        pd.DataFrame(list(models_metrics.values())).to_csv(output.summary_csv, index=False)
+
+
+# Generate benchmark_models grouped metrics CSV across all models and categories.
+rule generate_benchmark_models_csv:
+    input:
+        all_grouped_parquet="results/gliner/evaluation/all_folds_grouped_metrics.parquet",
+    output:
+        benchmark_csv=report(
+            "results/gliner/evaluation/benchmark_models_grouped_metrics.csv",
+            category="Detailed Benchmark Metrics Across Categories",
+        ),
+    run:
+        df_all = pd.read_parquet(input.all_grouped_parquet)
+        rows = []
+
+        for model_key, meta in MODELS.items():
+            df_model = df_all[df_all["model"] == model_key]
+            if df_model.empty:
+                continue
+
+            for category, df_cat in df_model.groupby("category"):
+                total_cost = float(df_cat["total_cost_usd"].sum()) if "total_cost_usd" in df_cat else 0.0
+                total_time = float(df_cat["total_inference_time_sec"].sum()) if "total_inference_time_sec" in df_cat else 0.0
+                total_preds = int(df_cat["nb_predicted_entities_raw"].sum()) if "nb_predicted_entities_raw" in df_cat else 0
+
+                cost_per_ent = (total_cost / total_preds) if total_preds > 0 else 0.0
+                time_per_ent = (total_time / total_preds) if total_preds > 0 else 0.0
+
+                rows.append({
+                    "Inference_date": str(df_cat["inference_date"].max()) if "inference_date" in df_cat else "",
+                    "Name": meta["display_name"],
+                    "category": category,
+                    "Number_of_texts_with_category": int(df_cat["nb_texts_with_category"].sum()) if "nb_texts_with_category" in df_cat else 0,
+                    "Correct_format_(%)": float(df_cat["correct_format_pct"].mean()) if "correct_format_pct" in df_cat else 100.0,
+                    "Hallucinations_(%)": float(df_cat["hallucinations_pct"].mean()) if "hallucinations_pct" in df_cat else 0.0,
+                    "Precision": float(df_cat["precision"].mean()),
+                    "Precision_with_no_hallucination": float(df_cat["precision_no_hallucination"].mean()) if "precision_no_hallucination" in df_cat else float(df_cat["precision"].mean()),
+                    "Recall": float(df_cat["recall"].mean()),
+                    "F1": float(df_cat["f1"].mean()),
+                    "F1_with_no_hallucination": float(df_cat["f1_no_hallucination"].mean()) if "f1_no_hallucination" in df_cat else float(df_cat["f1"].mean()),
+                    "Fbeta_0.5": float(df_cat["fbeta_0_5"].mean()) if "fbeta_0_5" in df_cat else np.nan,
+                    "Fbeta_0.5_with_no_hallucination": float(df_cat["fbeta_0_5_no_hallucination"].mean()) if "fbeta_0_5_no_hallucination" in df_cat else np.nan,
+                    "Cost_by_entity_($)": cost_per_ent,
+                    "Inference_time_by_entity_(s)": time_per_ent,
+                    "Number_of_predicted_entities": total_preds,
+                    "Cost_total_($)": total_cost,
+                    "Inference_time_total_(s)": total_time,
+                    "Inference_time_total_(hh:mm:ss)": format_seconds_to_hhmmss(total_time),
+                })
+
+        pd.DataFrame(rows).to_csv(output.benchmark_csv, index=False)
