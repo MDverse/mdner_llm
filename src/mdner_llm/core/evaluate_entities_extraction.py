@@ -87,10 +87,16 @@ def normalize_text(text: str) -> str:
 
 
 def extract_predicted_entities_from_row(data_row) -> list[dict]:
-    """Fallback from normalized_entities to formatted_response."""
+    """Fallback from normalized_entities to formatted_response.
+
+    Returns
+    -------
+    list[dict]
+        List of predicted entities with their categories and hallucination flags.
+    """
     if isinstance(data_row.get("normalized_entities"), dict):
         return data_row["normalized_entities"].get("entities", [])
-    
+
     formatted = data_row.get("formatted_response")
     if formatted and hasattr(formatted, "entities"):
         return [
@@ -99,7 +105,11 @@ def extract_predicted_entities_from_row(data_row) -> list[dict]:
         ]
     elif isinstance(formatted, dict) and "entities" in formatted:
         return [
-            {"category": ent.get("category"), "text": ent.get("text"), "is_hallucinated": False}
+            {
+                "category": ent.get("category"),
+                "text": ent.get("text"),
+                "is_hallucinated": False,
+            }
             for ent in formatted["entities"]
         ]
     return []
@@ -127,7 +137,7 @@ def count_hallucinated_entities(
     Returns
     -------
     int
-        Number of hallucinated entities in the normalized_entities field of the data_row.
+        Number of hallucinated entities in the normalized_entities field.
     """
     if not is_valid_output_format or not isinstance(
         data_row.get("normalized_entities"), dict
@@ -161,8 +171,7 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
     df["is_valid_output_format"] = df["status"].eq("ok")
     # Count the number of predicted entities
     df["nb_predicted_entities_raw"] = df.apply(
-        lambda row: count_predicted_entities(row),
-        axis=1
+        lambda row: count_predicted_entities(row), axis=1
     )
     # Count the number of hallucinated entities
     df["nb_hallucinated_entities"] = df.apply(
@@ -216,7 +225,6 @@ def split_predictions_by_category_and_hallucination(
     return hallucinated, grounded
 
 
-
 def build_category_level_dataframe(
     df: pd.DataFrame,
 ) -> pd.DataFrame:
@@ -233,7 +241,6 @@ def build_category_level_dataframe(
         gt_entities = row["groundtruth"].entities
         gt_by_category = group_texts_by_category(gt_entities)
         # Get the list of predicted entities
-        # Normalized entities or 
         pred_entities = extract_predicted_entities_from_row(row)
         # Collect all unique categories present in GT or Preds
         pred_categories = {
