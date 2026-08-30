@@ -118,43 +118,38 @@ def build_aggregated_metadata(annotations: list[dict]) -> dict:
         A dict with summed performance metrics, formatted consensus name,
         and merged custom metadata attributes.
     """
-    # Extract and format model names and temperatures
     models = sorted(
         {str(a.get("model_name", "unknown")).replace("/", "_") for a in annotations}
     )
-    temps = sorted({str(a.get("temperature")) for a in annotations})
-    # Initialize accumulated metrics and reserved keys
-    res = {
+    temps = sorted(
+        {str(t) for a in annotations for t in a.get("temperature", []) if t is not None}
+    )
+    providers = sorted(
+        {str(p) for a in annotations for p in a.get("provider", []) if p is not None}
+    )
+    # Initialize aggregated result with identity metadata and summed metrics.
+    result = {
         "model_name": f"consensus_{'_'.join(models)}_t_{'_'.join(temps)}",
-        "temperature": temps,
-        "inference_time_sec": 0.0,
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "inference_cost_usd": 0.0,
+        "temperature": [float(temp) for temp in temps],
+        "provider": providers,
+        "inference_time_sec": sum(
+            float(a.get("inference_time_sec", 0.0)) for a in annotations
+        ),
+        "input_tokens": sum(int(a.get("input_tokens", 0)) for a in annotations),
+        "output_tokens": sum(int(a.get("output_tokens", 0)) for a in annotations),
+        "inference_cost_usd": sum(
+            float(a.get("inference_cost_usd", 0.0)) for a in annotations
+        ),
     }
-    # Process all annotations
-    for ann in annotations:
-        for key, val in ann.items():
-            # Sum numerical metrics
-            if key in {
-                "inference_time_sec",
-                "input_tokens",
-                "output_tokens",
-                "inference_cost_usd",
-            }:
-                if isinstance(val, (int, float)):
-                    res[key] += val
-            # Merge custom metadata fields, skipping reserved keys
-            elif key not in {"model_name", "temperature", "formatted_response"}:
-                if key not in res:
-                    res[key] = val
-                else:
-                    if isinstance(res[key], list):
-                        if val not in res[key]:
-                            res[key].append(val)
-                    elif res[key] != val:
-                        res[key] = [res[key], val]
-    return res
+    # Merge remaining metadata fields from the first annotation.
+    skip_keys = set(result.keys()) | {
+        "formatted_response",
+        "normalized_entities",
+    }
+    result.update(
+        {key: value for key, value in annotations[0].items() if key not in skip_keys}
+    )
+    return result
 
 
 def build_consensus_output(
