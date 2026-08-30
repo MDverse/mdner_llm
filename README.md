@@ -296,9 +296,9 @@ A comparison of the performance of different LLMs/Gliner2 models and frameworks 
 We provide end-to-end reproducible pipelines orchestrated with [Snakemake](https://snakemake.readthedocs.io/).
 
 ```sh
-uv run snakemake gliner_all --cores all --resources gpu=1  # only gliner
-uv run snakemake llm_all --cores all                       # only llm
-uv run snakemake all --cores all --resources gpu=1         # all
+uv run snakemake gliner_all --cores all --resources gpu=1     # only gliner
+uv run snakemake llm_all --cores all --resources api_calls=1  # only llm
+uv run snakemake all --cores all --resources gpu=1            # all
 ```
 
 All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/plot_ner_performance.ipynb](notebooks/plot_ner_performance.ipynb).
