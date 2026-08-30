@@ -2,323 +2,117 @@
 
 import json
 import shutil
+import time
 from pathlib import Path
 import pandas as pd
+from filelock import FileLock
 
 from mdner_llm.common import sanitize_filename
 
 
 # Load pipeline configuration file.
 configfile: "workflow/configs/llm.yaml"
+
 # Global paths and inputs configuration.
 texts_directory = Path(config["texts_path"])
 json_files_list = sorted(file_path.name for file_path in texts_directory.glob("*.json"))
 target_files = json_files_list[:config.get("max_samples")] if config.get("max_samples") else json_files_list
 consensus_threshold_value = config.get("consensus_threshold", 0.5)
-base_output_directory = Path(config["output_dir_base"])
+api_sleep_delay = config.get("api_sleep_delay", 5)
+
 # Model dictionaries mapping safe filesystem names to full identifiers.
-benchmark_models = {sanitize_filename(model_name): model_name for model_name in config["benchmark_models"]}
-full_eval_models = {sanitize_filename(model_name): model_name for model_name in config["full_eval_models"]}
-consensus_models = {sanitize_filename(model_name): model_name for model_name in config["consensus_models"]}
+benchmark_models = {sanitize_filename(m): m for m in config.get("benchmark_models", [])}
+full_eval_models = {sanitize_filename(m): m for m in config.get("full_eval_models", [])}
+consensus_models = {sanitize_filename(m): m for m in config.get("consensus_models", [])}
+
+# Unified registry of all known model full names
+all_models_dict = {**benchmark_models, **full_eval_models, **consensus_models}
 
 
-# Build target paths for per-scenario evaluations.
+# Build target flag files for per-scenario evaluations.
 evaluation_targets = []
+
 # Scenario 1: Benchmark prompting strategies.
 for strategy_name in config["benchmark_strategies"]:
     for safe_model_name in benchmark_models:
         evaluation_targets.append(
-            base_output_directory / "evaluation" / "benchmark_strategies" / strategy_name / safe_model_name / "grouped_evaluation_metrics.csv"
+            f"results/llm/evaluation/benchmark_strategies/{strategy_name}/{safe_model_name}/.done"
         )
+
 # Scenario 2: Full evaluation on benchmark and reference models.
 for safe_model_name in full_eval_models:
     evaluation_targets.append(
-        base_output_directory / "evaluation" / "benchmark_models" / "with_instructor_with_guidelines" / safe_model_name / "grouped_evaluation_metrics.csv"
+        f"results/llm/evaluation/benchmark_models/with_instructor_with_guidelines/{safe_model_name}/.done"
     )
+
 # Scenario 3: Consensus aggregation runs.
-consensus_temperatures = config.get("consensus_temperatures")
+consensus_temperatures = [str(t) for t in config.get("consensus_temperatures", [1.0])]
 consensus_setups = [
-    f"temp_{'_and_'.join(str(temp) for temp in consensus_temperatures[:end_idx])}"
+    f"temp_{'_and_'.join(consensus_temperatures[:end_idx])}"
     for end_idx in range(1, len(consensus_temperatures) + 1)
 ]
 for setup_identifier in consensus_setups:
     evaluation_targets.append(
-        base_output_directory / "evaluation" / "consensus" / setup_identifier / "grouped_evaluation_metrics.csv"
+        f"results/llm/evaluation/consensus/{setup_identifier}/.done"
     )
 
 
-rule llm_all:
-    input:
-        benchmark_strategies_csv=base_output_directory / "evaluation" / "benchmark_strategies.csv",
-        benchmark_models_csv=base_output_directory / "evaluation" / "benchmark_models.csv",
-        all_grouped_csv=base_output_directory / "evaluation" / "all_grouped_evaluation_metrics.csv",
-        all_detailed_parquet=base_output_directory / "evaluation" / "all_per_text_and_category_confusion_metrics.parquet",
-
-
 # ==============================================================================
-# SCENARIOS 1 & 2: EXTRACTION, NORMALIZATION, AND EVALUATION
+# HELPER: INCREMENTAL GLOBAL AGGREGATION
 # ==============================================================================
 
-# Extract entities.
-rule extract_benchmark_and_full:
-    input:
-        texts_files=expand("{path}/{json_file}", path=texts_directory, json_file=target_files),
-        prompt=config["prompt_path"],
-        examples=config["examples_path"],
-    output:
-        out_dir=directory("results/llm/inferences/{scenario}/{combo}/{model_safe}"),
-    wildcard_constraints:
-        scenario="(?!consensus_raw).*",  # To ensure this rule does not match consensus runs.
-    params:
-        model=lambda wildcards: benchmark_models.get(wildcards.model_safe) or full_eval_models.get(wildcards.model_safe),
-        framework=lambda wildcards: config["benchmark_strategies"].get(wildcards.combo, {}).get("framework", "instructor"),
-        guidelines=lambda wildcards: config["benchmark_strategies"].get(wildcards.combo, {}).get("guidelines", config["guidelines_path"]),
-    shell:
-        """
-        mkdir -p {output.out_dir}
-        for file in {input.texts_files}; do
-            uv run extract-entities-with-llm \
-                --text-path "$file" \
-                --model "{params.model}" \
-                --prompt-path {input.prompt} \
-                --guidelines-path {params.guidelines} \
-                --examples-path {input.examples} \
-                --framework {params.framework} \
-                --output-dir {output.out_dir}
-        done
-        """
+def update_global_aggregates(new_csv_path: str, new_parquet_path: str, scenario_name: str, combo_name: str, model_safe_name: str):
+    """Update global benchmark CSV/Parquet files incrementally with file locking."""
+    eval_dir = Path("results/llm/evaluation")
+    eval_dir.mkdir(parents=True, exist_ok=True)
+    lock_path = eval_dir / ".aggregation.lock"
 
-# Normalize extracted entities.
-rule normalize_benchmark_and_full:
-    input:
-        inferences_dir="results/llm/inferences/{scenario}/{combo}/{model_safe}",
-        ffm_db=config["ffm_db_path"],
-        softname_db=config["softname_db_path"],
-    output:
-        norm_dir=directory("results/llm/inferences_normalized/{scenario}/{combo}/{model_safe}"),
-    params:
-        norm_model=config["normalization_model"],
-    shell:
-        """
-        uv run normalize-extracted-entities \
-            --inferences-dir {input.inferences_dir} \
-            --ffm-db-path {input.ffm_db} \
-            --softname-db-path {input.softname_db} \
-            --model-name "{params.norm_model}" \
-            --output-dir {output.norm_dir}
-        """
+    all_grouped_csv = eval_dir / "all_grouped_evaluation_metrics.csv"
+    all_detailed_parquet = eval_dir / "all_per_text_and_category_confusion_metrics.parquet"
+    benchmark_strategies_csv = eval_dir / "benchmark_strategies.csv"
+    benchmark_models_csv = eval_dir / "benchmark_models.csv"
 
-# Evaluate normalized predictions against ground truth.
-rule evaluate_benchmark_and_full:
-    input:
-        inferences_dir="results/llm/inferences_normalized/{scenario}/{combo}/{model_safe}",
-    output:
-        eval_csv="results/llm/evaluation/{scenario}/{combo}/{model_safe}/grouped_evaluation_metrics.csv",
-        eval_parquet="results/llm/evaluation/{scenario}/{combo}/{model_safe}/per_text_and_category_confusion_metrics.parquet",
-    shell:
-        """
-        uv run evaluate-entities-extraction \
-            --inferences-dir {input.inferences_dir} \
-            --results-dir $(dirname {output.eval_csv})
-        """
+    with FileLock(str(lock_path), timeout=60):
+        # 1. Update Grouped Metrics CSV
+        new_df = pd.read_csv(new_csv_path)
+        new_df["scenario"] = scenario_name
+        new_df["combo"] = combo_name
+        new_df["model_safe"] = model_safe_name
 
-
-# ==============================================================================
-# SCENARIO 3: CONSENSUS RUNS AND MULTI-TEMPERATURE AGGREGATIONS
-# ==============================================================================
-
-# Helper to resolve input directories based on the specified temperature setup.
-def get_consensus_inferences_input(wildcards) -> list[str]:
-    """Resolve raw inference paths for each temperature."""
-    # wildcards.setup is e.g. "temp_1.0" or "temp_1.0_and_2.0"
-    temperatures_string = wildcards.setup.replace("temp_", "")
-    included_temperatures = temperatures_string.split("_and_")
-    
-    input_directories = []
-    for temperature_value in included_temperatures:
-        for model_identifier in consensus_models.keys():
-            input_directories.append(
-                f"results/llm/inferences/consensus_raw/temp_{temperature_value}/{model_identifier}"
+        if all_grouped_csv.exists():
+            existing_df = pd.read_csv(all_grouped_csv)
+            mask = (
+                (existing_df["scenario"] == scenario_name) &
+                (existing_df["combo"] == combo_name) &
+                (existing_df["model_safe"] == model_safe_name)
             )
-    return input_directories
+            full_grouped_df = pd.concat([existing_df[~mask], new_df], ignore_index=True)
+        else:
+            full_grouped_df = new_df
 
+        full_grouped_df.to_csv(all_grouped_csv, index=False)
 
-# Extract entities across varying temperature settings.
-rule extract_consensus_runs:
-    input:
-        texts_files=expand("{path}/{json_file}", path=texts_directory, json_file=target_files),
-        prompt=config["prompt_path"],
-        guidelines=config["guidelines_path"],
-        examples=config["examples_path"],
-    output:
-        out_dir=directory("results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}"),
-    params:
-        model=lambda wildcards: consensus_models[wildcards.model_safe],
-        temp=lambda wildcards: wildcards.temp,
-    shell:
-        """
-        mkdir -p {output.out_dir}
-        for file in {input.texts_files}; do
-            uv run extract-entities-with-llm \
-                --text-path "$file" \
-                --model "{params.model}" \
-                --prompt-path {input.prompt} \
-                --guidelines-path {input.guidelines} \
-                --examples-path {input.examples} \
-                --temperature {params.temp} \
-                --framework instructor \
-                --output-dir {output.out_dir}
-        done
-        """
+        # 2. Update Detailed Metrics Parquet (concaténation native directe)
+        if Path(new_parquet_path).exists():
+            new_det_df = pd.read_parquet(new_parquet_path)
+            new_det_df["scenario"] = scenario_name
+            new_det_df["combo"] = combo_name
+            new_det_df["model_safe"] = model_safe_name
 
-
-# Aggregate consensus predictions across multiple temperature runs.
-rule aggregate_consensus:
-    input:
-        inferences=get_consensus_inferences_input,
-    output:
-        consensus_dir=directory("results/llm/inferences/consensus_aggregated/{setup}"),
-    params:
-        threshold=consensus_threshold_value,
-        staging_dir="results/llm/inferences_consensus_staging/{setup}",
-    shell:
-        """
-        mkdir -p {params.staging_dir}
-        mkdir -p {output.consensus_dir}
-
-        # Enable nullglob so empty patterns do not throw errors.
-        shopt -s nullglob
-
-        # Copy JSON predictions from all model inference directories into staging.
-        for source_directory in {input.inferences}; do
-            if [ -d "$source_directory" ]; then
-                cp "$source_directory"/*.json {params.staging_dir}/ 2>/dev/null || true
-            fi
-        done
-
-        # Run the consensus aggregation CLI tool.
-        uv run aggregate-consensus-entities \
-            --inferences-dir {params.staging_dir} \
-            --threshold {params.threshold} \
-            --output-dir {output.consensus_dir}
-
-        # Clean up temporary staging directory.
-        rm -rf {params.staging_dir}
-        rmdir results/llm/inferences_consensus_staging 2>/dev/null || true
-        """
-
-# Normalize consensus extracted entities against registries.
-rule normalize_consensus:
-    input:
-        inferences_dir="results/llm/inferences/consensus_aggregated/{setup}",
-        ffm_db=config["ffm_db_path"],
-        softname_db=config["softname_db_path"],
-    output:
-        norm_dir=directory("results/llm/inferences_normalized/consensus/{setup}"),
-    params:
-        norm_model=config["normalization_model"],
-    shell:
-        """
-        uv run normalize-extracted-entities \
-            --inferences-dir {input.inferences_dir} \
-            --ffm-db-path {input.ffm_db} \
-            --softname-db-path {input.softname_db} \
-            --model-name "{params.norm_model}" \
-            --output-dir {output.norm_dir}
-        """
-
-# Evaluate consensus prediction quality.
-rule evaluate_consensus:
-    input:
-        inferences_dir="results/llm/inferences_normalized/consensus/{setup}",
-    output:
-        eval_csv="results/llm/evaluation/consensus/{setup}/grouped_evaluation_metrics.csv",
-        eval_parquet="results/llm/evaluation/consensus/{setup}/per_text_and_category_confusion_metrics.parquet",
-    shell:
-        """
-        uv run evaluate-entities-extraction \
-            --inferences-dir {input.inferences_dir} \
-            --results-dir $(dirname {output.eval_csv})
-        """
-
-
-# ==============================================================================
-# GLOBAL AGGREGATION & CLEANUP
-# ==============================================================================
-
-def serialize_cell(val):
-    # First, value is a numpy array or similar object.
-    if hasattr(val, "tolist"):
-        return json.dumps(val.tolist())
-    # Second, value is a list or dictionary.
-    if isinstance(val, (list, dict)):
-        return json.dumps(
-            val,
-            default=lambda obj: obj.tolist() if hasattr(obj, "tolist") else str(obj),
-        )
-    # Third, value is a pandas NA or None.
-    if val is None:
-        return ""
-    try:
-        if pd.isna(val):
-            return ""
-    except (ValueError, TypeError):
-        pass
-    return str(val)
-
-
-rule aggregate_all_evaluations:
-    input:
-        evaluation_csv_files=evaluation_targets,
-    output:
-        benchmark_strategies_csv=base_output_directory / "evaluation" / "benchmark_strategies.csv",
-        benchmark_models_csv=base_output_directory / "evaluation" / "benchmark_models.csv",
-        all_grouped_csv=base_output_directory / "evaluation" / "all_grouped_evaluation_metrics.csv",
-        all_detailed_parquet=base_output_directory / "evaluation" / "all_per_text_and_category_confusion_metrics.parquet",
-    run:
-        grouped_dataframes = []
-        detailed_dataframes = []
-
-        # Parse every evaluated CSV and corresponding parquet file.
-        for csv_path in input.evaluation_csv_files:
-            file_path = Path(csv_path)
-            parquet_path = file_path.with_name("per_text_and_category_confusion_metrics.parquet")
-            # Extract scenario hierarchy components from folder path.
-            if "consensus" in file_path.parts:
-                scenario_name = "consensus"
-                combo_name = file_path.parent.name
-                model_safe_name = "consensus"
+            if all_detailed_parquet.exists():
+                existing_det_df = pd.read_parquet(all_detailed_parquet)
+                mask_det = (
+                    (existing_det_df["scenario"] == scenario_name) &
+                    (existing_det_df["combo"] == combo_name) &
+                    (existing_det_df["model_safe"] == model_safe_name)
+                )
+                full_detailed_df = pd.concat([existing_det_df[~mask_det], new_det_df], ignore_index=True)
             else:
-                scenario_name = file_path.parts[-4]
-                combo_name = file_path.parts[-3]
-                model_safe_name = file_path.parts[-2]
-            # Read the grouped evaluation metrics CSV and append scenario metadata.
-            current_grouped_dataframe = pd.read_csv(file_path)
-            current_grouped_dataframe["scenario"] = scenario_name
-            current_grouped_dataframe["combo"] = combo_name
-            current_grouped_dataframe["model_safe"] = model_safe_name
-            grouped_dataframes.append(current_grouped_dataframe)
-            # Read the detailed confusion metrics parquet file if it exists and append scenario metadata.
-            if parquet_path.exists():
-                current_detailed_dataframe = pd.read_parquet(parquet_path)
-                current_detailed_dataframe["scenario"] = scenario_name
-                current_detailed_dataframe["combo"] = combo_name
-                current_detailed_dataframe["model_safe"] = model_safe_name
-                detailed_dataframes.append(current_detailed_dataframe)
-        # Merge grouped metrics and detailed confusion metrics.
-        full_grouped_dataframe = pd.concat(grouped_dataframes, ignore_index=True)
-        full_grouped_dataframe.to_csv(output.all_grouped_csv, index=False)
-        # Merge detailed confusion metrics if any exist.
-        if detailed_dataframes:
-            full_detailed_dataframe = pd.concat(detailed_dataframes, ignore_index=True)
-            # Convert complex/nested objects to JSON strings for Parquet compatibility.
-            for column_name in full_detailed_dataframe.columns:
-                if full_detailed_dataframe[column_name].dtype == "object":
-                    full_detailed_dataframe[column_name] = full_detailed_dataframe[
-                        column_name
-                    ].apply(serialize_cell)
-            full_detailed_dataframe.to_parquet(output.all_detailed_parquet, index=False)
-        # Standardize column names mapping for report tables.
+                full_detailed_df = new_det_df
+
+            full_detailed_df.to_parquet(all_detailed_parquet, index=False)
+
+        # 3. Update Formatted Benchmark Summaries
         column_mapping = {
             "inference_date": "Inference_date",
             "model_name": "Name",
@@ -338,66 +132,257 @@ rule aggregate_all_evaluations:
             "total_cost_usd": "Cost_total_($)",
             "total_inference_time_sec": "Inference_time_total_(s)",
         }
-        working_dataframe = full_grouped_dataframe.rename(columns=column_mapping).copy()
-        # Compute cost and latency metrics per entity without rounding.
-        total_predictions = (
-            working_dataframe["nb_predicted_entities_raw"].replace(0, pd.NA)
-            if "nb_predicted_entities_raw" in working_dataframe
-            else working_dataframe["Number_of_predicted_entities"].replace(0, pd.NA)
+        working_df = full_grouped_df.rename(columns=column_mapping).copy()
+
+        total_preds = (
+            working_df["nb_predicted_entities_raw"].replace(0, pd.NA)
+            if "nb_predicted_entities_raw" in working_df
+            else working_df["Number_of_predicted_entities"].replace(0, pd.NA)
         )
-        working_dataframe["Cost_by_entity_($)"] = working_dataframe["Cost_total_($)"] / total_predictions
-        working_dataframe["Inference_time_by_entity_(s)"] = working_dataframe["Inference_time_total_(s)"] / total_predictions
-        working_dataframe["Inference_time_total_(hh:mm:ss)"] = working_dataframe["Inference_time_total_(s)"].apply(
-            lambda seconds_value: str(pd.to_timedelta(int(seconds_value), unit="s")).split()[-1]
-            if pd.notna(seconds_value)
-            else pd.NA
+        working_df["Cost_by_entity_($)"] = working_df["Cost_total_($)"] / total_preds
+        working_df["Inference_time_by_entity_(s)"] = working_df["Inference_time_total_(s)"] / total_preds
+        working_df["Inference_time_total_(hh:mm:ss)"] = working_df["Inference_time_total_(s)"].apply(
+            lambda s: str(pd.to_timedelta(int(s), unit="s")).split()[-1] if pd.notna(s) else pd.NA
         )
-        # Build benchmark_strategies.csv table.
-        strategies_mask = working_dataframe["scenario"] == "benchmark_strategies"
-        strategies_dataframe = working_dataframe[strategies_mask].copy()
-        # Derive boolean flag for guidelines from strategy combo names.
-        strategies_dataframe["With_Guideline"] = strategies_dataframe["combo"].apply(
-            lambda combo_string: True if "with_guidelines" in str(combo_string) or "guidelines" in str(combo_string) else False
-        )
+
         columns_order = [
-            "Inference_date",
-            "Name",
-            "Framework",
-            "With_Guideline",
-            "category",
-            "Number_of_texts_with_category",
-            "Correct_format_(%)",
-            "Hallucinations_(%)",
-            "Precision",
-            "Precision_with_no_hallucination",
-            "Recall",
-            "F1",
-            "F1_with_no_hallucination",
-            "Fbeta_0.5",
-            "Fbeta_0.5_with_no_hallucination",
-            "Cost_by_entity_($)",
-            "Inference_time_by_entity_(s)",
-            "Number_of_predicted_entities",
-            "Cost_total_($)",
-            "Inference_time_total_(s)",
-            "Inference_time_total_(hh:mm:ss)",
+            "Inference_date", "Name", "Framework", "With_Guideline", "category",
+            "Number_of_texts_with_category", "Correct_format_(%)", "Hallucinations_(%)",
+            "Precision", "Precision_with_no_hallucination", "Recall", "F1",
+            "F1_with_no_hallucination", "Fbeta_0.5", "Fbeta_0.5_with_no_hallucination",
+            "Cost_by_entity_($)", "Inference_time_by_entity_(s)", "Number_of_predicted_entities",
+            "Cost_total_($)", "Inference_time_total_(s)", "Inference_time_total_(hh:mm:ss)",
         ]
-        available_strategy_columns = [column for column in columns_order if column in strategies_dataframe.columns]
-        strategies_dataframe[available_strategy_columns].to_csv(output.benchmark_strategies_csv, index=False)
-        # Build benchmark_models.csv table.
-        models_mask = working_dataframe["scenario"].isin(["benchmark_models", "consensus"])
-        models_dataframe = working_dataframe[models_mask].copy()
-        models_columns_order = [
-            column for column in columns_order if column not in ("Framework", "With_Guideline")
-        ]
-        available_model_columns = [column for column in models_columns_order if column in models_dataframe.columns]
-        models_dataframe[available_model_columns].to_csv(output.benchmark_models_csv, index=False)
-        # Clean up intermediate evaluation folders.
-        redundant_folders = [
-            base_output_directory / "evaluation" / "benchmark_strategies",
-            base_output_directory / "evaluation" / "benchmark_models",
-            base_output_directory / "evaluation" / "consensus",
-        ]
-        for folder_path in redundant_folders:
-            if folder_path.exists() and folder_path.is_dir():
-                shutil.rmtree(folder_path)
+
+        # Strategies CSV
+        strat_df = working_df[working_df["scenario"] == "benchmark_strategies"].copy()
+        if not strat_df.empty:
+            strat_df["With_Guideline"] = strat_df["combo"].apply(lambda c: "with_guidelines" in str(c))
+            avail_cols = [c for c in columns_order if c in strat_df.columns]
+            strat_df[avail_cols].to_csv(benchmark_strategies_csv, index=False)
+
+        # Models CSV
+        models_df = working_df[working_df["scenario"].isin(["benchmark_models", "consensus"])].copy()
+        if not models_df.empty:
+            model_cols = [c for c in columns_order if c not in ("Framework", "With_Guideline")]
+            avail_cols = [c for c in model_cols if c in models_df.columns]
+            models_df[avail_cols].to_csv(benchmark_models_csv, index=False)
+
+
+rule llm_all:
+    input:
+        evaluation_targets
+
+
+# ==============================================================================
+# SCENARIOS 1 & 2: EXTRACTION, NORMALIZATION, AND EVALUATION
+# ==============================================================================
+
+rule extract_benchmark_and_full:
+    input:
+        texts_files=expand("{path}/{json_file}", path=texts_directory, json_file=target_files),
+        prompt=config["prompt_path"],
+        examples=config["examples_path"],
+    output:
+        out_dir=directory("results/llm/inferences/raw/{combo}/{model_safe}"),
+    resources:
+        api_calls=1
+    params:
+        model=lambda wildcards: all_models_dict[wildcards.model_safe],
+        framework=lambda wildcards: config["benchmark_strategies"].get(wildcards.combo, {}).get("framework", "instructor"),
+        guidelines=lambda wildcards: config["benchmark_strategies"].get(wildcards.combo, {}).get("guidelines", config["guidelines_path"]),
+        sleep_time=api_sleep_delay,
+    shell:
+        """
+        mkdir -p {output.out_dir}
+        for file in {input.texts_files}; do
+            uv run extract-entities-with-llm \
+                --text-path "$file" \
+                --model "{params.model}" \
+                --prompt-path {input.prompt} \
+                --guidelines-path {params.guidelines} \
+                --examples-path {input.examples} \
+                --framework {params.framework} \
+                --temperature 1.0 \
+                --output-dir {output.out_dir}
+        done
+        sleep {params.sleep_time}
+        """
+
+rule normalize_benchmark_and_full:
+    input:
+        inferences_dir="results/llm/inferences/raw/{combo}/{model_safe}",
+        ffm_db=config["ffm_db_path"],
+        softname_db=config["softname_db_path"],
+    output:
+        norm_dir=directory("results/llm/inferences_normalized/{scenario}/{combo}/{model_safe}"),
+    resources:
+        api_calls=1
+    params:
+        norm_model=config["normalization_model"],
+        sleep_time=api_sleep_delay,
+    shell:
+        """
+        uv run normalize-extracted-entities \
+            --inferences-dir {input.inferences_dir} \
+            --ffm-db-path {input.ffm_db} \
+            --softname-db-path {input.softname_db} \
+            --model-name "{params.norm_model}" \
+            --output-dir {output.norm_dir}
+        sleep {params.sleep_time}
+        """
+
+rule evaluate_benchmark_and_full:
+    input:
+        inferences_dir="results/llm/inferences_normalized/{scenario}/{combo}/{model_safe}",
+    output:
+        eval_csv="results/llm/evaluation/{scenario}/{combo}/{model_safe}/grouped_evaluation_metrics.csv",
+        eval_parquet="results/llm/evaluation/{scenario}/{combo}/{model_safe}/per_text_and_category_confusion_metrics.parquet",
+        done=touch("results/llm/evaluation/{scenario}/{combo}/{model_safe}/.done"),
+    run:
+        shell(
+            """
+            mkdir -p $(dirname {output.eval_csv})
+            uv run evaluate-entities-extraction \
+                --inferences-dir {input.inferences_dir} \
+                --results-dir $(dirname {output.eval_csv})
+            """
+        )
+        update_global_aggregates(
+            new_csv_path=output.eval_csv,
+            new_parquet_path=output.eval_parquet,
+            scenario_name=wildcards.scenario,
+            combo_name=wildcards.combo,
+            model_safe_name=wildcards.model_safe,
+        )
+
+
+# ==============================================================================
+# SCENARIO 3: CONSENSUS RUNS AND MULTI-TEMPERATURE AGGREGATIONS
+# ==============================================================================
+
+rule extract_consensus_runs:
+    input:
+        texts_files=expand("{path}/{json_file}", path=texts_directory, json_file=target_files),
+        prompt=config["prompt_path"],
+        guidelines=config["guidelines_path"],
+        examples=config["examples_path"],
+    output:
+        out_dir=directory("results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}"),
+    resources:
+        api_calls=1
+    wildcard_constraints:
+        temp=r"(?!1(\.0)?$).*"
+    params:
+        model=lambda wildcards: consensus_models[wildcards.model_safe],
+        temp=lambda wildcards: wildcards.temp,
+        sleep_time=api_sleep_delay,
+    shell:
+        """
+        mkdir -p {output.out_dir}
+        for file in {input.texts_files}; do
+            uv run extract-entities-with-llm \
+                --text-path "$file" \
+                --model "{params.model}" \
+                --prompt-path {input.prompt} \
+                --guidelines-path {input.guidelines} \
+                --examples-path {input.examples} \
+                --temperature {params.temp} \
+                --framework instructor \
+                --output-dir {output.out_dir}
+        done
+        sleep {params.sleep_time}
+        """
+
+def get_consensus_inferences_input(wildcards) -> list[str]:
+    temperatures_string = wildcards.setup.replace("temp_", "")
+    included_temperatures = temperatures_string.split("_and_")
+    
+    input_directories = []
+    for temperature_value in included_temperatures:
+        for model_identifier in consensus_models.keys():
+            if str(temperature_value) in ["1", "1.0"]:
+                input_directories.append(
+                    f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_identifier}"
+                )
+            else:
+                input_directories.append(
+                    f"results/llm/inferences/consensus_raw/temp_{temperature_value}/{model_identifier}"
+                )
+    return input_directories
+
+rule aggregate_consensus:
+    input:
+        inferences=get_consensus_inferences_input,
+    output:
+        consensus_dir=directory("results/llm/inferences/consensus_aggregated/{setup}"),
+    params:
+        threshold=consensus_threshold_value,
+        staging_dir="results/llm/inferences_consensus_staging/{setup}",
+    shell:
+        """
+        mkdir -p {params.staging_dir}
+        mkdir -p {output.consensus_dir}
+        shopt -s nullglob
+
+        for source_directory in {input.inferences}; do
+            if [ -d "$source_directory" ]; then
+                cp "$source_directory"/*.json {params.staging_dir}/ 2>/dev/null || true
+            fi
+        done
+
+        uv run aggregate-consensus-entities \
+            --inferences-dir {params.staging_dir} \
+            --threshold {params.threshold} \
+            --output-dir {output.consensus_dir}
+
+        rm -rf {params.staging_dir}
+        rmdir results/llm/inferences_consensus_staging 2>/dev/null || true
+        """
+
+rule normalize_consensus:
+    input:
+        inferences_dir="results/llm/inferences/consensus_aggregated/{setup}",
+        ffm_db=config["ffm_db_path"],
+        softname_db=config["softname_db_path"],
+    output:
+        norm_dir=directory("results/llm/inferences_normalized/consensus/{setup}"),
+    resources:
+        api_calls=1
+    params:
+        norm_model=config["normalization_model"],
+        sleep_time=api_sleep_delay,
+    shell:
+        """
+        uv run normalize-extracted-entities \
+            --inferences-dir {input.inferences_dir} \
+            --ffm-db-path {input.ffm_db} \
+            --softname-db-path {input.softname_db} \
+            --model-name "{params.norm_model}" \
+            --output-dir {output.norm_dir}
+        sleep {params.sleep_time}
+        """
+
+rule evaluate_consensus:
+    input:
+        inferences_dir="results/llm/inferences_normalized/consensus/{setup}",
+    output:
+        eval_csv="results/llm/evaluation/consensus/{setup}/grouped_evaluation_metrics.csv",
+        eval_parquet="results/llm/evaluation/consensus/{setup}/per_text_and_category_confusion_metrics.parquet",
+        done=touch("results/llm/evaluation/consensus/{setup}/.done"),
+    run:
+        shell(
+            """
+            mkdir -p $(dirname {output.eval_csv})
+            uv run evaluate-entities-extraction \
+                --inferences-dir {input.inferences_dir} \
+                --results-dir $(dirname {output.eval_csv})
+            """
+        )
+        update_global_aggregates(
+            new_csv_path=output.eval_csv,
+            new_parquet_path=output.eval_parquet,
+            scenario_name="consensus",
+            combo_name=wildcards.setup,
+            model_safe_name="consensus",
+        )
