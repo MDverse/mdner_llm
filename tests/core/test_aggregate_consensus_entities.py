@@ -17,16 +17,17 @@ from mdner_llm.models.entities import (
 
 @pytest.fixture
 def sample_annotations() -> list[dict]:
-    """Fixture providing a base list of model annotations with MD-specific entities.
+    """Provide a sample list of model annotations for testing consensus aggregation.
 
     Returns
     -------
-    list[dict]
+        A list of dictionaries representing model annotations.
     """
     return [
         {
             "model_name": "gpt-4o",
-            "temperature": 0.0,
+            "provider": ["OpenAI"],
+            "temperature": [0.0],
             "inference_time_sec": 1.5,
             "input_tokens": 100,
             "output_tokens": 50,
@@ -42,7 +43,8 @@ def sample_annotations() -> list[dict]:
         },
         {
             "model_name": "claude-3-5-sonnet",
-            "temperature": 0.0,
+            "provider": ["Anthropic"],
+            "temperature": [0.0],
             "inference_time_sec": 2.5,
             "input_tokens": 120,
             "output_tokens": 60,
@@ -52,7 +54,6 @@ def sample_annotations() -> list[dict]:
                 entities=[
                     Molecule(text="POPC", category="MOL"),
                     ForceFieldModel(text="AMBER14SB", category="FFM"),
-                    # This second model missed the '100 ns' simulation time
                 ]
             ),
         },
@@ -96,7 +97,7 @@ def test_build_aggregated_metadata_metrics(
     metadata = build_aggregated_metadata(sample_annotations)
 
     assert metadata["model_name"] == "consensus_claude-3-5-sonnet_gpt-4o_t_0.0"
-    assert metadata["temperature"] == ["0.0"]
+    assert metadata["temperature"] == [0.0]
     assert metadata["inference_time_sec"] == pytest.approx(4.0)
     assert metadata["input_tokens"] == 220
     assert metadata["output_tokens"] == 110
