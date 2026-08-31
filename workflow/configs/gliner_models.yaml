@@ -55,6 +55,17 @@ gliner2-base-v1-finetuned:
   task_lr: 2.0e-5
   warmup_ratio: 0.08
 
+gliner2-large-v1-finetuned:
+  display_name: "fastino/gliner2-large-v1-finetuned"
+  base_model: "fastino/gliner2-large-v1"
+  model_path: "results/gliner/models/gliner2-large-v1-finetuned/fold_{fold}/best"
+  adapter_path: null
+  use_lora: false
+  is_trainable: true
+  encoder_lr: 2.0e-6
+  task_lr: 2.0e-5
+  warmup_ratio: 0.08
+
 # 5. GLiNER2.5 Full Fine-tuned
 gliner2.5-small-v1-finetuned:
   display_name: "fastino/gliner2.5-small-v1-finetuned"
