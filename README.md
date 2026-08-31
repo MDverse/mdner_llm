@@ -62,9 +62,8 @@ classDiagram
     ListOfEntities ..> SimulationTemperature
     ListOfEntities ..> SoftwareName
     ListOfEntities ..> ForceFieldModel
-```
 
-To assess robustness and accuracy, we benchmark several LLMs (GPT-5, Gemini 3 Pro, Claude Sonnet 4.6, GLM 5.1, etc.) together with extraction libraries such as **Instructor** and **Pydantic**. Our goal is to identify the best model–framework combinations for accurate, consistent, and schema-compliant Molecular Dynamics Named Entity Recognition (MDNER).
+To assess robustness and accuracy, we benchmark several LLMs (GPT-5.6, Gemini 3.6, Claude Fable 5, GLM 5.3, etc.) together with extraction libraries such as **Instructor** and **Pydantic**. Our goal is to identify the best model–framework combinations for accurate, consistent, and schema-compliant Molecular Dynamics Named Entity Recognition (MDNER).
 
 ## Setup environment
 
@@ -84,12 +83,11 @@ Sync dependencies:
 uv sync
 ```
 
-## Add OpenAI and OpenRouter API key
+## Add OpenRouter API key
 
-Create an .env file with a valid [OpenAI](https://platform.openai.com/docs/api-reference/authentication) and [OpenRouter](https://openrouter.ai/docs/api/reference/authentication) API key:
+Create an .env file with a valid [OpenRouter](https://openrouter.ai/docs/api/reference/authentication) API key:
 
 ```sh
-OPENAI_API_KEY=<your-openai-api-key>
 OPENROUTER_API_KEY=<your-openrouter-api-key>
 ```
 
@@ -123,7 +121,10 @@ $ uv run build-entity-inventory --annotations-path data/groundtruth --out-path d
 2026-07-08 17:05:51 | INFO     | Writing entity inventory TSV file.
 2026-07-08 17:05:51 | SUCCESS  | Saved entity inventory in: data/entities.tsv
 2026-07-08 17:05:51 | SUCCESS  | Saved entity distribution plot in 'plots/annotations/entity_distribution.png'.
-2026-07-08 17:05:52 | SUCCESS  | Saved entities distribution by category plot in 'plots/annotations/entity_distribution_by_category.png'.
+2026-07-08 17:05:51 | SUCCESS  | Saved entity distribution by category plot in 'plots/annotations/entity_distribution_by_category.png'.
+2026-07-08 17:05:51 | SUCCESS  | Saved unique entity distribution by category plot in 'plots/annotations/unique_entity_distribution_by_category.png'.
+2026-07-08 17:05:52 | SUCCESS  | Saved categories per text distribution plot in 'plots/annotations/categories_per_text_distribution.png'.
+2026-07-08 17:05:52 | SUCCESS  | Saved text length distribution plot in 'plots/annotations/text_length_distribution.png'.
 2026-07-08 17:05:52 | SUCCESS  | Entity inventory completed successfully!
 ```
 
@@ -139,13 +140,11 @@ To extract structured entities from a single text using a specified LLM ([from O
 uv run extract-entities-with-llm \
     --text-path data/groundtruth/figshare_121241.json \
     --model google/gemma-4-31b-it \
-    --provider venice/bf16 \
-    --tag "_run1" \
-    --temperature 0.5 \
+    --framework instructor \
+    --temperature 1.0 \
     --prompt-path docs/prompt_template.md \
     --guidelines-path docs/annotation_rules.md \
     --examples-path docs/few_shot_examples.md \
-    --framework instructor \
     --output-dir results/llm/inferences
 2026-04-22 00:12:22 | INFO     | Starting the extraction of entities.
 2026-04-22 00:12:22 | DEBUG    | Loading text and metadata from data/groundtruth/figshare_121241.json.
@@ -156,7 +155,7 @@ uv run extract-entities-with-llm \
 2026-04-22 00:12:25 | DEBUG    | Response status: ok.
 2026-04-22 00:12:25 | DEBUG    | Provider used: Venice.
 2026-04-22 00:12:25 | DEBUG    | Formatted LLM response: 
-                                 entities=[ForceField(category='FFM', text='GAFF'), SoftwareName(category='SOFTNAME', text='AutoDock'), SimulationTime(category='STIME', text='20 ns')]
+                                 entities=[ForceField(category='FFM', text='CHARMM36'), Molecule(category='MOL', text='POPC'), SimulationTemperature(category='STEMP', text='310K'), SoftwareName(category='SOFTNAME', text='GROMACS'), SoftwareVersion(category='SOFTVERS', text='5.1.4')]
 2026-04-22 00:12:25 | DEBUG    | Inference time: 2.6673661249951692 seconds.
 2026-04-22 00:12:25 | DEBUG    | Input tokens: 3236.
 2026-04-22 00:12:25 | DEBUG    | Output tokens: 70.
@@ -169,32 +168,32 @@ uv run extract-entities-with-llm \
 > This command generates two outputs: a `.txt` file containing the raw LLM response, and a `.json` file containing the extracted entities along with metadata about the extraction (model, framework, input file, and run details).
 
 ```
-# Output example:
+# Example
+# Input text:
+# "Simulation data for CHARMM36 POPC bilayer, 100 lipids/leaflet, 310K, GROMACS 5.1.4."
+
+# Output:
 {
   "entities": [
     {
-      "category": "MOL",
-      "text": "Phosphatidylcholine"
-    },
-    {
-      "category": "MOL",
-      "text": "1,2-diauroyl-sn-glycero-3-phospocholine"
-    },
-    {
-      "category": "MOL",
-      "text": "DLPC"
-    },
-    {
-      "category": "MOL",
-      "text": "DMPC"
-    },
-    {
-      "category": "MOL",
-      "text": "DPPC"
-    },
-    {
       "category": "FFM",
-      "text": "AMBER"
+      "text": "CHARMM36"
+    },
+    {
+      "category": "MOL",
+      "text": "POPC"
+    },
+    {
+      "category": "STEMP",
+      "text": "310K"
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS"
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "5.1.4"
     }
   ]
 }
@@ -208,13 +207,11 @@ To extract structured entities from multiple dataset descriptions, execute:
 uv run extract-entities-with-llm-all-texts \
     --texts-path data/groundtruth \
     --model google/gemma-4-31b-it \
-    --provider venice/bf16 \
-    --tag "_run1" \
-    --temperature 0.5 \
+    --framework instructor \
+    --temperature 1.0 \
     --prompt-path docs/prompt_template.md \
     --guidelines-path docs/annotation_rules.md \
     --examples-path docs/few_shot_examples.md \
-    --framework instructor \
     --output-dir results/llm/inferences
 ```
 
@@ -231,7 +228,84 @@ uv run normalize-extracted-entities \
     --output-dir results/llm/inferences_normalized
 ```
 
-> This command normalizes metadata structure across extracted categories, detects hallucinated entities by checking alignment with original text footprints.
+> This command normalizes metadata structure across extracted categories, assigns a confidence score, and flags hallucinated mentions that do not match the original text footprint. Refer to the [Normalization Guide](docs/normalization_rules.md) for full mapping rules.
+
+```
+# Example
+# Input:
+{
+  "entities": [
+    {
+      "category": "FFM",
+      "text": "CHARMM36"
+    },
+    {
+      "category": "MOL",
+      "text": "POPC"
+    },
+    {
+      "category": "STEMP",
+      "text": "310K"
+    },
+    {
+      "category": "SOFTNAME",
+      "text": "GROMACS"
+    },
+    {
+      "category": "SOFTVERS",
+      "text": "5.1.4"
+    },
+    {
+      "category": "STIME",
+      "text": "100 ns"
+    },
+  ]
+}
+# Output:
+{
+   "normalized_entities": [
+      {
+        "category": "FFM",
+        "text_normalized": "charmm36",
+        "score": 0.95,
+        "is_hallucinated": false
+      },
+      {
+        "category": "MOL",
+        "text_normalized": "popc",
+        "score": 0.95,
+        "is_hallucinated": false,
+      },
+      {
+        "category": "STEMP",
+        "text_normalized": "310k",
+        "score": 0.85,
+        "is_hallucinated": false,
+        "value": 310.0,
+        "unit": "K"
+      },
+      {
+        "category": "SOFTNAME",
+        "text_normalized": "gromacs",
+        "score": 0.95,
+        "is_hallucinated": false
+      },
+      {
+        "category": "SOFTVERS",
+        "text_normalized": "5.1.4",
+        "score": 0.90,
+        "is_hallucinated": false
+      },
+      {
+        "category": "MOL",
+        "text_normalized": "cholesterol",
+        "score": 0.30,
+        "is_hallucinated": true,
+      }
+    ]
+  }
+```
+
 
 ### Aggregate consensus entities across multiple annotations 📦
 
@@ -244,7 +318,7 @@ uv run aggregate-consensus-entities \
     --output-dir results/llm/inferences_consensus
 ```
 
-> This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-entity consensus scores across all annotations, and saves the consensus entities with scores above the specified threshold in `results/llm/inferences_consensus`.
+> This command loads all LLM JSON file predictions in `results/llm/inferences`, computes per-entity consensus scores across all annotations, and saves the consensus entities with scores above the specified threshold in `results/llm/inferences_consensus`.
 
 ### Fine-tune Gliner2 on Molecular Dynamics annotations 🚀
 
@@ -260,19 +334,9 @@ Then, to extract entities from new texts using the fine-tuned Gliner2 model, run
 
 ```sh
 uv run extract-entities-with-gliner-all-texts \
-        --model-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/best \
-        --text-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test.jsonl \
-        --metadata-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test_metadata.txt \
-        --output-dir results/gliner/inferences
-```
-
-And for the baseline Gliner2 model, run:
-
-```sh
-uv run extract-entities-with-gliner-all-texts \
-        --model-path fastino/gliner2-base-v1 \
-        --text-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test.jsonl \
-        --metadata-path results/gliner/models/gliner2-base-v1-finetuned/fold_3/data/test_metadata.txt \
+        --model-path <path_to_best_finetuned_model> \
+        --text-path <path_to_test_jsonl_file> \
+        --metadata-path <path_to_test_metadata_txt_file> \
         --output-dir results/gliner/inferences
 ```
 
