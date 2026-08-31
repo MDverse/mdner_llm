@@ -267,18 +267,18 @@ def normalize_json_content(
             data.get("input_json_path", "NA"),
             data.get("url", "NA"),
         )
-        if entity.category == "STEMP":
-            ent_dict["value"], ent_dict["unit"] = norm_temp(entity.text)
-        elif entity.category == "FFM":
-            ent_dict.update(norm_from_db(ffm_db_path, "FFM", predicted_entity_cleaned))
-        elif entity.category == "SOFTNAME":
-            ent_dict.update(
-                norm_from_db(softname_db_path, "SOFTNAME", predicted_entity_cleaned)
-            )
-        elif entity.category == "STIME":
-            items = norm_stime(predicted_entity_cleaned, model_name)
-            normalized_entities.extend({**ent_dict, **item} for item in items)
-            continue
+        # if entity.category == "STEMP":
+        #    ent_dict["value"], ent_dict["unit"] = norm_temp(entity.text)
+        # elif entity.category == "FFM":
+        #    ent_dict.update(norm_from_db(ffm_db_path, "FFM", predicted_entity_cleaned))
+        # elif entity.category == "SOFTNAME":
+        #    ent_dict.update(
+        #        norm_from_db(softname_db_path, "SOFTNAME", predicted_entity_cleaned)
+        #    )
+        # elif entity.category == "STIME":
+        #    items = norm_stime(predicted_entity_cleaned, model_name)
+        #    normalized_entities.extend({**ent_dict, **item} for item in items)
+        #    continue
         # elif entity.category == "MOL":
         #     ent_dict.update(norm_mol(predicted_entity_cleaned))
         normalized_entities.append(ent_dict)
