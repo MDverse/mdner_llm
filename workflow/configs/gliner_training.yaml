@@ -21,9 +21,9 @@ entities:
 training:
   # Training schedule
   num_epochs: 30
-  batch_size: 2
+  batch_size: 1
   max_steps: -1
-  gradient_accumulation_steps: 8
+  gradient_accumulation_steps: 16
 
   # Learning rates
   encoder_lr: 1e-5 # Learning rate for encoder

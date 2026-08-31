@@ -1,131 +1,31 @@
 # Snakefile for training and evaluating GLiNER models.
 
 import shutil
+import yaml
 from pathlib import Path
 import pandas as pd
 import numpy as np
 
-# Global parameters.
-CONFIG_PATH = Path("workflow/configs/gliner_training.yaml")
-N_FOLDS = 5
-FOLDS = list(range(1, N_FOLDS + 1))
+from mdner_llm.gliner.train_gliner import load_config, train_all_folds
+from mdner_llm.logger import create_logger
 
-# Models specification.
-MODELS = {
-    # 1. Zero-shot GLiNER fine-tuned Biomedical Models
-    "gliner-biomed-base-v1.0": {
-        "display_name": "ihor/gliner-biomed-base-v1.0",
-        "model_path": "ihor/gliner-biomed-base-v1.0",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    "gliner-biomed-large-v1.0": {
-        "display_name": "ihor/gliner-biomed-large-v1.0",
-        "model_path": "ihor/gliner-biomed-large-v1.0",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    # 2. Zero-shot GLiNER2 Models
-    "gliner2-base-v1": {
-        "display_name": "fastino/gliner2-base-v1",
-        "model_path": "fastino/gliner2-base-v1",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    "gliner2-large-v1": {
-        "display_name": "fastino/gliner2-large-v1",
-        "model_path": "fastino/gliner2-large-v1",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    # 3. Zero-shot GLiNER2.5 Models
-    "gliner2.5-small-v1": {
-        "display_name": "fastino/gliner2.5-small-v1",
-        "model_path": "fastino/gliner2.5-small-v1",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    "gliner2.5-base-v1": {
-        "display_name": "fastino/gliner2.5-base-v1",
-        "model_path": "fastino/gliner2.5-base-v1",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    "gliner2.5-multi-v1": {
-        "display_name": "fastino/gliner2.5-multi-v1",
-        "model_path": "fastino/gliner2.5-multi-v1",
-        "adapter_path": None,
-        "is_trainable": False,
-    },
-    # 4. GLiNER2 Full Fine-tuned
-    "gliner2-base-v1-finetuned": {
-        "display_name": "fastino/gliner2-base-v1-finetuned",
-        "base_model": "fastino/gliner2-base-v1",
-        "model_path": "results/gliner/models/gliner2-base-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
-    "gliner2-large-v1-finetuned": {
-        "display_name": "fastino/gliner2-large-v1-finetuned",
-        "base_model": "fastino/gliner2-large-v1",
-        "model_path": "results/gliner/models/gliner2-large-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
-    # 5. GLiNER2.5 Full Fine-tuned
-    "gliner2.5-small-v1-finetuned": {
-        "display_name": "fastino/gliner2.5-small-v1-finetuned",
-        "base_model": "fastino/gliner2.5-small-v1",
-        "model_path": "results/gliner/models/gliner2.5-small-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
-    "gliner2.5-base-v1-finetuned": {
-        "display_name": "fastino/gliner2.5-base-v1-finetuned",
-        "base_model": "fastino/gliner2.5-base-v1",
-        "model_path": "results/gliner/models/gliner2.5-base-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
-    "gliner2.5-multi-v1-finetuned": {
-        "display_name": "fastino/gliner2.5-multi-v1-finetuned",
-        "base_model": "fastino/gliner2.5-multi-v1",
-        "model_path": "results/gliner/models/gliner2.5-multi-v1-finetuned/fold_{fold}/best",
-        "adapter_path": None,
-        "use_lora": False,
-        "is_trainable": True,
-        "encoder_lr": 2e-6,
-        "task_lr": 2e-5,
-        "warmup_ratio": 0.08,
-    },
-}
+# Global paths.
+CONFIG_TRAINING_PATH = Path("workflow/configs/gliner_training.yaml")
+CONFIG_MODELS_PATH = Path("workflow/configs/gliner_models.yaml")
+
+# Load models specification from YAML.
+with open(CONFIG_MODELS_PATH, "r", encoding="utf-8") as f:
+    MODELS = yaml.safe_load(f)
 ALL_MODELS = list(MODELS.keys())
+
+# Load training config to retrieve cv_folds automatically.
+cfg = load_config(CONFIG_TRAINING_PATH)
+N_FOLDS = cfg.data.cv_folds
+FOLDS = list(range(1, N_FOLDS + 1))
 
 
 def get_model_dependencies(wildcards) -> list[str]:
-    """Determine the dependencies for a given model based on its configuration.
-
-    Returns
-    -------
-    list[str]
-        List of paths to the best model checkpoints for the specified model and fold.
-    """
+    """Determine the dependencies for a given model based on its configuration."""
     cfg = MODELS[wildcards.model]
     if cfg.get("is_trainable"):
         return [f"results/gliner/models/{wildcards.model}/fold_{wildcards.fold}/best"]
@@ -133,15 +33,8 @@ def get_model_dependencies(wildcards) -> list[str]:
 
 
 def get_adapter_arg(wildcards) -> str:
-    """Build adapter argument if available.
-
-    Returns
-    -------
-    str
-        Adapter argument string for the inference command, 
-        or an empty string if no adapter is specified.
-    """
-    adapter = MODELS[wildcards.model]["adapter_path"]
+    """Build adapter argument if available."""
+    adapter = MODELS[wildcards.model].get("adapter_path")
     return f"--adapter-path {adapter.format(fold=wildcards.fold)}" if adapter else ""
 
 
@@ -165,7 +58,8 @@ rule gliner_all:
 # Train cross-validation folds sequentially on GPU.
 rule train_gliner:
     input:
-        config=str(CONFIG_PATH),
+        config=str(CONFIG_TRAINING_PATH),
+        models_config=str(CONFIG_MODELS_PATH),
     output:
         directory(expand("results/gliner/models/{{model}}/fold_{fold}/best", fold=FOLDS)),
         expand("results/gliner/models/{{model}}/fold_{fold}/data/test.jsonl", fold=FOLDS),
@@ -173,23 +67,15 @@ rule train_gliner:
     resources:
         gpu=1
     run:
-        from mdner_llm.gliner.train_gliner import load_config, train_all_folds
-        from mdner_llm.logger import create_logger
-        # Load configuration and set up logger
-        logger = create_logger(level="INFO")
-        cfg = load_config(input.config, logger=logger)
-        if cfg is None:
-            raise ValueError(f"Could not load configuration from {input.config}.")
-        # Configure training parameters
         meta = MODELS[wildcards.model]
         cfg.model.name = meta["base_model"]
         cfg.model.experiment_name = wildcards.model
-        cfg.data.cv_folds = N_FOLDS
-        cfg.training.use_lora = meta["use_lora"]
-        cfg.training.save_adapter_only = meta["use_lora"]
-        cfg.training.encoder_lr = meta["encoder_lr"]
-        cfg.training.task_lr = meta["task_lr"]
-        cfg.training.warmup_ratio = meta["warmup_ratio"]
+        cfg.training.use_lora = meta.get("use_lora", False)
+        cfg.training.save_adapter_only = meta.get("use_lora", False)
+        cfg.training.encoder_lr = float(meta["encoder_lr"])
+        cfg.training.task_lr = float(meta["task_lr"])
+        cfg.training.warmup_ratio = float(meta["warmup_ratio"])
+        logger = create_logger(level="INFO")
         logger.info(f"Starting training for {wildcards.model}.")
         train_all_folds(cfg, logger=logger)
 
@@ -292,7 +178,7 @@ rule generate_summary_csv:
     run:
         df_all = pd.read_parquet(input.all_grouped_parquet)
         models_metrics = {}
-        # Compute fold-level statistics for each model.
+
         for model_key, meta in MODELS.items():
             df_model = df_all[df_all["model"] == model_key]
             metrics_list = []
@@ -336,7 +222,7 @@ rule generate_summary_csv:
                     "Inference_time_by_entity_mean (s)": float(df_f["time_per_ent"].mean()),
                     "Inference_time_by_entity_std (s)": float(df_f["time_per_ent"].std(ddof=1)),
                 }
-        # Compute delta F1 against corresponding base models.
+
         name_to_metrics = {m["Model_name"]: m for m in models_metrics.values()} | models_metrics
         for model_key, row in models_metrics.items():
             meta = MODELS[model_key]
