@@ -485,13 +485,17 @@ def compute_grouped_stats(
         "fbeta_0.5",
         "fbeta_0.5_no_hallucination",
     ]
-    macro = (
+    macro_scores = (
         grouped_category.groupby(["model_name", "framework_name"])[score_cols]
         .mean()
         .reset_index()
         .assign(category="OVERALL_MACRO")
     )
-
+    # Attach text-level metadata columns to macro summary.
+    macro = per_text_stats.merge(
+        macro_scores, on=["model_name", "framework_name"]
+    ).assign(category="OVERALL_MACRO")
+    # Concatenate the per-category, MICRO and MACRO DataFrames.
     return pd.concat([grouped_category, micro, macro], ignore_index=True)
 
 
