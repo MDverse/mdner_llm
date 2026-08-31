@@ -22,7 +22,7 @@ def compute_target_sample_count(config: dict[str, Any]) -> int:
     max_samples = config.get("max_samples")
     if max_samples:
         return int(max_samples)
-    texts_dir = Path(config.get("texts_path", "data/groundtruth"))
+    texts_dir = Path(config.get("texts_path"))
     if not texts_dir.exists():
         return 0
     return len(list(texts_dir.glob("*.json")))
@@ -38,27 +38,23 @@ def count_completed_inferences(inference_dir: Path) -> int:
     """
     if not inference_dir.exists():
         return 0
-    # Compte les JSON de résultats
-    json_count = len(list(inference_dir.glob("*.json")))
-    if json_count > 0:
-        return json_count
-    return len(list(inference_dir.glob("*.txt")))
+    return len(list(inference_dir.glob("*.json")))
 
 
-def compute_completion_status(completed: int, target: int) -> tuple[float, str]:
+def compute_completion_status(completed: int, target: int) -> tuple[int, str]:
     """Compute progress percentage and status label.
 
     Returns
     -------
-    tuple[float, str]
+    tuple[int, str]
         Tuple containing completion percentage and status text.
     """
     if target <= 0:
-        return 0.0, "❌ Empty"
-    percentage = min((completed / target) * 100.0, 100.0)
-    if percentage >= 100.0:
+        return 0, "❌ Empty"
+    percentage = round(min((completed / target) * 100, 100))
+    if percentage >= 100:
         status_label = "✅ Completed"
-    elif percentage > 0.0:
+    elif percentage > 0:
         status_label = "⏳ In progress"
     else:
         status_label = "❌ Not started"
@@ -77,11 +73,9 @@ def main(config_path: Path) -> None:
     """Display progress report for LLM benchmark strategies and consensus."""
     timestamp = datetime.now().astimezone().strftime("%Y-%m-%d_%H:%M:%S")
     logger = create_logger(f"logs/check_progress_{timestamp}.log")
-
     # Load configuration settings.
     with open(config_path, encoding="utf-8") as file_handle:
         config = yaml.safe_load(file_handle) or {}
-
     # Resolve base paths and parameters.
     base_out = Path(config.get("output_dir_base", "results/llm"))
     target_count = compute_target_sample_count(config)
@@ -90,17 +84,15 @@ def main(config_path: Path) -> None:
     full_eval_models = config.get("full_eval_models", [])
     consensus_models = config.get("consensus_models", [])
     consensus_temps = [str(t) for t in config.get("consensus_temperatures", [1.0])]
-
     # Print dashboard header banner.
     logger.info("=" * 105)
     logger.info(f"BENCHMARK PROGRESS REPORT (Target: {target_count} samples)")
     logger.info("=" * 105)
     table_header = f"{'Scenario':<33} | {'Model / Setup':<28} | {'Done':<9} | "
-    table_header += f"{'Progress':<10} | {'Status'}"
+    table_header += f"{'Progress':<9} | {'Status'}"
     logger.info(table_header)
     logger.info("-" * 105)
-
-    # 1. Scenario 1: Benchmark prompting strategies.
+    # Scenario 1: Benchmark prompting strategies.
     for strat_name in strategies:
         for model_name in strat_models:
             safe_model = sanitize_filename(model_name)
@@ -112,13 +104,12 @@ def main(config_path: Path) -> None:
                 f"{strat_name:<33} | "
                 f"{short_model:<28} | "
                 f"{done_count:>4}/{target_count:<4} | "
-                f"{pct:>6.1f} %  | "
+                f"{pct:>6} %  | "
                 f"{status}"
             )
-
     logger.info("-" * 105)
 
-    # 2. Scenario 2: Full evaluation models (with instructor and guidelines).
+    # Scenario 2: Full evaluation models.
     scenario2_combo = "with_instructor_with_guidelines"
     for model_name in full_eval_models:
         safe_model = sanitize_filename(model_name)
@@ -130,18 +121,19 @@ def main(config_path: Path) -> None:
             f"{'benchmark_models':<33} | "
             f"{short_model:<28} | "
             f"{done_count:>4}/{target_count:<4} | "
-            f"{pct:>6.1f} %  | "
+            f"{pct:>6} %  | "
             f"{status}"
         )
-
     logger.info("-" * 105)
 
-    # 3. Scenario 3: Consensus raw inferences.
+    # Scenario 3: Consensus raw inferences.
     for temp in consensus_temps:
         setup_label = f"consensus_raw/temp_{temp}"
         for model_name in consensus_models:
             safe_model = sanitize_filename(model_name)
+            # Determine the target directory based on temperature.
             if temp in ["1", "1.0"]:
+                # Use the "with_instructor_with_guidelines" directory
                 target_dir = (
                     base_out
                     / "inferences"
@@ -150,6 +142,7 @@ def main(config_path: Path) -> None:
                     / safe_model
                 )
             else:
+                # Use the "temp_{temp}" directory for other temperatures
                 target_dir = (
                     base_out
                     / "inferences"
@@ -164,10 +157,9 @@ def main(config_path: Path) -> None:
                 f"{setup_label:<33} | "
                 f"{short_model:<28} | "
                 f"{done_count:>4}/{target_count:<4} | "
-                f"{pct:>6.1f} %  | "
+                f"{pct:>6} %  | "
                 f"{status}"
             )
-
     logger.info(f"{'=' * 105}\n")
 
 
