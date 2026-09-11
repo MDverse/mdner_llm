@@ -16,7 +16,7 @@ from mdner_llm.models.entities import ListOfEntities
 
 
 def parse_annotation_file(
-    path: Path, logger: loguru.Logger = loguru.logger
+    path: Path, logger: "loguru.Logger" = loguru.logger
 ) -> dict[str, object] | None:
     """Read and validate an annotation JSON file.
 
@@ -141,20 +141,27 @@ def build_aggregated_metadata(
         }
     )
     # Collect sorted unique temperatures and providers.
-    temperatures = sorted(
-        {
-            float(annotation["temperature"])
-            for annotation in annotations
-            if annotation.get("temperature") is not None
-        }
-    )
-    providers = sorted(
-        {
-            str(annotation["provider"])
-            for annotation in annotations
-            if annotation.get("provider") is not None
-        }
-    )
+    unique_temperatures = set()
+    for annotation in annotations:
+        list_of_temperatures = annotation.get("temperature")
+        if list_of_temperatures != []:
+            if list_of_temperatures is None:
+                # If temperature is None, default to 1.0.
+                unique_temperatures.add(1.0)
+            else:
+                temperature_value = list_of_temperatures[0]
+                unique_temperatures.add(float(temperature_value))
+    # Sort temperatures in ascending order.
+    temperatures_sorted = sorted(unique_temperatures)
+    # Extract unique provider names from single-element lists.
+    unique_providers = set()
+    for annotation in annotations:
+        provider_list = annotation.get("provider")
+        if provider_list and provider_list[0] is not None:
+            unique_providers.add(str(provider_list[0]))
+    # Sort the unique providers alphabetically.
+    providers = sorted(unique_providers)
+    # Extract unique tag names.
     tags = sorted(
         {
             str(annotation["tag"])
@@ -162,26 +169,36 @@ def build_aggregated_metadata(
             if annotation.get("tag") is not None
         }
     )
-    temperatures_identifier = "_".join(str(temp) for temp in temperatures)
+    temperatures_identifier = "_".join(str(temp) for temp in temperatures_sorted)
+    # Find the earliest timestamp across all runs.
+    timestamps = [ann["timestamp"] for ann in annotations if ann.get("timestamp")]
+    earliest_timestamp = min(timestamps)
     # Aggregate run identifiers and sum numerical metrics across annotations.
     aggregated = {
         "model_name": f"consensus_{'_'.join(model_names)}_t_{temperatures_identifier}",
+        "timestamp": earliest_timestamp,
         "tag": tags,
-        "temperature": temperatures,
+        "temperature": temperatures_sorted,
         "provider": providers,
         "inference_time_sec": sum(
             float(annotation.get("inference_time_sec", 0.0))
             for annotation in annotations
+            if annotation.get("inference_time_sec")
         ),
         "input_tokens": sum(
-            int(annotation.get("input_tokens", 0)) for annotation in annotations
+            int(annotation.get("input_tokens", 0))
+            for annotation in annotations
+            if annotation.get("input_tokens")
         ),
         "output_tokens": sum(
-            int(annotation.get("output_tokens", 0)) for annotation in annotations
+            int(annotation.get("output_tokens", 0))
+            for annotation in annotations
+            if annotation.get("output_tokens")
         ),
         "inference_cost_usd": sum(
             float(annotation.get("inference_cost_usd", 0.0))
             for annotation in annotations
+            if annotation.get("inference_cost_usd")
         ),
     }
     # Retain remaining custom metadata from the first annotation.
@@ -233,7 +250,7 @@ def build_consensus_output(
 
 
 def write_json(
-    path: Path, data: dict[str, object], logger: loguru.Logger = loguru.logger
+    path: Path, data: dict[str, object], logger: "loguru.Logger" = loguru.logger
 ) -> None:
     """Write data dictionary to a formatted JSON file."""
     try:
@@ -247,7 +264,7 @@ def write_json(
 def write_consensus_details_csv(
     path: Path,
     consensus: dict[tuple[str, str], dict[str, object]],
-    logger: loguru.Logger = loguru.logger,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Export consensus score breakdown to CSV format."""
     fieldnames = [
@@ -284,7 +301,7 @@ def aggregate_consensus_entities(
     inferences_dir: Path,
     threshold: float,
     output_dir: Path,
-    logger: loguru.Logger = loguru.logger,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Group, evaluate, and save consensus results for inference collections."""
     # Retrieve all JSON files in the specified directory.
