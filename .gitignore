@@ -203,6 +203,7 @@ cython_debug/
 # Folder contents
 results/*
 plots/*
+figures/*
 
 
 # Ignore common data files
