@@ -203,31 +203,58 @@ def plot_categories_per_text_distribution(
     df: pd.DataFrame, logger: "loguru.Logger" = loguru.logger
 ) -> None:
     """Plot distribution of unique entity categories per text."""
-    # Count the number of unique categories per text.
-    cat_per_file = df.groupby("json_file")["category"].nunique()
-    n_texts, n_cats = len(cat_per_file), df["category"].nunique()
-    # Outlier alerts for texts with low category coverage.
+    # Extract unique text-category pairs,
+    # to avoid counting duplicate annotations in the same text.
+    unique_pairs = df[["json_file", "category"]].drop_duplicates()
+    # Compute the number of unique categories per text file.
+    cat_per_file = unique_pairs.groupby("json_file")["category"].nunique()
+    n_texts = len(cat_per_file)
+    all_categories = sorted(df["category"].unique())
+    n_cats = len(all_categories)
+    # Warn about texts with low category coverage.
     for fn, count in cat_per_file[cat_per_file <= 1].items():
         logger.warning(f"Text with low category coverage ({count}) in '{fn}'")
-    # Plot histogram of unique categories per text.
-    fig, ax = plt.subplots(figsize=(10, 5))
-    _, _, bars = ax.hist(
-        cat_per_file,
-        bins=np.arange(1, n_cats + 2) - 0.5,
-        rwidth=0.8,
-        color="#B873C9",
-        edgecolor="black",
+    # Assign equal fractional weight to each category present in a text.
+    unique_pairs["n_cats"] = unique_pairs["json_file"].map(cat_per_file)
+    unique_pairs["weight"] = 1.0 / unique_pairs["n_cats"]
+    # Build cross-tabulation of category proportions across distinct category counts.
+    pivot = (
+        pd.crosstab(
+            index=unique_pairs["n_cats"],
+            columns=unique_pairs["category"],
+            values=unique_pairs["weight"],
+            aggfunc="sum",
+        )
+        .reindex(index=range(1, n_cats + 1), columns=all_categories)
+        .fillna(0)
     )
-    ax.bar_label(bars, padding=2)
+    # Render stacked bar chart showing category compositions per text diversity tier.
+    fig, ax = plt.subplots(figsize=(10, 5))
+    pivot.plot(
+        kind="bar",
+        stacked=True,
+        ax=ax,
+        color=[COLORS.get(color, "#cccccc") for color in pivot.columns],
+        edgecolor="black",
+        width=0.8,
+    )
+    # Label each bar with total text count at the top.
+    totals = cat_per_file.value_counts().reindex(range(1, n_cats + 1), fill_value=0)
+    for idx, total in enumerate(totals):
+        if total > 0:
+            ax.text(idx, total + 0.2, str(total), ha="center", va="bottom")
+    # Configure plot labels and layout attributes.
     ax.set(
         title=f"Category diversity distribution ({n_texts} texts / "
         f"{n_cats} total categories)",
         xlabel="Unique categories per text",
         ylabel="Total count",
-        xticks=range(1, n_cats + 1),
     )
+    ax.tick_params(axis="x", rotation=0)
+    ax.legend(title="Categories", bbox_to_anchor=(1.02, 1), loc="upper left")
     # Save the plot.
     out = Path("plots/annotations/categories_per_text_distribution.png")
+    out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out, bbox_inches="tight", dpi=200)
     logger.success(f"Saved categories per text distribution plot in '{out}'.")
 
@@ -382,7 +409,7 @@ def run_cli(
     plot_entity_distribution_by_category(df_entities, logger=logger)
     plot_categories_per_text_distribution(df_entities, logger=logger)
     plot_text_length_distribution(texts_dict, logger=logger)
-    # plot_text_similarity_distribution(texts_dict, logger=logger)
+    plot_text_similarity_distribution(texts_dict, logger=logger)
     logger.success("Entity inventory completed successfully!")
 
 
