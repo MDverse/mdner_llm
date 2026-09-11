@@ -165,11 +165,11 @@ def run_gliner(model, text: str, entity_desc: dict) -> tuple[dict, float, int, i
     # or extract entities with gliner
     else:
         labels = list(entity_desc.keys())
-        ents = model.predict_entities(text, labels, threshold=0.5)
+        ents = model.predict_entities(text, labels)
         entities_by_cat = {}
         for ent in ents:
             entities_by_cat.setdefault(ent["label"], []).append(
-                {"text": ent["text"], "confidence": ent.get("score", 1.0)}
+                {"text": ent["text"], "score": ent.get("score")}
             )
         predictions = {"entities": entities_by_cat}
     # Measure elapsed time.
@@ -209,7 +209,15 @@ def extract_entities_with_gliner(
         formatted_response = ListOfEntities.model_validate(
             {
                 "entities": [
-                    {"category": category, "text": ent["text"]}
+                    {
+                        "category": category,
+                        "text": ent["text"],
+                        # Use "confidence" for GLiNER2 predictions.
+                        "score": ent.get("confidence")
+                        if ent.get("confidence") is not None
+                        # Fallback to "score" for GLiNER predictions.
+                        else ent.get("score"),
+                    }
                     for category, ents in predictions.get("entities", {}).items()
                     for ent in ents
                 ]
