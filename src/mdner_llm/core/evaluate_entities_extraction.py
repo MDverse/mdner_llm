@@ -253,6 +253,17 @@ def build_category_level_dataframe(
             hallucinated, grounded = split_predictions_by_category_and_hallucination(
                 pred_entities, category
             )
+            # Map predicted text to confidence score for the current category
+            scores = {}
+            for predicted_entity in pred_entities:
+                # Filter entities matching target category and ensure text field exists
+                if (
+                    predicted_entity.get("category") == category
+                    and "text" in predicted_entity
+                ):
+                    # Store confidence score as:
+                    # Example: {"POPC": 0.95}
+                    scores[predicted_entity["text"]] = predicted_entity.get("score")
             # Reconstruction of all predicted texts for this category
             pred_texts = hallucinated | grounded
             new_row.update(
@@ -262,6 +273,7 @@ def build_category_level_dataframe(
                     "prediction_by_category": pred_texts,
                     "hallucinated_by_category": hallucinated,
                     "grounded_prediction_by_category": grounded,
+                    "pred_scores_by_text": scores,
                 }
             )
             rows.append(new_row)
@@ -280,12 +292,16 @@ def compute_confusion_metrics_by_row(row):
     gt = set(row.get("groundtruth_by_category", []))
     pred = set(row.get("prediction_by_category", []))
     hallucinated = set(row.get("hallucinated_by_category", []))
-
+    scores_map = row.get("pred_scores_by_text", {})
+    # Compute true positives, false positives, and false negatives
     tp = gt & pred
     fp = pred - gt
     fn = gt - pred
     fp_no_hallucination = fp - hallucinated
-
+    # Retrieve scores for TP, FP, and FN entities if available
+    tp_scores = [scores_map[ent] for ent in tp if ent in scores_map]
+    fp_scores = [scores_map[ent] for ent in fp if ent in scores_map]
+    fn_scores = [scores_map[ent] for ent in fn if ent in scores_map]
     return pd.Series(
         {
             "true_positives": len(tp),
@@ -295,6 +311,9 @@ def compute_confusion_metrics_by_row(row):
             "tp_entities": list(tp),
             "fp_entities": list(fp),
             "fn_entities": list(fn),
+            "tp_scores": tp_scores,
+            "fp_scores": fp_scores,
+            "fn_scores": fn_scores,
         }
     )
 
@@ -326,7 +345,7 @@ def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
     return a / b.replace(0, np.nan)
 
 
-def _compute_scores(
+def compute_scores(
     tp: pd.Series, fp: pd.Series, fn: pd.Series, fp_clean: pd.Series
 ) -> dict[str, pd.Series]:
     """Compute precision/recall/F1/F-beta scores from confusion counts.
@@ -421,7 +440,7 @@ def compute_grouped_stats(
         grouped_category["false_positives_no_hallucination"],
         grouped_category["false_negatives"],
     )
-    grouped_category = grouped_category.assign(**_compute_scores(tp, fp, fn, fp_clean))
+    grouped_category = grouped_category.assign(**compute_scores(tp, fp, fn, fp_clean))
     # OVERALL MICRO row: pool text/entity counts and TP/FP/FN across all categories
     per_text_stats = (
         df.groupby(["model_name", "framework_name"])
@@ -473,7 +492,7 @@ def compute_grouped_stats(
         micro["false_negatives"],
     )
     micro = micro.assign(
-        **_compute_scores(tp, fp, fn, fp_clean), category="OVERALL_MICRO"
+        **compute_scores(tp, fp, fn, fp_clean), category="OVERALL_MICRO"
     )
     # MACRO row: unweighted mean of the per-category scores
     score_cols = [
