@@ -175,7 +175,7 @@ class TrainConfig(BaseModel):
     warmup_ratio: float = Field(
         default=0.05,
         ge=0,
-        le=0.1,
+        le=0.2,
         description=(
             "Portion of total training steps where LR ramps up linearly from 0 to peak."
         ),
@@ -195,7 +195,7 @@ class TrainConfig(BaseModel):
     weight_decay: float = Field(
         default=0.01,
         ge=0.0,
-        lt=0.1,
+        le=0.1,
         description=(
             "L2 penalty on weights to curb overfitting. "
             "Higher: forces smaller weights, fights overfitting, but can underfit. "

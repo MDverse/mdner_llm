@@ -1,6 +1,6 @@
 model:
-  name: "fastino/gliner2-base-v1"                    # Pretrained base model ID or path
-  experiment_name: "gliner2-base-v1-finetuned"       # Experiment run tag
+  name: "fastino/gliner2.5-base-v1"                    # Pretrained base model ID or path
+  experiment_name: "gliner2.5-base-v1-finetuned"       # Experiment run tag
   output_dir: "results/gliner/models"                # Directory to save everything (checkpoints, data, plots, etc.)
 
 data:
@@ -8,8 +8,8 @@ data:
   cv_folds: 5                                   # Number of cross-validation folds (1 = no CV)
   train_ratio: 0.8                              # Fraction of data used for training
   val_ratio: 0.2                                # Fraction of data used for validation
-  seed: 42                                      # Seed for reproducible data splits
-  max_tokens: 2048                              # Max tokens per sequence chunk
+  seed: 42                                       # Seed for reproducible data splits
+  max_tokens: 1024                              # Max tokens/words per sequence chunk (using WhitespaceTokenSplitter for tokenization)
   overlap_tokens: 30                            # Overlapping tokens between consecutive chunks
 
 categories:
@@ -22,54 +22,54 @@ categories:
 
 training:
   # DataLoader
-  num_workers: 10                               # Subprocess workers for data loading
+  num_workers: 0                                # Subprocess workers for data loading
   pin_memory: True                              # Pin memory for faster CPU-to-GPU transfer
   prefetch_factor: 2                            # Batches prefetched per worker
 
   # Training steps
-  num_epochs: 30                                # Total training passes through the dataset
+  num_epochs: 16                                # Total training passes through the dataset
   max_steps: -1                                 # Step limit (-1 defers to num_epochs)
 
   # Batch size
   batch_size: 1                                 # Training batch size per GPU
   gradient_accumulation_steps: 16               # Steps to accumulate before weight updates (only for training not validation)
-  eval_batch_size: 32                           # Validation batch size per GPU
+  eval_batch_size: 16                           # Validation batch size per GPU
 
   # Learning rates
-  encoder_lr: 1e-5                              # Learning rate (LR) for encoder layers
-  task_lr: 5e-4                                 # Learning rate (LR) for task-specific layers
-  warmup_ratio: 0.08                            # Fraction of total steps for LR warmup
+  encoder_lr: 2.5e-05                             # Learning rate (LR) for encoder layers
+  task_lr: 5e-05                                # Learning rate (LR) for task-specific layers
+  warmup_ratio: 0.15                             # Fraction of total steps for LR warmup
   warmup_steps: 0                               # Exact warmup step count (0 uses ratio)
   scheduler_type: "cosine"                      # LR decay schedule ("linear", "cosine", etc.)
 
   # Optimization
-  weight_decay: 0.05                            # L2 regularization strength
+  weight_decay: 0.01                            # L2 regularization strength
   adam_beta1: 0.9                               # Momentum decay for Adam optimizer
   adam_beta2: 0.999                             # Second moment scale for Adam optimizer
 
   # Precision / hardware
   fp16: False                                   # Enable FP16 mixed precision (for NVIDIA GPUs with Tensor Cores)
-  bf16: True                                    # Enable BF16 mixed precision (for NVIDIA Ampere GPUs and newer)
+  bf16: False                                   # Enable BF16 mixed precision (for NVIDIA Ampere GPUs and newer)
 
   # LoRA settings
   use_lora: False                               # Toggle parameter-efficient LoRA tuning
   lora_r: 16                                    # Rank dimension of LoRA matrices
   lora_alpha: 32.0                              # LoRA scaling factor (typically 2 * r)
-  lora_dropout: 0.2                             # Dropout rate for LoRA adapters
+  lora_dropout: 0.1                             # Dropout rate for LoRA adapters
   lora_target_modules: ["encoder"]              # Submodules targeted for LoRA adapters
   save_adapter_only: True                       # Save adapter weights only, not base model
 
   # Checkpointing
   eval_strategy: "epoch"                        # Evaluation cadence ("epoch", "steps", "no")
   save_total_limit: 3                           # Max saved checkpoints kept on disk
-  early_stopping: False                         # Stop early when validation plateaus
+  early_stopping: True                          # Stop early when validation plateaus
   early_stopping_patience: 3                    # Checkpoint evaluations tolerated without gain
   metric_for_best: "eval_f1"                    # Target metric used to select best model
   greater_is_better: True                       # Direction of target metric optimization
   save_best: True                               # Keep the highest-scoring checkpoint
 
   # Logging
-  logging_steps: 5                              # Interval between metric log entries
+  logging_steps: 1                              # Interval between metric log entries
   logging_first_step: True                      # Emit logs at step 1
 
   # Other

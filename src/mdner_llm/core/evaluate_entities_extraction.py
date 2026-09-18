@@ -100,7 +100,12 @@ def extract_predicted_entities_from_row(data_row) -> list[dict]:
     formatted = data_row.get("formatted_response")
     if formatted and hasattr(formatted, "entities"):
         return [
-            {"category": ent.category, "text": ent.text, "is_hallucinated": False}
+            {
+                "category": ent.category,
+                "text": ent.text,
+                "score": ent.score,
+                "is_hallucinated": False,
+            }
             for ent in formatted.entities
         ]
     elif isinstance(formatted, dict) and "entities" in formatted:
@@ -108,6 +113,7 @@ def extract_predicted_entities_from_row(data_row) -> list[dict]:
             {
                 "category": ent.get("category"),
                 "text": ent.get("text"),
+                "score": ent.get("score"),
                 "is_hallucinated": False,
             }
             for ent in formatted["entities"]
