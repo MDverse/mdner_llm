@@ -1,6 +1,5 @@
 """Training GLINER2 model to fine-tune on Molecular Dynamics-specific NER tasks."""
 
-import gc
 import json
 import operator
 import os
@@ -12,7 +11,7 @@ import click
 import loguru
 import numpy as np
 import pandas as pd
-import torch
+import torch.multiprocessing as mp
 import yaml
 from gliner2 import AutoExtractor, GLiNER2
 from gliner2.processor import WhitespaceTokenSplitter
@@ -142,11 +141,10 @@ def build_example(
     )
     examples = []
     for chunk in chunks:
-        # Extract raw entities once before processing chunks.
+        # Extract raw entities.
         raw_entities = json_data.get("entities", [])
-        # Initialize empty entity lists for all known schema types.
-        # Example: {"MOL": [], "FFM": [], "SOFTNAME": []}.
-        formatted_entities = {category: [] for category in entity_descriptions or {}}
+        # Collect matched entities only for categories defined in schema.
+        chunk_entities = defaultdict(list)
         # Populate matched entities into their respective category lists.
         # Exemple: {"MOL": ["protein kinase A", "PKA"], "SOFTNAME": ["GROMACS"]}.
         for entity in raw_entities:
@@ -154,19 +152,23 @@ def build_example(
             entity_text = entity["text"]
             # Only add entity if it appears in the current chunk,
             # and is not already added.
-            if (entity_text in chunk) and (
-                entity_text not in formatted_entities[category]
-            ):
-                formatted_entities[category].append(entity_text)
+            if (entity_text in chunk) and (entity_text not in chunk_entities[category]):
+                chunk_entities[category].append(entity_text)
+        # Filter descriptions to keep only classes present in this specific chunk.
+        chunk_descriptions = {
+            category: entity_descriptions[category]
+            for category in chunk_entities
+            if chunk_entities[category]
+        }
         # Create an InputExample,
         examples.append(
             InputExample(
                 # with the raw text,
                 text=chunk,
                 # the formatted entities (category -> list of values),
-                entities=formatted_entities,
+                entities=chunk_entities,
                 # and the entity descriptions.
-                entity_descriptions=entity_descriptions,
+                entity_descriptions=chunk_descriptions,
             )
         )
     return examples, json_data.get("url", "")
@@ -510,6 +512,10 @@ def build_training_config(
         max_train_samples=config.training.max_train_samples,
         max_eval_samples=config.training.max_eval_samples,
         validate_data=config.training.validate_data,
+        # Use allow_invalid_samples to skip samples,
+        # without all categories present in the schema.
+        # Necessary for gliner2.5 training.
+        allow_invalid_samples=True,
     )
 
 
@@ -628,6 +634,41 @@ def train_gliner_model(
     return results
 
 
+def train_single_fold_process(
+    fold_id: int,
+    cfg: GLiNERConfig,
+    train_data: TrainingDataset,
+    val_data: TrainingDataset,
+    output_dir: Path,
+    result_queue: mp.Queue,
+) -> None:
+    """Execute training of an individual fold inside an isolated child process.
+
+    Spawning an independent OS process for each fold guarantees that all PyTorch
+    C++/CUDA runtime state, autograd computational graphs, and allocator caches
+    are fully discarded upon process termination, completely preventing GPU VRAM
+    accumulation across cross-validation folds.
+    """
+    # Must be set before importing torch or initializing CUDA driver bindings.
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+    # Deferred imports ensure child process starts with an unpolluted CUDA context.
+    # Load the model.
+    model = AutoExtractor.from_pretrained(cfg.model.name)
+    # Build a fold-specific training configuration and logger.
+    training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
+    training_config.output_dir = f"{output_dir}/fold_{fold_id}"
+    logger_fold = create_logger(f"{training_config.output_dir}/logs/training.log")
+    # Train the model for this fold.
+    results = train_gliner_model(
+        model=model,
+        train_dataset=train_data,
+        eval_dataset=val_data,
+        training_config=training_config,
+        logger=logger_fold,
+    )
+    result_queue.put(results)
+
+
 def save_training_history(
     results_list: list[dict],
     output_dir: Path,
@@ -661,8 +702,11 @@ def generate_gradient_colors(
     return [(red, green, blue, a) for a in alphas]
 
 
-def plot_loss_evolution(axis: plt.Axes, results_list: list[dict]) -> None:
+def plot_loss_evolution(
+    axis: plt.Axes, results_list: list[dict], cfg: "TrainingConfig"
+) -> None:
     """Plot training and validation loss curves across folds."""
+    # Generate gradient colors for training and evaluation curves.
     number_of_folds = len(results_list)
     train_colors = generate_gradient_colors("#0055FF", number_of_folds)
     eval_colors = generate_gradient_colors("#FFAA00", number_of_folds)
@@ -671,6 +715,8 @@ def plot_loss_evolution(axis: plt.Axes, results_list: list[dict]) -> None:
     for spine_name in ("top", "right"):
         axis.spines[spine_name].set_visible(False)
     axis.xaxis.set_major_locator(MaxNLocator(integer=True))
+    axis.set_ylim(bottom=0, top=1000)
+    axis.set_xlim(left=0, right=cfg.training.num_epochs)
     global_min_loss = {"loss": float("inf"), "epoch": None, "fold": None, "color": None}
     # Plot loss trajectory per fold and track best evaluation point.
     for fold_index, results in enumerate(results_list):
@@ -702,7 +748,6 @@ def plot_loss_evolution(axis: plt.Axes, results_list: list[dict]) -> None:
                             "fold": fold_index + 1,
                             "color": color,
                         }
-
     # Annotate minimum evaluation loss point.
     if global_min_loss["epoch"] is not None:
         axis.scatter(
@@ -736,7 +781,7 @@ def plot_loss_evolution(axis: plt.Axes, results_list: list[dict]) -> None:
     # Render training and validation fold legends.
     for title, anchor_x, color_theme, colors in (
         ("Train", 1.00, "#0055FF", train_colors),
-        ("Validation", 0.76, "#FFAA00", eval_colors),
+        ("Validation", 0.87, "#FFAA00", eval_colors),
     ):
         handles = [
             Line2D([0], [0], color=colors[fold_idx], lw=2, label=f"Fold {fold_idx + 1}")
@@ -817,22 +862,23 @@ def collect_validation_metric_records(
 def plot_validation_metrics_evolution(
     axis: plt.Axes,
     results_list: list[dict],
+    cfg: "TrainingConfig",
 ) -> None:
-    """Plot aggregated validation metrics (Mean +/- SD) across folds."""
+    """Plot aggregated mean validation metrics across folds."""
     metric_configs = {
-        "eval_f1": {
-            "label": "F1",
-            "color": "#7C3AED",
-            "style": "-",
-            "marker": "o",
-            "width": 2.2,
-        },
         "eval_precision": {
             "label": "Precision",
             "color": "#2563EB",
             "style": "--",
             "marker": "^",
             "width": 1.8,
+        },
+        "eval_f1": {
+            "label": "F1",
+            "color": "#7C3AED",
+            "style": "-",
+            "marker": "o",
+            "width": 2.2,
         },
         "eval_recall": {
             "label": "Recall",
@@ -842,17 +888,15 @@ def plot_validation_metrics_evolution(
             "width": 1.8,
         },
     }
-    # Style plot axes and grid boundaries.
     axis.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.4, color="#94A3B8")
     for spine_name in ("top", "right"):
         axis.spines[spine_name].set_visible(False)
     axis.xaxis.set_major_locator(MaxNLocator(integer=True))
-    axis.set_ylim(bottom=0.0, top=1.0)
-    # Collect grouped scores and retrieve the best F1 occurrence.
+    axis.set_ylim(bottom=0, top=1.0)
+    axis.set_xlim(left=0, right=cfg.training.num_epochs)
     scores_by_metric, peak_f1 = collect_validation_metric_records(
         results_list, tuple(metric_configs.keys())
     )
-    # Plot individual F1 fold observations as scatter background points.
     f1_color = metric_configs["eval_f1"]["color"]
     for epoch_number, f1_scores in scores_by_metric["eval_f1"].items():
         for single_f1_score in f1_scores:
@@ -864,8 +908,6 @@ def plot_validation_metrics_evolution(
                 color=f1_color,
                 alpha=0.25,
             )
-    # Render aggregated mean curve and standard deviation corridor for each metric.
-    # Example for F1: mean=0.85, std=0.03 -> fill_between from 0.82 to 0.88.
     legend_handles = []
     for metric_key, config in metric_configs.items():
         epoch_records = scores_by_metric[metric_key]
@@ -874,8 +916,6 @@ def plot_validation_metrics_evolution(
         sorted_epochs = sorted(epoch_records)
         epoch_values = [epoch_records[epoch] for epoch in sorted_epochs]
         metric_means = np.array([np.mean(values) for values in epoch_values])
-        metric_stds = np.array([np.std(values) for values in epoch_values])
-
         axis.plot(
             sorted_epochs,
             metric_means,
@@ -884,13 +924,6 @@ def plot_validation_metrics_evolution(
             marker=config["marker"],
             linewidth=config["width"],
             markersize=4.5,
-        )
-        axis.fill_between(
-            sorted_epochs,
-            np.clip(metric_means - metric_stds, 0.0, 1.0),
-            np.clip(metric_means + metric_stds, 0.0, 1.0),
-            color=config["color"],
-            alpha=0.12,
         )
         legend_handles.append(
             Line2D(
@@ -904,7 +937,6 @@ def plot_validation_metrics_evolution(
                 label=config["label"],
             )
         )
-    # Highlight global best F1 score observation with tooltip box.
     if peak_f1["epoch"] is not None:
         axis.scatter(
             peak_f1["epoch"],
@@ -928,12 +960,15 @@ def plot_validation_metrics_evolution(
                 "edgecolor": f1_color,
                 "alpha": 0.95,
             },
-            arrowprops={"arrowstyle": "->", "color": f1_color, "linewidth": 1.2},
+            arrowprops={
+                "arrowstyle": "->",
+                "color": f1_color,
+                "linewidth": 1.2,
+            },
         )
-    # Attach legend and axes titles.
     axis.legend(
         handles=legend_handles,
-        loc="lower right",
+        loc="upper left",
         frameon=True,
         facecolor="white",
         edgecolor="#E2E8F0",
@@ -942,7 +977,7 @@ def plot_validation_metrics_evolution(
     axis.set_xlabel("Epoch", fontsize=10.5)
     axis.set_ylabel("Validation metric", fontsize=10.5)
     axis.set_title(
-        "Cross-Validation Metrics (Mean ± SD)",
+        "Cross-Validation Metrics (Mean)",
         fontsize=11.5,
         pad=8,
         fontweight="medium",
@@ -953,15 +988,16 @@ def save_plot_training_curves(
     results_list: list[dict],
     model_name: str,
     output_dir: Path,
+    cfg: GLiNERConfig,
     file_name: str = "training_and_metrics_curves.png",
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Plot and save consolidated training loss and validation metrics curves."""
     figure, axes = plt.subplots(1, 2, figsize=(14.5, 5.2), dpi=300)
     # Plot evloution of the loss over epochs.
-    plot_loss_evolution(axes[0], results_list)
+    plot_loss_evolution(axes[0], results_list, cfg=cfg)
     # Plot evolution of validation metrics (F1, Precision, Recall) over epochs.
-    plot_validation_metrics_evolution(axes[1], results_list)
+    plot_validation_metrics_evolution(axes[1], results_list, cfg=cfg)
     # Styling and layout adjustments
     # Compute total training duration across all folds.
     total_seconds = sum(
@@ -1020,35 +1056,37 @@ def train_all_folds(
         output_dir,
         logger,
     )
-    # Enable expandable segments allocator to prevent CUDA memory fragmentation.
-    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
     # Train a separate model for each fold and collect results.
+    # Using "spawn" context ensures that each fold runs in a fresh process,
+    # preventing GPU memory accumulation and OOM errors across folds.
+    # Doc: https://britishgeologicalsurvey.github.io/science/python-forking-vs-spawn/
+    ctx = mp.get_context("spawn")
     all_results = []
     for fold_id, (train_data, val_data) in enumerate(folds, start=1):
         logger.info(f"Starting training of fold {fold_id}/{cfg.data.cv_folds}.")
-        model = AutoExtractor.from_pretrained(cfg.model.name)
-        training_config = build_training_config(cfg, output_dir / f"fold_{fold_id}")
-        training_config.output_dir = f"{output_dir}/fold_{fold_id}"
-        logger_fold = create_logger(f"{training_config.output_dir}/logs/training.log")
-        results = train_gliner_model(
-            model=model,
-            train_dataset=train_data,
-            eval_dataset=val_data,
-            training_config=training_config,
-            logger=logger_fold,
+        # Spawn a new process for the current fold.
+        result_queue = ctx.Queue()
+        # Execute training.
+        process = ctx.Process(
+            target=train_single_fold_process,
+            args=(fold_id, cfg, train_data, val_data, output_dir, result_queue),
         )
+        process.start()
+        # Wait for the process to finish and retrieve results.
+        results = result_queue.get()
+        process.join()
+        # Check if the process exited successfully.
+        if process.exitcode != 0:
+            logger.error(f"Fold {fold_id} failed with exitcode {process.exitcode}.")
+        # Append results to the overall list for plotting.
         all_results.append(results)
-        # Explicitly delete model and clear GPU memory,
-        # to avoid OOM errors in subsequent folds.
-        del model
-        gc.collect()
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
-            torch.cuda.ipc_collect()
+
     # Save training history in JSON format.
     save_training_history(all_results, output_dir, logger=logger)
     # Save training (Loss, F1, and Precision) curves across all folds.
-    save_plot_training_curves(all_results, cfg.model.name, output_dir, logger=logger)
+    save_plot_training_curves(
+        all_results, cfg.model.name, output_dir, logger=logger, cfg=cfg
+    )
     return all_results
 
 

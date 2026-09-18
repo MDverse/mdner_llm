@@ -52,6 +52,7 @@ if consensus_models:
             f"results/llm/evaluation/consensus/{setup_identifier}/.done"
         )
 
+
 # ==============================================================================
 # HELPER: INCREMENTAL GLOBAL AGGREGATION
 # ==============================================================================
@@ -172,18 +173,23 @@ rule extract_benchmark_and_full:
         prompt=config["prompt_path"],
         examples=config["examples_path"],
     output:
-        out_dir=directory("results/llm/inferences/raw/{combo}/{model_safe}"),
-    resources:
-        api_calls=1
+        done=touch("results/llm/inferences/raw/{combo}/{model_safe}/.done"),
     params:
+        out_dir="results/llm/inferences/raw/{combo}/{model_safe}",
         model=lambda wildcards: all_models_dict[wildcards.model_safe],
         framework=lambda wildcards: config["benchmark_strategies"].get(wildcards.combo, {}).get("framework", "instructor"),
         guidelines=lambda wildcards: config["benchmark_strategies"].get(wildcards.combo, {}).get("guidelines", config["guidelines_path"]),
         sleep_time=api_sleep_delay,
     shell:
         """
-        mkdir -p {output.out_dir}
+        mkdir -p {params.out_dir}
         for file in {input.texts_files}; do
+            stem=$(basename "$file" .json)
+            if compgen -G "{params.out_dir}/${{stem}}*.json" > /dev/null || \
+               compgen -G "{params.out_dir}/${{stem}}*.txt" > /dev/null; then
+                continue
+            fi
+
             uv run extract-entities-with-llm \
                 --text-path "$file" \
                 --model "{params.model}" \
@@ -192,31 +198,40 @@ rule extract_benchmark_and_full:
                 --examples-path {input.examples} \
                 --framework {params.framework} \
                 --temperature 1.0 \
-                --output-dir {output.out_dir}
+                --output-dir {params.out_dir}
         done
         sleep {params.sleep_time}
         """
 
 rule normalize_benchmark_and_full:
     input:
-        inferences_dir="results/llm/inferences/raw/{combo}/{model_safe}",
+        done="results/llm/inferences/raw/{combo}/{model_safe}/.done",
         ffm_db=config["ffm_db_path"],
         softname_db=config["softname_db_path"],
     output:
         norm_dir=directory("results/llm/inferences_normalized/{scenario}/{combo}/{model_safe}"),
-    resources:
-        api_calls=1
     params:
+        inferences_dir="results/llm/inferences/raw/{combo}/{model_safe}",
         norm_model=config["normalization_model"],
         sleep_time=api_sleep_delay,
+    resources:
+        api_calls=1
     shell:
         """
+        mkdir -p {output.norm_dir}
         uv run normalize-extracted-entities \
-            --inferences-dir {input.inferences_dir} \
+            --inferences-dir {params.inferences_dir} \
             --ffm-db-path {input.ffm_db} \
             --softname-db-path {input.softname_db} \
             --model-name "{params.norm_model}" \
             --output-dir {output.norm_dir}
+
+        json_count=$(find "{output.norm_dir}" -maxdepth 1 -name "*.json" | wc -l)
+        if [ "$json_count" -eq 0 ]; then
+            echo "[ERROR] No normalized files produced in {output.norm_dir}." >&2
+            rm -rf "{output.norm_dir}"
+            exit 1
+        fi
         sleep {params.sleep_time}
         """
 
@@ -256,19 +271,22 @@ rule extract_consensus_runs:
         guidelines=config["guidelines_path"],
         examples=config["examples_path"],
     output:
-        out_dir=directory("results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}"),
-    resources:
-        api_calls=1
-    wildcard_constraints:
-        temp=r"(?!1(\.0)?$).*"  # Ensure that the temperature is not 1 or 1.0 for consensus runs
+        done=touch("results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}/.done"),
     params:
+        out_dir="results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}",
         model=lambda wildcards: consensus_models[wildcards.model_safe],
         temp=lambda wildcards: wildcards.temp,
         sleep_time=api_sleep_delay,
     shell:
         """
-        mkdir -p {output.out_dir}
+        mkdir -p {params.out_dir}
         for file in {input.texts_files}; do
+            stem=$(basename "$file" .json)
+            if compgen -G "{params.out_dir}/${{stem}}_*.json" > /dev/null || \
+               compgen -G "{params.out_dir}/${{stem}}_*.txt" > /dev/null; then
+                continue
+            fi
+
             uv run extract-entities-with-llm \
                 --text-path "$file" \
                 --model "{params.model}" \
@@ -277,7 +295,7 @@ rule extract_consensus_runs:
                 --examples-path {input.examples} \
                 --temperature {params.temp} \
                 --framework instructor \
-                --output-dir {output.out_dir}
+                --output-dir {params.out_dir}
         done
         sleep {params.sleep_time}
         """
@@ -286,23 +304,22 @@ def get_consensus_inferences_input(wildcards) -> list[str]:
     temperatures_string = wildcards.setup.replace("temp_", "")
     included_temperatures = temperatures_string.split("_and_")
     
-    input_directories = []
+    input_done_files = []
     for temperature_value in included_temperatures:
         for model_identifier in consensus_models.keys():
-            # If the temperature is 1 or 1.0, use the raw inferences with guidelines
             if str(temperature_value) in ["1", "1.0"]:
-                input_directories.append(
-                    f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_identifier}"
+                input_done_files.append(
+                    f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_identifier}/.done"
                 )
             else:
-                input_directories.append(
-                    f"results/llm/inferences/consensus_raw/temp_{temperature_value}/{model_identifier}"
+                input_done_files.append(
+                    f"results/llm/inferences/consensus_raw/temp_{temperature_value}/{model_identifier}/.done"
                 )
-    return input_directories
+    return input_done_files
 
 rule aggregate_consensus:
     input:
-        inferences=get_consensus_inferences_input,
+        done_files=get_consensus_inferences_input,
     output:
         consensus_dir=directory("results/llm/inferences/consensus_aggregated/{setup}"),
     params:
@@ -314,7 +331,8 @@ rule aggregate_consensus:
         mkdir -p {output.consensus_dir}
         shopt -s nullglob
 
-        for source_directory in {input.inferences}; do
+        for done_file in {input.done_files}; do
+            source_directory=$(dirname "$done_file")
             if [ -d "$source_directory" ]; then
                 cp "$source_directory"/*.json {params.staging_dir}/ 2>/dev/null || true
             fi

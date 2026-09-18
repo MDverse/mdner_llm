@@ -72,9 +72,9 @@ rule train_gliner:
         cfg.model.experiment_name = wildcards.model
         cfg.training.use_lora = meta.get("use_lora", False)
         cfg.training.save_adapter_only = meta.get("use_lora", False)
-        cfg.training.encoder_lr = float(meta["encoder_lr"])
-        cfg.training.task_lr = float(meta["task_lr"])
-        cfg.training.warmup_ratio = float(meta["warmup_ratio"])
+        # cfg.training.encoder_lr = float(meta["encoder_lr"])
+        # cfg.training.task_lr = float(meta["task_lr"])
+        # cfg.training.warmup_ratio = float(meta["warmup_ratio"])
         logger = create_logger(level="INFO")
         logger.info(f"Starting training for {wildcards.model}.")
         train_all_folds(cfg, logger=logger)
