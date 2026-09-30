@@ -204,7 +204,7 @@ cython_debug/
 results/*
 plots/*
 figures/*
-
+tmp/*
 
 # Ignore common data files
 *.parquet
@@ -212,5 +212,7 @@ figures/*
 *.csv
 
 # Exclude specific files
-!data/*
-data/gt_annotation_tracker.csv
+data/mdverse/
+
+# Keep tracking data directory files
+!data/

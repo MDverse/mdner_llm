@@ -306,7 +306,6 @@ uv run normalize-extracted-entities \
   }
 ```
 
-
 ### Aggregate consensus entities across multiple annotations 📦
 
 To aggregate consensus entities across multiple annotations, run:
@@ -352,17 +351,15 @@ uv run evaluate-entities-extraction \
 
 > This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
 
-A comparison of the performance of different LLMs/Gliner2 models and frameworks can be found in [notebooks/compare_models_performance.ipynb](notebooks/compare_models_performance.ipynb).
-
-
 ## Workflow Orchestration with Snakemake 🚀
 
 We provide end-to-end reproducible pipelines orchestrated with [Snakemake](https://snakemake.readthedocs.io/).
 
 ```sh
-uv run snakemake gliner_all --cores all --resources gpu=1     # only gliner
-uv run snakemake llm_all --cores all --resources api_calls=1  # only llm
-uv run snakemake all --cores all --resources gpu=1            # all
+uv run snakemake run_benchmark_gliner --cores all --resources gpu=1                  # only gliner
+uv run snakemake run_benchmark_llm --cores all --resources api_calls=1               # only llm
+uv run snakemake run_mdverse_annotation  --cores all --resources api_calls=1 gpu=1   # only mdverse
+uv run snakemake all --cores all --resources gpu=1                                   # all
 ```
 
-All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/plot_ner_performance.ipynb](notebooks/plot_ner_performance.ipynb).
+All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/paper_tables_and_figures.ipynb](notebooks/paper_tables_and_figures.ipynb).
