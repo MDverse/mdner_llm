@@ -8,7 +8,7 @@ from pathlib import Path
 import click
 
 from mdner_llm.common import sanitize_filename
-from mdner_llm.core.extract_entities_with_llm_all_texts import (
+from mdner_llm.llm.extract_entities_with_llm_all_texts import (
     extract_entities_all_texts,
 )
 from mdner_llm.logger import create_logger

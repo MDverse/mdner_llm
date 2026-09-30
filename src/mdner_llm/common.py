@@ -1,11 +1,9 @@
 """Common utility functions used across the project."""
 
-import json
 import os
 import re
 from pathlib import Path
 
-import loguru
 from dotenv import load_dotenv
 
 
@@ -40,15 +38,6 @@ def ensure_dir(ctx, param, value: Path) -> Path:
 def sanitize_filename(s: str) -> str:
     """Replace unsafe characters for filenames.
 
-    This function replaces any character that is not a letter, digit,
-    underscore, hyphen, or dot with an underscore. It helps prevent issues
-    with filesystem restrictions across different operating systems.
-
-    Parameters
-    ----------
-    s : str
-        The input string to sanitize.
-
     Returns
     -------
     str
@@ -57,48 +46,9 @@ def sanitize_filename(s: str) -> str:
     return re.sub(r"[^\w\-_.]", "_", s)
 
 
-def serialize_response(
-    resp: object | str | dict,
-) -> str:
-    """
-    Serialize various response objects into a JSON-safe string representation.
-
-    Parameters
-    ----------
-    resp : ListOfEntities | ListOfEntitiesPositions | ChatCompletion | str | dict
-        The object to serialize. This may be a string, a custom class instance,
-        or a model response object such as ChatCompletion.
-
-    Returns
-    -------
-    str
-        A JSON-compatible string representation of the input object.
-    """
-    # Handle the case where the response is None
-    if resp is None:
-        return ""
-    # If it's already a string, nothing to do.
-    if isinstance(resp, str):
-        return resp
-    # If it's a Pydantic model (like ListOfEntities or ListOfEntitiesPositions),
-    # we can use the model's built-in serialization method
-    if hasattr(resp, "model_dump_json"):
-        return resp.model_dump_json(indent=2)
-    # If it's a dict, we can serialize it to JSON
-    if isinstance(resp, dict):
-        return json.dumps(resp, indent=2)
-    # Otherwise, we can try to convert it to a string directly
-    return str(resp)
-
-
 def load_api_key(key: str) -> str:
     """
     Load an API key from .env file or environment variables.
-
-    Parameters
-    ----------
-    key : str
-        The name of the environment variable containing the API key.
 
     Returns
     -------
@@ -120,31 +70,3 @@ def load_api_key(key: str) -> str:
         # raise an error to prevent further execution without a valid API key
         raise ValueError(msg)
     return api_key
-
-
-def list_json_files_from_txt(
-    texts_path: Path,
-    logger: "loguru.Logger" = loguru.logger,
-) -> list[Path]:
-    """Read a text file containing paths to JSON files.
-
-    Parameters
-    ----------
-    texts_path : Path
-        Path to a text file where each line is a path to a JSON file.
-
-    Returns
-    -------
-    list[Path]
-        A list of Path objects corresponding to the JSON files listed in the text file.
-    """
-    logger.info(f"Reading list of JSON files from {texts_path}.")
-    # Read the list of annotation text files from the provided path
-    selected_files = [
-        Path(line.strip())
-        for line in texts_path.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
-    total_files = len(selected_files)
-    logger.success(f"Found {total_files} JSON files successfully.")
-    return selected_files

@@ -8,7 +8,7 @@ import click
 import loguru
 
 from mdner_llm.common import ensure_dir, sanitize_filename
-from mdner_llm.core.extract_entities_with_llm import extract_entities
+from mdner_llm.llm.extract_entities_with_llm import extract_entities
 from mdner_llm.logger import create_logger
 
 

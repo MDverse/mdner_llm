@@ -7,9 +7,7 @@ from pathlib import Path
 
 from loguru import logger
 
-from mdner_llm.annotations.visualize_annotations import (
-    visualize_annotations_from_json_file,
-)
+from mdner_llm.visualization.annotations import visualize_annotations_from_json_file
 
 
 def remove_entity_annotation_file(
