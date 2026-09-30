@@ -1,9 +1,11 @@
-# Sakefile to run gliner and LLM-based NER benchmarks.
+# Sakefile to run gliner/LLM-based NER benchmarks and the mdverse annotation pipeline.
 
-include: "workflow/rules/gliner.smk"
-include: "workflow/rules/llm.smk"
+include: "workflow/rules/benchmark_gliner.smk"
+include: "workflow/rules/benchmark_llm.smk"
+include: "workflow/rules/mdverse_annotation.smk"
 
 rule all:
     input:
-        rules.gliner_all.input,
-        rules.llm_all.input,
+        rules.run_benchmark_gliner.input,
+        rules.run_benchmark_llm.input,
+        rules.run_mdverse_annotation.input

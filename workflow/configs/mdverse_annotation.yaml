@@ -1,0 +1,20 @@
+# Input raw Parquet dataset paths.
+raw_datasets:
+  zenodo: "data/raw_datasets/zenodo_datasets.parquet"
+  figshare: "data/raw_datasets/figshare_datasets.parquet"
+
+# Working directory for extracted input JSON files.
+mdverse_dir: "data/mdverse"
+
+# Pipeline execution engines: ["gliner"], ["llm"], or ["gliner", "llm"].
+engines:
+  - "gliner"
+
+# Model specifications for annotations.
+models:
+  gliner:
+    model_path: "fastino/gliner2.5-base-v1"
+  llm:
+    model_name: "z-ai/glm-5.3-flash"
+    framework: "instructor"
+    temperature: 1.0
