@@ -158,7 +158,7 @@ def update_global_aggregates(new_csv_path: str, new_parquet_path: str, scenario_
             models_df[avail_cols].to_csv(benchmark_models_csv, index=False)
 
 
-rule llm_all:
+rule run_benchmark_llm:
     input:
         evaluation_targets
 
