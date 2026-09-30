@@ -1,16 +1,22 @@
 """Module for characterizing and visualizing ground truth entity annotations."""
 
+import textwrap
 from pathlib import Path
+from typing import Literal
 
 import loguru
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+import umap
 from matplotlib.ticker import MaxNLocator
-from openai import OpenAI
+from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
 
-from mdner_llm.common import load_api_key
+from mdner_llm.annotations.create_embeddings import get_or_create_embeddings
 from mdner_llm.visualization.colors import COLORS
 
 
@@ -111,7 +117,7 @@ def plot_per_doc_entity_counts(
         .reset_index()
     )
     # Add missing document/category combinations with zero counts.
-    categories = df["category"].unique()
+    categories = ["MOL", "FFM", "SOFTNAME", "SOFTVERS", "STIME", "STEMP"]
     files = df["json_file"].unique()
     index = pd.MultiIndex.from_product(
         [categories, files],
@@ -123,15 +129,16 @@ def plot_per_doc_entity_counts(
         .reset_index()
     )
     fig, axes = plt.subplots(3, 2, figsize=(18, 15), constrained_layout=True)
+    global_max = int(counts["count"].max())
     # Plot one integer-valued histogram per category.
     for axis, (category, group) in zip(
-        axes.flat, counts.groupby("category"), strict=False
+        axes.flat, counts.groupby("category", sort=False), strict=False
     ):
         values = group["count"].astype(int)
         max_val, min_val = values.max(), values.min()
         bars = axis.hist(
             values,
-            bins=np.arange(max_val + 2) - 0.5,
+            bins=np.arange(global_max + 2) - 0.5,
             color=COLORS.get(category, "#cccccc"),
             edgecolor="black",
             hatch="//" if non_redundant else None,
@@ -146,8 +153,8 @@ def plot_per_doc_entity_counts(
         axis.set(
             xlabel="Number of entities",
             ylabel="Number of documents",
-            xlim=(-0.5, max_val + 0.5),
-            xticks=range(max_val + 1),
+            xlim=(-0.5, global_max + 0.5),
+            xticks=range(global_max + 1),
             title=f"Category {category}\nmin: {min_val} max: {max_val}",
         )
         axis.title.set_fontweight("bold")
@@ -195,6 +202,12 @@ def plot_categories_per_text_distribution(
     unique_pairs["n_cats"] = unique_pairs["json_file"].map(cat_per_file)
     unique_pairs["weight"] = 1.0 / unique_pairs["n_cats"]
     # Build cross-tabulation of category proportions across distinct category counts.
+    # Example:
+    # category   MOL   SOFTNAME   FFM
+    # n_cats
+    # 1         11.0       1.0   0.0  <- Total: 12 docs
+    # 2          0.5       0.0   0.5  <- Total: 1 doc
+    # 3         0.33      0.33  0.33  <- Total: 1 doc
     pivot = (
         pd.crosstab(
             index=unique_pairs["n_cats"],
@@ -294,29 +307,25 @@ def plot_text_length_distribution(
 
 def plot_text_similarity_distribution(
     texts_dict: dict[str, str],
+    embedding_model: str,
     output_path: Path | None = None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> plt.Figure:
-    """Compute embeddings via OpenRouter and plot pairwise cosine similarities.
+    """Plot histogram of pairwise cosine similarities between texts based on embeddings.
 
     Returns
     -------
     plt.Figure
         Figure containing a histogram of pairwise cosine similarities between texts.
     """
-    # Fetch normalized embeddings via API.
-    filenames, text_list = list(texts_dict.keys()), list(texts_dict.values())
-    client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key=load_api_key("OPENROUTER_API_KEY"),
+    # Compute or load embeddings for the provided texts.
+    filenames, norm_embeds = get_or_create_embeddings(
+        texts_dict=texts_dict,
+        embedding_model=embedding_model,
+        embedding_path=Path("../data/groundtruth/embeddings.npz"),
     )
-    response = client.embeddings.create(
-        model="openai/text-embedding-3-large", input=text_list
-    )
-    raw_embeds = np.array([item.embedding for item in response.data])
-    norm_embeds = raw_embeds / np.linalg.norm(raw_embeds, axis=1, keepdims=True)
     # Extract pairwise upper-triangle cosine similarities.
-    row_indices, col_indices = np.triu_indices(len(text_list), k=1)
+    row_indices, col_indices = np.triu_indices(len(filenames), k=1)
     similarities = (norm_embeds @ norm_embeds.T)[row_indices, col_indices]
     # Identify representative pair indices for extremes and median.
     min_pair_idx = int(np.argmin(similarities))
@@ -347,7 +356,7 @@ def plot_text_similarity_distribution(
     axis.hist(similarities, bins=25, color="#7048E8", edgecolor="black")
     axis.set(
         xlim=(0, 1),
-        title=f"Text similarity distribution ({len(text_list)} texts / "
+        title=f"Text similarity distribution ({len(filenames)} texts / "
         f"{len(similarities):,} pairs)",
         xlabel="Cosine similarity (0 = dissimilar, 1 = identical)",
         ylabel="Number of document pairs",
@@ -372,4 +381,112 @@ def plot_text_similarity_distribution(
     if output_path:
         fig.savefig(output_path, bbox_inches="tight", dpi=200)
         logger.success(f"Saved text similarity distribution plot in '{output_path}'.")
+    return fig
+
+
+def plot_embeddings_projection(
+    texts_dict: dict[str, str],
+    embedding_path: Path = Path("../data/groundtruth/embeddings.npz"),
+    embedding_model: str = "openai/text-embedding-3-large",
+    method: Literal["tsne", "pca", "umap"] = "tsne",
+    output_html_path: Path | None = None,
+    max_text_hover_len: int = 2000,
+    random_state: int = 42,
+    logger: "loguru.Logger" = loguru.logger,
+) -> go.Figure:
+    """Project embeddings in 2D and plot an interactive scatter plot with hover info.
+
+    Returns
+    -------
+    go.Figure
+        Interactive Plotly figure.
+
+    Raises
+    ------
+    ValueError
+        If an unsupported method is provided.
+    """
+    # Load or compute embeddings.
+    filenames, embeddings = get_or_create_embeddings(
+        texts_dict=texts_dict,
+        embedding_path=embedding_path,
+        embedding_model=embedding_model,
+        logger=logger,
+    )
+    # Reduce dimensions to 2D.
+    method_lower = method.lower()
+    if method_lower == "pca":
+        reducer = PCA(n_components=2, random_state=random_state)
+        coords_2d = reducer.fit_transform(embeddings)
+        axis_labels = {
+            "x": f"PC 1 ({reducer.explained_variance_ratio_[0]:.1%})",
+            "y": f"PC 2 ({reducer.explained_variance_ratio_[1]:.1%})",
+        }
+        method_title = "PCA"
+    elif method_lower == "tsne":
+        reducer = TSNE(n_components=2, random_state=random_state)
+        coords_2d = reducer.fit_transform(embeddings)
+        axis_labels = {"x": "t-SNE 1", "y": "t-SNE 2"}
+        method_title = "t-SNE"
+    elif method_lower == "umap":
+        reducer = umap.UMAP(n_components=2, random_state=random_state)
+        coords_2d = reducer.fit_transform(embeddings)
+        axis_labels = {"x": "UMAP 1", "y": "UMAP 2"}
+        method_title = "UMAP"
+    else:
+        msg = f"Unsupported method '{method}'. Choose from: 'tsne', 'pca', 'umap'."
+        raise ValueError(msg)
+    # Prepare data & format preview text for tooltip.
+    hover_texts = [
+        "<br>".join(
+            textwrap.wrap(
+                textwrap.shorten(
+                    texts_dict[fn], width=max_text_hover_len, placeholder="..."
+                ),
+                width=100,
+            )
+        )
+        for fn in filenames
+    ]
+    df = pd.DataFrame(
+        {
+            "filename": filenames,
+            "x": coords_2d[:, 0],
+            "y": coords_2d[:, 1],
+            "preview": hover_texts,
+        }
+    )
+    # Build interactive scatter plot.
+    fig = px.scatter(
+        df,
+        x="x",
+        y="y",
+        hover_name="filename",
+        custom_data=["preview"],
+        title=(
+            "2D Projection of Document Embeddings "
+            f"({method_title}) - {len(filenames)} docs"
+        ),
+        labels=axis_labels,
+        template="plotly_white",
+    )
+    # Configure hover template.
+    fig.update_traces(
+        marker={
+            "size": 9,
+            "color": "#7048E8",
+            "opacity": 0.85,
+            "line": {"width": 1, "color": "black"},
+        },
+        hovertemplate="<b>%{hovertext}</b><br><br>%{customdata[0]}<extra></extra>",
+    )
+    fig.update_layout(width=900, height=650)
+    # Save plot as HTML.
+    if output_html_path:
+        out_p = Path(output_html_path)
+        final_path = out_p.with_name(f"{out_p.stem}_{method_lower}{out_p.suffix}")
+        final_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.write_html(str(final_path))
+        logger.success(f"Interactive projection saved to '{final_path}'.")
+
     return fig
