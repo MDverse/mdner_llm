@@ -28,10 +28,9 @@ def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
     pd.DataFrame
         DataFrame with one row per file and JSON keys as columns.
     """
-    logger.info(f"Loading annotations from {annotations_dir}.")
     records = []
     # Iterate over all JSON files in the directory in sorted order
-    for json_file in sorted(annotations_dir.glob("*.json")):
+    for json_file in sorted(annotations_dir.rglob("*.json")):
         try:
             # Open and parse the JSON file
             with json_file.open(encoding="utf-8") as handle:
@@ -57,19 +56,11 @@ def load_json_annotations_as_dataframe(annotations_dir: Path) -> pd.DataFrame:
 
     # Convert the list of dictionaries into a DataFrame
     df = pd.DataFrame.from_records(records)
-    logger.success(
-        f"Loaded {df.shape[0]} annotation files into DataFrame successfully!"
-    )
     return df
 
 
 def normalize_text(text: str) -> str:
     """Normalize text by removing special characters and converting to lowercase.
-
-    Parameters
-    ----------
-    text : str
-        The text to normalize.
 
     Returns
     -------
@@ -86,57 +77,59 @@ def normalize_text(text: str) -> str:
     return text_normalized.strip()
 
 
-def extract_predicted_entities_from_row(data_row) -> list[dict]:
-    """Fallback from normalized_entities to formatted_response.
+def extract_predicted_entities_from_row(
+    data_row: dict, confidence_threshold: float | None = None
+) -> list[dict]:
+    """Extract predicted entities with optional confidence threshold filtering.
 
     Returns
     -------
     list[dict]
         List of predicted entities with their categories and hallucination flags.
     """
+    # First, extract entities from normalized_entities.
     if isinstance(data_row.get("normalized_entities"), dict):
-        return data_row["normalized_entities"].get("entities", [])
-
-    formatted = data_row.get("formatted_response")
-    if formatted and hasattr(formatted, "entities"):
-        return [
-            {
-                "category": ent.category,
-                "text": ent.text,
-                "score": ent.score,
-                "is_hallucinated": False,
-            }
-            for ent in formatted.entities
-        ]
-    elif isinstance(formatted, dict) and "entities" in formatted:
-        return [
-            {
-                "category": ent.get("category"),
-                "text": ent.get("text"),
-                "score": ent.get("score"),
-                "is_hallucinated": False,
-            }
-            for ent in formatted["entities"]
-        ]
-    return []
-
-
-def count_predicted_entities(data_row) -> int:
-    """Count the number of predicted entities in a data row.
-
-    Returns
-    -------
-    int
-        Number of predicted entities in the data_row.
-    """
-    entities = extract_predicted_entities_from_row(data_row)
-    return len(entities)
+        entities = data_row["normalized_entities"].get("entities", [])
+    else:
+        # If not available, fallback to extracting from formatted_response.
+        predicted = data_row.get("formatted_response")
+        if predicted:
+            # Dump Pydantic model to dictionary if applicable
+            if hasattr(predicted, "model_dump"):
+                predicted = predicted.model_dump()
+            entities = [
+                {
+                    "category": entity.get("category"),
+                    "text": entity.get("text"),
+                    "score": entity.get("score"),
+                    "is_hallucinated": None,
+                }
+                for entity in predicted["entities"]
+            ]
+        else:
+            entities = []
+    # Apply confidence threshold filtering if specified.
+    if confidence_threshold is not None:
+        filtered_entities = []
+        for entity in entities:
+            score = entity.get("score")
+            # Include entity if score is None, NaN, or meets/exceeds the threshold.
+            if (
+                score is None
+                or (isinstance(score, float) and np.isnan(score))
+                or score >= confidence_threshold
+            ):
+                filtered_entities.append(entity)
+        return filtered_entities
+    else:
+        return entities
 
 
 def count_hallucinated_entities(
     data_row,
     *,
     is_valid_output_format: bool,
+    confidence_threshold: float | None = None,
 ) -> int:
     """Count hallucinated entities using pre-computed flags from normalization step.
 
@@ -145,24 +138,45 @@ def count_hallucinated_entities(
     int
         Number of hallucinated entities in the normalized_entities field.
     """
-    if not is_valid_output_format or not isinstance(
-        data_row.get("normalized_entities"), dict
-    ):
-        return 0
-    entities = data_row["normalized_entities"].get("entities", [])
-    return sum(
-        1
-        for ent in entities
-        if isinstance(ent, dict) and ent.get("is_hallucinated", False)
-    )
+    # Checks
+    # Return NaN to indicate that counting is not applicable:
+    # If the output format is not valid
+    if not is_valid_output_format:
+        return np.nan
+    # If normalized_entities is missing or not a dict
+    normalized_entities = data_row.get("normalized_entities")
+    if not isinstance(normalized_entities, dict):
+        return np.nan
+    # If the "entities" key is missing or not a list
+    entities = normalized_entities.get("entities")
+    if not isinstance(entities, list):
+        return np.nan
+
+    hallucination_count = 0
+    for entity in entities:
+        score = entity.get("score")
+        # Apply threshold only to scored entities; keep unscored ones.
+        if (
+            confidence_threshold is not None
+            and score is not None
+            and score < confidence_threshold
+        ):
+            continue
+        # Accumulate grounded hallucinations
+        if entity.get("is_hallucinated"):
+            hallucination_count += 1
+
+    return hallucination_count
 
 
-def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
+def add_quality_columns(
+    df: pd.DataFrame, confidence_threshold: float | None = None
+) -> pd.DataFrame:
     """Add columns of quality checks to the DataFrame.
 
     Adds the following columns:
     - `is_valid_output_format`:
-        True if the LLM response matches the expected JSON format.
+        True if the model response matches the expected JSON format.
     - `nb_hallucinated_entities`:
         Number of predicted entities not found in the original text.
     - `nb_predicted_entities_raw`:
@@ -175,17 +189,24 @@ def add_quality_columns(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
     df["is_valid_output_format"] = df["status"].eq("ok")
-    # Count the number of predicted entities
-    df["nb_predicted_entities_raw"] = df.apply(
-        lambda row: count_predicted_entities(row), axis=1
-    )
-    # Count the number of hallucinated entities
-    df["nb_hallucinated_entities"] = df.apply(
-        lambda row: count_hallucinated_entities(
-            row, is_valid_output_format=row["is_valid_output_format"]
-        ),
-        axis=1,
-    )
+    # Count the number of predicted entities.
+    df["nb_predicted_entities_raw"] = [
+        len(
+            extract_predicted_entities_from_row(
+                row, confidence_threshold=confidence_threshold
+            )
+        )
+        for row in df.to_dict("records")
+    ]
+    # Count the number of hallucinated entities.
+    df["nb_hallucinated_entities"] = [
+        count_hallucinated_entities(
+            row,
+            is_valid_output_format=row.get("is_valid_output_format"),
+            confidence_threshold=confidence_threshold,
+        )
+        for row in df.to_dict("records")
+    ]
     return df
 
 
@@ -219,20 +240,27 @@ def split_predictions_by_category_and_hallucination(
     """
     hallucinated = set()
     grounded = set()
-    for ent in normalized_entities:
-        if ent.get("category") == category:
-            text = normalize_text(ent.get("text", ""))
-            if text:
-                if ent.get("is_hallucinated", False):
-                    hallucinated.add(text)
-                else:
-                    grounded.add(text)
 
+    for ent in normalized_entities:
+        if ent.get("category") != category:
+            continue
+        text = normalize_text(ent.get("text", ""))
+        if not text:
+            continue
+        flag = ent.get("is_hallucinated")
+        # Explicit True -> Hallucinated
+        if flag is True:
+            hallucinated.add(text)
+        # Explicit False -> Grounded (verified present in source text)
+        elif flag is False:
+            grounded.add(text)
+        # If flag is None or missing, do NOT assume grounded and leave unclassified
     return hallucinated, grounded
 
 
 def build_category_level_dataframe(
     df: pd.DataFrame,
+    confidence_threshold: float | None = None,
 ) -> pd.DataFrame:
     """Build a category-level DataFrame from the original DataFrame.
 
@@ -247,7 +275,7 @@ def build_category_level_dataframe(
         gt_entities = row["groundtruth"].entities
         gt_by_category = group_texts_by_category(gt_entities)
         # Get the list of predicted entities
-        pred_entities = extract_predicted_entities_from_row(row)
+        pred_entities = extract_predicted_entities_from_row(row, confidence_threshold)
         # Collect all unique categories present in GT or Preds
         pred_categories = {
             ent.get("category") for ent in pred_entities if ent.get("category")
@@ -259,17 +287,6 @@ def build_category_level_dataframe(
             hallucinated, grounded = split_predictions_by_category_and_hallucination(
                 pred_entities, category
             )
-            # Map predicted text to confidence score for the current category
-            scores = {}
-            for predicted_entity in pred_entities:
-                # Filter entities matching target category and ensure text field exists
-                if (
-                    predicted_entity.get("category") == category
-                    and "text" in predicted_entity
-                ):
-                    # Store confidence score as:
-                    # Example: {"POPC": 0.95}
-                    scores[predicted_entity["text"]] = predicted_entity.get("score")
             # Reconstruction of all predicted texts for this category
             pred_texts = hallucinated | grounded
             new_row.update(
@@ -279,12 +296,29 @@ def build_category_level_dataframe(
                     "prediction_by_category": pred_texts,
                     "hallucinated_by_category": hallucinated,
                     "grounded_prediction_by_category": grounded,
-                    "pred_scores_by_text": scores,
                 }
             )
             rows.append(new_row)
 
     return pd.DataFrame(rows)
+
+
+def extract_scores_map(formatted_response: dict | None) -> dict[str, list[float]]:
+    """Build a mapping from entity text to all its confidence score occurrences.
+
+    Returns
+    -------
+    dict[str, list[float]]
+
+    """
+    scores_map = defaultdict(list)
+    # Collect every score occurrence for each entity text.
+    for entity in formatted_response.entities:
+        text, score = entity.text, entity.score
+        if text is not None and score is not None:
+            normalized_text = normalize_text(text)
+            scores_map[normalized_text].append(float(score))
+    return dict(scores_map)
 
 
 def compute_confusion_metrics_by_row(row):
@@ -298,16 +332,16 @@ def compute_confusion_metrics_by_row(row):
     gt = set(row.get("groundtruth_by_category", []))
     pred = set(row.get("prediction_by_category", []))
     hallucinated = set(row.get("hallucinated_by_category", []))
-    scores_map = row.get("pred_scores_by_text", {})
+    # Extract prediction confidence scores list from formatted response.
+    scores_map = extract_scores_map(row.get("formatted_response"))
     # Compute true positives, false positives, and false negatives
     tp = gt & pred
     fp = pred - gt
     fn = gt - pred
     fp_no_hallucination = fp - hallucinated
-    # Retrieve scores for TP, FP, and FN entities if available
-    tp_scores = [scores_map[ent] for ent in tp if ent in scores_map]
-    fp_scores = [scores_map[ent] for ent in fp if ent in scores_map]
-    fn_scores = [scores_map[ent] for ent in fn if ent in scores_map]
+    # Flatten all score occurrences for true and false positives.
+    tp_scores = [score for ent in tp if ent in scores_map for score in scores_map[ent]]
+    fp_scores = [score for ent in fp if ent in scores_map for score in scores_map[ent]]
     return pd.Series(
         {
             "true_positives": len(tp),
@@ -319,7 +353,6 @@ def compute_confusion_metrics_by_row(row):
             "fn_entities": list(fn),
             "tp_scores": tp_scores,
             "fp_scores": fp_scores,
-            "fn_scores": fn_scores,
         }
     )
 
@@ -400,7 +433,7 @@ def compute_grouped_stats(
     pd.DataFrame
         Long-format DataFrame with one row per (model, framework, category).
     """
-    # Group by model, framework, and category to compute metrics per category
+    # Compute per-category confusion counts and token aggregates.
     grouped_category = (
         df_categories.groupby(["model_name", "framework_name", "category"])
         .agg(
@@ -420,10 +453,7 @@ def compute_grouped_stats(
                 "hallucinated_by_category",
                 lambda s: sum(len(x) for x in s),
             ),
-            pct_correct_format=(
-                "is_valid_output_format",
-                lambda s: 100 * s.mean(),
-            ),
+            pct_correct_format=("is_valid_output_format", lambda s: 100 * s.mean()),
             true_positives=("true_positives", "sum"),
             false_positives=("false_positives", "sum"),
             false_positives_no_hallucination=(
@@ -447,15 +477,12 @@ def compute_grouped_stats(
         grouped_category["false_negatives"],
     )
     grouped_category = grouped_category.assign(**compute_scores(tp, fp, fn, fp_clean))
-    # OVERALL MICRO row: pool text/entity counts and TP/FP/FN across all categories
+    # Aggregate text-level run statistics across all test instances.
     per_text_stats = (
         df.groupby(["model_name", "framework_name"])
         .agg(
             nb_texts_with_category=("text", "nunique"),
-            pct_correct_format=(
-                "is_valid_output_format",
-                lambda s: 100 * s.mean(),
-            ),
+            pct_correct_format=("is_valid_output_format", lambda s: 100 * s.mean()),
             nb_hallucinated_entities=("nb_hallucinated_entities", "sum"),
             nb_predicted_entities_raw=("nb_predicted_entities_raw", "sum"),
             total_cost_usd=("inference_cost_usd", "sum"),
@@ -466,6 +493,7 @@ def compute_grouped_stats(
         )
         .reset_index()
     )
+    # Aggregate entity counts and pooled confusion counts across all categories.
     per_entity_stats = (
         df_categories.groupby(["model_name", "framework_name"])
         .agg(
@@ -487,20 +515,22 @@ def compute_grouped_stats(
         )
         .reset_index()
     )
+    # Build complete MICRO summary row.
     micro = per_text_stats.merge(per_entity_stats, on=["model_name", "framework_name"])
     micro["pct_hallucinations"] = 100 * safe_divide(
         micro["nb_hallucinated_entities"], micro["nb_predicted_entities"]
     )
-    tp, fp, fp_clean, fn = (
+    tp_micro, fp_micro, fp_clean_micro, fn_micro = (
         micro["true_positives"],
         micro["false_positives"],
         micro["false_positives_no_hallucination"],
         micro["false_negatives"],
     )
     micro = micro.assign(
-        **compute_scores(tp, fp, fn, fp_clean), category="OVERALL_MICRO"
+        **compute_scores(tp_micro, fp_micro, fn_micro, fp_clean_micro),
+        category="OVERALL_MICRO",
     )
-    # MACRO row: unweighted mean of the per-category scores
+    # Compute unweighted mean scores across categories for MACRO evaluation.
     score_cols = [
         "precision",
         "precision_no_hallucination",
@@ -514,17 +544,20 @@ def compute_grouped_stats(
         grouped_category.groupby(["model_name", "framework_name"])[score_cols]
         .mean()
         .reset_index()
+    )
+    # Build complete MACRO summary row by copying micro counts and updating scores.
+    macro = (
+        micro.drop(columns=[*score_cols, "category"])
+        .merge(macro_scores, on=["model_name", "framework_name"])
         .assign(category="OVERALL_MACRO")
     )
-    # Attach text-level metadata columns to macro summary.
-    macro = per_text_stats.merge(
-        macro_scores, on=["model_name", "framework_name"]
-    ).assign(category="OVERALL_MACRO")
-    # Concatenate the per-category, MICRO and MACRO DataFrames.
+    # Concatenate per-category, MICRO, and MACRO rows into final DataFrame.
     return pd.concat([grouped_category, micro, macro], ignore_index=True)
 
 
-def main(inferences_dir: Path, results_dir: Path) -> None:
+def main(
+    inferences_dir: Path, confidence_threshold: float | None, results_dir: Path
+) -> None:
     """
     Evaluate the quality of JSON entity annotations.
 
@@ -540,15 +573,19 @@ def main(inferences_dir: Path, results_dir: Path) -> None:
     logger = create_logger(
         f"logs/evaluate_entities_extraction_from_{sanitize_filename(str(inferences_dir))}_{timestamp}.log"
     )
-    logger.info("Starting LLM annotation evaluation.")
+    logger.info("Starting NER prediction evaluation.")
     start_time = time.perf_counter()
     # Loading annotations with metadatas
+    logger.info(f"Loading annotations from {inferences_dir}.")
     df = load_json_annotations_as_dataframe(inferences_dir)
+    logger.success(
+        f"Loaded {df.shape[0]} annotation files into DataFrame successfully!"
+    )
     # Checking that the output format is correct
     # and the absence of hallucination
-    df = add_quality_columns(df)
+    df = add_quality_columns(df, confidence_threshold)
     # Build category-level dataset
-    df_category = build_category_level_dataframe(df)
+    df_category = build_category_level_dataframe(df, confidence_threshold)
     # Compute confusion metrics (TP, FP, TN) by annotation file and category
     metrics = df_category.apply(compute_confusion_metrics_by_row, axis=1)
     df_with_conf_metrics = pd.concat([df_category, metrics], axis=1)
@@ -559,6 +596,7 @@ def main(inferences_dir: Path, results_dir: Path) -> None:
     )
     # Compute grouped stats by model and framework
     df_grouped_stats = compute_grouped_stats(df, df_with_conf_metrics)
+    df_grouped_stats["threshold"] = confidence_threshold
     # Saving into an excel
     output_path = results_dir / "grouped_evaluation_metrics.csv"
     df_grouped_stats.to_csv(output_path, index=False)
@@ -573,18 +611,24 @@ def main(inferences_dir: Path, results_dir: Path) -> None:
     help="Directory containing the JSON annotation files to evaluate.",
 )
 @click.option(
+    "--confidence-threshold",
+    type=click.FloatRange(min=0.0, max=1.0),
+    default=None,
+    help="Optional confidence threshold to filter predicted entities.",
+)
+@click.option(
     "--results-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
     help="Target directory where evaluation results will be saved.",
     callback=ensure_dir,
 )
 def run_main_from_cli(
-    inferences_dir: Path,
-    results_dir: Path,
+    inferences_dir: Path, results_dir: Path, confidence_threshold: float | None = None
 ) -> None:
     """Evaluate the quality of JSON entity annotations from CLI."""
     main(
         inferences_dir=inferences_dir,
+        confidence_threshold=confidence_threshold,
         results_dir=results_dir,
     )
 
