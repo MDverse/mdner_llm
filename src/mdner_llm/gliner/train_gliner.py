@@ -11,6 +11,7 @@ import click
 import loguru
 import numpy as np
 import pandas as pd
+import torch
 import torch.multiprocessing as mp
 import yaml
 from gliner2 import AutoExtractor, GLiNER2
@@ -627,10 +628,10 @@ def train_gliner_model(
     # Explicitly clear GPU memory and delete trainer to avoid memory leaks.
     # Without this, VRAM was not fully released between folds,
     # causing out-of-memory errors on subsequent iterations.
-    if hasattr(trainer, "optimizer"):
-        trainer.optimizer.state.clear()
-        del trainer.optimizer
+    # Docs: https://stackoverflow.com/questions/1316767/how-can-i-explicitly-free-memory-in-python
     del trainer
+    # Docs: https://docs.pytorch.org/docs/2.14/generated/torch.cuda.memory.empty_cache.html
+    torch.cuda.empty_cache()
     return results
 
 
