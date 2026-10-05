@@ -7,9 +7,19 @@ import random
 from collections import defaultdict
 from pathlib import Path
 
+from mdner_llm.visualization.gliner import (
+    plot_loss_evolution,
+    plot_validation_metrics_evolution,
+)
+
+# Enable expandable segments for PyTorch CUDA memory allocation,
+# to prevent out-of-memory errors during training.
+# Must be set before importing torch or initializing CUDA driver bindings.
+# Docs: https://docs.nvidia.com/dl-cuda-graph/troubleshooting/memory-issues.html
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 import click
 import loguru
-import numpy as np
 import pandas as pd
 import torch
 import torch.multiprocessing as mp
@@ -19,9 +29,6 @@ from gliner2.processor import WhitespaceTokenSplitter
 from gliner2.training.data import InputExample, TrainingDataset
 from gliner2.training.trainer import ExtractorTrainer, TrainingConfig
 from matplotlib import pyplot as plt
-from matplotlib.colors import to_rgba
-from matplotlib.lines import Line2D
-from matplotlib.ticker import MaxNLocator
 from pydantic import ValidationError
 
 from mdner_llm.core.evaluate_entities_extraction import compute_scores
@@ -341,7 +348,7 @@ def k_fold_split(
         train_end_idx = int(len(trainval_indices) * cfg.data.train_ratio)
         split_indices_list = [
             (
-                1,
+                1,  # fold_id
                 {
                     "train": trainval_indices[:train_end_idx],
                     "val": trainval_indices[train_end_idx:],
@@ -553,7 +560,7 @@ def compute_evaluation_metrics(
         entities_by_category_with_scores = predictions.get("entities", {})
         for entities_by_category in entities_by_category_with_scores.values():
             predicted_entities.update(entities_by_category)
-        # Compute intersection and discrepancies between ground truth and predictions.
+        # Compute intersection and differences between ground truth and predictions.
         true_positives = groundtruth_entities & predicted_entities
         false_positives = predicted_entities - groundtruth_entities
         false_negatives = groundtruth_entities - predicted_entities
@@ -650,8 +657,6 @@ def train_single_fold_process(
     are fully discarded upon process termination, completely preventing GPU VRAM
     accumulation across cross-validation folds.
     """
-    # Must be set before importing torch or initializing CUDA driver bindings.
-    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
     # Deferred imports ensure child process starts with an unpolluted CUDA context.
     # Load the model.
     model = AutoExtractor.from_pretrained(cfg.model.name)
@@ -684,305 +689,6 @@ def save_training_history(
     with open(output_path, "w", encoding="utf-8") as file:
         json.dump(history_records, file, indent=2)
     logger.success(f"Saved full training history to {output_path} successfully!")
-
-
-def generate_gradient_colors(
-    base_color: str,
-    n_colors: int,
-    min_alpha: float = 0.35,
-    max_alpha: float = 1.0,
-) -> list[tuple[float, float, float, float]]:
-    """Generate RGBA colors with opacity gradient.
-
-    Returns
-    -------
-    list of RGBA tuples
-    """
-    red, green, blue, _ = to_rgba(base_color)
-    alphas = np.linspace(min_alpha, max_alpha, max(n_colors, 1))
-    return [(red, green, blue, a) for a in alphas]
-
-
-def plot_loss_evolution(
-    axis: plt.Axes, results_list: list[dict], cfg: "TrainingConfig"
-) -> None:
-    """Plot training and validation loss curves across folds."""
-    # Generate gradient colors for training and evaluation curves.
-    number_of_folds = len(results_list)
-    train_colors = generate_gradient_colors("#0055FF", number_of_folds)
-    eval_colors = generate_gradient_colors("#FFAA00", number_of_folds)
-    # Configure axes layout and appearance.
-    axis.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.4, color="#94A3B8")
-    for spine_name in ("top", "right"):
-        axis.spines[spine_name].set_visible(False)
-    axis.xaxis.set_major_locator(MaxNLocator(integer=True))
-    axis.set_ylim(bottom=0, top=1000)
-    axis.set_xlim(left=0, right=cfg.training.num_epochs)
-    global_min_loss = {"loss": float("inf"), "epoch": None, "fold": None, "color": None}
-    # Plot loss trajectory per fold and track best evaluation point.
-    for fold_index, results in enumerate(results_list):
-        fold_train_color = train_colors[fold_index]
-        fold_eval_color = eval_colors[fold_index]
-        for key, color, is_eval in (
-            ("train_metrics_history", fold_train_color, False),
-            ("eval_metrics_history", fold_eval_color, True),
-        ):
-            metric_key = "eval_loss" if is_eval else "loss"
-            loss_by_epoch = {}
-            for entry in results.get(key, []):
-                epoch = int(entry["epoch"])
-                loss_value = float(entry[metric_key])
-                loss_by_epoch[epoch] = min(
-                    loss_by_epoch.get(epoch, float("inf")), loss_value
-                )
-            epochs = sorted(loss_by_epoch)
-            losses = [loss_by_epoch[epoch] for epoch in epochs]
-            axis.plot(
-                epochs, losses, color=color, linewidth=1.6, marker="o", markersize=3
-            )
-            if is_eval:
-                for epoch, loss_val in zip(epochs, losses, strict=False):
-                    if loss_val < global_min_loss["loss"]:
-                        global_min_loss = {
-                            "loss": loss_val,
-                            "epoch": epoch,
-                            "fold": fold_index + 1,
-                            "color": color,
-                        }
-    # Annotate minimum evaluation loss point.
-    if global_min_loss["epoch"] is not None:
-        axis.scatter(
-            global_min_loss["epoch"],
-            global_min_loss["loss"],
-            s=80,
-            color=global_min_loss["color"],
-            edgecolors="#1E293B",
-            linewidths=1.2,
-            zorder=10,
-        )
-        axis.annotate(
-            f"Best eval loss\nFold {global_min_loss['fold']} "
-            f"(Ep. {global_min_loss['epoch']})\nLoss: {global_min_loss['loss']:.0f}",
-            xy=(global_min_loss["epoch"], global_min_loss["loss"]),
-            xytext=(15, -18),
-            textcoords="offset points",
-            fontsize=8.5,
-            bbox={
-                "boxstyle": "round,pad=0.3",
-                "facecolor": "white",
-                "edgecolor": global_min_loss["color"],
-                "alpha": 0.95,
-            },
-            arrowprops={
-                "arrowstyle": "->",
-                "color": global_min_loss["color"],
-                "linewidth": 1.2,
-            },
-        )
-    # Render training and validation fold legends.
-    for title, anchor_x, color_theme, colors in (
-        ("Train", 1.00, "#0055FF", train_colors),
-        ("Validation", 0.87, "#FFAA00", eval_colors),
-    ):
-        handles = [
-            Line2D([0], [0], color=colors[fold_idx], lw=2, label=f"Fold {fold_idx + 1}")
-            for fold_idx in range(number_of_folds)
-        ]
-        legend = axis.legend(
-            handles=handles,
-            title=title,
-            loc="upper right",
-            bbox_to_anchor=(anchor_x, 1.00),
-            frameon=True,
-            facecolor="white",
-            edgecolor="#E2E8F0",
-            fontsize=7.5,
-            title_fontsize=8,
-        )
-        legend.get_title().set_color(color_theme)
-        legend.get_title().set_weight("bold")
-        axis.add_artist(legend)
-    # Set axis titles and labels.
-    axis.set_xlabel("Epoch", fontsize=10.5)
-    axis.set_ylabel("Loss", fontsize=10.5)
-    axis.set_title("Loss Evolution", fontsize=11.5, pad=8, fontweight="medium")
-
-
-def collect_validation_metric_records(
-    results_list: list[dict],
-    target_metric_keys: tuple[str, ...],
-) -> tuple[dict[str, dict[int, list[float]]], dict[str, float | int | None]]:
-    """Extract validation scores per epoch and identify global peak F1 performance.
-
-    Returns
-    -------
-    tuple[dict[str, dict[int, list[float]]], dict[str, float | int | None]]
-        Tuple containing scores grouped by metric/epoch and global best F1 record.
-
-    Examples
-    --------
-    >>> # Input fold results from cross-validation:
-    >>> # results = [
-    >>> #     {"eval_metrics_history":
-    >>> #      [{"epoch": 1, "eval_f1": 0.82, "eval_precision": 0.85}]},
-    >>> #     {"eval_metrics_history":
-    >>> #      [{"epoch": 1, "eval_f1": 0.88, "eval_precision": 0.90}]},
-    >>> # ]
-    >>> # Output scores_by_metric:
-    >>> # {"eval_f1": {1: [0.82, 0.88]}, "eval_precision": {1: [0.85, 0.90]}}
-    >>> # Output peak_f1_record:
-    >>> # {"score": 0.88, "epoch": 1, "fold": 2}
-    """
-    scores_by_metric = {
-        metric_key: defaultdict(list) for metric_key in target_metric_keys
-    }
-    peak_f1_record = {"score": float("-inf"), "epoch": None, "fold": None}
-    # Traverse each fold evaluation history.
-    # Example fold entry: {"epoch": 2, "eval_f1": 0.85, "eval_precision": 0.80}.
-    for fold_index, results in enumerate(results_list):
-        current_fold_number = fold_index + 1
-        for entry in results.get("eval_metrics_history", []):
-            epoch_number = int(entry["epoch"])
-            for metric_key in target_metric_keys:
-                raw_metric_value = entry.get(metric_key)
-                if raw_metric_value is None:
-                    continue
-
-                metric_score = float(raw_metric_value)
-                scores_by_metric[metric_key][epoch_number].append(metric_score)
-
-                # Keep track of global maximum validation F1 score across all folds.
-                if metric_key == "eval_f1" and metric_score > peak_f1_record["score"]:
-                    peak_f1_record["score"] = metric_score
-                    peak_f1_record["epoch"] = epoch_number
-                    peak_f1_record["fold"] = current_fold_number
-
-    return scores_by_metric, peak_f1_record
-
-
-def plot_validation_metrics_evolution(
-    axis: plt.Axes,
-    results_list: list[dict],
-    cfg: "TrainingConfig",
-) -> None:
-    """Plot aggregated mean validation metrics across folds."""
-    metric_configs = {
-        "eval_precision": {
-            "label": "Precision",
-            "color": "#2563EB",
-            "style": "--",
-            "marker": "^",
-            "width": 1.8,
-        },
-        "eval_f1": {
-            "label": "F1",
-            "color": "#7C3AED",
-            "style": "-",
-            "marker": "o",
-            "width": 2.2,
-        },
-        "eval_recall": {
-            "label": "Recall",
-            "color": "#DC2626",
-            "style": ":",
-            "marker": "s",
-            "width": 1.8,
-        },
-    }
-    axis.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.4, color="#94A3B8")
-    for spine_name in ("top", "right"):
-        axis.spines[spine_name].set_visible(False)
-    axis.xaxis.set_major_locator(MaxNLocator(integer=True))
-    axis.set_ylim(bottom=0, top=1.0)
-    axis.set_xlim(left=0, right=cfg.training.num_epochs)
-    scores_by_metric, peak_f1 = collect_validation_metric_records(
-        results_list, tuple(metric_configs.keys())
-    )
-    f1_color = metric_configs["eval_f1"]["color"]
-    for epoch_number, f1_scores in scores_by_metric["eval_f1"].items():
-        for single_f1_score in f1_scores:
-            axis.plot(
-                epoch_number,
-                single_f1_score,
-                marker="o",
-                markersize=2.5,
-                color=f1_color,
-                alpha=0.25,
-            )
-    legend_handles = []
-    for metric_key, config in metric_configs.items():
-        epoch_records = scores_by_metric[metric_key]
-        if not epoch_records:
-            continue
-        sorted_epochs = sorted(epoch_records)
-        epoch_values = [epoch_records[epoch] for epoch in sorted_epochs]
-        metric_means = np.array([np.mean(values) for values in epoch_values])
-        axis.plot(
-            sorted_epochs,
-            metric_means,
-            color=config["color"],
-            linestyle=config["style"],
-            marker=config["marker"],
-            linewidth=config["width"],
-            markersize=4.5,
-        )
-        legend_handles.append(
-            Line2D(
-                [0],
-                [0],
-                color=config["color"],
-                lw=config["width"],
-                linestyle=config["style"],
-                marker=config["marker"],
-                markersize=4,
-                label=config["label"],
-            )
-        )
-    if peak_f1["epoch"] is not None:
-        axis.scatter(
-            peak_f1["epoch"],
-            peak_f1["score"],
-            s=85,
-            color=f1_color,
-            edgecolors="#1E293B",
-            linewidths=1.2,
-            zorder=10,
-        )
-        axis.annotate(
-            f"Best eval F1\nFold {peak_f1['fold']} "
-            f"(Ep. {peak_f1['epoch']})\nF1: {peak_f1['score']:.2f}",
-            xy=(peak_f1["epoch"], peak_f1["score"]),
-            xytext=(15, -18),
-            textcoords="offset points",
-            fontsize=8.5,
-            bbox={
-                "boxstyle": "round,pad=0.3",
-                "facecolor": "white",
-                "edgecolor": f1_color,
-                "alpha": 0.95,
-            },
-            arrowprops={
-                "arrowstyle": "->",
-                "color": f1_color,
-                "linewidth": 1.2,
-            },
-        )
-    axis.legend(
-        handles=legend_handles,
-        loc="upper left",
-        frameon=True,
-        facecolor="white",
-        edgecolor="#E2E8F0",
-        fontsize=8.5,
-    )
-    axis.set_xlabel("Epoch", fontsize=10.5)
-    axis.set_ylabel("Validation metric", fontsize=10.5)
-    axis.set_title(
-        "Cross-Validation Metrics (Mean)",
-        fontsize=11.5,
-        pad=8,
-        fontweight="medium",
-    )
 
 
 def save_plot_training_curves(
