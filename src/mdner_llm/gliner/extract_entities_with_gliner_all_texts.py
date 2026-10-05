@@ -11,8 +11,9 @@ from gliner import GLiNER
 from gliner2 import AutoExtractor
 from gliner2.processor import WhitespaceTokenSplitter
 
+from mdner_llm.annotations.categories import CATEGORIES
 from mdner_llm.common import ensure_dir, sanitize_filename
-from mdner_llm.core.extract_entities_with_llm import (
+from mdner_llm.llm.extract_entities_with_llm import (
     save_formated_response_with_metadata_to_json,
 )
 from mdner_llm.logger import create_logger
@@ -90,7 +91,7 @@ def load_sample(
     metadata_path: Path,
     logger: "loguru.Logger" = loguru.logger,
 ) -> list[tuple[str, dict[str, str], ListOfEntities, Path, str]]:
-    """Load samples and ground truth annotations.
+    """Load samples and ground truth annotations from JSONL and metadata TSV.
 
     Returns
     -------
@@ -140,6 +141,63 @@ def load_sample(
             # Get the corresponding JSON path and URL from the metadata.
             json_path, url = metadata[idx]
             samples.append((text, entity_desc, normalized_gt, json_path, url))
+    return samples
+
+
+def load_groundtruth_directory(
+    texts_path: Path,
+    logger: "loguru.Logger" = loguru.logger,
+) -> list[tuple[str, dict[str, str], ListOfEntities, Path, str]]:
+    """Load samples directly from a directory containing individual GT JSON files.
+
+    Each JSON file is expected to contain keys: 'raw_text', 'entities', and 'url'.
+
+    Returns
+    -------
+        List of sample tuples containing text, entity descriptions,
+        ground truth, path, and URL.
+    """
+    samples = []
+    json_files = sorted(texts_path.glob("*.json"))
+    logger.info(
+        f"Discovered {len(json_files)} ground truth JSON files in {texts_path}."
+    )
+
+    for file_path in json_files:
+        try:
+            with file_path.open(encoding="utf-8") as file:
+                data = json.load(file)
+
+            raw_text = data.get("raw_text", "")
+            url = data.get("url", "")
+            raw_entities = data.get("entities", [])
+
+            # Construct ListOfEntities from the ground truth annotation list
+            normalized_entities = [
+                {"category": ent.get("category", ""), "text": ent.get("text", "")}
+                for ent in raw_entities
+                if "category" in ent and "text" in ent
+            ]
+            normalized_gt = ListOfEntities.model_validate(
+                {"entities": normalized_entities}
+            )
+
+            # Derive entity descriptions from CATEGORIES imported from mdner_llm
+            categories_present = {
+                ent.get("category") for ent in raw_entities if "category" in ent
+            }
+            entity_desc = {
+                category: CATEGORIES.get(category, category)
+                for category in categories_present
+            }
+            # Fallback to all known categories if none detected
+            if not entity_desc:
+                entity_desc = CATEGORIES.copy()
+
+            samples.append((raw_text, entity_desc, normalized_gt, file_path, url))
+        except (json.JSONDecodeError, OSError, ValueError) as exc:
+            logger.error(f"Failed to load sample from {file_path.name}: {exc}")
+
     return samples
 
 
@@ -234,9 +292,7 @@ def extract_entities_with_gliner(
     # Prepare output directory and file path for saving results.
     output_dir.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S")
-    out_file = (
-        output_dir / f"{text_path.stem}_{sanitize_filename(text_path.stem)}_{ts}.json"
-    )
+    out_file = output_dir / f"{sanitize_filename(text_path.stem)}_{ts}.json"
     response_metadata = {
         "timestamp": ts,
         "input_json_path": str(text_path),
@@ -257,23 +313,37 @@ def extract_entities_with_gliner(
 
 
 def extract_entities_with_gliner_all_texts(
-    text_path: Path,
-    metadata_path: Path,
     model_path: str,
     output_dir: Path,
     adapter_path: str | Path | None,
+    text_path: Path | None = None,
+    metadata_path: Path | None = None,
+    texts_path: Path | None = None,
     model_name_id: str | None = None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
     """Run batch entity extraction over all loaded texts.
 
+    Supports loading either from a pair of (text_path, metadata_path) or from
+    a directory of JSON files via texts_path.
+
     Raises
     ------
+        ValueError
+            If neither texts_path nor (text_path, metadata_path) are provided.
         OSError
             If reading input paths or loading the model fails.
     """
     logger.info("Starting batch entity extraction.")
-    test_samples = load_sample(text_path, metadata_path, logger=logger)
+
+    # Determine input dataset source
+    if texts_path is not None and texts_path.exists():
+        logger.info(f"Loading ground truth samples from directory: {texts_path}")
+        test_samples = load_groundtruth_directory(texts_path, logger=logger)
+    elif text_path is not None and metadata_path is not None:
+        logger.info(f"Loading samples from JSONL: {text_path}")
+        test_samples = load_sample(text_path, metadata_path, logger=logger)
+
     model = load_model(model_path, adapter_path, logger=logger)
     # Determine a canonical name for the model.
     # Useful when the model_path is a local path.
@@ -308,15 +378,21 @@ def extract_entities_with_gliner_all_texts(
 
 @click.command()
 @click.option(
+    "--texts-path",
+    type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
+    default=None,
+    help="Directory containing individual ground truth JSON files.",
+)
+@click.option(
     "--text-path",
     type=click.Path(exists=True, path_type=Path),
-    required=True,
+    default=None,
     help="Path to JSONL file containing text samples.",
 )
 @click.option(
     "--metadata-path",
     type=click.Path(exists=True, path_type=Path),
-    required=True,
+    default=None,
     help="Path to TSV file mapping JSON paths to URLs.",
 )
 @click.option(
@@ -345,8 +421,9 @@ def extract_entities_with_gliner_all_texts(
     help="Directory to save output JSON files.",
 )
 def run_main_from_cli(
-    text_path: Path,
-    metadata_path: Path,
+    texts_path: Path | None,
+    text_path: Path | None,
+    metadata_path: Path | None,
     model_path: Path,
     output_dir: Path,
     adapter_path: str | Path | None,
@@ -355,6 +432,7 @@ def run_main_from_cli(
     """Run CLI entrypoint for batch entity extraction."""
     logger = create_logger(level="INFO")
     extract_entities_with_gliner_all_texts(
+        texts_path=texts_path,
         text_path=text_path,
         metadata_path=metadata_path,
         model_path=str(model_path),
