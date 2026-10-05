@@ -1,10 +1,330 @@
 """Module for visualizing GLINER performance."""
 
+import ast
+import operator
+from collections import defaultdict
+
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
+from gliner2.training.trainer import TrainingConfig
+from matplotlib import pyplot as plt
+from matplotlib.colors import to_rgba
+from matplotlib.lines import Line2D
+from matplotlib.ticker import MaxNLocator
+from scipy import stats
+from sklearn.metrics import roc_auc_score, roc_curve
 
 from mdner_llm.visualization.theme import apply_journal_theme, generate_palette
+
+# Map colors per architecture family
+FAMILY_PALETTE = {
+    "gliner-biomed-base-v1.0": "#b0bec5",
+    "gliner-biomed-large-v1.0": "#78909c",
+    "gliner2-base-v1": "#56c596",
+    "gliner2-large-v1": "#2a9d8f",
+    "gliner2.5-base-v1": "#2c5082",
+    "gliner2.5-large-v1": "#153578",
+}
+
+
+def generate_gradient_colors(
+    base_color: str,
+    n_colors: int,
+    min_alpha: float = 0.35,
+    max_alpha: float = 1.0,
+) -> list[tuple[float, float, float, float]]:
+    """Generate RGBA colors with opacity gradient.
+
+    Returns
+    -------
+    list of RGBA tuples
+    """
+    red, green, blue, _ = to_rgba(base_color)
+    alphas = np.linspace(min_alpha, max_alpha, max(n_colors, 1))
+    return [(red, green, blue, a) for a in alphas]
+
+
+def plot_loss_evolution(
+    axis: plt.Axes, results_list: list[dict], cfg: "TrainingConfig"
+) -> None:
+    """Plot training and validation loss curves across folds."""
+    # Generate gradient colors for training and evaluation curves.
+    number_of_folds = len(results_list)
+    train_colors = generate_gradient_colors("#0055FF", number_of_folds)
+    eval_colors = generate_gradient_colors("#FFAA00", number_of_folds)
+    # Configure axes layout and appearance.
+    axis.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.4, color="#94A3B8")
+    for spine_name in ("top", "right"):
+        axis.spines[spine_name].set_visible(False)
+    axis.xaxis.set_major_locator(MaxNLocator(integer=True))
+    axis.set_ylim(bottom=0, top=1000)
+    axis.set_xlim(left=0, right=cfg.training.num_epochs)
+    global_min_loss = {"loss": float("inf"), "epoch": None, "fold": None, "color": None}
+    # Plot loss trajectory per fold and track best evaluation point.
+    for fold_index, results in enumerate(results_list):
+        fold_train_color = train_colors[fold_index]
+        fold_eval_color = eval_colors[fold_index]
+        for key, color, is_eval in (
+            ("train_metrics_history", fold_train_color, False),
+            ("eval_metrics_history", fold_eval_color, True),
+        ):
+            metric_key = "eval_loss" if is_eval else "loss"
+            loss_by_epoch = {}
+            for entry in results.get(key, []):
+                epoch = int(entry["epoch"])
+                loss_value = float(entry[metric_key])
+                loss_by_epoch[epoch] = min(
+                    loss_by_epoch.get(epoch, float("inf")), loss_value
+                )
+            epochs = sorted(loss_by_epoch)
+            losses = [loss_by_epoch[epoch] for epoch in epochs]
+            axis.plot(
+                epochs, losses, color=color, linewidth=1.6, marker="o", markersize=3
+            )
+            if is_eval:
+                for epoch, loss_val in zip(epochs, losses, strict=False):
+                    if loss_val < global_min_loss["loss"]:
+                        global_min_loss = {
+                            "loss": loss_val,
+                            "epoch": epoch,
+                            "fold": fold_index + 1,
+                            "color": color,
+                        }
+    # Annotate minimum evaluation loss point.
+    if global_min_loss["epoch"] is not None:
+        axis.scatter(
+            global_min_loss["epoch"],
+            global_min_loss["loss"],
+            s=80,
+            color=global_min_loss["color"],
+            edgecolors="#1E293B",
+            linewidths=1.2,
+            zorder=10,
+        )
+        axis.annotate(
+            f"Best eval loss\nFold {global_min_loss['fold']} "
+            f"(Ep. {global_min_loss['epoch']})\nLoss: {global_min_loss['loss']:.0f}",
+            xy=(global_min_loss["epoch"], global_min_loss["loss"]),
+            xytext=(15, -18),
+            textcoords="offset points",
+            fontsize=8.5,
+            bbox={
+                "boxstyle": "round,pad=0.3",
+                "facecolor": "white",
+                "edgecolor": global_min_loss["color"],
+                "alpha": 0.95,
+            },
+            arrowprops={
+                "arrowstyle": "->",
+                "color": global_min_loss["color"],
+                "linewidth": 1.2,
+            },
+        )
+    # Render training and validation fold legends.
+    for title, anchor_x, color_theme, colors in (
+        ("Train", 1.00, "#0055FF", train_colors),
+        ("Validation", 0.87, "#FFAA00", eval_colors),
+    ):
+        handles = [
+            Line2D([0], [0], color=colors[fold_idx], lw=2, label=f"Fold {fold_idx + 1}")
+            for fold_idx in range(number_of_folds)
+        ]
+        legend = axis.legend(
+            handles=handles,
+            title=title,
+            loc="upper right",
+            bbox_to_anchor=(anchor_x, 1.00),
+            frameon=True,
+            facecolor="white",
+            edgecolor="#E2E8F0",
+            fontsize=7.5,
+            title_fontsize=8,
+        )
+        legend.get_title().set_color(color_theme)
+        legend.get_title().set_weight("bold")
+        axis.add_artist(legend)
+    # Set axis titles and labels.
+    axis.set_xlabel("Epoch", fontsize=10.5)
+    axis.set_ylabel("Loss", fontsize=10.5)
+    axis.set_title("Loss Evolution", fontsize=11.5, pad=8, fontweight="medium")
+
+
+def collect_validation_metric_records(
+    results_list: list[dict],
+    target_metric_keys: tuple[str, ...],
+) -> tuple[dict[str, dict[int, list[float]]], dict[str, float | int | None]]:
+    """Extract validation scores per epoch and identify global peak F1 performance.
+
+    Returns
+    -------
+    tuple[dict[str, dict[int, list[float]]], dict[str, float | int | None]]
+        Tuple containing scores grouped by metric/epoch and global best F1 record.
+
+    Examples
+    --------
+    >>> # Input fold results from cross-validation:
+    >>> # results = [
+    >>> #     {"eval_metrics_history":
+    >>> #      [{"epoch": 1, "eval_f1": 0.82, "eval_precision": 0.85}]},
+    >>> #     {"eval_metrics_history":
+    >>> #      [{"epoch": 1, "eval_f1": 0.88, "eval_precision": 0.90}]},
+    >>> # ]
+    >>> # Output scores_by_metric:
+    >>> # {"eval_f1": {1: [0.82, 0.88]}, "eval_precision": {1: [0.85, 0.90]}}
+    >>> # Output peak_f1_record:
+    >>> # {"score": 0.88, "epoch": 1, "fold": 2}
+    """
+    scores_by_metric = {
+        metric_key: defaultdict(list) for metric_key in target_metric_keys
+    }
+    peak_f1_record = {"score": float("-inf"), "epoch": None, "fold": None}
+    # Traverse each fold evaluation history.
+    # Example fold entry: {"epoch": 2, "eval_f1": 0.85, "eval_precision": 0.80}.
+    for fold_index, results in enumerate(results_list):
+        current_fold_number = fold_index + 1
+        for entry in results.get("eval_metrics_history", []):
+            epoch_number = int(entry["epoch"])
+            for metric_key in target_metric_keys:
+                raw_metric_value = entry.get(metric_key)
+                if raw_metric_value is None:
+                    continue
+
+                metric_score = float(raw_metric_value)
+                scores_by_metric[metric_key][epoch_number].append(metric_score)
+
+                # Keep track of global maximum validation F1 score across all folds.
+                if metric_key == "eval_f1" and metric_score > peak_f1_record["score"]:
+                    peak_f1_record["score"] = metric_score
+                    peak_f1_record["epoch"] = epoch_number
+                    peak_f1_record["fold"] = current_fold_number
+
+    return scores_by_metric, peak_f1_record
+
+
+def plot_validation_metrics_evolution(
+    axis: plt.Axes,
+    results_list: list[dict],
+    cfg: "TrainingConfig",
+) -> None:
+    """Plot aggregated mean validation metrics across folds."""
+    metric_configs = {
+        "eval_precision": {
+            "label": "Precision",
+            "color": "#2563EB",
+            "style": "--",
+            "marker": "^",
+            "width": 1.8,
+        },
+        "eval_f1": {
+            "label": "F1",
+            "color": "#7C3AED",
+            "style": "-",
+            "marker": "o",
+            "width": 2.2,
+        },
+        "eval_recall": {
+            "label": "Recall",
+            "color": "#DC2626",
+            "style": ":",
+            "marker": "s",
+            "width": 1.8,
+        },
+    }
+    axis.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.4, color="#94A3B8")
+    for spine_name in ("top", "right"):
+        axis.spines[spine_name].set_visible(False)
+    axis.xaxis.set_major_locator(MaxNLocator(integer=True))
+    axis.set_ylim(bottom=0, top=1.0)
+    axis.set_xlim(left=0, right=cfg.training.num_epochs)
+    scores_by_metric, peak_f1 = collect_validation_metric_records(
+        results_list, tuple(metric_configs.keys())
+    )
+    f1_color = metric_configs["eval_f1"]["color"]
+    for epoch_number, f1_scores in scores_by_metric["eval_f1"].items():
+        for single_f1_score in f1_scores:
+            axis.plot(
+                epoch_number,
+                single_f1_score,
+                marker="o",
+                markersize=2.5,
+                color=f1_color,
+                alpha=0.25,
+            )
+    legend_handles = []
+    for metric_key, config in metric_configs.items():
+        epoch_records = scores_by_metric[metric_key]
+        if not epoch_records:
+            continue
+        sorted_epochs = sorted(epoch_records)
+        epoch_values = [epoch_records[epoch] for epoch in sorted_epochs]
+        metric_means = np.array([np.mean(values) for values in epoch_values])
+        axis.plot(
+            sorted_epochs,
+            metric_means,
+            color=config["color"],
+            linestyle=config["style"],
+            marker=config["marker"],
+            linewidth=config["width"],
+            markersize=4.5,
+        )
+        legend_handles.append(
+            Line2D(
+                [0],
+                [0],
+                color=config["color"],
+                lw=config["width"],
+                linestyle=config["style"],
+                marker=config["marker"],
+                markersize=4,
+                label=config["label"],
+            )
+        )
+    if peak_f1["epoch"] is not None:
+        axis.scatter(
+            peak_f1["epoch"],
+            peak_f1["score"],
+            s=85,
+            color=f1_color,
+            edgecolors="#1E293B",
+            linewidths=1.2,
+            zorder=10,
+        )
+        axis.annotate(
+            f"Best eval F1\nFold {peak_f1['fold']} "
+            f"(Ep. {peak_f1['epoch']})\nF1: {peak_f1['score']:.2f}",
+            xy=(peak_f1["epoch"], peak_f1["score"]),
+            xytext=(15, -18),
+            textcoords="offset points",
+            fontsize=8.5,
+            bbox={
+                "boxstyle": "round,pad=0.3",
+                "facecolor": "white",
+                "edgecolor": f1_color,
+                "alpha": 0.95,
+            },
+            arrowprops={
+                "arrowstyle": "->",
+                "color": f1_color,
+                "linewidth": 1.2,
+            },
+        )
+    axis.legend(
+        handles=legend_handles,
+        loc="upper left",
+        frameon=True,
+        facecolor="white",
+        edgecolor="#E2E8F0",
+        fontsize=8.5,
+    )
+    axis.set_xlabel("Epoch", fontsize=10.5)
+    axis.set_ylabel("Validation metric", fontsize=10.5)
+    axis.set_title(
+        "Cross-Validation Metrics (Mean)",
+        fontsize=11.5,
+        pad=8,
+        fontweight="medium",
+    )
 
 
 def get_base_family(name: str) -> str:
@@ -137,19 +457,10 @@ def plot_benchmark_gliner_models(
         .sort_values(["order", "is_finetuned"])
         .reset_index(drop=True)
     )
-    # Map colors per architecture family
-    family_palette = {
-        "gliner-biomed-base-v1.0": "#b0bec5",
-        "gliner-biomed-large-v1.0": "#78909c",
-        "gliner2-base-v1": "#56c596",
-        "gliner2-large-v1": "#2a9d8f",
-        "gliner2.5-base-v1": "#2c5082",
-        "gliner2.5-large-v1": "#153578",
-    }
     unique_families = list(dict.fromkeys(data["base_family"]))
     default_colors = generate_palette(len(unique_families))
     family_to_color = {
-        fam: family_palette.get(fam, default_colors[i])
+        fam: FAMILY_PALETTE.get(fam, default_colors[i])
         for i, fam in enumerate(unique_families)
     }
     figure = go.Figure()
@@ -279,6 +590,10 @@ def format_mean_std(mean: pd.Series, std: pd.Series) -> pd.Series:
     pd.Series
         A series of strings formatted as "mean ± std" with two decimal places.
     """
+    # Format mean to two decimal places and std to one decimal place
+    # if std is NaN, remove the ± part and just show the mean
+    if std.isna().all():
+        return mean.map("{:.2f}".format)
     return mean.map("{:.2f}".format) + " ± " + std.map("{:.1f}".format)
 
 
@@ -288,7 +603,14 @@ def plot_confidence_retention_curves(
     model_name: str | None = None,
     suggested_threshold: float | None = None,
 ) -> go.Figure:
-    """Build Plotly retention (survival) comparison curves for TP and FP."""
+    """Build Plotly retention comparison curves for TP and FP.
+
+    Returns
+    -------
+    go.Figure
+        A Plotly figure object representing the retention curves for true positives
+        and false positives
+    """
     filtered_data = df.copy()
     if category is not None:
         filtered_data = filtered_data[filtered_data["category"] == category]
@@ -401,7 +723,14 @@ def plot_confidence_score_distributions(
     category: str | None = None,
     model_name: str | None = None,
 ) -> go.Figure:
-    """Build modern publication-ready histogram distributions for TP and FP."""
+    """Build histogram distributions for TP and FP.
+
+    Returns
+    -------
+    go.Figure
+        A Plotly figure object representing the histogram distributions
+        for true positives and false positives.
+    """
     filtered_data = df.copy()
     if category is not None:
         filtered_data = filtered_data[filtered_data["category"] == category]
@@ -477,3 +806,238 @@ def plot_confidence_score_distributions(
         },
     )
     return figure
+
+
+def evaluate_confidence_separation(df: pd.DataFrame) -> pd.DataFrame:
+    """Compute correlation and separation metrics for confidence scores.
+
+    Returns
+    -------
+    pd.DataFrame
+        A summary DataFrame containing point-biserial correlation, p-value, and ROC-AUC
+        for each model, along with counts of true positives and false positives.
+    """
+    # 1. Flatten TP and FP score lists into prediction records
+    records = []
+    for _, row in df.iterrows():
+        # Parse serialized string representations of lists if necessary
+        tp_raw = (
+            ast.literal_eval(row["tp_scores"])
+            if isinstance(row["tp_scores"], str)
+            else row["tp_scores"]
+        )
+        fp_raw = (
+            ast.literal_eval(row["fp_scores"])
+            if isinstance(row["fp_scores"], str)
+            else row["fp_scores"]
+        )
+        model_name = row.get("model", row.get("model_name"))
+        # Append true positives (label = 1)
+        if tp_raw is not None and len(tp_raw) > 0:
+            records.extend(
+                [
+                    {
+                        "model": model_name,
+                        "confidence": float(score),
+                        "is_tp": 1,
+                    }
+                    for score in tp_raw
+                ]
+            )
+        # Append false positives (label = 0)
+        if fp_raw is not None and len(fp_raw) > 0:
+            records.extend(
+                [
+                    {
+                        "model": model_name,
+                        "confidence": float(score),
+                        "is_tp": 0,
+                    }
+                    for score in fp_raw
+                ]
+            )
+    preds_df = pd.DataFrame(records)
+    # 2. Compute correlation and separation metrics per model
+    table_rows = []
+    for model_name, group in preds_df.groupby("model"):
+        y_true = group["is_tp"].to_numpy()
+        conf_scores = group["confidence"].to_numpy()
+        # Point-biserial measures linear relationship
+        # between continuous score and binary label
+        r_pb, p_pb = stats.pointbiserialr(y_true, conf_scores)
+        # ROC-AUC measures probability that a random TP
+        # has a higher score than a random FP
+        auc = roc_auc_score(y_true, conf_scores)
+        table_rows.append(
+            {
+                "Model": model_name,
+                "Number of True Positives": int(np.sum(y_true == 1)),
+                "Number of False Positives": int(np.sum(y_true == 0)),
+                "Point-Biserial Correlation": r_pb,
+                "P-Value": f"{p_pb:.1e}",
+                "ROC-AUC": auc,
+            }
+        )
+    return (
+        pd.DataFrame(table_rows)
+        .sort_values(by="ROC-AUC", ascending=False)
+        .reset_index(drop=True)
+    )
+
+
+def plot_paper_roc_curves(
+    df: pd.DataFrame,
+    save_path: str | None = None,
+) -> go.Figure:
+    """Plot ROC curves for multiple models with AUC metrics and reference lines.
+
+    Returns
+    -------
+    go.Figure: Plotly figure object containing the ROC curves and reference lines.
+    """
+    # 1. Flatten prediction scores into individual records
+    records = []
+    for _, row in df.iterrows():
+        tp_raw = (
+            ast.literal_eval(row["tp_scores"])
+            if isinstance(row["tp_scores"], str)
+            else row["tp_scores"]
+        )
+        fp_raw = (
+            ast.literal_eval(row["fp_scores"])
+            if isinstance(row["fp_scores"], str)
+            else row["fp_scores"]
+        )
+        model_name = row.get("model", row.get("model_name"))
+        if tp_raw is not None and len(tp_raw) > 0:
+            records.extend(
+                [
+                    {
+                        "model": model_name,
+                        "confidence": float(score),
+                        "is_tp": 1,
+                    }
+                    for score in tp_raw
+                ]
+            )
+        if fp_raw is not None and len(fp_raw) > 0:
+            records.extend(
+                [
+                    {
+                        "model": model_name,
+                        "confidence": float(score),
+                        "is_tp": 0,
+                    }
+                    for score in fp_raw
+                ]
+            )
+    preds_df = pd.DataFrame(records)
+
+    # 2. Compute ROC coordinates and AUC metrics per model
+    model_curves = []
+    for model_name, group in preds_df.groupby("model"):
+        y_true = group["is_tp"].to_numpy()
+        conf_scores = group["confidence"].to_numpy()
+        fpr, tpr, _ = roc_curve(y_true, conf_scores)
+        auc = roc_auc_score(y_true, conf_scores)
+        model_curves.append({"model": model_name, "fpr": fpr, "tpr": tpr, "auc": auc})
+    model_curves.sort(key=operator.itemgetter("auc"), reverse=True)
+
+    # 3. Build figure for publication
+    fig = go.Figure()
+
+    # Reference: Perfect Classifier
+    fig.add_trace(
+        go.Scatter(
+            x=[0, 0, 1],
+            y=[0, 1, 1],
+            mode="lines",
+            line={"color": "#7E57C2", "width": 2.5},
+            showlegend=False,
+            hoverinfo="skip",
+        )
+    )
+
+    # Reference: Random Classifier
+    fig.add_trace(
+        go.Scatter(
+            x=[0, 1],
+            y=[0, 1],
+            mode="lines",
+            line={"color": "#E53935", "width": 2, "dash": "dash"},
+            showlegend=False,
+            hoverinfo="skip",
+        )
+    )
+    # Empirical curves styled using family palette
+    for item in model_curves:
+        color = FAMILY_PALETTE.get(item["model"], "#424242")
+        fig.add_trace(
+            go.Scatter(
+                x=item["fpr"],
+                y=item["tpr"],
+                mode="lines",
+                line={"color": color, "width": 2.5},
+                name=f"{item['model']} (AUC = {item['auc']:.2f})",
+            )
+        )
+    # In-graph reference curve annotations
+    fig.add_annotation(
+        x=0.02,
+        y=0.97,
+        text="<b>PERFECT CLASSIFIER</b>",
+        font={"color": "#7E57C2", "size": 10, "family": "Arial"},
+        showarrow=False,
+        xanchor="left",
+    )
+    fig.add_annotation(
+        x=0.52,
+        y=0.48,
+        text="<b>RANDOM CLASSIFIER</b>",
+        textangle=-36,
+        font={"color": "#E53935", "size": 10, "family": "Arial"},
+        showarrow=False,
+    )
+
+    # Publication layout without title and minimal margins
+    fig.update_layout(
+        hovermode=False,
+        title=None,
+        margin={"l": 55, "r": 20, "t": 20, "b": 55},
+        xaxis={
+            "title": "<b>False Positive Rate</b> (1 - Specificity)",
+            "range": [-0.01, 1.01],
+            "showgrid": True,
+            "gridcolor": "#ECEFF1",
+            "linecolor": "#37474F",
+            "linewidth": 1,
+            "zeroline": False,
+        },
+        yaxis={
+            "title": "<b>True Positive Rate</b> (Sensitivity)",
+            "range": [-0.01, 1.02],
+            "showgrid": True,
+            "gridcolor": "#ECEFF1",
+            "linecolor": "#37474F",
+            "linewidth": 1,
+            "zeroline": False,
+        },
+        plot_bgcolor="#FFFFFF",
+        width=700,
+        height=560,
+        legend={
+            "x": 0.63,
+            "y": 0.05,
+            "bgcolor": "rgba(255, 255, 255, 0.9)",
+            "bordercolor": "#CFD8DC",
+            "borderwidth": 1,
+            "font": {"size": 10, "family": "Arial"},
+        },
+    )
+
+    if save_path:
+        fig.write_image(save_path) if save_path.endswith(
+            (".svg", ".pdf", ".png")
+        ) else fig.write_html(save_path)
+
+    return fig
