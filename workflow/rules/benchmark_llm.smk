@@ -23,8 +23,12 @@ api_sleep_delay = config.get("api_sleep_delay", 5)
 # Model dictionaries mapping safe filesystem names to full identifiers.
 benchmark_models = {sanitize_filename(m): m for m in config.get("benchmark_models", [])}
 full_eval_models = {sanitize_filename(m): m for m in config.get("full_eval_models", [])}
-consensus_models = {sanitize_filename(m): m for m in config.get("consensus_models", [])}
-# Unified registry of all known model full names
+consensus_groups = config.get("consensus_groups", {})
+consensus_models = {
+    sanitize_filename(m): m
+    for group_models in consensus_groups.values()
+    for m in group_models
+}
 all_models_dict = {**benchmark_models, **full_eval_models, **consensus_models}
 
 
@@ -41,21 +45,35 @@ for safe_model_name in full_eval_models:
         f"results/llm/evaluation/benchmark_models/with_instructor_with_guidelines/{safe_model_name}/.done"
     )
 # Scenario 3: Consensus aggregation runs.
-if consensus_models:
-    consensus_temperatures = [str(t) for t in config.get("consensus_temperatures", [1.0])]
-    consensus_setups = [
-        f"temp_{'_and_'.join(consensus_temperatures[:end_idx])}"
-        for end_idx in range(1, len(consensus_temperatures) + 1)
-    ]
-    for setup_identifier in consensus_setups:
-        evaluation_targets.append(
-            f"results/llm/evaluation/consensus/{setup_identifier}/.done"
-        )
-
+consensus_temperatures = [
+    str(t) for t in config.get("consensus_temperatures", [1.0])
+]
+consensus_temp_setups = [
+    f"temp_{'_and_'.join(consensus_temperatures[:end_idx])}"
+    for end_idx in range(1, len(consensus_temperatures) + 1)
+]
+if consensus_groups:
+    for group_name in consensus_groups:
+        for temp_setup in consensus_temp_setups:
+            evaluation_targets.append(
+                f"results/llm/evaluation/consensus/{group_name}/{temp_setup}/.done"
+            )
 
 # ==============================================================================
 # HELPER: INCREMENTAL GLOBAL AGGREGATION
 # ==============================================================================
+
+
+def format_seconds_to_hhmmss(seconds: float | int | None) -> str | None:
+    """Format total seconds into HH:MM:SS without truncating days."""
+    if pd.isna(seconds):
+        return pd.NA
+    total_sec = int(seconds)
+    hours = total_sec // 3600
+    minutes = (total_sec % 3600) // 60
+    secs = total_sec % 60
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
 
 def update_global_aggregates(new_csv_path: str, new_parquet_path: str, scenario_name: str, combo_name: str, model_safe_name: str):
     """Update global benchmark CSV/Parquet files incrementally with file locking."""
@@ -131,9 +149,9 @@ def update_global_aggregates(new_csv_path: str, new_parquet_path: str, scenario_
         )
         working_df["Cost_by_entity_($)"] = working_df["Cost_total_($)"] / total_preds
         working_df["Inference_time_by_entity_(s)"] = working_df["Inference_time_total_(s)"] / total_preds
-        working_df["Inference_time_total_(hh:mm:ss)"] = working_df["Inference_time_total_(s)"].apply(
-            lambda s: str(pd.to_timedelta(int(s), unit="s")).split()[-1] if pd.notna(s) else pd.NA
-        )
+        working_df["Inference_time_total_(hh:mm:ss)"] = working_df[
+            "Inference_time_total_(s)"
+        ].apply(format_seconds_to_hhmmss)
         columns_order = [
             "Inference_date", "Name", "Framework", "With_Guideline", "category",
             "Number_of_texts_with_category", "Correct_format_(%)", "Hallucinations_(%)",
@@ -204,6 +222,8 @@ rule extract_benchmark_and_full:
         """
 
 rule normalize_benchmark_and_full:
+    wildcard_constraints:
+        scenario="benchmark_strategies|benchmark_models",
     input:
         done="results/llm/inferences/raw/{combo}/{model_safe}/.done",
         ffm_db=config["ffm_db_path"],
@@ -236,6 +256,8 @@ rule normalize_benchmark_and_full:
         """
 
 rule evaluate_benchmark_and_full:
+    wildcard_constraints:
+        scenario="benchmark_strategies|benchmark_models",
     input:
         inferences_dir="results/llm/inferences_normalized/{scenario}/{combo}/{model_safe}",
     output:
@@ -300,41 +322,58 @@ rule extract_consensus_runs:
         sleep {params.sleep_time}
         """
 
+
 def get_consensus_inferences_input(wildcards) -> list[str]:
     temperatures_string = wildcards.setup.replace("temp_", "")
     included_temperatures = temperatures_string.split("_and_")
-    
+
+    # Determine the target models for the specified consensus group
+    target_models = [
+        sanitize_filename(m)
+        for m in config["consensus_groups"][wildcards.group]
+    ]
+
     input_done_files = []
-    for temperature_value in included_temperatures:
-        for model_identifier in consensus_models.keys():
-            if str(temperature_value) in ["1", "1.0"]:
+    for temp in included_temperatures:
+        for model_id in target_models:
+            if str(temp) in ["1", "1.0"]:
                 input_done_files.append(
-                    f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_identifier}/.done"
+                    f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_id}/.done"
                 )
             else:
                 input_done_files.append(
-                    f"results/llm/inferences/consensus_raw/temp_{temperature_value}/{model_identifier}/.done"
+                    f"results/llm/inferences/consensus_raw/temp_{temp}/{model_id}/.done"
                 )
     return input_done_files
+
 
 rule aggregate_consensus:
     input:
         done_files=get_consensus_inferences_input,
     output:
-        consensus_dir=directory("results/llm/inferences/consensus_aggregated/{setup}"),
+        consensus_dir=directory(
+            "results/llm/inferences/consensus_aggregated/{group}/{setup}"
+        ),
     params:
         threshold=consensus_threshold_value,
-        staging_dir="results/llm/inferences_consensus_staging/{setup}",
+        staging_dir="results/llm/inferences_consensus_staging/{group}_{setup}",
     shell:
         """
+        rm -rf {params.staging_dir}
         mkdir -p {params.staging_dir}
         mkdir -p {output.consensus_dir}
         shopt -s nullglob
 
         for done_file in {input.done_files}; do
             source_directory=$(dirname "$done_file")
+            folder_tag=$(echo "$source_directory" | tr '/' '_')
+
             if [ -d "$source_directory" ]; then
-                cp "$source_directory"/*.json {params.staging_dir}/ 2>/dev/null || true
+                for json_file in "$source_directory"/*.json; do
+                    [ -e "$json_file" ] || continue
+                    filename=$(basename "$json_file")
+                    cp "$json_file" "{params.staging_dir}/${{folder_tag}}__${{filename}}"
+                done
             fi
         done
 
@@ -344,18 +383,20 @@ rule aggregate_consensus:
             --output-dir {output.consensus_dir}
 
         rm -rf {params.staging_dir}
-        rmdir results/llm/inferences_consensus_staging 2>/dev/null || true
         """
+
 
 rule normalize_consensus:
     input:
-        inferences_dir="results/llm/inferences/consensus_aggregated/{setup}",
+        inferences_dir="results/llm/inferences/consensus_aggregated/{group}/{setup}",
         ffm_db=config["ffm_db_path"],
         softname_db=config["softname_db_path"],
     output:
-        norm_dir=directory("results/llm/inferences_normalized/consensus/{setup}"),
+        norm_dir=directory(
+            "results/llm/inferences_normalized/consensus/{group}/{setup}"
+        ),
     resources:
-        api_calls=1
+        api_calls=1,
     params:
         norm_model=config["normalization_model"],
         sleep_time=api_sleep_delay,
@@ -370,13 +411,14 @@ rule normalize_consensus:
         sleep {params.sleep_time}
         """
 
+
 rule evaluate_consensus:
     input:
-        inferences_dir="results/llm/inferences_normalized/consensus/{setup}",
+        inferences_dir="results/llm/inferences_normalized/consensus/{group}/{setup}",
     output:
-        eval_csv="results/llm/evaluation/consensus/{setup}/grouped_evaluation_metrics.csv",
-        eval_parquet="results/llm/evaluation/consensus/{setup}/per_text_and_category_confusion_metrics.parquet",
-        done=touch("results/llm/evaluation/consensus/{setup}/.done"),
+        eval_csv="results/llm/evaluation/consensus/{group}/{setup}/grouped_evaluation_metrics.csv",
+        eval_parquet="results/llm/evaluation/consensus/{group}/{setup}/per_text_and_category_confusion_metrics.parquet",
+        done=touch("results/llm/evaluation/consensus/{group}/{setup}/.done"),
     run:
         shell(
             """
@@ -390,6 +432,6 @@ rule evaluate_consensus:
             new_csv_path=output.eval_csv,
             new_parquet_path=output.eval_parquet,
             scenario_name="consensus",
-            combo_name=wildcards.setup,
-            model_safe_name="consensus",
+            combo_name=f"{wildcards.group}_{wildcards.setup}",
+            model_safe_name=wildcards.group,
         )
