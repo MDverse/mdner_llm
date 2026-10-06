@@ -3,6 +3,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 from pandas.io.formats.style import Styler
+from plotly.subplots import make_subplots
 
 from mdner_llm.visualization.theme import apply_journal_theme, generate_palette
 
@@ -267,87 +268,324 @@ def display_benchmark_table(
     )
 
 
-def plot_benchmark_consensus_strategy(
-    df: pd.DataFrame,
-    human_iaa: float | None = 0.76,
-    metric: str = "F1_with_no_hallucination",
-    category: str = "OVERALL_MICRO",
-    models_to_keep: list[str] | None = None,
-    consensus_temperatures: list[list[float]] | None = None,
-    title: str | None = None,
-) -> go.Figure:
-    """Plot benchmark comparison between selected solo models and consensus temperature settings."""
-    data = df[df["category"] == category].copy()
-    # Build clean mapping dictionary for targeted models and consensus runs.
-    target_mapping = {}
-    if models_to_keep:
-        for m in models_to_keep:
-            target_mapping[m] = m.split("/")[-1]
-    if consensus_temperatures:
-        for t_group in consensus_temperatures:
-            t_key_suffix = "_t_" + "_".join(str(float(t)) for t in t_group)
-            t_label = "Consensus<br>T=" + ", ".join(str(t) for t in t_group)
-            # Find matching full consensus run name in dataframe.
-            matches = [
-                name for name in data["Name"].unique() if name.endswith(t_key_suffix)
-            ]
-            if matches:
-                target_mapping[matches[0]] = t_label
-    # Filter dataset strictly to resolved runs while preserving input list order.
-    data = data[data["Name"].isin(target_mapping)].copy()
-    data["display_name"] = data["Name"].map(target_mapping)
-    ordered_labels = [
-        target_mapping[k] for k in target_mapping if k in set(data["Name"])
+def build_families(
+    data: pd.DataFrame,
+    small_models: list[str],
+    frontier_models: list[str],
+    consensus_temperatures: list[list[float]],
+) -> list[tuple[str, list[tuple[str, str]]]]:
+    """Return model groups categorized by family in target display order.
+
+    Returns
+    -------
+    list[tuple[str, list[tuple[str, str]]]]
+        List of tuples matching family names to (model_name, display_label) pairs.
+    """
+    consensus_runs = []
+    clean_small_models = sorted(m.replace("/", "_") for m in small_models)
+    models_signature = "_".join(clean_small_models)
+    for t_group in consensus_temperatures:
+        suffix = "_t_" + "_".join(str(float(t)) for t in t_group)
+        # Exact match of the model combination prefix and temperature suffix.
+        expected_name = f"consensus_{models_signature}{suffix}"
+        matches = [n for n in data["Name"].unique() if n == expected_name]
+        if matches:
+            temps = ", ".join(str(float(t)) for t in t_group)
+            consensus_runs.append((matches[0], f"Consensus (T = {temps})"))
+    return [
+        ("Small LLM (single run)", [(m, m) for m in small_models]),
+        ("Consensus of small LLMs", consensus_runs),
+        ("Frontier LLM", [(m, m) for m in frontier_models]),
     ]
-    # Aggregate duplicate runs and align ordered categories.
-    stats = (
-        data.groupby("display_name", as_index=False)[metric]
-        .mean()
-        .set_index("display_name")
-        .reindex(ordered_labels)
-        .reset_index()
+
+
+def plot_small_llm_consensus_vs_frontier(
+    df: pd.DataFrame,
+    small_models: list[str],
+    frontier_models: list[str],
+    consensus_temperatures: list[list[float]],
+    metrics: tuple[str, ...] = (
+        "Precision_with_no_hallucination",
+        "Recall",
+        "F1_with_no_hallucination",
+    ),
+    category: str = "OVERALL_MICRO",
+) -> go.Figure:
+    """Plot multi-panel horizontal bars highlighting maximum scores per metric.
+
+    Returns
+    -------
+    go.Figure
+        Formatted Plotly multi-column horizontal bar figure without theme wrapper.
+    """
+    data = df[df["category"] == category].copy()
+    families = build_families(
+        data, small_models, frontier_models, consensus_temperatures
     )
-    # Generate distinct palette colors for each column.
-    palette = generate_palette(len(stats))
-    max_val = stats[metric].round(2).max()
-    fig = go.Figure()
-    # Add styled bars without showing legend items.
-    for (_, row), color in zip(stats.iterrows(), palette, strict=False):
-        val = row[metric]
-        txt = f"<b>{val:.2f}</b>" if round(val, 2) == max_val else f"{val:.2f}"
-        fig.add_bar(
-            x=[row["display_name"]],
-            y=[val],
-            marker={"color": color, "line": {"color": "white", "width": 1}},
-            text=[txt],
-            textposition="outside",
-            textfont={"size": 13},
-            showlegend=False,
-        )
-    # Add human agreement baseline line.
-    if human_iaa is not None:
-        fig.add_hline(
-            y=human_iaa,
-            line={"color": "#555555", "dash": "dash", "width": 1.5},
-            annotation_text="Human IAA",
-            annotation_position="right",
-            annotation_font={"size": 14, "color": "#555555"},
-        )
-    # Apply publication journal theme and layout without legend.
-    apply_journal_theme(fig, metric.split("_")[0].capitalize())
-    fig.update_layout(
-        hovermode=False,
-        showlegend=False,
-        title={
-            "text": title,
-            "x": 0.5,
-            "y": 0.98,
-            "xanchor": "center",
-            "yanchor": "top",
+    palette = ["#BDD7EE", "#1F77B4", "#595959"]
+    family_colors = {fam[0]: col for fam, col in zip(families, palette, strict=False)}
+    layout_entries, tickvals, ticktext = [], [], []
+    pos = 0.0
+    for family, runs in families:
+        kept = [(n, lab) for n, lab in runs if (data["Name"] == n).any()]
+        for name, label in kept:
+            layout_entries.append((family, name, pos))
+            tickvals.append(pos)
+            ticktext.append(label)
+            pos += 1.0
+        pos += 0.5
+    fig = make_subplots(
+        rows=1,
+        cols=len(metrics),
+        shared_yaxes=True,
+        horizontal_spacing=0.035,
+        subplot_titles=[m.split("_")[0].capitalize() for m in metrics],
+    )
+    all_names = [name for _, name, _ in layout_entries]
+    for col, metric in enumerate(metrics, start=1):
+        metric_values = {
+            n: float(data.loc[data["Name"] == n, metric].mean())
+            for n in all_names
+            if not data.loc[data["Name"] == n, metric].empty
         }
-        if title
-        else None,
-        bargroupgap=0.08,
-        margin={"r": 100, "t": 80 if title else 40},
+        max_metric_val = (
+            round(max(metric_values.values()), 2) if metric_values else None
+        )
+        for family, _ in families:
+            family_rows = [(n, p) for fam, n, p in layout_entries if fam == family]
+            if not family_rows:
+                continue
+            xs = [metric_values.get(n, 0.0) for n, _ in family_rows]
+            ys = [p for _, p in family_rows]
+            text_labels = [
+                f"<b>{x:.2f}</b>"
+                if max_metric_val is not None and round(x, 2) == max_metric_val
+                else f"{x:.2f}"
+                for x in xs
+            ]
+            fig.add_bar(
+                x=xs,
+                y=ys,
+                orientation="h",
+                marker={"color": family_colors[family]},
+                text=text_labels,
+                textposition="outside",
+                textfont={"size": 13},
+                cliponaxis=False,
+                width=0.75,
+                name=family,
+                legendgroup=family,
+                showlegend=(col == 1),
+                row=1,
+                col=col,
+            )
+        fig.update_xaxes(
+            range=[0, 1.15],
+            tickvals=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+            showline=True,
+            linewidth=1,
+            linecolor="black",
+            showgrid=False,
+            row=1,
+            col=col,
+        )
+        fig.update_yaxes(
+            tickvals=tickvals,
+            ticktext=ticktext if col == 1 else [""] * len(tickvals),
+            autorange="reversed",
+            tickfont={"size": 13},
+            showline=True,
+            linewidth=1,
+            linecolor="black",
+            showgrid=False,
+            row=1,
+            col=col,
+        )
+    fig.update_layout(
+        template="simple_white",
+        hovermode=False,
+        width=1100,
+        height=max(380, int(len(tickvals) * 36 + 120)),
+        margin={"l": 250, "r": 200, "t": 70, "b": 40},
+        legend={
+            "orientation": "h",
+            "y": 1.22,
+            "x": 0.5,
+            "xanchor": "center",
+            "font": {"size": 13},
+        },
+    )
+    return fig
+
+
+def format_time_label(seconds: float) -> str:
+    """Format duration in seconds into human-readable hours and minutes.
+
+    Returns
+    -------
+    str
+        Formatted string representing the duration in hours and minutes.
+    """
+    hrs = int(seconds // 3600)
+    mins = round((seconds % 3600) / 60)
+    if hrs == 0:
+        return f"{mins}m"
+    if mins == 0:
+        return f"{hrs}h"
+    return f"{hrs}h {mins}m"
+
+
+def plot_small_llm_consensus_cost_and_time(
+    df: pd.DataFrame,
+    small_models: list[str],
+    frontier_models: list[str],
+    consensus_temperatures: list[list[float]],
+    category: str = "OVERALL_MICRO",
+) -> go.Figure:
+    """Plot multi-panel horizontal bars comparing total cost and inference time.
+
+    Returns
+    -------
+    go.Figure
+        Formatted Plotly two-column horizontal bar figure with bottom legend.
+    """
+    data = df[df["category"] == category].copy()
+    families = build_families(
+        data, small_models, frontier_models, consensus_temperatures
+    )
+    palette = ["#BDD7EE", "#1F77B4", "#595959"]
+    family_colors = {fam[0]: col for fam, col in zip(families, palette, strict=False)}
+    layout_entries, tickvals, ticktext = [], [], []
+    pos = 0.0
+    for family, runs in families:
+        kept = [(n, lab) for n, lab in runs if (data["Name"] == n).any()]
+        for name, label in kept:
+            layout_entries.append((family, name, pos))
+            tickvals.append(pos)
+            ticktext.append(label)
+            pos += 1.0
+        pos += 0.5
+    all_names = [name for _, name, _ in layout_entries]
+
+    fig = make_subplots(
+        rows=1,
+        cols=2,
+        shared_yaxes=True,
+        horizontal_spacing=0.06,
+        subplot_titles=["Total Cost", "Total Time"],
+    )
+
+    # 1. Cost Panel
+    cost_values = {
+        n: float(data.loc[data["Name"] == n, "Cost_total_($)"].mean())
+        for n in all_names
+        if not data.loc[data["Name"] == n, "Cost_total_($)"].empty
+    }
+    max_cost = max(cost_values.values()) if cost_values else 10.0
+    for family, _ in families:
+        family_rows = [(n, p) for fam, n, p in layout_entries if fam == family]
+        if not family_rows:
+            continue
+        xs = [cost_values.get(n, 0.0) for n, _ in family_rows]
+        ys = [p for _, p in family_rows]
+        fig.add_bar(
+            x=xs,
+            y=ys,
+            orientation="h",
+            marker={"color": family_colors[family]},
+            text=[f"${x:.2f}" for x in xs],
+            textposition="outside",
+            textfont={"size": 12},
+            cliponaxis=False,
+            width=0.75,
+            name=family,
+            legendgroup=family,
+            showlegend=True,
+            row=1,
+            col=1,
+        )
+
+    # 2. Time Panel (Values converted to hours)
+    time_values_sec = {
+        n: float(data.loc[data["Name"] == n, "Inference_time_total_(s)"].mean())
+        for n in all_names
+        if not data.loc[data["Name"] == n, "Inference_time_total_(s)"].empty
+    }
+    time_values_hrs = {n: s / 3600.0 for n, s in time_values_sec.items()}
+    max_hours = max(time_values_hrs.values()) if time_values_hrs else 10.0
+    for family, _ in families:
+        family_rows = [(n, p) for fam, n, p in layout_entries if fam == family]
+        if not family_rows:
+            continue
+        xs_hrs = [time_values_hrs.get(n, 0.0) for n, _ in family_rows]
+        xs_sec = [time_values_sec.get(n, 0.0) for n, _ in family_rows]
+        ys = [p for _, p in family_rows]
+        fig.add_bar(
+            x=xs_hrs,
+            y=ys,
+            orientation="h",
+            marker={"color": family_colors[family]},
+            text=[format_time_label(s) for s in xs_sec],
+            textposition="outside",
+            textfont={"size": 12},
+            cliponaxis=False,
+            width=0.75,
+            name=family,
+            legendgroup=family,
+            showlegend=False,
+            row=1,
+            col=2,
+        )
+
+    # Axes styling
+    fig.update_xaxes(
+        range=[0, max_cost * 1.3],
+        showline=True,
+        linewidth=1,
+        linecolor="black",
+        showgrid=False,
+        row=1,
+        col=1,
+    )
+    hour_step = 10 if max_hours > 20 else 2
+    hour_ticks = list(range(0, int(max_hours) + hour_step, hour_step))
+    fig.update_xaxes(
+        range=[0, max_hours * 1.35],
+        tickvals=hour_ticks,
+        ticktext=[f"{h}h" for h in hour_ticks],
+        showline=True,
+        linewidth=1,
+        linecolor="black",
+        showgrid=False,
+        row=1,
+        col=2,
+    )
+    for col in (1, 2):
+        fig.update_yaxes(
+            tickvals=tickvals,
+            ticktext=ticktext if col == 1 else [""] * len(tickvals),
+            autorange="reversed",
+            tickfont={"size": 13},
+            showline=True,
+            linewidth=1,
+            linecolor="black",
+            showgrid=False,
+            row=1,
+            col=col,
+        )
+
+    fig.update_layout(
+        template="simple_white",
+        hovermode=False,
+        width=950,
+        height=max(400, int(len(tickvals) * 38 + 140)),
+        margin={"l": 250, "r": 90, "t": 60, "b": 90},
+        legend={
+            "orientation": "h",
+            "y": -0.15,
+            "x": 0.5,
+            "xanchor": "center",
+            "font": {"size": 13},
+        },
     )
     return fig

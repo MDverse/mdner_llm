@@ -16,7 +16,7 @@ from typing import Any
 import pytest
 
 from mdner_llm.common import serialize_response
-from mdner_llm.core.extract_entities_with_llm import (
+from mdner_llm.llm.extract_entities_with_llm import (
     add_guidelines_and_examples_to_prompt,
     save_formated_response_with_metadata_to_json,
 )
