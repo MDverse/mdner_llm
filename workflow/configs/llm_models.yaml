@@ -49,6 +49,7 @@ full_eval_models:
   - "z-ai/glm-5.3-flash"
   - "openai/gpt-5.6-luna"
   - "openai/gpt-5.6-terra"
+  - "anthropic/claude-fable-5.1"
   - "anthropic/claude-fable-5"
   - "anthropic/claude-sonnet-5"
   - "openai/gpt-5.6-sol"
@@ -66,11 +67,29 @@ full_eval_models:
   - "moonshotai/kimi-k3"
 
 # --- Scenario 3: Consensus & Temperature Runs ---
-consensus_models:
-  - "google/gemma-4-31b-it"
-  - "qwen/qwen3.8-27b"
-  - "openai/gpt-oss-20b"
-  - "deepseek/deepseek-v4-flash-0731"
+consensus_groups:
+  gpt_qwen:
+    - "openai/gpt-oss-20b"
+    - "qwen/qwen3.8-27b"
+  gemma_qwen:
+    - "google/gemma-4-31b-it"
+    - "qwen/qwen3.8-27b"
+  gemma_qwen_gpt:
+    - "google/gemma-4-31b-it"
+    - "qwen/qwen3.8-27b"
+    - "openai/gpt-oss-20b"
+  gemma_qwen_gpt_deepseek:
+    - "google/gemma-4-31b-it"
+    - "qwen/qwen3.8-27b"
+    - "openai/gpt-oss-20b"
+    - "deepseek/deepseek-v4-flash-0731"
+  gpt_gemma:
+    - "openai/gpt-oss-20b"
+    - "google/gemma-4-31b-it"
+  gpt_gemma_deepseek:
+    - "openai/gpt-oss-20b"
+    - "google/gemma-4-31b-it"
+    - "deepseek/deepseek-v4-flash-0731"
 
 consensus_temperatures: [1, 2, 1.5]
 consensus_threshold: 0.5
