@@ -14,6 +14,41 @@ from mdner_llm.common import ensure_dir
 from mdner_llm.logger import create_logger
 from mdner_llm.models.entities import ListOfEntities
 
+# Name of the single CSV file gathering the votes of every dataset.
+DETAILS_CSV_NAME = "consensus_details.csv"
+# Columns of the details CSV, in the order they are written.
+DETAILS_FIELDNAMES = [
+    "entity_predicted_by_model",
+    "category",
+    "consensus_score",
+    "model_name",
+    "temperature",
+    "found_by_model",
+    "consensus_file_path",
+    "input_json_path",
+]
+
+
+def extract_temperature(annotation: dict[str, object]) -> float | None:
+    """Return the temperature of one annotation as a single float.
+
+    Returns
+    -------
+    float | None
+        The temperature, 1.0 when it is missing, or None when it is an empty list.
+    """
+    # Read the raw value, usually stored as a list such as [1.0].
+    temperature = annotation.get("temperature")
+    # A missing temperature means the provider default, which is 1.0.
+    if temperature is None:
+        return 1.0
+    # An empty list carries no information, so callers ignore it.
+    if temperature == []:
+        return None
+    # Unwrap single-element lists such as [1.0], and accept plain numbers too.
+    value = temperature[0] if isinstance(temperature, list) else temperature
+    return float(value)
+
 
 def parse_annotation_file(
     path: Path, logger: "loguru.Logger" = loguru.logger
@@ -26,25 +61,30 @@ def parse_annotation_file(
         Parsed annotation payload with validated 'formatted_response',
         or None if parsing fails.
     """
+    # Log which file is being read (debug level).
     logger.debug(f"Reading {path.name}.")
-    # Load the JSON content from the file.
+    # Open the file and load its JSON content.
     try:
         with path.open(encoding="utf-8") as file_handler:
             annotation = json.load(file_handler)
+    # Unreadable file or invalid JSON: log the error and skip this file.
     except (OSError, json.JSONDecodeError) as error:
         logger.error(f"Cannot read or parse {path.name}: {error}")
         return None
-    # Get the predicted entities
+    # Get the entities predicted by the LLM (still a raw dictionary).
     raw_response = annotation.get("formatted_response")
+    # A file without predictions cannot be used, so skip it.
     if raw_response is None:
         logger.warning(f"'formatted_response' missing in {path.name}, skipped.")
         return None
-    # Validate it against the ListOfEntities model.
+    # Replace the raw dictionary by a validated ListOfEntities object.
     try:
         annotation["formatted_response"] = ListOfEntities.model_validate(raw_response)
+    # Predictions that do not follow the expected schema are skipped.
     except ValidationError as error:
         logger.warning(f"Cannot parse 'formatted_response' in {path.name}: {error}")
         return None
+    # Return the annotation with its validated predictions.
     return annotation
 
 
@@ -69,11 +109,13 @@ def compute_consensus(
     >>> # Result for ("CHARMM36", "FORCE_FIELD"): score = 2 / 2 = 1.0 (found by both).
     >>> # Result for ("GROMACS", "SOFTWARE"): score = 1 / 2 = 0.5 (found by LLM 0 only).
     """
+    # Number of annotators (one per model and temperature), i.e. the number of votes.
     total_annotations = len(annotations)
+    # Keep the model name and temperature of each annotator, in the same order.
     annotator_profiles = [
         {
             "model_name": str(ann.get("model_name", "unknown")),
-            "temperature": ann.get("temperature"),
+            "temperature": extract_temperature(ann),
         }
         for ann in annotations
     ]
@@ -86,11 +128,16 @@ def compute_consensus(
     # }
     votes = defaultdict(set)
     entity_objects = {}
+    # Loop over the annotators, keeping the position of each one as its identifier.
     for annotator_index, annotation in enumerate(annotations):
+        # Entities predicted by this annotator (already validated).
         response_model = annotation["formatted_response"]
         for entity in response_model.entities:
+            # An entity is identified by its text and its category.
             entity_key = (entity.text, entity.category)
+            # Record that this annotator voted for the entity.
             votes[entity_key].add(annotator_index)
+            # Keep the first entity object seen, to dump it later.
             entity_objects.setdefault(entity_key, entity)
 
     # Compute individual consensus ratio for each candidate entity.
@@ -106,11 +153,13 @@ def compute_consensus(
     # }
     consensus = {}
     for (text, category), voter_set in votes.items():
+        # Score = share of annotators that found the entity (between 0 and 1).
         score = len(voter_set) / total_annotations
         consensus[text, category] = {
             "text": text,
             "category": category,
             "score": round(score, 4),
+            # One response per annotator, saying whether it found the entity.
             "responses": [
                 {
                     "model_name": annotator_profiles[index]["model_name"],
@@ -133,30 +182,26 @@ def build_aggregated_metadata(
     dict[str, object]
         Combined metadata dictionary containing summed metrics and run info.
     """
-    # Extract distinct model names.
+    # Extract distinct model names, with "/" replaced to keep the name file-safe.
     model_names = sorted(
         {
             str(annotation.get("model_name")).replace("/", "_")
             for annotation in annotations
         }
     )
-    # Collect sorted unique temperatures and providers.
-    unique_temperatures = set()
-    for annotation in annotations:
-        list_of_temperatures = annotation.get("temperature")
-        if list_of_temperatures != []:
-            if list_of_temperatures is None:
-                # If temperature is None, default to 1.0.
-                unique_temperatures.add(1.0)
-            else:
-                temperature_value = list_of_temperatures[0]
-                unique_temperatures.add(float(temperature_value))
+    # Collect the distinct temperatures (missing means 1.0, empty lists are ignored).
+    unique_temperatures = {
+        temperature
+        for annotation in annotations
+        if (temperature := extract_temperature(annotation)) is not None
+    }
     # Sort temperatures in ascending order.
     temperatures_sorted = sorted(unique_temperatures)
     # Extract unique provider names from single-element lists.
     unique_providers = set()
     for annotation in annotations:
         provider_list = annotation.get("provider")
+        # Keep the provider only if the list is not empty and not None.
         if provider_list and provider_list[0] is not None:
             unique_providers.add(str(provider_list[0]))
     # Sort the unique providers alphabetically.
@@ -169,48 +214,68 @@ def build_aggregated_metadata(
             if annotation.get("tag") is not None
         }
     )
+    # Build the temperature part of the model name, e.g. "1.0_2.0".
     temperatures_identifier = "_".join(str(temp) for temp in temperatures_sorted)
     # Find the earliest timestamp across all runs.
-    timestamps = [ann["timestamp"] for ann in annotations if ann.get("timestamp")]
+    timestamps = [
+        annotation["timestamp"]
+        for annotation in annotations
+        if annotation.get("timestamp")
+    ]
     earliest_timestamp = min(timestamps)
-    # Aggregate run identifiers and sum numerical metrics across annotations.
-    aggregated = {
-        "model_name": f"consensus_{'_'.join(model_names)}_t_{temperatures_identifier}",
-        "timestamp": earliest_timestamp,
-        "tag": tags,
-        "temperature": temperatures_sorted,
-        "provider": providers,
-        "inference_time_sec": sum(
-            float(annotation.get("inference_time_sec", 0.0))
-            for annotation in annotations
-            if annotation.get("inference_time_sec")
-        ),
-        "input_tokens": sum(
-            int(annotation.get("input_tokens", 0))
-            for annotation in annotations
-            if annotation.get("input_tokens")
-        ),
-        "output_tokens": sum(
-            int(annotation.get("output_tokens", 0))
-            for annotation in annotations
-            if annotation.get("output_tokens")
-        ),
-        "inference_cost_usd": sum(
-            float(annotation.get("inference_cost_usd", 0.0))
-            for annotation in annotations
-            if annotation.get("inference_cost_usd")
-        ),
+    # Define the set of metric keys to aggregate and the set of handled keys.
+    metric_keys = {
+        "inference_time_sec",
+        "input_tokens",
+        "output_tokens",
+        "inference_cost_usd",
     }
-    # Retain remaining custom metadata from the first annotation.
-    excluded_keys = set(aggregated.keys()) | {
+    handled_keys = metric_keys | {
+        "model_name",
+        "timestamp",
+        "tag",
+        "temperature",
+        "provider",
         "formatted_response",
         "normalized_entities",
     }
+    # Inherit non-aggregated fields from the first annotation.
+    aggregated = {
+        key: value for key, value in annotations[0].items() if key not in handled_keys
+    }
+    # Inject correctly computed sums and parameters.
     aggregated.update(
         {
-            key: value
-            for key, value in annotations[0].items()
-            if key not in excluded_keys
+            # Name of the consensus, e.g. "consensus_google_gemma_qwen_qwen3_t_1.0".
+            "model_name": (
+                f"consensus_{'_'.join(model_names)}_t_{temperatures_identifier}"
+            ),
+            "models": model_names,
+            "timestamp": earliest_timestamp,
+            "tag": tags,
+            "temperature": temperatures_sorted,
+            "provider": providers,
+            # Time, tokens and cost are summed because every run is paid and executed.
+            "inference_time_sec": round(
+                sum(
+                    float(annotation.get("inference_time_sec") or 0.0)
+                    for annotation in annotations
+                ),
+                4,
+            ),
+            "input_tokens": sum(
+                int(annotation.get("input_tokens") or 0) for annotation in annotations
+            ),
+            "output_tokens": sum(
+                int(annotation.get("output_tokens") or 0) for annotation in annotations
+            ),
+            "inference_cost_usd": round(
+                sum(
+                    float(annotation.get("inference_cost_usd") or 0.0)
+                    for annotation in annotations
+                ),
+                8,
+            ),
         }
     )
     return aggregated
@@ -229,11 +294,14 @@ def build_consensus_output(
     dict[str, object]
         Final merged document payload matching the target schema.
     """
+    # Build the metadata block (model name, temperatures, summed costs...).
     metadata = build_aggregated_metadata(annotations)
     # Collect entities satisfying the voting threshold.
     qualified_entities = []
     for key, entity_detail in consensus.items():
+        # Keep the entity if enough annotators found it.
         if float(entity_detail["score"]) >= threshold and key in entity_objects:
+            # Convert the Pydantic entity to a dictionary and attach its score.
             dumped_entity = entity_objects[key].model_dump()
             dumped_entity["score"] = entity_detail["score"]
             qualified_entities.append(dumped_entity)
@@ -241,7 +309,7 @@ def build_consensus_output(
     validated_response = ListOfEntities.model_validate(
         {"entities": qualified_entities}
     ).model_dump()
-    # Ensure scores persist in output.
+    # Ensure scores persist in output (validation may drop unknown fields).
     for entity_item, source_item in zip(
         validated_response["entities"], qualified_entities, strict=True
     ):
@@ -254,45 +322,65 @@ def write_json(
 ) -> None:
     """Write data dictionary to a formatted JSON file."""
     try:
+        # Open the target file in write mode with UTF-8 encoding.
         with path.open("w", encoding="utf-8") as file_handler:
+            # Keep accents readable (ensure_ascii=False) and indent for humans.
             json.dump(data, file_handler, ensure_ascii=False, indent=2)
         logger.success(f"Saved to {path} successfully.")
+    # Log the error instead of crashing when the file cannot be written.
     except OSError as error:
         logger.error(f"Failed to write {path}: {error}")
 
 
+def build_details_rows(
+    consensus: dict[tuple[str, str], dict[str, object]],
+    consensus_file_path: Path,
+    input_json_path: str,
+) -> list[dict[str, object]]:
+    """Flatten the votes of one dataset into CSV rows (one row per entity and annotator).
+
+    Returns
+    -------
+    list[dict[str, object]]
+        Rows whose keys match DETAILS_FIELDNAMES.
+    """
+    rows = []
+    # One block of rows per candidate entity.
+    for detail in consensus.values():
+        # One row per annotator (model and temperature) for this entity.
+        for response in detail["responses"]:
+            rows.append(
+                {
+                    "entity_predicted_by_model": detail["text"],
+                    "category": detail["category"],
+                    "consensus_score": detail["score"],
+                    "model_name": response["model_name"],
+                    "temperature": response["temperature"],
+                    "found_by_model": response["found"],
+                    # Path of the consensus annotation file written for this dataset.
+                    "consensus_file_path": str(consensus_file_path),
+                    # Path of the ground truth file the LLMs were run on.
+                    "input_json_path": input_json_path,
+                }
+            )
+    return rows
+
+
 def write_consensus_details_csv(
     path: Path,
-    consensus: dict[tuple[str, str], dict[str, object]],
+    rows: list[dict[str, object]],
     logger: "loguru.Logger" = loguru.logger,
 ) -> None:
-    """Export consensus score breakdown to CSV format."""
-    fieldnames = [
-        "text",
-        "category",
-        "consensus_score",
-        "model_name",
-        "temperature",
-        "found",
-    ]
+    """Export the consensus score breakdown of all datasets to a single CSV file."""
     try:
+        # newline="" avoids blank lines between rows on Windows.
         with path.open("w", encoding="utf-8", newline="") as file_handler:
-            csv_writer = csv.DictWriter(file_handler, fieldnames=fieldnames)
+            # Write the rows using the fixed column order.
+            csv_writer = csv.DictWriter(file_handler, fieldnames=DETAILS_FIELDNAMES)
             csv_writer.writeheader()
-            # Write each entity's consensus details row by row.
-            for detail in consensus.values():
-                for response in detail["responses"]:
-                    csv_writer.writerow(
-                        {
-                            "text": detail["text"],
-                            "category": detail["category"],
-                            "consensus_score": detail["score"],
-                            "model_name": response["model_name"],
-                            "temperature": response["temperature"],
-                            "found": response["found"],
-                        }
-                    )
+            csv_writer.writerows(rows)
         logger.success(f"Saved to {path} successfully.")
+    # Log the error instead of crashing when the file cannot be written.
     except OSError as error:
         logger.error(f"Failed to write {path}: {error}")
 
@@ -314,18 +402,23 @@ def aggregate_consensus_entities(
     grouped_annotations = defaultdict(list)
     for json_path in json_paths:
         parsed = parse_annotation_file(json_path, logger)
+        # Skip files that could not be read or validated.
         if parsed is None:
             continue
+        # The ground truth file the LLM was run on identifies the dataset.
         raw_source_path = parsed.get("input_json_path")
+        # Use its stem as group key, or the annotation file stem as a fallback.
         group_key = (
             Path(str(raw_source_path)).stem if raw_source_path else json_path.stem
         )
         grouped_annotations[group_key].append(parsed)
     logger.info(f"Identified {len(grouped_annotations)} dataset groups.")
-    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H%M%S")
+    # Rows of the single details CSV, filled while looping over the datasets.
+    all_details_rows = []
     # Compute and persist consensus annotations for each source dataset.
     for source_identifier, annotations in sorted(grouped_annotations.items()):
         logger.info(f"Processing '{source_identifier}' ({len(annotations)} files).")
+        # Votes of every annotator for every candidate entity.
         consensus, entity_objects = compute_consensus(annotations)
         # Count candidate entities meeting agreement threshold.
         matching_count = sum(
@@ -335,17 +428,21 @@ def aggregate_consensus_entities(
             f"{len(annotations)} JSON aggregated | "
             f"{matching_count}/{len(consensus)} entities above threshold {threshold}."
         )
-        # Build and write final JSON entity output.
+        # Build the final JSON entity output.
         output_payload = build_consensus_output(
             annotations, consensus, entity_objects, threshold
         )
-        json_target = output_dir / f"{source_identifier}_{timestamp}_consensus.json"
+        # File name without timestamp, so reruns overwrite the same output files.
+        json_target = output_dir / f"{source_identifier}_consensus.json"
         write_json(json_target, output_payload, logger)
-        # Write detailed voter matrix CSV output.
-        csv_target = (
-            output_dir / f"{source_identifier}_{timestamp}_consensus_details.csv"
+        # Path of the ground truth file, shared by all annotations of the group.
+        input_json_path = str(annotations[0].get("input_json_path") or "")
+        # Add the votes of this dataset to the rows of the single CSV.
+        all_details_rows.extend(
+            build_details_rows(consensus, json_target, input_json_path)
         )
-        write_consensus_details_csv(csv_target, consensus, logger)
+    # Write the single details CSV once, after all datasets are processed.
+    write_consensus_details_csv(output_dir / DETAILS_CSV_NAME, all_details_rows, logger)
     logger.success("Successfully completed consensus aggregation.")
 
 
@@ -372,6 +469,7 @@ def aggregate_consensus_entities(
 )
 def run_main_from_cli(inferences_dir: Path, threshold: float, output_dir: Path) -> None:
     """CLI entry point for consensus aggregation."""
+    # The log file name keeps a timestamp, only the output data files do not.
     log_file_path = (
         f"logs/aggregate_{datetime.now(UTC).strftime('%Y-%m-%d_%Hh%Mm%Ss')}.log"
     )

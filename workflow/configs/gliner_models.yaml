@@ -25,3 +25,26 @@ gliner2.5-base-v1:
   display_name: "fastino/gliner2.5-base-v1"
   model_path: "fastino/gliner2.5-base-v1"
   is_trainable: false
+
+# 4. GLiNER2 Fine-tuned Models
+gliner2-base-v1-finetuned:
+  display_name: "fastino/gliner2-base-v1-finetuned"
+  base_model: "fastino/gliner2-base-v1"
+  model_path: "results/gliner/models/gliner2-base-v1-finetuned/best"
+  training_config_path: "workflow/configs/training/gliner2-base-v1-finetuned.yaml"
+  is_trainable: true
+
+gliner2-large-v1-finetuned:
+  display_name: "fastino/gliner2-large-v1-finetuned"
+  base_model: "fastino/gliner2-large-v1"
+  model_path: "results/gliner/models/gliner2-large-v1-finetuned/best"
+  training_config_path: "workflow/configs/training/gliner2-large-v1-finetuned.yaml"
+  is_trainable: true
+
+# 5. GLiNER2.5 Fine-tuned Models
+gliner2.5-base-v1-finetuned:
+  display_name: "fastino/gliner2.5-base-v1-finetuned"
+  base_model: "fastino/gliner2.5-base-v1"
+  model_path: "results/gliner/models/gliner2.5-base-v1-finetuned/best"
+  training_config_path: "workflow/configs/training/gliner2.5-base-v1-finetuned.yaml"
+  is_trainable: true
