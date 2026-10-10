@@ -62,6 +62,7 @@ classDiagram
     ListOfEntities ..> SimulationTemperature
     ListOfEntities ..> SoftwareName
     ListOfEntities ..> ForceFieldModel
+```
 
 To assess robustness and accuracy, we benchmark several LLMs (GPT-5.6, Gemini 3.6, Claude Fable 5, GLM 5.3, etc.) together with extraction libraries such as **Instructor** and **Pydantic**. Our goal is to identify the best model–framework combinations for accurate, consistent, and schema-compliant Molecular Dynamics Named Entity Recognition (MDNER).
 
