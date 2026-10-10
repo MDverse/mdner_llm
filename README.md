@@ -362,4 +362,13 @@ uv run snakemake run_mdverse_annotation  --cores all --resources api_calls=1 gpu
 uv run snakemake all --cores all --resources gpu=1                                   # all
 ```
 
+> [!TIP]
+> To track execution progress across the different workflows in real time, run:
+> ```sh
+> uv run workflow/check_progress.py \
+>     --llm-config workflow/configs/llm_models.yaml \
+>     --gliner-config workflow/configs/gliner_models.yaml \
+>     --mdverse-config workflow/configs/mdverse_annotation.yaml
+> ```
+
 All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/paper_tables_and_figures.ipynb](notebooks/paper_tables_and_figures.ipynb).
