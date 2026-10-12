@@ -537,7 +537,7 @@ def extract_entities(
         "framework_name": framework,
         "prompt_path": str(prompt_output_path),
         "groundtruth": groundtruth.model_dump(),
-        "status": inference_metadata["status"],
+        "status": [inference_metadata["status"]],
         "formatted_response": formatted_llm_response.model_dump(),
         "inference_time_sec": usage.get("inference_time_sec"),
         "input_tokens": usage.get("input_tokens"),

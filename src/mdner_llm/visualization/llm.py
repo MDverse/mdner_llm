@@ -1,5 +1,7 @@
 """Module for visualizing LLM performance."""
 
+from itertools import combinations
+
 import pandas as pd
 import plotly.graph_objects as go
 from pandas.io.formats.style import Styler
@@ -207,8 +209,9 @@ def display_benchmark_table(
     sort_by: str = "Micro F1",
     *,
     is_ascending: bool = False,
+    without_consensus: bool = True,
 ) -> Styler:
-    """Filter, format, and display evaluation metrics sorted by a given column.
+    """Build and format a centered benchmark summary table for LLMs.
 
     Returns
     -------
@@ -220,19 +223,19 @@ def display_benchmark_table(
         if isinstance(file_path_or_df, str)
         else file_path_or_df.copy()
     )
-    # Filter rows by the requested category and keep the latest run per model.
+    if without_consensus:
+        raw_df = raw_df[~raw_df["Name"].str.startswith("consensus_", na=False)]
+
     cat_df = (
         raw_df[raw_df["category"] == category]
         .drop_duplicates(subset=["Name"], keep="last")
         .copy()
     )
-    # Extract Macro F1 values per model to support side-by-side reporting.
     macro_series = (
         raw_df[raw_df["category"] == "OVERALL_MACRO"]
         .drop_duplicates(subset=["Name"], keep="last")
         .set_index("Name")["F1"]
     )
-    # Construct unified reporting table with renamed columns.
     table_df = pd.DataFrame(
         {
             "Model": cat_df["Name"],
@@ -246,7 +249,6 @@ def display_benchmark_table(
             "Cost ($)": cat_df["Cost_total_($)"],
         }
     )
-    # Sort table by specified column key and apply publication centering styles.
     return (
         table_df.sort_values(by=sort_by, ascending=is_ascending)
         .reset_index(drop=True)
@@ -269,33 +271,45 @@ def display_benchmark_table(
 
 
 def build_families(
-    data: pd.DataFrame,
     small_models: list[str],
     frontier_models: list[str],
-    consensus_temperatures: list[list[float]],
+    consensus_group: str,
+    consensus_temperatures: list[float | int],
+    consensus_threshold: float,
 ) -> list[tuple[str, list[tuple[str, str]]]]:
-    """Return model groups categorized by family in target display order.
+    """Build hierarchy of model families.
 
     Returns
     -------
     list[tuple[str, list[tuple[str, str]]]]
-        List of tuples matching family names to (model_name, display_label) pairs.
+        A list of tuples where each tuple contains a family name and a list of runs
+        with their corresponding labels.
     """
-    consensus_runs = []
-    clean_small_models = sorted(m.replace("/", "_") for m in small_models)
-    models_signature = "_".join(clean_small_models)
-    for t_group in consensus_temperatures:
-        suffix = "_t_" + "_".join(str(float(t)) for t in t_group)
-        # Exact match of the model combination prefix and temperature suffix.
-        expected_name = f"consensus_{models_signature}{suffix}"
-        matches = [n for n in data["Name"].unique() if n == expected_name]
-        if matches:
-            temps = ", ".join(str(float(t)) for t in t_group)
-            consensus_runs.append((matches[0], f"Consensus (T = {temps})"))
+    # Temperature labels without trailing zeros (1.0 -> "1")
+    temperature_labels = [
+        f"{float(temperature):g}" for temperature in consensus_temperatures
+    ]
+    # Build the small LLM runs with temperature labels for each model
+    small_runs = [
+        (
+            f"{model} (T = {temp})",
+            f"{model.split('/')[-1]} (T = {temp})",
+        )
+        for temp in temperature_labels
+        for model in small_models
+    ]
+    consensus_runs = [
+        (
+            f"consensus_{consensus_group}_temp_{'_and_'.join(subset)}_th_{consensus_threshold:g}",
+            f"Consensus (T = {', '.join(subset)})",
+        )
+        for size in range(1, len(temperature_labels) + 1)
+        for subset in combinations(temperature_labels, size)
+    ]
     return [
-        ("Small LLM (single run)", [(m, m) for m in small_models]),
+        ("Small LLM (single run)", small_runs),
         ("Consensus of small LLMs", consensus_runs),
-        ("Frontier LLM", [(m, m) for m in frontier_models]),
+        ("Frontier LLM", [(model, model.split("/")[-1]) for model in frontier_models]),
     ]
 
 
@@ -303,72 +317,124 @@ def plot_small_llm_consensus_vs_frontier(
     df: pd.DataFrame,
     small_models: list[str],
     frontier_models: list[str],
-    consensus_temperatures: list[list[float]],
+    consensus_group: str,
+    consensus_temperatures: list[float | int | str],
+    consensus_threshold: float = 0.5,
     metrics: tuple[str, ...] = (
         "Precision_with_no_hallucination",
         "Recall",
         "F1_with_no_hallucination",
+        "Correct_format_(%)",
+        "Hallucinations_(%)",
     ),
     category: str = "OVERALL_MICRO",
 ) -> go.Figure:
-    """Plot multi-panel horizontal bars highlighting maximum scores per metric.
+    """Plot Small LLMs, Consensus and Frontier LLMs.
 
     Returns
     -------
     go.Figure
-        Formatted Plotly multi-column horizontal bar figure without theme wrapper.
+        Formatted Plotly multi-column figure with top legend.
     """
-    data = df[df["category"] == category].copy()
+    data = df[df["category"] == category]
+    mean_by_name = data.groupby("Name")[list(metrics)].mean()
+    # Build the 3 blocks in order: Small -> Consensus -> Frontier
     families = build_families(
-        data, small_models, frontier_models, consensus_temperatures
+        small_models=small_models,
+        frontier_models=frontier_models,
+        consensus_group=consensus_group,
+        consensus_temperatures=consensus_temperatures,
+        consensus_threshold=consensus_threshold,
     )
-    palette = ["#BDD7EE", "#1F77B4", "#595959"]
-    family_colors = {fam[0]: col for fam, col in zip(families, palette, strict=False)}
-    layout_entries, tickvals, ticktext = [], [], []
-    pos = 0.0
+    family_colors = {
+        "Small LLM (single run)": "#BDD7EE",
+        "Consensus of small LLMs": "#1F77B4",
+        "Frontier LLM": "#595959",
+    }
+    layout_entries, ticktext = [], []
+    position = 0.0
+    num_small = len(small_models)
+
     for family, runs in families:
-        kept = [(n, lab) for n, lab in runs if (data["Name"] == n).any()]
-        for name, label in kept:
-            layout_entries.append((family, name, pos))
-            tickvals.append(pos)
+        kept_runs = [
+            (name, label) for name, label in runs if name in mean_by_name.index
+        ]
+        for idx, (name, label) in enumerate(kept_runs):
+            layout_entries.append((family, name, position))
             ticktext.append(label)
-            pos += 1.0
-        pos += 0.5
+            position += 1.0
+            if (
+                family == "Small LLM (single run)"
+                and (idx + 1) % num_small == 0
+                and (idx + 1) < len(kept_runs)
+            ):
+                position += 0.5
+
+        position += 0.5  # Gap standard entre les grandes familles
+    positions = [entry_position for _, _, entry_position in layout_entries]
+    names = [name for _, name, _ in layout_entries]
+
+    # Percent columns only display text, so they are narrower than bar columns
     fig = make_subplots(
         rows=1,
         cols=len(metrics),
         shared_yaxes=True,
-        horizontal_spacing=0.035,
-        subplot_titles=[m.split("_")[0].capitalize() for m in metrics],
+        horizontal_spacing=0.04,
+        column_widths=[0.45 if "%" in metric else 1.0 for metric in metrics],
+        # Two-line titles for percent metrics to avoid overlaps
+        subplot_titles=[
+            metric.replace("_with_no_hallucination", "")
+            .replace("Correct_format_(%)", "Correct format<br>(%)")
+            .replace("Hallucinations_(%)", "Hallucinations<br>(%)")
+            .replace("_", " ")
+            for metric in metrics
+        ],
     )
-    all_names = [name for _, name, _ in layout_entries]
     for col, metric in enumerate(metrics, start=1):
-        metric_values = {
-            n: float(data.loc[data["Name"] == n, metric].mean())
-            for n in all_names
-            if not data.loc[data["Name"] == n, metric].empty
-        }
-        max_metric_val = (
-            round(max(metric_values.values()), 2) if metric_values else None
-        )
+        values = mean_by_name[metric]
+        if "%" in metric:
+            # Ideal value is 0 for hallucinations and 100 for correct format,
+            # anything else is red and bold
+            ideal_value = 0 if metric.startswith("Hallucinations") else 100
+            texts = [
+                f"<span style='color:red'><b>{round(values[name]):.0f}</b></span>"
+                if round(values[name]) != ideal_value
+                else f"{round(values[name]):.0f}"
+                for name in names
+            ]
+            fig.add_scatter(
+                x=[0] * len(positions),
+                y=positions,
+                mode="text",
+                text=texts,
+                textfont={"size": 13},
+                showlegend=False,
+                row=1,
+                col=col,
+            )
+            # No axis line, same row order as the bars
+            fig.update_xaxes(range=[-1, 1], visible=False, row=1, col=col)
+            fig.update_yaxes(visible=False, autorange="reversed", row=1, col=col)
+            continue
+        best_value = round(values[names].max(), 2)
         for family, _ in families:
-            family_rows = [(n, p) for fam, n, p in layout_entries if fam == family]
+            family_rows = [
+                (name, pos) for fam, name, pos in layout_entries if fam == family
+            ]
             if not family_rows:
                 continue
-            xs = [metric_values.get(n, 0.0) for n, _ in family_rows]
-            ys = [p for _, p in family_rows]
-            text_labels = [
-                f"<b>{x:.2f}</b>"
-                if max_metric_val is not None and round(x, 2) == max_metric_val
-                else f"{x:.2f}"
-                for x in xs
-            ]
+            family_values = [values[name] for name, _ in family_rows]
             fig.add_bar(
-                x=xs,
-                y=ys,
+                x=family_values,
+                y=[pos for _, pos in family_rows],
                 orientation="h",
                 marker={"color": family_colors[family]},
-                text=text_labels,
+                text=[
+                    f"<b>{value:.2f}</b>"
+                    if round(value, 2) == best_value
+                    else f"{value:.2f}"
+                    for value in family_values
+                ],
                 textposition="outside",
                 textfont={"size": 13},
                 cliponaxis=False,
@@ -389,11 +455,13 @@ def plot_small_llm_consensus_vs_frontier(
             row=1,
             col=col,
         )
+        # Y axis only on bar columns, labels only on the first one, Small LLMs on top
         fig.update_yaxes(
-            tickvals=tickvals,
-            ticktext=ticktext if col == 1 else [""] * len(tickvals),
+            tickvals=positions if col == 1 else [],
+            ticktext=ticktext if col == 1 else [],
+            showticklabels=(col == 1),
             autorange="reversed",
-            tickfont={"size": 13},
+            tickfont={"size": 12},
             showline=True,
             linewidth=1,
             linecolor="black",
@@ -401,12 +469,19 @@ def plot_small_llm_consensus_vs_frontier(
             row=1,
             col=col,
         )
+
+    # Uniformisation de la taille et de l'alignement vertical par le bas
+    for annotation in fig["layout"]["annotations"]:
+        annotation["font"] = {"size": 12}
+        annotation["y"] = 1.01
+        annotation["yanchor"] = "bottom"
+
     fig.update_layout(
         template="simple_white",
         hovermode=False,
-        width=1100,
-        height=max(380, int(len(tickvals) * 36 + 120)),
-        margin={"l": 250, "r": 200, "t": 70, "b": 40},
+        width=1250,
+        height=max(450, int(position * 32 + 150)),
+        margin={"l": 230, "r": 30, "t": 105, "b": 40},
         legend={
             "orientation": "h",
             "y": 1.22,
@@ -439,7 +514,9 @@ def plot_small_llm_consensus_cost_and_time(
     df: pd.DataFrame,
     small_models: list[str],
     frontier_models: list[str],
-    consensus_temperatures: list[list[float]],
+    consensus_temperatures: list[float | int | str],
+    consensus_threshold: float = 0.5,
+    consensus_group: str | None = None,
     category: str = "OVERALL_MICRO",
 ) -> go.Figure:
     """Plot multi-panel horizontal bars comparing total cost and inference time.
@@ -450,11 +527,26 @@ def plot_small_llm_consensus_cost_and_time(
         Formatted Plotly two-column horizontal bar figure with bottom legend.
     """
     data = df[df["category"] == category].copy()
+    data = data.sort_values(
+        "Inference_time_total_(s)", ascending=False
+    ).drop_duplicates(subset=["Name"])
+
+    # Build the 3 blocks in order: Small -> Consensus -> Frontier
     families = build_families(
-        data, small_models, frontier_models, consensus_temperatures
+        small_models=small_models,
+        frontier_models=frontier_models,
+        consensus_group=consensus_group,
+        consensus_temperatures=consensus_temperatures,
+        consensus_threshold=consensus_threshold,
     )
-    palette = ["#BDD7EE", "#1F77B4", "#595959"]
-    family_colors = {fam[0]: col for fam, col in zip(families, palette, strict=False)}
+
+    # Palette matching the publication figure
+    family_colors = {
+        "Small LLM (single run)": "#BDD7EE",  # Light blue
+        "Consensus of small LLMs": "#1F77B4",  # Strong blue
+        "Frontier LLM": "#595959",  # Dark grey
+    }
+
     layout_entries, tickvals, ticktext = [], [], []
     pos = 0.0
     for family, runs in families:
@@ -464,7 +556,8 @@ def plot_small_llm_consensus_cost_and_time(
             tickvals.append(pos)
             ticktext.append(label)
             pos += 1.0
-        pos += 0.5
+        pos += 0.5  # Gap between families
+
     all_names = [name for _, name, _ in layout_entries]
 
     fig = make_subplots(
@@ -492,7 +585,7 @@ def plot_small_llm_consensus_cost_and_time(
             x=xs,
             y=ys,
             orientation="h",
-            marker={"color": family_colors[family]},
+            marker={"color": family_colors.get(family, "#1F77B4")},
             text=[f"${x:.2f}" for x in xs],
             textposition="outside",
             textfont={"size": 12},
@@ -524,7 +617,7 @@ def plot_small_llm_consensus_cost_and_time(
             x=xs_hrs,
             y=ys,
             orientation="h",
-            marker={"color": family_colors[family]},
+            marker={"color": family_colors.get(family, "#1F77B4")},
             text=[format_time_label(s) for s in xs_sec],
             textposition="outside",
             textfont={"size": 12},

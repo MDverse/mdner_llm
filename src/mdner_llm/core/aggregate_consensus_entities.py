@@ -61,8 +61,6 @@ def parse_annotation_file(
         Parsed annotation payload with validated 'formatted_response',
         or None if parsing fails.
     """
-    # Log which file is being read (debug level).
-    logger.debug(f"Reading {path.name}.")
     # Open the file and load its JSON content.
     try:
         with path.open(encoding="utf-8") as file_handler:
@@ -73,17 +71,23 @@ def parse_annotation_file(
         return None
     # Get the entities predicted by the LLM (still a raw dictionary).
     raw_response = annotation.get("formatted_response")
-    # A file without predictions cannot be used, so skip it.
+    # A missing response is recorded as a format failure instead of being dropped.
     if raw_response is None:
-        logger.warning(f"'formatted_response' missing in {path.name}, skipped.")
-        return None
+        logger.warning(
+            f"'formatted_response' missing in {path.name}, empty entities used."
+        )
+        annotation["formatted_response"] = ListOfEntities(entities=[])
+        annotation["status"] = "format_error"
+        return annotation
     # Replace the raw dictionary by a validated ListOfEntities object.
     try:
         annotation["formatted_response"] = ListOfEntities.model_validate(raw_response)
-    # Predictions that do not follow the expected schema are skipped.
+    # Predictions failing schema validation are retained with an empty entity list.
     except ValidationError as error:
         logger.warning(f"Cannot parse 'formatted_response' in {path.name}: {error}")
-        return None
+        annotation["formatted_response"] = ListOfEntities(entities=[])
+        annotation["status"] = "format_error"
+        return annotation
     # Return the annotation with its validated predictions.
     return annotation
 
@@ -238,6 +242,7 @@ def build_aggregated_metadata(
         "provider",
         "formatted_response",
         "normalized_entities",
+        "status",
     }
     # Inherit non-aggregated fields from the first annotation.
     aggregated = {
@@ -253,6 +258,7 @@ def build_aggregated_metadata(
             "models": model_names,
             "timestamp": earliest_timestamp,
             "tag": tags,
+            "status": [annotation.get("status")[0] for annotation in annotations],
             "temperature": temperatures_sorted,
             "provider": providers,
             # Time, tokens and cost are summed because every run is paid and executed.
@@ -337,7 +343,7 @@ def build_details_rows(
     consensus_file_path: Path,
     input_json_path: str,
 ) -> list[dict[str, object]]:
-    """Flatten the votes of one dataset into CSV rows (one row per entity and annotator).
+    """Flatten the votes of a dataset into CSV rows (one row per entity and annotator).
 
     Returns
     -------
@@ -348,21 +354,21 @@ def build_details_rows(
     # One block of rows per candidate entity.
     for detail in consensus.values():
         # One row per annotator (model and temperature) for this entity.
-        for response in detail["responses"]:
-            rows.append(
-                {
-                    "entity_predicted_by_model": detail["text"],
-                    "category": detail["category"],
-                    "consensus_score": detail["score"],
-                    "model_name": response["model_name"],
-                    "temperature": response["temperature"],
-                    "found_by_model": response["found"],
-                    # Path of the consensus annotation file written for this dataset.
-                    "consensus_file_path": str(consensus_file_path),
-                    # Path of the ground truth file the LLMs were run on.
-                    "input_json_path": input_json_path,
-                }
-            )
+        rows.extend(
+            {
+                "entity_predicted_by_model": detail["text"],
+                "category": detail["category"],
+                "consensus_score": detail["score"],
+                "model_name": response["model_name"],
+                "temperature": response["temperature"],
+                "found_by_model": response["found"],
+                # Path of the consensus annotation file written for this dataset.
+                "consensus_file_path": str(consensus_file_path),
+                # Path of the ground truth file the LLMs were run on.
+                "input_json_path": input_json_path,
+            }
+            for response in detail["responses"]
+        )
     return rows
 
 
