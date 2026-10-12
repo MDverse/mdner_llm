@@ -19,6 +19,22 @@ import pandas as pd
 from mdner_llm.logger import create_logger
 
 
+def get_raw_entities(data: dict) -> list[dict]:
+    """Get the entity list from an annotation payload.
+
+    Returns
+    -------
+    list[dict]
+        Raw entities of the payload.
+    """
+    formatted_response = data.get("formatted_response") or []
+    # Nested format: {"formatted_response": {"entities": [...]}}
+    if isinstance(formatted_response, dict):
+        formatted_response = formatted_response.get("entities", [])
+    # Flat formats: top-level entities or formatted_response as a list
+    return data.get("entities") or formatted_response
+
+
 def collect_entities(
     texts_path: Path,
     logger: "loguru.Logger" = loguru.logger,
@@ -48,7 +64,7 @@ def collect_entities(
             logger.error(f"Failed to parse JSON file {json_file.name}: {exc}")
             continue
         # Extract entities and normalize them.
-        for entity in data.get("entities", []):
+        for entity in get_raw_entities(data):
             # Extract category and text
             category = entity.get("category")
             text = entity.get("text")
