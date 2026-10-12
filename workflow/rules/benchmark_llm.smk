@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 import pandas as pd
 from filelock import FileLock
+from itertools import combinations, product
 
 from mdner_llm.common import sanitize_filename
 
@@ -45,19 +46,28 @@ for safe_model_name in full_eval_models:
         f"results/llm/evaluation/benchmark_models/with_instructor_with_guidelines/{safe_model_name}/.done"
     )
 # Scenario 3: Consensus aggregation runs.
-consensus_temperatures = [
-    str(t) for t in config.get("consensus_temperatures", [1.0])
-]
+# "{:g}" removes trailing zeros so that 1.0 and 1 give the same label "1".
+consensus_temperatures = [f"{float(temperature):g}" for temperature in config.get("consensus_temperatures", [1])]
+consensus_thresholds = [f"{float(threshold):g}" for threshold in config.get("consensus_thresholds", [0.5])]
+# All non-empty subsets of temperatures, e.g. temp_1, temp_1_and_1.5, temp_1_and_1.5_and_1.75
 consensus_temp_setups = [
-    f"temp_{'_and_'.join(consensus_temperatures[:end_idx])}"
-    for end_idx in range(1, len(consensus_temperatures) + 1)
+    f"temp_{'_and_'.join(subset)}"
+    for size in range(1, len(consensus_temperatures) + 1)
+    for subset in combinations(consensus_temperatures, size)
 ]
-if consensus_groups:
-    for group_name in consensus_groups:
-        for temp_setup in consensus_temp_setups:
-            evaluation_targets.append(
-                f"results/llm/evaluation/consensus/{group_name}/{temp_setup}/.done"
-            )
+for group_name, threshold, temp_setup in product(consensus_groups, consensus_thresholds, consensus_temp_setups):
+    evaluation_targets.append(
+        f"results/llm/evaluation/consensus/{group_name}/{temp_setup}/th_{threshold}/.done"
+    )
+# All individual temperature runs for consensus models
+for safe_model_name in consensus_models:
+    for temp in consensus_temperatures:
+        if temp == "1":
+            continue  # Temperature 1 is already included in the main benchmark runs, so we skip it here.
+        evaluation_targets.append(
+            f"results/llm/evaluation/consensus_raw/temp_{temp}/{safe_model_name}/.done"
+        )
+
 
 # ==============================================================================
 # HELPER: INCREMENTAL GLOBAL AGGREGATION
@@ -86,12 +96,19 @@ def update_global_aggregates(new_csv_path: str, new_parquet_path: str, scenario_
     benchmark_strategies_csv = eval_dir / "benchmark_strategies.csv"
     benchmark_models_csv = eval_dir / "benchmark_models.csv"
 
-    with FileLock(str(lock_path), timeout=60):
+    with FileLock(str(lock_path), timeout=600):
         # Update Grouped Metrics CSV
         new_df = pd.read_csv(new_csv_path)
         new_df["scenario"] = scenario_name
         new_df["combo"] = combo_name
         new_df["model_safe"] = model_safe_name
+        # Consensus rows get a deterministic name, used for exact matching in the plots
+        if scenario_name == "consensus":
+            new_df["model_name"] = combo_name
+        elif scenario_name == "consensus_raw":
+            temp_val = combo_name.removeprefix("temp_")
+            raw_model = consensus_models.get(model_safe_name, model_safe_name)
+            new_df["model_name"] = f"{raw_model} (T = {temp_val})"
         if all_grouped_csv.exists():
             existing_df = pd.read_csv(all_grouped_csv)
             mask = (
@@ -169,8 +186,13 @@ def update_global_aggregates(new_csv_path: str, new_parquet_path: str, scenario_
             strat_df[avail_cols].to_csv(benchmark_strategies_csv, index=False)
 
         # Models
-        models_df = working_df[working_df["scenario"].isin(["benchmark_models", "consensus"])].copy()
+        models_df = working_df[working_df["scenario"].isin(["benchmark_models", "consensus", "consensus_raw"])].copy()
         if not models_df.empty:
+            # Assurer que les Small LLMs de référence affichent aussi (T = 1) si souhaité
+            is_base_small = (models_df["scenario"] == "benchmark_models") & (models_df["model_safe"].isin(consensus_models))
+            models_df.loc[is_base_small, "Name"] = models_df.loc[is_base_small, "Name"].apply(
+                lambda n: f"{n} (T = 1)" if not str(n).endswith(")") else n
+            )
             model_cols = [col for col in columns_order if col not in ("Framework", "With_Guideline")]
             avail_cols = [col for col in model_cols if col in models_df.columns]
             models_df[avail_cols].to_csv(benchmark_models_csv, index=False)
@@ -286,6 +308,13 @@ rule evaluate_benchmark_and_full:
 # SCENARIO 3: CONSENSUS RUNS AND MULTI-TEMPERATURE AGGREGATIONS
 # ==============================================================================
 
+# Global constraints keep the path separators unambiguous.
+wildcard_constraints:
+    group="[^/]+",
+    setup="temp_[^/]+",
+    threshold="[0-9.]+",
+
+
 rule extract_consensus_runs:
     input:
         texts_files=expand("{path}/{json_file}", path=texts_directory, json_file=target_files),
@@ -324,27 +353,17 @@ rule extract_consensus_runs:
 
 
 def get_consensus_inferences_input(wildcards) -> list[str]:
-    temperatures_string = wildcards.setup.replace("temp_", "")
-    included_temperatures = temperatures_string.split("_and_")
-
-    # Determine the target models for the specified consensus group
-    target_models = [
-        sanitize_filename(m)
-        for m in config["consensus_groups"][wildcards.group]
+    # Temperatures of this setup, e.g. "temp_1_and_1.5" -> ["1", "1.5"]
+    included_temperatures = wildcards.setup.removeprefix("temp_").split("_and_")
+    target_models = [sanitize_filename(model) for model in config["consensus_groups"][wildcards.group]]
+    # Temperature 1 reuses the main run, other temperatures have their own runs
+    return [
+        f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_id}/.done"
+        if temperature == "1"
+        else f"results/llm/inferences/consensus_raw/temp_{temperature}/{model_id}/.done"
+        for temperature in included_temperatures
+        for model_id in target_models
     ]
-
-    input_done_files = []
-    for temp in included_temperatures:
-        for model_id in target_models:
-            if str(temp) in ["1", "1.0"]:
-                input_done_files.append(
-                    f"results/llm/inferences/raw/with_instructor_with_guidelines/{model_id}/.done"
-                )
-            else:
-                input_done_files.append(
-                    f"results/llm/inferences/consensus_raw/temp_{temp}/{model_id}/.done"
-                )
-    return input_done_files
 
 
 rule aggregate_consensus:
@@ -352,11 +371,10 @@ rule aggregate_consensus:
         done_files=get_consensus_inferences_input,
     output:
         consensus_dir=directory(
-            "results/llm/inferences/consensus_aggregated/{group}/{setup}"
+            "results/llm/inferences/consensus_aggregated/{group}/{setup}/th_{threshold}"
         ),
     params:
-        threshold=consensus_threshold_value,
-        staging_dir="results/llm/inferences_consensus_staging/{group}_{setup}",
+        staging_dir="results/llm/inferences_consensus_staging/{group}_{setup}_th_{threshold}",
     shell:
         """
         rm -rf {params.staging_dir}
@@ -379,7 +397,7 @@ rule aggregate_consensus:
 
         uv run aggregate-consensus-entities \
             --inferences-dir {params.staging_dir} \
-            --threshold {params.threshold} \
+            --threshold {wildcards.threshold} \
             --output-dir {output.consensus_dir}
 
         rm -rf {params.staging_dir}
@@ -388,12 +406,12 @@ rule aggregate_consensus:
 
 rule normalize_consensus:
     input:
-        inferences_dir="results/llm/inferences/consensus_aggregated/{group}/{setup}",
+        inferences_dir="results/llm/inferences/consensus_aggregated/{group}/{setup}/th_{threshold}",
         ffm_db=config["ffm_db_path"],
         softname_db=config["softname_db_path"],
     output:
         norm_dir=directory(
-            "results/llm/inferences_normalized/consensus/{group}/{setup}"
+            "results/llm/inferences_normalized/consensus/{group}/{setup}/th_{threshold}"
         ),
     resources:
         api_calls=1,
@@ -414,11 +432,11 @@ rule normalize_consensus:
 
 rule evaluate_consensus:
     input:
-        inferences_dir="results/llm/inferences_normalized/consensus/{group}/{setup}",
+        inferences_dir="results/llm/inferences_normalized/consensus/{group}/{setup}/th_{threshold}",
     output:
-        eval_csv="results/llm/evaluation/consensus/{group}/{setup}/grouped_evaluation_metrics.csv",
-        eval_parquet="results/llm/evaluation/consensus/{group}/{setup}/per_text_and_category_confusion_metrics.parquet",
-        done=touch("results/llm/evaluation/consensus/{group}/{setup}/.done"),
+        eval_csv="results/llm/evaluation/consensus/{group}/{setup}/th_{threshold}/grouped_evaluation_metrics.csv",
+        eval_parquet="results/llm/evaluation/consensus/{group}/{setup}/th_{threshold}/per_text_and_category_confusion_metrics.parquet",
+        done=touch("results/llm/evaluation/consensus/{group}/{setup}/th_{threshold}/.done"),
     run:
         shell(
             """
@@ -432,6 +450,56 @@ rule evaluate_consensus:
             new_csv_path=output.eval_csv,
             new_parquet_path=output.eval_parquet,
             scenario_name="consensus",
-            combo_name=f"{wildcards.group}_{wildcards.setup}",
+            combo_name=f"consensus_{wildcards.group}_{wildcards.setup}_th_{wildcards.threshold}",
             model_safe_name=wildcards.group,
+        )
+
+
+rule normalize_consensus_single_run:
+    input:
+        done="results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}/.done",
+        ffm_db=config["ffm_db_path"],
+        softname_db=config["softname_db_path"],
+    output:
+        norm_dir=directory("results/llm/inferences_normalized/consensus_raw/temp_{temp}/{model_safe}"),
+    resources:
+        api_calls=1,
+    params:
+        inferences_dir="results/llm/inferences/consensus_raw/temp_{temp}/{model_safe}",
+        norm_model=config["normalization_model"],
+        sleep_time=api_sleep_delay,
+    shell:
+        """
+        mkdir -p {output.norm_dir}
+        uv run normalize-extracted-entities \
+            --inferences-dir {params.inferences_dir} \
+            --ffm-db-path {input.ffm_db} \
+            --softname-db-path {input.softname_db} \
+            --model-name "{params.norm_model}" \
+            --output-dir {output.norm_dir}
+        sleep {params.sleep_time}
+        """
+
+rule evaluate_consensus_single_run:
+    input:
+        inferences_dir="results/llm/inferences_normalized/consensus_raw/temp_{temp}/{model_safe}",
+    output:
+        eval_csv="results/llm/evaluation/consensus_raw/temp_{temp}/{model_safe}/grouped_evaluation_metrics.csv",
+        eval_parquet="results/llm/evaluation/consensus_raw/temp_{temp}/{model_safe}/per_text_and_category_confusion_metrics.parquet",
+        done=touch("results/llm/evaluation/consensus_raw/temp_{temp}/{model_safe}/.done"),
+    run:
+        shell(
+            """
+            mkdir -p $(dirname {output.eval_csv})
+            uv run evaluate-entities-extraction \
+                --inferences-dir {input.inferences_dir} \
+                --results-dir $(dirname {output.eval_csv})
+            """
+        )
+        update_global_aggregates(
+            new_csv_path=output.eval_csv,
+            new_parquet_path=output.eval_parquet,
+            scenario_name="consensus_raw",
+            combo_name=f"temp_{wildcards.temp}",
+            model_safe_name=wildcards.model_safe,
         )
