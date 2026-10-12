@@ -78,18 +78,12 @@ consensus_groups:
     - "google/gemma-4-31b-it"
     - "qwen/qwen3.8-27b"
     - "openai/gpt-oss-20b"
-  gemma_qwen_gpt_deepseek:
-    - "google/gemma-4-31b-it"
-    - "qwen/qwen3.8-27b"
-    - "openai/gpt-oss-20b"
-    - "deepseek/deepseek-v4-flash-0731"
   gpt_gemma:
     - "openai/gpt-oss-20b"
     - "google/gemma-4-31b-it"
-  gpt_gemma_deepseek:
-    - "openai/gpt-oss-20b"
-    - "google/gemma-4-31b-it"
-    - "deepseek/deepseek-v4-flash-0731"
 
-consensus_temperatures: [1, 2, 1.5]
-consensus_threshold: 0.5
+# Temperatures to evaluate individually and across all subsets
+consensus_temperatures: [1, 1.5, 1.75, 2]
+
+# List of vote agreement thresholds to test
+consensus_thresholds: [0.5, 0.1]

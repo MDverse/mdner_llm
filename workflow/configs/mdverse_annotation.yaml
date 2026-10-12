@@ -6,15 +6,35 @@ raw_datasets:
 # Working directory for extracted input JSON files.
 mdverse_dir: "data/mdverse"
 
-# Pipeline execution engines: ["gliner"], ["llm"], or ["gliner", "llm"].
+# Pipeline execution engines to run: ["gliner"], ["llm"], or ["gliner", "llm"].
 engines:
   - "gliner"
+  - "llm"
 
-# Model specifications for annotations.
-models:
-  gliner:
-    model_path: "fastino/gliner2.5-base-v1"
-  llm:
-    model_name: "z-ai/glm-5.3-flash"
-    framework: "instructor"
-    temperature: 1.0
+# GLiNER evaluation specifications.
+gliner_settings:
+  # Compute devices to run across: ["cpu"], ["cuda"], or ["cpu", "cuda"].
+  devices:
+    - "cpu"
+    - "cuda"
+  # List of models/checkpoints to evaluate.
+  models:
+    - name: "gliner2.5-base"
+      path: "fastino/gliner2.5-base-v1"
+    - name: "gliner2.5-base-finetuned"
+      path: "results/gliner/models/gliner2.5-base-v1-finetuned/fold_3/best"
+
+# LLM evaluation specifications.
+llm_settings:
+  framework: "instructor"
+  temperature: 1.0
+  # List of LLMs to evaluate.
+  models:
+    - name: "qwen-27b"
+      model_name: "qwen/qwen3.8-27b"
+    - name: "glm-5.3-flash"
+      model_name: "z-ai/glm-5.3-flash"
+    - name: "kimi-k3"
+      model_name: "moonshotai/kimi-k3"
+    - name: "gemini-3.6-flash"
+      model_name: "google/gemini-3.6-flash"
