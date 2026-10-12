@@ -969,18 +969,29 @@ def plot_paper_roc_curves(
             hoverinfo="skip",
         )
     )
+
     # Empirical curves styled using family palette
     for item in model_curves:
-        color = FAMILY_PALETTE.get(item["model"], "#424242")
+        raw_name = item["model"]
+        is_finetuned = "-finetuned" in raw_name
+        base_name = raw_name.replace("-finetuned", "")
+        color = FAMILY_PALETTE.get(base_name, "#424242")
+        dash_style = "dash" if is_finetuned else "solid"
+
         fig.add_trace(
             go.Scatter(
                 x=item["fpr"],
                 y=item["tpr"],
                 mode="lines",
-                line={"color": color, "width": 2.5},
-                name=f"{item['model']} (AUC = {item['auc']:.2f})",
+                line={
+                    "color": color,
+                    "width": 2.5,
+                    "dash": dash_style,
+                },
+                name=f"{raw_name} (AUC = {item['auc']:.2f})",
             )
         )
+
     # In-graph reference curve annotations
     fig.add_annotation(
         x=0.02,
