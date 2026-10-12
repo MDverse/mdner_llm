@@ -128,7 +128,7 @@ def extract_predicted_entities_from_row(
 def count_hallucinated_entities(
     data_row,
     *,
-    is_valid_output_format: bool,
+    is_valid_output_format: float,
     confidence_threshold: float | None = None,
 ) -> int:
     """Count hallucinated entities using pre-computed flags from normalization step.
@@ -140,8 +140,8 @@ def count_hallucinated_entities(
     """
     # Checks
     # Return NaN to indicate that counting is not applicable:
-    # If the output format is not valid
-    if not is_valid_output_format:
+    # If the output format is not valid for most of the annotations (consensus)
+    if is_valid_output_format == 0 or pd.isna(is_valid_output_format):
         return np.nan
     # If normalized_entities is missing or not a dict
     normalized_entities = data_row.get("normalized_entities")
@@ -169,6 +169,20 @@ def count_hallucinated_entities(
     return hallucination_count
 
 
+def check_status_validity(status_val: list[str] | str) -> float:
+    """Check if the status value indicates a valid output format.
+
+    Returns
+    -------
+    float
+        1.0 if valid, 0.0 if invalid,
+        or the proportion of "ok" statuses if a list is provided.
+    """
+    if isinstance(status_val, list) and status_val:
+        return sum(status == "ok" for status in status_val) / len(status_val)
+    return 1.0 if status_val == "ok" else 0.0
+
+
 def add_quality_columns(
     df: pd.DataFrame, confidence_threshold: float | None = None
 ) -> pd.DataFrame:
@@ -188,7 +202,7 @@ def add_quality_columns(
         DataFrame with additional quality check columns.
     """
     df = df.copy()
-    df["is_valid_output_format"] = df["status"].eq("ok")
+    df["is_valid_output_format"] = df["status"].apply(check_status_validity)
     # Count the number of predicted entities.
     df["nb_predicted_entities_raw"] = [
         len(
