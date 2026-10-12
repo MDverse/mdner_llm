@@ -31,27 +31,35 @@ def evaluate_inferences_with_threshold(
     ValueError
         If no valid JSON annotations are found in the specified directory.
     """
+    # Load the JSON annotations as a DataFrame.
     annotations_dataframe = load_json_annotations_as_dataframe(
         Path(inferences_directory)
     )
+    # Check if the DataFrame is empty and raise an error if so.
     if annotations_dataframe.empty:
         msg = f"No valid JSON annotations found in {inferences_directory}."
         raise ValueError(msg)
+    # Add quality columns based on the confidence threshold.
     quality_dataframe = add_quality_columns(
         annotations_dataframe, confidence_threshold=confidence_threshold
     )
+    # Build a category-level DataFrame to compute confusion metrics.
     category_dataframe = build_category_level_dataframe(
         quality_dataframe, confidence_threshold=confidence_threshold
     )
+    # Compute confusion metrics for each category.
     confusion_metrics = category_dataframe.apply(
         compute_confusion_metrics_by_row, axis=1
     )
+    # Combine the category-level DataFrame with the confusion metrics.
     annotated_categories_dataframe = pd.concat(
         [category_dataframe, confusion_metrics], axis=1
     )
+    # Compute grouped statistics for each model and category.
     grouped_statistics = compute_grouped_stats(
         quality_dataframe, annotated_categories_dataframe
     )
+    # Add the confidence threshold to the grouped statistics DataFrame.
     grouped_statistics["threshold"] = confidence_threshold
     return grouped_statistics
 
@@ -61,58 +69,71 @@ def benchmark_confidence_threshold_impact(
     baseline_metrics: pd.DataFrame | Path | str,
     confidence_threshold: float = 0.8,
 ) -> pd.DataFrame:
-    """Compare baseline metrics against threshold-filtered predictions.
+    """Compare model performance before and after applying a confidence threshold.
 
     Returns
     -------
     pd.DataFrame
-        Comparison table of precision, recall, and F1 scores before and after filtering.
+        A DataFrame containing the comparison of metrics before and after thresholding,
+        including precision, recall, and F1 score for each model and category.
     """
     inferences_directory = Path(inferences_dir)
-    # Load baseline metrics from file if path is supplied, otherwise reuse dataframe
     baseline_dataframe = (
         pd.read_parquet(baseline_metrics)
         if isinstance(baseline_metrics, (Path, str))
         else baseline_metrics
     )
+    # Filter out any baseline entries that are irrelevant to the models being evaluated.
     comparison_records = []
-    # Traverse through each model directory containing inference outputs
-    for model_directory in sorted(inferences_directory.iterdir()):
-        # Skip files or empty directories lacking json annotations
-        if not model_directory.is_dir() or not any(model_directory.rglob("*.json")):
+    model_directories = []
+    for path in sorted(inferences_directory.iterdir()):
+        if not path.is_dir():
+            # Skip non-directory files in the inferences directory.
             continue
-        # Evaluate inferences applying the confidence score threshold
+        if path.name == "folds":
+            # If the directory contains "folds",
+            # we assume it contains subdirectories for each fold.
+            model_directories.extend([p for p in sorted(path.iterdir()) if p.is_dir()])
+        else:
+            # Otherwise, we treat it as a single model directory.
+            model_directories.append(path)
+
+    # Evaluate each model directory and compare metrics before and after thresholding.
+    for model_directory in model_directories:
+        if not any(model_directory.rglob("*.json")):
+            continue
         filtered_statistics = evaluate_inferences_with_threshold(
             inferences_directory=model_directory,
             confidence_threshold=confidence_threshold,
         )
-        short_model_name = model_directory.name
-        # Iterate over all categories produced by the evaluation
-        for _, filtered_row in filtered_statistics.iterrows():
-            current_category = filtered_row["category"]
-            detected_model_name = filtered_row["model_name"]
-            # Match baseline entries using category and base model identifier
-            model_identifier = detected_model_name.split("/")[-1]
-            baseline_matches = baseline_dataframe[
-                (baseline_dataframe["category"] == current_category)
-                & (
-                    baseline_dataframe["model_name"].str.contains(
-                        model_identifier, case=False, na=False
-                    )
+        is_fold = model_directory.parent.name == "folds"
+        display_model_name = (
+            f"folds/{model_directory.name}" if is_fold else model_directory.name
+        )
+        # Match baseline on the specific directory name rather than a broad substring.
+        target_name = model_directory.name
+        baseline_matches = baseline_dataframe[
+            (
+                baseline_dataframe["model_name"].str.contains(
+                    target_name, case=False, na=False
                 )
+            )
+        ]
+        # Aggregate across folds for each category.
+        for current_category, group in filtered_statistics.groupby("category"):
+            cat_baseline = baseline_matches[
+                baseline_matches["category"] == current_category
             ]
-            # Aggregate baseline metrics across folds when applicable
-            precision_before = baseline_matches["precision"].mean()
-            recall_before = baseline_matches["recall"].mean()
-            f1_before = baseline_matches["f1"].mean()
-            # Extract evaluated metrics after threshold application
-            precision_after = filtered_row["precision"]
-            recall_after = filtered_row["recall"]
-            f1_after = filtered_row["f1"]
-            # Record metrics and compute evaluation deltas
+            precision_before = cat_baseline["precision"].mean()
+            recall_before = cat_baseline["recall"].mean()
+            f1_before = cat_baseline["f1"].mean()
+            # Mean post-threshold metrics across all folds of this model.
+            precision_after = group["precision"].mean()
+            recall_after = group["recall"].mean()
+            f1_after = group["f1"].mean()
             comparison_records.append(
                 {
-                    "model": short_model_name,
+                    "model": display_model_name,
                     "category": current_category,
                     "threshold": confidence_threshold,
                     "precision_before": precision_before,
@@ -126,7 +147,7 @@ def benchmark_confidence_threshold_impact(
                     "delta_f1": f1_after - f1_before,
                 }
             )
-    # Sort output table by category and descending filtered F1 score
+
     return (
         pd.DataFrame(comparison_records)
         .sort_values(by=["category", "f1_after"], ascending=[True, False])
@@ -209,7 +230,7 @@ def plot_benchmark_models_with_threshold(
         if not plot_data.empty
         else 1.0
     )
-    # Journal layout: grouped bars, clean white background, framed axes, no hover
+    # Styling and layout adjustments
     figure.update_layout(
         barmode="group",
         bargap=0.25,

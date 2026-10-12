@@ -278,12 +278,13 @@ rule merge_all_evaluations:
             df_det["model"] = model
             detailed_frames.append(df_det)
 
-        pd.concat(grouped_frames, ignore_index=True).to_parquet(
-            output.all_grouped_parquet, index=False
-        )
-        pd.concat(detailed_frames, ignore_index=True).to_parquet(
-            output.all_detailed_parquet, index=False
-        )
+        final_grouped = pd.concat(grouped_frames, ignore_index=True)
+        final_grouped["fold"] = final_grouped["fold"].astype(str)
+        final_grouped.to_parquet(output.all_grouped_parquet, index=False)
+
+        final_detailed = pd.concat(detailed_frames, ignore_index=True)
+        final_detailed["fold"] = final_detailed["fold"].astype(str)
+        final_detailed.to_parquet(output.all_detailed_parquet, index=False)
 
 # Generate benchmark_models grouped metrics CSV across all models and categories.
 rule generate_benchmark_models_csv:

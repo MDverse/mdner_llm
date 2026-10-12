@@ -23,6 +23,7 @@ from mdner_llm.models.entities import ListOfEntities
 def load_model(
     model_path: str | Path,
     adapter_path: str | Path | None,
+    device: str,
     logger: "loguru.Logger" = loguru.logger,
 ):
     """Load GLiNER or GLiNER2 checkpoint with optional adapter.
@@ -41,7 +42,7 @@ def load_model(
     model_str = str(model_path)
     try:
         # Attempt to load GLiNER2/2.5 model first.
-        model = AutoExtractor.from_pretrained(model_str)
+        model = AutoExtractor.from_pretrained(model_str, map_location=device)
     except (OSError, ValueError) as err_g2:
         try:
             # Fallback to GLiNER model if GLiNER2 fails.
@@ -219,7 +220,9 @@ def run_gliner(model, text: str, entity_desc: dict) -> tuple[dict, float, int, i
     start = time.perf_counter()
     # Extract entities with gliner2/2.5
     if hasattr(model, "extract_entities"):
-        predictions = model.extract_entities(text, entity_desc, include_confidence=True)
+        predictions = model.extract_entities(
+            text, entity_desc, include_confidence=True, threshold=0.50
+        )
     # or extract entities with gliner
     else:
         labels = list(entity_desc.keys())
@@ -260,7 +263,9 @@ def extract_entities_with_gliner(
     """
     # Run GLiNER/GLiNER2 inference and measure performance.
     predictions, inference_time, in_tokens, out_tokens = run_gliner(
-        model, text, entity_desc
+        model,
+        text,
+        entity_desc,
     )
     # Format the predictions into a structured ListOfEntities model.
     try:
@@ -315,6 +320,7 @@ def extract_entities_with_gliner(
 def extract_entities_with_gliner_all_texts(
     model_path: str,
     output_dir: Path,
+    device: str,
     adapter_path: str | Path | None,
     text_path: Path | None = None,
     metadata_path: Path | None = None,
@@ -344,7 +350,7 @@ def extract_entities_with_gliner_all_texts(
         logger.info(f"Loading samples from JSONL: {text_path}")
         test_samples = load_sample(text_path, metadata_path, logger=logger)
 
-    model = load_model(model_path, adapter_path, logger=logger)
+    model = load_model(model_path, adapter_path, device=device, logger=logger)
     # Determine a canonical name for the model.
     # Useful when the model_path is a local path.
     canonical_name = model_name_id or str(model_path)
@@ -414,6 +420,12 @@ def extract_entities_with_gliner_all_texts(
     help="Explicit label for model evaluation.",
 )
 @click.option(
+    "--device",
+    type=str,
+    default=click.Choice(["cpu", "cuda"], case_sensitive=False),
+    help="Device to run inference on (CPU or GPU).",
+)
+@click.option(
     "--output-dir",
     type=click.Path(path_type=Path),
     callback=ensure_dir,
@@ -427,6 +439,7 @@ def run_main_from_cli(
     model_path: Path,
     output_dir: Path,
     adapter_path: str | Path | None,
+    device: str,
     model_name_id: str | None,
 ) -> None:
     """Run CLI entrypoint for batch entity extraction."""
@@ -436,6 +449,7 @@ def run_main_from_cli(
         text_path=text_path,
         metadata_path=metadata_path,
         model_path=str(model_path),
+        device=device,
         output_dir=output_dir,
         adapter_path=adapter_path,
         model_name_id=model_name_id,
