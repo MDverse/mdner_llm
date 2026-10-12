@@ -228,29 +228,54 @@ def report_gliner(log: Any, config: Mapping[str, Any], target: int) -> None:
 
 
 def report_mdverse(log: Any, config: Mapping[str, Any]) -> None:
-    """Report MDverse annotation progress for enabled engines."""
-    target = count_json_files(Path(config.get("mdverse_dir")))
-    models = config.get("models", {})
-    result_directories = {
-        "llm": Path("results/mdverse/llm"),
-        "gliner": Path("results/mdverse/gliner"),
-    }
-    for engine in config.get("engines"):
-        model_config = models.get(engine, {})
-        if engine == "llm":
-            model_name = f"{model_config.get('model_name')} "
-        else:
-            model_name = str(model_config.get("model_path"))
-        log.info("-" * TABLE_WIDTH)
-        display_engine = "GLiNER" if engine == "gliner" else "LLM"
-        log_progress(
-            log,
-            display_engine,
-            "MDVerse Annotation",
-            model_name,
-            result_directories[engine],
-            target,
-        )
+    """Report MDverse annotation progress for enabled engines, models, and devices."""
+    mdverse_dir_val = config.get("mdverse_dir", "data/mdverse")
+    target = count_json_files(Path(str(mdverse_dir_val)))
+    selected_engines = set(config.get("engines", []))
+
+    # 1. Report GLiNER Models across configured devices (CPU / CUDA)
+    if "gliner" in selected_engines:
+        gliner_cfg = config.get("gliner_settings", {})
+        devices = gliner_cfg.get("devices", ["cpu"])
+        gliner_models = gliner_cfg.get("models", [])
+
+        if gliner_models:
+            log.info("-" * TABLE_WIDTH)
+            for model_info in gliner_models:
+                raw_name = model_info.get("name") or model_info.get("path", "unknown")
+                sanitized_name = sanitize_filename(str(raw_name))
+                for device in devices:
+                    dev_str = str(device).lower()
+                    directory = Path(
+                        f"results/mdverse/gliner/{sanitized_name}_{dev_str}"
+                    )
+                    log_progress(
+                        log,
+                        "GLiNER",
+                        f"MDverse annotation ({dev_str.upper()})",
+                        str(raw_name),
+                        directory,
+                        target,
+                    )
+
+    # 2. Report LLM Models
+    if "llm" in selected_engines:
+        llm_cfg = config.get("llm_settings", {})
+        llm_models = llm_cfg.get("models") or []
+        if llm_models:
+            log.info("-" * TABLE_WIDTH)
+            for model_info in llm_models:
+                raw_name = model_info.get("name") or model_info.get("model_name")
+                sanitized_name = sanitize_filename(str(raw_name))
+                directory = Path(f"results/mdverse/llm/{sanitized_name}_api")
+                log_progress(
+                    log,
+                    "LLM",
+                    "MDverse annotation (API)",
+                    str(raw_name),
+                    directory,
+                    target,
+                )
 
 
 @click.command()
@@ -301,10 +326,6 @@ def main(
         mdverse_settings = load_config(mdverse_config)
         report_mdverse(log, mdverse_settings)
     log.info("=" * TABLE_WIDTH)
-
-
-if __name__ == "__main__":
-    main()
 
 
 if __name__ == "__main__":
