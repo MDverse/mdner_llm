@@ -210,6 +210,8 @@ def display_benchmark_table(
     *,
     is_ascending: bool = False,
     without_consensus: bool = True,
+    target_nb_texts: int = 4000,
+    base_nb_texts: int = 160,
 ) -> Styler:
     """Build and format a centered benchmark summary table for LLMs.
 
@@ -218,24 +220,40 @@ def display_benchmark_table(
     Styler
         A pandas Styler object representing the formatted benchmark table.
     """
+    # Compute extrapolation ratio for target dataset size.
+    scale = target_nb_texts / base_nb_texts
+    # Read CSV path or copy DataFrame input.
     raw_df = (
         pd.read_csv(file_path_or_df)
         if isinstance(file_path_or_df, str)
         else file_path_or_df.copy()
     )
+    # Filter consensus models
     if without_consensus:
+        # Remove models starting with consensus.
         raw_df = raw_df[~raw_df["Name"].str.startswith("consensus_", na=False)]
-
+        # Strip (T = 1) label from model names.
+        raw_df["Name"] = raw_df["Name"].str.replace(" (T = 1)", "", regex=False)
+        # Exclude all remaining models containing any temperature tag.
+        raw_df = raw_df[~raw_df["Name"].str.contains(r"\(T\s*=", regex=True, na=False)]
+    # Filter category rows and drop duplicate evaluations keeping last record.
     cat_df = (
         raw_df[raw_df["category"] == category]
         .drop_duplicates(subset=["Name"], keep="last")
         .copy()
     )
-    macro_series = (
+    # Map macro F1 scores indexed by model name.
+    macro_s = (
         raw_df[raw_df["category"] == "OVERALL_MACRO"]
         .drop_duplicates(subset=["Name"], keep="last")
         .set_index("Name")["F1"]
     )
+    # Scale inference time and reformat into total hours, minutes, and seconds.
+    sec = (
+        pd.to_timedelta(cat_df["Inference_time_total_(hh:mm:ss)"]).dt.total_seconds()
+        * scale
+    )
+    # Build consolidated display DataFrame with direct estimates.
     table_df = pd.DataFrame(
         {
             "Model": cat_df["Name"],
@@ -244,11 +262,26 @@ def display_benchmark_table(
             "Precision": cat_df["Precision"],
             "Recall": cat_df["Recall"],
             "Micro F1": cat_df["F1"],
-            "Macro F1": cat_df["Name"].map(macro_series),
-            "Latency (hh:mm:ss)": cat_df["Inference_time_total_(hh:mm:ss)"],
-            "Cost ($)": cat_df["Cost_total_($)"],
+            "Macro F1": cat_df["Name"].map(macro_s),
+            "Inference Time (hh:mm:ss)": cat_df["Inference_time_total_(hh:mm:ss)"],
+            "Inference Cost ($)": cat_df["Cost_total_($)"],
+            f"Mdverse Inference Time Estimation (n = {target_nb_texts})": sec.apply(
+                lambda s: (
+                    (
+                        f"{int(s // 3600):02d}:{int((s % 3600) // 60):02d}:"
+                        f"{int(s % 60):02d}"
+                    )
+                    if pd.notna(s)
+                    else "-"
+                )
+            ),
+            f"Mdverse Inference Cost Estimation (n = {target_nb_texts})": cat_df[
+                "Cost_total_($)"
+            ]
+            * scale,
         }
     )
+    # Sort values, center alignment, and style table.
     return (
         table_df.sort_values(by=sort_by, ascending=is_ascending)
         .reset_index(drop=True)
@@ -260,8 +293,8 @@ def display_benchmark_table(
                 "Recall": "{:.2f}",
                 "Micro F1": "{:.2f}",
                 "Macro F1": "{:.2f}",
-                "Latency (hh:mm:ss)": "{:s}",
-                "Cost ($)": "{:.1f}",
+                "Inference Cost ($)": "{:.2f}",
+                f"Mdverse Inference Cost Estimation (n = {target_nb_texts})": "{:.2f}",
             },
             na_rep="-",
         )
