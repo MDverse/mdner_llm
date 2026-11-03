@@ -38,6 +38,9 @@ benchmark_models:
   - "qwen/qwen3.8-27b"
   - "openai/gpt-oss-20b"
   - "deepseek/deepseek-v4-flash-0731"
+  - "deepseek/deepseek-v4.1-flash-1017"
+  - "minimax/minimax-m3.1-flash"
+  - "mistralai/mistral-large-4-0"
 
 # --- Scenario 2: Benchmark SoT LLM models ---
 full_eval_models:
@@ -65,6 +68,9 @@ full_eval_models:
   - "deepseek/deepseek-v4-flash-0731"
   - "deepseek/deepseek-v4-pro-0813"
   - "moonshotai/kimi-k3"
+  - "deepseek/deepseek-v4.1-flash-1017"
+  - "minimax/minimax-m3.1-flash"
+  - "mistralai/mistral-large-4-0"
 
 # --- Scenario 3: Consensus & Temperature Runs ---
 consensus_groups:
