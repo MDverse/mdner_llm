@@ -51,8 +51,11 @@ class Settings(BaseSettings, cli_parse_args=True):
     app_name: str = Field(
         ..., description="Application name displayed in the UI or logs."
     )
-    app_description: str | None = Field(
-        None, description="Short app description displayed in the logs."
+    app_short_description: str = Field(
+        ..., description="Short app description displayed in the logs."
+    )
+    app_long_description: str = Field(
+        ..., description="Long app description displayed in the logs."
     )
     app_version: str = Field(..., description="Current version of the application.")
     # Styling and assets

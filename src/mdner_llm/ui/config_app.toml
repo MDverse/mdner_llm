@@ -1,6 +1,7 @@
 # config.default.toml
 app_name = "MetaMD"
-app_description = "Web-based tool for annotating and normalizing metadata in molecular dynamics simulation dataset descriptions."
+app_short_description = "AI-Assisted Annotation for Molecular Dynamics Datasets Descriptions"
+app_long_description = "This tool annotates molecular dynamics dataset descriptions to automatically extract **molecule names**, **force fields or models**, **software names and versions**, **simulation times**, and **temperatures**.  It also serves as a checklist tool to verify that all necessary metadata is provided, so your deposited datasets remain **FAIR** and **reproducible**."
 app_version = "1.0"
 
 [llm]

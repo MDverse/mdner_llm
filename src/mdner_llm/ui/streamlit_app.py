@@ -206,6 +206,7 @@ def run_normalization(
 
 
 def run_app(
+    settings: Settings,
     model: str,
     prompt: Path,
     guidelines: Path,
@@ -218,13 +219,13 @@ def run_app(
     # Retrieve the OpenRouter API key from environment variables.
     api_key = load_api_key("OPENROUTER_STREAMLIT_API_KEY")
     # Display the daily quota in the top-right corner of the app.
-    _, quota_column = st.columns([10, 1])
+    title_column, quota_column = st.columns([10, 1])
+    with title_column:
+        # Display the main header for the application.
+        st.header(f"⚛︎ {settings.app_name}: {settings.app_short_description}")
     with quota_column:
         show_daily_quota(api_key)
-    # Display the main header for the application.
-    st.header(
-        "⚛︎ MetaMD: AI-Assisted Annotation for Molecular Dynamics Datasets Descriptions"
-    )
+
     # Render two-column layout for input and output sections.
     left_column, right_column = st.columns([1, 1], gap="large")
     # Input section: Text area for user to provide MD dataset description.
@@ -314,8 +315,22 @@ def main() -> None:
     # Initialize logger.
     app_logger = create_logger(settings.log_path)
     # Launch main UI.
-    st.set_page_config(page_title=settings.app_name, page_icon="⚛️", layout="wide")
+    st.set_page_config(
+        page_title=settings.app_name,
+        page_icon="⚛️",
+        layout="wide",
+        initial_sidebar_state="collapsed",
+    )
+    # Create a sidebar for application settings and information.
+    with st.sidebar:
+        st.image("img/logo_app.jpeg")
+        st.title(f"**{settings.app_name}** **V{settings.app_version}**")
+        st.markdown(f"{settings.app_long_description}")
+        st.divider()
+        st.markdown("**Contact:** [MDverse community]()")  # TO-ADD
+        st.markdown("**Code source:** https://github.com/MDverse/mdner_llm")
     run_app(
+        settings=settings,
         model=settings.llm.model_name,
         prompt=Path(settings.llm.prompt_path),
         guidelines=Path(settings.llm.guidelines_path),
