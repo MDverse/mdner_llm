@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
 
-from pydantic import AliasChoices, BaseModel, Field, FilePath, SecretStr
+from pydantic import BaseModel, Field, FilePath
 from pydantic_settings import (
     BaseSettings,
     PydanticBaseSettingsSource,
@@ -59,11 +59,6 @@ class Settings(BaseSettings, cli_parse_args=True):
     css_path: FilePath | None = Field(
         None, description="Path to the CSS file for Streamlit styling."
     )
-    openrouter_api_key: SecretStr = Field(
-        ...,
-        validation_alias=AliasChoices("openrouter_api_key", "OPENROUTER_API_KEY"),
-        description="Secret API key for authenticating on openrouter provider.",
-    )
     # Nested configuration for LLM-related parameters
     llm: LLMConfig = Field(
         ..., description="Configuration for Large Language Model parameters."
@@ -76,18 +71,17 @@ class Settings(BaseSettings, cli_parse_args=True):
     # Compute the log path
     @property
     def log_path(self) -> Path:
-        """Return the full path for today's log file."""
+        """Create the full path for today's log file."""
         log_file = (
-            Path("logs")
-            / f"{datetime.now(UTC).strftime('%Y%m%d')}"
-            / "mdner_llm_app.log"
+            Path("logs/metamd_app/") / f"{datetime.now(UTC).strftime('%Y-%m-%d')}.log"
         )
         log_file.parent.mkdir(parents=True, exist_ok=True)
         return log_file
 
     # Load settings from this TOML file
     model_config = SettingsConfigDict(
-        toml_file="src/mdner_llm/ui/config_app.toml", extra="ignore"
+        toml_file="src/mdner_llm/ui/config_app.toml",
+        extra="ignore",
     )
 
     # Reorder the priority of different settings sources
