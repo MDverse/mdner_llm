@@ -6,7 +6,6 @@ import operator
 from collections import defaultdict
 from pathlib import Path
 
-import loguru
 from IPython.display import HTML, display
 from spacy import displacy
 
@@ -65,10 +64,12 @@ def convert_annotations_from_model(
     text_lower = text_to_annotate.lower()
     consumed = [False] * len(text_to_annotate)
     for entity in response.entities:
-        # Locate the first free occurrence of the entity text
-        spans = find_free_spans(text_lower, entity.text, consumed)
-        if not spans:
-            loguru.logger.warning(f"Entity '{entity.text}' not found in text.")
+        spans = find_free_spans(
+            text_lower,
+            entity.text,
+            consumed,
+            find_all=True,
+        )
         entities.extend(
             {"start": start, "end": end, "label": entity.category}
             for start, end in spans

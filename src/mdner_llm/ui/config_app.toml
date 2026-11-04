@@ -3,6 +3,7 @@ app_name = "MetaMD"
 app_short_description = "AI-Assisted Annotation for Molecular Dynamics Datasets Descriptions"
 app_long_description = "This tool annotates molecular dynamics dataset descriptions to automatically extract **molecule names**, **force fields or models**, **software names and versions**, **simulation times**, and **temperatures**.  It also serves as a checklist tool to verify that all necessary metadata is provided, so your deposited datasets remain **FAIR** and **reproducible**."
 app_version = "1.0"
+default_model = "llm"  # Options: "llm" or "gliner"
 
 [llm]
 model_name = "x-ai/grok-4.5"
@@ -10,6 +11,11 @@ framework = "instructor"
 prompt_path = "docs/prompt_template.md"
 guidelines_path = "docs/annotation_rules.md"
 examples_path = "docs/few_shot_examples.md"
+
+[gliner]
+model_name = "gliner2.5-base-v1-finetuned"
+model_path = "results/gliner/models/gliner2.5-base-v1-finetuned/fold_3/best"
+device = "cuda"  # Options: "cpu" or "cuda"
 
 [normalization]
 ffm_db_path = "data/normalization/md_forcefields_registry.json"

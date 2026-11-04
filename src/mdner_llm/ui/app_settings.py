@@ -24,6 +24,21 @@ class NormalizationConfig(BaseModel):
     )
 
 
+class GlinerConfig(BaseModel):
+    """Configuration model for Gliner2 parameters."""
+
+    model_name: str = Field(
+        ..., description="Name of the Gliner2 model to use for generating responses."
+    )
+    model_path: FilePath | str = Field(
+        ..., description="Path to the Gliner2 model file for inference."
+    )
+    device: Literal["cpu", "cuda"] = Field(
+        default="cuda",
+        description="Device to use for inference (e.g., 'cpu' or 'cuda').",
+    )
+
+
 class LLMConfig(BaseModel):
     """Configuration model for Large Language Model (LLM) parameters."""
 
@@ -58,6 +73,12 @@ class Settings(BaseSettings, cli_parse_args=True):
         ..., description="Long app description displayed in the logs."
     )
     app_version: str = Field(..., description="Current version of the application.")
+    # Default model for metadata extraction
+    default_model: Literal["llm", "gliner"] = Field(
+        default="llm",
+        description="Default model to use for metadata extraction."
+        "Options: 'llm' or 'gliner'.",
+    )
     # Styling and assets
     css_path: FilePath | None = Field(
         None, description="Path to the CSS file for Streamlit styling."
@@ -65,6 +86,10 @@ class Settings(BaseSettings, cli_parse_args=True):
     # Nested configuration for LLM-related parameters
     llm: LLMConfig = Field(
         ..., description="Configuration for Large Language Model parameters."
+    )
+    # Nested configuration for Gliner2-related parameters
+    gliner: GlinerConfig = Field(
+        ..., description="Configuration for Gliner2 model parameters."
     )
     # Nested configuration for normalization database paths
     normalization: NormalizationConfig = Field(

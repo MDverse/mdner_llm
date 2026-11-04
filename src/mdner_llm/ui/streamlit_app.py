@@ -10,7 +10,12 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 from spacy import displacy
 
+from mdner_llm.annotations.categories import CATEGORIES
 from mdner_llm.common import load_api_key
+from mdner_llm.gliner.extract_entities_with_gliner_all_texts import (
+    load_model,
+    run_gliner,
+)
 from mdner_llm.llm.extract_entities_with_llm import (
     annotate_with_llm_and_framework,
     load_prompt,
@@ -32,6 +37,7 @@ ENTITY_CATEGORIES = {
 }
 
 
+@st.cache_data(ttl=30)
 def show_daily_quota(api_key: str) -> bool:
     """Display the daily quota and return whether requests are allowed.
 
@@ -104,10 +110,11 @@ def render_parameters_table(valid_entities: list) -> None:
     )
     st.write(f"**Number of extracted metadata:** {len(dataframe)}")
     cols = st.columns(2)
-    # Group entities by category and render each group in alternating columns.
-    for i, (category, df_by_category) in enumerate(
-        dataframe.groupby(dataframe["category"])
-    ):
+    # Render categories in the order defined by ENTITY_CATEGORIES.
+    for i, category in enumerate(ENTITY_CATEGORIES):
+        df_by_category = dataframe[dataframe["category"] == category]
+        if df_by_category.empty:
+            continue
         with cols[i % 2]:
             clean_df = (
                 # Remove duplicate rows based on normalized text.
@@ -139,7 +146,6 @@ def run_llm_extraction(
     logger: "loguru.Logger",
 ) -> None:
     """Execute entity extraction via large language model inference."""
-    st.subheader("📝 Annotation Results")
     with st.spinner("Extracting MD metadata..."):
         try:
             # Query LLM to obtain structured annotations.
@@ -158,7 +164,7 @@ def run_llm_extraction(
                 entity.model_dump() for entity in llm_response.entities
             ]
             st.session_state["processed_text"] = st.session_state["pending_text"]
-            st.session_state["raw_extraction"] = ListOfEntities.model_validate(
+            st.session_state["structured_predictions"] = ListOfEntities.model_validate(
                 llm_response
             )
             st.session_state["stage"] = "normalize"
@@ -174,6 +180,60 @@ def run_llm_extraction(
     st.rerun()
 
 
+def run_gliner_extraction(
+    model_name: str,
+    model_path: Path,
+    device: str,
+    logger: "loguru.Logger",
+) -> None:
+    """Execute entity extraction via Gliner2 model inference."""
+    with st.spinner("Extracting MD metadata..."):
+        try:
+            # Load Gliner2 model configuration.
+            logger.info(f"Loading {model_name} model.")
+            gliner_model = load_model(
+                model_path=model_path, adapter_path=None, device=device, logger=logger
+            )
+            # Query Gliner2.
+            gliner_response, _inference_time, _in_tokens, _out_tokens = run_gliner(
+                gliner_model,
+                st.session_state["pending_text"],
+                CATEGORIES,
+            )
+            # Structure the predictions into a ListOfEntities model.
+            structured_gliner_response = ListOfEntities.model_validate(
+                {
+                    "entities": [
+                        {
+                            "category": category,
+                            "text": ent["text"],
+                        }
+                        for category, ents in gliner_response.get(
+                            "entities", {}
+                        ).items()
+                        for ent in ents
+                    ]
+                }
+            )
+            # Persist output into session state before moving to normalization.
+            st.session_state["extracted_entities"] = [
+                entity.model_dump() for entity in structured_gliner_response.entities
+            ]
+            st.session_state["processed_text"] = st.session_state["pending_text"]
+            st.session_state["structured_predictions"] = structured_gliner_response
+            st.session_state["stage"] = "normalize"
+        except (
+            ValueError,
+            KeyError,
+            RuntimeError,
+            ValidationError,
+        ) as extraction_error:
+            logger.error(f"Gliner2 extraction error: {extraction_error}")
+            st.error(f"An error occurred during Gliner2 extraction: {extraction_error}")
+            st.session_state["stage"] = None
+    st.rerun()
+
+
 def run_normalization(
     model: str,
     ffm_path: Path,
@@ -185,7 +245,7 @@ def run_normalization(
     result = normalize_json_content(
         {
             "text": st.session_state["processed_text"],
-            "formatted_response": st.session_state["raw_extraction"],
+            "formatted_response": st.session_state["structured_predictions"],
         },
         ffm_db_path=ffm_path,
         softname_db_path=soft_path,
@@ -224,7 +284,7 @@ def run_app(
         # Display the main header for the application.
         st.header(f"⚛︎ {settings.app_name}: {settings.app_short_description}")
     with quota_column:
-        show_daily_quota(api_key)
+        st.session_state["is_llm_requests_allowed"] = show_daily_quota(api_key)
 
     # Render two-column layout for input and output sections.
     left_column, right_column = st.columns([1, 1], gap="large")
@@ -244,17 +304,12 @@ def run_app(
         if st.button("Extract Metadata", type="primary", width="stretch"):
             if not description.strip():
                 st.warning("Please provide a description before running extraction.")
-            elif not show_daily_quota(api_key):
-                st.info(
-                    "Daily quota exceeded. "
-                    "Please try again tomorrow for more LLM requests."
-                )
             else:
                 # Clear previous session state.
                 for key_name in (
                     "extracted_entities",
                     "processed_text",
-                    "raw_extraction",
+                    "structured_predictions",
                     "normalized_entities",
                 ):
                     st.session_state.pop(key_name, None)
@@ -272,9 +327,21 @@ def run_app(
     # Output section: Display extraction results and normalization options.
     with right_column:
         current_stage = st.session_state.get("stage")
-        # Step 1: Run LLM extraction.
+        # Step 1: Run LLM/gliner extraction.
         if current_stage == "extract":
-            run_llm_extraction(model, prompt, guidelines, examples, api_key, logger)
+            st.subheader("📝 Annotation Results")
+            if (
+                settings.default_model == "llm"
+                and st.session_state["is_llm_requests_allowed"]
+            ):
+                run_llm_extraction(model, prompt, guidelines, examples, api_key, logger)
+            else:
+                run_gliner_extraction(
+                    settings.gliner.model_name,
+                    settings.gliner.model_path,
+                    settings.gliner.device,
+                    logger,
+                )
         # Step 2: Render results tabs.
         if "extracted_entities" in st.session_state:
             st.subheader("📝 Annotation Results")
@@ -286,7 +353,7 @@ def run_app(
             with viz_tab:
                 # Convert LLM output into displaCy-compatible format.
                 converted_data = convert_annotations_from_model(
-                    st.session_state["raw_extraction"],
+                    st.session_state["structured_predictions"],
                     st.session_state["processed_text"],
                 )
                 # Render text with highlighted entities.
