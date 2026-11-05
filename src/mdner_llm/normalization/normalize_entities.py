@@ -62,15 +62,15 @@ def clean_text_fields(value: Any) -> Any:
         table = str.maketrans(
             {
                 # Non-breaking hyphen
-                "‑": "-",  # e.g., "sars‑cov‑2" -> "sars-cov-2"  # noqa: RUF001, RUF003
+                "‑": "-",  # e.g., "sars‑cov‑2" -> "sars-cov-2"  # ruff: ignore[ambiguous-unicode-character-string, ambiguous-unicode-character-comment]
                 # Mathematical minus sign
-                "−": "-",  # e.g., "U(VI)−complex" -> "U(VI)-complex"  # noqa: RUF001, RUF003
+                "−": "-",  # e.g., "U(VI)−complex" -> "U(VI)-complex"  # ruff: ignore[ambiguous-unicode-character-string, ambiguous-unicode-character-comment]
                 # En dash (commonly used for charges in literature)
-                "–": "-",  # e.g., "(-)-METH" -> "(-)-METH"  # noqa: RUF001
+                "–": "-",  # e.g., "(-)-METH" -> "(-)-METH"  # ruff: ignore[ambiguous-unicode-character-string]
                 # Em dash
                 "—": "-",  # e.g., "protein—ligand" -> "protein-ligand"
                 # Typographic/curly apostrophe
-                "’": "'",  # e.g., "glycol’s" -> "glycol's"  # noqa: RUF001, RUF003
+                "’": "'",  # e.g., "glycol’s" -> "glycol's"  # ruff: ignore[ambiguous-unicode-character-string, ambiguous-unicode-character-comment]
                 # Soft hyphen / Invisible discretionary hyphen
                 "\xad": None,  # e.g., "poly\xad(ethylene)" -> "poly(ethylene)"
             }

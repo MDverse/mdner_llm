@@ -82,6 +82,11 @@ def show_daily_quota(api_key: str) -> bool:
     return True
 
 
+def load_example(text: str) -> None:
+    """Load an example into the input field."""
+    st.session_state["input_text"] = text
+
+
 def run_quality_check(entities: list) -> None:
     """Validate presence of required categories."""
     st.subheader("⚠️ Quality Check")
@@ -278,14 +283,12 @@ def run_app(
     """Build and render the Streamlit metadata extraction interface."""
     # Retrieve the OpenRouter API key from environment variables.
     api_key = load_api_key("OPENROUTER_STREAMLIT_API_KEY")
-    # Display the daily quota in the top-right corner of the app.
+    # Display the header and daily quota information in a two-column layout.
     title_column, quota_column = st.columns([10, 1])
     with title_column:
-        # Display the main header for the application.
         st.header(f"⚛︎ {settings.app_name}: {settings.app_short_description}")
     with quota_column:
         st.session_state["is_llm_requests_allowed"] = show_daily_quota(api_key)
-
     # Render two-column layout for input and output sections.
     left_column, right_column = st.columns([1, 1], gap="large")
     # Input section: Text area for user to provide MD dataset description.
@@ -300,6 +303,20 @@ def run_app(
             ),
             key="input_text",
         )
+        # Examples for the user to choose from.
+        example_columns = st.columns(3)
+        for column, (key, example) in zip(
+            example_columns, settings.examples.items(), strict=False
+        ):
+            with column:
+                st.button(
+                    key.replace("_", " ").title(),
+                    key=f"button_{key}",
+                    help=f"Source: {example['source']}",
+                    on_click=load_example,
+                    args=(example["text"],),
+                    width="stretch",
+                )
         # Button to trigger extraction.
         if st.button("Extract Metadata", type="primary", width="stretch"):
             if not description.strip():
@@ -391,7 +408,7 @@ def main() -> None:
     # Create a sidebar for application settings and information.
     with st.sidebar:
         st.image("img/logo_app.jpeg")
-        st.title(f"**{settings.app_name}** **V{settings.app_version}**")
+        st.title(f"**{settings.app_name}** **v{settings.app_version}**")
         st.markdown(f"{settings.app_long_description}")
         st.divider()
         st.markdown("**Contact:** [MDverse community]()")  # TO-ADD

@@ -79,6 +79,8 @@ class Settings(BaseSettings, cli_parse_args=True):
         description="Default model to use for metadata extraction."
         "Options: 'llm' or 'gliner'.",
     )
+    # Example texts for users to pre-fill the input text area
+    examples: dict[str, dict[str, str]] = Field(default_factory=dict)
     # Styling and assets
     css_path: FilePath | None = Field(
         None, description="Path to the CSS file for Streamlit styling."
