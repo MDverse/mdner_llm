@@ -1,0 +1,155 @@
+"""Pydantic data models used to validate UI Streamlit application settings."""
+
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import Literal
+
+from pydantic import BaseModel, Field, FilePath
+from pydantic_settings import (
+    BaseSettings,
+    PydanticBaseSettingsSource,
+    SettingsConfigDict,
+    TomlConfigSettingsSource,
+)
+
+
+class NormalizationConfig(BaseModel):
+    """Configuration model for normalization database paths."""
+
+    ffm_db_path: FilePath = Field(
+        ..., description="Path to the FFM normalization database file."
+    )
+    softname_db_path: FilePath = Field(
+        ..., description="Path to the SoftName normalization database file."
+    )
+
+
+class GlinerConfig(BaseModel):
+    """Configuration model for Gliner2 parameters."""
+
+    model_name: str = Field(
+        ..., description="Name of the Gliner2 model to use for generating responses."
+    )
+    model_path: FilePath | str = Field(
+        ..., description="Path to the Gliner2 model file for inference."
+    )
+    device: Literal["cpu", "cuda"] = Field(
+        default="cuda",
+        description="Device to use for inference (e.g., 'cpu' or 'cuda').",
+    )
+
+
+class LLMConfig(BaseModel):
+    """Configuration model for Large Language Model (LLM) parameters."""
+
+    model_name: str = Field(
+        ..., description="Name of the LLM model to use for generating responses."
+    )
+    framework: Literal["instructor", "noframework", "pydanticai"] = Field(
+        ..., description="Framework to use for validating the LLM response format."
+    )
+    prompt_path: FilePath = Field(
+        ..., description="Path to the prompt template file for LLM input."
+    )
+    guidelines_path: FilePath = Field(
+        ..., description="Path to the guidelines file for LLM input."
+    )
+    examples_path: FilePath = Field(
+        ..., description="Path to the examples file for LLM input."
+    )
+
+
+class Settings(BaseSettings, cli_parse_args=True):
+    """Global MDNER-LLM streamlit application settings."""
+
+    # Basic application info
+    app_name: str = Field(
+        ..., description="Application name displayed in the UI or logs."
+    )
+    app_short_description: str = Field(
+        ..., description="Short app description displayed in the logs."
+    )
+    app_long_description: str = Field(
+        ..., description="Long app description displayed in the logs."
+    )
+    app_version: str = Field(..., description="Current version of the application.")
+    # Default model for metadata extraction
+    default_model: Literal["llm", "gliner"] = Field(
+        default="llm",
+        description="Default model to use for metadata extraction."
+        "Options: 'llm' or 'gliner'.",
+    )
+    # Example texts for users to pre-fill the input text area
+    examples: dict[str, dict[str, str]] = Field(default_factory=dict)
+    # Styling and assets
+    css_path: FilePath | None = Field(
+        None, description="Path to the CSS file for Streamlit styling."
+    )
+    # Nested configuration for LLM-related parameters
+    llm: LLMConfig = Field(
+        ..., description="Configuration for Large Language Model parameters."
+    )
+    # Nested configuration for Gliner2-related parameters
+    gliner: GlinerConfig = Field(
+        ..., description="Configuration for Gliner2 model parameters."
+    )
+    # Nested configuration for normalization database paths
+    normalization: NormalizationConfig = Field(
+        ..., description="Configuration for normalization database paths."
+    )
+
+    # Compute the log path
+    @property
+    def log_path(self) -> Path:
+        """Create the full path for today's log file."""
+        log_file = (
+            Path("logs/metamd_app/") / f"{datetime.now(UTC).strftime('%Y-%m-%d')}.log"
+        )
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+        return log_file
+
+    # Load settings from this TOML file
+    model_config = SettingsConfigDict(
+        toml_file="src/mdner_llm/ui/config_app.toml",
+        extra="ignore",
+    )
+
+    # Reorder the priority of different settings sources
+    @classmethod
+    def settings_customise_sources(
+        cls,
+        settings_cls: type[BaseSettings],
+        init_settings: PydanticBaseSettingsSource,
+        env_settings: PydanticBaseSettingsSource,
+        dotenv_settings: PydanticBaseSettingsSource,
+        file_secret_settings: PydanticBaseSettingsSource,
+    ) -> tuple[PydanticBaseSettingsSource, ...]:
+        """
+        Customize the order and type of settings sources.
+
+        Parameters
+        ----------
+        settings_cls : type[BaseSettings]
+            The settings class being instantiated. Used by sources that
+            need access to the settings schema.
+        init_settings : PydanticBaseSettingsSource
+            Source providing values passed directly to the Settings
+            constructor.
+        env_settings : PydanticBaseSettingsSource
+            Source providing values from environment variables.
+
+        Returns
+        -------
+        tuple[PydanticBaseSettingsSource, ...]
+            Ordered tuple of settings sources. Earlier sources have higher
+            priority during value resolution.
+        """
+        return (
+            # Load settings from TOML files first
+            TomlConfigSettingsSource(settings_cls),
+            # Override with explicit constructor arguments
+            init_settings,
+            # Finally allow environment variables to override everything
+            env_settings,
+            dotenv_settings,
+        )
