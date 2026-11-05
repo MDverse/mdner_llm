@@ -352,7 +352,7 @@ uv run evaluate-entities-extraction \
 
 > This command loads all LLM-generated JSON files in `results/llm/inferences`, computes per-annotation metrics against the ground-truth, and saves the results in `results/llm/evaluation`. It generates an csv file with overall metrics for each entity class, and a parquet file with detailed annotation results for each test sample and each category.
 
-## Workflow Orchestration with Snakemake 🚀
+### Workflow Orchestration with Snakemake 🚀
 
 We provide end-to-end reproducible pipelines orchestrated with [Snakemake](https://snakemake.readthedocs.io/).
 
@@ -373,3 +373,12 @@ uv run snakemake all --cores all --resources gpu=1                              
 > ```
 
 All evaluation metrics, comparison plots, and performance charts across models and architectures can be analyzed and plotted using [notebooks/paper_tables_and_figures.ipynb](notebooks/paper_tables_and_figures.ipynb).
+
+
+## Usage (web interface)
+
+```sh
+uv run streamlit run src/mdner_llm/ui/streamlit_app.py
+```
+
+This will run the Streamlit app in your web browser at http://localhost:8501
