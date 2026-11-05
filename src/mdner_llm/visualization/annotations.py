@@ -74,7 +74,7 @@ def convert_annotations_from_model(
             {"start": start, "end": end, "label": entity.category}
             for start, end in spans
         )
-    return [{"text": text_to_annotate.replace("\n", " "), "ents": entities}]
+    return [{"text": text_to_annotate, "ents": entities}]
 
 
 def visualize_llm_annotation(response: ListOfEntities, text_to_annotate: str) -> None:
