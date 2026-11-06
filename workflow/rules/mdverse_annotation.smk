@@ -204,7 +204,7 @@ rule annotate_mdverse_with_llm:
         log_content = (
             f"=== LLM Annotation Log ===\n"
             f"Model: {params.model_name} ({wildcards.model_name})\n"
-            f"Device/Interface: API\n"
+            f"Device/Interface: Openrouter API\n"
             f"Framework: {params.framework}\n"
             f"Temperature: {params.temperature}\n"
             f"Total Datasets Processed: {total_ds}\n"
