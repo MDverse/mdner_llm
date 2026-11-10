@@ -1,6 +1,8 @@
 """Module for visualizing LLM performance."""
 
+import json
 from itertools import combinations
+from pathlib import Path
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -28,32 +30,32 @@ def display_strategies_table(file_path_or_df: str | pd.DataFrame) -> Styler:
     # Extract per-run metrics from micro rows and map macro F1 scores.
     micro_df = eval_df[eval_df["category"] == "OVERALL_MICRO"].copy()
     macro_series = eval_df[eval_df["category"] == "OVERALL_MACRO"].set_index(
-        ["Name", "Framework", "With_Guideline"]
-    )["F1"]
+        ["name", "framework", "with_guideline"]
+    )["f1"]
     micro_df["Macro F1"] = micro_df.set_index(
-        ["Name", "Framework", "With_Guideline"]
+        ["name", "framework", "with_guideline"]
     ).index.map(macro_series)
     # Standardize boolean flags for Instructor usage and Guideline inclusion.
     micro_df["Instructor"] = (
-        micro_df["Framework"]
+        micro_df["framework"]
         .str.lower()
         .str.contains("instructor")
         .map({True: "✓", False: "✗"})
     )
     micro_df["Guidelines"] = (
-        micro_df["With_Guideline"].astype(bool).map({True: "✓", False: "✗"})
+        micro_df["with_guideline"].astype(bool).map({True: "✓", False: "✗"})
     )
     # Assign publication column names and sort by model and strategy hierarchy.
     ablation_table = (
         micro_df.assign(
             **{
-                "Model": micro_df["Name"],
-                "Valid Format (%)": micro_df["Correct_format_(%)"],
-                "Hallucinations (%)": micro_df["Hallucinations_(%)"],
-                "Precision": micro_df["Precision_with_no_hallucination"],
-                "Micro F1": micro_df["F1_with_no_hallucination"],
-                "Latency by entity (s)": micro_df["Inference_time_by_entity_(s)"],
-                "Cost by entity ($)": micro_df["Cost_by_entity_($)"],
+                "Model": micro_df["name"],
+                "Valid Format (%)": micro_df["correct_format_(%)"],
+                "Hallucinations (%)": micro_df["hallucinations_(%)"],
+                "Precision": micro_df["precision_with_no_hallucination"],
+                "Micro F1": micro_df["f1_with_no_hallucination"],
+                "Latency by entity (s)": micro_df["inference_time_by_entity_(s)"],
+                "Cost by entity ($)": micro_df["cost_by_entity_($)"],
             }
         )[
             [
@@ -119,15 +121,15 @@ def plot_benchmark_llm_strategy(
     data = df[df["category"] == category].copy()
     # Filter by specific models if provided, otherwise keep all models.
     if models_to_keep is not None and len(models_to_keep) > 0:
-        data = data[data["Name"].isin(models_to_keep)]
+        data = data[data["name"].isin(models_to_keep)]
     # Construct strategy key matching combo_labels dictionary keys.
     inst_part = (
-        data["Framework"]
+        data["framework"]
         .astype(str)
         .str.lower()
         .apply(lambda x: "with_instructor" if "instructor" in x else "no_instructor")
     )
-    guide_part = data["With_Guideline"].map(
+    guide_part = data["with_guideline"].map(
         {True: "with_guidelines", False: "no_guidelines"}
     )
     data["combo_key"] = inst_part + "_" + guide_part
@@ -138,18 +140,18 @@ def plot_benchmark_llm_strategy(
     # Directly assign input metric column.
     metric_col = metric
     # Aggregate duplicates by model and strategy to allow reindexing.
-    data = data.groupby(["Name", "strategy"], as_index=False)[metric_col].mean()
+    data = data.groupby(["name", "strategy"], as_index=False)[metric_col].mean()
     # Compute maximum value per strategy for bold highlighting.
     max_per_strat = data.groupby("strategy")[metric_col].apply(
         lambda s: s.round(2).max()
     )
-    models = data["Name"].unique()
+    models = data["name"].unique()
     # Generate distinct colors for each unique model.
     palette = generate_palette(len(models))
     fig = go.Figure()
     # Add grouped bars with journal styling and highlighted values.
     for model, color in zip(models, palette, strict=False):
-        sub = data[data["Name"] == model].set_index("strategy").reindex(strategies)
+        sub = data[data["name"] == model].set_index("strategy").reindex(strategies)
         text_labels = [
             f"<b>{value:.2f}</b>"
             if round(value, 2) == max_per_strat.get(strat)
@@ -203,6 +205,68 @@ def plot_benchmark_llm_strategy(
     return fig
 
 
+def load_models_metadata(metadata_path: str | Path) -> pd.DataFrame:
+    """Load model metadata (size, release date, architecture) indexed by model id.
+
+    Returns
+    -------
+    pd.DataFrame
+        One row per model id with "Size (B)", "Release Date" and
+        "Architecture" columns.
+    """
+    with Path(metadata_path).open(encoding="utf-8") as file:
+        models = json.load(file)
+
+    def format_size(size: dict | None) -> str:
+        # Unknown size (e.g. proprietary models).
+        if not size or size.get("all") is None:
+            return "-"
+        # Show active parameters for mixture-of-experts models.
+        if size.get("active") not in (None, size["all"]):
+            return f"{size['all']:g} ({size['active']:g} active)"
+        return f"{size['all']:g}"
+
+    return pd.DataFrame(
+        {
+            "Size (B)": [format_size(m.get("size_in_B")) for m in models],
+            "Release Date": [m.get("release_date") or "-" for m in models],
+            "Architecture": [m.get("architecture") or "-" for m in models],
+        },
+        index=[m["id"] for m in models],
+    )
+
+
+def format_mean_std(mean: float, std: float, mean_format: str = "{:.2f}") -> str:
+    """Format a mean as "mean ± std", or the mean alone when std is missing.
+
+    Returns
+    -------
+    str
+        Formatted value, "-" when the mean is missing.
+    """
+    if pd.isna(mean):
+        return "-"
+    if pd.isna(std):
+        return mean_format.format(mean)
+    return f"{mean_format.format(mean)} ± {std:.3f}"
+
+
+def size_sort_key(column: pd.Series) -> pd.Series:
+    """Sort "Size (B)" on the total size, e.g. "816 (42 active)" -> 816.
+
+    Other columns are sorted as they are. Unknown sizes ("-") become NaN
+    and are placed last.
+
+    Returns
+    -------
+    pd.Series
+        Values used for sorting.
+    """
+    if column.name != "Size (B)":
+        return column
+    return pd.to_numeric(column.str.split(" ").str[0], errors="coerce")
+
+
 def display_benchmark_table(
     file_path_or_df: str | pd.DataFrame,
     category: str = "OVERALL_MICRO",
@@ -212,6 +276,7 @@ def display_benchmark_table(
     without_consensus: bool = True,
     target_nb_texts: int = 4000,
     base_nb_texts: int = 160,
+    metadata_path: str | Path | None = None,
 ) -> Styler:
     """Build and format a centered benchmark summary table for LLMs.
 
@@ -220,8 +285,6 @@ def display_benchmark_table(
     Styler
         A pandas Styler object representing the formatted benchmark table.
     """
-    # Compute extrapolation ratio for target dataset size.
-    scale = target_nb_texts / base_nb_texts
     # Read CSV path or copy DataFrame input.
     raw_df = (
         pd.read_csv(file_path_or_df)
@@ -231,41 +294,43 @@ def display_benchmark_table(
     # Filter consensus models
     if without_consensus:
         # Remove models starting with consensus.
-        raw_df = raw_df[~raw_df["Name"].str.startswith("consensus_", na=False)]
+        raw_df = raw_df[~raw_df["name"].str.startswith("consensus_", na=False)]
         # Strip (T = 1) label from model names.
-        raw_df["Name"] = raw_df["Name"].str.replace(" (T = 1)", "", regex=False)
+        raw_df["name"] = raw_df["name"].str.replace(" (T = 1)", "", regex=False)
         # Exclude all remaining models containing any temperature tag.
-        raw_df = raw_df[~raw_df["Name"].str.contains(r"\(T\s*=", regex=True, na=False)]
+        raw_df = raw_df[~raw_df["name"].str.contains(r"\(T\s*=", regex=True, na=False)]
     # Filter category rows and drop duplicate evaluations keeping last record.
     cat_df = (
         raw_df[raw_df["category"] == category]
-        .drop_duplicates(subset=["Name"], keep="last")
+        .drop_duplicates(subset=["name"], keep="last")
         .copy()
     )
-    # Map macro F1 scores indexed by model name.
-    macro_s = (
+    # Add macro F1 (mean and std over runs) to the rows of each model.
+    macro_df = (
         raw_df[raw_df["category"] == "OVERALL_MACRO"]
-        .drop_duplicates(subset=["Name"], keep="last")
-        .set_index("Name")["F1"]
+        .drop_duplicates(subset=["name"], keep="last")
+        .set_index("name")
     )
+    cat_df["macro_f1"] = cat_df["name"].map(macro_df["f1"])
+    cat_df["macro_f1_std"] = cat_df["name"].map(macro_df["f1_std"])
     # Scale inference time and reformat into total hours, minutes, and seconds.
-    sec = (
-        pd.to_timedelta(cat_df["Inference_time_total_(hh:mm:ss)"]).dt.total_seconds()
-        * scale
-    )
+    sec = pd.to_timedelta(
+        cat_df["inference_time_total_(hh:mm:ss)"]
+    ).dt.total_seconds() * (target_nb_texts / base_nb_texts)
     # Build consolidated display DataFrame with direct estimates.
     table_df = pd.DataFrame(
         {
-            "Model": cat_df["Name"],
-            "Valid Format (%)": cat_df["Correct_format_(%)"],
-            "Hallucinations (%)": cat_df["Hallucinations_(%)"],
-            "Precision": cat_df["Precision"],
-            "Recall": cat_df["Recall"],
-            "Micro F1": cat_df["F1"],
-            "Macro F1": cat_df["Name"].map(macro_s),
-            "Inference Time (hh:mm:ss)": cat_df["Inference_time_total_(hh:mm:ss)"],
-            "Inference Cost ($)": cat_df["Cost_total_($)"],
-            f"Mdverse Inference Time Estimation (n = {target_nb_texts})": sec.apply(
+            "Model": cat_df["name"],
+            "Number of Runs": cat_df["number_of_runs"],
+            "Valid Format (%)": cat_df["correct_format_(%)"],
+            "Hallucinations (%)": cat_df["hallucinations_(%)"],
+            "Precision": cat_df["precision"],
+            "Recall": cat_df["recall"],
+            "Micro F1": cat_df["f1"],
+            "Macro F1": cat_df["macro_f1"],
+            "Inference Time (hh:mm:ss)": cat_df["inference_time_total_(hh:mm:ss)"],
+            "Inference Cost ($)": cat_df["cost_total_($)"],
+            f"MDverse Inference Time Estimation (n = {target_nb_texts})": sec.apply(
                 lambda s: (
                     (
                         f"{int(s // 3600):02d}:{int((s % 3600) // 60):02d}:"
@@ -275,26 +340,51 @@ def display_benchmark_table(
                     else "-"
                 )
             ),
-            f"Mdverse Inference Cost Estimation (n = {target_nb_texts})": cat_df[
-                "Cost_total_($)"
+            f"MDverse Inference Cost Estimation (n = {target_nb_texts})": cat_df[
+                "cost_total_($)"
             ]
-            * scale,
+            * (target_nb_texts / base_nb_texts),
         }
     )
-    # Sort values, center alignment, and style table.
+    # Insert model metadata columns right after the model name.
+    if metadata_path is not None:
+        meta_df = load_models_metadata(metadata_path)
+        for position, column in enumerate(meta_df.columns, start=1):
+            table_df.insert(
+                position, column, table_df["Model"].map(meta_df[column]).fillna("-")
+            )
+    # Sort on numeric means, before the "mean ± std" columns become strings.
+    table_df = table_df.sort_values(
+        by=sort_by, ascending=is_ascending, key=size_sort_key
+    )
+    # table_df keeps the index of cat_df, so .loc gives the rows in table order.
+    sorted_cat_df = cat_df.loc[table_df.index]
+    # Display column: (column in cat_df, mean format).
+    mean_std_columns = {
+        "Valid Format (%)": ("correct_format_(%)", "{:.0f}"),
+        "Hallucinations (%)": ("hallucinations_(%)", "{:.0f}"),
+        "Precision": ("precision", "{:.2f}"),
+        "Recall": ("recall", "{:.2f}"),
+        "Micro F1": ("f1", "{:.2f}"),
+        "Macro F1": ("macro_f1", "{:.2f}"),
+    }
+    # Replace each mean by "mean ± std" (or the mean alone without std).
+    for column, (source_column, mean_format) in mean_std_columns.items():
+        table_df[column] = [
+            format_mean_std(mean, std, mean_format)
+            for mean, std in zip(
+                sorted_cat_df[source_column],
+                sorted_cat_df[f"{source_column}_std"],
+                strict=True,
+            )
+        ]
+    # Center alignment and style table.
     return (
-        table_df.sort_values(by=sort_by, ascending=is_ascending)
-        .reset_index(drop=True)
+        table_df.reset_index(drop=True)
         .style.format(
             {
-                "Valid Format (%)": "{:.0f}",
-                "Hallucinations (%)": "{:.0f}",
-                "Precision": "{:.2f}",
-                "Recall": "{:.2f}",
-                "Micro F1": "{:.2f}",
-                "Macro F1": "{:.2f}",
                 "Inference Cost ($)": "{:.2f}",
-                f"Mdverse Inference Cost Estimation (n = {target_nb_texts})": "{:.2f}",
+                f"MDverse Inference Cost Estimation (n = {target_nb_texts})": "{:.2f}",
             },
             na_rep="-",
         )
@@ -354,11 +444,11 @@ def plot_small_llm_consensus_vs_frontier(
     consensus_temperatures: list[float | int | str],
     consensus_threshold: float = 0.5,
     metrics: tuple[str, ...] = (
-        "Precision_with_no_hallucination",
-        "Recall",
-        "F1_with_no_hallucination",
-        "Correct_format_(%)",
-        "Hallucinations_(%)",
+        "precision_with_no_hallucination",
+        "recall",
+        "f1_with_no_hallucination",
+        "correct_format_(%)",
+        "hallucinations_(%)",
     ),
     category: str = "OVERALL_MICRO",
 ) -> go.Figure:
@@ -370,7 +460,7 @@ def plot_small_llm_consensus_vs_frontier(
         Formatted Plotly multi-column figure with top legend.
     """
     data = df[df["category"] == category]
-    mean_by_name = data.groupby("Name")[list(metrics)].mean()
+    mean_by_name = data.groupby("name")[list(metrics)].mean()
     # Build the 3 blocks in order: Small -> Consensus -> Frontier
     families = build_families(
         small_models=small_models,
@@ -417,9 +507,10 @@ def plot_small_llm_consensus_vs_frontier(
         # Two-line titles for percent metrics to avoid overlaps
         subplot_titles=[
             metric.replace("_with_no_hallucination", "")
-            .replace("Correct_format_(%)", "Correct format<br>(%)")
-            .replace("Hallucinations_(%)", "Hallucinations<br>(%)")
+            .replace("correct_format_(%)", "correct format<br>(%)")
+            .replace("hallucinations_(%)", "hallucinations<br>(%)")
             .replace("_", " ")
+            .capitalize()  # "f1" -> "F1", "recall" -> "Recall"
             for metric in metrics
         ],
     )
@@ -428,7 +519,7 @@ def plot_small_llm_consensus_vs_frontier(
         if "%" in metric:
             # Ideal value is 0 for hallucinations and 100 for correct format,
             # anything else is red and bold
-            ideal_value = 0 if metric.startswith("Hallucinations") else 100
+            ideal_value = 0 if metric.startswith("hallucinations") else 100
             texts = [
                 f"<span style='color:red'><b>{round(values[name]):.0f}</b></span>"
                 if round(values[name]) != ideal_value
@@ -561,8 +652,8 @@ def plot_small_llm_consensus_cost_and_time(
     """
     data = df[df["category"] == category].copy()
     data = data.sort_values(
-        "Inference_time_total_(s)", ascending=False
-    ).drop_duplicates(subset=["Name"])
+        "inference_time_total_(s)", ascending=False
+    ).drop_duplicates(subset=["name"])
 
     # Build the 3 blocks in order: Small -> Consensus -> Frontier
     families = build_families(
@@ -583,7 +674,7 @@ def plot_small_llm_consensus_cost_and_time(
     layout_entries, tickvals, ticktext = [], [], []
     pos = 0.0
     for family, runs in families:
-        kept = [(n, lab) for n, lab in runs if (data["Name"] == n).any()]
+        kept = [(n, lab) for n, lab in runs if (data["name"] == n).any()]
         for name, label in kept:
             layout_entries.append((family, name, pos))
             tickvals.append(pos)
@@ -603,9 +694,9 @@ def plot_small_llm_consensus_cost_and_time(
 
     # 1. Cost Panel
     cost_values = {
-        n: float(data.loc[data["Name"] == n, "Cost_total_($)"].mean())
+        n: float(data.loc[data["name"] == n, "cost_total_($)"].mean())
         for n in all_names
-        if not data.loc[data["Name"] == n, "Cost_total_($)"].empty
+        if not data.loc[data["name"] == n, "cost_total_($)"].empty
     }
     max_cost = max(cost_values.values()) if cost_values else 10.0
     for family, _ in families:
@@ -633,9 +724,9 @@ def plot_small_llm_consensus_cost_and_time(
 
     # 2. Time Panel (Values converted to hours)
     time_values_sec = {
-        n: float(data.loc[data["Name"] == n, "Inference_time_total_(s)"].mean())
+        n: float(data.loc[data["name"] == n, "inference_time_total_(s)"].mean())
         for n in all_names
-        if not data.loc[data["Name"] == n, "Inference_time_total_(s)"].empty
+        if not data.loc[data["name"] == n, "inference_time_total_(s)"].empty
     }
     time_values_hrs = {n: s / 3600.0 for n, s in time_values_sec.items()}
     max_hours = max(time_values_hrs.values()) if time_values_hrs else 10.0

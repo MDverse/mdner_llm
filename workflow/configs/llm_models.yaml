@@ -9,7 +9,7 @@ softname_db_path: "data/normalization/software_names_registry.json"
 
 # --- Global Parameters ---
 max_samples: 160 # Maximum number of samples to process per model and strategy
-normalization_model: "openai/gpt-5.5" # Used for STIME normalization
+normalization_model: "deepseek/deepseek-v4.1-flash-1017" # Used for STIME normalization
 api_sleep_delay: 5 # Seconds to wait between API calls
 
 # --- Scenario 1: Benchmark strategies with few models ---
@@ -63,8 +63,19 @@ full_eval_models:
   - "mistralai/mistral-large-4-0"
   - "nvidia/nemotron-3.5-lightning"
   - "nvidia/nemotron-3.5-super-vl"
+  - "anthropic/claude-fable-5.2"
 
-# --- Scenario 3: Consensus & Temperature Runs ---
+# --- Scenario 3: Determinism (repeated runs of some models) ---
+# Run 1 reuses the Scenario 2 run (with_instructor_with_guidelines, T = 1).
+# Extra runs are stored in "with_instructor_with_guidelines_run{2..N}".
+determinism_models:
+  - "google/gemini-3.8-flash"
+  - "openai/gpt-6.1-terra"
+  - "deepseek/deepseek-v4.1-flash-1017"
+# Total number of runs (including the Scenario 2 run)
+determinism_nb_runs: 5
+
+# --- Scenario 4: Consensus & Temperature Runs ---
 consensus_groups:
   gpt_qwen:
     - "openai/gpt-oss-20b"
@@ -81,7 +92,10 @@ consensus_groups:
     - "google/gemma-4-31b-it"
 
 # Temperatures to evaluate individually and across all subsets
-consensus_temperatures: [1, 1.5, 1.75, 2]
+# We have decided to only evaluate T=1 for the consensus runs,
+# as we found that higher temperatures (T>1) did not improve performance 
+# and often led to more variability in the outputs.
+consensus_temperatures: [1] # Examples to add: 1.5, 1.75, 2 
 
 # List of vote agreement thresholds to test
 consensus_thresholds: [0.5, 0.1]
