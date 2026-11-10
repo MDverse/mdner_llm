@@ -152,7 +152,7 @@ def log_progress(
 
 
 def report_llm(log: Any, config: Mapping[str, Any]) -> None:
-    """Report LLM strategy, benchmark, and consensus progress."""
+    """Report LLM strategy, benchmark, determinism, and consensus progress."""
     output_dir = Path(config.get("output_dir_base", "results/llm"))
     raw_root = output_dir / "inferences" / "raw"
     target = get_target_count(config)
@@ -182,6 +182,20 @@ def report_llm(log: Any, config: Mapping[str, Any]) -> None:
             baseline_root / sanitize_filename(str(model)),
             target,
         )
+    log.info("-" * TABLE_WIDTH)
+    # Determinism: run 1 is the full evaluation run above,
+    # extra runs are stored in "<baseline>_run{N}" folders.
+    nb_runs = int(config.get("determinism_nb_runs", 3))
+    for model in config.get("determinism_models", []):
+        for run in range(2, nb_runs + 1):
+            log_progress(
+                log,
+                "LLM",
+                f"determinism/run_{run}",
+                str(model).rsplit("/", maxsplit=1)[-1],
+                raw_root / f"{baseline_scenario}_run{run}" / sanitize_filename(model),
+                target,
+            )
     log.info("-" * TABLE_WIDTH)
     # Route temperature-one consensus to baseline outputs,
     # other temperatures have separate folders.
