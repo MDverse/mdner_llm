@@ -120,6 +120,9 @@ rule run_gliner_inference_folds:
         out_dir="results/gliner/inferences/folds/{model}/fold_{fold}",
     shell:
         """
+        # Remove outputs of previous runs: files are timestamped, so stale
+        # ones would otherwise be evaluated together with the new ones.
+        find {params.out_dir} -maxdepth 1 -name "*.json" -delete 2>/dev/null || true
         uv run extract-entities-with-gliner-all-texts \
             --text-path {params.text} \
             --metadata-path {params.metadata} \
@@ -139,6 +142,9 @@ rule run_gliner_inference_zeroshot:
         model_path=lambda wildcards: MODELS[wildcards.model]["model_path"],
     shell:
         """
+        # Remove outputs of previous runs: files are timestamped, so stale
+        # ones would otherwise be evaluated together with the new ones.
+        find {params.out_dir} -maxdepth 1 -name "*.json" -delete 2>/dev/null || true
         uv run extract-entities-with-gliner-all-texts \
             --texts-path {input.groundtruth_dir} \
             --model-path {params.model_path} \
@@ -161,6 +167,9 @@ rule normalize_gliner_folds:
         out_dir="results/gliner/inferences_normalized/folds/{model}/fold_{fold}",
     shell:
         """
+        # Remove outputs of previous runs: files are timestamped, so stale
+        # ones would otherwise be evaluated together with the new ones.
+        find {params.out_dir} -maxdepth 1 -name "*.json" -delete 2>/dev/null || true
         uv run normalize-extracted-entities \
             --inferences-dir {params.inf_dir} \
             --ffm-db-path {input.ffm_db} \
@@ -184,6 +193,9 @@ rule normalize_gliner_zeroshot:
         out_dir="results/gliner/inferences_normalized/{model}",
     shell:
         """
+        # Remove outputs of previous runs: files are timestamped, so stale
+        # ones would otherwise be evaluated together with the new ones.
+        find {params.out_dir} -maxdepth 1 -name "*.json" -delete 2>/dev/null || true
         uv run normalize-extracted-entities \
             --inferences-dir {params.inf_dir} \
             --ffm-db-path {input.ffm_db} \
