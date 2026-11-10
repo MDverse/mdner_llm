@@ -222,6 +222,11 @@ class TrainConfig(BaseModel):
             "Lower: tracks sudden gradient spikes faster, common in large-batch setups."
         ),
     )
+    max_grad_norm: float = Field(
+        default=1.0,
+        gt=0.0,
+        description="Maximum gradient norm for gradient clipping (gliner2 default).",
+    )
     # Precision & hardware
     fp16: bool = Field(
         default=True,
