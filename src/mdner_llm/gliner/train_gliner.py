@@ -4,7 +4,7 @@ import json
 import operator
 import os
 import random
-from collections import defaultdict
+from functools import partial
 from pathlib import Path
 
 from mdner_llm.visualization.gliner import (
@@ -147,27 +147,28 @@ def build_example(
         overlap_tokens=overlap_tokens,
         logger=logger,
     )
+    entity_descriptions = entity_descriptions or {}
     examples = []
     for chunk in chunks:
         # Extract raw entities.
         raw_entities = json_data.get("entities", [])
-        # Collect matched entities only for categories defined in schema.
-        chunk_entities = defaultdict(list)
-        # Populate matched entities into their respective category lists.
-        # Exemple: {"MOL": ["protein kinase A", "PKA"], "SOFTNAME": ["GROMACS"]}.
+        # Declare every schema category, even those absent from this chunk:
+        # since gliner2 2.1.0, a category with an empty mention list is trained
+        # as a negative ("this text contains no mention of this type").
+        # This matches inference, where all categories are always queried.
+        # Exemple: {"MOL": ["protein kinase A", "PKA"], "SOFTNAME": ["GROMACS"],
+        #           "SOFTVERS": [], "STEMP": [], "FFM": [], "STIME": []}.
+        chunk_entities: dict[str, list[str]] = {
+            category: [] for category in entity_descriptions
+        }
         for entity in raw_entities:
             category = entity["category"]
             entity_text = entity["text"]
+            mentions = chunk_entities.setdefault(category, [])
             # Only add entity if it appears in the current chunk,
             # and is not already added.
-            if (entity_text in chunk) and (entity_text not in chunk_entities[category]):
-                chunk_entities[category].append(entity_text)
-        # Filter descriptions to keep only classes present in this specific chunk.
-        chunk_descriptions = {
-            category: entity_descriptions[category]
-            for category in chunk_entities
-            if chunk_entities[category]
-        }
+            if (entity_text in chunk) and (entity_text not in mentions):
+                mentions.append(entity_text)
         # Create an InputExample,
         examples.append(
             InputExample(
@@ -175,8 +176,8 @@ def build_example(
                 text=chunk,
                 # the formatted entities (category -> list of values),
                 entities=chunk_entities,
-                # and the entity descriptions.
-                entity_descriptions=chunk_descriptions,
+                # and the descriptions of all categories of the schema.
+                entity_descriptions=dict(entity_descriptions),
             )
         )
     return examples, json_data.get("url", "")
@@ -207,7 +208,9 @@ def build_train_dataset(
     urls = []
     first_logged = False
     # Iterate over annotation files to build model training examples.
-    for annotation_path in annotations_dir_path.glob("*.json"):
+    # Sort paths: glob order depends on the filesystem, and the seeded fold
+    # split shuffles indices, so an unsorted order would change the folds.
+    for annotation_path in sorted(annotations_dir_path.glob("*.json")):
         # Create InputExample objects for each annotation file,
         # splitting long texts into overlapping chunks (~2048 tokens/words) to prevent,
         # context truncation and information loss during model training.
@@ -490,6 +493,7 @@ def build_training_config(
         weight_decay=config.training.weight_decay,
         adam_beta1=config.training.adam_beta1,
         adam_beta2=config.training.adam_beta2,
+        max_grad_norm=config.training.max_grad_norm,
         # Precision / hardware
         fp16=config.training.fp16,
         bf16=config.training.bf16,
@@ -530,8 +534,12 @@ def build_training_config(
 def compute_evaluation_metrics(
     model: GLiNER2,
     eval_dataset: TrainingDataset,
+    entity_descriptions: dict[str, str] | None = None,
 ) -> dict[str, float]:
     """Evaluate GLiNER model predictions and compute global confusion-based scores.
+
+    When ``entity_descriptions`` is given, every sample is queried with all of
+    these categories (as at test time), instead of the per-sample descriptions.
 
     Returns
     -------
@@ -544,7 +552,9 @@ def compute_evaluation_metrics(
     total_clean_false_positives = 0
     for source_text, metadata in eval_dataset:
         raw_entities_dict = metadata.get("entities", {})
-        entity_descriptions = metadata.get("entity_descriptions", {})
+        queried_descriptions = entity_descriptions or metadata.get(
+            "entity_descriptions", {}
+        )
         # Collect unique ground truth mentions across categories.
         # Format input: {"FFM": ["CHARMM36", "AMBER"], "SOFTNAME": ["GROMACS"]}
         # Format output: {"CHARMM36", "AMBER", "GROMACS"}
@@ -552,7 +562,7 @@ def compute_evaluation_metrics(
         for entities_by_category in raw_entities_dict.values():
             groundtruth_entities.update(entities_by_category)
         # Predict candidate entities for the input text.
-        predictions = model.extract_entities(source_text, entity_descriptions)
+        predictions = model.extract_entities(source_text, queried_descriptions)
         # Extract text mentions from predictions dictionary.
         # Format input:{"entities": {"FFM": [{"text": "CHARMM36", "confidence": 0.99}]}}
         # Format output: {"CHARMM36"}
@@ -593,6 +603,7 @@ def train_gliner_model(
     train_dataset: TrainingDataset,
     eval_dataset: TrainingDataset,
     training_config: TrainingConfig,
+    entity_descriptions: dict[str, str] | None = None,
     logger: "loguru.Logger" = loguru.logger,
 ) -> dict:
     """
@@ -604,7 +615,11 @@ def train_gliner_model(
         Dictionary containing training results and metrics.
     """
     trainer = ExtractorTrainer(
-        model, training_config, compute_metrics=compute_evaluation_metrics
+        model,
+        training_config,
+        compute_metrics=partial(
+            compute_evaluation_metrics, entity_descriptions=entity_descriptions
+        ),
     )
     results = trainer.train(train_data=train_dataset, eval_data=eval_dataset)
     logger.success("✓ Training complete successfully!")
@@ -670,6 +685,7 @@ def train_single_fold_process(
         train_dataset=train_data,
         eval_dataset=val_data,
         training_config=training_config,
+        entity_descriptions=cfg.categories,
         logger=logger_fold,
     )
     result_queue.put(results)
