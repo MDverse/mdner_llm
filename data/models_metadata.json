@@ -51,8 +51,8 @@
     "id": "google/gemma-4-31b-it",
     "name": "Gemma 4 31B IT",
     "size_in_B": {
-      "active": 30.7,
-      "all": 30.7
+      "active": 31,
+      "all": 31
     },
     "open_weight": true,
     "architecture": "Dense Decoder",
@@ -75,8 +75,8 @@
     "id": "openai/gpt-oss-20b",
     "name": "gpt-oss-20b",
     "size_in_B": {
-      "active": 3.61,
-      "all": 20.91
+      "active": 3.6,
+      "all": 21
     },
     "open_weight": true,
     "architecture": "MoE Decoder",
@@ -219,8 +219,8 @@
     "id": "meta-llama/llama-3.1-8b-instruct",
     "name": "Llama 3.1 8B Instruct",
     "size_in_B": {
-      "active": 8.03,
-      "all": 8.03
+      "active": 8,
+      "all": 8
     },
     "open_weight": true,
     "architecture": "Dense Decoder",
@@ -231,8 +231,8 @@
     "id": "openai/gpt-oss-120b",
     "name": "gpt-oss-120b",
     "size_in_B": {
-      "active": 5.13,
-      "all": 116.83
+      "active": 5.1,
+      "all": 117
     },
     "open_weight": true,
     "architecture": "MoE Decoder",
