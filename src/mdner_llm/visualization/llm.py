@@ -5,11 +5,77 @@ from itertools import combinations
 from pathlib import Path
 
 import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
 from pandas.io.formats.style import Styler
 from plotly.subplots import make_subplots
 
 from mdner_llm.visualization.theme import apply_journal_theme, generate_palette
+
+
+def plot_strategy_heatmap(raw_df: pd.DataFrame, metric: str) -> go.Figure:
+    """Plot mean metric per prompting strategy as an annotated 2x2 heatmap.
+
+    Returns
+    -------
+    go.Figure
+        Annotated Plotly heatmap.
+    """
+    micro_df = raw_df[raw_df["category"] == "OVERALL_MICRO"].assign(
+        Strategy=lambda frame: (
+            frame["framework"]
+            .str.lower()
+            .str.contains("instructor")
+            .map({False: "Free text", True: "With Instructor"})
+        ),
+        Prompt=lambda frame: (
+            frame["with_guideline"]
+            .astype(bool)
+            .map({False: "Minimal rules", True: "Full guidelines"})
+        ),
+    )
+    summary = micro_df.groupby(["Strategy", "Prompt"]).agg(
+        mean=(metric, "mean"),
+        std=(metric, "std"),
+        valid=("correct_format_(%)", "mean"),
+        hallucinations=("hallucinations_(%)", "mean"),
+    )
+    # Cell text: mean ± std, then valid format and hallucinations in small font.
+    summary["label"] = summary.apply(
+        lambda row: (
+            f"<b>{row['mean']:.2f}</b> ± {row['std']:.1f}<br>"
+            f"<span style='font-size:11px'>{row['valid']:.0f}% valid · "
+            f"{row['hallucinations']:.1f}% halluc.</span>"
+        ),
+        axis=1,
+    )
+    order = {
+        "index": ["Free text", "With Instructor"],
+        "columns": ["Minimal rules", "Full guidelines"],
+    }
+    # Reshape to a 2x2 grid (rows: Strategy, columns: Prompt).
+    grid = summary.reset_index().pivot_table(
+        index="Strategy", columns="Prompt", values=["mean", "label"], aggfunc="first"
+    )
+    means = grid["mean"].reindex(**order)
+    labels = grid["label"].reindex(**order)
+    fig = px.imshow(means, color_continuous_scale=["#F6E1EC", "#A3306A"], aspect="auto")
+    fig.update_traces(
+        text=labels.to_numpy(), texttemplate="%{text}", textfont_size=20, xgap=8, ygap=8
+    )
+    metric_label = "F1" if metric == "f1" else metric.capitalize()
+    fig.update_layout(
+        title=f"<b>Mean {metric_label} of {micro_df['name'].nunique()} models</b>",
+        coloraxis_showscale=False,
+        width=520,
+        height=380,
+        xaxis={"side": "top", "title": None, "showline": False, "ticks": ""},
+        yaxis={"title": None, "showline": False, "ticks": ""},
+        template="simple_white",
+        margin={"l": 10, "r": 10, "t": 80, "b": 10},
+        font_family="Inter, Arial, sans-serif",
+    )
+    return fig
 
 
 def display_strategies_table(file_path_or_df: str | pd.DataFrame) -> Styler:
