@@ -1,11 +1,19 @@
 # config.default.toml
 app_name = "MetaMD"
 app_short_description = "AI-Assisted Annotation for Molecular Dynamics Datasets Descriptions"
-app_long_description = "This tool annotates molecular dynamics dataset descriptions to automatically extract **molecule names**, **force fields or models**, **software names and versions**, **simulation times**, and **temperatures**.  It also serves as a checklist tool to verify that all necessary metadata is provided, so your deposited datasets remain **FAIR** and **reproducible**."
+app_long_description = "This tool annotates molecular dynamics dataset descriptions to automatically extract **molecule names**, **force fields or models**, **software names and versions**, **simulation times**, and **temperatures**.  It also serves as a checklist tool to verify that all necessary metadata is provided, so your deposited datasets remain **reproducible**."
 app_version = "1.0"
-default_model = "llm"  # Options: "llm" or "gliner"
+default_model = "gliner"  # Options: "llm" or "gliner"
 
 [examples.example_1]
+text = """
+MD simulation trajectory of Ternary mixture of POPC/PSM/Ergo (2:2:1) at 295 K: Slipids, GROMACS 2019.6
+MD simulation trajectory files for Ternary mixture of POPC/PSM/Ergo [408 POPC, 408 SM16, 208 Ergo and 35840 SOL]. The Slipids (2013 version) force field was used with Gromacs 2019.6. Ergosterol parameters from https://doi.org/10.1002/bit.25845 . Conditions: T=295K. Data saved every 20 ps. 100 ns trajectory.
+"""
+source = "https://zenodo.org/records/17730115"
+
+
+[examples.example_2]
 text = """
 PySteMoDA Datasets
 The source code for the software package PySteMoDA is already available at : https://zenodo.org/records/18258018 
@@ -22,98 +30,16 @@ Extended data is available along with the underlaying data within the file below
 source = "https://zenodo.org/records/18593785"
 
 
-[examples.example_2]
-text = """
-Mechanical response of the RecA nucleoprotein filament to increasing D-loop length
-This repository contains the files and data associated with the article: Mechanical response of the RecA nucleoprotein filament to increasing D-loop length by Afra Sabei, Chantal Prévost, Mara Prentiss, Claudia Danilowicz, Sébastien Neukirch, and Alexandre Détruit.
-
-DESCRIPTION
-Trajectories: Contains the structural files for the RecA nucleoprotein filaments (NPFs) with varying D-loop sizes (9bp, 12bp, 15bp, 21bp, 36bp, 45bp, and 54bp). Initial structures were derived from the CryoEM structure (PDB: 7jy9). Filament expansion was performed by replicating subunits using the Heligeom module of the PTools library. Models are named based on the number of stable heteroduplex base pairs(replicas are uploaded separately).
-
-Parameters: All-atom Molecular Dynamics (MD) simulations were prepared using the VMD auto PSF builder (VMD 1.9.2). Systems were solvated in a TIP3P water model with a physiological ionic concentration of 0.15 mol/l. Simulations were performed using NAMD (versions 2.12 and 2.13) and the CHARMM36m force field including CMAP corrections. Conditions included periodic boundary conditions via PME, 2 fs time steps (SHAKE algorithm), and temperature/pressure regulation via Nosé-Hoover-Langevin piston.
-
-Scripts: Contains the following Python scripts for modeling and analysis:
-
-construction_bioarxiv.py: Script for the construction of the NPF models.
-
-cmap_bioarxiv.py: Post-processing script for generating contact maps.
-
-site_II_bioarxiv.py: Post-processing script for site II distance calculations.
-
-REFERENCES
-[1] H. Yang, C. Zhou, A. Dhar, and N. P. Pavletich. Mechanism of strand exchange from RecA-DNA synaptic and D-loop structures. Nature, 586(7831):801–806, 2020.
-
-[2] A. J. Conover, C. Danilowicz, R. Gunaratne, V. W. Coljee, N. Kleckner, and M. Prentiss. Changes in the tension in dsDNA alter the conformation of RecA bound to dsDNA-RecA filaments. Nucleic Acids Res, 39(20):8833–43, 2011.
-
-[3] J. C. Bell and S. C. Kowalczykowski. Mechanics and single-molecule interrogation of DNA recombination. Annu Rev Biochem, 85:193–226, 2016.
-
-[4] A. Saladin, S. Fiorucci, P. Poulain, C. Prévost, and M. Zacharias. PTools: An opensource molecular docking library. BMC Struct. Biol., 9:27–37, 2009.
-
-[5] B. Boyer et al. An integrative approach to the study of filamentous oligomeric assemblies, with application to RecA. PLoS One, 10(3):e0116414, 2015.
-
-[6] B. Boyer, B. Laurent, C. H. Robert, and C. Prévost. Modeling Perturbations in Protein Filaments at the Micro and Meso Scale Using NAMD and PTools/Heligeom. Bio Protoc, 11(14):e4097, 2021.
-
-[7] A. D. Mackerell Jr, M. Feig, and C. L. Brooks 3rd. Extending the treatment of backbone energetics in protein force fields... J Comput Chem, 25:1400–1415, 2004.
-
-[8] J. C. Phillips et al. Scalable molecular dynamics with NAMD. J Comput Chem, 26:1781–1802, 2005.
-"""
-source = "https://zenodo.org/records/18377475"
-
 
 [examples.example_3]
 text = """
-Dataset for Molecular Dynamics Simulation of TLR4/MD-2 Complex with β-Sesquiphellandrene
-Dataset Overview
-
-This dataset contains the input and processed molecular dynamics (MD) simulation data supporting the computational findings of our study. The simulations modeled the interaction between the TLR4/MD-2 receptor complex and the lead bioactive ligand β-sesquiphellandrene from Aframomum Melegueta over a 100-nanosecond trajectory.
-
----
-
-Associated Project: "Aframomum melegueta Attenuates LPS-Induced Neuroinflammation and Memory Impairment through Synergistic TLR4/MD-2 Conformational Locking by β-Sesquiphellandrene and its Natural Phytochemical Matrix"
-
-License: Creative Commons Attribution 4.0 International (CC-BY 4.0)
-
----
-
-File Inventory & Description
-
-Simulation Inputs (Topology & Structure)
-* complex_solvated.gro`: The final solvated system coordinates (Protein + Ligand + Water + Ions).
-* topol.top: GROMACS system topology file.
-* ligand.itp: Ligand topology parameters generated via CGenFF.
-* index.ndx: Index file defining groups (System, Protein, Ligand, Solvent).
-* md_input files: .edr, .nvt, .npt, .cpt, .gro files, etc.
-Production Outputs
-* md_01 xtc file: Compressed trajectory file (100 ns simulation, frames saved every 10 ps).
-* md_01 tpr file: The run input file used to generate the trajectory.
-* md_01 log file: GROMACS log file containing energy and performance data.
-Analysis Outputs (Processed Data)
-* rmsd.xvg, rmsf.xvg, potential.xvg, 
----
-
-Methodology Summary
-
-Software: GROMACS (Version 2025.2)
-Force Field: CHARMM36m (Protein) / CGenFF (Ligand)
-Water Model: TIP3P
-Ensemble: NPT (Isothermal-Isobaric)
-Temperature: 300 K (V-rescale thermostat)
-Pressure: 1 bar (Parrinello-Rahman barostat)
-Duration: 100 ns
-Time Step: 2 fs
-
----
-
-Citation
-
-If you use this dataset, please cite both the dataset DOI and the associated publication:
-
-Dataset: Oladele, T. S., Iteire, K. A., Ogunmiluyi, O. E., Adebisi, K. A., Siyanbade, A. J., Sulaiman, K. A., Leko, B. J., & Ijomone, O. M. (2026). Dataset for Molecular Dynamics Simulation of TLR4/MD-2 Complex with β-Sesquiphellandrene (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18468770
+Molecular dynamics trajectories of selected protein-glycosaminoglycan systems with ff14SB/GLYCAM06j and CHARMM36m force fields
+The following repository contains trajectory data from 1-microsecond MD simulations of the Fibroblast Growth Factor 2-heparin hexamer (PDB ID: 1BFC), Fibroblast Growth Factor 1-heparin hexamer (PDB ID: 2AXM) and Cathepsin K-chondroitin 4-sulfate hexamer (PDB ID: 4N8W) complexes using the ff14SB/GLYCAM06j and CHARMM36m force fields. For each system and each force field, three independend runs are provided. For ff14SB/GLYCAM06j files in AMBER format are provided, while for CHARMM36m in GROMACS format.
 """ 
-source = "https://zenodo.org/records/18468770"
+source = "https://zenodo.org/records/18089451"
 
 [llm]
-model_name = "google/gemini-3.6-flash"
+model_name = "google/gemini-3.8-flash"
 framework = "instructor"
 prompt_path = "docs/prompt_template.md"
 guidelines_path = "docs/annotation_rules.md"
@@ -122,7 +48,7 @@ examples_path = "docs/few_shot_examples.md"
 [gliner]
 model_name = "gliner2.5-base-v1-finetuned"
 model_path = "results/gliner/models/gliner2.5-base-v1-finetuned/fold_3/best"
-device = "cuda"  # Options: "cpu" or "cuda"
+device = "cpu"  # Options: "cpu" or "cuda"
 
 [normalization]
 ffm_db_path = "data/normalization/md_forcefields_registry.json"
