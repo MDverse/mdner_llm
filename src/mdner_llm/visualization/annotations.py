@@ -52,9 +52,14 @@ def find_free_spans(
 
 
 def convert_annotations_from_model(
-    response: ListOfEntities, text_to_annotate: str
+    response: ListOfEntities, text_to_annotate: str, *, find_all: bool = False
 ) -> list[dict]:
     """Convert a list of entities to displaCy manual format.
+
+    If find_all is True, every occurrence of each entity text is located
+    (and not only the first free one). Longer entities are placed first so that
+    a short entity (e.g., 'Ergo') does not take a part of a longer one
+    (e.g., 'Ergosterol').
 
     Returns
     -------
@@ -64,15 +69,28 @@ def convert_annotations_from_model(
     entities = []
     text_lower = text_to_annotate.lower()
     consumed = [False] * len(text_to_annotate)
-    for entity in response.entities:
-        # Locate the first free occurrence of the entity text
-        spans = find_free_spans(text_lower, entity.text, consumed)
+    searched = set()
+    # With find_all, place the longest entities first
+    ordered_entities = (
+        sorted(response.entities, key=lambda entity: len(entity.text), reverse=True)
+        if find_all
+        else response.entities
+    )
+    for entity in ordered_entities:
+        # With find_all, all occurrences are already located on first search
+        if find_all and entity.text.lower() in searched:
+            continue
+        searched.add(entity.text.lower())
+        # Locate the first (or every) free occurrence of the entity text
+        spans = find_free_spans(text_lower, entity.text, consumed, find_all=find_all)
         if not spans:
             loguru.logger.warning(f"Entity '{entity.text}' not found in text.")
         entities.extend(
             {"start": start, "end": end, "label": entity.category}
             for start, end in spans
         )
+    # Sort spans by position in the text, as expected by displaCy
+    entities.sort(key=operator.itemgetter("start"))
     return [{"text": text_to_annotate.replace("\n", " "), "ents": entities}]
 
 
