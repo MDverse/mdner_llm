@@ -8,7 +8,7 @@
             "end": 43
         },
         {
-            "category": "SOFTNAME",
+            "category": "FFM",
             "text": "ANI2x",
             "start": 90,
             "end": 95
@@ -44,7 +44,7 @@
             "end": 296
         },
         {
-            "category": "SOFTNAME",
+            "category": "FFM",
             "text": "ANI2x",
             "start": 413,
             "end": 418
@@ -98,7 +98,7 @@
             "end": 1000
         },
         {
-            "category": "SOFTNAME",
+            "category": "FFM",
             "text": "ANI2x",
             "start": 1027,
             "end": 1032

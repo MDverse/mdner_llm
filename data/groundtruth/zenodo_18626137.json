@@ -26,6 +26,12 @@
             "end": 168
         },
         {
+            "category": "MOL",
+            "text": "transmembrane-juxtamembrane domain",
+            "start": 169,
+            "end": 203
+        },
+        {
             "category": "SOFTNAME",
             "text": "martinize2",
             "start": 273,

@@ -62,6 +62,12 @@
             "end": 414
         },
         {
+            "category": "MOL",
+            "text": "alcohols",
+            "start": 424,
+            "end": 432
+        },
+        {
             "category": "FFM",
             "text": "GAFF",
             "start": 493,

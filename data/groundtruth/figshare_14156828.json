@@ -93,6 +93,18 @@
         },
         {
             "category": "MOL",
+            "text": "SARS-CoV-2 s-protein receptor binding domain",
+            "start": 1466,
+            "end": 1510
+        },
+        {
+            "category": "MOL",
+            "text": "RBD",
+            "start": 1512,
+            "end": 1515
+        },
+        {
+            "category": "MOL",
             "text": "ACE2",
             "start": 1580,
             "end": 1584

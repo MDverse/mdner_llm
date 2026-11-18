@@ -3,18 +3,6 @@
     "entities": [
         {
             "category": "MOL",
-            "text": "FlAbDab",
-            "start": 0,
-            "end": 7
-        },
-        {
-            "category": "MOL",
-            "text": "TCRDab",
-            "start": 10,
-            "end": 16
-        },
-        {
-            "category": "MOL",
             "text": "TCR",
             "start": 85,
             "end": 88
@@ -48,18 +36,6 @@
             "text": "TCRs",
             "start": 553,
             "end": 557
-        },
-        {
-            "category": "MOL",
-            "text": "FlAbDab",
-            "start": 570,
-            "end": 577
-        },
-        {
-            "category": "MOL",
-            "text": "FTCRDab",
-            "start": 582,
-            "end": 589
         },
         {
             "category": "SOFTNAME",

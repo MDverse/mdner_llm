@@ -9,8 +9,8 @@
         },
         {
             "category": "MOL",
-            "text": "Rhizopus chinensis lipase",
-            "start": 192,
+            "text": "open-lid Rhizopus chinensis lipase",
+            "start": 183,
             "end": 217
         },
         {
@@ -30,6 +30,12 @@
             "text": "pNPB",
             "start": 253,
             "end": 257
+        },
+        {
+            "category": "STIME",
+            "text": "300 ns",
+            "start": 296,
+            "end": 302
         },
         {
             "category": "MOL",

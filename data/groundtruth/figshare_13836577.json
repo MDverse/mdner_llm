@@ -38,6 +38,12 @@
             "end": 928
         },
         {
+            "category": "MOL",
+            "text": "GO",
+            "start": 930,
+            "end": 932
+        },
+        {
             "category": "STEMP",
             "text": "473.15 K",
             "start": 982,
@@ -117,6 +123,12 @@
         },
         {
             "category": "MOL",
+            "text": "GO",
+            "start": 1771,
+            "end": 1773
+        },
+        {
+            "category": "MOL",
             "text": "n-C28",
             "start": 1930,
             "end": 1935
@@ -126,6 +138,12 @@
             "text": "H2O",
             "start": 1940,
             "end": 1943
+        },
+        {
+            "category": "MOL",
+            "text": "GO",
+            "start": 2001,
+            "end": 2003
         },
         {
             "category": "MOL",

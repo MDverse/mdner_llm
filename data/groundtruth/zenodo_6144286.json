@@ -21,6 +21,12 @@
         },
         {
             "category": "MOL",
+            "text": "extracellular cysteine-rich domain",
+            "start": 85,
+            "end": 119
+        },
+        {
+            "category": "MOL",
             "text": "Smoothened",
             "start": 146,
             "end": 156
@@ -63,6 +69,12 @@
         },
         {
             "category": "MOL",
+            "text": "TMD",
+            "start": 342,
+            "end": 345
+        },
+        {
+            "category": "MOL",
             "text": "cholesterol",
             "start": 346,
             "end": 357
@@ -72,6 +84,12 @@
             "text": "mSMO",
             "start": 382,
             "end": 386
+        },
+        {
+            "category": "MOL",
+            "text": "CRD",
+            "start": 392,
+            "end": 395
         },
         {
             "category": "MOL",
@@ -93,9 +111,27 @@
         },
         {
             "category": "MOL",
+            "text": "CRD",
+            "start": 467,
+            "end": 470
+        },
+        {
+            "category": "MOL",
+            "text": "TMD",
+            "start": 475,
+            "end": 478
+        },
+        {
+            "category": "MOL",
             "text": "mSMO",
             "start": 502,
             "end": 506
+        },
+        {
+            "category": "MOL",
+            "text": "CRD",
+            "start": 516,
+            "end": 519
         },
         {
             "category": "MOL",
@@ -105,9 +141,15 @@
         },
         {
             "category": "MOL",
-            "text": "Smoothened",
+            "text": "Smoothened agonist",
             "start": 536,
-            "end": 546
+            "end": 554
+        },
+        {
+            "category": "MOL",
+            "text": "SAG",
+            "start": 556,
+            "end": 559
         },
         {
             "category": "MOL",
@@ -117,15 +159,45 @@
         },
         {
             "category": "MOL",
+            "text": "CRD",
+            "start": 597,
+            "end": 600
+        },
+        {
+            "category": "MOL",
+            "text": "TMD",
+            "start": 605,
+            "end": 608
+        },
+        {
+            "category": "MOL",
             "text": "cholesterols",
             "start": 609,
             "end": 621
         },
         {
             "category": "MOL",
+            "text": "SAG",
+            "start": 623,
+            "end": 626
+        },
+        {
+            "category": "MOL",
             "text": "mSMO",
             "start": 685,
             "end": 689
+        },
+        {
+            "category": "MOL",
+            "text": "CRD",
+            "start": 699,
+            "end": 702
+        },
+        {
+            "category": "MOL",
+            "text": "TMD",
+            "start": 707,
+            "end": 710
         },
         {
             "category": "MOL",
@@ -147,9 +219,21 @@
         },
         {
             "category": "MOL",
+            "text": "CRD",
+            "start": 822,
+            "end": 825
+        },
+        {
+            "category": "MOL",
             "text": "cholesterol",
             "start": 826,
             "end": 837
+        },
+        {
+            "category": "MOL",
+            "text": "SAG",
+            "start": 842,
+            "end": 845
         },
         {
             "category": "STIME",

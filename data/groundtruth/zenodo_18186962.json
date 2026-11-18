@@ -3,12 +3,6 @@
     "entities": [
         {
             "category": "MOL",
-            "text": "CpHMD",
-            "start": 0,
-            "end": 5
-        },
-        {
-            "category": "MOL",
             "text": "sTeLIC",
             "start": 43,
             "end": 49
