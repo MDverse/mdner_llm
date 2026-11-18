@@ -26,6 +26,12 @@
             "end": 669
         },
         {
+            "category": "SOFTNAME",
+            "text": "Gromacs",
+            "start": 1209,
+            "end": 1216
+        },
+        {
             "category": "FFM",
             "text": "PLAFF3",
             "start": 1275,

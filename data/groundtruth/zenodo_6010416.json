@@ -78,6 +78,12 @@
             "text": "GROMACS",
             "start": 1569,
             "end": 1576
+        },
+        {
+            "category": "FFM",
+            "text": "Martini 3",
+            "start": 1877,
+            "end": 1886
         }
     ],
     "url": "https://zenodo.org/records/6010416"

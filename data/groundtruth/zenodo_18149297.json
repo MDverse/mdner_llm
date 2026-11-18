@@ -57,20 +57,20 @@
         },
         {
             "category": "MOL",
-            "text": "Mpro",
-            "start": 571,
+            "text": "SARS-CoV Mpro",
+            "start": 562,
             "end": 575
         },
         {
             "category": "MOL",
-            "text": "Mpro",
-            "start": 588,
+            "text": "SARS-CoV-2 Mpro",
+            "start": 577,
             "end": 592
         },
         {
             "category": "MOL",
-            "text": "Mpro",
-            "start": 619,
+            "text": "SARS-CoV-2 Mpro",
+            "start": 608,
             "end": 623
         },
         {
@@ -111,8 +111,8 @@
         },
         {
             "category": "MOL",
-            "text": "Mpro",
-            "start": 1297,
+            "text": "SARS-CoV-2 Mpro",
+            "start": 1286,
             "end": 1301
         }
     ],

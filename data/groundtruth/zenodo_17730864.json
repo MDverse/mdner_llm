@@ -102,12 +102,6 @@
             "text": "100 ns",
             "start": 331,
             "end": 337
-        },
-        {
-            "category": "STIME",
-            "text": "100 ns",
-            "start": 363,
-            "end": 369
         }
     ],
     "url": "https://zenodo.org/records/17730864"

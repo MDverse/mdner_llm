@@ -1,131 +1,137 @@
 {
-    "raw_text": "Molecular dynamics simulation of PTE variants containing starting structure, topology and trajectory files\nMolecular dynamics (MD) simulation trajectories for R0, R6, R8, R22, revR6 and revR12 variants of PTE and AE variants. It contains the starting structure of the simulation and MD trajectory for the simulation with truncated water atoms and including the topology files.\nPDB IDs: 4PCP (R0), 4XAG (R6), 4XAY (R8), 4PCN(R22), 4PBE (revR6), 4PBF (revR12)",
+    "raw_text": "Molecular dynamics simulation of phosphotriesterase (PTE) variants containing starting structure, topology and trajectory files\nMolecular dynamics (MD) simulation trajectories for R0, R6, R8, R22, revR6 and revR12 variants of phosphotriesterase (PTE) variants. It contains the starting structure of the simulation and MD trajectory for the simulation with truncated water atoms and including the topology files.\nPDB IDs: 4PCP (R0), 4XAG (R6), 4XAY (R8), 4PCN(R22), 4PBE (revR6), 4PBF (revR12)",
     "entities": [
         {
             "category": "MOL",
-            "text": "PTE",
+            "text": "phosphotriesterase",
             "start": 33,
-            "end": 36
+            "end": 51
+        },
+        {
+            "category": "MOL",
+            "text": "PTE",
+            "start": 53,
+            "end": 56
         },
         {
             "category": "MOL",
             "text": "R0",
-            "start": 159,
-            "end": 161
+            "start": 180,
+            "end": 182
         },
         {
             "category": "MOL",
             "text": "R6",
-            "start": 163,
-            "end": 165
+            "start": 184,
+            "end": 186
         },
         {
             "category": "MOL",
             "text": "R8",
-            "start": 167,
-            "end": 169
+            "start": 188,
+            "end": 190
         },
         {
             "category": "MOL",
             "text": "R22",
-            "start": 171,
-            "end": 174
+            "start": 192,
+            "end": 195
         },
         {
             "category": "MOL",
             "text": "revR6",
-            "start": 176,
-            "end": 181
+            "start": 197,
+            "end": 202
         },
         {
             "category": "MOL",
             "text": "revR12",
-            "start": 186,
-            "end": 192
+            "start": 207,
+            "end": 213
+        },
+        {
+            "category": "MOL",
+            "text": "phosphotriesterase",
+            "start": 226,
+            "end": 244
         },
         {
             "category": "MOL",
             "text": "PTE",
-            "start": 205,
-            "end": 208
-        },
-        {
-            "category": "MOL",
-            "text": "AE",
-            "start": 213,
-            "end": 215
+            "start": 246,
+            "end": 249
         },
         {
             "category": "MOL",
             "text": "4PCP",
-            "start": 386,
-            "end": 390
+            "start": 421,
+            "end": 425
         },
         {
             "category": "MOL",
             "text": "R0",
-            "start": 392,
-            "end": 394
+            "start": 427,
+            "end": 429
         },
         {
             "category": "MOL",
             "text": "4XAG",
-            "start": 397,
-            "end": 401
+            "start": 432,
+            "end": 436
         },
         {
             "category": "MOL",
             "text": "R6",
-            "start": 403,
-            "end": 405
+            "start": 438,
+            "end": 440
         },
         {
             "category": "MOL",
             "text": "4XAY",
-            "start": 408,
-            "end": 412
+            "start": 443,
+            "end": 447
         },
         {
             "category": "MOL",
             "text": "R8",
-            "start": 414,
-            "end": 416
+            "start": 449,
+            "end": 451
         },
         {
             "category": "MOL",
             "text": "4PCN",
-            "start": 419,
-            "end": 423
+            "start": 454,
+            "end": 458
         },
         {
             "category": "MOL",
             "text": "R22",
-            "start": 424,
-            "end": 427
+            "start": 459,
+            "end": 462
         },
         {
             "category": "MOL",
             "text": "4PBE",
-            "start": 430,
-            "end": 434
+            "start": 465,
+            "end": 469
         },
         {
             "category": "MOL",
             "text": "revR6",
-            "start": 436,
-            "end": 441
+            "start": 471,
+            "end": 476
         },
         {
             "category": "MOL",
             "text": "4PBF",
-            "start": 444,
-            "end": 448
+            "start": 479,
+            "end": 483
         },
         {
             "category": "MOL",
             "text": "revR12",
-            "start": 450,
-            "end": 456
+            "start": 485,
+            "end": 491
         }
     ],
     "url": "https://zenodo.org/records/17744955"

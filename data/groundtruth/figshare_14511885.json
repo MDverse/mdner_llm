@@ -63,6 +63,12 @@
         },
         {
             "category": "MOL",
+            "text": "VDAC1",
+            "start": 1370,
+            "end": 1375
+        },
+        {
+            "category": "MOL",
             "text": "HKV1",
             "start": 1384,
             "end": 1388
