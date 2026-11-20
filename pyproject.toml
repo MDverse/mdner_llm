@@ -69,6 +69,12 @@ dev = [
     "watermark>=2.5.0",
 ]
 
+[tool.pytest.ini_options]
+filterwarnings = [
+    # Raised 7 times by the gliner library at import (not our code).
+    "ignore:`torch.jit.script` is deprecated:DeprecationWarning",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
