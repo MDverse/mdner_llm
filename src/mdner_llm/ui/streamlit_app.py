@@ -404,7 +404,12 @@ def run_normalization(
             logger.info("No hallucinated entities.")
     else:
         logger.error("Normalization failed: normalize_json_content returned None.")
-        st.error("Error during normalization step.")
+        # Fall back on the raw extracted entities so that the quality check
+        # and the export button are still available.
+        st.session_state["normalized_entities"] = [
+            {**entity, "text_normalized": clean_text_fields(entity["text"])}
+            for entity in st.session_state["extracted_entities"]
+        ]
     st.session_state["stage"] = "done"
     st.rerun()
 
