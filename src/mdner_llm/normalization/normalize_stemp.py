@@ -28,7 +28,8 @@ def norm_temp(temp_str: str) -> tuple:
     # - The third group matches the unit: ( *°? *[a-z]*)? allows to match
     #   an optional unit because of the "?" symbol at the end of the group.
     #   This group consists of zero or more spaces, because of the "*" symbol,
-    #   an optional degree symbol, then zero or more spaces, and zero or more letters.
+    #   an optional degree symbol ("°" or "˚"), then zero or more spaces,
+    #   and zero or more letters.
     # logger.info("Normalising temperature entities...")
     # If the temperatue is anotated as room temperature or body temperature
     # we normalize it to the standard value
@@ -36,7 +37,7 @@ def norm_temp(temp_str: str) -> tuple:
         return (293, "K")
     if temp_str == "human body temperature":
         return (310, "K")
-    temperature_match = re.search(r"([0-9]+)(\.?[0-9]+)?( *˚? *[a-z]*)?", temp_str)
+    temperature_match = re.search(r"([0-9]+)(\.?[0-9]+)?( *[°˚]? *[a-z]*)?", temp_str)
     if temperature_match is None:
         logger.warning(f"STEMP: Could not extract temperature from '{temp_str}'.")
         return None, None
@@ -55,7 +56,7 @@ def norm_temp(temp_str: str) -> tuple:
     # Fetching the unit and converting to kelvin when needed
     if temperature_unit is not None:
         temperature_unit = temperature_unit.strip(" ")  # We remove the spaces
-        temperature_unit = temperature_unit.strip("°")  # We remove the degree
+        temperature_unit = temperature_unit.strip("°˚")  # We remove the degree
         if temperature_unit == "":  # if there is no unit we assume it's kelvin
             temperature_unit = "K"
         elif "c" in temperature_unit:

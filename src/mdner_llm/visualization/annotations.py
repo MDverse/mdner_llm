@@ -3,6 +3,7 @@
 import json
 import math
 import operator
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -26,35 +27,41 @@ def find_free_spans(
 ) -> list[tuple[int, int]]:
     """Find non-overlapping occurrences of a span and mark them as consumed.
 
+    Only whole-word occurrences are matched: the span must not be preceded
+    or followed by a letter, digit or underscore (e.g., 'SOL' is found in
+    '35840 SOL]' but not in 'solution').
+
     Returns
     -------
     list[tuple[int, int]]
         Start and end positions of the occurrences found.
     """
     spans = []
-    span_lower = span_text.lower()
-    search_pos = 0
-    while search_pos < len(text_lower):
-        start = text_lower.find(span_lower, search_pos)
-        if start == -1:
-            break
-        end = start + len(span_text)
+    # Use regex to find whole-word occurrences of the span text
+    # By using re.escape, special characters in the span text are escaped
+    # example: for `v20.0.1`, the dot is escaped to \. to match a literal dot
+    pattern = re.compile(rf"(?<!\w){re.escape(span_text.lower())}(?!\w)")
+    for match in pattern.finditer(text_lower):
+        start, end = match.span()
         # Skip occurrences overlapping an already placed span
         if any(consumed[start:end]):
-            search_pos = start + 1
             continue
         consumed[start:end] = [True] * (end - start)
         spans.append((start, end))
         if not find_all:
             break
-        search_pos = end
     return spans
 
 
 def convert_annotations_from_model(
-    response: ListOfEntities, text_to_annotate: str
+    response: ListOfEntities, text_to_annotate: str, *, find_all: bool = False
 ) -> list[dict]:
     """Convert a list of entities to displaCy manual format.
+
+    If find_all is True, every occurrence of each entity text is located
+    (and not only the first free one). Longer entities are placed first so that
+    a short entity (e.g., 'Ergo') does not take a part of a longer one
+    (e.g., 'Ergosterol').
 
     Returns
     -------
@@ -64,15 +71,28 @@ def convert_annotations_from_model(
     entities = []
     text_lower = text_to_annotate.lower()
     consumed = [False] * len(text_to_annotate)
-    for entity in response.entities:
-        # Locate the first free occurrence of the entity text
-        spans = find_free_spans(text_lower, entity.text, consumed)
+    searched = set()
+    # With find_all, place the longest entities first
+    ordered_entities = (
+        sorted(response.entities, key=lambda entity: len(entity.text), reverse=True)
+        if find_all
+        else response.entities
+    )
+    for entity in ordered_entities:
+        # With find_all, all occurrences are already located on first search
+        if find_all and entity.text.lower() in searched:
+            continue
+        searched.add(entity.text.lower())
+        # Locate the first (or every) free occurrence of the entity text
+        spans = find_free_spans(text_lower, entity.text, consumed, find_all=find_all)
         if not spans:
             loguru.logger.warning(f"Entity '{entity.text}' not found in text.")
         entities.extend(
             {"start": start, "end": end, "label": entity.category}
             for start, end in spans
         )
+    # Sort spans by position in the text, as expected by displaCy
+    entities.sort(key=operator.itemgetter("start"))
     return [{"text": text_to_annotate.replace("\n", " "), "ents": entities}]
 
 

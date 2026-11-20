@@ -47,7 +47,7 @@ Examples:
 
 
 def norm_stime(
-    raw_simulation_time: str, model_name: str
+    raw_simulation_time: str, model_name: str, api_key: str | None = None
 ) -> list[dict[str, float | str]]:
     """Query LLM backend and return normalized simulation time dictionaries.
 
@@ -59,7 +59,7 @@ def norm_stime(
     client = instructor.from_openai(
         OpenAI(
             base_url="https://openrouter.ai/api/v1",
-            api_key=os.getenv("OPENROUTER_API_KEY"),
+            api_key=api_key or os.getenv("OPENROUTER_API_KEY"),
         )
     )
     formatted_prompt = PROMPT_TEMPLATE.format(raw_simulation_time=raw_simulation_time)
