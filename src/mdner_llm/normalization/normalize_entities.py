@@ -239,6 +239,7 @@ def normalize_json_content(
     softname_db_path: Path,
     model_name: str,
     logger: "loguru.Logger" = loguru.logger,
+    api_key: str | None = None,
 ) -> dict[str, Any] | None:
     """Normalize entities in the JSON content and check for hallucinations.
 
@@ -278,7 +279,7 @@ def normalize_json_content(
                 norm_from_db(softname_db_path, "SOFTNAME", predicted_entity_cleaned)
             )
         elif entity.category == "STIME":
-            items = norm_stime(predicted_entity_cleaned, model_name)
+            items = norm_stime(predicted_entity_cleaned, model_name, api_key)
             normalized_entities.extend({**ent_dict, **item} for item in items)
             continue
         elif entity.category == "MOL":

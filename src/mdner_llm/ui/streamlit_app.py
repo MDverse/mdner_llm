@@ -155,14 +155,18 @@ def render_export_button() -> None:
             width="stretch",
         )
         return
-    # Export only the normalized (non-hallucinated) entities,
-    # e.g., [{"text": "...", "entities": [{"POPC": "MOL"}, ...]}].
+    # Deduplicate the (text, category) pairs of non-hallucinated entities.
+    # A STIME entity may be split into several normalized items (e.g., '0.03 and 3 μs')
+    unique_entities = dict.fromkeys(
+        (entity["text"], entity["category"])
+        for entity in st.session_state["normalized_entities"]
+    )
+    # Build the export data in the expected format: [{"text": ..., "entities": [...]}].
     export_data = [
         {
             "text": st.session_state["processed_text"],
             "entities": [
-                {entity["text"]: entity["category"]}
-                for entity in st.session_state["normalized_entities"]
+                {entity_text: category} for entity_text, category in unique_entities
             ],
         }
     ]
@@ -377,6 +381,7 @@ def run_normalization(
     model: str,
     ffm_path: Path,
     soft_path: Path,
+    api_key: str,
     logger: "loguru.Logger",
 ) -> None:
     """Execute normalization and remove hallucinated entities."""
@@ -392,6 +397,7 @@ def run_normalization(
         softname_db_path=soft_path,
         model_name=model,
         logger=logger,
+        api_key=api_key,
     )
     # Filter out entities flagged as hallucinations by the LLM.
     if result:
@@ -438,15 +444,12 @@ def run_app(
     title_column, quota_column = st.columns([10, 1])
     with title_column:
         st.header(f"⚛︎ {settings.app_name}: {settings.app_short_description}")
-    # No API key needed in GLiNER mode.
-    api_key = None
-    if settings.default_model == "llm":
-        # Retrieve the OpenRouter API key from environment variables.
-        api_key = load_api_key("OPENROUTER_STREAMLIT_API_KEY")
-        with quota_column:
-            st.session_state["is_llm_requests_allowed"] = show_daily_quota(
-                api_key, logger
-            )
+    # Retrieve the OpenRouter API key from environment variables.
+    # It is needed in both modes: the simulation times (STIME) are
+    # normalized with an LLM, so they also count in the daily quota.
+    api_key = load_api_key("OPENROUTER_STREAMLIT_API_KEY")
+    with quota_column:
+        st.session_state["is_llm_requests_allowed"] = show_daily_quota(api_key, logger)
     # Render two-column layout for input and output sections.
     left_column, right_column = st.columns([1, 1], gap="large")
     # Input section: Text area for user to provide MD dataset description.
@@ -564,7 +567,7 @@ def run_app(
 
         # Step 3: Run normalization on extracted entities.
         if current_stage == "normalize":
-            run_normalization(model, ffm_path, soft_path, logger)
+            run_normalization(model, ffm_path, soft_path, api_key, logger)
 
 
 def main() -> None:
