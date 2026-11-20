@@ -4,7 +4,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, Field, FilePath
+from pydantic import BaseModel, DirectoryPath, Field, FilePath
 from pydantic_settings import (
     BaseSettings,
     PydanticBaseSettingsSource,
@@ -30,8 +30,8 @@ class GlinerConfig(BaseModel):
     model_name: str = Field(
         ..., description="Name of the Gliner2 model to use for generating responses."
     )
-    model_path: FilePath | str = Field(
-        ..., description="Path to the Gliner2 model file for inference."
+    model_path: DirectoryPath | str = Field(
+        ..., description="Local Gliner2 model directory or Hugging Face model id."
     )
     device: Literal["cpu", "cuda"] = Field(
         default="cuda",
@@ -59,7 +59,7 @@ class LLMConfig(BaseModel):
     )
 
 
-class Settings(BaseSettings, cli_parse_args=True):
+class Settings(BaseSettings):
     """Global MDNER-LLM streamlit application settings."""
 
     # Basic application info
@@ -67,16 +67,16 @@ class Settings(BaseSettings, cli_parse_args=True):
         ..., description="Application name displayed in the UI or logs."
     )
     app_short_description: str = Field(
-        ..., description="Short app description displayed in the logs."
+        ..., description="Short app description displayed in the page header."
     )
     app_long_description: str = Field(
-        ..., description="Long app description displayed in the logs."
+        ..., description="Long app description displayed in the sidebar."
     )
     app_version: str = Field(..., description="Current version of the application.")
     # Default model for metadata extraction
     default_model: Literal["llm", "gliner"] = Field(
         default="llm",
-        description="Default model to use for metadata extraction."
+        description="Default model to use for metadata extraction. "
         "Options: 'llm' or 'gliner'.",
     )
     # Example texts for users to pre-fill the input text area
@@ -137,6 +137,10 @@ class Settings(BaseSettings, cli_parse_args=True):
             constructor.
         env_settings : PydanticBaseSettingsSource
             Source providing values from environment variables.
+        dotenv_settings : PydanticBaseSettingsSource
+            Source providing values from a .env file.
+        file_secret_settings : PydanticBaseSettingsSource
+            Source providing values from secret files (unused).
 
         Returns
         -------
@@ -145,11 +149,11 @@ class Settings(BaseSettings, cli_parse_args=True):
             priority during value resolution.
         """
         return (
-            # Load settings from TOML files first
-            TomlConfigSettingsSource(settings_cls),
-            # Override with explicit constructor arguments
+            # Explicit constructor arguments have the highest priority,
             init_settings,
-            # Finally allow environment variables to override everything
+            # then environment variables (and .env file) override the TOML file,
             env_settings,
             dotenv_settings,
+            # which provides the default values.
+            TomlConfigSettingsSource(settings_cls),
         )
