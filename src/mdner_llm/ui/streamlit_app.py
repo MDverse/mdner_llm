@@ -228,10 +228,10 @@ def run_gliner_extraction(
     """Execute entity extraction via Gliner2 model inference."""
     with st.spinner("Extracting MD metadata..."):
         try:
-            # Load Gliner2 model configuration.
-            logger.info(f"Loading {model_name} model.")
-            gliner_model = load_model(
-                model_path=model_path, adapter_path=None, device=device, logger=logger
+            # Retrieve the Gliner2 model (loaded only on the first call).
+            logger.info(f"Running {model_name} model.")
+            gliner_model = st.cache_resource(show_spinner=False)(load_model)(
+                model_path=model_path, adapter_path=None, device=device
             )
             # Query Gliner2.
             gliner_response, inference_time, _in_tokens, _out_tokens = run_gliner(
@@ -476,10 +476,10 @@ def main() -> None:
     """Execute main entry point for the Streamlit dashboard."""
     # Load environment variables.
     load_dotenv()
-    # Load application settings.
-    settings = Settings()
-    # Initialize logger.
-    app_logger = create_logger(settings.log_path)
+    # Load application settings (cached across reruns).
+    settings = st.cache_resource(show_spinner=False)(Settings)()
+    # Initialize logger (cached across reruns).
+    app_logger = st.cache_resource(show_spinner=False)(create_logger)()
     # Launch main UI.
     st.set_page_config(
         page_title=settings.app_name,
