@@ -208,6 +208,7 @@ def log_extracted_entities(
 
 def run_llm_extraction(
     model: str,
+    framework: str,
     prompt: Path,
     guidelines: Path,
     examples: Path,
@@ -220,7 +221,7 @@ def run_llm_extraction(
         try:
             # Query LLM to obtain structured annotations.
             llm_response, metadata = annotate_with_llm_and_framework(
-                framework="instructor",
+                framework=framework,
                 text_to_annotate=st.session_state["pending_text"],
                 model=model,
                 api_key=api_key,
@@ -354,7 +355,15 @@ def run_extraction(
         )
     # LLM mode: run the LLM only if the daily quota is not exhausted.
     elif st.session_state["is_llm_requests_allowed"]:
-        run_llm_extraction(model, prompt, guidelines, examples, api_key, logger)
+        run_llm_extraction(
+            model,
+            settings.llm.framework,
+            prompt,
+            guidelines,
+            examples,
+            api_key,
+            logger,
+        )
     else:
         logger.warning("LLM extraction refused: daily quota exhausted.")
         st.error(
