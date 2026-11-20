@@ -17,10 +17,9 @@ MOL entities should be uniquely identifiable.
 4. Annotate chemical formulas and abbreviations separately from full molecule names.
 5. Include amino acid and nucleic acid sequences
 6. Include any identifiers (PDB ID, UniProt ID...)
-7. Exclude adjectives or descriptors that modify the molecule (e.g., `hydrated`, `charged`, `folded`, `tetrameric`)
-8. Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `alcohols`, `ions`, `compounds`...
-9. Exclude specific residues or domains like `Lys-353`...
-10. Annotate individual components of a molecular complex or mixture separately, excluding connectors (`/`, `-`) and generic assembly terms (`complex`, `dimer`, `mixture`).
+7. Exclude generic terms like `protein`, `lipid`, `phospholipid`, `DNA`, `sugar`, `water`, `alcohols`, `ions`, `compounds`...
+8. Exclude specific residues or domains like `Lys-353`...
+9. Annotate individual components of a molecular complex or mixture separately, excluding connectors (`/`, `-`) and generic assembly terms (`complex`, `dimer`, `mixture`).
 
 ### Good examples
 
@@ -38,12 +37,11 @@ MOL entities should be uniquely identifiable.
 
 - `H` (Rule 2)
 - `coronavirus 2019-nCoV protease Mpro` (annotate separately `coronavirus 2019-nCoV protease` and `Mpro`, Rule 4)
-- `hydrated sodium chloride` (only annotate `sodium chloride`, Rule 7)
-- `lipids` (Rule 8)
-- `DNA` (Rule 8)
-- `binding protein` (Rule 8)
-- `ions in solvent` (Rule 8)
-- `TLR4/MD-2 complex` (annotate `TLR4` and `MD-2` separately, Rule 10)
+- `lipids` (Rule 7)
+- `DNA` (Rule 7)
+- `binding protein` (Rule 7)
+- `ions in solvent` (Rule 7)
+- `TLR4/MD-2 complex` (annotate `TLR4` and `MD-2` separately, Rule 9)
 
 ## Force field and model: FFM
 
