@@ -42,7 +42,7 @@ ENTITY_NAME_CATEGORIES = {
 
 
 @st.cache_data(ttl=30)
-def show_daily_quota(api_key: str) -> bool:
+def show_daily_quota(api_key: str, _logger: "loguru.Logger") -> bool:
     """Display the daily quota and return whether requests are allowed.
 
     Returns
@@ -60,7 +60,7 @@ def show_daily_quota(api_key: str) -> bool:
         response.raise_for_status()
         data = response.json()["data"]
     except httpx.HTTPError as quota_error:
-        loguru.logger.warning(f"Unable to retrieve the OpenRouter quota: {quota_error}")
+        _logger.warning(f"Unable to retrieve the OpenRouter quota: {quota_error}")
         st.warning("Unable to retrieve the OpenRouter quota.")
         return True
     # Extract the limit and remaining quota from the API response.
@@ -68,18 +68,18 @@ def show_daily_quota(api_key: str) -> bool:
     remaining = data.get("limit_remaining")
     # Check if the daily quota is properly configured.
     if limit is None or remaining is None or data.get("limit_reset") != "daily":
-        loguru.logger.warning("OpenRouter daily quota is not configured.")
+        _logger.warning("OpenRouter daily quota is not configured.")
         st.caption("Remaining daily quota not configured")
         return True
     # Called at most every 30 s thanks to the cache (no log flooding).
-    loguru.logger.info(f"OpenRouter daily quota: {remaining:.2f} / {limit:.0f}.")
+    _logger.info(f"OpenRouter remaining daily quota: {remaining:.2f} / {limit:.0f}.")
     # Calculate the progress percentage for the progress bar.
     progress = max(0.0, min(1.0, remaining / limit)) if limit > 0 else 0.0
     st.caption(f"Remaining daily quota: **{remaining:.1f}** / {limit:.0f}")
     st.progress(progress, text=None, width=180)
     # If the remaining quota is exhausted,
     if remaining <= 0:
-        loguru.logger.warning("OpenRouter daily quota exhausted.")
+        _logger.warning("OpenRouter daily quota exhausted.")
         # display a toast notification to inform the user.
         st.toast(
             "No credits left for today. "
@@ -444,7 +444,9 @@ def run_app(
         # Retrieve the OpenRouter API key from environment variables.
         api_key = load_api_key("OPENROUTER_STREAMLIT_API_KEY")
         with quota_column:
-            st.session_state["is_llm_requests_allowed"] = show_daily_quota(api_key)
+            st.session_state["is_llm_requests_allowed"] = show_daily_quota(
+                api_key, logger
+            )
     # Render two-column layout for input and output sections.
     left_column, right_column = st.columns([1, 1], gap="large")
     # Input section: Text area for user to provide MD dataset description.
