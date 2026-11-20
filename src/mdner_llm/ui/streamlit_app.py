@@ -1,6 +1,7 @@
 """Streamlit app for Named Entity Recognition on Molecular Dynamics descriptions."""
 
 import json
+import time
 from pathlib import Path
 
 import httpx
@@ -58,7 +59,8 @@ def show_daily_quota(api_key: str) -> bool:
         )
         response.raise_for_status()
         data = response.json()["data"]
-    except httpx.HTTPError:
+    except httpx.HTTPError as quota_error:
+        loguru.logger.warning(f"Unable to retrieve the OpenRouter quota: {quota_error}")
         st.warning("Unable to retrieve the OpenRouter quota.")
         return True
     # Extract the limit and remaining quota from the API response.
@@ -66,14 +68,18 @@ def show_daily_quota(api_key: str) -> bool:
     remaining = data.get("limit_remaining")
     # Check if the daily quota is properly configured.
     if limit is None or remaining is None or data.get("limit_reset") != "daily":
+        loguru.logger.warning("OpenRouter daily quota is not configured.")
         st.caption("Remaining daily quota not configured")
         return True
+    # Called at most every 30 s thanks to the cache (no log flooding).
+    loguru.logger.info(f"OpenRouter daily quota: {remaining:.2f} / {limit:.0f}.")
     # Calculate the progress percentage for the progress bar.
     progress = max(0.0, min(1.0, remaining / limit)) if limit > 0 else 0.0
     st.caption(f"Remaining daily quota: **{remaining:.1f}** / {limit:.0f}")
     st.progress(progress, text=None, width=180)
     # If the remaining quota is exhausted,
     if remaining <= 0:
+        loguru.logger.warning("OpenRouter daily quota exhausted.")
         # display a toast notification to inform the user.
         st.toast(
             "No credits left for today. "
@@ -165,10 +171,39 @@ def render_export_button() -> None:
         data=json.dumps(export_data, indent=2, ensure_ascii=False),
         file_name="metamd_metadata.json",
         mime="application/json",
+        on_click=lambda: loguru.logger.info(
+            f"Exported {len(export_data[0]['entities'])} entities as JSON."
+        ),
         icon=":material/download:",
         type="secondary",
         width="stretch",
     )
+
+
+def log_extracted_entities(
+    predictions: ListOfEntities, inference_time: float, logger: "loguru.Logger"
+) -> None:
+    """Log the extracted entities, grouped by category, and the inference time."""
+    logger.info(
+        f"Extracted {len(predictions.entities)} entities in {inference_time:.1f} s."
+    )
+    # Group the entity texts by category, e.g., {'MOL': ['POPC', 'PSM'], ...}.
+    texts_per_category = {
+        code: [
+            entity.text for entity in predictions.entities if entity.category == code
+        ]
+        for code in ENTITY_NAME_CATEGORIES
+    }
+    # Report the missing categories, or confirm that all of them were found.
+    missing = [code for code, texts in texts_per_category.items() if not texts]
+    if missing:
+        logger.warning(f"Missing categories: {', '.join(missing)}.")
+    else:
+        logger.success("All categories found.")
+    # One line per found category, e.g., 'MOL (2): POPC, PSM'.
+    for code, texts in texts_per_category.items():
+        if texts:
+            logger.info(f"{code} ({len(texts)}): {', '.join(texts)}")
 
 
 def run_llm_extraction(
@@ -181,6 +216,7 @@ def run_llm_extraction(
 ) -> None:
     """Execute entity extraction via large language model inference."""
     with st.spinner("Extracting MD metadata..."):
+        logger.info(f"Starting metadata extraction with the {model} LLM.")
         try:
             # Query LLM to obtain structured annotations.
             llm_response, metadata = annotate_with_llm_and_framework(
@@ -206,6 +242,11 @@ def run_llm_extraction(
                 model,
                 metadata["usage"]["inference_time_sec"],
             )
+            log_extracted_entities(
+                st.session_state["structured_predictions"],
+                metadata["usage"]["inference_time_sec"],
+                logger,
+            )
             st.session_state["stage"] = "normalize"
         except (
             ValueError,
@@ -213,7 +254,7 @@ def run_llm_extraction(
             RuntimeError,
             ValidationError,
         ) as extraction_error:
-            logger.error(f"Extraction error: {extraction_error}")
+            logger.error(f"LLM extraction failed: {extraction_error}")
             st.error(f"An error occurred during extraction: {extraction_error}")
             st.session_state["stage"] = None
     st.rerun()
@@ -229,7 +270,10 @@ def run_gliner_extraction(
     with st.spinner("Extracting MD metadata..."):
         try:
             # Retrieve the Gliner2 model (loaded only on the first call).
-            logger.info(f"Running {model_name} model.")
+            logger.info(
+                f"Starting metadata extraction with the {model_name} GLiNER model "
+                f"on {device}."
+            )
             gliner_model = st.cache_resource(show_spinner=False)(load_model)(
                 model_path=model_path, adapter_path=None, device=device
             )
@@ -262,6 +306,7 @@ def run_gliner_extraction(
             st.session_state["structured_predictions"] = structured_gliner_response
             # Keep the model name and inference time to display them later.
             st.session_state["extraction_info"] = (model_name, inference_time)
+            log_extracted_entities(structured_gliner_response, inference_time, logger)
             st.session_state["stage"] = "normalize"
         except (
             ValueError,
@@ -269,7 +314,10 @@ def run_gliner_extraction(
             RuntimeError,
             ValidationError,
         ) as extraction_error:
-            logger.error(f"Gliner2 extraction error: {extraction_error}")
+            logger.error(
+                f"GLiNER extraction failed ({type(extraction_error).__name__}): "
+                f"{extraction_error}"
+            )
             st.error(f"An error occurred during Gliner2 extraction: {extraction_error}")
             st.session_state["stage"] = None
     st.rerun()
@@ -297,6 +345,7 @@ def run_extraction(
     elif st.session_state["is_llm_requests_allowed"]:
         run_llm_extraction(model, prompt, guidelines, examples, api_key, logger)
     else:
+        logger.warning("LLM extraction refused: daily quota exhausted.")
         st.error(
             "No credits left for today. "
             "Please come back tomorrow for more LLM requests."
@@ -311,6 +360,8 @@ def run_normalization(
     logger: "loguru.Logger",
 ) -> None:
     """Execute normalization and remove hallucinated entities."""
+    logger.info("Starting normalization of the extracted entities.")
+    start_time = time.perf_counter()
     # Normalize extracted entities against reference databases.
     result = normalize_json_content(
         {
@@ -324,12 +375,24 @@ def run_normalization(
     )
     # Filter out entities flagged as hallucinations by the LLM.
     if result:
+        entities = result.get("normalized_entities", {}).get("entities", [])
+        hallucinated = [entity for entity in entities if entity.get("is_hallucinated")]
         st.session_state["normalized_entities"] = [
-            entity
-            for entity in result.get("normalized_entities", {}).get("entities", [])
-            if not entity.get("is_hallucinated", False)
+            entity for entity in entities if not entity.get("is_hallucinated")
         ]
+        logger.info(f"Normalization done in {time.perf_counter() - start_time:.1f} s.")
+        # Report the hallucinated entities removed from the result.
+        if hallucinated:
+            removed = ", ".join(
+                f"{entity['text']} ({entity['category']})" for entity in hallucinated
+            )
+            logger.warning(
+                f"{len(hallucinated)} hallucinated entities removed: {removed}"
+            )
+        else:
+            logger.info("No hallucinated entities.")
     else:
+        logger.error("Normalization failed: normalize_json_content returned None.")
         st.error("Error during normalization step.")
     st.session_state["stage"] = "done"
     st.rerun()
@@ -381,10 +444,10 @@ def run_app(
                     key.replace("_", " ").title(),
                     key=f"button_{key}",
                     help=f"Source: {example['source']}",
-                    on_click=lambda text=example["text"]: st.session_state.update(
-                        {"input_text": text}
+                    on_click=lambda text=example["text"], name=key: (
+                        logger.info(f"Example '{name}' loaded in the input."),
+                        st.session_state.update({"input_text": text}),
                     ),
-                    args=(example["text"],),
                     width="stretch",
                 )
         # Button to trigger extraction.
@@ -396,8 +459,13 @@ def run_app(
         )
         if extract_clicked:
             if not description.strip():
+                logger.warning("Extraction requested with an empty description.")
                 st.warning("Please provide a description before running extraction.")
             else:
+                logger.info(
+                    f"Text to annotate ({len(description)} characters):\n"
+                    f"{description.strip()}"
+                )
                 # Clear previous session state.
                 for key_name in (
                     "extracted_entities",
@@ -479,7 +547,7 @@ def main() -> None:
     # Load application settings (cached across reruns).
     settings = st.cache_resource(show_spinner=False)(Settings)()
     # Initialize logger (cached across reruns).
-    app_logger = st.cache_resource(show_spinner=False)(create_logger)()
+    app_logger = st.cache_resource(show_spinner=False)(create_logger)(settings.log_path)
     # Launch main UI.
     st.set_page_config(
         page_title=settings.app_name,
@@ -487,6 +555,10 @@ def main() -> None:
         layout="wide",
         initial_sidebar_state="collapsed",
     )
+    # Log the welcome message once per user session.
+    if "session_started" not in st.session_state:
+        st.session_state["session_started"] = True
+        app_logger.info(f"Welcome to {settings.app_name} v{settings.app_version}")
     # Create a sidebar for application settings and information.
     with st.sidebar:
         st.image("img/logo_app.png")
