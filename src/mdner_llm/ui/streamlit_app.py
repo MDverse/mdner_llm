@@ -214,7 +214,7 @@ def run_llm_extraction(
     api_key: str,
     logger: "loguru.Logger",
 ) -> None:
-    """Execute entity extraction via large language model inference."""
+    """Execute entity extraction via large language model inference."""  # noqa: DOC501 (caught below)
     with st.spinner("Extracting MD metadata..."):
         logger.info(f"Starting metadata extraction with the {model} LLM.")
         try:
@@ -229,6 +229,11 @@ def run_llm_extraction(
                 temperature=None,
                 logger=logger,
             )
+            # API and format errors are caught by annotate_with_llm_and_framework,
+            # which then returns no entities: check the status to detect them.
+            if metadata["status"] != "ok":
+                msg = f"LLM request failed ({metadata['status']})."
+                raise RuntimeError(msg)
             # Persist output into session state before moving to normalization.
             st.session_state["extracted_entities"] = [
                 entity.model_dump() for entity in llm_response.entities
@@ -253,10 +258,13 @@ def run_llm_extraction(
             KeyError,
             RuntimeError,
             ValidationError,
+            OSError,
         ) as extraction_error:
             logger.error(f"LLM extraction failed: {extraction_error}")
             st.error(f"An error occurred during extraction: {extraction_error}")
             st.session_state["stage"] = None
+            # No rerun on error: it would clear the message before it is seen.
+            return
     st.rerun()
 
 
@@ -313,6 +321,7 @@ def run_gliner_extraction(
             KeyError,
             RuntimeError,
             ValidationError,
+            OSError,
         ) as extraction_error:
             logger.error(
                 f"GLiNER extraction failed ({type(extraction_error).__name__}): "
@@ -320,6 +329,8 @@ def run_gliner_extraction(
             )
             st.error(f"An error occurred during Gliner2 extraction: {extraction_error}")
             st.session_state["stage"] = None
+            # No rerun on error: it would clear the message before it is seen.
+            return
     st.rerun()
 
 
