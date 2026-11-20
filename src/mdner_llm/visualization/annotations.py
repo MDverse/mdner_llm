@@ -3,6 +3,7 @@
 import json
 import math
 import operator
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -26,28 +27,29 @@ def find_free_spans(
 ) -> list[tuple[int, int]]:
     """Find non-overlapping occurrences of a span and mark them as consumed.
 
+    Only whole-word occurrences are matched: the span must not be preceded
+    or followed by a letter, digit or underscore (e.g., 'SOL' is found in
+    '35840 SOL]' but not in 'solution').
+
     Returns
     -------
     list[tuple[int, int]]
         Start and end positions of the occurrences found.
     """
     spans = []
-    span_lower = span_text.lower()
-    search_pos = 0
-    while search_pos < len(text_lower):
-        start = text_lower.find(span_lower, search_pos)
-        if start == -1:
-            break
-        end = start + len(span_text)
+    # Use regex to find whole-word occurrences of the span text
+    # By using re.escape, special characters in the span text are escaped
+    # example: for `v20.0.1`, the dot is escaped to \. to match a literal dot
+    pattern = re.compile(rf"(?<!\w){re.escape(span_text.lower())}(?!\w)")
+    for match in pattern.finditer(text_lower):
+        start, end = match.span()
         # Skip occurrences overlapping an already placed span
         if any(consumed[start:end]):
-            search_pos = start + 1
             continue
         consumed[start:end] = [True] * (end - start)
         spans.append((start, end))
         if not find_all:
             break
-        search_pos = end
     return spans
 
 
