@@ -88,4 +88,4 @@ extract-entities-with-gliner-all-texts = "mdner_llm.gliner.extract_entities_with
 manage-gt = "mdner_llm.annotations.manage_groundtruth:main"
 build-entity-inventory = "mdner_llm.annotations.build_entity_inventory:run_cli"
 validate-annotations = "mdner_llm.annotations.validate_annotations:run_main_from_cli"
-
+classify-molecules = "mdner_llm.annotations.classify_molecules:run_main_from_cli"
