@@ -2,9 +2,19 @@
 
 import os
 import re
+import unicodedata
 from pathlib import Path
 
 from dotenv import load_dotenv
+
+GREEK_LETTERS = {
+    "α": "alpha",  # noqa: RUF001
+    "β": "beta",
+    "γ": "gamma",  # noqa: RUF001
+    "δ": "delta",
+    "ε": "epsilon",
+    "ω": "omega",
+}
 
 
 def ensure_dir(ctx, param, value: Path) -> Path:
@@ -70,3 +80,39 @@ def load_api_key(key: str) -> str:
         # raise an error to prevent further execution without a valid API key
         raise ValueError(msg)
     return api_key
+
+
+def clean_text(text: str) -> str:
+    """Normalize text for dedup, keeping the case.
+
+    Returns
+    -------
+    str
+        Text in NFKC form, with Greek letters spelled out, special dashes and
+        quotes in ASCII and whitespace collapsed.
+    """
+    text = unicodedata.normalize("NFKC", text)
+    text = re.sub(r"\s+", " ", text)  # collapse whitespace
+    text = text.strip()  # remove leading/trailing whitespace
+    # Spell out Greek letters (β -> beta).
+    for name, letter in GREEK_LETTERS.items():
+        text = re.sub(rf"\b{name}\b", letter, text)
+    # Replace special characters with their ASCII equivalents or remove them.
+    table = str.maketrans(
+        {
+            # Non-breaking hyphen
+            "‑": "-",  # e.g., "sars‑cov‑2" -> "sars-cov-2"  # noqa: RUF001, RUF003
+            "\u2010": "-",  # NFKC converts the non-breaking hyphen into this one
+            # Mathematical minus sign
+            "−": "-",  # e.g., "U(VI)−complex" -> "U(VI)-complex"  # noqa: RUF001, RUF003
+            # En dash (commonly used for charges in literature)
+            "–": "-",  # e.g., "(-)-METH" -> "(-)-METH"  # noqa: RUF001
+            # Em dash
+            "—": "-",  # e.g., "protein—ligand" -> "protein-ligand"
+            # Typographic/curly apostrophe
+            "’": "'",  # e.g., "glycol’s" -> "glycol's"  # noqa: RUF001, RUF003
+            # Soft hyphen / Invisible discretionary hyphen
+            "\xad": None,  # e.g., "poly\xad(ethylene)" -> "poly(ethylene)"
+        }
+    )
+    return text.translate(table)
