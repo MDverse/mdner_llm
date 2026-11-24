@@ -1,0 +1,4850 @@
+[
+  {
+    "name": "17L",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "23L",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "29L",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "AB40",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "AB42",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "ACE2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9BYF1",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9BYF1/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "ADAM10",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "O14672",
+    "database_url": "https://www.uniprot.org/uniprotkb/O14672/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "ADGRG1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q9Y653",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9Y653/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "ADGRG2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q8IZP9",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q8IZP9/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "AT1R",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "ATAD2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q6PL18",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q6PL18/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Abeta",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Alanine Dipeptide",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Alanine dipeptide",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Amyloid beta",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64645",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64645",
+    "curation": "automatic"
+  },
+  {
+    "name": "Aβ peptides",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Aβ40",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Aβ42",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "BAZ2B",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9UIF8",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9UIF8/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "BRD2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P25440",
+    "database_url": "https://www.uniprot.org/uniprotkb/P25440/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Bax",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q07812",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q07812/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Bcl-2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P10417",
+    "database_url": "https://www.uniprot.org/uniprotkb/P10417/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Bok",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9UMX3",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9UMX3/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Bromodomains",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CD-NBD",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CDH23",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9H251",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9H251/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "CEACAM-Ig1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CEACAM1-Ig1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CPs",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CRAC channel",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CRAC ion channel",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CRD",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CREBBP",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q92793",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q92793/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cadherin-23",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q9H251",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9H251/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Carbohydrate Recognition Domain",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cathepsin K-chondroitin 4-sulfate hexamer",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "ChAT",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P28329",
+    "database_url": "https://www.uniprot.org/uniprotkb/P28329/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Chignolin",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Choline acetyltransferase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cyclic Peptides",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:23449",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:23449",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cyclic peptides",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:23449",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:23449",
+    "curation": "automatic"
+  },
+  {
+    "name": "CytK",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DC-SIGN",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q9NNX6",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9NNX6/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "EEA1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q15075",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q15075/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "EGFR",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P00533",
+    "database_url": "https://www.uniprot.org/uniprotkb/P00533/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "EPCR",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9UNN8",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9UNN8/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "EntF*",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Epidermal Growth Factor Receptor",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q01279",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q01279/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "EpnF",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "FYVE",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Fibroblast Growth Factor 1-heparin hexamer",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Fibroblast Growth Factor 2-heparin hexamer",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "G protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GAG-HIV1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GLP-1",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:749689",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:749689",
+    "curation": "automatic"
+  },
+  {
+    "name": "GLP-1R",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P43220",
+    "database_url": "https://www.uniprot.org/uniprotkb/P43220/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "GLUTAMINE SYNTHETASE",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P15104",
+    "database_url": "https://www.uniprot.org/uniprotkb/P15104/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "GPO",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GPP",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GR",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GRs",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GS",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GarA",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P9WJA9",
+    "database_url": "https://www.uniprot.org/uniprotkb/P9WJA9/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "GerA",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GerAA",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P07868",
+    "database_url": "https://www.uniprot.org/uniprotkb/P07868/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "GerAB",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P07869",
+    "database_url": "https://www.uniprot.org/uniprotkb/P07869/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "GerAC",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P07870",
+    "database_url": "https://www.uniprot.org/uniprotkb/P07870/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Germinant receptors",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Glutamine Synthetase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P15104",
+    "database_url": "https://www.uniprot.org/uniprotkb/P15104/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Glycine Receptor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Glycophorin A",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GpA",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Gs protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "H-NS",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "H-Ras",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P01115",
+    "database_url": "https://www.uniprot.org/uniprotkb/P01115/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "HIV protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "HIV-1 Gag protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "HIV-1 T=4 Capsids",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "HKII-N",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "HKII/VDAC1 complex",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "HKV1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Hexokinase-II",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "ICAM-1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P05362",
+    "database_url": "https://www.uniprot.org/uniprotkb/P05362/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "ICAM1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P05362",
+    "database_url": "https://www.uniprot.org/uniprotkb/P05362/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "IP15",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "K-Ras4B",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "LAPTM4B",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q86VI4",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q86VI4/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "LNX2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q8N448",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q8N448/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Late Endosomal Protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "M2",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "MA-CA-SP",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "MA-CA-SP1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "MARCO",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9UEW3",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9UEW3/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "MD-2",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "MRC1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P22897",
+    "database_url": "https://www.uniprot.org/uniprotkb/P22897/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "MalDH",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Malate Dehydrogenase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P61889",
+    "database_url": "https://www.uniprot.org/uniprotkb/P61889/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Mcl-1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Mitochondrial Anion Channel",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Mpro",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Mpros",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "MspA",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "A0QR29",
+    "database_url": "https://www.uniprot.org/uniprotkb/A0QR29/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Myeloid Differentiation Protein 2",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "NOX4",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q9NPH5",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9NPH5/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "OCTN2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "O76082",
+    "database_url": "https://www.uniprot.org/uniprotkb/O76082/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "P-glycoprotein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "P7",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PAH",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PDGFR",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P09619",
+    "database_url": "https://www.uniprot.org/uniprotkb/P09619/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "PEP-synthase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PPSA",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PTE",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P0A434",
+    "database_url": "https://www.uniprot.org/uniprotkb/P0A434/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Patched 1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "Q98864",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q98864/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Phenylalanine-4-hydroxylase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P00439",
+    "database_url": "https://www.uniprot.org/uniprotkb/P00439/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "PknB",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "A0QNG1",
+    "database_url": "https://www.uniprot.org/uniprotkb/A0QNG1/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "PknG",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P9WI73",
+    "database_url": "https://www.uniprot.org/uniprotkb/P9WI73/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Plipastatin",
+    "category": "Protein, peptide",
+    "database_source": "PubChem",
+    "database_id": "CID:5491283",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5491283",
+    "curation": "automatic"
+  },
+  {
+    "name": "Protein kinase B",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P31749",
+    "database_url": "https://www.uniprot.org/uniprotkb/P31749/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Protein kinase G",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "R. chinensis Lipase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "R0",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "R22",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "R6",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "R8",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "RAD51",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q06609",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q06609/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "RBD",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "RCL",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "RecA",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "S100A8",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P05109",
+    "database_url": "https://www.uniprot.org/uniprotkb/P05109/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV Mpro",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV-2 Mpro",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV-2 Spike Protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV-2 dimeric main protease",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV-2 main protease",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV-2 s-protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SARS-CoV-2 s-protein receptor binding domain",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SD1",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SD2",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SP-B",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P07988",
+    "database_url": "https://www.uniprot.org/uniprotkb/P07988/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "SP-C",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P11686",
+    "database_url": "https://www.uniprot.org/uniprotkb/P11686/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Serine/Threonine Kinases",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Smoothened",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Spike Protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Syntaxin 1A",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "T Cell Receptor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "T cell receptor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "T-cell receptors",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "T4",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "TARP gamma-7",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P62955",
+    "database_url": "https://www.uniprot.org/uniprotkb/P62955/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "TCR",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "TCRs",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "TLR4",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "O00206",
+    "database_url": "https://www.uniprot.org/uniprotkb/O00206/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "TM-JM",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "TMD",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "TMJM",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Toll-like Receptor 4",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "O00206",
+    "database_url": "https://www.uniprot.org/uniprotkb/O00206/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "VDAC1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P21796",
+    "database_url": "https://www.uniprot.org/uniprotkb/P21796/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "VEGF",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "P15692",
+    "database_url": "https://www.uniprot.org/uniprotkb/P15692/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "VRC01",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Villin Headpiece",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "adenosine A2A receptor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "alanine dipeptide",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "alpha, beta-epoxyketone synthase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "alpha-Amylase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P17654",
+    "database_url": "https://www.uniprot.org/uniprotkb/P17654/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "alpha-amylase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P17654",
+    "database_url": "https://www.uniprot.org/uniprotkb/P17654/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "alpha-conotoxin LsIA",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P0DL68",
+    "database_url": "https://www.uniprot.org/uniprotkb/P0DL68/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "amyloid beta",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64645",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64645",
+    "curation": "automatic"
+  },
+  {
+    "name": "amyloid-beta",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64645",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64645",
+    "curation": "automatic"
+  },
+  {
+    "name": "angiotensin converting enzyme II",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "apocytochrome b562RIL",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "bromodomains",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "cadherin",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "choline acetyltransferase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "coronavirus 2019-nCoV protease",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dimeric main protease",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dimeric protease",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dipeptides",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:46761",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:46761",
+    "curation": "automatic"
+  },
+  {
+    "name": "exendin-4",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64073",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64073",
+    "curation": "automatic"
+  },
+  {
+    "name": "exendin-P5",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "extracellular cysteine-rich domain",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "fungal cellobiohydrolase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "gamma-7",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "glucagon-like peptide receptor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "glucosidases",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "glutamine synthetase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P15104",
+    "database_url": "https://www.uniprot.org/uniprotkb/P15104/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "glycine receptor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "glycogen accumulation regulator",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "glycosylated mouse Smoothened",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "gp120",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "hDM2",
+    "category": "Protein, peptide",
+    "database_source": "UniProt (checked by LLM)",
+    "database_id": "Q00987",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q00987/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "hSMO",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "human Smoothened",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "human pancreatic alpha-amylase:maltopentose complex",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "intercellular adhesion molecule 1",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P05362",
+    "database_url": "https://www.uniprot.org/uniprotkb/P05362/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "mSMO",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "main protease",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "open-lid Rhizopus chinensis lipase",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "p53",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "pMHC",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "peptide major histocompatibility complex",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "peptide-major histocompatibility complex",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "phenylalanine-4-hydroxylase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P00439",
+    "database_url": "https://www.uniprot.org/uniprotkb/P00439/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "phosphoenolpyruvate synthase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P23538",
+    "database_url": "https://www.uniprot.org/uniprotkb/P23538/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "phosphotriesterase",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P0A434",
+    "database_url": "https://www.uniprot.org/uniprotkb/P0A434/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "polyleucine",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "polyleucine dimer",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "revR12",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "revR6",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "s-protein",
+    "category": "Protein, peptide",
+    "database_source": "UniProt",
+    "database_id": "P04004",
+    "database_url": "https://www.uniprot.org/uniprotkb/P04004/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "sTeLIC",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "satellite tobacco mosaic virus",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "serine/threonine protein kinases",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "spike protein",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "tetra-alanine",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "transmembrane-juxtamembrane domain",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "tripeptides",
+    "category": "Protein, peptide",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:47923",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:47923",
+    "curation": "automatic"
+  },
+  {
+    "name": "tropocollagen",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "vascular endothelial growth factor",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "villin headpiece",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "α3β2 nAChR",
+    "category": "Protein, peptide",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "1,2-dimyristoyl-sn-glycero-3-phosphocholine",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:45240",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:45240",
+    "curation": "automatic"
+  },
+  {
+    "name": "1,2-dipalmitoyl-sn-glycero-3-phosphoethanolamine",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:73127",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:73127",
+    "curation": "automatic"
+  },
+  {
+    "name": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine",
+    "category": "Lipid",
+    "database_source": "PubChem",
+    "database_id": "CID:5497103",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5497103",
+    "curation": "automatic"
+  },
+  {
+    "name": "1-palmitoyl-2-oleoyl-sn-glycero-3-phosphoethanolamine",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:73124",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:73124",
+    "curation": "automatic"
+  },
+  {
+    "name": "20:4(n-6)",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "20:5(n-3)",
+    "category": "Lipid",
+    "database_source": "PubChem",
+    "database_id": "CID:56927904",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/56927904",
+    "curation": "automatic"
+  },
+  {
+    "name": "4-nitrophenyl butyrate",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:85867",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:85867",
+    "curation": "automatic"
+  },
+  {
+    "name": "CER160",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CHL1",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "CHOL",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Ceramide",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17761",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17761",
+    "curation": "automatic"
+  },
+  {
+    "name": "Chol",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cholesterol",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16113",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16113",
+    "curation": "automatic"
+  },
+  {
+    "name": "D-C14-PC",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "D-C18-PC",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DAPC",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:60657",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:60657",
+    "curation": "automatic"
+  },
+  {
+    "name": "DEPC",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DIPC",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DIPS",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DLPC",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:42027",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:42027",
+    "curation": "automatic"
+  },
+  {
+    "name": "DLiPC",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DMPC",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:241349",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:241349",
+    "curation": "automatic"
+  },
+  {
+    "name": "DMTAP",
+    "category": "Lipid",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:10674918",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/10674918",
+    "curation": "automatic"
+  },
+  {
+    "name": "DOPC",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:52360",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:52360",
+    "curation": "automatic"
+  },
+  {
+    "name": "DOPS",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DPPC",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:18899",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:18899",
+    "curation": "automatic"
+  },
+  {
+    "name": "DPPE",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DPPS",
+    "category": "Lipid",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:3081382",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/3081382",
+    "curation": "automatic"
+  },
+  {
+    "name": "Dodecan-1-ol",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28878",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28878",
+    "curation": "automatic"
+  },
+  {
+    "name": "Ergo",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Ergosterol",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16933",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16933",
+    "curation": "automatic"
+  },
+  {
+    "name": "GM3",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:15681",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15681",
+    "curation": "automatic"
+  },
+  {
+    "name": "Glycerol trihexanoate",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:77386",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:77386",
+    "curation": "automatic"
+  },
+  {
+    "name": "POP1",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "POPC",
+    "category": "Lipid",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:5497103",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5497103",
+    "curation": "automatic"
+  },
+  {
+    "name": "POPE",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:60286",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:60286",
+    "curation": "automatic"
+  },
+  {
+    "name": "POPG",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:34080",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:34080",
+    "curation": "automatic"
+  },
+  {
+    "name": "POPI",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "POPS",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PSM",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PUFA",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:26208",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26208",
+    "curation": "automatic"
+  },
+  {
+    "name": "PUFAs",
+    "category": "Lipid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:26208",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26208",
+    "curation": "automatic"
+  },
+  {
+    "name": "Palmitoyl-CoA",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:15525",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15525",
+    "curation": "automatic"
+  },
+  {
+    "name": "Phosphatidylcholine",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64482",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64482",
+    "curation": "automatic"
+  },
+  {
+    "name": "SDPC",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SM",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "SM16",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Tricaproin",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:77386",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:77386",
+    "curation": "automatic"
+  },
+  {
+    "name": "azelaoyl",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "beta-Sesquiphellandrene",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64361",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64361",
+    "curation": "automatic"
+  },
+  {
+    "name": "beta-sesquiphellandrene",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64361",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64361",
+    "curation": "automatic"
+  },
+  {
+    "name": "ceramide",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17761",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17761",
+    "curation": "automatic"
+  },
+  {
+    "name": "cholesterol",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16113",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16113",
+    "curation": "automatic"
+  },
+  {
+    "name": "cholesterols",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dilinoleoyl phosphatidylserine",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dimyristoylphosphatidylcholine",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:45240",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:45240",
+    "curation": "automatic"
+  },
+  {
+    "name": "dimyristoyltrimethylammoniumpropane",
+    "category": "Lipid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dodecan-1-ol",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28878",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28878",
+    "curation": "automatic"
+  },
+  {
+    "name": "palmitate",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:15756",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15756",
+    "curation": "automatic"
+  },
+  {
+    "name": "palmitoyl-coenzyme A",
+    "category": "Lipid",
+    "database_source": "PubChem",
+    "database_id": "CID:644109",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/644109",
+    "curation": "automatic"
+  },
+  {
+    "name": "pazePC",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:61817",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:61817",
+    "curation": "automatic"
+  },
+  {
+    "name": "phosphatidylcholine",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:64482",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:64482",
+    "curation": "automatic"
+  },
+  {
+    "name": "phospholipid",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16247",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16247",
+    "curation": "automatic"
+  },
+  {
+    "name": "polyunsaturated fatty acids",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:26208",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26208",
+    "curation": "automatic"
+  },
+  {
+    "name": "sterol",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:15889",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15889",
+    "curation": "automatic"
+  },
+  {
+    "name": "tricaproin",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:77386",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:77386",
+    "curation": "automatic"
+  },
+  {
+    "name": "triglyceride",
+    "category": "Lipid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17855",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17855",
+    "curation": "automatic"
+  },
+  {
+    "name": "1H,1H-perfluorinated alcohols",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "3,4-ethylenedioxythiophene",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:4421864",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/4421864",
+    "curation": "automatic"
+  },
+  {
+    "name": "4-nitrophenyl benzylcarbamate",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:183685",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/183685",
+    "curation": "automatic"
+  },
+  {
+    "name": "AMPH",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Alkanes",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:18310",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:18310",
+    "curation": "automatic"
+  },
+  {
+    "name": "Amphetamine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:2679",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:2679",
+    "curation": "automatic"
+  },
+  {
+    "name": "Arylamide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:2862",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:2862",
+    "curation": "automatic"
+  },
+  {
+    "name": "BH4",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:15372",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15372",
+    "curation": "automatic"
+  },
+  {
+    "name": "BPY1,4-TFSI-Li",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Boron Nitride",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50883",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50883",
+    "curation": "automatic"
+  },
+  {
+    "name": "C15",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "C16",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:232603",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:232603",
+    "curation": "automatic"
+  },
+  {
+    "name": "CAM833",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:155387716",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/155387716",
+    "curation": "automatic"
+  },
+  {
+    "name": "CCF0058981",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:156027237",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/156027237",
+    "curation": "automatic"
+  },
+  {
+    "name": "CDCl3",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:85365",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:85365",
+    "curation": "automatic"
+  },
+  {
+    "name": "Caprolactam",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28579",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28579",
+    "curation": "automatic"
+  },
+  {
+    "name": "Chloroxylenol",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:34393",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:34393",
+    "curation": "automatic"
+  },
+  {
+    "name": "DEC",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DMA",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DMC",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:36596",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:36596",
+    "curation": "automatic"
+  },
+  {
+    "name": "DME",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:42263",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:42263",
+    "curation": "automatic"
+  },
+  {
+    "name": "DOX",
+    "category": "Small molecule",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:31703",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/31703",
+    "curation": "automatic"
+  },
+  {
+    "name": "Diphenyl Diselenides",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Diphenyl Ditellurides",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Doxorubicin",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28748",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28748",
+    "curation": "automatic"
+  },
+  {
+    "name": "EC",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Etidocaine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:4904",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:4904",
+    "curation": "automatic"
+  },
+  {
+    "name": "FAD",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:16238",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16238",
+    "curation": "automatic"
+  },
+  {
+    "name": "FADH-",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "FADHO2-",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GM3 ganglioside",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:134819286",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/134819286",
+    "curation": "automatic"
+  },
+  {
+    "name": "GSK3β inhibitors",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GTP",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:15996",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15996",
+    "curation": "automatic"
+  },
+  {
+    "name": "Graphene Oxide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:132889",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:132889",
+    "curation": "automatic"
+  },
+  {
+    "name": "H2",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:18276",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:18276",
+    "curation": "automatic"
+  },
+  {
+    "name": "H2O",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:15377",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15377",
+    "curation": "automatic"
+  },
+  {
+    "name": "H2S",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:16136",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16136",
+    "curation": "automatic"
+  },
+  {
+    "name": "HIV inhibitors",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "HNO2",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:25567",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:25567",
+    "curation": "automatic"
+  },
+  {
+    "name": "HNO3",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:48107",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:48107",
+    "curation": "automatic"
+  },
+  {
+    "name": "IP6",
+    "category": "Small molecule",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:890",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/890",
+    "curation": "automatic"
+  },
+  {
+    "name": "Iturin C",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:3085004",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/3085004",
+    "curation": "automatic"
+  },
+  {
+    "name": "Iturin D",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:158570",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/158570",
+    "curation": "automatic"
+  },
+  {
+    "name": "L-Alanine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16977",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16977",
+    "curation": "automatic"
+  },
+  {
+    "name": "L-alanine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16977",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16977",
+    "curation": "automatic"
+  },
+  {
+    "name": "METH",
+    "category": "Small molecule",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:10836",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/10836",
+    "curation": "automatic"
+  },
+  {
+    "name": "MLN-4760",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:166834",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:166834",
+    "curation": "automatic"
+  },
+  {
+    "name": "Methamphetamine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:6809",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:6809",
+    "curation": "automatic"
+  },
+  {
+    "name": "N-acyl-dipeptidyl beta-ketoacid",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "NMS",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Neon",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:33310",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:33310",
+    "curation": "automatic"
+  },
+  {
+    "name": "Nutlin-2",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:5288631",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5288631",
+    "curation": "automatic"
+  },
+  {
+    "name": "O3",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:25812",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:25812",
+    "curation": "automatic"
+  },
+  {
+    "name": "OSDA",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "OSDAs",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Oligophenylenes",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Organic Structure-Directing Agents",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Oxyacids",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:24833",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:24833",
+    "curation": "automatic"
+  },
+  {
+    "name": "PC",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PCBM",
+    "category": "Small molecule",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:53384373",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/53384373",
+    "curation": "automatic"
+  },
+  {
+    "name": "Perfluorinated Alcohols",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Pyridinylimidazoles",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "QNB",
+    "category": "Small molecule",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:23056",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/23056",
+    "curation": "automatic"
+  },
+  {
+    "name": "SAG",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:138438",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:138438",
+    "curation": "automatic"
+  },
+  {
+    "name": "SOL",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Se",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:27568",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:27568",
+    "curation": "automatic"
+  },
+  {
+    "name": "Smoothened agonist",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:131809",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:131809",
+    "curation": "automatic"
+  },
+  {
+    "name": "TMAO",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:15724",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15724",
+    "curation": "automatic"
+  },
+  {
+    "name": "Te",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:30452",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:30452",
+    "curation": "automatic"
+  },
+  {
+    "name": "Triclosan",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:164200",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:164200",
+    "curation": "automatic"
+  },
+  {
+    "name": "Urea",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:16199",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16199",
+    "curation": "automatic"
+  },
+  {
+    "name": "VPX",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Vorapaxar",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:82702",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:82702",
+    "curation": "automatic"
+  },
+  {
+    "name": "XLZ85",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "XLZ87",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "acthylcholine",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "alcohols",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:30879",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:30879",
+    "curation": "automatic"
+  },
+  {
+    "name": "alkane",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:18310",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:18310",
+    "curation": "automatic"
+  },
+  {
+    "name": "alkanes",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:18310",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:18310",
+    "curation": "automatic"
+  },
+  {
+    "name": "alvameline",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:177648",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:177648",
+    "curation": "automatic"
+  },
+  {
+    "name": "aptamer",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:140488",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:140488",
+    "curation": "automatic"
+  },
+  {
+    "name": "arylamide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:2862",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:2862",
+    "curation": "automatic"
+  },
+  {
+    "name": "arylamides",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "benzodiazepinedione",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:10017963",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/10017963",
+    "curation": "automatic"
+  },
+  {
+    "name": "biocides",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "boron nitride",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50883",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50883",
+    "curation": "automatic"
+  },
+  {
+    "name": "caffeine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:27732",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:27732",
+    "curation": "automatic"
+  },
+  {
+    "name": "caprolactam",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28579",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28579",
+    "curation": "automatic"
+  },
+  {
+    "name": "carbon",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:27594",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:27594",
+    "curation": "automatic"
+  },
+  {
+    "name": "cevimeline",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:3568",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:3568",
+    "curation": "automatic"
+  },
+  {
+    "name": "chlorobenzene",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28097",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28097",
+    "curation": "automatic"
+  },
+  {
+    "name": "chloroxylenol",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:34393",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:34393",
+    "curation": "automatic"
+  },
+  {
+    "name": "clathrates",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:39024",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:39024",
+    "curation": "automatic"
+  },
+  {
+    "name": "copper",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:748257",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:748257",
+    "curation": "automatic"
+  },
+  {
+    "name": "darunavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:367163",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:367163",
+    "curation": "automatic"
+  },
+  {
+    "name": "diethyl carbonate",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:173463",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:173463",
+    "curation": "automatic"
+  },
+  {
+    "name": "dihexadecylammonium",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dimethoxyethane",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:8071",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/8071",
+    "curation": "automatic"
+  },
+  {
+    "name": "dimethyl carbonate",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:36596",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:36596",
+    "curation": "automatic"
+  },
+  {
+    "name": "diphenyl diselenide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:232541",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:232541",
+    "curation": "automatic"
+  },
+  {
+    "name": "doxorubicin",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28748",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28748",
+    "curation": "automatic"
+  },
+  {
+    "name": "elastin",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:4767",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:4767",
+    "curation": "automatic"
+  },
+  {
+    "name": "ethanol",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16236",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16236",
+    "curation": "automatic"
+  },
+  {
+    "name": "ethylene carbonate",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:178725",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:178725",
+    "curation": "automatic"
+  },
+  {
+    "name": "ethylene glycol",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:30742",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:30742",
+    "curation": "automatic"
+  },
+  {
+    "name": "glucoside",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:24278",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:24278",
+    "curation": "automatic"
+  },
+  {
+    "name": "glutamine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28300",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28300",
+    "curation": "automatic"
+  },
+  {
+    "name": "glycans",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:167559",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:167559",
+    "curation": "automatic"
+  },
+  {
+    "name": "graphene oxide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:132889",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:132889",
+    "curation": "automatic"
+  },
+  {
+    "name": "hydrogen",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:757215",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:757215",
+    "curation": "automatic"
+  },
+  {
+    "name": "hydrogen peroxide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16240",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16240",
+    "curation": "automatic"
+  },
+  {
+    "name": "hydrogen sulfide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16136",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16136",
+    "curation": "automatic"
+  },
+  {
+    "name": "hydrogenated alcohols",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "hydroperoxides",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:35923",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:35923",
+    "curation": "automatic"
+  },
+  {
+    "name": "ibuprofen",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:5855",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:5855",
+    "curation": "automatic"
+  },
+  {
+    "name": "indinavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:44032",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:44032",
+    "curation": "automatic"
+  },
+  {
+    "name": "inositol hexakisphosphate",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:890",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/890",
+    "curation": "automatic"
+  },
+  {
+    "name": "lopinavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:31781",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:31781",
+    "curation": "automatic"
+  },
+  {
+    "name": "malonic acid",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:30794",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:30794",
+    "curation": "automatic"
+  },
+  {
+    "name": "methane",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16183",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16183",
+    "curation": "automatic"
+  },
+  {
+    "name": "methanol",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17790",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17790",
+    "curation": "automatic"
+  },
+  {
+    "name": "methylene",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50728",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50728",
+    "curation": "automatic"
+  },
+  {
+    "name": "methyltriphenylphosphonium bromide",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:74505",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/74505",
+    "curation": "automatic"
+  },
+  {
+    "name": "monoethanolamines",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-C28",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-Octacosane",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:32943",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:32943",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-alkane",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-alkanes",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-hexadecane",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:45296",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:45296",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-octacosane",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:32943",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:32943",
+    "curation": "automatic"
+  },
+  {
+    "name": "n-pentadecane",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:28897",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28897",
+    "curation": "automatic"
+  },
+  {
+    "name": "nelfinavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:7496",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:7496",
+    "curation": "automatic"
+  },
+  {
+    "name": "neon",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:33310",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:33310",
+    "curation": "automatic"
+  },
+  {
+    "name": "olmesartan",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:48416",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:48416",
+    "curation": "automatic"
+  },
+  {
+    "name": "organic structure-directing agents",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "oxyacids",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:24833",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:24833",
+    "curation": "automatic"
+  },
+  {
+    "name": "oxyntomodulin",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:81576",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:81576",
+    "curation": "automatic"
+  },
+  {
+    "name": "p-tolyl phosphate",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "pNC",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "pNPB",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "perfluorinated alcohols",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "peroxidase",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:8027",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:8027",
+    "curation": "automatic"
+  },
+  {
+    "name": "phenytoin",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:8107",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:8107",
+    "curation": "automatic"
+  },
+  {
+    "name": "pilocarpine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:39462",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:39462",
+    "curation": "automatic"
+  },
+  {
+    "name": "poly(ethylene glycol)",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:46793",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:46793",
+    "curation": "automatic"
+  },
+  {
+    "name": "propylene carbonate",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:231185",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:231185",
+    "curation": "automatic"
+  },
+  {
+    "name": "pt",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "quaterphenylene dicarbonitriles",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "ritonavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:45409",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:45409",
+    "curation": "automatic"
+  },
+  {
+    "name": "saquinavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:63621",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:63621",
+    "curation": "automatic"
+  },
+  {
+    "name": "selenium",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:27568",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:27568",
+    "curation": "automatic"
+  },
+  {
+    "name": "talsaclidine",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:754678",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:754678",
+    "curation": "automatic"
+  },
+  {
+    "name": "tellurium diphenyl dichalcogenides",
+    "category": "Small molecule",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "tipranavir",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:63628",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:63628",
+    "curation": "automatic"
+  },
+  {
+    "name": "titanium dioxide",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:32234",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:32234",
+    "curation": "automatic"
+  },
+  {
+    "name": "triclosan",
+    "category": "Small molecule",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:164200",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:164200",
+    "curation": "automatic"
+  },
+  {
+    "name": "ubiquitin",
+    "category": "Small molecule",
+    "database_source": "PubChem",
+    "database_id": "CID:311",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/311",
+    "curation": "automatic"
+  },
+  {
+    "name": "urea",
+    "category": "Small molecule",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:16199",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16199",
+    "curation": "automatic"
+  },
+  {
+    "name": "CL",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:23116",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:23116",
+    "curation": "automatic"
+  },
+  {
+    "name": "Ca",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:22984",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:22984",
+    "curation": "automatic"
+  },
+  {
+    "name": "Ca2+",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:29108",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:29108",
+    "curation": "automatic"
+  },
+  {
+    "name": "CaCl2",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:3312",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:3312",
+    "curation": "automatic"
+  },
+  {
+    "name": "CaCl_2",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Calcium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:22984",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:22984",
+    "curation": "automatic"
+  },
+  {
+    "name": "Chloride",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17996",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17996",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cl",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:23116",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:23116",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cl-",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:17996",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17996",
+    "curation": "automatic"
+  },
+  {
+    "name": "ClW",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Fe(II)",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:29033",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:29033",
+    "curation": "automatic"
+  },
+  {
+    "name": "Fluoride",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17051",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17051",
+    "curation": "automatic"
+  },
+  {
+    "name": "GppNHp",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:78374",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:78374",
+    "curation": "automatic"
+  },
+  {
+    "name": "K+",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:29103",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:29103",
+    "curation": "automatic"
+  },
+  {
+    "name": "KCl",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:32588",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:32588",
+    "curation": "automatic"
+  },
+  {
+    "name": "Li+",
+    "category": "Ion",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:28486",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/28486",
+    "curation": "automatic"
+  },
+  {
+    "name": "LiPF6",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:172376",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:172376",
+    "curation": "automatic"
+  },
+  {
+    "name": "MG",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:25107",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:25107",
+    "curation": "automatic"
+  },
+  {
+    "name": "NA",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:26708",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26708",
+    "curation": "automatic"
+  },
+  {
+    "name": "NH3+",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "NH4+",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:28938",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:28938",
+    "curation": "automatic"
+  },
+  {
+    "name": "NO2-",
+    "category": "Ion",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:946",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/946",
+    "curation": "automatic"
+  },
+  {
+    "name": "NO3-",
+    "category": "Ion",
+    "database_source": "PubChem (checked by LLM)",
+    "database_id": "CID:943",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/943",
+    "curation": "automatic"
+  },
+  {
+    "name": "Na",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:26708",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26708",
+    "curation": "automatic"
+  },
+  {
+    "name": "Na+",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:29101",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:29101",
+    "curation": "automatic"
+  },
+  {
+    "name": "NaCL",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:26710",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26710",
+    "curation": "automatic"
+  },
+  {
+    "name": "NaCl",
+    "category": "Ion",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:26710",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26710",
+    "curation": "automatic"
+  },
+  {
+    "name": "NaW",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Nitrogen Oxyanions",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Nitrogen oxyanions",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Sodium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:26708",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26708",
+    "curation": "automatic"
+  },
+  {
+    "name": "alkylammonium",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "calcium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:22984",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:22984",
+    "curation": "automatic"
+  },
+  {
+    "name": "chloride",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17996",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17996",
+    "curation": "automatic"
+  },
+  {
+    "name": "choline",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:15354",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:15354",
+    "curation": "automatic"
+  },
+  {
+    "name": "choline chloride",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:133341",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:133341",
+    "curation": "automatic"
+  },
+  {
+    "name": "fluoride",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17051",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17051",
+    "curation": "automatic"
+  },
+  {
+    "name": "guanidinium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:30087",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:30087",
+    "curation": "automatic"
+  },
+  {
+    "name": "iperoxo",
+    "category": "Ion",
+    "database_source": "PubChem",
+    "database_id": "CID:10104167",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/10104167",
+    "curation": "automatic"
+  },
+  {
+    "name": "methylammonium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:59338",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:59338",
+    "curation": "automatic"
+  },
+  {
+    "name": "nitrogen oxyanions",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "potassium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:26216",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26216",
+    "curation": "automatic"
+  },
+  {
+    "name": "sodium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:26708",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:26708",
+    "curation": "automatic"
+  },
+  {
+    "name": "tetrabutylammonium halides",
+    "category": "Ion",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "tetrapropylammonium",
+    "category": "Ion",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:55319",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:55319",
+    "curation": "automatic"
+  },
+  {
+    "name": "tributylammonium",
+    "category": "Ion",
+    "database_source": "PubChem",
+    "database_id": "CID:3724478",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/3724478",
+    "curation": "automatic"
+  },
+  {
+    "name": "BN",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Carbon Nanotube",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50594",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50594",
+    "curation": "automatic"
+  },
+  {
+    "name": "Clathrate Hydrates",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cu(111)",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GO",
+    "category": "Material, polymer",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:132889",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:132889",
+    "curation": "automatic"
+  },
+  {
+    "name": "Graphene",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:36973",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:36973",
+    "curation": "automatic"
+  },
+  {
+    "name": "N-isopropylacrylamide",
+    "category": "Material, polymer",
+    "database_source": "PubChem",
+    "database_id": "CID:16637",
+    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/16637",
+    "curation": "automatic"
+  },
+  {
+    "name": "P3HT",
+    "category": "Material, polymer",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:53386",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53386",
+    "curation": "automatic"
+  },
+  {
+    "name": "PEDOT",
+    "category": "Material, polymer",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:53228",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53228",
+    "curation": "automatic"
+  },
+  {
+    "name": "PEG",
+    "category": "Material, polymer",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:46793",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:46793",
+    "curation": "automatic"
+  },
+  {
+    "name": "PEGGO",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "PLA",
+    "category": "Material, polymer",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:53407",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53407",
+    "curation": "automatic"
+  },
+  {
+    "name": "PSS",
+    "category": "Material, polymer",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:53277",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53277",
+    "curation": "automatic"
+  },
+  {
+    "name": "Poly(N-isopropylacrylamide)",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:53234",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53234",
+    "curation": "automatic"
+  },
+  {
+    "name": "Polylactide",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:60159",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:60159",
+    "curation": "automatic"
+  },
+  {
+    "name": "Silicalite-1",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "TiO2",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "atmospheric aerosols",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "carbon nanotube",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50594",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50594",
+    "curation": "automatic"
+  },
+  {
+    "name": "carbon nanotubes",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50594",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50594",
+    "curation": "automatic"
+  },
+  {
+    "name": "clathrate hydrate",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "collagen",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:3815",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:3815",
+    "curation": "automatic"
+  },
+  {
+    "name": "fullerene",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:33416",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:33416",
+    "curation": "automatic"
+  },
+  {
+    "name": "graphene",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:36973",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:36973",
+    "curation": "automatic"
+  },
+  {
+    "name": "neon clathrate",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "nitrile butadiene rubber",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "pNIPAAm",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:53234",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53234",
+    "curation": "automatic"
+  },
+  {
+    "name": "pNIPAAm-co-acrylamide",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "pNIPAAm-co-dimethylacrylamide",
+    "category": "Material, polymer",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "poly(lactic acid)",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:60159",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:60159",
+    "curation": "automatic"
+  },
+  {
+    "name": "polystyrene sulfonate",
+    "category": "Material, polymer",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:53278",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:53278",
+    "curation": "automatic"
+  },
+  {
+    "name": "1AFO",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "1AFO",
+    "database_url": "https://www.rcsb.org/structure/1AFO",
+    "curation": "automatic"
+  },
+  {
+    "name": "1BFC",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "1BFC",
+    "database_url": "https://www.rcsb.org/structure/1BFC",
+    "curation": "automatic"
+  },
+  {
+    "name": "1FPY",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "1FPY",
+    "database_url": "https://www.rcsb.org/structure/1FPY",
+    "curation": "automatic"
+  },
+  {
+    "name": "1Z7Z",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "1Z7Z",
+    "database_url": "https://www.rcsb.org/structure/1Z7Z",
+    "curation": "automatic"
+  },
+  {
+    "name": "2AXM",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "2AXM",
+    "database_url": "https://www.rcsb.org/structure/2AXM",
+    "curation": "automatic"
+  },
+  {
+    "name": "2KF7",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "2KF7",
+    "database_url": "https://www.rcsb.org/structure/2KF7",
+    "curation": "automatic"
+  },
+  {
+    "name": "2M0B",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "2M0B",
+    "database_url": "https://www.rcsb.org/structure/2M0B",
+    "curation": "automatic"
+  },
+  {
+    "name": "2OJW",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "2OJW",
+    "database_url": "https://www.rcsb.org/structure/2OJW",
+    "curation": "automatic"
+  },
+  {
+    "name": "2OZ4",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "2OZ4",
+    "database_url": "https://www.rcsb.org/structure/2OZ4",
+    "curation": "automatic"
+  },
+  {
+    "name": "2RJY",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "2RJY",
+    "database_url": "https://www.rcsb.org/structure/2RJY",
+    "curation": "automatic"
+  },
+  {
+    "name": "3EML",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "3EML",
+    "database_url": "https://www.rcsb.org/structure/3EML",
+    "curation": "automatic"
+  },
+  {
+    "name": "3EMN",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "3EMN",
+    "database_url": "https://www.rcsb.org/structure/3EMN",
+    "curation": "automatic"
+  },
+  {
+    "name": "3G5U",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "3G5U",
+    "database_url": "https://www.rcsb.org/structure/3G5U",
+    "curation": "automatic"
+  },
+  {
+    "name": "4EFL",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4EFL",
+    "database_url": "https://www.rcsb.org/structure/4EFL",
+    "curation": "automatic"
+  },
+  {
+    "name": "4HKR",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4HKR",
+    "database_url": "https://www.rcsb.org/structure/4HKR",
+    "curation": "automatic"
+  },
+  {
+    "name": "4KSB",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4KSB",
+    "database_url": "https://www.rcsb.org/structure/4KSB",
+    "curation": "automatic"
+  },
+  {
+    "name": "4M1M",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4M1M",
+    "database_url": "https://www.rcsb.org/structure/4M1M",
+    "curation": "automatic"
+  },
+  {
+    "name": "4N8W",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4N8W",
+    "database_url": "https://www.rcsb.org/structure/4N8W",
+    "curation": "automatic"
+  },
+  {
+    "name": "4PBE",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4PBE",
+    "database_url": "https://www.rcsb.org/structure/4PBE",
+    "curation": "automatic"
+  },
+  {
+    "name": "4PBF",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4PBF",
+    "database_url": "https://www.rcsb.org/structure/4PBF",
+    "curation": "automatic"
+  },
+  {
+    "name": "4PCN",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4PCN",
+    "database_url": "https://www.rcsb.org/structure/4PCN",
+    "curation": "automatic"
+  },
+  {
+    "name": "4PCP",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4PCP",
+    "database_url": "https://www.rcsb.org/structure/4PCP",
+    "curation": "automatic"
+  },
+  {
+    "name": "4PTC",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4PTC",
+    "database_url": "https://www.rcsb.org/structure/4PTC",
+    "curation": "automatic"
+  },
+  {
+    "name": "4XAG",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4XAG",
+    "database_url": "https://www.rcsb.org/structure/4XAG",
+    "curation": "automatic"
+  },
+  {
+    "name": "4XAY",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4XAY",
+    "database_url": "https://www.rcsb.org/structure/4XAY",
+    "curation": "automatic"
+  },
+  {
+    "name": "4YAY",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4YAY",
+    "database_url": "https://www.rcsb.org/structure/4YAY",
+    "curation": "automatic"
+  },
+  {
+    "name": "4ZUD",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "4ZUD",
+    "database_url": "https://www.rcsb.org/structure/4ZUD",
+    "curation": "automatic"
+  },
+  {
+    "name": "5E11",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "5E11",
+    "database_url": "https://www.rcsb.org/structure/5E11",
+    "curation": "automatic"
+  },
+  {
+    "name": "5TFK",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "5TFK",
+    "database_url": "https://www.rcsb.org/structure/5TFK",
+    "curation": "automatic"
+  },
+  {
+    "name": "6AKI",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6AKI",
+    "database_url": "https://www.rcsb.org/structure/6AKI",
+    "curation": "automatic"
+  },
+  {
+    "name": "6BBF",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6BBF",
+    "database_url": "https://www.rcsb.org/structure/6BBF",
+    "curation": "automatic"
+  },
+  {
+    "name": "6BE6",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6BE6",
+    "database_url": "https://www.rcsb.org/structure/6BE6",
+    "curation": "automatic"
+  },
+  {
+    "name": "6GN1",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6GN1",
+    "database_url": "https://www.rcsb.org/structure/6GN1",
+    "curation": "automatic"
+  },
+  {
+    "name": "6LU7",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6LU7",
+    "database_url": "https://www.rcsb.org/structure/6LU7",
+    "curation": "automatic"
+  },
+  {
+    "name": "6M0J",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6M0J",
+    "database_url": "https://www.rcsb.org/structure/6M0J",
+    "curation": "automatic"
+  },
+  {
+    "name": "6O3C",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6O3C",
+    "database_url": "https://www.rcsb.org/structure/6O3C",
+    "curation": "automatic"
+  },
+  {
+    "name": "6VSB",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6VSB",
+    "database_url": "https://www.rcsb.org/structure/6VSB",
+    "curation": "automatic"
+  },
+  {
+    "name": "6hyc",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "6HYC",
+    "database_url": "https://www.rcsb.org/structure/6HYC",
+    "curation": "automatic"
+  },
+  {
+    "name": "7CEL",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "7CEL",
+    "database_url": "https://www.rcsb.org/structure/7CEL",
+    "curation": "automatic"
+  },
+  {
+    "name": "7jy9",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "7JY9",
+    "database_url": "https://www.rcsb.org/structure/7JY9",
+    "curation": "automatic"
+  },
+  {
+    "name": "9EX6",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "9EX6",
+    "database_url": "https://www.rcsb.org/structure/9EX6",
+    "curation": "automatic"
+  },
+  {
+    "name": "9F5N",
+    "category": "PDB ID",
+    "database_source": "RCSB PDB",
+    "database_id": "9F5N",
+    "database_url": "https://www.rcsb.org/structure/9F5N",
+    "curation": "automatic"
+  },
+  {
+    "name": "Carbohydrates",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16646",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16646",
+    "curation": "automatic"
+  },
+  {
+    "name": "Cellulose",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:18246",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:18246",
+    "curation": "automatic"
+  },
+  {
+    "name": "Furanose",
+    "category": "Sugar",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "N-Glycans",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:59520",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:59520",
+    "curation": "automatic"
+  },
+  {
+    "name": "N-glycans",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:59520",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:59520",
+    "curation": "automatic"
+  },
+  {
+    "name": "carbohydrates",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16646",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16646",
+    "curation": "automatic"
+  },
+  {
+    "name": "furanose",
+    "category": "Sugar",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "glucose",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17234",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17234",
+    "curation": "automatic"
+  },
+  {
+    "name": "glycerol",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:17754",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:17754",
+    "curation": "automatic"
+  },
+  {
+    "name": "mannose",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:37684",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:37684",
+    "curation": "automatic"
+  },
+  {
+    "name": "octaose",
+    "category": "Sugar",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "oligosaccharide",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:50699",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:50699",
+    "curation": "automatic"
+  },
+  {
+    "name": "pyranose",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:79986",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:79986",
+    "curation": "automatic"
+  },
+  {
+    "name": "saccharides",
+    "category": "Sugar",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16646",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16646",
+    "curation": "automatic"
+  },
+  {
+    "name": "Basket-type G-Quadruplex",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "DNA aptamer",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GC-analogue Sequence",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "LNA",
+    "category": "Nucleic acid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:48010",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:48010",
+    "curation": "automatic"
+  },
+  {
+    "name": "LNAs",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "Locked nucleic acid",
+    "category": "Nucleic acid",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:48010",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:48010",
+    "curation": "automatic"
+  },
+  {
+    "name": "RNV66",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "V7t1",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "basket-type DNA G-quadruplex",
+    "category": "Nucleic acid",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "dsDNA",
+    "category": "Nucleic acid",
+    "database_source": "ChEBI (checked by LLM)",
+    "database_id": "CHEBI:4705",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:4705",
+    "curation": "automatic"
+  },
+  {
+    "name": "(GVPGV)7",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "5'-CGATTTTTTGGC-3'",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "5'-GCGGCGCGCCGC-3'",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "5'-GCTAAAAAACCG-3'",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "AAAQAAQAQWAQRQATWQA",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GRPNLKLLLGVLLGVLLTLLLLEYP",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GRPNLKLLLLLLGVLLGVLLTLLLLLLLEYP",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "GRPNLKLLLLLLLLLGVLLGVLLTLLLLLLLLLLEYP",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "RKIRRKFKK-NH2",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "RQWRRWWQR-NH2",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "WQWWWWWQW-NH2",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "[UG]12",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "[XRGG]7",
+    "category": "Sequence",
+    "database_source": "Regex",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  },
+  {
+    "name": "F2Z4Y2",
+    "category": "UniProt ID",
+    "database_source": "UniProt",
+    "database_id": "F2Z4Y2",
+    "database_url": "https://www.uniprot.org/uniprotkb/F2Z4Y2/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "P01116-2",
+    "category": "UniProt ID",
+    "database_source": "UniProt",
+    "database_id": "P01116-2",
+    "database_url": "https://www.uniprot.org/uniprotkb/P01116-2/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "P12497",
+    "category": "UniProt ID",
+    "database_source": "UniProt",
+    "database_id": "P12497",
+    "database_url": "https://www.uniprot.org/uniprotkb/P12497/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "Q9NPH5",
+    "category": "UniProt ID",
+    "database_source": "UniProt",
+    "database_id": "Q9NPH5",
+    "database_url": "https://www.uniprot.org/uniprotkb/Q9NPH5/entry",
+    "curation": "automatic"
+  },
+  {
+    "name": "air",
+    "category": "Undefined",
+    "database_source": "LLM (google/gemma-4-31b-it)",
+    "database_id": "",
+    "database_url": "",
+    "curation": "automatic"
+  }
+]
