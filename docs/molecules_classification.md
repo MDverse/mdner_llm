@@ -1,6 +1,6 @@
 # How molecules are classified?
 
-The script [classify_molecules.py](../src/mdner_llm/annotations/classify_molecules.py) gives one category to each molecule entity (`MOL`) of the annotated datasets. Results are saved in [JSON database](../data/normalization/molecules.json), and in a [TSV file](../data/normalization/molecules.tsv) for manual review.
+The script [classify_molecules.py](../src/mdner_llm/annotations/classify_molecules.py) gives one category to each molecule entity (`MOL`) of the annotated datasets. Results are saved in a [JSON database](../data/normalization/molecules.json).
 
 **Categories:** `Protein, peptide`, `Lipid`, `Small molecule`, `Ion`, `Material, polymer`, `PDB ID`, `Sugar`, `Nucleic acid`, `Sequence`, `UniProt ID`, `Undefined`.
 
@@ -17,8 +17,8 @@ flowchart TD
     E -- "found, long name" --> S
     E -- "found, short name<br/>(5 characters or less)" --> F
     E -- "not found, or without a category" --> F["<b>Step 3: LLM</b><br/>Classifies with context<br/>(dataset descriptions)"]
-    F --> S["<b>Step 4: save</b><br/>JSON + TSV"]
-    S --> R["<b>Step 5: manual review</b><br/>Read the TSV, fix the JSON"]
+    F --> S["<b>Step 4: save</b><br/>JSON"]
+    S --> R["<b>Step 5: manual review</b><br/>Read and fix the JSON"]
 ```
 
 
@@ -52,7 +52,12 @@ Each molecule is one entry of the JSON database. For example:
     "database_id": "O00206",
     "database_url": "https://www.uniprot.org/uniprotkb/O00206/entry",
     "curation": "automatic",
-    "justification": ""
+    "justification": "",
+    "nb_mentions": 18,
+    "datasets": {
+      "zenodo_18468770.json": "https://zenodo.org/records/18468770",
+      ...
+    }
   },
   {
     "name": "POPC",
@@ -61,13 +66,18 @@ Each molecule is one entry of the JSON database. For example:
     "database_id": "CID:5497103",
     "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5497103",
     "curation": "automatic",
-    "justification": ""
-  }
+    "justification": "",
+    "nb_mentions": 81,
+    "datasets": {
+      "zenodo_1009607.json": "https://zenodo.org/records/1009607",
+      ...
+    }
+  },
   ...
 ]
 ```
 
-The TSV has the same columns, plus `verified` (to indicate if the entity has been manually verified), the number of mentions and the links to the datasets.
+`nb_mentions` (number of mentions) and `datasets` (annotation files mentioning the molecule, with their links) are updated at each run. `curation` is `manual` if the molecule was checked by hand.
 
 ### Notebook
 
@@ -294,7 +304,7 @@ The LLM reads the [prompt](mol_classification_prompt.md) and the descriptions of
 
 | Field | Type | Meaning |
 |---|---|---|
-| `justification` | text | One sentence that explains the choice. It is saved in the JSON and the TSV, for the manual review (empty for molecules classified without the LLM, or before this field existed) |
+| `justification` | text | One sentence that explains the choice. It is saved in the JSON, for the manual review (empty for molecules classified without the LLM, or before this field existed) |
 | `candidate_matches` | true / false | Is the database match the right molecule? |
 | `category` | one of our categories | `Undefined` if the LLM is not sure, as for `air` |
 
@@ -302,14 +312,14 @@ The library [Instructor](https://python.useinstructor.com/) checks the answer. I
 
 ### Step 4: save
 
-The results are saved in the JSON and in the TSV, even if the script is interrupted.
+The results are saved in the JSON, even if the script is interrupted.
 
 - **Classified molecules are not searched again.** If you change the rules, the old results stay in the JSON.
-- **Molecules are never deleted**, even if they are no longer annotated. They have `nb_mentions = 0` in the TSV.
+- **Molecules are never deleted**, even if they are no longer annotated. They have `nb_mentions = 0` and no `datasets`.
 
 ### Step 5: manual review
 
-The TSV helps to find the mistakes: it gives the number of mentions and the links to the datasets.
+To find the mistakes, use the `justification`, `nb_mentions` and `datasets` fields of each molecule.
 
 **To fix a category or a database ID by hand**, edit the JSON and set `"curation": "manual"`. The script will never change this molecule again.
 

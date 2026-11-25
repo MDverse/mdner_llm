@@ -582,48 +582,35 @@ def classify_with_llm(
 def save_database(
     database: dict, unique_mol_entities: pd.DataFrame, datasets: dict, path: Path
 ) -> None:
-    """Write the database as JSON, and as TSV to review it in a spreadsheet.
+    """Write the JSON database.
 
-    Columns added to the TSV:
-    - "verified": TRUE for manual molecules, FALSE otherwise.
+    Fields updated at each run, to help the manual review:
     - "nb_mentions": number of mentions in the annotation files.
-    - "nb_unique_mentions": number of datasets mentioning the entity.
-    - "dataset_json_file_name": annotation files, one per line.
-    - "dataset_url": links of the datasets, one per line.
+    - "datasets": annotation files mentioning the entity, with their URL.
     """
     # Sort by category (order of CATEGORIES), then by name.
     # Example: proteins from A to Z, then lipids from A to Z...
-    molecules = {}
+    molecules = []
     for category in CATEGORIES:
         for name in sorted(database):
-            if database[name]["category"] == category:
-                molecules[name] = database[name]
-    # Save the JSON database.
+            if database[name]["category"] != category:
+                continue
+            # Molecules of entities no longer in the annotations have no mention.
+            nb_mentions, files = 0, []
+            if name in unique_mol_entities.index:
+                # Convert the NumPy integer, which JSON cannot store.
+                nb_mentions = int(unique_mol_entities.loc[name, "nb_mentions"])
+                files = unique_mol_entities.loc[name, "json_files"]
+            molecules.append(
+                {
+                    **database[name],
+                    "nb_mentions": nb_mentions,
+                    "datasets": {file: datasets[file].get("url") for file in files},
+                }
+            )
     path.parent.mkdir(parents=True, exist_ok=True)
-    text = json.dumps(list(molecules.values()), indent=2, ensure_ascii=False)
+    text = json.dumps(molecules, indent=2, ensure_ascii=False)
     path.write_text(text + "\n", encoding="utf-8")
-    rows = []
-    for name, molecule in molecules.items():
-        # Molecules of entities no longer in the annotations have no mention.
-        nb_mentions, files = 0, []
-        if name in unique_mol_entities.index:
-            nb_mentions = unique_mol_entities.loc[name, "nb_mentions"]
-            files = unique_mol_entities.loc[name, "json_files"]
-        rows.append(
-            {
-                "name": molecule["name"],
-                "category": molecule["category"],
-                "verified": "TRUE" if molecule["curation"] == "manual" else "FALSE",
-                **molecule,
-                "nb_mentions": nb_mentions,
-                "nb_unique_mentions": len(files),
-                "dataset_json_file_name": "\n".join(files),
-                # Fall back on the file name when the dataset has no URL.
-                "dataset_url": "\n".join(datasets[file].get("url") for file in files),
-            }
-        )
-    # Save the TSV database (for manual review in a spreadsheet).
-    pd.DataFrame(rows).to_csv(path.with_suffix(".tsv"), sep="\t", index=False)
 
 
 def classify_mol_entities(
@@ -635,8 +622,8 @@ def classify_mol_entities(
 ) -> dict:
     """Add MOL entities to the JSON database and classify them.
 
-    The JSON database at `db_json_path` is created or updated, and exported
-    as TSV next to it. Without `llm_name`, no LLM fallback is used.
+    The JSON database at `db_json_path` is created or updated. Without
+    `llm_name`, no LLM fallback is used.
 
     Returns
     -------
