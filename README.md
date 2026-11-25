@@ -378,7 +378,7 @@ All evaluation metrics, comparison plots, and performance charts across models a
 ## Usage (web interface)
 
 ```sh
-uv run streamlit run src/mdner_llm/ui/streamlit_app.py
+uv run streamlit run webapp/streamlit_app.py
 ```
 
 This will run the Streamlit app in your web browser at http://localhost:8501
