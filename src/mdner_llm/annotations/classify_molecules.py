@@ -47,7 +47,7 @@ DATABASE_ENTRY_URLS = {
 # cationic form (e.g. DPPC is a "quaternary ammonium ion").
 CHEBI_PATTERNS = {
     "Nucleic acid": re.compile(r"nucleic acid|oligonucleotide|\b[dr]na\b"),
-    "Protein, peptide": re.compile(
+    "Protein": re.compile(
         # Not followed by "inhibitor": a "protein kinase inhibitor" is a drug.
         r"\b(?:protein|(?:poly|oligo|di)?peptide)s?\b(?! (?:\w+ )?inhibitor)"
         # Any single word ending in -ase (peroxidase), but not "protease inhibitor".
@@ -311,7 +311,7 @@ def get_chebi_category(chebi_id: str, name: str, definition: str = "") -> str:
                 return category
     # 3. Get the ancestors of the term (its families), and search in their names.
     # Example: GLP-1 (CHEBI:749689) has no definition, and no pattern matches its name.
-    # With ancestors: "polypeptide", "peptide"... -> Protein, peptide.
+    # With ancestors: "polypeptide", "peptide"... -> Protein.
     # The tree of ancestors can be seen on the OLS website:
     # https://www.ebi.ac.uk/ols4/ontologies/chebi/classes?obo_id=CHEBI:749689
     url = f"{API_OLS}/ontologies/chebi/hierarchicalAncestors"
@@ -420,7 +420,7 @@ def search_uniprot(name: str) -> tuple | None:
                     )
                     organism = entry.get("organism", {}).get("scientificName", "")
                     label = f"{full_name.get('value', '')} ({organism})"
-                    return "Protein, peptide", entry["primaryAccession"], label
+                    return "Protein", entry["primaryAccession"], label
     return None
 
 

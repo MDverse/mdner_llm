@@ -2,7 +2,7 @@
 
 The script [classify_molecules.py](../src/mdner_llm/annotations/classify_molecules.py) gives one category to each molecule entity (`MOL`) of the annotated datasets. Results are saved in a [JSON database](../data/normalization/molecules.json).
 
-**Categories:** `Protein, peptide`, `Lipid`, `Small molecule`, `Ion`, `Material, polymer`, `PDB ID`, `Sugar`, `Nucleic acid`, `Sequence`, `UniProt ID`, `Undefined`.
+**Categories:** `Protein`, `Lipid`, `Small molecule`, `Ion`, `Material, polymer`, `PDB ID`, `Sugar`, `Nucleic acid`, `Sequence`, `UniProt ID`, `Undefined`.
 
 
 Here is the flowchart of the classification process:
@@ -47,7 +47,7 @@ Each molecule is one entry of the JSON database. For example:
 [
   {
     "name": "TLR4",
-    "category": "Protein, peptide",
+    "category": "Protein",
     "database_source": "UniProt (checked by LLM (google/gemma-4-31b-it))",
     "database_id": "O00206",
     "database_url": "https://www.uniprot.org/uniprotkb/O00206/entry",
@@ -85,7 +85,7 @@ To characterize the molecules in our groundtruth annotations, the notebook [pape
 
 | Category | Mentions | Share of MOL | Unique mentions | Texts | Examples |
 |---|---:|---:|---:|---:|---|
-| `Protein, peptide` | 544 | 36.1% | 211 | 76 | `TLR4`, `ChAT`, `MD-2` |
+| `Protein` | 544 | 36.1% | 211 | 76 | `TLR4`, `ChAT`, `MD-2` |
 | `Lipid` | 318 | 21.1% | 62 | 68 | `POPC`, `DPPC`, `cholesterol` |
 | `Small molecule` | 306 | 20.3% | 140 | 56 | `METH`, `DOX`, `n-C28` |
 | `Ion` | 141 | 9.3% | 40 | 41 | `NaCl`, `Na+`, `Cl-` |
@@ -178,7 +178,7 @@ Chemical Entities of Biological Interest ([ChEBI](https://www.ebi.ac.uk/chebi/))
 | Category | Regex | Explanation |
 |---|---|---|
 | `Nucleic acid` | `nucleic acid\|oligonucleotide\|\b[dr]na\b` | Contains "nucleic acid" or "oligonucleotide", or the whole word "dna" or "rna". |
-| `Protein, peptide` | `\b(?:protein\|(?:poly\|oligo\|di)?peptide)s?\b(?! (?:\w+ )?inhibitor)\|^[a-z]+ase$` | Contains the whole word "protein" or "peptide" (also "polypeptide", "oligopeptide", "dipeptide", and plurals), not followed by "inhibitor" ("protein kinase inhibitor" is a drug). Or the text is only one word ending in "ase" ("peroxidase"). |
+| `Protein` | `\b(?:protein\|(?:poly\|oligo\|di)?peptide)s?\b(?! (?:\w+ )?inhibitor)\|^[a-z]+ase$` | Contains the whole word "protein" or "peptide" (also "polypeptide", "oligopeptide", "dipeptide", and plurals), not followed by "inhibitor" ("protein kinase inhibitor" is a drug). Or the text is only one word ending in "ase" ("peroxidase"). |
 | `Sugar` | `\b(?:mono\|di\|oligo\|poly)saccharides?\b(?! derivative)\|^carbohydrates?$\|^[a-z]+ose$` | Contains "monosaccharide", "disaccharide", "oligosaccharide" or "polysaccharide" (not followed by "derivative"), or the text is only "carbohydrate(s)", or only one word ending in "ose" ("mannose"). |
 | `Lipid` | `lipid\|fatty acid\|glycerophospho\|phosphocholine\|steroid\|sterol\|sphingo\|ceramide\|glyceride` | Contains one of these words, even inside a longer word ("sterol" in "cholesterol"). |
 | `Material, polymer` | `polymer\|macromolecule\|elemental carbon\|nanotube` | Contains one of these words, even inside a longer word ("polymer" in "copolymer"). |
@@ -195,7 +195,7 @@ flowchart TD
     E -- "no" --> F["<b>Keyword in the definition?</b>"]
     F -- "yes<br/>PEG → Material, polymer" --> Z
     F -- "no" --> G["<b>Keyword in the ancestors?</b>"]
-    G -- "yes<br/>GLP-1 → Protein, peptide" --> Z
+    G -- "yes<br/>GLP-1 → Protein" --> Z
     G -- "no<br/>caffeine" --> H["Small molecule"]
 ```
 
@@ -216,7 +216,7 @@ The search ignores case, which is useful for `Caffeine` ([CHEBI:27732](https://w
 |---|---|---|---|
 | 1 | Name | **mannose** ([CHEBI:37684](https://www.ebi.ac.uk/chebi/CHEBI:37684)), ends in -ose | `Sugar` |
 | 2 | Definition | PEG ([CHEBI:46793](https://www.ebi.ac.uk/chebi/CHEBI:46793)): "A **polymer** composed of repeating ethyleneoxy units." | `Material, polymer` |
-| 3 | Ancestors | GLP-1 ([CHEBI:749689](https://www.ebi.ac.uk/chebi/CHEBI:749689)): "**polypeptide**", "**peptide**" ([see the tree](https://www.ebi.ac.uk/ols4/ontologies/chebi/classes?obo_id=CHEBI:749689)) | `Protein, peptide` |
+| 3 | Ancestors | GLP-1 ([CHEBI:749689](https://www.ebi.ac.uk/chebi/CHEBI:749689)): "**polypeptide**", "**peptide**" ([see the tree](https://www.ebi.ac.uk/ols4/ontologies/chebi/classes?obo_id=CHEBI:749689)) | `Protein` |
 | | No keyword | caffeine ([CHEBI:27732](https://www.ebi.ac.uk/chebi/CHEBI:27732)) | `Small molecule` |
 
 Ancestors are the families of a molecule in ChEBI. We get them with the [OLS4 API](https://www.ebi.ac.uk/ols4/help) (Ontology Lookup Service, EMBL-EBI), with the `hierarchicalAncestors` endpoint ([request for GLP-1](https://www.ebi.ac.uk/ols4/api/ontologies/chebi/hierarchicalAncestors?id=CHEBI:749689&size=1000)).
@@ -234,14 +234,14 @@ Why these choices?
 
 #### 2b. UniProt
 
-[UniProt](https://www.uniprot.org/) is a protein database. If our name is a gene or a protein in UniProt (reviewed entries only), its category is `Protein, peptide`.
+[UniProt](https://www.uniprot.org/) is a protein database. If our name is a gene or a protein in UniProt (reviewed entries only), its category is `Protein`.
 
 ```mermaid
 flowchart TD
     A["<b>3 characters or more?</b>"]
     A -- "no" --> X["Not found: go to PubChem"]
     A -- "yes" --> B["<b>Same name as a gene or a protein?</b>"]
-    B -- "yes<br/>TLR4 = gene TLR4<br/>RecA = gene recA<br/>p53 = gene TP53 (synonym P53)<br/>Acetylcholinesterase = protein Acetylcholinesterase" --> Z["Protein, peptide"]
+    B -- "yes<br/>TLR4 = gene TLR4<br/>RecA = gene recA<br/>p53 = gene TP53 (synonym P53)<br/>Acetylcholinesterase = protein Acetylcholinesterase" --> Z["Protein"]
     B -- "no<br/>POPC ≠ gene popC" --> X
 ```
 
@@ -280,7 +280,7 @@ flowchart TD
 Example: ChEBI does not know the name `Plipastatin`, but PubChem does.
 
 ```text
-Plipastatin → PubChem CID 5491283 ("Fengycin C") → CHEBI:218999 → Protein, peptide
+Plipastatin → PubChem CID 5491283 ("Fengycin C") → CHEBI:218999 → Protein
 ```
 
 Without a link to ChEBI, the category is `Undefined` and the LLM chooses it (step 3). The formula and the charge are not enough: `Iturin C` is a neutral molecule but a peptide, and `iperoxo` has a charge but is a drug.

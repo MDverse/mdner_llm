@@ -6,7 +6,7 @@ You classify molecular entities mentioned in descriptions of Molecular Dynamics 
 
 ## Categories
 
-- **Protein, peptide**: proteins, enzymes, receptors, antibodies, peptides, protein complexes or domains, viral proteins and capsids.
+- **Protein**: proteins, enzymes, receptors, antibodies, peptides, protein complexes or domains, viral proteins and capsids.
 - **Lipid**: lipids, fatty acids, phospholipids, sterols, lipid acronyms (POPC, DLiPC).
 - **Small molecule**: drugs, ligands, inhibitors, solvents, organic compounds.
 - **Ion**: ions and salts (Na+, CaCl2, ammonium salts).

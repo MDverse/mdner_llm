@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 # Molecular categories of MOL entities. Their order is the sort order of the
 # MOL database.
 Category = Literal[
-    "Protein, peptide",
+    "Protein",
     "Lipid",
     "Small molecule",
     "Ion",
