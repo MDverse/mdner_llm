@@ -18,7 +18,7 @@ from mdner_llm.gliner import extract_entities_with_gliner_all_texts as gliner_mo
 from mdner_llm.normalization import normalize_entities as normalization_module
 
 # Relative to this test file (AppTest.from_file resolves it from here).
-APP_PATH = "../../src/mdner_llm/ui/streamlit_app.py"
+APP_PATH = "../streamlit_app.py"
 TEXT = "A 100 ns simulation of POPC with GROMACS 2021 at 310 K."
 # Entities returned by the fake GLiNER model, by category.
 GLINER_PREDICTIONS = {
@@ -180,12 +180,27 @@ def test_export_removes_duplicated_stime(
 
 
 def test_app_starts_without_error() -> None:
-    """The app renders its header and the quota without any exception."""
+    """The app renders its header without any exception."""
     app = AppTest.from_file(APP_PATH, default_timeout=60).run()
 
     assert not app.exception
     assert "MetaMD" in app.header[0].value
-    assert any("4.0" in caption.value for caption in app.caption)
+
+
+@pytest.mark.parametrize(
+    ("default_model", "nb_quota_captions"), [("llm", 1), ("gliner", 0)]
+)
+def test_quota_is_displayed_in_llm_mode_only(
+    monkeypatch: pytest.MonkeyPatch, default_model: str, nb_quota_captions: int
+) -> None:
+    """The daily quota is shown in LLM mode and hidden in GLiNER mode."""
+    monkeypatch.setenv("DEFAULT_MODEL", default_model)
+
+    app = AppTest.from_file(APP_PATH, default_timeout=60).run()
+
+    assert not app.exception
+    quota_captions = [c for c in app.caption if "daily quota" in c.value]
+    assert len(quota_captions) == nb_quota_captions
 
 
 def test_extraction_displays_quality_check_and_export() -> None:

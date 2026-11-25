@@ -110,7 +110,7 @@ class Settings(BaseSettings):
 
     # Load settings from this TOML file
     model_config = SettingsConfigDict(
-        toml_file="src/mdner_llm/ui/config_app.toml",
+        toml_file="webapp/config_app.toml",
         extra="ignore",
     )
 
