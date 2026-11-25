@@ -1,42 +1,4 @@
-"""Classify MOL entities of the groundtruth into molecular categories.
-
-All MOL entities of the annotation files are stored in a JSON database, one
-molecule per entity (grouped by normalized name):
-
-    {
-        "name": "POPC",
-        "category": "Lipid",
-        "database_source": "ChEBI",
-        "database_id": "CHEBI:74669",
-        "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:74669",
-        "curation": "automatic"
-    }
-
-Entities without a category have the category "Undefined". Molecules with
-curation "manual" are edited by hand and never changed by this script.
-Molecules already categorized are not queried again: only new entities and
-"Undefined" ones are (re)classified.
-
-Classification steps, each one on the entities left by the previous one:
-
-1. Regex, on the shape of the name: PDB ID (checked on RCSB), UniProt accession
-   (checked on UniProt), DNA / RNA / peptide sequence.
-2. Public databases (the first one that answers wins):
-   - ChEBI (EBI OLS): exact label or synonym; the category is read from the
-     label of the term, or else from its definition, or else from the labels of
-     its ancestors.
-   - UniProt: gene symbol (same case, so POPC does not match the gene popC)
-     or exact protein name -> Protein, peptide.
-   - PubChem compound: ChEBI cross-reference if any, else formula and charge.
-3. LLM (OpenRouter model given with --llm), given the descriptions of the
-   datasets mentioning the entity. Its answer is restricted to the categories.
-   It classifies:
-   - the entities not found in step 2;
-   - the short names (at most 5 characters: AE, DPPC, p53) found in step 2,
-     because they are ambiguous (AE is also the dipeptide Ala-Glu in ChEBI).
-     If the LLM confirms the match, the database ID is kept (source "ChEBI
-     (checked by LLM)"...), otherwise the LLM category is used without ID.
-"""
+"""Classify molecules entities (`MOL`) of JSON annotations."""
 
 import json
 import os
@@ -66,29 +28,31 @@ load_dotenv()
 
 # All category names, in the sort order of the database.
 CATEGORIES = get_args(Category)
-
+# One client for all the requests: the connections are reused (faster).
+HTTP_CLIENT = httpx.Client(timeout=60, follow_redirects=True)
+# URLs of the APIs of the databases used to classify molecules.
 API_OLS = "https://www.ebi.ac.uk/ols4/api"
 API_PUBCHEM = "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
 API_UNIPROT = "https://rest.uniprot.org/uniprotkb"
 API_PDB = "https://data.rcsb.org/rest/v1/core/entry"
-# One client for all the requests: the connections are reused (faster).
-HTTP_CLIENT = httpx.Client(timeout=60, follow_redirects=True)
-
 # Web page of a database entry, filled with its ID.
-ENTRY_URLS = {
+DATABASE_ENTRY_URLS = {
     "RCSB PDB": "https://www.rcsb.org/structure/{}",
     "UniProt": "https://www.uniprot.org/uniprotkb/{}/entry",
     "ChEBI": "https://www.ebi.ac.uk/chebi/{}",
     "PubChem": "https://pubchem.ncbi.nlm.nih.gov/compound/{}",
 }
-
-# Patterns on the name, the definition and the ancestors of a ChEBI term, checked in
-# order.
+# Patterns on the name, the definition and the ancestors of a ChEBI term
 # Lipids come before ions: ChEBI files many phospholipids under their
 # cationic form (e.g. DPPC is a "quaternary ammonium ion").
 CHEBI_PATTERNS = {
     "Nucleic acid": re.compile(r"nucleic acid|oligonucleotide|\b[dr]na\b"),
-    "Protein, peptide": re.compile(r"\b(?:protein|(?:poly|oligo|di)?peptide)s?\b"),
+    "Protein, peptide": re.compile(
+        # Not followed by "inhibitor": a "protein kinase inhibitor" is a drug.
+        r"\b(?:protein|(?:poly|oligo|di)?peptide)s?\b(?! (?:\w+ )?inhibitor)"
+        # Any single word ending in -ase (peroxidase), but not "protease inhibitor".
+        r"|^[a-z]+ase$"
+    ),
     "Sugar": re.compile(
         # "derivative" is excluded: ATP is a "monosaccharide derivative".
         r"\b(?:mono|di|oligo|poly)saccharides?\b(?! derivative)|^carbohydrates?$"
@@ -101,11 +65,13 @@ CHEBI_PATTERNS = {
     ),
     "Material, polymer": re.compile(r"polymer|macromolecule|elemental carbon|nanotube"),
     "Ion": re.compile(
-        r"\bsalt$|monoatomic (?:cation|anion|ion)|inorganic (?:cation|anion|ion)"
-        r"|^ion$|alkali metal atom|alkaline earth metal atom|^halogen$"
+        # All the ions of ChEBI have the ancestor "ion".
+        r"^ion$|\bsalt$"
+        # Neutral atoms, for ions written without their charge (Na, Ca, Cl).
+        r"|alkali metal atom|alkaline earth metal atom|^halogen$"
     ),
 }
-
+# Regexes to detect identifiers and sequences, case ignored.
 PDB_REGEX = re.compile(r"^[1-9][a-z0-9]{3}$", flags=re.IGNORECASE)
 UNIPROT_REGEX = re.compile(
     r"[opq][0-9][a-z0-9]{3}[0-9]|[a-nr-z][0-9]([a-z][a-z0-9]{2}[0-9]){1,2}",
@@ -121,25 +87,41 @@ SEQUENCE_REGEXES = [
 
 
 def group_mol_entities(
-    df_entities: pd.DataFrame, logger: "loguru.Logger" = loguru.logger
+    df_entities: pd.DataFrame,
+    database: dict,
+    logger: "loguru.Logger" = loguru.logger,
 ) -> pd.DataFrame:
     """Group the MOL entities of `collect_entities` by normalized name.
 
     Returns
     -------
     pd.DataFrame
-        Indexed by normalized name (case kept), with the columns: nb_mentions
-        and json_files (sorted names of the annotation files mentioning the
-        entity).
+        Indexed by normalized name (spelling of the database, or else the most
+        frequent one), with the columns: nb_mentions and json_files (sorted names
+        of the annotation files mentioning the entity).
     """
-    molecules = df_entities[df_entities["category"] == "MOL"]
+    molecules = df_entities[df_entities["category"] == "MOL"].copy()
+    # The case is ignored for long names only: "Cholesterol" is "cholesterol",
+    # but "AIR" is not "air".
+    molecules["group"] = [
+        name if len(name) <= 5 else name.lower()
+        for name in molecules["entity_normalized"]
+    ]
+    # Long names of the database, in lower case -> as written in the database.
+    # Example: {"alanine dipeptide": "Alanine Dipeptide"}
+    db_names = {name.lower(): name for name in database if len(name) > 5}
     rows = []
-    # Each group contains all the mentions of one entity. The case matters:
-    # POPC and popc are two entities.
-    for name, mentions in molecules.groupby("entity_normalized"):
+    # Each group contains all the mentions of one entity.
+    for group, mentions in molecules.groupby("group"):
+        # Spellings of the group: "cholesterol" (27 mentions), "Cholesterol" (2).
+        spellings = mentions["entity_normalized"]
+        # Keep the most frequent for the searches: "cholesterol".
+        most_frequent_spelling = spellings.mode()[0]
+        # If the database already has this molecule, keep its spelling instead.
+        name = db_names.get(group, most_frequent_spelling)
         rows.append(
             {
-                "entity_normalized": clean_text(name),
+                "entity_normalized": name,
                 "nb_mentions": len(mentions),
                 # Each file is listed once, in alphabetical order.
                 "json_files": sorted(mentions["json_file"].unique()),
@@ -180,6 +162,8 @@ def load_json_database(path: Path, logger: "loguru.Logger" = loguru.logger) -> d
         if molecule["category"] not in CATEGORIES:
             msg = f"Unknown category '{molecule['category']}' for '{molecule['name']}'."
             raise ValueError(msg)
+        # Molecules saved before this field existed have no justification.
+        molecule.setdefault("justification", "")
         # Transform the list of dictionaries into a dictionary keyed by normalized name.
         # Before: [{"name": "POPC", "category": "Lipid"}]
         # After: {"POPC": {"name": "POPC", "category": "Lipid"}}
@@ -200,10 +184,12 @@ def make_molecule(
     -------
     dict
         Molecule with name, category, database_source, database_id,
-        database_url and curation.
+        database_url, curation and justification (of the LLM).
     """
     # PubChem IDs are stored as "CID:5491283" but the URL only takes the number.
-    url = ENTRY_URLS[source].format(db_id.removeprefix("CID:")) if db_id else ""
+    url = (
+        DATABASE_ENTRY_URLS[source].format(db_id.removeprefix("CID:")) if db_id else ""
+    )
     return {
         "name": name,
         "category": category,
@@ -211,6 +197,8 @@ def make_molecule(
         "database_id": db_id,
         "database_url": url,
         "curation": "automatic",
+        # Only filled by the LLM.
+        "justification": "",
     }
 
 
@@ -308,12 +296,6 @@ def get_json(url: str, params: dict | None = None) -> dict | None:
 def get_chebi_category(chebi_id: str, name: str, definition: str = "") -> str:
     """Map a ChEBI term to a category.
 
-    The patterns are searched in three texts, and the first match wins:
-
-    1. the name of the term (no request);
-    2. its definition (no request, already given by the search);
-    3. the names of its ancestors (one request).
-
     Returns
     -------
     str
@@ -328,10 +310,10 @@ def get_chebi_category(chebi_id: str, name: str, definition: str = "") -> str:
             if pattern.search(text.lower()):
                 return category
     # 3. Get the ancestors of the term (its families), and search in their names.
-    # Example: "L-alanyl-L-glutamic acid" (CHEBI:61565)
-    # ancestors: "peptide", "dipeptide", "oligopeptide"... -> Protein, peptide.
+    # Example: GLP-1 (CHEBI:749689) has no definition, and no pattern matches its name.
+    # With ancestors: "polypeptide", "peptide"... -> Protein, peptide.
     # The tree of ancestors can be seen on the OLS website:
-    # https://www.ebi.ac.uk/ols4/ontologies/chebi/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FCHEBI_61565
+    # https://www.ebi.ac.uk/ols4/ontologies/chebi/classes?obo_id=CHEBI:749689
     url = f"{API_OLS}/ontologies/chebi/hierarchicalAncestors"
     data = get_json(url, {"id": chebi_id, "size": 1000}) or {}
     ancestors = data.get("_embedded", {}).get("terms", [])
@@ -391,6 +373,9 @@ def search_chebi(name: str) -> tuple | None:
 def search_uniprot(name: str) -> tuple | None:
     """Find a reviewed protein with `name` as gene symbol or protein name.
 
+    The case is ignored for long names (same rule as `group_mol_entities`).
+    For short names, only the case of the first letter is ignored.
+
     Returns
     -------
     tuple | None
@@ -399,45 +384,44 @@ def search_uniprot(name: str) -> tuple | None:
     # Too short to be specific, or would break the quoted query.
     if len(name) < 3 or '"' in name:
         return None
-    hits = []
-    # Gene symbols are written with capitals (TLR4, RecA) and one word.
-    if " " not in name and name.lower() != name:
-        for hit in query_uniprot(f'(gene_exact:"{name}") AND (reviewed:true)'):
-            symbols = [
-                value.get("value", "")
-                for gene in hit.get("genes", [])
-                for value in [gene.get("geneName", {}), *gene.get("synonyms", [])]
-            ]
-            # Accepted: TLR4/TLR4, RecA/recA, ChAT/CHAT. Rejected: POPC/popC.
-            if any(
-                name in {symbol, symbol[:1].upper() + symbol[1:]}
-                or (symbol.isupper() and name.upper() == symbol)
-                for symbol in symbols
-            ):
-                hits.append(hit)
-    # No gene: search the full and short names (Acetylcholinesterase, AChE).
-    if not hits:
-        query = f'(protein_name:"{name.lower()}") AND (reviewed:true)'
-        for hit in query_uniprot(query):
-            description = hit.get("proteinDescription", {})
-            proteins = [
-                clean_text(value.get("value", "")).lower()
-                for names in [
-                    description.get("recommendedName", {}),
-                    *description.get("alternativeNames", []),
-                ]
-                for value in [names.get("fullName", {}), *names.get("shortNames", [])]
-            ]
-            if name.lower() in proteins:
-                hits.append(hit)
-    if not hits:
-        return None
-    # Keep the first match. Its label is shown to the LLM.
-    hit = hits[0]
-    description = hit.get("proteinDescription", {}).get("recommendedName", {})
-    protein = description.get("fullName", {}).get("value", "")
-    organism = hit.get("organism", {}).get("scientificName", "")
-    return "Protein, peptide", hit["primaryAccession"], f"{protein} ({organism})"
+    # Search the genes first, then the proteins.
+    queries = [
+        f'(gene_exact:"{name}") AND (reviewed:true)',  # TLR4
+        f'(protein_name:"{name}") AND (reviewed:true)',  # Acetylcholinesterase
+    ]
+    for query in queries:
+        for entry in query_uniprot(query):
+            # Get all the names of the entry: genes, full and short protein names.
+            # In the JSON, they are all written as: "value": "TLR4"
+            entry_text = json.dumps(entry, ensure_ascii=False)
+            uniprot_names = re.findall(r'"value": "(.*?)"', entry_text)
+            for uniprot_name in uniprot_names:
+                # UniProt also returns close names, so check that it is the same one.
+                # Rejected: "lipase" is not "Gastric triacylglycerol lipase".
+                cleaned = clean_text(uniprot_name)
+                # Short names: only the case of the first letter is ignored, because
+                # a protein and its gene can differ by this letter.
+                # Accepted: "RecA" is the gene recA.
+                # Accepted: "p53" is the gene P53 (synonym of TP53).
+                # Rejected: the lipid "POPC" is not the gene popC.
+                is_same = (
+                    name[0].lower() == cleaned[:1].lower() and name[1:] == cleaned[1:]
+                )
+                # Long names: the case is ignored.
+                # Accepted: "acetylcholinesterase" is "Acetylcholinesterase".
+                if len(name) > 5 and name.lower() == cleaned.lower():
+                    is_same = True
+                if is_same:
+                    # Label of the entry, shown to the LLM.
+                    # Example: "Toll-like receptor 4 (Homo sapiens)"
+                    description = entry.get("proteinDescription", {})
+                    full_name = description.get("recommendedName", {}).get(
+                        "fullName", {}
+                    )
+                    organism = entry.get("organism", {}).get("scientificName", "")
+                    label = f"{full_name.get('value', '')} ({organism})"
+                    return "Protein, peptide", entry["primaryAccession"], label
+    return None
 
 
 def search_pubchem(name: str) -> tuple | None:
@@ -454,19 +438,17 @@ def search_pubchem(name: str) -> tuple | None:
         return None
     cid = data["IdentifierList"]["CID"][0]
     cid_url = f"{API_PUBCHEM}/compound/cid/{cid}"
-    data = get_json(f"{cid_url}/property/MolecularFormula,Charge,Title/JSON") or {}
+    data = get_json(f"{cid_url}/property/Title/JSON") or {}
     compound = data.get("PropertyTable", {}).get("Properties", [{}])[0]
     data = get_json(f"{cid_url}/synonyms/JSON") or {}
     info = data.get("InformationList", {}).get("Information", [{}])[0]
     # A ChEBI cross-reference is listed among the synonyms ("CHEBI:...").
     chebi_ids = [s for s in info.get("Synonym", []) if s.startswith("CHEBI:")]
+    # Without ChEBI, PubChem does not tell the category: the LLM will choose it.
+    # Example: Iturin C is a peptide, GM3 ganglioside is a lipid.
+    category = "Undefined"
     if chebi_ids:
         category = get_chebi_category(chebi_ids[0], compound.get("Title", ""))
-    # Without ChEBI: several components (Na.Cl) or a charge make an ion.
-    elif "." in compound.get("MolecularFormula", "") or compound.get("Charge", 0) != 0:
-        category = "Ion"
-    else:
-        category = "Small molecule"
     return category, f"CID:{cid}", compound.get("Title", "")
 
 
@@ -505,6 +487,25 @@ def classify_with_databases(
     return database_matches
 
 
+def describe_datasets(files: list, datasets: dict) -> str:
+    """Describe the datasets mentioning a molecule, to add to the LLM prompt.
+
+    Returns
+    -------
+    str
+        Name, URL and text of each dataset, separated by "---".
+    """
+    descriptions = []
+    for file in files:
+        dataset_name = Path(file).stem
+        url = datasets[file].get("url", "")
+        text = datasets[file].get("raw_text", "")
+        descriptions.append(
+            f"Dataset: {dataset_name}\nURL: {url}\nDescription:\n{text}"
+        )
+    return "\n\n".join(descriptions)
+
+
 def classify_with_llm(
     names: list,
     database: dict,
@@ -527,45 +528,55 @@ def classify_with_llm(
         ),
         mode=instructor.Mode.JSON,
     )
-    # The {{ }} of the template are filled for each entity.
+    # Prompt with three blanks to fill for each molecule:
+    # {{ entity }}, {{ candidate }} and {{ datasets }}.
     template = Template(prompt_path.read_text(encoding="utf-8"))
     nb_classified = 0
-    for name in names:
-        contexts = [
-            f"Dataset: {Path(file).stem}\nURL: {datasets[file].get('url', '')}\n"
-            f"Description:\n{datasets[file].get('raw_text', '')}"
-            for file in unique_mol_entities.loc[name, "json_files"]
-        ]
+    for molecule in names:
         # Database match to confirm, if any.
-        candidate = "None"
-        if name in database_matches:
-            molecule = database[name]
-            candidate = (
-                f"{molecule['database_source']} {molecule['database_id']}: "
-                f"{database_matches[name]} (category: {molecule['category']})"
-            )
+        if molecule in database_matches:
+            entry = database[molecule]
+            source = entry["database_source"]
+            database_id = entry["database_id"]
+            category = entry["category"]
+            label = database_matches[molecule]
+            candidate = f"{source} [ID: {database_id}]: {label} (category: {category})"
+        else:
+            candidate = "None"
+        # Fill the blanks of the prompt.
+        files = unique_mol_entities.loc[molecule, "json_files"]
         prompt = template.render(
-            entity=name, candidate=candidate, datasets="\n\n---\n\n".join(contexts)
+            entity=molecule,
+            candidate=candidate,
+            datasets=describe_datasets(files, datasets),
         )
+        # Ask the LLM. If it fails, go to the next molecule.
         try:
             answer = client.chat.completions.create(
                 model=llm_name,
                 response_model=MoleculeCategory,
                 max_retries=3,
-                temperature=0,
+                temperature=0,  # try to get the same answer each time
                 messages=[{"role": "user", "content": prompt}],
             )
         except Exception as exc:  # noqa: BLE001
-            logger.error(f"LLM failed for '{name}': {exc}")
+            logger.error(f"LLM failed for '{molecule}': {exc}")
             continue
         nb_classified += 1
-        if name in database_matches and answer.candidate_matches:
-            # Keep the database ID, with the category chosen by the LLM.
-            database[name]["category"] = answer.category
-            database[name]["database_source"] += " (checked by LLM)"
+        logger.debug(f"{molecule} -> {answer.category}")
+        logger.debug(f"Justification: {answer.justification}")
+        if molecule in database_matches and answer.candidate_matches:
+            # Match confirmed: keep the database ID, with the category of the LLM.
+            database[molecule]["category"] = answer.category
+            database[molecule]["database_source"] += f" (checked by LLM ({llm_name}))"
         else:
-            database[name] = make_molecule(name, answer.category, f"LLM ({llm_name})")
-    logger.info(f"Classified by LLM: {nb_classified}/{len(names)}.")
+            # No match, or match rejected: only keep the answer of the LLM.
+            database[molecule] = make_molecule(
+                molecule, answer.category, f"LLM ({llm_name})"
+            )
+        # Keep the explanation of the LLM, for the manual review.
+        database[molecule]["justification"] = answer.justification
+    logger.info(f"Classified by LLM ({llm_name}): {nb_classified}/{len(names)}.")
 
 
 def save_database(
@@ -632,12 +643,15 @@ def classify_mol_entities(
     dict
         Database molecules keyed by normalized name.
     """
+    # Load the existing database (or create an empty one).
+    database = load_json_database(db_json_path, logger)
     # Collect the MOL entities of the annotation files,
-    # and group them by normalized name (case kept).
+    # and group them by normalized name (case ignored for long names only).
     # Example: "POPC" and "popc" are two different entities.
+    # Example: "Cholesterol" and "cholesterol" are the same.
     # Example: "β-amylase" and "beta-amylase" are the same.
     unique_mol_entities = group_mol_entities(
-        collect_entities(annotations_path, logger), logger
+        collect_entities(annotations_path, logger), database, logger
     )
     # Load each annotation file once, to get the URL and the text of its dataset.
     # Example: {"zenodo_573274.json": { "raw_text": "...", "url": "https://..."}}
@@ -646,8 +660,6 @@ def classify_mol_entities(
     for file in json_files:
         content = (annotations_path / file).read_text(encoding="utf-8")
         datasets[file] = json.loads(content)
-    # Load the existing database (or create an empty one).
-    database = load_json_database(db_json_path, logger)
     # Select the entities to classify.
     short_names = set()
     to_classify = []
@@ -675,12 +687,15 @@ def classify_mol_entities(
         remaining = classify_with_regex(to_classify, database, logger)
         # Step 2: public databases (ChEBI, UniProt, PubChem).
         database_matches = classify_with_databases(remaining, database, logger)
-        # Step 3: LLM, for the names not found and the short names to check.
+        # Step 3: LLM, for the names not found, the short names to check and the
+        # names found in PubChem without a category.
         if llm_name:
             for_llm = [
                 name
                 for name in remaining
-                if name not in database_matches or name in short_names
+                if name not in database_matches
+                or name in short_names
+                or database[name]["category"] == "Undefined"
             ]
             classify_with_llm(
                 for_llm,
@@ -695,7 +710,8 @@ def classify_mol_entities(
     finally:
         # Save even after an interruption, so that nothing is lost.
         for name in to_classify:
-            database.setdefault(name, make_molecule(name))
+            # If the entity is still missing from the database, add it as "Undefined".
+            database.setdefault(name, make_molecule(name, category="Undefined"))
         save_database(database, unique_mol_entities, datasets, db_json_path)
     # Log entities to check by hand, with the links of their datasets.
     logger.warning("Entities to check by hand:")
@@ -726,34 +742,43 @@ def summarize_mol_categories(
     Returns
     -------
     pd.DataFrame
-        Columns: Category, Mentions, Share of MOL, Unique names, Texts,
+        Columns: Category, Mentions, Share of MOL, Unique mentions, Texts,
         Examples. Sorted by decreasing mentions.
     """
-    mol_entities = group_mol_entities(df_entities)
     database = load_json_database(database_path)
-    mol_entities["category"] = [
-        database.get(key, {}).get("category", "Undefined") for key in mol_entities.index
-    ]
+    # One row per unique molecule, with its number of mentions and its files.
+    mol_entities = group_mol_entities(df_entities, database)
+    # Find the category of each molecule in the database.
+    categories = []
+    for name in mol_entities.index:
+        molecule = database.get(name, {})
+        categories.append(molecule.get("category", "Undefined"))
+    mol_entities["category"] = categories
+    # Total number of mentions, to compute the share of each category.
     total_mentions = mol_entities["nb_mentions"].sum()
-    summary = []
-    for category, group in mol_entities.groupby("category"):
-        group = group.sort_values("nb_mentions", ascending=False)
-        summary.append(
+    # Build one row of the summary per category.
+    rows = []
+    for category, molecules in mol_entities.groupby("category"):
+        # Most-mentioned molecules first, to use them as examples.
+        molecules = molecules.sort_values("nb_mentions", ascending=False)
+        nb_mentions = molecules["nb_mentions"].sum()
+        # One row per file, so that a file shared by several molecules of the
+        # category is counted once.
+        nb_texts = molecules["json_files"].explode().nunique()
+        examples = molecules.index[:n_examples]
+        rows.append(
             {
                 "Category": category,
-                "Mentions": int(group["nb_mentions"].sum()),
-                "Share of MOL": group["nb_mentions"].sum() / total_mentions,
-                "Unique names": len(group),
-                # Number of annotation files with at least one entity of the category.
-                "Texts": len(set().union(*group["json_files"])),
-                "Examples": ", ".join(group.index[:n_examples]),
+                "Mentions": nb_mentions,
+                "Share of MOL": nb_mentions / total_mentions,
+                "Unique mentions": len(molecules),
+                "Texts": nb_texts,
+                "Examples": ", ".join(examples),
             }
         )
-    return (
-        pd.DataFrame(summary)
-        .sort_values("Mentions", ascending=False)
-        .reset_index(drop=True)
-    )
+    # Most-mentioned categories first.
+    summary = pd.DataFrame(rows).sort_values("Mentions", ascending=False)
+    return summary.reset_index(drop=True)
 
 
 @click.command()
