@@ -408,10 +408,10 @@
   {
     "name": "Cadherin-23",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "Q9H251",
-    "database_url": "https://www.uniprot.org/uniprotkb/Q9H251/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 1,
     "datasets": {
@@ -580,10 +580,10 @@
   {
     "name": "Epidermal Growth Factor Receptor",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "Q01279",
-    "database_url": "https://www.uniprot.org/uniprotkb/Q01279/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 1,
     "datasets": {
@@ -840,10 +840,10 @@
   {
     "name": "Glutamine Synthetase",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P15104",
-    "database_url": "https://www.uniprot.org/uniprotkb/P15104/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 4,
     "datasets": {
@@ -1233,10 +1233,10 @@
   {
     "name": "Malate Dehydrogenase",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P61889",
-    "database_url": "https://www.uniprot.org/uniprotkb/P61889/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 2,
     "datasets": {
@@ -1442,10 +1442,10 @@
   {
     "name": "Patched 1",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "Q98864",
-    "database_url": "https://www.uniprot.org/uniprotkb/Q98864/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 1,
     "datasets": {
@@ -1507,10 +1507,10 @@
   {
     "name": "Protein kinase B",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P31749",
-    "database_url": "https://www.uniprot.org/uniprotkb/P31749/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 1,
     "datasets": {
@@ -1900,10 +1900,10 @@
   {
     "name": "TARP gamma-7",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P62955",
-    "database_url": "https://www.uniprot.org/uniprotkb/P62955/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 2,
     "datasets": {
@@ -2088,10 +2088,10 @@
   {
     "name": "alpha-Amylase",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P17654",
-    "database_url": "https://www.uniprot.org/uniprotkb/P17654/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 2,
     "datasets": {
@@ -2439,10 +2439,10 @@
   {
     "name": "main protease",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P0C6V4",
-    "database_url": "https://www.uniprot.org/uniprotkb/P0C6V4/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 1,
     "datasets": {
@@ -2530,10 +2530,10 @@
   {
     "name": "phosphoenolpyruvate synthase",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P23538",
-    "database_url": "https://www.uniprot.org/uniprotkb/P23538/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 1,
     "datasets": {
@@ -2608,10 +2608,10 @@
   {
     "name": "s-protein",
     "category": "Protein",
-    "database_source": "UniProt",
-    "database_id": "P04004",
-    "database_url": "https://www.uniprot.org/uniprotkb/P04004/entry",
-    "curation": "api_match",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "manual",
     "justification": "",
     "nb_mentions": 5,
     "datasets": {
