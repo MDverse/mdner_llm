@@ -7,6 +7,7 @@ from pathlib import Path
 import httpx
 import loguru
 import streamlit as st
+from app_settings import Settings
 from dotenv import load_dotenv
 from pydantic import ValidationError
 from spacy import displacy
@@ -27,7 +28,6 @@ from mdner_llm.normalization.normalize_entities import (
     clean_text_fields,
     normalize_json_content,
 )
-from mdner_llm.ui.app_settings import Settings
 from mdner_llm.visualization.annotations import convert_annotations_from_model
 from mdner_llm.visualization.colors import COLORS
 
@@ -448,8 +448,12 @@ def run_app(
     # It is needed in both modes: the simulation times (STIME) are
     # normalized with an LLM, so they also count in the daily quota.
     api_key = load_api_key("OPENROUTER_STREAMLIT_API_KEY")
-    with quota_column:
-        st.session_state["is_llm_requests_allowed"] = show_daily_quota(api_key, logger)
+    # The quota is hidden in GLiNER mode, even though STIME normalization uses it.
+    if settings.default_model == "llm":
+        with quota_column:
+            st.session_state["is_llm_requests_allowed"] = show_daily_quota(
+                api_key, logger
+            )
     # Render two-column layout for input and output sections.
     left_column, right_column = st.columns([1, 1], gap="large")
     # Input section: Text area for user to provide MD dataset description.
