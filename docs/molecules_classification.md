@@ -48,11 +48,11 @@ Each molecule is one entry of the JSON database. For example:
   {
     "name": "TLR4",
     "category": "Protein",
-    "database_source": "UniProt (checked by LLM (google/gemma-4-31b-it))",
-    "database_id": "O00206",
-    "database_url": "https://www.uniprot.org/uniprotkb/O00206/entry",
-    "curation": "automatic",
-    "justification": "",
+    "database_source": "",
+    "database_id": "",
+    "database_url": "",
+    "curation": "LLM",
+    "justification": "TLR4 is described as an innate immune receptor and part of a protein complex (TLR4/MD-2) in the provided dataset descriptions.",
     "nb_mentions": 18,
     "datasets": {
       "zenodo_18468770.json": "https://zenodo.org/records/18468770",
@@ -60,16 +60,16 @@ Each molecule is one entry of the JSON database. For example:
     }
   },
   {
-    "name": "POPC",
+    "name": "cholesterol",
     "category": "Lipid",
-    "database_source": "PubChem (checked by LLM (google/gemma-4-31b-it))",
-    "database_id": "CID:5497103",
-    "database_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5497103",
-    "curation": "automatic",
+    "database_source": "ChEBI",
+    "database_id": "CHEBI:16113",
+    "database_url": "https://www.ebi.ac.uk/chebi/CHEBI:16113",
+    "curation": "api_match",
     "justification": "",
-    "nb_mentions": 81,
+    "nb_mentions": 29,
     "datasets": {
-      "zenodo_1009607.json": "https://zenodo.org/records/1009607",
+      "figshare_14994624.json": "https://acs.figshare.com/articles/dataset/Atomistic_Molecular_Dynamics_Simulations_of_Lipids_Near_TiO_sub_2_sub_Nanosurfaces/14994624",
       ...
     }
   },
@@ -77,7 +77,17 @@ Each molecule is one entry of the JSON database. For example:
 ]
 ```
 
-`nb_mentions` (number of mentions) and `datasets` (annotation files mentioning the molecule, with their links) are updated at each run. `curation` is `manual` if the molecule was checked by hand.
+`nb_mentions` (number of mentions) and `datasets` (annotation files mentioning the molecule, with their links) are updated at each run.
+
+`curation` tells how the category was found:
+
+| `curation` | Meaning | `database_*` fields |
+|---|---|---|
+| `regex_match` | Shape of the name: PDB ID, UniProt ID or sequence (step 1) | Filled for the IDs, empty for the sequences |
+| `api_match` | Found in ChEBI, UniProt or PubChem (step 2) | Filled |
+| `LLM` | Category given by the LLM (step 3), even if the name was also found in step 2 | Empty |
+| `manual` | Checked or corrected by a human (step 5) | Filled by hand, if there is a right ID |
+| (empty) | Not classified yet: not found, and no LLM | Empty |
 
 ### Notebook
 
@@ -274,7 +284,7 @@ flowchart TD
     A["<b>Name known in PubChem?</b>"] -- "no" --> X["Not found: go to the LLM (step 3)"]
     A -- "yes" --> B["<b>Link to ChEBI?</b>"]
     B -- "yes<br/>Plipastatin" --> C["Category from the keywords<br/>(title, then ChEBI ancestors)"]
-    B -- "no<br/>Iturin C" --> D["Undefined: go to the LLM (step 3)<br/>The PubChem ID is kept if the LLM confirms it"]
+    B -- "no<br/>Iturin C" --> D["Undefined: go to the LLM (step 3)"]
 ```
 
 Example: ChEBI does not know the name `Plipastatin`, but PubChem does.
@@ -291,21 +301,22 @@ The LLM reads the [prompt](mol_classification_prompt.md) and the descriptions of
 
 | Case | Example | Result |
 |---|---|---|
-| Not found in step 2 | `Chignolin` | The LLM gives the category. There is no database ID. |
-| Short name found in step 2 | `TLR4` (UniProt) | The LLM says if it is the right molecule. |
-| Found in PubChem without a category | `Iturin C` (PubChem) | The LLM gives the category and says if it is the right molecule. |
+| Not found in step 2 | `Chignolin` | The LLM gives the category. |
+| Short name found in step 2 | `TLR4` (UniProt) | The LLM checks the match and gives the category. |
+| Found in PubChem without a category | `Iturin C` (PubChem) | The LLM gives the category. |
 
 **Why check short names?** A short name can have several meanings. `AE` is a dipeptide in ChEBI, but it was an enzyme in one of our datasets.
 
-- If the LLM **confirms** the match, the database ID is kept and the source becomes `UniProt (checked by LLM (model name))`. The category is the one given by the LLM.
-- If the LLM **rejects** it, the ID is removed and the source becomes `LLM (model name)`.
+**Which fields are saved?** The category and the `justification` of the LLM, with `"curation": "LLM"`. The match of step 2 is only shown to the LLM as a candidate: `database_source`, `database_id` and `database_url` stay empty.
+
+**Why is the ID not kept, even if the LLM agrees with the match?** The same name can have many entries: UniProt has one `ACE2` for each species. Step 2 takes the first one, and the LLM does not choose among them.
 
 **What is the format of the answer?** The LLM must follow the Pydantic schema `MoleculeCategory` ([molecule_category.py](../src/mdner_llm/models/molecule_category.py)):
 
 | Field | Type | Meaning |
 |---|---|---|
 | `justification` | text | One sentence that explains the choice. It is saved in the JSON, for the manual review (empty for molecules classified without the LLM, or before this field existed) |
-| `candidate_matches` | true / false | Is the database match the right molecule? |
+| `candidate_matches` | true / false | Is the database match the right molecule? It is asked before the category, and only written in the log. |
 | `category` | one of our categories | `Undefined` if the LLM is not sure, as for `air` |
 
 The library [Instructor](https://python.useinstructor.com/) checks the answer. If it does not follow the schema (for example, an unknown category), Instructor asks the LLM again, up to 3 times. If it still fails, the error is logged and the molecule keeps its result of step 2 (or `Undefined`).
@@ -339,4 +350,4 @@ The IDs of these 9 names were corrected by hand (`"curation": "manual"`), after 
 | `MG` | [CHEBI:25107](https://www.ebi.ac.uk/chebi/CHEBI:25107) (magnesium atom) | [CHEBI:18420](https://www.ebi.ac.uk/chebi/CHEBI:18420) (magnesium(2+)) |
 | `potassium` | [CHEBI:26216](https://www.ebi.ac.uk/chebi/CHEBI:26216) (potassium atom) | [CHEBI:29103](https://www.ebi.ac.uk/chebi/CHEBI:29103) (potassium(1+)) |
 
-The names `Na+`, `Cl-`, `chloride` and `NaCl` already had the right ID.
+The name `chloride` already had the right ID. `Na+`, `Cl-` and `NaCl` are classified by the LLM, so they have no ID.

@@ -22,12 +22,14 @@ from openai import OpenAI
 from mdner_llm.annotations.build_entity_inventory import collect_entities
 from mdner_llm.common import clean_text
 from mdner_llm.logger import create_logger
-from mdner_llm.models.molecule_category import Category, MoleculeCategory
+from mdner_llm.models.molecule_category import Category, Curation, MoleculeCategory
 
 load_dotenv()
 
 # All category names, in the sort order of the database.
 CATEGORIES = get_args(Category)
+# All the ways to classify a molecule.
+CURATIONS = get_args(Curation)
 # One client for all the requests: the connections are reused (faster).
 HTTP_CLIENT = httpx.Client(timeout=60, follow_redirects=True)
 # URLs of the APIs of the databases used to classify molecules.
@@ -144,7 +146,7 @@ def load_json_database(path: Path, logger: "loguru.Logger" = loguru.logger) -> d
     OSError
         If the file cannot be opened.
     ValueError
-        If the file is not valid JSON or if a category is unknown.
+        If the file is not valid JSON, or if a category or a curation is unknown.
     """
     logger.info(f"Loading the JSON database from {path}.")
     # First run: the database does not exist yet.
@@ -162,6 +164,11 @@ def load_json_database(path: Path, logger: "loguru.Logger" = loguru.logger) -> d
         if molecule["category"] not in CATEGORIES:
             msg = f"Unknown category '{molecule['category']}' for '{molecule['name']}'."
             raise ValueError(msg)
+        # Detect typos in the curations too: a molecule that is not exactly
+        # "manual" could be classified again.
+        if molecule["curation"] not in CURATIONS:
+            msg = f"Unknown curation '{molecule['curation']}' for '{molecule['name']}'."
+            raise ValueError(msg)
         # Molecules saved before this field existed have no justification.
         molecule.setdefault("justification", "")
         # Transform the list of dictionaries into a dictionary keyed by normalized name.
@@ -176,9 +183,13 @@ def load_json_database(path: Path, logger: "loguru.Logger" = loguru.logger) -> d
 
 
 def make_molecule(
-    name: str, category: str = "Undefined", source: str = "", db_id: str = ""
+    name: str,
+    category: str = "Undefined",
+    curation: str = "",
+    source: str = "",
+    db_id: str = "",
 ) -> dict:
-    """Build the database entry of a molecule (automatic curation).
+    """Build the database entry of a molecule.
 
     Returns
     -------
@@ -196,7 +207,7 @@ def make_molecule(
         "database_source": source,
         "database_id": db_id,
         "database_url": url,
-        "curation": "automatic",
+        "curation": curation,
         # Only filled by the LLM.
         "justification": "",
     }
@@ -237,19 +248,23 @@ def classify_with_regex(names: list, database: dict, logger: "loguru.Logger") ->
                 and re.search(r"[A-Za-z]", name)
                 and get_json(f"{API_PDB}/{code}")
             ):
-                database[name] = make_molecule(name, "PDB ID", "RCSB PDB", code)
+                database[name] = make_molecule(
+                    name, "PDB ID", "regex_match", "RCSB PDB", code
+                )
             # Is UniProt ID ?
             # Search the accession without its isoform suffix (P01116-2 -> P01116).
             elif UNIPROT_REGEX.match(name) and query_uniprot(
                 f"accession:{code.split('-')[0]}"
             ):
-                database[name] = make_molecule(name, "UniProt ID", "UniProt", code)
+                database[name] = make_molecule(
+                    name, "UniProt ID", "regex_match", "UniProt", code
+                )
             # Is a sequence (DNA, RNA, peptide, repeated motif) ?
             # DNA / RNA: 5'-ACGT-3' (case ignored)
             # Peptide: 9+ amino acids, optional amidation (RKIRRKFKK-NH2)
             # Repeated motif: within parentheses, followed by a number (GVPGV)7
             elif any(regex.match(name) for regex in SEQUENCE_REGEXES):
-                database[name] = make_molecule(name, "Sequence", "Regex")
+                database[name] = make_molecule(name, "Sequence", "regex_match")
             # Not classified by regex: keep it for the next steps.
             else:
                 remaining.append(name)
@@ -475,7 +490,9 @@ def classify_with_databases(
                 found = search(name)
                 if found:
                     category, db_id, database_matches[name] = found
-                    database[name] = make_molecule(name, category, source, db_id)
+                    database[name] = make_molecule(
+                        name, category, "api_match", source, db_id
+                    )
                     logger.debug(
                         f"[{index}/{len(names)}] {name} -> {category} ({source})"
                     )
@@ -518,8 +535,10 @@ def classify_with_llm(
 ) -> None:
     """Step 3: classify the names with an LLM, given the datasets mentioning them.
 
-    The names in `database_matches` were found in a database: the LLM confirms
-    or rejects this match. The molecules are added to `database`.
+    The names in `database_matches` were found in a database: this match is shown
+    to the LLM as a candidate, but its ID is not kept. The same name can match many
+    entries (e.g. ACE2 of each species), and the LLM does not choose among them.
+    The molecules are added to `database`.
     """
     client = instructor.from_openai(
         OpenAI(
@@ -533,7 +552,7 @@ def classify_with_llm(
     template = Template(prompt_path.read_text(encoding="utf-8"))
     nb_classified = 0
     for molecule in names:
-        # Database match to confirm, if any.
+        # Database match to show to the LLM, if any.
         if molecule in database_matches:
             entry = database[molecule]
             source = entry["database_source"]
@@ -565,15 +584,9 @@ def classify_with_llm(
         nb_classified += 1
         logger.debug(f"{molecule} -> {answer.category}")
         logger.debug(f"Justification: {answer.justification}")
-        if molecule in database_matches and answer.candidate_matches:
-            # Match confirmed: keep the database ID, with the category of the LLM.
-            database[molecule]["category"] = answer.category
-            database[molecule]["database_source"] += f" (checked by LLM ({llm_name}))"
-        else:
-            # No match, or match rejected: only keep the answer of the LLM.
-            database[molecule] = make_molecule(
-                molecule, answer.category, f"LLM ({llm_name})"
-            )
+        logger.debug(f"Candidate: {candidate} (matches: {answer.candidate_matches})")
+        # Only keep the answer of the LLM: no database source, ID or URL.
+        database[molecule] = make_molecule(molecule, answer.category, "LLM")
         # Keep the explanation of the LLM, for the manual review.
         database[molecule]["justification"] = answer.justification
     logger.info(f"Classified by LLM ({llm_name}): {nb_classified}/{len(names)}.")
@@ -658,9 +671,7 @@ def classify_mol_entities(
         molecule = database.get(name, make_molecule(name, category="Undefined"))
         # Short name found in a database but not checked by the LLM yet.
         to_check = (
-            llm_name
-            and name in short_names
-            and molecule["database_source"] in {"ChEBI", "UniProt", "PubChem"}
+            llm_name and name in short_names and molecule["curation"] == "api_match"
         )
         # Only classify the entity if it is new or "Undefined", or if it is a
         # short name found in a database but not checked by the LLM yet.

@@ -20,6 +20,14 @@ Category = Literal[
     "Undefined",
 ]
 
+# How the category of a MOL entity was found:
+# - "": not classified yet.
+# - "regex_match": by its shape (PDB ID, UniProt ID or sequence).
+# - "api_match": by ChEBI, UniProt or PubChem.
+# - "LLM": by an LLM.
+# - "manual": by a human (never changed by the script).
+Curation = Literal["", "regex_match", "api_match", "LLM", "manual"]
+
 
 class MoleculeCategory(BaseModel):
     """Category of a molecular entity, as answered by the LLM."""
