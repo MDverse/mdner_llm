@@ -3,6 +3,7 @@
 import json
 import operator
 import os
+import queue
 import random
 from functools import partial
 from pathlib import Path
@@ -759,6 +760,11 @@ def train_all_folds(
     -------
     list[dict]
         List of training results for each fold, containing metrics and loss history.
+
+    Raises
+    ------
+    RuntimeError
+        If a fold process dies without returning its results.
     """
     # Setup output directory.
     output_dir = Path(cfg.model.output_dir) / f"{cfg.model.experiment_name}"
@@ -798,12 +804,21 @@ def train_all_folds(
             args=(fold_id, cfg, train_data, val_data, output_dir, result_queue),
         )
         process.start()
-        # Wait for the process to finish and retrieve results.
-        results = result_queue.get()
+        # Wait for the fold result, but stop if the fold process died
+        # (e.g. CUDA OOM): get() alone would wait forever.
+        results = None
+        while results is None:
+            try:
+                results = result_queue.get(timeout=60)
+            except queue.Empty:
+                if not process.is_alive():
+                    break
         process.join()
-        # Check if the process exited successfully.
-        if process.exitcode != 0:
-            logger.error(f"Fold {fold_id} failed with exitcode {process.exitcode}.")
+        # Stop with an error, so Snakemake does not mark training as done.
+        if results is None:
+            msg = f"Fold {fold_id} failed (exitcode {process.exitcode})."
+            logger.error(msg)
+            raise RuntimeError(msg)
         # Append results to the overall list for plotting.
         all_results.append(results)
 
