@@ -6,9 +6,6 @@ from pathlib import Path
 import pandas as pd
 from datetime import UTC, datetime
 
-from mdner_llm.gliner.train_gliner import load_config, train_all_folds
-from mdner_llm.logger import create_logger
-
 # Global paths.
 CONFIG_MODELS_PATH = Path("workflow/configs/gliner_models.yaml")
 GROUNDTRUTH_DIR = Path("data/groundtruth")
@@ -95,13 +92,10 @@ rule train_gliner:
         flag=touch("results/gliner/models/{model}/.done"),
     resources:
         gpu=1,
-    run:
-        training_config = load_config(Path(input.config))
-        logger = create_logger(level="INFO")
-        logger.info(
-            f"Starting training for {wildcards.model} across all folds using {input.config}."
-        )
-        train_all_folds(training_config, logger=logger)
+    # Use the CLI (not a Python import) so that torch and gliner2
+    # are only loaded during training, not at every Snakemake call.
+    shell:
+        "uv run train-gliner --config-path {input.config}"
 
 
 # Run inference for trainable models across cross-validation folds.
