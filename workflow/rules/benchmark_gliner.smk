@@ -88,6 +88,9 @@ wildcard_constraints:
 rule train_gliner:
     input:
         config=lambda wildcards: MODELS[wildcards.model]["training_config_path"],
+        # Retrain when annotations or training code change.
+        annotations=sorted(GROUNDTRUTH_DIR.glob("*.json")),
+        code="src/mdner_llm/gliner/train_gliner.py",
     output:
         flag=touch("results/gliner/models/{model}/.done"),
     resources:
