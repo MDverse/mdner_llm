@@ -1,7 +1,8 @@
 """Build a vocabulary of named entities from JSON annotation files.
 
 This script scans a directory of JSON annotation files, aggregates named
-entities by class, normalizes entity text to lowercase, counts total
+entities by class, normalizes entity text (lowercase, ASCII dashes and
+quotes, collapsed whitespace), counts total
 occurrences across all files, and generates one vocabulary file per entity class.
 
 Each output file contains:
@@ -16,6 +17,7 @@ import click
 import loguru
 import pandas as pd
 
+from mdner_llm.common import clean_text
 from mdner_llm.logger import create_logger
 
 
@@ -47,11 +49,11 @@ def collect_entities(
     pd.DataFrame
         DataFrame of entities.
     """
-    logger.info("Collecting entities.")
+    logger.info(f"Collecting entities from {texts_path}.")
     entities_list = []
     # Scan the directory for JSON files.
     json_files = list(texts_path.glob("*.json"))
-    logger.success(f"Found {len(json_files)} JSON files successfully.")
+    logger.info(f"Found {len(json_files)} JSON files.")
     # Handle relative paths.
     if str(texts_path).startswith("../../"):
         json_files = [Path("../../") / json_file for json_file in json_files]
@@ -71,12 +73,13 @@ def collect_entities(
             # Create entity dictionnary
             entity_dict = {
                 "entity": text,
-                "entity_normalized": text.lower().strip(),
+                # e.g. "n-Octacosane" with a non-breaking hyphen -> "n-octacosane".
+                "entity_normalized": clean_text(text),
                 "category": category,
                 "json_file": Path(json_file).name,
             }
             entities_list.append(entity_dict)
-    logger.success(f"Collected {len(entities_list)} entities.")
+    logger.success(f"Collected {len(entities_list)} entities successfully.")
     return pd.DataFrame(entities_list)
 
 
