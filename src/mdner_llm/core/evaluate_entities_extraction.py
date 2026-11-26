@@ -420,7 +420,7 @@ def compute_scores(
     fbeta_clean = safe_divide(
         (1 + beta**2) * precision_clean * recall, beta**2 * precision_clean + recall
     )
-    return {
+    scores = {
         "precision": precision,
         "precision_no_hallucination": precision_clean,
         "recall": recall,
@@ -429,6 +429,15 @@ def compute_scores(
         f"fbeta_{beta}": fbeta,
         f"fbeta_{beta}_no_hallucination": fbeta_clean,
     }
+    # When TP = 0, some scores are 0 / 0 = NaN, and NaN is ignored by the MACRO
+    # mean: a category the model completely failed would not lower its score.
+    # Like scikit-learn (zero_division=0), we replace these NaN by 0.
+    # Doc: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_fscore_support.html
+    # Scores stay NaN only when TP = FP = FN = 0 (nothing to evaluate).
+    has_counts = (tp + fp + fn) > 0
+    for name, score in scores.items():
+        scores[name] = score.mask(score.isna() & has_counts, 0.0)
+    return scores
 
 
 def compute_grouped_stats(
