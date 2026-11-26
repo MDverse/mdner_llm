@@ -34,6 +34,7 @@ from pydantic import ValidationError
 from mdner_llm.core.evaluate_entities_extraction import compute_scores
 from mdner_llm.gliner.training_models import GLiNERConfig
 from mdner_llm.logger import create_logger
+from mdner_llm.normalization.normalize_entities import check_hallucination
 
 
 def load_config(
@@ -555,29 +556,31 @@ def compute_evaluation_metrics(
         queried_descriptions = entity_descriptions or metadata.get(
             "entity_descriptions", {}
         )
-        # Collect unique ground truth mentions across categories.
-        # Format input: {"FFM": ["CHARMM36", "AMBER"], "SOFTNAME": ["GROMACS"]}
-        # Format output: {"CHARMM36", "AMBER", "GROMACS"}
+        # Keep (category, text) pairs, as in the test evaluation:
+        # "GROMACS" predicted as MOL must not count as correct.
+        # Format input: {"FFM": ["CHARMM36"], "SOFTNAME": ["GROMACS"]}
+        # Format output: {("FFM", "CHARMM36"), ("SOFTNAME", "GROMACS")}
         groundtruth_entities = set()
-        for entities_by_category in raw_entities_dict.values():
-            groundtruth_entities.update(entities_by_category)
+        for category, entities in raw_entities_dict.items():
+            groundtruth_entities.update((category, entity) for entity in entities)
         # Predict candidate entities for the input text.
         predictions = model.extract_entities(source_text, queried_descriptions)
-        # Extract text mentions from predictions dictionary.
-        # Format input:{"entities": {"FFM": [{"text": "CHARMM36", "confidence": 0.99}]}}
-        # Format output: {"CHARMM36"}
+        # Same (category, text) pairs for predictions.
+        # Format input: {"entities": {"SOFTNAME": ["GROMACS"]}}
+        # Format output: {("SOFTNAME", "GROMACS")}
         predicted_entities = set()
-        entities_by_category_with_scores = predictions.get("entities", {})
-        for entities_by_category in entities_by_category_with_scores.values():
-            predicted_entities.update(entities_by_category)
+        for category, entities in predictions.get("entities", {}).items():
+            predicted_entities.update((category, entity) for entity in entities)
         # Compute intersection and differences between ground truth and predictions.
         true_positives = groundtruth_entities & predicted_entities
         false_positives = predicted_entities - groundtruth_entities
         false_negatives = groundtruth_entities - predicted_entities
-        # Filter false positives to exclude text hallucinations not grounded in source.
-        clean_false_positives = {
-            entity for entity in false_positives if entity in source_text
-        }
+        # Remove hallucinated false positives (not found in the text),
+        # with the same check as the test evaluation.
+        clean_false_positives = set()
+        for category, mention in false_positives:
+            if not check_hallucination(mention, category, source_text, "", ""):
+                clean_false_positives.add((category, mention))
         # Accumulate sample-level confusion counts.
         total_true_positives += len(true_positives)
         total_false_positives += len(false_positives)
