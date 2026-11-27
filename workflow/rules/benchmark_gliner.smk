@@ -4,11 +4,7 @@ import shutil
 import yaml
 from pathlib import Path
 import pandas as pd
-import numpy as np
 from datetime import UTC, datetime
-
-from mdner_llm.gliner.train_gliner import load_config, train_all_folds
-from mdner_llm.logger import create_logger
 
 # Global paths.
 CONFIG_MODELS_PATH = Path("workflow/configs/gliner_models.yaml")
@@ -92,17 +88,17 @@ wildcard_constraints:
 rule train_gliner:
     input:
         config=lambda wildcards: MODELS[wildcards.model]["training_config_path"],
+        # Retrain when annotations or training code change.
+        annotations=sorted(GROUNDTRUTH_DIR.glob("*.json")),
+        code="src/mdner_llm/gliner/train_gliner.py",
     output:
         flag=touch("results/gliner/models/{model}/.done"),
     resources:
         gpu=1,
-    run:
-        training_config = load_config(Path(input.config))
-        logger = create_logger(level="INFO")
-        logger.info(
-            f"Starting training for {wildcards.model} across all folds using {input.config}."
-        )
-        train_all_folds(training_config, logger=logger)
+    # Use the CLI (not a Python import) so that torch and gliner2
+    # are only loaded during training, not at every Snakemake call.
+    shell:
+        "uv run train-gliner --config-path {input.config}"
 
 
 # Run inference for trainable models across cross-validation folds.
@@ -328,15 +324,15 @@ rule generate_benchmark_models_csv:
                     "Model": meta["display_name"],
                     "Category": category,
                     "Number_of_texts_with_category": int(df_cat["nb_texts_with_category"].sum()) if "nb_texts_with_category" in df_cat else 0,
-                    "Correct_format_(%)": float(df_cat["correct_format_pct"].mean()) if "correct_format_pct" in df_cat else 100.0,
-                    "Hallucinations_(%)": float(df_cat["hallucinations_pct"].mean()) if "hallucinations_pct" in df_cat else 0.0,
+                    "Correct_format_(%)": float(df_cat["pct_correct_format"].mean()),
+                    "Hallucinations_(%)": float(df_cat["pct_hallucinations"].mean()),
                     "Precision": float(df_cat["precision"].mean()),
                     "Precision_with_no_hallucination": float(df_cat["precision_no_hallucination"].mean()) if "precision_no_hallucination" in df_cat else float(df_cat["precision"].mean()),
                     "Recall": float(df_cat["recall"].mean()),
                     "F1": float(df_cat["f1"].mean()),
                     "F1_with_no_hallucination": float(df_cat["f1_no_hallucination"].mean()) if "f1_no_hallucination" in df_cat else float(df_cat["f1"].mean()),
-                    "Fbeta_0.5": float(df_cat["fbeta_0_5"].mean()) if "fbeta_0_5" in df_cat else np.nan,
-                    "Fbeta_0.5_with_no_hallucination": float(df_cat["fbeta_0_5_no_hallucination"].mean()) if "fbeta_0_5_no_hallucination" in df_cat else np.nan,
+                    "Fbeta_0.5": float(df_cat["fbeta_0.5"].mean()),
+                    "Fbeta_0.5_with_no_hallucination": float(df_cat["fbeta_0.5_no_hallucination"].mean()),
                     "Cost_by_entity_($)": cost_per_ent,
                     "Inference_time_by_entity_(s)": time_per_ent,
                     "Number_of_predicted_entities": total_preds,
